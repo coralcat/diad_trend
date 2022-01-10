@@ -1,0 +1,92 @@
+.modal_checkbox .chk_wrap {
+    width: auto;
+    height: auto;
+}
+
+.modal_checkbox .line>label,
+.modal_checkbox .line h4 {
+    user-select: none;
+    cursor: pointer;
+}
+
+.modal_checkbox .input_container {
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.modal_checkbox .input_container>label,
+.modal_checkbox .input_container>label span,
+.modal_checkbox .line>label span {
+    font-family: "NBGR";
+    font-size: 15px;
+    color: #0e1838;
+}
+
+.modal_checkbox .input_container>label {
+    height: 100%
+}
+
+.modal_checkbox.normal_set .input_container>label {
+    margin-top: 6px;
+    flex: 0 0 105px;
+}
+
+.modal_checkbox.normal_set .input_container>label+div {
+    flex: 1 1 auto
+}
+
+.modal_checkbox.normal_set .input_container .inputs {
+    margin-right: 7px;
+    align-items: flex-end;
+}
+
+.modal_checkbox.high_set .input_container .inputs {
+    margin-right: 21px;
+}
+
+.modal_checkbox .inputs {
+    float: right;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.modal_checkbox .inputs .input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3px;
+}
+
+.modal_checkbox .detail_option_box .group_line>label,
+.modal_checkbox .detail_option_box .group_line h4 {
+    padding: 0;
+    line-height: 1;
+}
+
+.modal_checkbox.high_set .select_all {
+    display: block;
+}
+
+.modal_checkbox.high_set .pop_body .high_set_wrap .high_set .detail_option .divide>li:not(:nth-of-type(1)) {
+    padding-top: 2rem
+}
+
+.modal_checkbox.advanced_part_settings .pop_body .high_set_wrap .high_set {
+    position: relative;
+    top: auto;
+    right: auto;
+    height: fit-content;
+}
+
+.modal_checkbox.advanced_part_settings .detail_option_box .detail_option {
+    position: relative;
+    top: auto;
+    right: auto;
+}
+
+.modal_checkbox.advanced_part_settings .pop_body .high_set_wrap {
+    padding: 0;
+}
