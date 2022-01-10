@@ -1,4 +1,8 @@
 @font-face {
+  font-family: "PoppinsRegular";
+  src: url("../fonts/Poppins-Regular.ttf") format("truetype")
+}
+@font-face {
   font-family: "NanumBarunGothic";
   src: url("../fonts/NanumBarunGothicRegular.eot"),
     url("../fonts/NanumBarunGothicRegular.ttf") format("truetype"),
@@ -13,8 +17,8 @@
     url("../fonts/NanumBarunGothicLight.woff") format("woff");
 }
 
-$primary-color: royalblue;
-$secondary-color: royalblue;
+$primary-color: #7682f8;
+$secondary-color: #7484f5;
 $dark-primary-color: #27292d;
 $dark-secondary-color: #373a46;
 $dark-tertiary-color: #85899a;
@@ -33,6 +37,10 @@ $ecos-paints-quiet-peace: #49536b;
 $farrownball-drawing-room-blue: #2e3548;
 // Blue tone
 $clark-kensington-stowe-mountain: #717593;
+
+$input-height: 32px;
+$input-outline-color: $primary-color;
+
 body {
   background-color: #eff1f7;
   color: #333;
@@ -199,7 +207,7 @@ input {
   &[type="tel"],
   &[type="email"] {
     -webkit-appearance: none;
-    height: auto;
+    height: $input-height;
     border: 1px solid gainsboro;
     padding: 0.5rem 0.25rem;
     font: 15px/1 "NanumBarunGothic";
@@ -213,7 +221,7 @@ input {
     background-color: rgba($sherwin-williams-wishful-blue, 0.5);
   }
   &:focus {
-    border-color: royalblue;
+    border-color: $input-outline-color;
   }
   &:disabled {
     background-color: rgba(0, 0, 0, 0.1);
@@ -870,6 +878,7 @@ input[type="radio"] + label:empty:before {
   display: block;
   text-align: center;
   user-select: none;
+
   label {
     display: block;
     background-color: #ccc;
@@ -884,6 +893,7 @@ input[type="radio"] + label:empty:before {
       cursor: pointer;
     }
   }
+
   .toggle-feature {
     display: block;
     position: absolute;
@@ -895,60 +905,17 @@ input[type="radio"] + label:empty:before {
     border-radius: 50%;
     transition: 0.2s;
   }
+
   input[type="checkbox"] {
     display: none;
     &:checked + label {
-      background-color: royalblue;
+      background-color: lightseagreen;
       span {
         left: 17px;
       }
     }
   }
 }
-
-/* Toggle Checkbox */
-
-.toggle-activation {
-  flex: 1 1 100%;
-  flex-direction: row-reverse;
-  align-items: center;
-}
-
-.toggle-activation .toggle {
-  display: flex;
-  width: 40px;
-  height: 80%;
-}
-
-.toggle-activation label {
-  flex: 0 0 auto !important;
-  margin-right: 0.5rem;
-}
-
-.toggle-activation .toggle-button {
-  height: 20px;
-  border-radius: 30px;
-  flex: 0 0 100% !important;
-  background-color: orangered;
-}
-
-.toggle-activation .toggle-feature {
-  top: -2px;
-  left: -2px;
-  width: 24px;
-  height: 24px;
-  background-color: white;
-  border-radius: 50%;
-}
-
-.toggle-activation .toggle-checkbox:checked + .toggle-button {
-  background-color: lightseagreen;
-}
-
-.toggle-activation .toggle-checkbox:checked + .toggle-button > * {
-  left: 16px;
-}
-
 /* =====================================================
    Modal Effect
    ===================================================== */
@@ -1074,9 +1041,9 @@ input[type="radio"] + label:empty:before {
 /* Tooltip */
 
 .tooltip {
-	position: relative;
+  position: relative;
   cursor: pointer;
-	z-index: 1;
+  z-index: 1;
 
   svg {
     fill: slategray;
@@ -1106,7 +1073,7 @@ input[type="radio"] + label:empty:before {
   }
   &:after {
     position: absolute;
-    bottom: -.5rem;
+    bottom: -0.5rem;
     left: 50%;
     margin-left: -5px;
     width: 0;
