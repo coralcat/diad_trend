@@ -122,15 +122,9 @@ aside {
 }
 
 .tooltip {
-  display: flex;
-  align-items: center;
 
   svg {
     padding: 2px;
-  }
-
-  .tooltip-content {
-    opacity: 0;
   }
 }
 
@@ -628,6 +622,10 @@ aside {
 
   .section-keyword-history {
     .list {
+      .scroll-vertical-01,
+      .scroll-horizontal-01 {
+        overflow: hidden;
+      }
       .row {
         &.title {
           &:first-of-type {
@@ -638,9 +636,6 @@ aside {
             }
           }
 
-          &:last-of-type {
-            overflow-x: auto;
-          }
           li {
             div {
               display: flex;
@@ -683,6 +678,7 @@ aside {
           }
         }
       }
+
       .columns {
         display: flex;
         max-height: 220px;
@@ -692,8 +688,6 @@ aside {
 
           &.rows-keyword {
             flex: 0 0 auto;
-            overflow-x: hidden;
-            overflow-y: auto;
 
             .row {
               li {
