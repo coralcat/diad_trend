@@ -131,7 +131,6 @@ aside {
 
   .tooltip-content {
     opacity: 0;
-    z-index: -1;
   }
 }
 
@@ -221,6 +220,46 @@ aside {
 
         img {
           max-width: 100%;
+        }
+      }
+
+      .rank {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0 0.45rem;
+        gap: 0.25rem;
+        font-size: 13px;
+        border-radius: 0.25rem;
+        height: 24px;
+        min-width: 48px;
+
+        &.up {
+          background-color: rgba(205, 92, 92, 0.2);
+          color: indianred;
+
+          &::after {
+            content: "\25B2";
+          }
+        }
+
+        &.down {
+          background-color: rgba(65, 105, 255, 0.2);
+          color: royalblue;
+
+          &::after {
+            content: "\25BC";
+          }
+        }
+
+        &.same {
+          justify-content: center;
+          background-color: rgba(255, 165, 0, 0.2);
+          color: orange;
+
+          &::after {
+            content: "-";
+          }
         }
       }
     }
@@ -592,7 +631,6 @@ aside {
       .row {
         &.title {
           &:first-of-type {
-
             li {
               justify-content: center;
               width: 200px !important;
@@ -647,7 +685,7 @@ aside {
       }
       .columns {
         display: flex;
-        max-height: 200px;
+        max-height: 220px;
 
         .rows {
           flex-direction: column;
@@ -695,46 +733,26 @@ aside {
               height: 24px;
             }
           }
+        }
+      }
+    }
+  }
 
-          .rank {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 0 0.45rem;
-            gap: 0.25rem;
-            font-size: 13px;
-            border-radius: 0.25rem;
-            height: 24px;
-            min-width: 48px;
+  .ranking-fluctuations {
+    display: flex;
+    gap: 1rem;
 
-            &.up {
-              background-color: rgba(205, 92, 92, 0.2);
-              color: indianred;
+    .ranking-chart {
+      flex: 1 1 auto;
 
-              &::after {
-                content: "\25B2";
-              }
-            }
+      > .title {
+        font-size: 17px;
+        margin-bottom: 0.5rem;
+      }
 
-            &.down {
-              background-color: rgba(65, 105, 255, 0.2);
-              color: royalblue;
-
-              &::after {
-                content: "\25BC";
-              }
-            }
-
-            &.same {
-              justify-content: center;
-              background-color: rgba(255, 165, 0, 0.2);
-              color: orange;
-
-              &::after {
-                content: "-";
-              }
-            }
-          }
+      .list {
+        li {
+          flex-basis: 33.333%;
         }
       }
     }

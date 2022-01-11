@@ -7,6 +7,17 @@
     <title>다이애드 TREND</title>
     <link rel="stylesheet" href="assets/css/common.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- 임시소스 -->
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css"
+    />
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
   </head>
 
   <body>
@@ -34,116 +45,13 @@
         </nav>
       </aside>
       
-<!-- 임시소스 -->
-<link
-  rel="stylesheet"
-  href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css"
-/>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-<script
-  type="text/javascript"
-  src="https://www.gstatic.com/charts/loader.js"
-></script>
-<script>
-  google.charts.load("current", { packages: ["corechart", "line"] });
-  google.charts.setOnLoadCallback(drawLineColors);
-
-  function drawLineColors() {
-    var data = new google.visualization.DataTable();
-    data.addColumn("number", "X");
-    data.addColumn("number", "Dogs");
-    data.addColumn("number", "Cats");
-
-    data.addRows([
-      [0, 0, 0],
-      [1, 10, 5],
-      [2, 23, 15],
-      [3, 17, 9],
-      [4, 18, 10],
-      [5, 9, 5],
-      [6, 11, 3],
-      [7, 27, 19],
-      [8, 33, 25],
-      [9, 40, 32],
-      [10, 32, 24],
-      [11, 35, 27],
-      [12, 30, 22],
-      [13, 40, 32],
-      [14, 42, 34],
-      [15, 47, 39],
-      [16, 44, 36],
-      [17, 48, 40],
-      [18, 52, 44],
-      [19, 54, 46],
-      [20, 42, 34],
-      [21, 55, 47],
-      [22, 56, 48],
-      [23, 57, 49],
-      [24, 60, 52],
-      [25, 50, 42],
-      [26, 52, 44],
-      [27, 51, 43],
-      [28, 49, 41],
-      [29, 53, 45],
-      [30, 55, 47],
-      [31, 60, 52],
-      [32, 61, 53],
-      [33, 59, 51],
-      [34, 62, 54],
-      [35, 65, 57],
-      [36, 62, 54],
-      [37, 58, 50],
-      [38, 55, 47],
-      [39, 61, 53],
-      [40, 64, 56],
-      [41, 65, 57],
-      [42, 63, 55],
-      [43, 66, 58],
-      [44, 67, 59],
-      [45, 69, 61],
-      [46, 69, 61],
-      [47, 70, 62],
-      [48, 72, 64],
-      [49, 68, 60],
-      [50, 66, 58],
-      [51, 65, 57],
-      [52, 67, 59],
-      [53, 70, 62],
-      [54, 71, 63],
-      [55, 72, 64],
-      [56, 73, 65],
-      [57, 75, 67],
-      [58, 70, 62],
-      [59, 68, 60],
-      [60, 64, 56],
-      [61, 60, 52],
-      [62, 65, 57],
-      [63, 67, 59],
-      [64, 68, 60],
-      [65, 69, 61],
-      [66, 70, 62],
-      [67, 72, 64],
-      [68, 75, 67],
-      [69, 80, 72],
-    ]);
-
-    var options = {
-      hAxis: {
-        title: "Time",
-      },
-      vAxis: {
-        title: "Popularity",
-      },
-      colors: ["#a52714", "#097138"],
-    };
-
-    var chart = new google.visualization.LineChart(
-      document.getElementById("chart")
-    );
-    chart.draw(data, options);
+<style>
+  .chart {
+    width: 100%;
+    height: 300px;
+    max-width: 100%;
   }
-</script>
+</style>
 <script>
   $(function () {
     var dateFormat = "mm/dd/yy",
@@ -178,7 +86,260 @@
     }
   });
 </script>
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("keywordChart");
+    root.setThemes([am5themes_Animated.new(root)]);
 
+    var chart = root.container.children.push(am5xy.XYChart.new(root, {}));
+
+    // Generate random data
+    var date = new Date();
+    date.setHours(0, 0, 0, 0);
+    var value = 100;
+
+    function generateData() {
+      value = Math.round(Math.random() * 10 - 5 + value);
+      am5.time.add(date, "day", 1);
+      return {
+        date: date.getTime(),
+        value: value,
+      };
+    }
+
+    function generateDatas(count) {
+      var data = [];
+      for (var i = 0; i < count; ++i) {
+        data.push(generateData());
+      }
+      return data;
+    }
+
+    var xAxis = chart.xAxes.push(
+      am5xy.DateAxis.new(root, {
+        maxDeviation: 0.2,
+        baseInterval: {
+          timeUnit: "day",
+          count: 1,
+        },
+        renderer: am5xy.AxisRendererX.new(root, {}),
+        tooltip: am5.Tooltip.new(root, {}),
+      })
+    );
+
+    var yAxis = chart.yAxes.push(
+      am5xy.ValueAxis.new(root, {
+        renderer: am5xy.AxisRendererY.new(root, {}),
+      })
+    );
+
+    // Add series
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+    for (var i = 0; i < 4; i++) {
+      var series = chart.series.push(
+        am5xy.LineSeries.new(root, {
+          name: "키워드 " + i,
+          xAxis: xAxis,
+          yAxis: yAxis,
+          valueYField: "value",
+          valueXField: "date",
+          legendValueText: "{valueY}",
+          tooltip: am5.Tooltip.new(root, {
+            pointerOrientation: "horizontal",
+            labelText: "{valueY}",
+          }),
+        })
+      );
+
+      date = new Date();
+      date.setHours(0, 0, 0, 0);
+      value = 0;
+
+      var data = generateDatas(100);
+      series.data.setAll(data);
+      series.appear();
+    }
+
+    var cursor = chart.set(
+      "cursor",
+      am5xy.XYCursor.new(root, {
+        behavior: "none",
+      })
+    );
+    cursor.lineY.set("visible", false);
+
+    var legend = chart.rightAxesContainer.children.push(
+      am5.Legend.new(root, {
+        width: 150,
+        paddingLeft: 15,
+        height: am5.percent(100),
+      })
+    );
+
+    // When legend item container is hovered, dim all the series except the hovered one
+    legend.itemContainers.template.events.on("pointerover", function (e) {
+      var itemContainer = e.target;
+
+      // As series list is data of a legend, dataContext is series
+      var series = itemContainer.dataItem.dataContext;
+
+      chart.series.each(function (chartSeries) {
+        if (chartSeries != series) {
+          chartSeries.strokes.template.setAll({
+            strokeOpacity: 0.15,
+            stroke: am5.color(0x000000),
+          });
+        } else {
+          chartSeries.strokes.template.setAll({
+            strokeWidth: 3,
+          });
+        }
+      });
+    });
+
+    // When legend item container is unhovered, make all series as they are
+    legend.itemContainers.template.events.on("pointerout", function (e) {
+      var itemContainer = e.target;
+      var series = itemContainer.dataItem.dataContext;
+
+      chart.series.each(function (chartSeries) {
+        chartSeries.strokes.template.setAll({
+          strokeOpacity: 1,
+          strokeWidth: 1,
+          stroke: chartSeries.get("fill"),
+        });
+      });
+    });
+
+    legend.itemContainers.template.set("width", am5.p100);
+    legend.valueLabels.template.setAll({
+      width: am5.p100,
+      textAlign: "right",
+    });
+
+    legend.data.setAll(chart.series.values);
+    chart.appear(1000, 100);
+  }); // end am5.ready()
+</script>
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("priceChart");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(am5xy.XYChart.new(root, {}));
+
+    var cursor = chart.set(
+      "cursor",
+      am5xy.XYCursor.new(root, {
+        behavior: "none",
+      })
+    );
+    cursor.lineY.set("visible", false);
+
+    // Generate random data
+    var date = new Date();
+    date.setHours(0, 0, 0, 0);
+    var value = 100;
+    var previousValue = value;
+    var downColor = root.interfaceColors.get("negative");
+    var upColor = root.interfaceColors.get("positive");
+    var color;
+    var previousColor;
+    var previousDataObj;
+
+    function generateData() {
+      value = Math.round(Math.random() * 10 - 5 + value);
+      am5.time.add(date, "day", 1);
+
+      if (value >= previousValue) {
+        color = upColor;
+      } else {
+        color = downColor;
+      }
+      previousValue = value;
+
+      var dataObj = { date: date.getTime(), value: value, color: color }; // color will be used for tooltip background
+
+      // only if changed
+      if (color != previousColor) {
+        if (!previousDataObj) {
+          previousDataObj = dataObj;
+        }
+        previousDataObj.strokeSettings = { stroke: color };
+      }
+
+      previousDataObj = dataObj;
+      previousColor = color;
+
+      return dataObj;
+    }
+
+    function generateDatas(count) {
+      var data = [];
+      for (var i = 0; i < count; ++i) {
+        data.push(generateData());
+      }
+      return data;
+    }
+
+    // Create axes
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+    var xAxis = chart.xAxes.push(
+      am5xy.DateAxis.new(root, {
+        baseInterval: { timeUnit: "day", count: 1 },
+        renderer: am5xy.AxisRendererX.new(root, {}),
+        tooltip: am5.Tooltip.new(root, {}),
+      })
+    );
+
+    var yAxis = chart.yAxes.push(
+      am5xy.ValueAxis.new(root, {
+        renderer: am5xy.AxisRendererY.new(root, {}),
+      })
+    );
+
+    // Add series
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+    var series = chart.series.push(
+      am5xy.LineSeries.new(root, {
+        name: "Series",
+        xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: "value",
+        valueXField: "date",
+      })
+    );
+
+    series.strokes.template.set("templateField", "strokeSettings");
+
+    var tooltip = series.set(
+      "tooltip",
+      am5.Tooltip.new(root, {
+        labelText: "{valueY}",
+      })
+    );
+
+    // this is added in ored adapter to be triggered each time position changes
+    tooltip.on("pointTo", function () {
+      var background = tooltip.get("background");
+      background.set("fill", background.get("fill"));
+    });
+
+    // tooltip bacground takes color from data item
+    tooltip.get("background").adapters.add("fill", function (fill) {
+      if (tooltip.dataItem) {
+        return tooltip.dataItem.dataContext.color;
+      }
+      return fill;
+    });
+
+    var data = generateDatas(100);
+    series.data.setAll(data);
+
+    series.appear(1000);
+    chart.appear(1000, 100);
+  }); // end am5.ready()
+</script>
 <div class="content content-ranking-details">
   <header class="main-header">
     <section class="title">
@@ -233,24 +394,38 @@
         <div>
           <h3>
             <span>키워드별 순위 차트</span>
-            <div class="tooltip" data-tooltip="test">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-              >
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
-                />
-              </svg>
-              <div class="tooltip-content"></div>
+            <div class="tooltip">
+              <input id="tooltip-keyword-chart" type="checkbox" />
+              <label for="tooltip-keyword-chart">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
+                  />
+                </svg>
+              </label>
+              <div class="tooltip-content">
+                <ul>
+                  <li>키워드별 순위를 한눈에 확인할 수 있는 차트입니다.</li>
+                  <li>
+                    기간과 간격을 설정하여 원하는 데이터를 얻을 수 있습니다.
+                  </li>
+                  <li>
+                    등록일부터 데이터가 갱신됨으로 등록 후 초반에는 기간 설정에
+                    제한이 있을 수 있습니다.
+                  </li>
+                </ul>
+              </div>
             </div>
           </h3>
         </div>
         <div>
-          <button type="button">엑셀다운</button>
+          <button class="ico-download" type="button">엑셀다운</button>
           <button type="button">키워드편집</button>
         </div>
       </header>
@@ -258,15 +433,20 @@
         <div class="filters">
           <div>
             <div class="period">
-              <input type="radio" id="select-1day" name="period" />
+              <input
+                type="radio"
+                id="select-1day"
+                name="keyword-chart"
+                checked
+              />
               <label for="select-1day">1일</label>
-              <input type="radio" id="select-1week" name="period" />
+              <input type="radio" id="select-1week" name="keyword-chart" />
               <label for="select-1week">1주</label>
-              <input type="radio" id="select-1month" name="period" />
+              <input type="radio" id="select-1month" name="keyword-chart" />
               <label for="select-1month">1개월</label>
-              <input type="radio" id="select-6months" name="period" />
+              <input type="radio" id="select-6months" name="keyword-chart" />
               <label for="select-6months">6개월</label>
-              <input type="radio" id="select-1year" name="period" />
+              <input type="radio" id="select-1year" name="keyword-chart" />
               <label for="select-1year">1년</label>
             </div>
             <div class="calendar">
@@ -284,10 +464,10 @@
             </select>
           </div>
         </div>
-        <div id="chart" class="chart"></div>
+        <div id="keywordChart" class="chart"></div>
       </div>
     </section>
-    <section>
+    <section class="section-keyword-history">
       <header class="section-header">
         <div>
           <h3>
@@ -309,22 +489,27 @@
           </h3>
         </div>
         <div>
-          <button type="button">엑셀다운</button>
+          <button class="ico-download" type="button">엑셀다운</button>
         </div>
       </header>
       <div class="filters">
         <div>
           <div class="period">
-            <input type="radio" id="select-1day" name="period" />
-            <label for="select-1day">1일</label>
-            <input type="radio" id="select-1week" name="period" />
-            <label for="select-1week">1주</label>
-            <input type="radio" id="select-1month" name="period" />
-            <label for="select-1month">1개월</label>
-            <input type="radio" id="select-6months" name="period" />
-            <label for="select-6months">6개월</label>
-            <input type="radio" id="select-1year" name="period" />
-            <label for="select-1year">1년</label>
+            <input type="radio" id="select-1day-02" name="keyword-history" />
+            <label for="select-1day-02">1일</label>
+            <input
+              type="radio"
+              id="select-1week-02"
+              name="keyword-history"
+              checked
+            />
+            <label for="select-1week-02">1주</label>
+            <input type="radio" id="select-1month-02" name="keyword-history" />
+            <label for="select-1month-02">1개월</label>
+            <input type="radio" id="select-6months-02" name="keyword-history" />
+            <label for="select-6months-02">6개월</label>
+            <input type="radio" id="select-1year-02" name="keyword-history" />
+            <label for="select-1year-02">1년</label>
           </div>
           <div class="calendar">
             <input type="text" id="from" name="from" />
@@ -342,42 +527,600 @@
         </div>
       </div>
       <div class="list">
-        <ul class="row">
-          <li>키워드</li>
-          <li>
-            <div class="date">2022-03-05 18:00</div>
-            <div>
-              <div class="notification new">2</div>
-              <button class="more"></button>
+        <div class="columns">
+          <ul class="row title">
+            <li>키워드</li>
+          </ul>
+          <ul class="row title">
+            <li>
+              <div class="date">2022-03-05 18:00</div>
+              <div>
+                <div class="notification new">2</div>
+                <button class="more"></button>
+              </div>
+            </li>
+            <li>
+              <div class="date">2022-03-05 15:00</div>
+            </li>
+            <li>
+              <div class="date">2022-03-05 12:00</div>
+            </li>
+            <li>
+              <div class="date">2022-03-05 15:00</div>
+            </li>
+            <li>
+              <div class="date">2022-03-05 12:00</div>
+            </li>
+            <li>
+              <div class="date">2022-03-05 15:00</div>
+            </li>
+            <li>
+              <div class="date">2022-03-05 12:00</div>
+            </li>
+            <li>
+              <div class="date">2022-03-05 15:00</div>
+            </li>
+            <li>
+              <div class="date">2022-03-05 12:00</div>
+            </li>
+          </ul>
+        </div>
+        <div class="columns">
+          <div class="rows rows-keyword">
+            <ul class="row">
+              <li>
+                <div>싱글오리진</div>
+                <div class="toggle">
+                  <input id="toggle" type="checkbox" checked="checked" />
+                  <label for="toggle">
+                    <span class="toggle-feature"></span>
+                  </label>
+                </div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div>커피원두</div>
+                <div class="toggle">
+                  <input id="toggle02" type="checkbox" checked="checked" />
+                  <label for="toggle02">
+                    <span class="toggle-feature"></span>
+                  </label>
+                </div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div>스타벅스</div>
+                <div class="toggle">
+                  <input id="toggle03" type="checkbox" checked="checked" />
+                  <label for="toggle03">
+                    <span class="toggle-feature"></span>
+                  </label>
+                </div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div>원두커피</div>
+                <div class="toggle">
+                  <input id="toggle04" type="checkbox" />
+                  <label for="toggle04">
+                    <span class="toggle-feature"></span>
+                  </label>
+                </div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div>커피</div>
+                <div class="toggle">
+                  <input id="toggle05" type="checkbox" />
+                  <label for="toggle05">
+                    <span class="toggle-feature"></span>
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="rows">
+            <ul class="row">
+              <li>
+                <div class="rank-current">
+                  <span>1위</span>
+                  <span>1위/1페이지</span>
+                </div>
+                <div class="rank up">44</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>45위</span>
+                  <span>5위/2페이지</span>
+                </div>
+                <div class="rank up">35</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>80위</span>
+                  <span>40위/2페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>45위</span>
+                  <span>5위/2페이지</span>
+                </div>
+                <div class="rank up">35</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>80위</span>
+                  <span>40위/2페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>45위</span>
+                  <span>5위/2페이지</span>
+                </div>
+                <div class="rank up">35</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>80위</span>
+                  <span>40위/2페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>45위</span>
+                  <span>5위/2페이지</span>
+                </div>
+                <div class="rank up">35</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>80위</span>
+                  <span>40위/2페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="rank-current">
+                  <span>1위</span>
+                  <span>1위/1페이지</span>
+                </div>
+                <div class="rank up">44</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>45위</span>
+                  <span>5위/2페이지</span>
+                </div>
+                <div class="rank up">35</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>80위</span>
+                  <span>40위/2페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>45위</span>
+                  <span>5위/2페이지</span>
+                </div>
+                <div class="rank up">35</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>80위</span>
+                  <span>40위/2페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>45위</span>
+                  <span>5위/2페이지</span>
+                </div>
+                <div class="rank up">35</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>80위</span>
+                  <span>40위/2페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>45위</span>
+                  <span>5위/2페이지</span>
+                </div>
+                <div class="rank up">35</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>80위</span>
+                  <span>40위/2페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="rank-current">
+                  <span>1위</span>
+                  <span>1위/1페이지</span>
+                </div>
+                <div class="rank up">4</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>5위</span>
+                  <span>5위/1페이지</span>
+                </div>
+                <div class="rank up">3</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>80위</span>
+                  <span>8위/1페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>45위</span>
+                  <span>5위/2페이지</span>
+                </div>
+                <div class="rank up">35</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>80위</span>
+                  <span>40위/2페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>45위</span>
+                  <span>5위/2페이지</span>
+                </div>
+                <div class="rank up">35</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>80위</span>
+                  <span>40위/2페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>45위</span>
+                  <span>5위/2페이지</span>
+                </div>
+                <div class="rank up">35</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>80위</span>
+                  <span>40위/2페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="rank-current">
+                  <span>43위</span>
+                  <span>3위/2페이지</span>
+                </div>
+                <div class="rank up">44</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>42위</span>
+                  <span>2위/2페이지</span>
+                </div>
+                <div class="rank up">35</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>40위</span>
+                  <span>40위/1페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>40위</span>
+                  <span>40위/1페이지</span>
+                </div>
+                <div class="rank same"></div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>80위</span>
+                  <span>40위/2페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>45위</span>
+                  <span>5위/2페이지</span>
+                </div>
+                <div class="rank up">35</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>80위</span>
+                  <span>40위/2페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>45위</span>
+                  <span>5위/2페이지</span>
+                </div>
+                <div class="rank up">35</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>80위</span>
+                  <span>40위/2페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="rank-current">
+                  <span>3위</span>
+                  <span>3위/1페이지</span>
+                </div>
+                <div class="rank up">44</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>15위</span>
+                  <span>2위/2페이지</span>
+                </div>
+                <div class="rank up">35</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>40위</span>
+                  <span>40위/1페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>40위</span>
+                  <span>40위/1페이지</span>
+                </div>
+                <div class="rank same"></div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>80위</span>
+                  <span>40위/2페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>45위</span>
+                  <span>5위/2페이지</span>
+                </div>
+                <div class="rank up">35</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>80위</span>
+                  <span>40위/2페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>45위</span>
+                  <span>5위/2페이지</span>
+                </div>
+                <div class="rank up">35</div>
+              </li>
+              <li>
+                <div class="rank-current">
+                  <span>80위</span>
+                  <span>40위/2페이지</span>
+                </div>
+                <div class="rank down">5</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <header class="section-header">
+        <div>
+          <h3>
+            <span>판매가 차트</span>
+            <div class="tooltip" data-tooltip="test">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
+                />
+              </svg>
+              <div class="tooltip-content"></div>
             </div>
-          </li>
-          <li>
-            <div class="date">2022-03-05 15:00</div>
-          </li>
-          <li>
-            <div class="date">2022-03-05 12:00</div>
-          </li>
-        </ul>
-        <ul class="row">
-          <li>
-            <div>싱글오리진</div>
-            <div class="toggle">
-              <span class="circle"></span>
+          </h3>
+        </div>
+        <div>
+          <button class="ico-download" type="button">엑셀다운</button>
+          <button type="button">키워드편집</button>
+        </div>
+      </header>
+      <div class="keyword-chart">
+        <div class="filters">
+          <div>
+            <div class="period">
+              <input
+                type="radio"
+                id="select-1day-03"
+                name="keyword-chart"
+                checked
+              />
+              <label for="select-1day-03">1일</label>
+              <input type="radio" id="select-1week-03" name="keyword-chart" />
+              <label for="select-1week-03">1주</label>
+              <input type="radio" id="select-1month-03" name="keyword-chart" />
+              <label for="select-1month-03">1개월</label>
+              <input type="radio" id="select-6months-03" name="keyword-chart" />
+              <label for="select-6months-03">6개월</label>
+              <input type="radio" id="select-1year-03" name="keyword-chart" />
+              <label for="select-1year-03">1년</label>
             </div>
-          </li>
-          <li>
-            <div>1위(1위/1페이지)</div>
-            <div class="up">44</div>
-          </li>
-          <li>
-            <div>45위(5위/2페이지)</div>
-            <div class="up">35</div>
-          </li>
-          <li>
-            <div>80위(40위/2페이지)</div>
-            <div class="down">5</div>
-          </li>
-        </ul>
+            <div class="calendar">
+              <input type="text" id="from" name="from" />
+              <span>~</span>
+              <input type="text" id="to" name="to" />
+            </div>
+            <button type="button">조회</button>
+          </div>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="갱신시간">갱신시간</option>
+              <option value="갱신시간">갱신시간</option>
+              <option value="갱신시간">갱신시간</option>
+            </select>
+          </div>
+        </div>
+        <div id="priceChart" class="chart"></div>
+      </div>
+    </section>
+    <section>
+      <header class="section-header">
+        <div>
+          <h3>
+            <span>순위 변동 주간 TOP</span>
+            <div class="tooltip" data-tooltip="test">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
+                />
+              </svg>
+              <div class="tooltip-content"></div>
+            </div>
+          </h3>
+        </div>
+        <div class="selectbox">
+          <select name="" id="">
+            <option value="">3월 1주차 (2022-03-01 12:00 기준)</option>
+          </select>
+        </div>
+      </header>
+      <div class="ranking-fluctuations">
+        <div class="ranking-chart">
+          <div class="title">순위 상승 TOP</div>
+          <div class="list">
+            <ul class="row title">
+              <li>순위</li>
+              <li>키워드</li>
+              <li>전주대비변동</li>
+            </ul>
+            <ul class="row">
+              <li>1</li>
+              <li>싱글오리진</li>
+              <li>
+                <div class="rank up">6</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>2</li>
+              <li>커피원두</li>
+              <li>
+                <div class="rank up">4</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>3</li>
+              <li>원두커피 케냐AAA</li>
+              <li>
+                <div class="rank up">3</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>4</li>
+              <li>예가체프</li>
+              <li>
+                <div class="rank up">1</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="ranking-chart">
+          <div class="title">순위 하락 TOP</div>
+          <div class="list">
+            <ul class="row title">
+              <li>순위</li>
+              <li>키워드</li>
+              <li>전주대비변동</li>
+            </ul>
+            <ul class="row">
+              <li>1</li>
+              <li>스페셜커피</li>
+              <li>
+                <div class="rank down">6</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>2</li>
+              <li>스타벅스원두</li>
+              <li>
+                <div class="rank down">5</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>3</li>
+              <li>커피</li>
+              <li>
+                <div class="rank down">2</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>4</li>
+              <li>맛 좋은 커피</li>
+              <li>
+                <div class="rank down">1</div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   </div>
