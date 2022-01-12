@@ -24,6 +24,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // 알림 서비스 설정 전체해제
+  const dataToggles = document.querySelectorAll("[data-toggle]");
+  if (dataToggles) {
+    const controllers = document.querySelectorAll(".toggle-controller");
+    controllers.forEach((controller) => {
+      controller.addEventListener("click", () => {
+        dataToggles.forEach((toggle) => {
+          if (controller.dataset.toggle == toggle.dataset.toggle) {
+            // if (controller.classList.remove("is-active")) {
+            //   console.log("removed");
+            //   toggle.classList.remove("is-active");
+            //   controller.classList.toggle("is-active");
+            // }
+          }
+        });
+      });
+    });
+  }
+
   /* =====================================================
        Tooltip
   ===================================================== */
