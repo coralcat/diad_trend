@@ -2,7 +2,7 @@
 <style>
   .chart {
     width: 100%;
-    height: 300px;
+    height: 250px;
     max-width: 100%;
   }
 </style>
@@ -349,21 +349,8 @@
           <h3>
             <span>키워드별 순위 차트</span>
             <div class="tooltip">
-              <input id="tooltip-keyword-chart" type="checkbox" />
-              <label for="tooltip-keyword-chart">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                >
-                  <path d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
-                  />
-                </svg>
-              </label>
-              <div class="tooltip-content">
+              <div class="ico-tooltip"></div>
+              <article class="tooltip-content">
                 <ul>
                   <li>키워드별 순위를 한눈에 확인할 수 있는 차트입니다.</li>
                   <li>
@@ -374,7 +361,7 @@
                     제한이 있을 수 있습니다.
                   </li>
                 </ul>
-              </div>
+              </article>
             </div>
           </h3>
         </div>
@@ -426,19 +413,20 @@
         <div>
           <h3>
             <span>키워드별 순위 이력</span>
-            <div class="tooltip" data-tooltip="test">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-              >
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
-                />
-              </svg>
-              <div class="tooltip-content"></div>
+            <div class="tooltip">
+              <div class="ico-tooltip"></div>
+              <article class="tooltip-content">
+                <ul>
+                  <li>키워드별 순위를 한눈에 확인할 수 있는 차트입니다.</li>
+                  <li>
+                    기간과 간격을 설정하여 원하는 데이터를 얻을 수 있습니다.
+                  </li>
+                  <li>
+                    등록일부터 데이터가 갱신됨으로 등록 후 초반에는 기간 설정에
+                    제한이 있을 수 있습니다.
+                  </li>
+                </ul>
+              </article>
             </div>
           </h3>
         </div>
@@ -488,13 +476,62 @@
           <ul class="row title scroll-horizontal-01">
             <li>
               <div class="date">2022-03-05 18:00</div>
-              <div>
-                <div class="notification new">2</div>
-                <button class="more"></button>
-              </div>
             </li>
             <li>
               <div class="date">2022-03-05 15:00</div>
+              <button class="notification new" type="button">2</button>
+              <article class="notification-details">
+                <div class="title">
+                  <span>변경사항</span>
+                  <div class="close ico-close"></div>
+                </div>
+                <div class="list">
+                  <ul class="row">
+                    <li>상품명</li>
+                    <li>
+                      <div class="row">
+                        <div class="date">2022-03-01 18:00</div>
+                        <div class="current">
+                          1kg 커피창고 에티오피아 예가체프 케냐AAA 싱글오리진
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="date">2022-03-01 17:00</div>
+                        <div>커피창고 원두 1kg 에티오피아</div>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="row">
+                    <li>스토어명</li>
+                    <li>커피창고</li>
+                  </ul>
+                  <ul class="row">
+                    <li>판매가</li>
+                    <li>
+                      <div class="row">
+                        <div class="date">2022-03-01 18:00</div>
+                        <div class="current price">10,900</div>
+                      </div>
+                      <div class="row">
+                        <div class="date">2022-03-01 17:00</div>
+                        <div class="price">9,900</div>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="row">
+                    <li>브랜드</li>
+                    <li>커피창고</li>
+                  </ul>
+                  <ul class="row">
+                    <li>제조사</li>
+                    <li>주식회사 커피창고</li>
+                  </ul>
+                  <ul class="row">
+                    <li>카테고리</li>
+                    <li>식품 &gt; 음료 &gt; 커피 &gt; 원두/생두</li>
+                  </ul>
+                </div>
+              </article>
             </li>
             <li>
               <div class="date">2022-03-05 12:00</div>
@@ -524,56 +561,31 @@
             <ul class="row">
               <li>
                 <div>싱글오리진</div>
-                <div class="toggle">
-                  <input id="toggle" type="checkbox" checked="checked" />
-                  <label for="toggle">
-                    <span class="toggle-feature"></span>
-                  </label>
-                </div>
+                <div class="toggle is-active"></div>
               </li>
             </ul>
             <ul class="row">
               <li>
                 <div>커피원두</div>
-                <div class="toggle">
-                  <input id="toggle02" type="checkbox" checked="checked" />
-                  <label for="toggle02">
-                    <span class="toggle-feature"></span>
-                  </label>
-                </div>
+                <div class="toggle is-active"></div>
               </li>
             </ul>
             <ul class="row">
               <li>
                 <div>스타벅스</div>
-                <div class="toggle">
-                  <input id="toggle03" type="checkbox" checked="checked" />
-                  <label for="toggle03">
-                    <span class="toggle-feature"></span>
-                  </label>
-                </div>
+                <div class="toggle is-active"></div>
               </li>
             </ul>
             <ul class="row">
               <li>
                 <div>원두커피</div>
-                <div class="toggle">
-                  <input id="toggle04" type="checkbox" />
-                  <label for="toggle04">
-                    <span class="toggle-feature"></span>
-                  </label>
-                </div>
+                <div class="toggle"></div>
               </li>
             </ul>
             <ul class="row">
               <li>
                 <div>커피</div>
-                <div class="toggle">
-                  <input id="toggle05" type="checkbox" />
-                  <label for="toggle05">
-                    <span class="toggle-feature"></span>
-                  </label>
-                </div>
+                <div class="toggle"></div>
               </li>
             </ul>
           </div>
@@ -912,19 +924,9 @@
         <div>
           <h3>
             <span>판매가 차트</span>
-            <div class="tooltip" data-tooltip="test">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-              >
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
-                />
-              </svg>
-              <div class="tooltip-content"></div>
+            <div class="tooltip">
+              <div class="ico-tooltip"></div>
+              <article class="tooltip-content"></article>
             </div>
           </h3>
         </div>
@@ -976,18 +978,8 @@
         <div>
           <h3>
             <span>순위 변동 주간 TOP</span>
-            <div class="tooltip" data-tooltip="test">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-              >
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
-                />
-              </svg>
+            <div class="tooltip">
+              <div class="ico-tooltip"></div>
               <div class="tooltip-content"></div>
             </div>
           </h3>
@@ -1007,34 +999,37 @@
               <li>키워드</li>
               <li>전주대비변동</li>
             </ul>
-            <ul class="row">
-              <li>1</li>
-              <li>싱글오리진</li>
-              <li>
-                <div class="rank up">6</div>
-              </li>
-            </ul>
-            <ul class="row">
-              <li>2</li>
-              <li>커피원두</li>
-              <li>
-                <div class="rank up">4</div>
-              </li>
-            </ul>
-            <ul class="row">
-              <li>3</li>
-              <li>원두커피 케냐AAA</li>
-              <li>
-                <div class="rank up">3</div>
-              </li>
-            </ul>
-            <ul class="row">
-              <li>4</li>
-              <li>예가체프</li>
-              <li>
-                <div class="rank up">1</div>
-              </li>
-            </ul>
+            <!-- rows 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
+            <div class="rows" data-empty="데이터 갱신 전입니다.">
+              <ul class="row">
+                <li>1</li>
+                <li>싱글오리진</li>
+                <li>
+                  <div class="rank up">6</div>
+                </li>
+              </ul>
+              <ul class="row">
+                <li>2</li>
+                <li>커피원두</li>
+                <li>
+                  <div class="rank up">4</div>
+                </li>
+              </ul>
+              <ul class="row">
+                <li>3</li>
+                <li>원두커피 케냐AAA</li>
+                <li>
+                  <div class="rank up">3</div>
+                </li>
+              </ul>
+              <ul class="row">
+                <li>4</li>
+                <li>예가체프</li>
+                <li>
+                  <div class="rank up">1</div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="ranking-chart">
@@ -1045,34 +1040,37 @@
               <li>키워드</li>
               <li>전주대비변동</li>
             </ul>
-            <ul class="row">
-              <li>1</li>
-              <li>스페셜커피</li>
-              <li>
-                <div class="rank down">6</div>
-              </li>
-            </ul>
-            <ul class="row">
-              <li>2</li>
-              <li>스타벅스원두</li>
-              <li>
-                <div class="rank down">5</div>
-              </li>
-            </ul>
-            <ul class="row">
-              <li>3</li>
-              <li>커피</li>
-              <li>
-                <div class="rank down">2</div>
-              </li>
-            </ul>
-            <ul class="row">
-              <li>4</li>
-              <li>맛 좋은 커피</li>
-              <li>
-                <div class="rank down">1</div>
-              </li>
-            </ul>
+            <!-- rows 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
+            <div class="rows" data-empty="데이터 갱신 전입니다.">
+              <ul class="row">
+                <li>1</li>
+                <li>스페셜커피</li>
+                <li>
+                  <div class="rank down">6</div>
+                </li>
+              </ul>
+              <ul class="row">
+                <li>2</li>
+                <li>스타벅스원두</li>
+                <li>
+                  <div class="rank down">5</div>
+                </li>
+              </ul>
+              <ul class="row">
+                <li>3</li>
+                <li>커피</li>
+                <li>
+                  <div class="rank down">2</div>
+                </li>
+              </ul>
+              <ul class="row">
+                <li>4</li>
+                <li>맛 좋은 커피</li>
+                <li>
+                  <div class="rank down">1</div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
