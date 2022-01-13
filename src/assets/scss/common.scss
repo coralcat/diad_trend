@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "RobotoRegular";
+  font-family: "Roboto";
   src: url("../fonts/Roboto-Regular.ttf") format("truetype");
 }
 
@@ -53,7 +53,7 @@ body {
   width: 100%;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
-  font: 15px/1 "RobotoRegular", "NanumBarunGothic";
+  font: 15px/1 "Roboto", "NanumBarunGothic";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -126,10 +126,10 @@ address {
 }
 
 a {
-  font-family: "RobotoRegular", "NanumBarunGothicLight", sans-serif;
   text-decoration: none;
   color: #333;
-  outline: none;
+  display: flex;
+  align-items: center;
   transition: 0.4s;
 }
 
@@ -193,8 +193,7 @@ p {
 }
 
 small {
-  font-family: "NanumBarunGothic", sans-serif;
-  line-height: 1.2;
+  font-family: "RobotoMedium", "NanumBarunGothic", sans-serif;
 }
 
 .active {
@@ -824,7 +823,7 @@ input[type="radio"] + label:empty:before {
     cursor: pointer;
   }
   .title {
-    font: 14px/1 "RobotoRegular", "NanumsquareRegular";
+    font: 14px/1 "Roboto", "NanumsquareRegular";
     color: $kelly-moore-camp-muir !important;
     word-break: keep-all;
     border-radius: 0;
@@ -1045,46 +1044,89 @@ input[type="radio"] + label:empty:before {
 }
 
 /* Tooltip */
+[data-tooltip] {
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    &::before, &::after {
+      opacity: 1;
+      z-index: 1;
+    }
+  }
+
+  &::before {
+    opacity: 0;
+    content: attr(data-tooltip);
+    word-break: keep-all;
+    transform: translateX(-50%);
+    background-color: slategray;
+    line-height: 1.5;
+    color: white;
+    width: 300px;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 50%;
+    font: 13px/1.5 "NanumBarunGothicLight";
+    transition: 0.2s;
+  }
+
+  &::after {
+    opacity: 0;
+    content: "";
+    position: absolute;
+    top: calc(100% + 0.15rem);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    border-bottom: 8px solid slategray;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    font-size: 0;
+    line-height: 0;
+    transition: 0.2s;
+  }
+}
+
+.ico-tooltip {
+  margin: 0 0.25rem;
+  background-color: #e3e6e9;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &::before {
+    content: "\003F";
+    color: slategray;
+    font-size: 13px;
+    line-height: 1;
+  }
+}
 
 .tooltip {
   position: relative;
   user-select: none;
   word-break: keep-all;
 
-  .ico-tooltip {
-    margin: 0 0.25rem;
-    background-color: #e3e6e9;
-    border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-
-    &::before {
-      content: "\003F";
-      color: slategray;
-      font-size: 14px;
-      font-weight: bold;
-      line-height: 1;
-      font-family: "NanumBarunGothicRegular";
-    }
-  }
-
   .tooltip-content {
     opacity: 0;
     position: absolute;
-    top: 2rem;
+    top: 2.5rem;
     left: 50%;
     transform: translate(-50%, 0);
     padding: 1rem;
     min-width: 300px;
     border-radius: 0.25rem;
-    background-color: #f3f6f9;
-    color: #333;
-    font-size: 14px;
-    line-height: 1.2;
+    background-color: #4e6697;
+    color: white;
+    font: 13px/1.5 "NanumBarunGothicLight";
     transition: all 0.2s;
 
     &::before {
@@ -1094,7 +1136,7 @@ input[type="radio"] + label:empty:before {
       left: 50%;
       transform: translateX(-50%);
       width: 0;
-      border-bottom: 8px solid #f3f6f9;
+      border-bottom: 8px solid #4e6697;
       border-right: 8px solid transparent;
       border-left: 8px solid transparent;
       font-size: 0;

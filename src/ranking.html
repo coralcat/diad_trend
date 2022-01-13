@@ -4,20 +4,43 @@
   <header class="main-header">
     <section class="title">
       <h1>
-        <span>상품 순위 조회</span
-        ><svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-        >
-          <path d="M0 0h24v24H0z" fill="none" />
-          <path
-            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
-          />
-        </svg>
+        <span>상품 순위 조회</span>
+        <div class="tooltip">
+          <div class="ico-tooltip"></div>
+          <article class="tooltip-content">
+            <ul>
+              <li>
+                네이버 쇼핑검색에 노출되는 순위 정보를 확인할 수 있습니다.
+              </li>
+              <li>
+                상품마다 키워드별 순위 변동 차트를 제공하여 순위 변동을 한눈에
+                확인할 수 있습니다.
+              </li>
+              <li>순위 변동 시 알림을 제공합니다.</li>
+            </ul>
+          </article>
+        </div>
       </h1>
-      <div class="subline">
+
+      <div class="subline status">
+        <ul class="services">
+          <li>서비스</li>
+          <li>
+            <div>총 소재 <span class="count">30</span></div>
+            <div>등록가능 소재 <span class="count">20</span></div>
+          </li>
+        </ul>
+        <ul class="service-period">
+          <li>서비스 이용기간</li>
+          <li>
+            <span class="tag d-day">310</span>
+            2022-03-01 ~ 2023-02-28
+          </li>
+        </ul>
+      </div>
+
+      <!-- 서비스 신청 전 -->
+      <!-- <div class="subline">
         <p>
           ※ 서비스 기간이 만료했거나 서비스 정보가 없습니다. 서비스 신청 후
           이용해 주시기 바랍니다.
@@ -26,27 +49,45 @@
           href="https://diad.co.kr/AdInquire/AdInquireMemberRegister"
           target="_blank"
         >
-          <button type="button">서비스 신청하기</button>
+          <button class="btn-main" type="button">서비스 신청하기</button>
         </a>
-      </div>
+      </div> -->
+
+      <!-- 서비스 이용기간 만료 -->
+      <!-- <div class="subline">
+        <p>
+          서비스 이용기간이 만료되었습니다.
+          <span class="date">2021-07-30</span>
+          등록한 키워드가 삭제됩니다.
+          <div
+            data-tooltip="순위가 400위 밖인 경우 상품 정보가 갱신되지 않을 수 있습니다. 정보가 갱신되지 않은 경우 실제 정보와 차이가 있을 수 있으니, 서비스 이용 시 참고하시기 바랍니다."
+          >
+            <div class="ico-tooltip"></div>
+          </div>
+        </p>
+        <a
+          href="https://diad.co.kr/AdInquire/AdInquireMemberRegister"
+          target="_blank"
+        >
+          <button class="btn-main" type="button">서비스 신청하기</button>
+        </a>
+      </div> -->
     </section>
     <section class="section-main">
       <div class="services">
         <div class="section-title">
           <h3>서비스 이용 현황</h3>
-          <a href="">서비스 이용 내역 보기</a>
+          <a class="right-arrow" href="">서비스 이용 내역 보기</a>
         </div>
         <div class="list">
           <ul class="row title">
             <li>총 소재</li>
-            <li>20</li>
-          </ul>
-          <ul class="row">
             <li>등록 소재</li>
-            <li>16</li>
+            <li>등록 가능 소재</li>
           </ul>
           <ul class="row">
-            <li>등록 가능 소재</li>
+            <li>20</li>
+            <li>16</li>
             <li>4</li>
           </ul>
         </div>
@@ -91,7 +132,7 @@
           <button type="button">상품등록</button>
           <button type="button">그룹조회</button>
           <button type="button">그룹편집</button>
-          <button type="button">엑셀다운</button>
+          <button class="ico-download" type="button">엑셀다운</button>
           <div class="selectbox">
             <select name="" id="">
               <option value="filter-100">100개씩 보기</option>
@@ -101,7 +142,7 @@
           </div>
         </div>
       </header>
-      <div class="list" onclick="location.href='/ranking_details.html'">
+      <div class="list list-items">
         <ul class="row title">
           <li class="col-check">
             <div class="checkbox">
@@ -117,570 +158,165 @@
           <li>2주전 순위</li>
           <li>전월 순위</li>
         </ul>
-        <ul class="row">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="check-01" type="checkbox" />
-              <label for="check-01"></label>
-            </div>
-          </li>
-          <li class="col-important">
-            <div class="image">
-              <img
-                src="https://images.unsplash.com/photo-1625021659159-f63f546d74a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNvZmZlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
-            </div>
-            <div class="information">
-              <small>상품 MID.12126547821</small>
-              <div class="title">1kg 커피창고 에티오피아 예가체프</div>
-              <div class="store">커피창고</div>
-            </div>
-          </li>
-          <li>커피원두</li>
-          <li>
-            <div>1위</div>
-            <div>(1위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>3위</div>
-            <div>(3위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>2위</div>
-            <div>(3위/1페이지)</div>
-            <div>1</div>
-          </li>
-        </ul>
-        <ul class="row">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="check-01" type="checkbox" />
-              <label for="check-01"></label>
-            </div>
-          </li>
-          <li class="col-important">
-            <div class="image">
-              <img
-                src="https://images.unsplash.com/photo-1625021659159-f63f546d74a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNvZmZlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
-            </div>
-            <div class="information">
-              <small>상품 MID.12126547821</small>
-              <div class="title">1kg 커피창고 에티오피아 예가체프</div>
-              <div class="store">커피창고</div>
-            </div>
-          </li>
-          <li>커피원두</li>
-          <li>
-            <div>1위</div>
-            <div>(1위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>3위</div>
-            <div>(3위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>2위</div>
-            <div>(3위/1페이지)</div>
-            <div>1</div>
-          </li>
-        </ul>
-        <ul class="row">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="check-01" type="checkbox" />
-              <label for="check-01"></label>
-            </div>
-          </li>
-          <li class="col-important">
-            <div class="image">
-              <img
-                src="https://images.unsplash.com/photo-1625021659159-f63f546d74a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNvZmZlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
-            </div>
-            <div class="information">
-              <small>상품 MID.12126547821</small>
-              <div class="title">1kg 커피창고 에티오피아 예가체프</div>
-              <div class="store">커피창고</div>
-            </div>
-          </li>
-          <li>커피원두</li>
-          <li>
-            <div>1위</div>
-            <div>(1위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>3위</div>
-            <div>(3위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>2위</div>
-            <div>(3위/1페이지)</div>
-            <div>1</div>
-          </li>
-        </ul>
-        <ul class="row">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="check-01" type="checkbox" />
-              <label for="check-01"></label>
-            </div>
-          </li>
-          <li class="col-important">
-            <div class="image">
-              <img
-                src="https://images.unsplash.com/photo-1625021659159-f63f546d74a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNvZmZlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
-            </div>
-            <div class="information">
-              <small>상품 MID.12126547821</small>
-              <div class="title">1kg 커피창고 에티오피아 예가체프</div>
-              <div class="store">커피창고</div>
-            </div>
-          </li>
-          <li>커피원두</li>
-          <li>
-            <div>1위</div>
-            <div>(1위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>3위</div>
-            <div>(3위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>2위</div>
-            <div>(3위/1페이지)</div>
-            <div>1</div>
-          </li>
-        </ul>
-        <ul class="row">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="check-01" type="checkbox" />
-              <label for="check-01"></label>
-            </div>
-          </li>
-          <li class="col-important">
-            <div class="image">
-              <img
-                src="https://images.unsplash.com/photo-1625021659159-f63f546d74a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNvZmZlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
-            </div>
-            <div class="information">
-              <small>상품 MID.12126547821</small>
-              <div class="title">1kg 커피창고 에티오피아 예가체프</div>
-              <div class="store">커피창고</div>
-            </div>
-          </li>
-          <li>커피원두</li>
-          <li>
-            <div>1위</div>
-            <div>(1위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>3위</div>
-            <div>(3위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>2위</div>
-            <div>(3위/1페이지)</div>
-            <div>1</div>
-          </li>
-        </ul>
-        <ul class="row">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="check-01" type="checkbox" />
-              <label for="check-01"></label>
-            </div>
-          </li>
-          <li class="col-important">
-            <div class="image">
-              <img
-                src="https://images.unsplash.com/photo-1625021659159-f63f546d74a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNvZmZlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
-            </div>
-            <div class="information">
-              <small>상품 MID.12126547821</small>
-              <div class="title">1kg 커피창고 에티오피아 예가체프</div>
-              <div class="store">커피창고</div>
-            </div>
-          </li>
-          <li>커피원두</li>
-          <li>
-            <div>1위</div>
-            <div>(1위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>3위</div>
-            <div>(3위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>2위</div>
-            <div>(3위/1페이지)</div>
-            <div>1</div>
-          </li>
-        </ul>
-        <ul class="row">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="check-01" type="checkbox" />
-              <label for="check-01"></label>
-            </div>
-          </li>
-          <li class="col-important">
-            <div class="image">
-              <img
-                src="https://images.unsplash.com/photo-1625021659159-f63f546d74a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNvZmZlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
-            </div>
-            <div class="information">
-              <small>상품 MID.12126547821</small>
-              <div class="title">1kg 커피창고 에티오피아 예가체프</div>
-              <div class="store">커피창고</div>
-            </div>
-          </li>
-          <li>커피원두</li>
-          <li>
-            <div>1위</div>
-            <div>(1위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>3위</div>
-            <div>(3위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>2위</div>
-            <div>(3위/1페이지)</div>
-            <div>1</div>
-          </li>
-        </ul>
-        <ul class="row">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="check-01" type="checkbox" />
-              <label for="check-01"></label>
-            </div>
-          </li>
-          <li class="col-important">
-            <div class="image">
-              <img
-                src="https://images.unsplash.com/photo-1625021659159-f63f546d74a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNvZmZlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
-            </div>
-            <div class="information">
-              <small>상품 MID.12126547821</small>
-              <div class="title">1kg 커피창고 에티오피아 예가체프</div>
-              <div class="store">커피창고</div>
-            </div>
-          </li>
-          <li>커피원두</li>
-          <li>
-            <div>1위</div>
-            <div>(1위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>3위</div>
-            <div>(3위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>2위</div>
-            <div>(3위/1페이지)</div>
-            <div>1</div>
-          </li>
-        </ul>
-        <ul class="row">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="check-01" type="checkbox" />
-              <label for="check-01"></label>
-            </div>
-          </li>
-          <li class="col-important">
-            <div class="image">
-              <img
-                src="https://images.unsplash.com/photo-1625021659159-f63f546d74a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNvZmZlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
-            </div>
-            <div class="information">
-              <small>상품 MID.12126547821</small>
-              <div class="title">1kg 커피창고 에티오피아 예가체프</div>
-              <div class="store">커피창고</div>
-            </div>
-          </li>
-          <li>커피원두</li>
-          <li>
-            <div>1위</div>
-            <div>(1위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>3위</div>
-            <div>(3위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>2위</div>
-            <div>(3위/1페이지)</div>
-            <div>1</div>
-          </li>
-        </ul>
-        <ul class="row">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="check-01" type="checkbox" />
-              <label for="check-01"></label>
-            </div>
-          </li>
-          <li class="col-important">
-            <div class="image">
-              <img
-                src="https://images.unsplash.com/photo-1625021659159-f63f546d74a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNvZmZlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
-            </div>
-            <div class="information">
-              <small>상품 MID.12126547821</small>
-              <div class="title">1kg 커피창고 에티오피아 예가체프</div>
-              <div class="store">커피창고</div>
-            </div>
-          </li>
-          <li>커피원두</li>
-          <li>
-            <div>1위</div>
-            <div>(1위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>3위</div>
-            <div>(3위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>2위</div>
-            <div>(3위/1페이지)</div>
-            <div>1</div>
-          </li>
-        </ul>
-        <ul class="row">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="check-01" type="checkbox" />
-              <label for="check-01"></label>
-            </div>
-          </li>
-          <li class="col-important">
-            <div class="image">
-              <img
-                src="https://images.unsplash.com/photo-1625021659159-f63f546d74a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNvZmZlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
-            </div>
-            <div class="information">
-              <small>상품 MID.12126547821</small>
-              <div class="title">1kg 커피창고 에티오피아 예가체프</div>
-              <div class="store">커피창고</div>
-            </div>
-          </li>
-          <li>커피원두</li>
-          <li>
-            <div>1위</div>
-            <div>(1위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>3위</div>
-            <div>(3위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>2위</div>
-            <div>(3위/1페이지)</div>
-            <div>1</div>
-          </li>
-        </ul>
-        <ul class="row">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="check-01" type="checkbox" />
-              <label for="check-01"></label>
-            </div>
-          </li>
-          <li class="col-important">
-            <div class="image">
-              <img
-                src="https://images.unsplash.com/photo-1625021659159-f63f546d74a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNvZmZlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
-            </div>
-            <div class="information">
-              <small>상품 MID.12126547821</small>
-              <div class="title">1kg 커피창고 에티오피아 예가체프</div>
-              <div class="store">커피창고</div>
-            </div>
-          </li>
-          <li>커피원두</li>
-          <li>
-            <div>1위</div>
-            <div>(1위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>3위</div>
-            <div>(3위/1페이지)</div>
-            <div>2</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div>(5위/1페이지)</div>
-            <div>4</div>
-          </li>
-          <li>
-            <div>2위</div>
-            <div>(3위/1페이지)</div>
-            <div>1</div>
-          </li>
-        </ul>
+        <!-- rows 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
+        <div class="rows" data-empty="상품을 등록해주세요">
+          <ul class="row failed">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-01" type="checkbox" />
+                <label for="check-01"></label>
+              </div>
+            </li>
+            <li class="col-important">
+              <div
+                class="update"
+                data-tooltip="상품에 등록된 모든 키워드가 400위 밖으로 상품 정보가 갱신되지 않았습니다."
+              >
+                <div class="failed">갱신실패</div>
+                <div class="success">갱신성공 2021-08-01 15:00</div>
+              </div>
+              <div class="image">
+                <img
+                  src="https://images.unsplash.com/photo-1625021659159-f63f546d74a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNvZmZlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                  alt=""
+                />
+              </div>
+              <div class="information">
+                <small>상품 MID.12126547821</small>
+                <div
+                  class="title"
+                  onclick="location.href='/ranking_details.html'"
+                >
+                  1kg 커피창고 에티오피아 예가체프 test test test test test test
+                </div>
+                <div class="store">커피창고</div>
+              </div>
+            </li>
+            <li>원두커피</li>
+            <li>
+              <div>400위 밖</div>
+              <div
+                data-tooltip="순위가 400위 밖인 경우 상품 정보가 갱신되지 않을 수 있습니다. 정보가 갱신되지 않은 경우 실제 정보와 차이가 있을 수 있으니, 서비스 이용 시 참고하시기 바랍니다."
+              >
+                <div class="ico-tooltip"></div>
+              </div>
+            </li>
+            <li>
+              <div>3위</div>
+              <div>(3위/1페이지)</div>
+              <div class="rank failed"></div>
+            </li>
+            <li>
+              <div>5위</div>
+              <div>(5위/1페이지)</div>
+              <div class="rank failed"></div>
+            </li>
+            <li>
+              <div>5위</div>
+              <div>(5위/1페이지)</div>
+              <div class="rank failed"></div>
+            </li>
+            <li>
+              <div>2위</div>
+              <div>(3위/1페이지)</div>
+              <div class="rank failed"></div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-01" type="checkbox" />
+                <label for="check-01"></label>
+              </div>
+            </li>
+            <li class="col-important">
+              <div class="image">
+                <img
+                  src="https://images.unsplash.com/photo-1625021659159-f63f546d74a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNvZmZlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                  alt=""
+                />
+              </div>
+              <div class="information">
+                <small>상품 MID.12126547821</small>
+                <div class="title">1kg 커피창고 에티오피아 예가체프 1kg 커피창고 에티오피아 예가체프</div>
+                <div class="store">커피창고</div>
+              </div>
+            </li>
+            <li>커피원두</li>
+            <li>
+              <div>1위</div>
+              <div>(1위/1페이지)</div>
+              <div class="rank up">2</div>
+            </li>
+            <li>
+              <div>3위</div>
+              <div>(3위/1페이지)</div>
+              <div class="rank up">2</div>
+            </li>
+            <li>
+              <div>5위</div>
+              <div>(5위/1페이지)</div>
+              <div class="rank up">4</div>
+            </li>
+            <li>
+              <div>5위</div>
+              <div>(5위/1페이지)</div>
+              <div class="rank up">4</div>
+            </li>
+            <li>
+              <div>2위</div>
+              <div>(3위/1페이지)</div>
+              <div class="rank up">1</div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-01" type="checkbox" />
+                <label for="check-01"></label>
+              </div>
+            </li>
+            <li class="col-important">
+              <div class="image">
+                <img
+                  src="https://images.unsplash.com/photo-1625021659159-f63f546d74a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNvZmZlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                  alt=""
+                />
+              </div>
+              <div class="information">
+                <small>상품 MID.12126547821</small>
+                <div class="title">1kg 커피창고 에티오피아 예가체프</div>
+                <div class="store">커피창고</div>
+              </div>
+            </li>
+            <li>커피원두</li>
+            <li>
+              <div>1위</div>
+              <div>(1위/1페이지)</div>
+              <div class="rank up">2</div>
+            </li>
+            <li>
+              <div>3위</div>
+              <div>(3위/1페이지)</div>
+              <div class="rank up">2</div>
+            </li>
+            <li>
+              <div>5위</div>
+              <div>(5위/1페이지)</div>
+              <div class="rank up">4</div>
+            </li>
+            <li>
+              <div>5위</div>
+              <div>(5위/1페이지)</div>
+              <div class="rank up">4</div>
+            </li>
+            <li>
+              <div>2위</div>
+              <div>(3위/1페이지)</div>
+              <div class="rank up">1</div>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   </div>
