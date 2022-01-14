@@ -59,35 +59,28 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Section Keyword History: List Scroll
   ===================================================== */
-  const sectionKeywordHistory = document.querySelector(
-    ".section-keyword-history"
-  );
-  var scrollVertical01 = document.querySelector(".scroll-vertical-01");
-  var scrollVertical02 = document.querySelector(".scroll-vertical-02");
-  var scrollHorizontal01 = document.querySelector(".scroll-horizontal-01");
-  var scrollHorizontal02 = document.querySelector(".scroll-horizontal-02");
+  const listScroll = document.querySelector(".list.scroll");
 
-  if (sectionKeywordHistory) {
-    const handleScrollVertical01 = () => {
-      scrollVertical02.scrollTop = scrollVertical01.scrollTop;
-    };
+  if (listScroll) {
+    var scrollVertical01 = document.querySelector(".scroll-vertical-01");
+    var scrollVertical02 = document.querySelector(".scroll-vertical-02");
+    var scrollHorizontal01 = document.querySelector(".scroll-horizontal-01");
+    var scrollHorizontal02 = document.querySelector(".scroll-horizontal-02");
 
-    const handleScrollVertical02 = () => {
-      scrollVertical01.scrollTop = scrollVertical02.scrollTop;
-    };
+    if (scrollVertical01) {
+      const handleScrollVertical = () => {
+        scrollVertical01.scrollTop = scrollVertical02.scrollTop;
+      };
+      scrollVertical02.addEventListener("scroll", handleScrollVertical);
+    }
 
-    const handleScrollHorizontal01 = () => {
-      scrollHorizontal02.scrollLeft = scrollHorizontal01.scrollLeft;
-    };
+    if (scrollHorizontal01) {
+      const handleScrollHorizontal = () => {
+        scrollHorizontal01.scrollLeft = scrollHorizontal02.scrollLeft;
+      };
 
-    const handleScrollHorizontal02 = () => {
-      scrollHorizontal01.scrollLeft = scrollHorizontal02.scrollLeft;
-    };
-
-    scrollVertical01.addEventListener("scroll", handleScrollVertical01);
-    scrollVertical02.addEventListener("scroll", handleScrollVertical02);
-    scrollHorizontal01.addEventListener("scroll", handleScrollHorizontal01);
-    scrollHorizontal02.addEventListener("scroll", handleScrollHorizontal02);
+      scrollHorizontal02.addEventListener("scroll", handleScrollHorizontal);
+    }
   }
 
   /* =====================================================

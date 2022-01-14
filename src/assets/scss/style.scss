@@ -5,6 +5,21 @@ $tertiary-color: #f2f1ff;
 html,
 body {
   height: 100vh;
+
+  :is(.list, .columns, .rows, .chart-container) {
+
+    &:empty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid #b3b6b9;
+      border-bottom: 1px solid #b3b6b9;
+
+      &::before {
+        content: attr(data-empty);
+      }
+    }
+  }
 }
 
 a {
@@ -72,6 +87,12 @@ button {
     background-position: center left 0.75rem;
     padding-left: 1.75rem !important;
   }
+
+  &.btn-main {
+    background-color: #333 !important;
+    color: white !important;
+    padding: 0 1.5rem !important;
+  }
 }
 
 main {
@@ -82,6 +103,73 @@ main {
 
 .content {
   overflow: hidden;
+
+  .main-header {
+    user-select: none;
+    flex: 0 0 auto;
+    padding: 1.5rem 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .title {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .subline {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: "RobotoMedium", "NanumBarunGothic";
+
+      .date {
+        font-size: 15px;
+        color: #333;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      button {
+        color: white;
+        height: 40px;
+        padding: 0 1rem;
+      }
+
+      [data-tooltip] {
+        &::before {
+          left: -150%;
+        }
+      }
+    }
+
+    .section-main {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+    }
+  }
+  > .wrapper {
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 0 1.5rem 1.5rem;
+    width: 100%;
+    gap: 1rem;
+    overflow-y: auto;
+
+    > section {
+      flex: 1 1 auto;
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }
 
 aside {
@@ -155,22 +243,52 @@ aside {
   }
 }
 
-.section-title {
-  margin-bottom: 0.75rem;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+section {
 
-  h3 {
-    font-weight: normal;
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #eee;
+    height: 45px;
+
+    > div {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    button {
+      background-color: #f2f3f3;
+      color: #636669;
+      padding: 0.5rem 1rem;
+      font-size: 14px;
+      height: 32px;
+      transition: opacity 0.2s;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
   }
+
 }
 
 .date {
   font-size: 14px;
   color: slategray;
   display: contents;
+}
+
+.chart-container {
+  height: 250px;
+}
+
+.chart {
+  width: 100%;
+  height: 250px;
+  max-width: 100%;
 }
 
 .tooltip-content {
@@ -191,20 +309,32 @@ aside {
   display: flex;
   flex-direction: column;
   border-top: 2px solid $secondary-color;
+  min-height: 165px;
+
+  [data-tooltip] {
+    &::before {
+      left: 400%;
+    }
+  }
+
+  .scroll-vertical-01,
+  .scroll-horizontal-01 {
+    overflow: hidden;
+  }
+
+  .columns {
+    display: flex;
+
+    .fixed {
+      border-right: 1px solid #ddd;
+    }
+    .rows:not(.fixed) {
+      overflow-x: auto;
+    }
+  }
 
   .rows {
     flex: 1 1 auto;
-
-    &:empty {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid #b3b6b9;
-
-      &::before {
-        content: attr(data-empty);
-      }
-    }
   }
 
   .row {
@@ -223,7 +353,9 @@ aside {
     }
 
     &.failed {
-      background-color: #f3f6f9;
+      li {
+        background-color: #f3f6f9;
+      }
     }
 
     &.title {
@@ -275,8 +407,9 @@ aside {
       }
 
       &.col-check {
-        flex: 0 0 auto;
-        width: 60px !important;
+        width: 30px !important;
+        border-right: 0;
+        padding-right: 0;
       }
 
       &.col-important {
@@ -354,107 +487,114 @@ aside {
   }
 }
 
-.content {
-  .main-header {
-    user-select: none;
-    flex: 0 0 auto;
-    padding: 1.5rem 1.5rem 1rem;
+.filters {
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  > div {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .search {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .count {
+    display: flex;
+    align-items: center;
     gap: 1rem;
 
-    .title {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .subline {
+    li {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
       font-family: "RobotoMedium", "NanumBarunGothic";
+      font-size: 16px;
 
-      .date {
-        font-size: 15px;
-        color: #333;
+      &:not(:last-of-type) {
+        &::after {
+          content: "/";
+        }
       }
 
-      p {
+      span {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      ::before,
+      ::after {
         font-size: 14px;
       }
 
-      button {
-        color: white;
-        height: 40px;
-        padding: 0 1rem;
-
-        &.btn-main {
-          background-color: #333;
-          padding: 0 1.5rem;
-        }
+      ::after {
+        content: "건";
       }
 
-      [data-tooltip] {
+      .selected {
         &::before {
-          left: -150%;
+          content: "선택";
+        }
+      }
+
+      .total {
+        &::before {
+          content: "총";
         }
       }
     }
-
-    .section-main {
-      background-color: white;
-      padding: 1.5rem;
-      border-radius: 0.5rem;
-    }
   }
 
-  .section-header {
+  .period {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    overflow: hidden;
 
-    > div {
-      display: flex;
-      gap: 0.5rem;
+    input {
+      display: none;
+
+      &:checked + label {
+        background-color: $tertiary-color;
+        color: $primary-color;
+      }
     }
 
-    .search {
+    label {
       display: flex;
-      gap: 0.5rem;
-    }
-
-    button {
-      background-color: #e3e6e9;
-      color: #636669;
+      align-items: center;
+      height: 30px;
+      padding: 0 0.5rem;
+      margin-right: 0;
       padding: 0.5rem 1rem;
-      font-size: 14px;
-      transition: opacity 0.2s;
+      transition: 0.2s;
 
-      &:hover {
-        opacity: 0.9;
+      &::before,
+      &::after {
+        content: none;
+      }
+
+      &:not(:last-of-type) {
+        border-right: 1px solid #ddd;
       }
     }
   }
 
-  > .wrapper {
-    flex: 1 1 auto;
-    flex-direction: column;
-    padding: 0 1.5rem 1.5rem;
-    width: 100%;
-    gap: 1rem;
-    overflow-y: auto;
+  .calendar {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
 
-    > section {
-      flex: 1 1 auto;
-      background-color: white;
-      padding: 1.5rem;
-      border-radius: 0.5rem;
-      display: flex;
-      flex-direction: column;
-    }
+  button {
+    background-color: $primary-color;
+    color: white;
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -495,6 +635,7 @@ aside {
     &.section-articles {
       .wrapper {
         gap: 1rem;
+        margin: unset;
       }
 
       .list {
@@ -547,7 +688,6 @@ aside {
 .content-ranking {
   .main-header {
     .status {
-      display: flex;
       gap: 2rem;
 
       :is(ul, li, .tag, div, span) {
@@ -658,16 +798,23 @@ aside {
     .row {
       &.title {
         li {
+          height: auto;
           justify-content: center;
         }
       }
 
       li {
+        height: 80px;
         position: relative;
+        flex: 0 0 auto;
+
+        &.col-important {
+          width: 540px !important;
+        }
 
         &:not(.col-important) {
-          flex: 0 0 auto;
-          width: 10%;
+          text-align: center;
+          width: 140px;
           flex-direction: column;
           gap: 0.25rem;
         }
@@ -715,9 +862,8 @@ aside {
         }
 
         ~ .information {
-
           .title {
-            max-width: 200px;
+            max-width: 250px;
           }
         }
       }
@@ -751,71 +897,6 @@ aside {
 }
 
 .content-ranking-details {
-  .section-header {
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #eee;
-  }
-
-  .filters {
-    user-select: none;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-
-    > div {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .period {
-      display: flex;
-      border: 1px solid #ddd;
-      border-radius: 0.25rem;
-      overflow: hidden;
-
-      input {
-        display: none;
-
-        &:checked + label {
-          background-color: $tertiary-color;
-          color: $primary-color;
-        }
-      }
-
-      label {
-        display: flex;
-        align-items: center;
-        height: 30px;
-        padding: 0 0.5rem;
-        margin-right: 0;
-        padding: 0.5rem 1rem;
-        transition: 0.2s;
-
-        &::before,
-        &::after {
-          content: none;
-        }
-
-        &:not(:last-of-type) {
-          border-right: 1px solid #ddd;
-        }
-      }
-    }
-
-    .calendar {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-    }
-
-    button {
-      background-color: $primary-color;
-      color: white;
-      padding: 0.5rem 1rem;
-    }
-  }
-
   .section-main {
     .information {
       display: flex;
@@ -854,17 +935,12 @@ aside {
 
   .section-keyword-history {
     .list {
-      .scroll-vertical-01,
-      .scroll-horizontal-01 {
-        overflow: hidden;
-      }
       .row {
         &.title {
           &:first-of-type {
             li {
               justify-content: center;
               width: 200px !important;
-              border-right: 1px solid #ddd;
             }
           }
 
@@ -878,21 +954,22 @@ aside {
               align-items: center;
               flex-wrap: nowrap;
               gap: 3px;
-              background: $primary-color;
-              color: white;
+              background: white;
+              color: $primary-color;
               padding: 0 0.5rem;
               height: 28px;
               border-radius: 30px;
-              font-size: 10px;
+              font-size: 12px;
               font-weight: normal;
-              cursor: pointer;
+              font-family: "RobotoMedium";
+              animation: blink 4s infinite alternate;
 
               &::after {
                 content: "";
                 display: block;
                 width: 6px;
                 height: 6px;
-                border: 1px solid white;
+                border: 1px solid $primary-color;
                 border-radius: 0;
                 border-left: none;
                 border-bottom: none;
@@ -998,13 +1075,8 @@ aside {
             .row {
               li {
                 width: 200px;
-                border-right: 1px solid #ddd;
               }
             }
-          }
-
-          &:not(.rows-keyword) {
-            overflow-x: auto;
           }
         }
       }
@@ -1156,5 +1228,16 @@ aside {
         }
       }
     }
+  }
+}
+@keyframes blink {
+  45% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  55% {
+    opacity: 1;
   }
 }

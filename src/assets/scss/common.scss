@@ -278,7 +278,7 @@ label {
 }
 
 button {
-  font: 15px/1 "NanumBarunGothic";
+  font: 15px/1 "Roboto", "NanumBarunGothic";
   display: flex;
   align-items: center;
   border: 0;
@@ -549,27 +549,72 @@ aside {
 /* Pagination */
 
 .pagination {
-  margin: 2rem auto;
-}
-
-.pagination ul {
-  display: flex;
-}
-
-.pagination li {
-  margin: 0 1rem;
-  color: $kelly-moore-camp-muir;
   display: flex;
   align-items: center;
-}
+  justify-content: center;
+  gap: .5rem;
+  margin-top: 1rem;
 
-.pagination .active {
-  color: #36299f;
-  font-weight: bold;
-}
+  > button {
+    background-color: #e3e6e9;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.pagination svg {
-  fill: $delta-drizzle-grey;
+  .arrow {
+    display: inline-flex;
+    border: 1px solid slategray;
+    border-left: none;
+    border-bottom: none;
+    width: 6px;
+    height: 6px;
+    margin-left: 0.15rem;
+
+    &.left {
+      transform: rotate(225deg);
+    }
+
+    &.right {
+      transform: rotate(45deg);
+    }
+
+    &.double {
+      gap: .25rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: inline-flex;
+        border: 1px solid slategray;
+        border-left: none;
+        border-bottom: none;
+        width: 6px;
+        height: 6px;
+        top: 2px;
+        left: -3px
+      }
+    }
+  }
+
+  .pages {
+    display: flex;
+    gap: 1rem;
+    margin: 0 1rem;
+
+    button {
+      color: $kelly-moore-camp-muir;
+      display: flex;
+      align-items: center;
+
+      &.is-active {
+        color: $primary-color;
+        font-family: "RobotoMedium";
+      }
+    }
+  }
 }
 
 /* ,Checkbox */
@@ -1045,11 +1090,13 @@ input[type="radio"] + label:empty:before {
 
 /* Tooltip */
 [data-tooltip] {
-  cursor: pointer;
   position: relative;
+  display: inline-block;
+  cursor: pointer;
 
   &:hover {
-    &::before, &::after {
+    &::before,
+    &::after {
       opacity: 1;
       z-index: 1;
     }
@@ -1060,7 +1107,7 @@ input[type="radio"] + label:empty:before {
     content: attr(data-tooltip);
     word-break: keep-all;
     transform: translateX(-50%);
-    background-color: slategray;
+    background-color: #98a0ab;
     line-height: 1.5;
     color: white;
     width: 300px;
@@ -1081,7 +1128,7 @@ input[type="radio"] + label:empty:before {
     left: 50%;
     transform: translateX(-50%);
     width: 0;
-    border-bottom: 8px solid slategray;
+    border-bottom: 8px solid #98a0ab;
     border-right: 8px solid transparent;
     border-left: 8px solid transparent;
     font-size: 0;

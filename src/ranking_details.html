@@ -302,10 +302,10 @@
       </h1>
     </section>
     <section class="section-main">
-      <div class="section-title">
+      <header class="section-header">
         <h3></h3>
-        <a href="">상품페이지로 이동</a>
-      </div>
+        <a href="" class="right-arrow">상품페이지로 이동</a>
+      </header>
       <div class="information">
         <div class="image">
           <img
@@ -405,7 +405,9 @@
             </select>
           </div>
         </div>
-        <div id="keywordChart" class="chart"></div>
+        <div class="chart-container" data-empty="데이터 갱신 전입니다.">
+          <div id="keywordChart" class="chart"></div>
+        </div>
       </div>
     </section>
     <section class="section-keyword-history">
@@ -468,9 +470,11 @@
           </select>
         </div>
       </div>
-      <div class="list">
+
+      <!-- list 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
+      <div class="list scroll" data-empty="데이터 갱신 전입니다.">
         <div class="columns">
-          <ul class="row title">
+          <ul class="row title fixed">
             <li>키워드</li>
           </ul>
           <ul class="row title scroll-horizontal-01">
@@ -557,7 +561,7 @@
           </ul>
         </div>
         <div class="columns">
-          <div class="rows rows-keyword scroll-vertical-01">
+          <div class="rows rows-keyword fixed scroll-vertical-01">
             <ul class="row">
               <li>
                 <div>싱글오리진</div>
@@ -970,7 +974,9 @@
             </select>
           </div>
         </div>
-        <div id="priceChart" class="chart"></div>
+        <div class="chart-container" data-empty="데이터 갱신 전입니다.">
+          <div id="priceChart" class="chart"></div>
+        </div>
       </div>
     </section>
     <section>
