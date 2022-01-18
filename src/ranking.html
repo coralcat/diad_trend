@@ -150,15 +150,19 @@
     <section>
       <header class="section-header multi-line">
         <div class="title">
-          <div>
-          </div>
+          <button class="btn-dark btn-advanced-search" type="button">
+            상세검색
+          </button>
           <div class="buttons">
-            <button type="button">상품등록</button>
-            <button type="button">그룹조회</button>
-            <button type="button">그룹편집</button>
-            <button class="ico-download" type="button">엑셀다운</button>
-            <button class="btn-main btn-advanced-search" type="button">
-              상세검색
+            <button class="btn-sub" type="button">그룹조회</button>
+            <button class="btn-sub" type="button" data-modal="edit-group">
+              그룹편집
+            </button>
+            <button class="btn-sub" class="ico-download" type="button">
+              엑셀다운
+            </button>
+            <button class="btn-main" type="button" data-modal="create-item">
+              상품등록
             </button>
           </div>
         </div>
@@ -286,9 +290,9 @@
             </div>
             <div class="search">
               <input type="search" />
-              <button type="button">검색</button>
+              <button class="btn-sub" type="button">검색</button>
             </div>
-            <ul class="count">
+            <ul class="list-count">
               <li>
                 <span class="selected">0</span>
               </li>
@@ -300,10 +304,10 @@
           <div>
             <!-- 상품 선택했을 때, 보여지는 버튼들 -->
             <div class="buttons">
-              <button onclick="openModal(deleteKeyword)" type="button">
+              <button type="button" data-modal="delete-keyword">
                 선택삭제
               </button>
-              <button onclick="openModal(createKeyword)" type="button">
+              <button type="button" data-modal="create-keyword">
                 키워드등록
               </button>
               <button type="button">
@@ -313,7 +317,7 @@
                 </div>
               </button>
               <button type="button">그룹지정</button>
-              <button onclick="openModal(ungroup)" type="button">그룹해제</button>
+              <button type="button" data-modal="ungroup">그룹해제</button>
             </div>
             <div class="selectbox">
               <select name="" id="">
@@ -331,7 +335,12 @@
           <ul class="row title fixed">
             <li class="col-check">
               <div class="checkbox">
-                <input id="checkAll" type="checkbox" />
+                <input
+                  id="checkAll"
+                  class="check-all"
+                  name="select-item"
+                  type="checkbox"
+                />
                 <label for="checkAll"></label>
               </div>
             </li>
@@ -356,11 +365,11 @@
             <ul class="row failed">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check-01" type="checkbox" />
+                  <input id="check-01" name="select-item" type="checkbox" />
                   <label for="check-01"></label>
                 </div>
               </li>
-              <li class="col-important">
+              <li class="col-important item">
                 <div
                   class="update"
                   data-tooltip="상품에 등록된 모든 키워드가 400위 밖으로 상품 정보가 갱신되지 않았습니다."
@@ -391,11 +400,11 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check-01" type="checkbox" />
-                  <label for="check-01"></label>
+                  <input id="check-02" name="select-item" type="checkbox" />
+                  <label for="check-02"></label>
                 </div>
               </li>
-              <li class="col-important">
+              <li class="col-important item">
                 <div class="image">
                   <img
                     src="https://images.unsplash.com/photo-1625021659159-f63f546d74a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNvZmZlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
@@ -416,11 +425,11 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check-01" type="checkbox" />
-                  <label for="check-01"></label>
+                  <input id="check-03" name="select-item" type="checkbox" />
+                  <label for="check-03"></label>
                 </div>
               </li>
-              <li class="col-important">
+              <li class="col-important item">
                 <div class="image">
                   <img
                     src="https://images.unsplash.com/photo-1625021659159-f63f546d74a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNvZmZlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
@@ -565,11 +574,6 @@
     </section>
   </div>
 </div>
-<div class="modal alert">
-  <div class="dialog">
-    <header class="modal-header">test</header>
-  </div>
-</div>
 
 <div class="modal modal-confirm delete-keyword">
   <div class="dialog">
@@ -598,7 +602,7 @@
   </div>
 </div>
 
-<div class="modal modal-confirm create-keyword">
+<div class="modal modal-confirm create-keyword-2">
   <div class="dialog">
     <header class="modal-header">
       <div class="close"></div>
@@ -625,21 +629,314 @@
   </div>
 </div>
 
+<div class="modal create-item">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>상품등록</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section>
+        <div class="title">등록 가능한 상품 순위 조회 소재는 10개 입니다.</div>
+        <a href="#" class="right-arrow">등록 가능 소재 개수 추가방법</a>
+      </section>
+      <section>
+        <div class="title">등록하실 상품의 URL을 입력해주세요.</div>
+        <a href="#" class="right-arrow">URL 확인방법</a>
+        <div class="search">
+          <input type="url" placeholder="URL을 입력해주세요" required />
+          <span class="refresh x"></span>
+          <small class="alert">상품 URL을 입력해주세요.</small>
+        </div>
+      </section>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" type="button" data-modal="search-item">
+        조회
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal search-item">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>상품조회완료</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section>
+        <div class="title">
+          상품 조회가 완료되었습니다. 키워드 등록을 진행하시겠습니까?
+        </div>
+      </section>
+      <section class="section-item item">
+        <div class="image">
+          <img
+            src="https://images.unsplash.com/photo-1625021659159-f63f546d74a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNvZmZlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+            alt="test"
+          />
+        </div>
+        <div class="information">
+          <small>상품 MID.12126547821</small>
+          <div class="title" onclick="location.href='/ranking_details.html'">
+            1kg 커피창고 에티오피아 예가체프 test test test test test test
+          </div>
+          <div class="store">커피창고</div>
+        </div>
+      </section>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" type="button" data-modal="create-keyword">
+        확인
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal edit-group">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>그룹편집</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section>
+        <div class="input">
+          <input type="text" placeholder="그룹명을 입력해주세요." />
+          <button class="btn-sub" type="button">그룹추가</button>
+        </div>
+        <small class="alert">그룹명을 입력해주세요.</small>
+      </section>
+      <section>
+        <div class="list-header">
+          <ul class="list-count">
+            <li>
+              <span class="selected">0</span>
+            </li>
+            <li>
+              <span class="total">0</span>
+            </li>
+          </ul>
+          <button class="btn-grayscale" type="button">삭제</button>
+        </div>
+        <div class="list">
+          <ul class="row title">
+            <li class="col-check">
+              <div class="checkbox">
+                <input
+                  id="createKeywordCheckAll"
+                  type="checkbox"
+                  name="createKeywordCheck"
+                  class="check-all"
+                />
+                <label for="createKeywordCheckAll"></label>
+              </div>
+            </li>
+            <li>전체</li>
+          </ul>
+          <div class="rows" data-empty="그룹을 추가해주세요.">
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input id="check1" type="checkbox" name="createKeywordCheck" />
+                  <label for="check1"></label>
+                </div>
+              </li>
+              <li>커피 원두 (5)</li>
+            </ul>
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input id="check2" type="checkbox" name="createKeywordCheck" />
+                  <label for="check2"></label>
+                </div>
+              </li>
+              <li>커피 캡슐 (3)</li>
+            </ul>
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input id="check3" type="checkbox" name="createKeywordCheck" />
+                  <label for="check3"></label>
+                </div>
+              </li>
+              <li>커피 그라인더 (2)</li>
+            </ul>
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input id="check4" type="checkbox" name="createKeywordCheck" />
+                  <label for="check4"></label>
+                </div>
+              </li>
+              <li>커피 원두 (5)</li>
+            </ul>
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input id="check5" type="checkbox" name="createKeywordCheck" />
+                  <label for="check5"></label>
+                </div>
+              </li>
+              <li>커피 캡슐 (3)</li>
+            </ul>
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input id="check6" type="checkbox" name="createKeywordCheck" />
+                  <label for="check6"></label>
+                </div>
+              </li>
+              <li>커피 그라인더 (2)</li>
+            </ul>
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input id="check7" type="checkbox" name="createKeywordCheck" />
+                  <label for="check7"></label>
+                </div>
+              </li>
+              <li>커피 원두 (5)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" type="button">적용</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal create-keyword">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>키워드 등록</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section>
+        <p>등록하실 키워드를 추가해주세요.</p>
+        <div class="input">
+          <input type="text" placeholder="키워드를 입력해주세요." />
+          <button class="btn-sub" type="button">키워드추가</button>
+        </div>
+        <small class="alert">키워드를 입력해주세요.</small>
+      </section>
+      <section>
+        <div class="list-header">
+          <ul class="list-count">
+            <li>
+              <span class="selected">0</span>
+            </li>
+            <li>
+              <span class="total">9</span>
+            </li>
+          </ul>
+          <button class="btn-grayscale" type="button">삭제</button>
+        </div>
+        <div class="list">
+          <ul class="row title">
+            <li class="col-check">
+              <div class="checkbox">
+                <input
+                  id="createKeywordCheckAll"
+                  type="checkbox"
+                  name="createKeywordCheck"
+                  class="check-all"
+                />
+                <label for="createKeywordCheckAll"></label>
+              </div>
+            </li>
+            <li>전체</li>
+          </ul>
+          <div class="rows" data-empty="키워드를 추가해주세요.">
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input id="check1" type="checkbox" name="createKeywordCheck" />
+                  <label for="check1"></label>
+                </div>
+              </li>
+              <li class="keyword">커피</li>
+            </ul>
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input id="check2" type="checkbox" name="createKeywordCheck" />
+                  <label for="check2"></label>
+                </div>
+              </li>
+              <li class="keyword">커피원두</li>
+            </ul>
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input id="check3" type="checkbox" name="createKeywordCheck" />
+                  <label for="check3"></label>
+                </div>
+              </li>
+              <li class="keyword">원두커피</li>
+            </ul>
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input id="check4" type="checkbox" name="createKeywordCheck" />
+                  <label for="check4"></label>
+                </div>
+              </li>
+              <li class="keyword">커피</li>
+            </ul>
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input id="check5" type="checkbox" name="createKeywordCheck" />
+                  <label for="check5"></label>
+                </div>
+              </li>
+              <li class="keyword">커피원두</li>
+            </ul>
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input id="check6" type="checkbox" name="createKeywordCheck" />
+                  <label for="check6"></label>
+                </div>
+              </li>
+              <li class="keyword">원두커피</li>
+            </ul>
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input id="check7" type="checkbox" name="createKeywordCheck" />
+                  <label for="check7"></label>
+                </div>
+              </li>
+              <li class="keyword">원두커피</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" type="button">적용</button>
+    </div>
+  </div>
+</div>
+
 <script>
-  const deleteKeyword = document.querySelector(".delete-keyword");
-  const createKeyword = document.querySelector(".create-keyword");
-  const ungroup = document.querySelector(".ungroup");
-  const openModal = (modal) => {
-    if (modal === "deleteKeyword") {
-      deleteKeyword.classList.add("is-active");
-    }
-    if (modal === "createKeyword") {
-      createKeyword.classList.add("is-active");
-    }
-    if (modal === "ungroup") {
-      ungroup.classList.add("is-active");
-    }
+  const searchItem = document.querySelector(".search-item");
+  const input = searchItem.querySelector("input");
+  if (input.value == "") {
+    const alert = input.nextElementSibling;
+    alert.classList.add("is-active");
+  } else {
     modal.classList.add("is-active");
-  };
+  }
 </script>
 {% endblock %}

@@ -12,6 +12,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector("header");
 
   /* =====================================================
+       Input Search Close Button
+  ===================================================== */
+  const searchInputs = document.querySelectorAll(
+    "input[type='search'], input[type='url']"
+  );
+  if (searchInputs) {
+    searchInputs.forEach((input) => {
+      const x = input.nextElementSibling;
+      x.addEventListener("click", (event) => {
+        const input = event.target.previousElementSibling;
+        input.value = "";
+      });
+    });
+  }
+
+  /* =====================================================
        Toggle
   ===================================================== */
   const toggles = document.querySelectorAll(".toggle");
@@ -57,28 +73,51 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =====================================================
+       Checkbox: Check All
+  ===================================================== */
+  const checkAll = document.querySelectorAll(".check-all");
+  if (checkAll) {
+    checkAll.forEach((all) => {
+      const handleCheckAll = (event) => {
+        const inputName = event.target.getAttribute("name");
+        const checkboxes = document.getElementsByName(inputName);
+        checkboxes.forEach((checkbox) => {
+          checkbox.checked = all.checked;
+        });
+      };
+      all.addEventListener("click", handleCheckAll);
+    });
+  }
+
+  /* =====================================================
        Modal
   ===================================================== */
   const modals = document.querySelectorAll(".modal");
   if (modals) {
-    const closeButtons = document.querySelectorAll(".close");
-    if (closeButtons) {
-      closeButtons.forEach((close) => {
-        close.addEventListener("click", (event) => {
-          const modal = event.target.closest(".modal");
-          console.log(modal);
-          modal.classList.remove("is-active");
-        });
+    const initialized = () => {
+      modals.forEach((modal) => {
+        modal.classList.remove("is-active");
       });
-    }
+    };
+    const modalButtons = document.querySelectorAll("[data-modal]");
+    modalButtons.forEach((button) => {
+      const openModal = (event) => {
+        initialized();
+        const modalName = event.target.dataset.modal;
+        const targetModal = document.querySelector(`.${modalName}`);
+        targetModal.classList.add("is-active");
+      };
+      button.addEventListener("click", openModal);
+    });
+  }
 
-    modals.forEach((modal) => {
-      const modalButtonSubmit = modal.querySelector(".btn-submit");
-      if (modalButtonSubmit) {
-        modalButtonSubmit.addEventListener("click", () => {
-          const modalDone = document.querySelector(".modal-done");
-        });
-      }
+  const closeButtons = document.querySelectorAll(".close");
+  if (closeButtons) {
+    closeButtons.forEach((close) => {
+      close.addEventListener("click", (event) => {
+        const modal = event.target.closest(".modal");
+        modal.classList.remove("is-active");
+      });
     });
   }
 
@@ -91,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const modal = event.target.closest(".modal");
         const secondaryModal = modal.nextElementSibling;
 
-        if(secondaryModal.classList.contains("modal-done")) {
+        if (secondaryModal.classList.contains("modal-done")) {
           modal.classList.remove("is-active");
           secondaryModal.classList.add("is-active");
         }
@@ -160,4 +199,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  /* =====================================================
+         p42: 상품 순위 조회 > 상품등록
+    ===================================================== */
 });
