@@ -23,11 +23,6 @@
     url("../fonts/NanumBarunGothicLight.woff") format("woff");
 }
 
-$primary-color: #7682f8;
-$secondary-color: #7484f5;
-$dark-primary-color: #27292d;
-$dark-secondary-color: #373a46;
-$dark-tertiary-color: #85899a;
 // Modno Bright
 $levis-clear-purple: #dcdfe4;
 $auro-peppermint: #d5dbe0;
@@ -43,6 +38,13 @@ $ecos-paints-quiet-peace: #49536b;
 $farrownball-drawing-room-blue: #2e3548;
 // Blue tone
 $clark-kensington-stowe-mountain: #717593;
+
+
+$primary-color: #7682f8;
+$secondary-color: #5661b1;
+$dark-primary-color: #27292d;
+$dark-tertiary-color: #85899a;
+$dark-secondary-color: $clark-kensington-stowe-mountain;
 
 $input-height: 32px;
 $input-outline-color: $primary-color;
@@ -67,8 +69,11 @@ body {
   }
 
   .is-active {
+    display: flex;
+    height: auto;
+    max-height: none;
     opacity: 1 !important;
-    z-index: 1;
+    z-index: 10;
   }
 }
 
@@ -278,6 +283,7 @@ label {
 }
 
 button {
+  user-select: none;
   font: 15px/1 "Roboto", "NanumBarunGothic";
   display: flex;
   align-items: center;
@@ -286,8 +292,9 @@ button {
   border-radius: 0.25rem;
   padding: 0;
   white-space: nowrap;
+  transition: background .2s;
   cursor: pointer;
-  user-select: none;
+
   svg + span {
     margin-left: 0.2rem;
   }
@@ -296,23 +303,6 @@ button {
 .btn-submit {
   background-color: $primary-color;
   color: white;
-}
-
-.btn-cancel {
-  background-color: rgba(0, 0, 0, 0.1);
-  color: #49536b;
-}
-
-.btn-modify {
-  background-color: $secondary-color;
-  color: #333;
-  width: 2rem;
-  height: 2rem;
-  padding: 0;
-}
-
-.btn-download {
-  background-color: $delta-drizzle-grey !important;
 }
 
 textarea {
@@ -458,8 +448,6 @@ aside {
 }
 
 .wrapper {
-  flex: 1 1 auto;
-  margin: 0 auto;
   display: flex;
   box-sizing: border-box;
   position: relative;
@@ -500,9 +488,7 @@ aside {
 
 .buttons {
   display: flex;
-  button {
-    margin-left: 0.5rem;
-  }
+  gap: 0.5rem;
 }
 
 /* Progress */
@@ -552,7 +538,7 @@ aside {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .5rem;
+  gap: 0.5rem;
   margin-top: 1rem;
 
   > button {
@@ -582,7 +568,7 @@ aside {
     }
 
     &.double {
-      gap: .25rem;
+      gap: 0.25rem;
 
       &::before {
         content: "";
@@ -594,7 +580,7 @@ aside {
         width: 6px;
         height: 6px;
         top: 2px;
-        left: -3px
+        left: -3px;
       }
     }
   }
@@ -622,6 +608,11 @@ aside {
 .checkbox {
   position: relative;
   user-select: none;
+
+  + .checkbox {
+    margin-left: 1rem;
+  }
+
   input {
     position: absolute;
     opacity: 0;
@@ -631,6 +622,7 @@ aside {
       border-color: $secondary-color;
     }
   }
+
   label {
     flex: 1 1 auto !important;
     display: flex;
@@ -969,98 +961,113 @@ input[type="radio"] + label:empty:before {
 /* =====================================================
    Modal Effect
    ===================================================== */
-
 .modal {
   opacity: 0;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  flex-direction: column;
-  border-radius: 0.5rem;
-  box-sizing: border-box;
-  overflow-x: hidden;
-  overflow-y: auto;
-  cursor: default;
-  transition: 0.25s;
   z-index: -1;
-  &.active {
-    z-index: 10;
-  }
-  input[type="radio"]:hover + label,
-  input[type="radio"]:checked + label {
-    background-color: #333 !important;
-  }
-}
-
-.modal {
-  width: 50vw;
-  height: 50vh;
-  max-height: 60%;
-  overflow-y: auto;
-  .btn-close {
-    background-color: transparent;
-    cursor: pointer;
-  }
-  .modal-header {
-    flex: 0 0 auto;
-    flex-direction: column !important;
-    border-bottom: 1px solid #ddd;
-  }
-  .title {
-    width: 100%;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .row {
-    padding: 0;
-  }
-  .modal-content {
-    overflow-y: auto;
-    flex: 1 1 auto;
-  }
-  .modal-footer {
-    flex: 0 0 auto;
-    &.buttons {
-      gap: 0;
-      position: relative;
-      button {
-        border-radius: 0;
-        justify-content: center;
-        height: 50px;
-      }
-      .btn-cancel {
-        flex: 0 0 50%;
-      }
-      .btn-submit {
-        flex: 1 1 auto;
-      }
-    }
-  }
-  section {
-    padding: 0 1rem 1rem 1rem;
-    flex: 1 1 auto;
-  }
-}
-
-.overlay {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   position: fixed;
   top: 0;
-  bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  opacity: 0;
-  z-index: -1;
-  transition: opacity 0.2s;
-  &.active {
-    z-index: 2;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.25s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .dialog {
+    min-width: 25rem;
+    max-width: 90vw;
+    max-height: 90vw;
+    background-color: white;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    z-index: 30;
+  }
+
+  .modal-header {
+    flex: 0 0 auto;
+    height: 24px;
+    position: relative;
+
+    .close {
+      position: absolute;
+      top: 3px;
+      right: 0;
+      width: 18px;
+      height: 18px;
+      background-image: linear-gradient(#333 0 0), linear-gradient(#333 0 0);
+      background-position: center;
+      background-size: 100% 2px, 2px 100%;
+      background-repeat: no-repeat;
+      transform: rotate(45deg);
+      cursor: pointer;
+    }
+  }
+
+  .modal-content {
+    flex: 1 1 auto;
+  }
+
+  .buttons {
+    flex: 0 0 auto;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      border-radius: 0.35rem;
+      height: 36px;
+      padding: 0 2rem;
+    }
+  }
+
+  .btn-submit {
+    background-color: rgb(118 130 248);
+    color: #fff;
+    box-shadow: 0px 3px 6px rgba(118, 130, 248, .5);
+  }
+
+  .btn-cancel {
+    color: $dark-secondary-color;
+  }
+}
+
+.modal.alert {
+  :is(.modal-header, .modal-content, .buttons) {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+}
+
+.modal-done, .modal-alert {
+
+  .modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 5rem;
+  }
+
+  .buttons {
+    margin-top: 0;
+    justify-content: center;
   }
 }
 
@@ -1100,24 +1107,31 @@ input[type="radio"] + label:empty:before {
       opacity: 1;
       z-index: 1;
     }
+
+    &::before {
+      max-height: none;
+      width: 300px;
+      padding: 1rem;
+      white-space: pre-line;
+    }
   }
 
   &::before {
     opacity: 0;
+    max-height: 0;
     content: attr(data-tooltip);
     word-break: keep-all;
     transform: translateX(-50%);
     background-color: #98a0ab;
     line-height: 1.5;
     color: white;
-    width: 300px;
-    padding: 1rem;
     border-radius: 0.25rem;
     position: absolute;
     top: calc(100% + 0.5rem);
     left: 50%;
     font: 13px/1.5 "NanumBarunGothicLight";
-    transition: 0.2s;
+    transition: opacity 0.2s;
+    z-index: -1;
   }
 
   &::after {
@@ -1133,7 +1147,7 @@ input[type="radio"] + label:empty:before {
     border-left: 8px solid transparent;
     font-size: 0;
     line-height: 0;
-    transition: 0.2s;
+    transition: opacity 0.2s;
   }
 }
 
@@ -1171,7 +1185,7 @@ input[type="radio"] + label:empty:before {
     padding: 1rem;
     min-width: 300px;
     border-radius: 0.25rem;
-    background-color: #4e6697;
+    background-color: $secondary-color;
     color: white;
     font: 13px/1.5 "NanumBarunGothicLight";
     transition: all 0.2s;
@@ -1183,7 +1197,7 @@ input[type="radio"] + label:empty:before {
       left: 50%;
       transform: translateX(-50%);
       width: 0;
-      border-bottom: 8px solid #4e6697;
+      border-bottom: 8px solid $secondary-color;
       border-right: 8px solid transparent;
       border-left: 8px solid transparent;
       font-size: 0;

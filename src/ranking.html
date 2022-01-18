@@ -1,4 +1,38 @@
 {% extends "base.html" %} {% block content %}
+<script>
+  $(function () {
+    var dateFormat = "mm/dd/yy",
+      from = $("#from")
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 3,
+        })
+        .on("change", function () {
+          to.datepicker("option", "minDate", getDate(this));
+        }),
+      to = $("#to")
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 3,
+        })
+        .on("change", function () {
+          from.datepicker("option", "maxDate", getDate(this));
+        });
+
+    function getDate(element) {
+      var date;
+      try {
+        date = $.datepicker.parseDate(dateFormat, element.value);
+      } catch (error) {
+        date = null;
+      }
+
+      return date;
+    }
+  });
+</script>
 
 <div class="content content-ranking">
   <header class="main-header">
@@ -22,7 +56,7 @@
         </div>
       </h1>
 
-      <!-- <div class="subline status">
+      <div class="subline status">
         <ul class="services">
           <li>서비스</li>
           <li>
@@ -37,7 +71,7 @@
             2022-03-01 ~ 2023-02-28
           </li>
         </ul>
-      </div> -->
+      </div>
 
       <!-- 서비스 신청 전 -->
       <!-- <div class="subline">
@@ -54,7 +88,7 @@
       </div> -->
 
       <!-- 서비스 이용기간 만료 -->
-      <div class="subline">
+      <!-- <div class="subline">
         <p>
           서비스 이용기간이 만료되었습니다.
           <span class="date">2021-07-30</span>
@@ -71,7 +105,7 @@
         >
           <button class="btn-main" type="button">서비스 신청하기</button>
         </a>
-      </div>
+      </div> -->
     </section>
     <section class="section-main">
       <div class="services">
@@ -114,49 +148,183 @@
   </header>
   <div class="wrapper">
     <section>
-      <header class="section-header">
-        <div>
-          <button class="btn-main" type="button">상세검색</button>
-        </div>
-        <div>
-          <button type="button">상품등록</button>
-          <button type="button">그룹조회</button>
-          <button type="button">그룹편집</button>
-          <button class="ico-download" type="button">엑셀다운</button>
-        </div>
-      </header>
-      <div class="filters">
-        <div>
-          <div class="selectbox">
-            <select name="" id="">
-              <option value="keyword">키워드</option>
-              <option value="keyword">키워드</option>
-              <option value="keyword">키워드</option>
-            </select>
+      <header class="section-header multi-line">
+        <div class="title">
+          <div>
           </div>
-          <div class="search">
-            <input type="search" />
-            <button type="button">검색</button>
+          <div class="buttons">
+            <button type="button">상품등록</button>
+            <button type="button">그룹조회</button>
+            <button type="button">그룹편집</button>
+            <button class="ico-download" type="button">엑셀다운</button>
+            <button class="btn-main btn-advanced-search" type="button">
+              상세검색
+            </button>
           </div>
-          <ul class="count">
+        </div>
+        <div class="advanced-search">
+          <ul class="item-keyword">
             <li>
-              <span class="selected">0</span>
+              <h5>
+                <span>키워드</span>
+                <div
+                  data-tooltip="복수검색은 줄 바꿈(엔터키)으로 구분합니다.
+                  예시: 키워드
+                    상품
+                  "
+                >
+                  <div class="ico-tooltip"></div>
+                </div>
+              </h5>
+              <small>복수검색 가능</small>
             </li>
             <li>
-              <span class="total">0</span>
+              <textarea name="" id="" rows="5"></textarea>
             </li>
           </ul>
-        </div>
-        <div>
-          <div class="selectbox">
-            <select name="" id="">
-              <option value="filter-100">100개씩 보기</option>
-              <option value="filter-200">200개씩 보기</option>
-              <option value="filter-300">300개씩 보기</option>
-            </select>
+          <ul class="item-mid">
+            <li>
+              <h5>
+                <span>상품 MID</span>
+                <div
+                  data-tooltip="복수검색은 줄 바꿈(엔터키)으로 구분합니다.
+                  예시: 12345678900
+                    12345678901
+                  "
+                >
+                  <div class="ico-tooltip"></div>
+                </div>
+              </h5>
+              <small>복수검색 가능</small>
+            </li>
+            <li>
+              <textarea name="" id=""></textarea>
+            </li>
+          </ul>
+          <div class="rows item-information">
+            <ul>
+              <li>스토어명</li>
+              <li><input type="text" /></li>
+            </ul>
+            <ul>
+              <li>상품명</li>
+              <li><input type="text" /></li>
+            </ul>
+            <ul>
+              <li>그룹</li>
+              <li><input type="text" /></li>
+            </ul>
+          </div>
+          <ul class="item-ranking">
+            <li>
+              <h5>
+                <span>순위</span>
+                <div
+                  data-tooltip="• 순위 범위를 전체순위(1~401위)로 입력해주세요.
+                  • 400위 밖을 검색할 경우 ‘이상’ 입력 칸에 401을 입력해주세요.
+                  • 특정 값을 순위로 검색할 경우 위아래 입력 칸에 같은 값을 입력해주세요.
+                  "
+                >
+                  <div class="ico-tooltip"></div>
+                </div>
+              </h5>
+              <small>복수검색 가능</small>
+            </li>
+            <li class="rows">
+              <div class="up">
+                <input type="number" />
+              </div>
+              <div class="down">
+                <input type="number" />
+              </div>
+            </li>
+          </ul>
+          <div class="item-created">
+            <ul>
+              <li>등록일</li>
+              <li class="rows">
+                <div class="select">
+                  <input type="radio" name="created" checked />
+                  <label for="">사용</label>
+                  <input type="radio" name="created" />
+                  <label for="">미사용</label>
+                </div>
+                <div class="calendar">
+                  <input type="text" id="from" name="from" />
+                  <span>~</span>
+                  <input type="text" id="to" name="to" />
+                </div>
+              </li>
+            </ul>
+          </div>
+          <ul class="item-alert">
+            <li>알림</li>
+            <li>
+              <div class="checkbox">
+                <input type="checkbox" id="alert-on" />
+                <label for="alert-on">on</label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" id="alert-off" />
+                <label for="alert-off">off</label>
+              </div>
+            </li>
+          </ul>
+          <div class="buttons">
+            <button class="btn-sub">초기화</button>
+            <button class="btn-main">상세검색</button>
           </div>
         </div>
-      </div>
+        <div class="filters">
+          <div>
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="keyword">키워드</option>
+                <option value="keyword">키워드</option>
+                <option value="keyword">키워드</option>
+              </select>
+            </div>
+            <div class="search">
+              <input type="search" />
+              <button type="button">검색</button>
+            </div>
+            <ul class="count">
+              <li>
+                <span class="selected">0</span>
+              </li>
+              <li>
+                <span class="total">0</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <!-- 상품 선택했을 때, 보여지는 버튼들 -->
+            <div class="buttons">
+              <button onclick="openModal(deleteKeyword)" type="button">
+                선택삭제
+              </button>
+              <button onclick="openModal(createKeyword)" type="button">
+                키워드등록
+              </button>
+              <button type="button">
+                <div class="checkbox">
+                  <input id="setAlarm" type="checkbox" />
+                  <label for="setAlarm">알람설정</label>
+                </div>
+              </button>
+              <button type="button">그룹지정</button>
+              <button onclick="openModal(ungroup)" type="button">그룹해제</button>
+            </div>
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="filter-100">100개씩 보기</option>
+                <option value="filter-200">200개씩 보기</option>
+                <option value="filter-300">300개씩 보기</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </header>
       <!-- list 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
       <div class="list list-items scroll" data-empty="상품을 등록해주세요">
         <div class="columns">
@@ -397,4 +565,81 @@
     </section>
   </div>
 </div>
+<div class="modal alert">
+  <div class="dialog">
+    <header class="modal-header">test</header>
+  </div>
+</div>
+
+<div class="modal modal-confirm delete-keyword">
+  <div class="dialog">
+    <header class="modal-header">
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <p>키워드 삭제 시 해당 키워드의 모든 데이터가 삭제됩니다.</p>
+      <p>재등록시에도 삭제된 데이터는 복구되지 않습니다.</p>
+      <p>삭제를 진행하시겠습니까?</p>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">아니오</button>
+      <button class="btn-submit" type="button">예</button>
+    </div>
+  </div>
+</div>
+<div class="modal modal-done">
+  <div class="dialog">
+    <div class="modal-content">
+      <p>키워드 삭제가 완료되었습니다.</p>
+    </div>
+    <div class="buttons">
+      <button class="btn-submit close" type="button">확인</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-confirm create-keyword">
+  <div class="dialog">
+    <header class="modal-header">
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <p>선택하신 소재는 동일한 상품입니다.</p>
+      <p>단일 상품에 대한 키워드 등록을 진행하시겠습니까?</p>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">아니오</button>
+      <button class="btn-submit" type="button">예</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-alert ungroup">
+  <div class="dialog">
+    <div class="modal-content">
+      <p>그룹해제가 완료되었습니다.</p>
+    </div>
+    <div class="buttons">
+      <button class="btn-submit close" type="button">확인</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const deleteKeyword = document.querySelector(".delete-keyword");
+  const createKeyword = document.querySelector(".create-keyword");
+  const ungroup = document.querySelector(".ungroup");
+  const openModal = (modal) => {
+    if (modal === "deleteKeyword") {
+      deleteKeyword.classList.add("is-active");
+    }
+    if (modal === "createKeyword") {
+      createKeyword.classList.add("is-active");
+    }
+    if (modal === "ungroup") {
+      ungroup.classList.add("is-active");
+    }
+    modal.classList.add("is-active");
+  };
+</script>
 {% endblock %}

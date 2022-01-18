@@ -57,6 +57,61 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =====================================================
+       Modal
+  ===================================================== */
+  const modals = document.querySelectorAll(".modal");
+  if (modals) {
+    const closeButtons = document.querySelectorAll(".close");
+    if (closeButtons) {
+      closeButtons.forEach((close) => {
+        close.addEventListener("click", (event) => {
+          const modal = event.target.closest(".modal");
+          console.log(modal);
+          modal.classList.remove("is-active");
+        });
+      });
+    }
+
+    modals.forEach((modal) => {
+      const modalButtonSubmit = modal.querySelector(".btn-submit");
+      if (modalButtonSubmit) {
+        modalButtonSubmit.addEventListener("click", () => {
+          const modalDone = document.querySelector(".modal-done");
+        });
+      }
+    });
+  }
+
+  const confirmModals = document.querySelectorAll(".modal-confirm");
+  if (confirmModals) {
+    confirmModals.forEach((modal) => {
+      const submit = modal.querySelector(".btn-submit");
+
+      submit.addEventListener("click", (event) => {
+        const modal = event.target.closest(".modal");
+        const secondaryModal = modal.nextElementSibling;
+
+        if(secondaryModal.classList.contains("modal-done")) {
+          modal.classList.remove("is-active");
+          secondaryModal.classList.add("is-active");
+        }
+      });
+    });
+  }
+
+  /* =====================================================
+       Advanced Search
+  ===================================================== */
+  const advancedSearch = document.querySelector(".advanced-search");
+  if (advancedSearch) {
+    const button = document.querySelector(".btn-advanced-search");
+
+    button.addEventListener("click", () => {
+      advancedSearch.classList.toggle("is-active");
+    });
+  }
+
+  /* =====================================================
        Section Keyword History: List Scroll
   ===================================================== */
   const listScroll = document.querySelector(".list.scroll");
