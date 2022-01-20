@@ -5,9 +5,7 @@
     <div class="title">
       <h1>알림설정</h1>
       <div class="subline">
-        <button type="button">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
-        </button>
+        <button class="btn-sub" type="button">초기화</button>
         <button class="btn-main" type="button">적용</button>
       </div>
     </div>
@@ -63,34 +61,52 @@
                 가입 시 입력한 이메일 / 휴대전화 번호(카카오 알림톡)로 알림 받기
               </label>
             </div>
-            <a href="#">가입 정보 변경</a>
+            <a href="#" class="right-arrow">가입 정보 변경</a>
           </div>
           <div class="details">
-            <ul class="row">
-              <li>
-                <span>휴대전화 번호</span>
-                <span>010-1234-***</span>
-              <li>
-              <li>
-                <div class="toggle"></div>
-              </li>
-            </ul>
-            <ul class="row">
-              <li>
-                <span>이메일</span>
-                <span>gabia***@gabiacns.com</span>
-              <li>
-              <li>
-                <div class="toggle"></div>
-              </li>
-            </ul>
+            <div class="row">
+              <div class="toggle"></div>
+              <div class="row-title">휴대전화 번호</div>
+              <span>010-1234-***</span>
+            </div>
+            <div class="row">
+              <div class="toggle"></div>
+              <div class="row-title">이메일</div>
+              <span>gabia***@gabiacns.com</span>
+            </div>
           </div>
         </div>
         <div class="select change-information">
+          <div class="title">
           <input id="select-change-information" name="select-type" type="radio" />
           <label for="select-change-information">
             지정한 이메일 / 휴대전화 번호(카카오 알림톡)로 알림 받기
           </label>
+          </div>
+          <div class="details">
+            <div class="row">
+              <div class="toggle"></div>
+              <div class="row-title">휴대전화 번호</div>
+              <div class="inputs">
+                <input type="number" />
+                <button class="btn-main" type="button">번호인증</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="toggle"></div>
+              <div class="row-title">이메일</div>
+              <div class="inputs">
+                <input type="text" />
+                <span>@</span>
+                <input type="text" />
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="">직접입력</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

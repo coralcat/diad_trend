@@ -424,16 +424,20 @@ aside {
   position: relative;
 }
 
+
 .inputs {
-  .row {
-    align-items: center;
-    input {
-      flex: 1 1 auto;
-      width: 100%;
-    }
-    &:not(:last-of-type) {
-      margin-bottom: 0.5rem;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+
+  p {
+    width: 100%;
+  }
+
+  input {
+    width: auto;
+    flex: 1 1 auto;
   }
 }
 
@@ -1151,6 +1155,11 @@ input[type="radio"] + label:empty:before {
     font-size: 13px;
     line-height: 1;
   }
+}
+
+.input-alert {
+  width: 100%;
+  color: orangered;
 }
 
 .tooltip {

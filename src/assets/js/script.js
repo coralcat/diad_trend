@@ -41,14 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (dataToggles) {
     const controllers = document.querySelectorAll(".toggle-controller");
     controllers.forEach((controller) => {
-      controller.addEventListener("click", () => {
+      controller.addEventListener("click", (event) => {
         dataToggles.forEach((toggle) => {
-          if (controller.dataset.toggle == toggle.dataset.toggle) {
-            // if (controller.classList.remove("is-active")) {
-            //   console.log("removed");
-            //   toggle.classList.remove("is-active");
-            //   controller.classList.toggle("is-active");
-            // }
+          if (event.target.dataset.toggle == toggle.dataset.toggle) {
+            toggle.classList = controller.classList;
           }
         });
       });
@@ -91,6 +87,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const modals = document.querySelectorAll(".modal");
 
   if (modals[0]) {
+    const alertModal = document.querySelector(".modal-alert");
+    const alertModalContent = document.querySelector(
+      ".modal-alert .modal-content"
+    );
+    const confirmModal = document.querySelector(".modal-confirm");
+    const confirmModalContent = confirmModal.querySelector(".modal-content");
 
     const initialized = () => {
       modals.forEach((modal) => {
@@ -111,12 +113,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    const modalConfirmButtons = document.querySelectorAll(
-      "[data-modal-confirm]"
-    );
-    if (modalConfirmButtons) {
-      const confirmModal = document.querySelector(".modal-confirm");
-      const confirmModalContent = confirmModal.querySelector(".modal-content");
+    if (confirmModal) {
+      const modalConfirmButtons = document.querySelectorAll(
+        "[data-modal-confirm]"
+      );
       modalConfirmButtons.forEach((button) => {
         const openConfirmModal = (event) => {
           const modalData = event.target.dataset.modalConfirm;
@@ -172,10 +172,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    const modalAlertButtons = document.querySelectorAll("[data-modal-alert]");
-    if (modalAlertButtons) {
-      const alertModal = document.querySelector(".modal-alert");
-      const alertModalContent = alertModal.querySelector(".modal-content");
+    if (alertModal) {
+      const modalAlertButtons = document.querySelectorAll("[data-modal-alert]");
       modalAlertButtons.forEach((button) => {
         const openAlertModal = (event) => {
           initialized();

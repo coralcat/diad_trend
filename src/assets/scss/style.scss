@@ -5,6 +5,7 @@ $tertiary-color: #f2f1ff;
 html,
 body {
   height: 100vh;
+  user-select: none;
 
   :is(.list, .columns, .rows, .chart-container) {
     &:empty {
@@ -128,7 +129,6 @@ button {
 }
 
 .item-update-failed {
-  user-select: none;
   background: #e3e6e9;
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
@@ -187,7 +187,6 @@ main {
   overflow: hidden;
 
   .main-header {
-    user-select: none;
     flex: 0 0 auto;
     padding: 1.5rem 1.5rem 1rem;
     display: flex;
@@ -217,9 +216,13 @@ main {
       }
 
       button {
-        color: white;
         height: 40px;
         padding: 0 1rem;
+
+        &.btn-sub {
+          background-color: #e3e6e9;
+          color: #626367;
+        }
       }
 
       [data-tooltip] {
@@ -515,12 +518,12 @@ section {
 }
 
 .chart-container {
-  height: 250px;
+  height: 300px;
 }
 
 .chart {
   width: 100%;
-  height: 250px;
+  height: 300px;
   max-width: 100%;
 }
 
@@ -805,7 +808,6 @@ section {
 }
 
 .filters {
-  user-select: none;
   display: flex;
   justify-content: space-between;
 
@@ -1072,8 +1074,6 @@ section {
   }
 
   .list-items {
-    user-select: none;
-
     .item-update-failed {
       right: 1rem;
       top: 1rem;
@@ -1334,7 +1334,6 @@ section {
         }
 
         li {
-          user-select: none;
           flex: 0 0 auto;
           width: 250px;
           justify-content: space-between;
@@ -1370,7 +1369,7 @@ section {
 
     .keyword {
       border: 1px solid #ddd;
-      border-radius: .35rem;
+      border-radius: 0.35rem;
       height: 30px;
       padding: 0 0.5rem;
       display: flex;
@@ -1424,8 +1423,6 @@ section {
 }
 
 .content-settings {
-  user-select: none;
-
   .wrapper {
     flex-direction: row;
     flex-wrap: wrap;
@@ -1492,16 +1489,28 @@ section {
         padding: 1.5rem;
 
         .row {
-          display: flex;
           justify-content: space-between;
           align-items: center;
+          gap: 1rem;
           border: 0;
           height: 48px;
 
-          li {
-            border: 0;
+          button {
+            height: 32px;
+            padding: 0 1rem;
+          }
+
+          .toggle {
+            flex: 0 0 auto
+          }
+
+          .row-title {
             flex: 0 0 auto;
-            padding: 0;
+            width: 100px;
+          }
+
+          > :last-child {
+            flex: 1 1 auto
           }
         }
       }
@@ -1515,6 +1524,7 @@ section {
       width: 400px;
     }
   }
+
   input {
     + button {
       height: 36px;
@@ -1537,34 +1547,8 @@ section {
     }
   }
 
-  .alert {
-    margin-top: 0.35rem;
-    width: 100%;
-    color: orangered;
-  }
-
   .modal-content {
     gap: 1rem;
-
-    .input {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.5rem;
-
-      p {
-        width: 100%;
-      }
-
-      input {
-        width: auto;
-        flex: 1 1 auto;
-      }
-
-      .alert {
-        margin-top: 0;
-      }
-    }
   }
 
   .section-impact {
@@ -1614,7 +1598,7 @@ section {
     border-radius: 0.25rem;
   }
 
-  &:is(.edit-group, .create-keyword, .select-group) {
+  &:is(.edit-group, .select-group, .create-keyword, .edit-keyword) {
     .list {
       margin-top: 0.5rem;
 

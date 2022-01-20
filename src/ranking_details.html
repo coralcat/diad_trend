@@ -1,11 +1,4 @@
 {% extends "base_chart.html" %} {% block content %}
-<style>
-  .chart {
-    width: 100%;
-    height: 250px;
-    max-width: 100%;
-  }
-</style>
 <script>
   $(function () {
     var dateFormat = "yy-mm-dd",
@@ -59,74 +52,140 @@
     var root = am5.Root.new("keywordChart");
     root.setThemes([am5themes_Animated.new(root)]);
 
-    var chart = root.container.children.push(am5xy.XYChart.new(root, {}));
+    var chart = root.container.children.push(
+      am5xy.XYChart.new(root, { layout: root.verticalLayout })
+    );
 
     // Generate random data
     var date = new Date();
     date.setHours(0, 0, 0, 0);
     var value = 100;
 
-    function generateData() {
-      value = Math.round(Math.random() * 10 - 5 + value);
-      am5.time.add(date, "day", 1);
-      return {
-        date: date.getTime(),
-        value: value,
-      };
-    }
+    var data = [
+      {
+        date: new Date(2021, 2, 1).getTime(),
+        keyword01: 1,
+        keword02: 5,
+        keyowrd03: 3,
+      },
+      {
+        date: new Date(2021, 2, 2).getTime(),
+        keyword01: 1,
+        keword02: 2,
+        keyowrd03: 6,
+      },
+      {
+        date: new Date(2021, 2, 3).getTime(),
+        keyword01: 2,
+        keword02: 3,
+        keyowrd03: 1,
+      },
+      {
+        date: new Date(2021, 2, 4).getTime(),
+        keyword01: 3,
+        keword02: 4,
+        keyowrd03: 1,
+      },
+      {
+        date: new Date(2021, 2, 5).getTime(),
+        keyword01: 5,
+        keword02: 1,
+        keyowrd03: 2,
+      },
+      {
+        date: new Date(2021, 2, 6).getTime(),
+        keyword01: 3,
+        keword02: 2,
+        keyowrd03: 1,
+      },
+      {
+        date: new Date(2021, 2, 7).getTime(),
+        keyword01: 1,
+        keword02: 2,
+        keyowrd03: 3,
+      },
+      {
+        date: new Date(2021, 2, 8).getTime(),
+        keyword01: 2,
+        keword02: 1,
+        keyowrd03: 5,
+      },
+      {
+        date: new Date(2021, 2, 9).getTime(),
+        keyword01: 3,
+        keword02: 5,
+        keyowrd03: 2,
+      },
+    ];
 
-    function generateDatas(count) {
-      var data = [];
-      for (var i = 0; i < count; ++i) {
-        data.push(generateData());
-      }
-      return data;
-    }
+    var xRenderer = am5xy.AxisRendererX.new(root, {});
+    xRenderer.grid.template.set("location", 0.5);
+    xRenderer.labels.template.setAll({
+      location: 0.5,
+      multiLocation: 0.5,
+    });
 
     var xAxis = chart.xAxes.push(
       am5xy.DateAxis.new(root, {
-        maxDeviation: 0.2,
-        baseInterval: {
-          timeUnit: "day",
-          count: 1,
-        },
-        renderer: am5xy.AxisRendererX.new(root, {}),
+        baseInterval: { timeUnit: "day", count: 1 },
+        renderer: xRenderer,
         tooltip: am5.Tooltip.new(root, {}),
       })
     );
+    xAxis.get("dateFormats")["day"] = "yyyy/MM/dd";
+    xAxis.data.setAll(data);
 
     var yAxis = chart.yAxes.push(
       am5xy.ValueAxis.new(root, {
-        renderer: am5xy.AxisRendererY.new(root, {}),
+        renderer: am5xy.AxisRendererY.new(root, {
+          inversed: true,
+        }),
       })
     );
 
-    // Add series
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-    for (var i = 0; i < 4; i++) {
+    function createSeries(name, field) {
       var series = chart.series.push(
         am5xy.LineSeries.new(root, {
-          name: "키워드 " + i,
+          name: name,
           xAxis: xAxis,
           yAxis: yAxis,
-          valueYField: "value",
+          valueYField: field,
           valueXField: "date",
-          legendValueText: "{valueY}",
           tooltip: am5.Tooltip.new(root, {
             pointerOrientation: "horizontal",
-            labelText: "{valueY}",
+            labelText: "[bold]{name} {valueY}[/]위",
           }),
         })
       );
 
-      date = new Date();
-      date.setHours(0, 0, 0, 0);
-      value = 0;
+      series.bullets.push(function () {
+        return am5.Bullet.new(root, {
+          sprite: am5.Circle.new(root, {
+            radius: 3,
+            fill: series.get("fill"),
+          }),
+        });
+      });
 
-      var data = generateDatas(100);
+      // create hover state for series and for mainContainer, so that when series is hovered,
+      // the state would be passed down to the strokes which are in mainContainer.
+      series.set("setStateOnChildren", true);
+      series.states.create("hover", {});
+
+      series.mainContainer.set("setStateOnChildren", true);
+      series.mainContainer.states.create("hover", {});
+
+      series.strokes.template.states.create("hover", {
+        strokeWidth: 4,
+      });
+
       series.data.setAll(data);
-      series.appear();
+      series.appear(1000, 100);
     }
+
+    createSeries("싱글오리진", "keyword01");
+    createSeries("커피원두", "keword02");
+    createSeries("스타벅스", "keyowrd03");
 
     var cursor = chart.set(
       "cursor",
@@ -387,7 +446,7 @@
           </h3>
           <div class="buttons">
             <button class="ico-download" type="button">엑셀다운</button>
-            <button type="button" data-modal="create-keyword">키워드편집</button>
+            <button type="button" data-modal="edit-keyword">키워드편집</button>
           </div>
         </div>
         <div class="filters">
@@ -1213,10 +1272,10 @@
   </div>
 </div>
 
-<div class="modal create-keyword">
+<div class="modal edit-keyword">
   <div class="dialog">
     <header class="modal-header">
-      <h3>키워드 등록</h3>
+      <h3>키워드 편집</h3>
       <div class="close"></div>
     </header>
     <div class="modal-content">
@@ -1224,7 +1283,7 @@
         <div class="title">등록 가능한 상품 순위 조회 소재는 10 개 입니다.</div>
         <a href="#" class="right-arrow">등록 가능 소재 개수 추가방법</a>
       </section>
-      <section class="input">
+      <section class="inputs">
         <p>등록하실 키워드를 추가해주세요.</p>
         <input type="text" placeholder="키워드를 입력해주세요." />
         <button class="btn-sub" type="button">키워드추가</button>
@@ -1362,6 +1421,28 @@
     <div class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
       <button class="btn-submit" type="button">적용</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-confirm">
+  <div class="dialog confirm">
+    <header class="modal-header">
+      <div class="close"></div>
+    </header>
+    <div class="modal-content"></div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">아니오</button>
+      <button class="btn-submit" type="button">예</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-alert">
+  <div class="dialog alert">
+    <div class="modal-content"></div>
+    <div class="buttons">
+      <button class="btn-submit close" type="button">확인</button>
     </div>
   </div>
 </div>
