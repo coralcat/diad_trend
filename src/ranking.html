@@ -304,7 +304,7 @@
           <div>
             <!-- 상품 선택했을 때, 보여지는 버튼들 -->
             <div class="buttons">
-              <button type="button" data-modal="delete-keyword">
+              <button type="button" data-modal-confirm="delete-keyword">
                 선택삭제
               </button>
               <button type="button" data-modal="create-keyword">
@@ -316,8 +316,8 @@
                   <label for="setAlarm">알람설정</label>
                 </div>
               </button>
-              <button type="button">그룹지정</button>
-              <button type="button" data-modal="ungroup">그룹해제</button>
+              <button type="button" data-modal="select-group">그룹지정</button>
+              <button type="button" data-modal-alert="ungroup">그룹해제</button>
             </div>
             <div class="selectbox">
               <select name="" id="">
@@ -371,7 +371,7 @@
               </li>
               <li class="col-important item">
                 <div
-                  class="update"
+                  class="item-update-failed"
                   data-tooltip="상품에 등록된 모든 키워드가 400위 밖으로 상품 정보가 갱신되지 않았습니다."
                 >
                   <div class="failed">갱신실패</div>
@@ -575,60 +575,6 @@
   </div>
 </div>
 
-<div class="modal modal-confirm delete-keyword">
-  <div class="dialog">
-    <header class="modal-header">
-      <div class="close"></div>
-    </header>
-    <div class="modal-content">
-      <p>키워드 삭제 시 해당 키워드의 모든 데이터가 삭제됩니다.</p>
-      <p>재등록시에도 삭제된 데이터는 복구되지 않습니다.</p>
-      <p>삭제를 진행하시겠습니까?</p>
-    </div>
-    <div class="buttons">
-      <button class="btn-cancel close" type="button">아니오</button>
-      <button class="btn-submit" type="button">예</button>
-    </div>
-  </div>
-</div>
-<div class="modal modal-done">
-  <div class="dialog">
-    <div class="modal-content">
-      <p>키워드 삭제가 완료되었습니다.</p>
-    </div>
-    <div class="buttons">
-      <button class="btn-submit close" type="button">확인</button>
-    </div>
-  </div>
-</div>
-
-<div class="modal modal-confirm create-keyword-2">
-  <div class="dialog">
-    <header class="modal-header">
-      <div class="close"></div>
-    </header>
-    <div class="modal-content">
-      <p>선택하신 소재는 동일한 상품입니다.</p>
-      <p>단일 상품에 대한 키워드 등록을 진행하시겠습니까?</p>
-    </div>
-    <div class="buttons">
-      <button class="btn-cancel close" type="button">아니오</button>
-      <button class="btn-submit" type="button">예</button>
-    </div>
-  </div>
-</div>
-
-<div class="modal modal-alert ungroup">
-  <div class="dialog">
-    <div class="modal-content">
-      <p>그룹해제가 완료되었습니다.</p>
-    </div>
-    <div class="buttons">
-      <button class="btn-submit close" type="button">확인</button>
-    </div>
-  </div>
-</div>
-
 <div class="modal create-item">
   <div class="dialog">
     <header class="modal-header">
@@ -636,17 +582,19 @@
       <div class="close"></div>
     </header>
     <div class="modal-content">
-      <section>
+      <section class="section-impact">
         <div class="title">등록 가능한 상품 순위 조회 소재는 10개 입니다.</div>
         <a href="#" class="right-arrow">등록 가능 소재 개수 추가방법</a>
       </section>
       <section>
         <div class="title">등록하실 상품의 URL을 입력해주세요.</div>
         <a href="#" class="right-arrow">URL 확인방법</a>
-        <div class="search">
+      </section>
+      <section>
+        <div class="search input">
           <input type="url" placeholder="URL을 입력해주세요" required />
           <span class="refresh x"></span>
-          <small class="alert">상품 URL을 입력해주세요.</small>
+          <small class="input-alert">상품 URL을 입력해주세요.</small>
         </div>
       </section>
     </div>
@@ -708,7 +656,7 @@
           <input type="text" placeholder="그룹명을 입력해주세요." />
           <button class="btn-sub" type="button">그룹추가</button>
         </div>
-        <small class="alert">그룹명을 입력해주세요.</small>
+        <small class="input-alert">그룹명을 입력해주세요.</small>
       </section>
       <section>
         <div class="list-header">
@@ -720,7 +668,13 @@
               <span class="total">0</span>
             </li>
           </ul>
-          <button class="btn-grayscale" type="button">삭제</button>
+          <button
+            class="btn-grayscale"
+            type="button"
+            data-modal-confirm="check-delete-group"
+          >
+            삭제
+          </button>
         </div>
         <div class="list">
           <ul class="row title">
@@ -741,7 +695,11 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check1" type="checkbox" name="createKeywordCheck" />
+                  <input
+                    id="check1"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
                   <label for="check1"></label>
                 </div>
               </li>
@@ -750,7 +708,11 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check2" type="checkbox" name="createKeywordCheck" />
+                  <input
+                    id="check2"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
                   <label for="check2"></label>
                 </div>
               </li>
@@ -759,7 +721,11 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check3" type="checkbox" name="createKeywordCheck" />
+                  <input
+                    id="check3"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
                   <label for="check3"></label>
                 </div>
               </li>
@@ -768,7 +734,11 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check4" type="checkbox" name="createKeywordCheck" />
+                  <input
+                    id="check4"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
                   <label for="check4"></label>
                 </div>
               </li>
@@ -777,7 +747,11 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check5" type="checkbox" name="createKeywordCheck" />
+                  <input
+                    id="check5"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
                   <label for="check5"></label>
                 </div>
               </li>
@@ -786,7 +760,11 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check6" type="checkbox" name="createKeywordCheck" />
+                  <input
+                    id="check6"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
                   <label for="check6"></label>
                 </div>
               </li>
@@ -795,7 +773,11 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check7" type="checkbox" name="createKeywordCheck" />
+                  <input
+                    id="check7"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
                   <label for="check7"></label>
                 </div>
               </li>
@@ -812,6 +794,69 @@
   </div>
 </div>
 
+<div class="modal select-group">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>그룹지정</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section>
+        <div class="list">
+          <div class="rows" data-empty="그룹을 추가해주세요.">
+            <ul class="row">
+              <li>
+                <input id="select-group1" type="radio" name="selectGroup" />
+                <label for="select-group1">커피 원두 (5)</label>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <input id="select-group2" type="radio" name="selectGroup" />
+                <label for="select-group2">커피 캡슐 (3)</label>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <input id="select-group3" type="radio" name="selectGroup" />
+                <label for="select-group3">커피 그라인더 (2)</label>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <input id="select-group4" type="radio" name="selectGroup" />
+                <label for="select-group4">커피 원두 (5)</label>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <input id="select-group5" type="radio" name="selectGroup" />
+                <label for="select-group5">커피 캡슐 (3)</label>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <input id="select-group6" type="radio" name="selectGroup" />
+                <label for="select-group6">커피 그라인더 (2)</label>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <input id="select-group7" type="radio" name="selectGroup" />
+                <label for="select-group7">커피 원두 (5)</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" type="button" data-modal-confirm="select-group">적용</button>
+    </div>
+  </div>
+</div>
+
 <div class="modal create-keyword">
   <div class="dialog">
     <header class="modal-header">
@@ -819,13 +864,15 @@
       <div class="close"></div>
     </header>
     <div class="modal-content">
-      <section>
+      <section class="section-impact">
+        <div class="title">등록 가능한 상품 순위 조회 소재는 10 개 입니다.</div>
+        <a href="#" class="right-arrow">등록 가능 소재 개수 추가방법</a>
+      </section>
+      <section class="input">
         <p>등록하실 키워드를 추가해주세요.</p>
-        <div class="input">
-          <input type="text" placeholder="키워드를 입력해주세요." />
-          <button class="btn-sub" type="button">키워드추가</button>
-        </div>
-        <small class="alert">키워드를 입력해주세요.</small>
+        <input type="text" placeholder="키워드를 입력해주세요." />
+        <button class="btn-sub" type="button">키워드추가</button>
+        <small class="input-alert">키워드를 입력해주세요.</small>
       </section>
       <section>
         <div class="list-header">
@@ -837,7 +884,13 @@
               <span class="total">9</span>
             </li>
           </ul>
-          <button class="btn-grayscale" type="button">삭제</button>
+          <button
+            class="btn-grayscale"
+            type="button"
+            data-modal-confirm="check-delete-keyword"
+          >
+            삭제
+          </button>
         </div>
         <div class="list">
           <ul class="row title">
@@ -858,7 +911,11 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check1" type="checkbox" name="createKeywordCheck" />
+                  <input
+                    id="check1"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
                   <label for="check1"></label>
                 </div>
               </li>
@@ -867,7 +924,11 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check2" type="checkbox" name="createKeywordCheck" />
+                  <input
+                    id="check2"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
                   <label for="check2"></label>
                 </div>
               </li>
@@ -876,7 +937,11 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check3" type="checkbox" name="createKeywordCheck" />
+                  <input
+                    id="check3"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
                   <label for="check3"></label>
                 </div>
               </li>
@@ -885,7 +950,11 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check4" type="checkbox" name="createKeywordCheck" />
+                  <input
+                    id="check4"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
                   <label for="check4"></label>
                 </div>
               </li>
@@ -894,7 +963,11 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check5" type="checkbox" name="createKeywordCheck" />
+                  <input
+                    id="check5"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
                   <label for="check5"></label>
                 </div>
               </li>
@@ -903,7 +976,11 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check6" type="checkbox" name="createKeywordCheck" />
+                  <input
+                    id="check6"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
                   <label for="check6"></label>
                 </div>
               </li>
@@ -912,7 +989,11 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check7" type="checkbox" name="createKeywordCheck" />
+                  <input
+                    id="check7"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
                   <label for="check7"></label>
                 </div>
               </li>
@@ -929,14 +1010,36 @@
   </div>
 </div>
 
+<div class="modal modal-confirm">
+  <div class="dialog">
+    <header class="modal-header">
+      <div class="close"></div>
+    </header>
+    <div class="modal-content"></div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">아니오</button>
+      <button class="btn-submit" type="button">예</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-alert">
+  <div class="dialog">
+    <div class="modal-content"></div>
+    <div class="buttons">
+      <button class="btn-submit close" type="button">확인</button>
+    </div>
+  </div>
+</div>
+
 <script>
-  const searchItem = document.querySelector(".search-item");
-  const input = searchItem.querySelector("input");
-  if (input.value == "") {
-    const alert = input.nextElementSibling;
-    alert.classList.add("is-active");
-  } else {
-    modal.classList.add("is-active");
-  }
+  // const searchItem = document.querySelector(".search-item");
+  // const input = searchItem.querySelector("input");
+  // if (input.value == "") {
+  //   const alert = input.nextElementSibling;
+  //   alert.classList.add("is-active");
+  // } else {
+  //   modal.classList.add("is-active");
+  // }
 </script>
 {% endblock %}

@@ -8,22 +8,36 @@
 </style>
 <script>
   $(function () {
-    var dateFormat = "mm/dd/yy",
-      from = $("#from")
-        .datepicker({
-          defaultDate: "+1w",
-          changeMonth: true,
-          numberOfMonths: 3,
-        })
+    var dateFormat = "yy-mm-dd",
+      from = $("#keywordChartFrom")
+        .datepicker()
         .on("change", function () {
           to.datepicker("option", "minDate", getDate(this));
         }),
-      to = $("#to")
-        .datepicker({
-          defaultDate: "+1w",
-          changeMonth: true,
-          numberOfMonths: 3,
-        })
+      to = $("#keywordChartTo")
+        .datepicker()
+        .on("change", function () {
+          from.datepicker("option", "maxDate", getDate(this));
+        });
+
+    function getDate(element) {
+      var date;
+      try {
+        date = $.datepicker.parseDate(dateFormat, element.value);
+      } catch (error) {
+        date = null;
+      }
+
+      return date;
+    }
+    var dateFormat = "yy-mm-dd",
+      from = $("#priceChartFrom")
+        .datepicker()
+        .on("change", function () {
+          to.datepicker("option", "minDate", getDate(this));
+        }),
+      to = $("#priceChartTo")
+        .datepicker()
         .on("change", function () {
           from.datepicker("option", "maxDate", getDate(this));
         });
@@ -307,6 +321,13 @@
         <a href="" class="right-arrow">상품페이지로 이동</a>
       </header>
       <div class="information">
+        <div
+          class="item-update-failed"
+          data-tooltip="상품에 등록된 모든 키워드가 400위 밖으로 상품 정보가 갱신되지 않았습니다."
+        >
+          <div class="failed">갱신실패</div>
+          <div class="success">갱신성공 2021-08-01 15:00</div>
+        </div>
         <div class="image">
           <img
             src="https://images.unsplash.com/photo-1625021659159-f63f546d74a7?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNvZmZlfGVufDB8fDB8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60"
@@ -344,8 +365,8 @@
   </header>
   <div class="wrapper">
     <section>
-      <header class="section-header">
-        <div>
+      <header class="section-header multi-line">
+        <div class="title">
           <h3>
             <span>키워드별 순위 차트</span>
             <div class="tooltip">
@@ -364,13 +385,11 @@
               </article>
             </div>
           </h3>
+          <div class="buttons">
+            <button class="ico-download" type="button">엑셀다운</button>
+            <button type="button" data-modal="create-keyword">키워드편집</button>
+          </div>
         </div>
-        <div>
-          <button class="ico-download" type="button">엑셀다운</button>
-          <button type="button">키워드편집</button>
-        </div>
-      </header>
-      <div class="keyword-chart">
         <div class="filters">
           <div>
             <div class="period">
@@ -391,28 +410,34 @@
               <label for="select-1year">1년</label>
             </div>
             <div class="calendar">
-              <input type="text" id="from" name="from" />
+              <input type="text" id="keywordChartFrom" name="" />
               <span>~</span>
-              <input type="text" id="to" name="to" />
+              <input type="text" id="keywordChartTo" name="" />
             </div>
             <button type="button">조회</button>
           </div>
           <div class="selectbox">
+            <span>갱신시간</span>
             <select name="" id="">
-              <option value="갱신시간">갱신시간</option>
-              <option value="갱신시간">갱신시간</option>
-              <option value="갱신시간">갱신시간</option>
+              <option value="">1일 00:00</option>
+              <option value="">1일 12:00</option>
+              <option value="">1주 00:00</option>
+              <option value="">1주 12:00</option>
+              <option value="">1개월 00:00</option>
+              <option value="">1개월 12:00</option>
             </select>
           </div>
         </div>
+      </header>
+      <div class="keyword-chart">
         <div class="chart-container" data-empty="데이터 갱신 전입니다.">
           <div id="keywordChart" class="chart"></div>
         </div>
       </div>
     </section>
     <section class="section-keyword-history">
-      <header class="section-header">
-        <div>
+      <header class="section-header multi-line">
+        <div class="title">
           <h3>
             <span>키워드별 순위 이력</span>
             <div class="tooltip">
@@ -431,45 +456,46 @@
               </article>
             </div>
           </h3>
+          <div class="buttons">
+            <button class="ico-download" type="button">엑셀다운</button>
+          </div>
         </div>
-        <div>
-          <button class="ico-download" type="button">엑셀다운</button>
+        <div class="filters">
+          <div>
+            <div class="period">
+              <input type="radio" id="select-1day-02" name="keyword-history" />
+              <label for="select-1day-02">1일</label>
+              <input
+                type="radio"
+                id="select-1week-02"
+                name="keyword-history"
+                checked
+              />
+              <label for="select-1week-02">1주</label>
+              <input
+                type="radio"
+                id="select-1month-02"
+                name="keyword-history"
+              />
+              <label for="select-1month-02">1개월</label>
+              <input
+                type="radio"
+                id="select-6months-02"
+                name="keyword-history"
+              />
+              <label for="select-6months-02">6개월</label>
+              <input type="radio" id="select-1year-02" name="keyword-history" />
+              <label for="select-1year-02">1년</label>
+            </div>
+            <div class="calendar">
+              <input type="text" id="priceChartFrom" name="" />
+              <span>~</span>
+              <input type="text" id="priceChartTo" name="" />
+            </div>
+            <button type="button">조회</button>
+          </div>
         </div>
       </header>
-      <div class="filters">
-        <div>
-          <div class="period">
-            <input type="radio" id="select-1day-02" name="keyword-history" />
-            <label for="select-1day-02">1일</label>
-            <input
-              type="radio"
-              id="select-1week-02"
-              name="keyword-history"
-              checked
-            />
-            <label for="select-1week-02">1주</label>
-            <input type="radio" id="select-1month-02" name="keyword-history" />
-            <label for="select-1month-02">1개월</label>
-            <input type="radio" id="select-6months-02" name="keyword-history" />
-            <label for="select-6months-02">6개월</label>
-            <input type="radio" id="select-1year-02" name="keyword-history" />
-            <label for="select-1year-02">1년</label>
-          </div>
-          <div class="calendar">
-            <input type="text" id="from" name="from" />
-            <span>~</span>
-            <input type="text" id="to" name="to" />
-          </div>
-          <button type="button">조회</button>
-        </div>
-        <div class="selectbox">
-          <select name="" id="">
-            <option value="갱신시간">갱신시간</option>
-            <option value="갱신시간">갱신시간</option>
-            <option value="갱신시간">갱신시간</option>
-          </select>
-        </div>
-      </div>
 
       <!-- list 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
       <div class="list scroll" data-empty="데이터 갱신 전입니다.">
@@ -501,7 +527,7 @@
                       </div>
                       <div class="row">
                         <div class="date">2022-03-01 17:00</div>
-                        <div>커피창고 원두 1kg 에티오피아</div>
+                        <div class="before">커피창고 원두 1kg 에티오피아</div>
                       </div>
                     </li>
                   </ul>
@@ -518,7 +544,7 @@
                       </div>
                       <div class="row">
                         <div class="date">2022-03-01 17:00</div>
-                        <div class="price">9,900</div>
+                        <div class="before price">9,900</div>
                       </div>
                     </li>
                   </ul>
@@ -539,6 +565,55 @@
             </li>
             <li>
               <div class="date">2022-03-05 12:00</div>
+              <button class="notification failed" type="button">
+                갱신실패
+              </button>
+              <article class="notification-details">
+                <div class="title">
+                  <div>
+                    <span>변경사항</span>
+                    <span class="date">(최근갱신성공: 2022-02-25 17:00)</span>
+                  </div>
+                  <div class="close ico-close"></div>
+                </div>
+                <div class="list">
+                  <ul class="row">
+                    <li>상품명</li>
+                    <li>
+                      <div class="row">
+                        <div>
+                          스타벅스 브렉퍼스트,카페베로나, 콜롬비안 코스트코
+                          커클랜드 원두커피 1.13kg
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="row">
+                    <li>스토어명</li>
+                    <li>코스트앤몰</li>
+                  </ul>
+                  <ul class="row">
+                    <li>판매가</li>
+                    <li>
+                      <div class="row">
+                        <div class="price">18,980</div>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="row">
+                    <li>브랜드</li>
+                    <li>스타벅스</li>
+                  </ul>
+                  <ul class="row">
+                    <li>제조사</li>
+                    <li>스타벅스</li>
+                  </ul>
+                  <ul class="row">
+                    <li>카테고리</li>
+                    <li>식품 &gt; 음료 &gt; 커피 &gt; 원두/생두</li>
+                  </ul>
+                </div>
+              </article>
             </li>
             <li>
               <div class="date">2022-03-05 15:00</div>
@@ -611,10 +686,9 @@
               </li>
               <li>
                 <div class="rank-current">
-                  <span>80위</span>
-                  <span>40위/2페이지</span>
+                  <span>400위밖</span>
                 </div>
-                <div class="rank down">5</div>
+                <div class="rank failed"></div>
               </li>
               <li>
                 <div class="rank-current">
@@ -676,10 +750,9 @@
               </li>
               <li>
                 <div class="rank-current">
-                  <span>80위</span>
-                  <span>40위/2페이지</span>
+                  <span>400위밖</span>
                 </div>
-                <div class="rank down">5</div>
+                <div class="rank failed"></div>
               </li>
               <li>
                 <div class="rank-current">
@@ -741,10 +814,9 @@
               </li>
               <li>
                 <div class="rank-current">
-                  <span>80위</span>
-                  <span>8위/1페이지</span>
+                  <span>400위밖</span>
                 </div>
-                <div class="rank down">5</div>
+                <div class="rank failed"></div>
               </li>
               <li>
                 <div class="rank-current">
@@ -806,10 +878,9 @@
               </li>
               <li>
                 <div class="rank-current">
-                  <span>40위</span>
-                  <span>40위/1페이지</span>
+                  <span>400위밖</span>
                 </div>
-                <div class="rank down">5</div>
+                <div class="rank failed"></div>
               </li>
               <li>
                 <div class="rank-current">
@@ -871,10 +942,9 @@
               </li>
               <li>
                 <div class="rank-current">
-                  <span>40위</span>
-                  <span>40위/1페이지</span>
+                  <span>400위밖</span>
                 </div>
-                <div class="rank down">5</div>
+                <div class="rank failed"></div>
               </li>
               <li>
                 <div class="rank-current">
@@ -924,8 +994,8 @@
       </div>
     </section>
     <section>
-      <header class="section-header">
-        <div>
+      <header class="section-header multi-line">
+        <div class="title">
           <h3>
             <span>판매가 차트</span>
             <div class="tooltip">
@@ -933,30 +1003,27 @@
               <article class="tooltip-content"></article>
             </div>
           </h3>
+          <div class="buttons">
+            <button class="ico-download" type="button">엑셀다운</button>
+          </div>
         </div>
-        <div>
-          <button class="ico-download" type="button">엑셀다운</button>
-          <button type="button">키워드편집</button>
-        </div>
-      </header>
-      <div class="keyword-chart">
         <div class="filters">
           <div>
             <div class="period">
               <input
                 type="radio"
                 id="select-1day-03"
-                name="keyword-chart"
+                name="price-chart"
                 checked
               />
               <label for="select-1day-03">1일</label>
-              <input type="radio" id="select-1week-03" name="keyword-chart" />
+              <input type="radio" id="select-1week-03" name="price-chart" />
               <label for="select-1week-03">1주</label>
-              <input type="radio" id="select-1month-03" name="keyword-chart" />
+              <input type="radio" id="select-1month-03" name="price-chart" />
               <label for="select-1month-03">1개월</label>
-              <input type="radio" id="select-6months-03" name="keyword-chart" />
+              <input type="radio" id="select-6months-03" name="price-chart" />
               <label for="select-6months-03">6개월</label>
-              <input type="radio" id="select-1year-03" name="keyword-chart" />
+              <input type="radio" id="select-1year-03" name="price-chart" />
               <label for="select-1year-03">1년</label>
             </div>
             <div class="calendar">
@@ -967,13 +1034,19 @@
             <button type="button">조회</button>
           </div>
           <div class="selectbox">
+            <span>갱신시간</span>
             <select name="" id="">
-              <option value="갱신시간">갱신시간</option>
-              <option value="갱신시간">갱신시간</option>
-              <option value="갱신시간">갱신시간</option>
+              <option value="">1일 00:00</option>
+              <option value="">1일 12:00</option>
+              <option value="">1주 00:00</option>
+              <option value="">1주 12:00</option>
+              <option value="">1개월 00:00</option>
+              <option value="">1개월 12:00</option>
             </select>
           </div>
         </div>
+      </header>
+      <div class="keyword-chart">
         <div class="chart-container" data-empty="데이터 갱신 전입니다.">
           <div id="priceChart" class="chart"></div>
         </div>
@@ -981,15 +1054,20 @@
     </section>
     <section>
       <header class="section-header">
-        <div>
-          <h3>
-            <span>순위 변동 주간 TOP</span>
-            <div class="tooltip">
-              <div class="ico-tooltip"></div>
-              <div class="tooltip-content"></div>
+        <h3>
+          <span>순위 변동 주간 TOP</span>
+          <div class="tooltip">
+            <div class="ico-tooltip"></div>
+            <div class="tooltip-content">
+              <ul>
+                <li>주간 동안 순위 변동 폭이 큰 키워드 순위를 알려드립니다.</li>
+                <li>매주 일요일 00:00 갱신 데이터를 기준으로 합니다.</li>
+                <li>최근 3개월의 데이터만 노출됩니다.</li>
+                <li>갱신실패 데이터는 포함되지 않습니다.</li>
+              </ul>
             </div>
-          </h3>
-        </div>
+          </div>
+        </h3>
         <div class="selectbox">
           <select name="" id="">
             <option value="">3월 1주차 (2022-03-01 12:00 기준)</option>
@@ -1009,28 +1087,45 @@
             <div class="rows" data-empty="데이터 갱신 전입니다.">
               <ul class="row">
                 <li>1</li>
-                <li>싱글오리진</li>
+                <li>
+                  <div class="keyword">싱글오리진</div>
+                </li>
                 <li>
                   <div class="rank up">6</div>
                 </li>
               </ul>
               <ul class="row">
                 <li>2</li>
-                <li>커피원두</li>
+                <li>
+                  <div class="keyword">커피원두</div>
+                </li>
                 <li>
                   <div class="rank up">4</div>
                 </li>
               </ul>
               <ul class="row">
                 <li>3</li>
-                <li>원두커피 케냐AAA</li>
+                <li>
+                  <div class="keyword">원두커피</div>
+                </li>
                 <li>
                   <div class="rank up">3</div>
                 </li>
               </ul>
               <ul class="row">
                 <li>4</li>
-                <li>예가체프</li>
+                <li>
+                  <div class="keyword">케냐AAA</div>
+                </li>
+                <li>
+                  <div class="rank up">3</div>
+                </li>
+              </ul>
+              <ul class="row">
+                <li>5</li>
+                <li>
+                  <div class="keyword">예가체프</div>
+                </li>
                 <li>
                   <div class="rank up">1</div>
                 </li>
@@ -1050,30 +1145,64 @@
             <div class="rows" data-empty="데이터 갱신 전입니다.">
               <ul class="row">
                 <li>1</li>
-                <li>스페셜커피</li>
+                <li>
+                  <div class="keyword">스페셜커피</div>
+                </li>
                 <li>
                   <div class="rank down">6</div>
                 </li>
               </ul>
               <ul class="row">
                 <li>2</li>
-                <li>스타벅스원두</li>
+                <li>
+                  <div class="keyword">스타벅스원두</div>
+                </li>
                 <li>
                   <div class="rank down">5</div>
                 </li>
               </ul>
               <ul class="row">
                 <li>3</li>
-                <li>커피</li>
+                <li>
+                  <div class="keyword">커피</div>
+                </li>
                 <li>
                   <div class="rank down">2</div>
                 </li>
               </ul>
               <ul class="row">
                 <li>4</li>
-                <li>맛 좋은 커피</li>
+                <li>
+                  <div class="keyword">맛 좋은 커피</div>
+                  <div class="keyword">향 좋은 커피</div>
+                  <div class="keyword">참 좋은 커피</div>
+                  <div class="keyword">맛 좋은 커피</div>
+                  <div class="keyword">향 좋은 커피</div>
+                  <div class="keyword">참 좋은 커피</div>
+                  <div class="keyword">맛 좋은 커피</div>
+                  <div class="keyword">향 좋은 커피</div>
+                  <div class="keyword">참 좋은 커피</div>
+                  <div class="keyword">맛 좋은 커피</div>
+                  <div class="keyword">향 좋은 커피</div>
+                  <div class="keyword">참 좋은 커피</div>
+                  <div class="keyword">맛 좋은 커피</div>
+                  <div class="keyword">향 좋은 커피</div>
+                  <div class="keyword">참 좋은 커피</div>
+                  <div class="keyword">맛 좋은 커피</div>
+                  <div class="keyword">향 좋은 커피</div>
+                  <div class="keyword">참 좋은 커피</div>
+                </li>
                 <li>
                   <div class="rank down">1</div>
+                </li>
+              </ul>
+              <ul class="row">
+                <li>5</li>
+                <li>
+                  <div class="keyword">스타벅스</div>
+                </li>
+                <li>
+                  <div class="rank down">2</div>
                 </li>
               </ul>
             </div>
@@ -1081,6 +1210,159 @@
         </div>
       </div>
     </section>
+  </div>
+</div>
+
+<div class="modal create-keyword">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>키워드 등록</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section class="section-impact">
+        <div class="title">등록 가능한 상품 순위 조회 소재는 10 개 입니다.</div>
+        <a href="#" class="right-arrow">등록 가능 소재 개수 추가방법</a>
+      </section>
+      <section class="input">
+        <p>등록하실 키워드를 추가해주세요.</p>
+        <input type="text" placeholder="키워드를 입력해주세요." />
+        <button class="btn-sub" type="button">키워드추가</button>
+        <small class="input-alert">키워드를 입력해주세요.</small>
+      </section>
+      <section>
+        <div class="list-header">
+          <ul class="list-count">
+            <li>
+              <span class="selected">0</span>
+            </li>
+            <li>
+              <span class="total">9</span>
+            </li>
+          </ul>
+          <button
+            class="btn-grayscale"
+            type="button"
+            data-modal-confirm="check-delete-keyword"
+          >
+            삭제
+          </button>
+        </div>
+        <div class="list">
+          <ul class="row title">
+            <li class="col-check">
+              <div class="checkbox">
+                <input
+                  id="createKeywordCheckAll"
+                  type="checkbox"
+                  name="createKeywordCheck"
+                  class="check-all"
+                />
+                <label for="createKeywordCheckAll"></label>
+              </div>
+            </li>
+            <li>전체</li>
+          </ul>
+          <div class="rows" data-empty="키워드를 추가해주세요.">
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input
+                    id="check1"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
+                  <label for="check1"></label>
+                </div>
+              </li>
+              <li class="keyword">커피</li>
+            </ul>
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input
+                    id="check2"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
+                  <label for="check2"></label>
+                </div>
+              </li>
+              <li class="keyword">커피원두</li>
+            </ul>
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input
+                    id="check3"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
+                  <label for="check3"></label>
+                </div>
+              </li>
+              <li class="keyword">원두커피</li>
+            </ul>
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input
+                    id="check4"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
+                  <label for="check4"></label>
+                </div>
+              </li>
+              <li class="keyword">커피</li>
+            </ul>
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input
+                    id="check5"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
+                  <label for="check5"></label>
+                </div>
+              </li>
+              <li class="keyword">커피원두</li>
+            </ul>
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input
+                    id="check6"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
+                  <label for="check6"></label>
+                </div>
+              </li>
+              <li class="keyword">원두커피</li>
+            </ul>
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input
+                    id="check7"
+                    type="checkbox"
+                    name="createKeywordCheck"
+                  />
+                  <label for="check7"></label>
+                </div>
+              </li>
+              <li class="keyword">원두커피</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" type="button">적용</button>
+    </div>
   </div>
 </div>
 {% endblock %}

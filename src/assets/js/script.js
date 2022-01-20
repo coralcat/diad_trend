@@ -7,10 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   });
 
-  const container = document.querySelector(".container");
-  const main = document.querySelector("main");
-  const header = document.querySelector("header");
-
   /* =====================================================
        Input Search Close Button
   ===================================================== */
@@ -93,49 +89,123 @@ document.addEventListener("DOMContentLoaded", () => {
        Modal
   ===================================================== */
   const modals = document.querySelectorAll(".modal");
-  if (modals) {
+
+  if (modals[0]) {
+
     const initialized = () => {
       modals.forEach((modal) => {
         modal.classList.remove("is-active");
       });
     };
+
     const modalButtons = document.querySelectorAll("[data-modal]");
-    modalButtons.forEach((button) => {
-      const openModal = (event) => {
-        initialized();
-        const modalName = event.target.dataset.modal;
-        const targetModal = document.querySelector(`.${modalName}`);
-        targetModal.classList.add("is-active");
-      };
-      button.addEventListener("click", openModal);
-    });
-  }
-
-  const closeButtons = document.querySelectorAll(".close");
-  if (closeButtons) {
-    closeButtons.forEach((close) => {
-      close.addEventListener("click", (event) => {
-        const modal = event.target.closest(".modal");
-        modal.classList.remove("is-active");
+    if (modalButtons) {
+      modalButtons.forEach((button) => {
+        const openModal = (event) => {
+          initialized();
+          const modalName = event.target.dataset.modal;
+          const targetModal = document.querySelector(`.${modalName}`);
+          targetModal.classList.add("is-active");
+        };
+        button.addEventListener("click", openModal);
       });
-    });
-  }
+    }
 
-  const confirmModals = document.querySelectorAll(".modal-confirm");
-  if (confirmModals) {
-    confirmModals.forEach((modal) => {
-      const submit = modal.querySelector(".btn-submit");
+    const modalConfirmButtons = document.querySelectorAll(
+      "[data-modal-confirm]"
+    );
+    if (modalConfirmButtons) {
+      const confirmModal = document.querySelector(".modal-confirm");
+      const confirmModalContent = confirmModal.querySelector(".modal-content");
+      modalConfirmButtons.forEach((button) => {
+        const openConfirmModal = (event) => {
+          const modalData = event.target.dataset.modalConfirm;
+          const submit = confirmModal.querySelector(".btn-submit");
 
-      submit.addEventListener("click", (event) => {
-        const modal = event.target.closest(".modal");
-        const secondaryModal = modal.nextElementSibling;
+          submit.setAttribute("data-modal-alert", modalData);
+          confirmModal.classList.add("is-active");
+          const modalAlertButtons =
+            document.querySelectorAll("[data-modal-alert]");
+          modalAlertButtons.forEach((button) => {
+            const openAlertModal = (event) => {
+              initialized();
+              const modalData = event.target.dataset.modalAlert;
 
-        if (secondaryModal.classList.contains("modal-done")) {
+              alertModal.classList.add("is-active");
+              if (modalData === "check-delete-keyword" || "delete-keyword") {
+                alertModalContent.innerHTML =
+                  "<p>키워드 삭제가 완료되었습니다</p>";
+              }
+              if (modalData === "check-delete-group") {
+                alertModalContent.innerHTML =
+                  "<p>그룹 삭제가 완료되었습니다.</p>";
+              }
+              if (modalData === "select-group") {
+                alertModalContent.innerHTML =
+                  "<p>그룹지정이 완료되었습니다.</p>";
+              }
+            };
+            button.addEventListener("click", openAlertModal);
+          });
+
+          if (modalData === "check-delete-keyword") {
+            confirmModalContent.innerHTML =
+              "<p>키워드 삭제 후 적용하시면 삭제된 키워드와 관련된 데이터가 있는 경우 모두 삭제됩니다. 재등록시에도 삭제된 데이터는 복구되지 않습니다. 삭제를 진행하시겠습니까?</p>";
+          }
+
+          if (modalData === "delete-keyword") {
+            confirmModalContent.innerHTML =
+              "<p>키워드 삭제 시 해당 키워드의 모든 데이터가 삭제됩니다.</p><p>재등록시에도 삭제된 데이터는 복구되지 않습니다.</p><p>삭제를 진행하시겠습니까?</p>";
+          }
+
+          if (modalData === "check-delete-group") {
+            confirmModalContent.innerHTML =
+              "<p>그룹 삭제 시 그룹에 속한 키워드는 그룹이 해제됩니다. 그룹 삭제를 진행하시겠습니까?</p>";
+          }
+
+          if (modalData === "select-group") {
+            confirmModalContent.innerHTML =
+              "<p>이미 그룹이 지정된 키워드가 있습니다. 그룹을 지정하실 경우 기존 그룹이 새로 지정된 그룹으로 대체됩니다. 그룹지정을 진행하시겠습니까?</p>";
+          }
+        };
+        button.addEventListener("click", openConfirmModal);
+      });
+    }
+
+    const modalAlertButtons = document.querySelectorAll("[data-modal-alert]");
+    if (modalAlertButtons) {
+      const alertModal = document.querySelector(".modal-alert");
+      const alertModalContent = alertModal.querySelector(".modal-content");
+      modalAlertButtons.forEach((button) => {
+        const openAlertModal = (event) => {
+          initialized();
+          const modalData = event.target.dataset.modalAlert;
+
+          alertModal.classList.add("is-active");
+          if (modalData === "ungroup") {
+            alertModalContent.innerHTML = "<p>그룹해제가 완료되었습니다.</p>";
+          }
+        };
+        button.addEventListener("click", openAlertModal);
+      });
+    }
+
+    const closeButtons = document.querySelectorAll(".close");
+    if (closeButtons) {
+      closeButtons.forEach((close) => {
+        close.addEventListener("click", (event) => {
+          const modal = event.target.closest(".modal");
           modal.classList.remove("is-active");
-          secondaryModal.classList.add("is-active");
-        }
+
+          if (alertModal) {
+            alertModalContent.innerHTML = "";
+          }
+          if (confirmModal) {
+            confirmModalContent.innerHTML = "";
+          }
+        });
       });
-    });
+    }
   }
 
   /* =====================================================
