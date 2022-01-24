@@ -132,7 +132,10 @@ document.addEventListener("DOMContentLoaded", () => {
               const modalData = event.target.dataset.modalAlert;
 
               alertModal.classList.add("is-active");
-              if (modalData === "check-delete-keyword" || "delete-keyword") {
+              if (
+                modalData === "check-delete-keyword" ||
+                modalData === "delete-keyword"
+              ) {
                 alertModalContent.innerHTML =
                   "<p>키워드 삭제가 완료되었습니다</p>";
               }
@@ -155,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (modalData === "delete-keyword") {
             confirmModalContent.innerHTML =
-              "<p>키워드 삭제 시 해당 키워드의 모든 데이터가 삭제됩니다.</p><p>재등록시에도 삭제된 데이터는 복구되지 않습니다.</p><p>삭제를 진행하시겠습니까?</p>";
+              "<p>키워드 삭제 시 해당 키워드의 모든 데이터가 삭제됩니다. 재등록시에도 삭제된 데이터는 복구되지 않습니다. 삭제를 진행하시겠습니까?</p>";
           }
 
           if (modalData === "check-delete-group") {
@@ -180,8 +183,16 @@ document.addEventListener("DOMContentLoaded", () => {
           const modalData = event.target.dataset.modalAlert;
 
           alertModal.classList.add("is-active");
+          console.log(modalData);
           if (modalData === "ungroup") {
             alertModalContent.innerHTML = "<p>그룹해제가 완료되었습니다.</p>";
+          }
+          if (modalData === "create-keyword") {
+            alertModalContent.innerHTML =
+              "<p>키워드 등록이 완료되었습니다.</p>";
+          }
+          if (modalData === "edit-group" || modalData === "search-group") {
+            alertModalContent.innerHTML = "<p>적용이 완료되었습니다.</p>";
           }
         };
         button.addEventListener("click", openAlertModal);
@@ -204,6 +215,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
     }
+
+    // const inputContainer = document.querySelectorAll(".inputs");
+    // inputContainer.forEach((container) => {
+    //   const alert = container.querySelector(".input-alert");
+    //   console.log(container)
+    //   const input = container.querySelector("input");
+    //   const submitButton = container.querySelector(".btn-submit");
+    //   if (input.value == "") {
+    //     submitButton.addEventListener("click", (event) => {
+    //       alert.classList.add("is-active");
+    //     });
+    //   }
+    // });
   }
 
   /* =====================================================
