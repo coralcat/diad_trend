@@ -582,7 +582,7 @@ section {
 
     small {
       display: block;
-      font-size: 12px;
+      font-size: 13px;
       color: $secondary-color;
       margin-bottom: 0.5rem;
     }
@@ -716,7 +716,7 @@ section {
         display: flex;
         justify-content: center;
         align-items: center;
-        font: bold 13px/1 "Roboto", "NanumBarunGothicLight";
+        font: bold 14px/1 "Roboto", "NanumBarunGothicLight";
       }
     }
 
@@ -1066,6 +1066,10 @@ section {
     .list {
       min-height: auto;
 
+      :not(.title) li {
+        height: 54px;
+      }
+
       li {
         flex-basis: 33.333%;
       }
@@ -1247,36 +1251,37 @@ section {
 
           .date {
             font-weight: normal;
+            font-family: "RobotoMedium";
+            color: #49536b;
           }
 
-          .notification {
+          .btn-changes {
             display: flex;
             align-items: center;
+            justify-content: center;
             flex-wrap: nowrap;
-            gap: 3px;
             background: white;
             color: slategray;
             padding: 0 0.5rem;
             height: 28px;
-            border-radius: 30px;
+            min-width: 28px;
+            border-radius: 3px;
             font-size: 12px;
             font-weight: normal;
             font-family: "RobotoMedium";
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='18'%3E%3Cg%3E%3Crect fill='none' height='18' width='24'/%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Crect fill='slategray' height='2' width='9' x='13' y='7'/%3E%3Crect fill='slategray' height='2' width='9' x='13' y='15'/%3E%3Crect fill='slategray' height='2' width='6' x='16' y='11'/%3E%3Cpolygon fill='slategray' points='13,12 8,7 8,11 2,11 2,13 8,13 8,17'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+            no-repeat right 7px center;
 
-            &::after {
-              content: "";
-              display: block;
-              width: 6px;
-              height: 6px;
-              border: 1px solid $primary-color;
-              border-radius: 0;
-              border-left: none;
-              border-bottom: none;
-              transform: rotate(45deg);
+            &:hover {
+              background-color: #e3e6e9;
             }
 
-            &.new {
+            &:is(.new, .failed) {
+              background-color: white;
               padding-top: 2px;
+              padding-right: 1.75rem;
+            }
+            &.new {
 
               &::before {
                 content: "new";

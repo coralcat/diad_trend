@@ -102,22 +102,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const modalButtons = document.querySelectorAll("[data-modal]");
     if (modalButtons) {
-      modalButtons.forEach((button) => {
-        const openModal = (event) => {
-          initialized();
-          const modalName = event.target.dataset.modal;
-          const targetModal = document.querySelector(`.${modalName}`);
-          targetModal.classList.add("is-active");
-        };
-        button.addEventListener("click", openModal);
-      });
-    }
 
     if (confirmModal) {
       const modalConfirmButtons = document.querySelectorAll(
         "[data-modal-confirm]"
       );
       modalConfirmButtons.forEach((button) => {
+
+        const checkModal = () => {
+          const modal = document.querySelector(".modal.is-active");
+          const submit = modal.querySelector(".btn-submit");
+          if (submit) {
+            submit.addEventListener("click", (event) => {
+              const input = modal.querySelector("input");
+              if (input.value == "") {
+                const alert = modal.querySelector(".input-alert");
+                alert.classList.add("is-active");
+              } else {
+                openConfirmModal(event);
+              }
+            });
+          }
+        };
+
         const openConfirmModal = (event) => {
           const modalData = event.target.dataset.modalConfirm;
           const submit = confirmModal.querySelector(".btn-submit");
@@ -127,6 +134,21 @@ document.addEventListener("DOMContentLoaded", () => {
           const modalAlertButtons =
             document.querySelectorAll("[data-modal-alert]");
           modalAlertButtons.forEach((button) => {
+            const checkModal = () => {
+              const modal = document.querySelector(".modal.is-active");
+              const submit = modal.querySelector(".btn-submit");
+              if (submit) {
+                submit.addEventListener("click", (event) => {
+                  const input = modal.querySelector("input");
+                  if (input.value == "") {
+                    const alert = modal.querySelector(".input-alert");
+                    alert.classList.add("is-active");
+                  } else {
+                    openAlertModal(event);
+                  }
+                });
+              }
+            };
             const openAlertModal = (event) => {
               initialized();
               const modalData = event.target.dataset.modalAlert;
@@ -148,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   "<p>그룹지정이 완료되었습니다.</p>";
               }
             };
-            button.addEventListener("click", openAlertModal);
+            button.addEventListener("click", checkModal);
           });
 
           if (modalData === "check-delete-keyword") {
@@ -171,19 +193,19 @@ document.addEventListener("DOMContentLoaded", () => {
               "<p>이미 그룹이 지정된 키워드가 있습니다. 그룹을 지정하실 경우 기존 그룹이 새로 지정된 그룹으로 대체됩니다. 그룹지정을 진행하시겠습니까?</p>";
           }
         };
-        button.addEventListener("click", openConfirmModal);
+        button.addEventListener("click", checkModal);
       });
     }
 
     if (alertModal) {
       const modalAlertButtons = document.querySelectorAll("[data-modal-alert]");
       modalAlertButtons.forEach((button) => {
-        const openAlertModal = (event) => {
+        const openAlertModal = () => {
           initialized();
+
           const modalData = event.target.dataset.modalAlert;
 
           alertModal.classList.add("is-active");
-          console.log(modalData);
           if (modalData === "ungroup") {
             alertModalContent.innerHTML = "<p>그룹해제가 완료되었습니다.</p>";
           }
@@ -195,7 +217,24 @@ document.addEventListener("DOMContentLoaded", () => {
             alertModalContent.innerHTML = "<p>적용이 완료되었습니다.</p>";
           }
         };
-        button.addEventListener("click", openAlertModal);
+
+        const checkModal = () => {
+          const modal = document.querySelector(".modal.is-active");
+          const submit = modal.querySelector(".btn-submit");
+          if (submit) {
+            submit.addEventListener("click", (event) => {
+              const input = modal.querySelector("input");
+              if (input.value == "") {
+                const alert = modal.querySelector(".input-alert");
+                alert.classList.add("is-active");
+              } else {
+                openAlertModal(event);
+              }
+            });
+          }
+        };
+
+        button.addEventListener("click", checkModal);
       });
     }
 
@@ -215,19 +254,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
     }
-
-    // const inputContainer = document.querySelectorAll(".inputs");
-    // inputContainer.forEach((container) => {
-    //   const alert = container.querySelector(".input-alert");
-    //   console.log(container)
-    //   const input = container.querySelector("input");
-    //   const submitButton = container.querySelector(".btn-submit");
-    //   if (input.value == "") {
-    //     submitButton.addEventListener("click", (event) => {
-    //       alert.classList.add("is-active");
-    //     });
-    //   }
-    // });
   }
 
   /* =====================================================

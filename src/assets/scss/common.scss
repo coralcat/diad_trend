@@ -1160,6 +1160,7 @@ input[type="radio"] + label:empty:before {
 .input-alert {
   width: 100%;
   color: orangered;
+  display: none;
 }
 
 .tooltip {
