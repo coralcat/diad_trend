@@ -486,10 +486,8 @@
               <div class="ico-tooltip"></div>
               <article class="tooltip-content">
                 <ul>
-                  <li>키워드별 순위를 한눈에 확인할 수 있는 차트입니다.</li>
-                  <li>
-                    기간과 간격을 설정하여 원하는 데이터를 얻을 수 있습니다.
-                  </li>
+                  <li>키워드별 순위 이력을 확인할 수 있습니다.</li>
+                  <li>기간을 설정하여 원하는 데이터를 얻을 수 있습니다.</li>
                   <li>
                     등록일부터 데이터가 갱신됨으로 등록 후 초반에는 기간 설정에
                     제한이 있을 수 있습니다.
@@ -530,7 +528,7 @@
             <button type="button">조회</button>
           </div>
           <div class="selectbox">
-            <span>갱신시간</span>
+            <span>그래프간격</span>
             <select name="" id="">
               <option value="">1일 00:00</option>
               <option value="">1일 12:00</option>
@@ -619,10 +617,11 @@
           <ul class="row title scroll-horizontal-01">
             <li>
               <div class="date">2022-03-05 18:00</div>
+              <button class="btn-changes" type="button"></button>
             </li>
             <li>
               <div class="date">2022-03-05 15:00</div>
-              <button class="notification new" type="button">2</button>
+              <button class="btn-changes new" type="button">2</button>
               <article class="notification-details">
                 <div class="title">
                   <span>변경사항</span>
@@ -678,9 +677,7 @@
             </li>
             <li class="failed">
               <div class="date">2022-03-05 12:00</div>
-              <button class="notification failed" type="button">
-                갱신실패
-              </button>
+              <button class="btn-changes failed" type="button">갱신실패</button>
               <article class="notification-details">
                 <div class="title">
                   <div>
@@ -730,21 +727,81 @@
             </li>
             <li>
               <div class="date">2022-03-05 15:00</div>
+              <button class="btn-changes" type="button"></button>
             </li>
             <li>
               <div class="date">2022-03-05 12:00</div>
+              <button class="btn-changes" type="button"></button>
             </li>
             <li>
               <div class="date">2022-03-05 15:00</div>
+              <button class="btn-changes" type="button"></button>
             </li>
             <li>
               <div class="date">2022-03-05 12:00</div>
+              <button type="button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  enable-background="new 0 0 24 24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <g><rect fill="none" height="24" width="24" /></g>
+                  <g>
+                    <g>
+                      <rect height="2" width="9" x="13" y="7" />
+                      <rect height="2" width="9" x="13" y="15" />
+                      <rect height="2" width="6" x="16" y="11" />
+                      <polygon points="13,12 8,7 8,11 2,11 2,13 8,13 8,17" />
+                    </g>
+                  </g>
+                </svg>
+              </button>
             </li>
             <li>
               <div class="date">2022-03-05 15:00</div>
+              <button type="button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  enable-background="new 0 0 24 24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <g><rect fill="none" height="24" width="24" /></g>
+                  <g>
+                    <g>
+                      <rect height="2" width="9" x="13" y="7" />
+                      <rect height="2" width="9" x="13" y="15" />
+                      <rect height="2" width="6" x="16" y="11" />
+                      <polygon points="13,12 8,7 8,11 2,11 2,13 8,13 8,17" />
+                    </g>
+                  </g>
+                </svg>
+              </button>
             </li>
             <li>
               <div class="date">2022-03-05 12:00</div>
+              <button type="button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  enable-background="new 0 0 24 24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <g><rect fill="none" height="24" width="24" /></g>
+                  <g>
+                    <g>
+                      <rect height="2" width="9" x="13" y="7" />
+                      <rect height="2" width="9" x="13" y="15" />
+                      <rect height="2" width="6" x="16" y="11" />
+                      <polygon points="13,12 8,7 8,11 2,11 2,13 8,13 8,17" />
+                    </g>
+                  </g>
+                </svg>
+              </button>
             </li>
           </ul>
         </div>
@@ -1113,7 +1170,18 @@
             <span>판매가 차트</span>
             <div class="tooltip">
               <div class="ico-tooltip"></div>
-              <article class="tooltip-content"></article>
+              <article class="tooltip-content">
+                <ul>
+                  <li>판매가 변동을 한눈에 확인할 수 있습니다.</li>
+                  <li>
+                    기간과 간격을 설정하여 원하는 데이터를 얻을 수 있습니다.
+                  </li>
+                  <li>
+                    등록일부터 데이터가 갱신됨으로 등록 후 초반에는 기간 설정에
+                    제한이 있을 수 있습니다.
+                  </li>
+                </ul>
+              </article>
             </div>
           </h3>
           <div class="buttons">
@@ -1147,7 +1215,7 @@
             <button type="button">조회</button>
           </div>
           <div class="selectbox">
-            <span>갱신시간</span>
+            <span>그래프간격</span>
             <select name="" id="">
               <option value="">1일 00:00</option>
               <option value="">1일 12:00</option>
@@ -1340,7 +1408,7 @@
       <section class="inputs">
         <p>등록하실 키워드를 추가해주세요.</p>
         <input type="text" placeholder="키워드를 입력해주세요." />
-        <button class="btn-sub" type="button">키워드추가</button>
+        <button class="btn-sub" type="button" data-modal-alert="create-keyword">키워드추가</button>
         <small class="input-alert">키워드를 입력해주세요.</small>
       </section>
       <section>
@@ -1358,7 +1426,7 @@
             type="button"
             data-modal-confirm="check-delete-keyword"
           >
-            삭제
+            선택삭제
           </button>
         </div>
         <div class="list">
@@ -1473,8 +1541,7 @@
       </section>
     </div>
     <div class="buttons">
-      <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" type="button">적용</button>
+      <button class="btn-main close" type="button">닫기</button>
     </div>
   </div>
 </div>
@@ -1493,7 +1560,7 @@
 </div>
 
 <div class="modal modal-alert">
-  <div class="dialog alert">
+  <div class="dialog">
     <div class="modal-content"></div>
     <div class="buttons">
       <button class="btn-submit close" type="button">확인</button>
