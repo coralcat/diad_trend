@@ -211,60 +211,58 @@
           </div>
         </div>
         <div class="advanced-search">
-          <div class="rows">
-            <ul class="item-keyword">
-              <li>
-                <h5>
-                  <span>키워드</span>
-                  <div
-                    data-tooltip="복수검색은 줄 바꿈(엔터키)으로 구분합니다.
+          <ul class="item-keyword">
+            <li>
+              <h5>
+                <span>키워드</span>
+                <div
+                  data-tooltip="복수검색은 줄 바꿈(엔터키)으로 구분합니다.
                     예시: 키워드
                       상품
                     "
-                  >
-                    <div class="ico-tooltip"></div>
-                  </div>
-                </h5>
-                <small>복수검색 가능</small>
-              </li>
-              <li class="inputs">
-                <textarea name="" id="" rows="5"></textarea>
-                <div class="select">
-                  <input
-                    id="keyword-01"
-                    type="radio"
-                    name="filter-keyword"
-                    checked
-                  />
-                  <label for="keyword-01">일치</label>
-                  <input id="keyword-02" type="radio" name="filter-keyword" />
-                  <label for="keyword-02">포함</label>
-                  <input id="keyword-03" type="radio" name="filter-keyword" />
-                  <label for="keyword-03">제외</label>
+                >
+                  <div class="ico-tooltip"></div>
                 </div>
-              </li>
-            </ul>
-            <ul class="item-mid">
-              <li>
-                <h5>
-                  <span>상품 MID</span>
-                  <div
-                    data-tooltip="복수검색은 줄 바꿈(엔터키)으로 구분합니다.
+              </h5>
+              <small>복수검색 가능</small>
+            </li>
+            <li class="inputs">
+              <textarea name="" id="" rows="5"></textarea>
+              <div class="select">
+                <input
+                  id="keyword-01"
+                  type="radio"
+                  name="filter-keyword"
+                  checked
+                />
+                <label for="keyword-01">일치</label>
+                <input id="keyword-02" type="radio" name="filter-keyword" />
+                <label for="keyword-02">포함</label>
+                <input id="keyword-03" type="radio" name="filter-keyword" />
+                <label for="keyword-03">제외</label>
+              </div>
+            </li>
+          </ul>
+          <ul class="item-mid">
+            <li>
+              <h5>
+                <span>상품 MID</span>
+                <div
+                  data-tooltip="복수검색은 줄 바꿈(엔터키)으로 구분합니다.
                     예시: 12345678900
                       12345678901
                     "
-                  >
-                    <div class="ico-tooltip"></div>
-                  </div>
-                </h5>
-                <small>복수검색 가능</small>
-              </li>
-              <li class="inputs">
-                <textarea name="" id=""></textarea>
-              </li>
-            </ul>
-          </div>
-          <div class="rows item-information">
+                >
+                  <div class="ico-tooltip"></div>
+                </div>
+              </h5>
+              <small>복수검색 가능</small>
+            </li>
+            <li class="inputs">
+              <textarea name="" id=""></textarea>
+            </li>
+          </ul>
+          <div class="item-information">
             <ul>
               <li>스토어명</li>
               <li class="inputs"><input type="text" /></li>
@@ -277,72 +275,68 @@
               <li>그룹</li>
               <li class="inputs"><input type="text" /></li>
             </ul>
-            <ul class="item-ranking">
-              <li>
-                <h5>
-                  <span>순위</span>
-                  <div
-                    data-tooltip="· 순위 범위를 전체순위(1~401위)로 입력해주세요.
+          </div>
+          <ul class="item-ranking">
+            <li>
+              <h5>
+                <span>순위</span>
+                <div
+                  data-tooltip="· 순위 범위를 전체순위(1~401위)로 입력해주세요.
                       · 400위 밖을 검색할 경우 ‘이상’ 입력 칸에 401을 입력해주세요.
                       · 특정 값을 순위로 검색할 경우 위아래 입력 칸에 같은 값을 입력해주세요.
                       "
-                  >
-                    <div class="ico-tooltip"></div>
-                  </div>
-                </h5>
-              </li>
-              <li class="inputs">
-                <div class="up">
-                  <input type="number" />
+                >
+                  <div class="ico-tooltip"></div>
                 </div>
-                <div class="down">
-                  <input type="number" />
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="rows">
-            <div class="item-created">
-              <ul>
-                <li>등록일</li>
-                <li class="inputs">
-                  <div class="select">
-                    <input
-                      id="created-date-yes"
-                      type="radio"
-                      name="created"
-                      checked
-                    />
-                    <label for="created-date-yes">사용</label>
-                    <input id="created-date-no" type="radio" name="created" />
-                    <label for="created-date-no">미사용</label>
-                  </div>
-                  <div class="calendar">
-                    <input type="text" id="from" name="from" />
-                    <span>~</span>
-                    <input type="text" id="to" name="to" />
-                  </div>
-                </li>
-              </ul>
+              </h5>
+            </li>
+            <li class="inputs">
+              <div class="up">
+                <input type="number" />
+              </div>
+              <div class="down">
+                <input type="number" />
+              </div>
+            </li>
+          </ul>
+          <ul class="item-created">
+            <li>등록일</li>
+            <li class="inputs">
+              <div class="select">
+                <input
+                  id="created-date-yes"
+                  type="radio"
+                  name="created"
+                  checked
+                />
+                <label for="created-date-yes">사용</label>
+                <input id="created-date-no" type="radio" name="created" />
+                <label for="created-date-no">미사용</label>
+              </div>
+              <div class="calendar">
+                <input type="text" id="from" name="from" />
+                <span>~</span>
+                <input type="text" id="to" name="to" />
+              </div>
+            </li>
+          </ul>
+          <ul class="item-alert">
+            <li>알림</li>
+            <li class="inputs">
+              <div class="checkbox">
+                <input type="checkbox" id="alert-on" />
+                <label for="alert-on">on</label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" id="alert-off" />
+                <label for="alert-off">off</label>
+              </div>
+            </li>
+            <div class="buttons">
+              <button class="btn-sub">초기화</button>
+              <button class="btn-main">상세검색</button>
             </div>
-            <ul class="item-alert">
-              <li>알림</li>
-              <li class="inputs">
-                <div class="checkbox">
-                  <input type="checkbox" id="alert-on" />
-                  <label for="alert-on">on</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" id="alert-off" />
-                  <label for="alert-off">off</label>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="buttons">
-            <button class="btn-sub">초기화</button>
-            <button class="btn-main">상세검색</button>
-          </div>
+          </ul>
         </div>
         <div class="filters">
           <div>
@@ -742,7 +736,9 @@
       <section>
         <div class="inputs">
           <input type="text" placeholder="그룹명을 입력해주세요." />
-          <button class="btn-sub" type="button" data-modal-alert="create-group">그룹추가</button>
+          <button class="btn-sub" type="button" data-modal-alert="create-group">
+            그룹추가
+          </button>
         </div>
       </section>
       <section>
@@ -875,9 +871,7 @@
       </section>
     </div>
     <div class="buttons">
-      <button class="btn-main close" type="button">
-        닫기
-      </button>
+      <button class="btn-main close" type="button">닫기</button>
     </div>
   </div>
 </div>
@@ -1116,7 +1110,9 @@
       <section class="inputs">
         <p>등록하실 키워드를 추가해주세요.</p>
         <input type="text" placeholder="키워드를 입력해주세요." />
-        <button class="btn-sub" type="button" data-modal-alert="create-keyword">키워드추가</button>
+        <button class="btn-sub" type="button" data-modal-alert="create-keyword">
+          키워드추가
+        </button>
       </section>
       <section>
         <div class="list-header">

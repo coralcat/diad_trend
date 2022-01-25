@@ -253,11 +253,11 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
          Section Keyword History: Notification
     ===================================================== */
-  const notificationDetails = document.querySelector(".notification-details");
+  const informationDetails = document.querySelector(".more-information-details");
 
-  if (notificationDetails) {
-    const notifications = document.querySelectorAll(".notification");
-    notifications.forEach((notification) => {
+  if (informationDetails) {
+    const informations = document.querySelectorAll(".more-information");
+    informations.forEach((notification) => {
       notification.addEventListener("click", (event) => {
         const details = event.target.nextElementSibling;
         details.classList.toggle("is-active");
