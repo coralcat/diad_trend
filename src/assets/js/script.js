@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   });
 
+  const main = document.querySelector("main");
+
   /* =====================================================
        Input Search Close Button
   ===================================================== */
@@ -88,11 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (modals[0]) {
     const alertModal = document.querySelector(".modal-alert");
-    const alertModalContent = document.querySelector(
-      ".modal-alert .modal-content"
-    );
     const confirmModal = document.querySelector(".modal-confirm");
     const confirmModalContent = confirmModal.querySelector(".modal-content");
+    const alertModalContent = alertModal.querySelector(".modal-content");
 
     const initialized = () => {
       modals.forEach((modal) => {
@@ -102,141 +102,94 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const modalButtons = document.querySelectorAll("[data-modal]");
     if (modalButtons) {
+      const openModal = (event) => {
+        initialized();
+        const modalName = event.target.dataset.modal;
+        const targetModal = document.querySelector(`.${modalName}`);
+        targetModal.classList.add("is-active");
+      };
+
+      modalButtons.forEach((button) => {
+        button.addEventListener("click", openModal);
+      });
+    }
 
     if (confirmModal) {
       const modalConfirmButtons = document.querySelectorAll(
         "[data-modal-confirm]"
       );
+
+      const openConfirmModal = (event) => {
+        const modalData = event.target.dataset.modalConfirm;
+        const submit = confirmModal.querySelector(".btn-submit");
+        submit.setAttribute("data-modal-alert", modalData);
+        confirmModal.classList.add("is-active");
+
+        const modalAlertButtons =
+          document.querySelectorAll("[data-modal-alert]");
+
+        modalAlertButtons.forEach((button) => {
+          button.addEventListener("click", openAlertModal);
+        });
+
+        if (modalData === "check-delete-keyword") {
+          confirmModalContent.innerHTML =
+            "<p>키워드 삭제 후 적용하시면 삭제된 키워드와 관련된 데이터가 있는 경우 모두 삭제됩니다. 재등록시에도 삭제된 데이터는 복구되지 않습니다. 삭제를 진행하시겠습니까?</p>";
+        }
+
+        if (modalData === "delete-keyword") {
+          confirmModalContent.innerHTML =
+            "<p>소재 삭제 시 해당 소재의 모든 데이터가 삭제됩니다. 재등록시에도 삭제된 데이터는 복구되지 않습니다. 삭제를 진행하시겠습니까?</p>";
+        }
+
+        if (modalData === "check-delete-group") {
+          confirmModalContent.innerHTML =
+            "<p>그룹 삭제 시 그룹에 속한 키워드는 그룹이 해제됩니다. 그룹 삭제를 진행하시겠습니까?</p>";
+        }
+
+        if (modalData === "select-group") {
+          confirmModalContent.innerHTML =
+            "<p>이미 그룹이 지정된 키워드가 있습니다. 그룹을 지정하실 경우 기존 그룹이 새로 지정된 그룹으로 대체됩니다. 그룹지정을 진행하시겠습니까?</p>";
+        }
+      };
       modalConfirmButtons.forEach((button) => {
-
-        const checkModal = () => {
-          const modal = document.querySelector(".modal.is-active");
-          const submit = modal.querySelector(".btn-submit");
-          if (submit) {
-            submit.addEventListener("click", (event) => {
-              const input = modal.querySelector("input");
-              if (input.value == "") {
-                const alert = modal.querySelector(".input-alert");
-                alert.classList.add("is-active");
-              } else {
-                openConfirmModal(event);
-              }
-            });
-          }
-        };
-
-        const openConfirmModal = (event) => {
-          const modalData = event.target.dataset.modalConfirm;
-          const submit = confirmModal.querySelector(".btn-submit");
-
-          submit.setAttribute("data-modal-alert", modalData);
-          confirmModal.classList.add("is-active");
-          const modalAlertButtons =
-            document.querySelectorAll("[data-modal-alert]");
-          modalAlertButtons.forEach((button) => {
-            const checkModal = () => {
-              const modal = document.querySelector(".modal.is-active");
-              const submit = modal.querySelector(".btn-submit");
-              if (submit) {
-                submit.addEventListener("click", (event) => {
-                  const input = modal.querySelector("input");
-                  if (input.value == "") {
-                    const alert = modal.querySelector(".input-alert");
-                    alert.classList.add("is-active");
-                  } else {
-                    openAlertModal(event);
-                  }
-                });
-              }
-            };
-            const openAlertModal = (event) => {
-              initialized();
-              const modalData = event.target.dataset.modalAlert;
-
-              alertModal.classList.add("is-active");
-              if (
-                modalData === "check-delete-keyword" ||
-                modalData === "delete-keyword"
-              ) {
-                alertModalContent.innerHTML =
-                  "<p>키워드 삭제가 완료되었습니다</p>";
-              }
-              if (modalData === "check-delete-group") {
-                alertModalContent.innerHTML =
-                  "<p>그룹 삭제가 완료되었습니다.</p>";
-              }
-              if (modalData === "select-group") {
-                alertModalContent.innerHTML =
-                  "<p>그룹지정이 완료되었습니다.</p>";
-              }
-            };
-            button.addEventListener("click", checkModal);
-          });
-
-          if (modalData === "check-delete-keyword") {
-            confirmModalContent.innerHTML =
-              "<p>키워드 삭제 후 적용하시면 삭제된 키워드와 관련된 데이터가 있는 경우 모두 삭제됩니다. 재등록시에도 삭제된 데이터는 복구되지 않습니다. 삭제를 진행하시겠습니까?</p>";
-          }
-
-          if (modalData === "delete-keyword") {
-            confirmModalContent.innerHTML =
-              "<p>키워드 삭제 시 해당 키워드의 모든 데이터가 삭제됩니다. 재등록시에도 삭제된 데이터는 복구되지 않습니다. 삭제를 진행하시겠습니까?</p>";
-          }
-
-          if (modalData === "check-delete-group") {
-            confirmModalContent.innerHTML =
-              "<p>그룹 삭제 시 그룹에 속한 키워드는 그룹이 해제됩니다. 그룹 삭제를 진행하시겠습니까?</p>";
-          }
-
-          if (modalData === "select-group") {
-            confirmModalContent.innerHTML =
-              "<p>이미 그룹이 지정된 키워드가 있습니다. 그룹을 지정하실 경우 기존 그룹이 새로 지정된 그룹으로 대체됩니다. 그룹지정을 진행하시겠습니까?</p>";
-          }
-        };
-        button.addEventListener("click", checkModal);
+        button.addEventListener("click", openConfirmModal);
       });
     }
 
-    if (alertModal) {
-      const modalAlertButtons = document.querySelectorAll("[data-modal-alert]");
-      modalAlertButtons.forEach((button) => {
-        const openAlertModal = () => {
-          initialized();
+    const modalAlertButtons = document.querySelectorAll("[data-modal-alert]");
 
-          const modalData = event.target.dataset.modalAlert;
-
-          alertModal.classList.add("is-active");
-          if (modalData === "ungroup") {
-            alertModalContent.innerHTML = "<p>그룹해제가 완료되었습니다.</p>";
-          }
-          if (modalData === "create-keyword") {
-            alertModalContent.innerHTML =
-              "<p>키워드 등록이 완료되었습니다.</p>";
-          }
-          if (modalData === "edit-group" || modalData === "search-group") {
-            alertModalContent.innerHTML = "<p>적용이 완료되었습니다.</p>";
-          }
-        };
-
-        const checkModal = () => {
-          const modal = document.querySelector(".modal.is-active");
-          const submit = modal.querySelector(".btn-submit");
-          if (submit) {
-            submit.addEventListener("click", (event) => {
-              const input = modal.querySelector("input");
-              if (input.value == "") {
-                const alert = modal.querySelector(".input-alert");
-                alert.classList.add("is-active");
-              } else {
-                openAlertModal(event);
-              }
-            });
-          }
-        };
-
-        button.addEventListener("click", checkModal);
-      });
-    }
+    const openAlertModal = (event) => {
+      alertModal.classList.add("is-active");
+      const modalData = event.target.dataset.modalAlert;
+      if (modalData === "ungroup") {
+        alertModalContent.innerHTML = "<p>그룹해제가 완료되었습니다.</p>";
+      }
+      if (modalData === "create-keyword") {
+        alertModalContent.innerHTML = "<p>키워드 등록이 완료되었습니다.</p>";
+      }
+      if (modalData === "create-group") {
+        alertModalContent.innerHTML = "<p>그룹 등록이 완료되었습니다.</p>";
+      }
+      if (modalData === "search-group") {
+        alertModalContent.innerHTML = "<p>적용이 완료되었습니다.</p>";
+      }
+      if (modalData === "delete-keyword") {
+        alertModalContent.innerHTML = "<p>소재 삭제가 완료되었습니다</p>";
+      }
+      if (modalData === "check-delete-keyword") {
+        alertModalContent.innerHTML = "<p>키워드 삭제가 완료되었습니다</p>";
+      }
+      if (modalData === "check-delete-group") {
+        alertModalContent.innerHTML = "<p>그룹 삭제가 완료되었습니다.</p>";
+      }
+      if (modalData === "select-group") {
+        alertModalContent.innerHTML = "<p>그룹지정이 완료되었습니다.</p>";
+      }
+    };
+    modalAlertButtons.forEach((button) => {
+      button.addEventListener("click", openAlertModal);
+    });
 
     const closeButtons = document.querySelectorAll(".close");
     if (closeButtons) {
@@ -246,9 +199,11 @@ document.addEventListener("DOMContentLoaded", () => {
           modal.classList.remove("is-active");
 
           if (alertModal) {
+            alertModal.classList.remove("is-active");
             alertModalContent.innerHTML = "";
           }
           if (confirmModal) {
+            confirmModal.classList.remove("is-active");
             confirmModalContent.innerHTML = "";
           }
         });

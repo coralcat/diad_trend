@@ -966,7 +966,22 @@ input[type="radio"] + label:empty:before {
 
     .dialog {
       min-width: 25rem;
+      min-height: 10rem;
+      padding: 1.75rem 1.25rem 1.25rem;
     }
+
+    .modal-header {
+      display: none;
+    }
+
+    .modal-content, .buttons {
+      padding: 0;
+    }
+  }
+
+
+  :is(.modal-header, .modal-content, .buttons) {
+    padding: 1.25rem;
   }
 
   .dialog {
@@ -974,23 +989,22 @@ input[type="radio"] + label:empty:before {
     max-width: 90vw;
     max-height: 90vw;
     background-color: white;
-    padding: 1.25rem;
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
     z-index: 30;
+    overflow: hidden;
   }
 
   .modal-header {
     flex: 0 0 auto;
-    height: 24px;
     position: relative;
 
     .close {
       position: absolute;
-      top: 3px;
-      right: 0;
+      top: 18px;
+      right: 1.25rem;
       width: 18px;
       height: 18px;
       background-image: linear-gradient(#333 0 0), linear-gradient(#333 0 0);
@@ -1011,7 +1025,6 @@ input[type="radio"] + label:empty:before {
 
   .buttons {
     flex: 0 0 auto;
-    margin-top: 1rem;
     display: flex;
     justify-content: flex-end;
 
@@ -1022,7 +1035,7 @@ input[type="radio"] + label:empty:before {
     }
   }
 
-  .btn-submit {
+  .btn-submit, .btn-main {
     background-color: rgb(118 130 248);
     color: #fff;
     box-shadow: 0px 3px 6px rgba(118, 130, 248, 0.5);
@@ -1048,7 +1061,6 @@ input[type="radio"] + label:empty:before {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 5rem;
   }
 
   .buttons {

@@ -396,7 +396,6 @@ section {
   flex-wrap: wrap;
   border: 2px solid #333;
   border-radius: 0.5rem;
-  padding: 0.5rem 0;
   position: relative;
 
   &.is-active {
@@ -408,23 +407,46 @@ section {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
   }
 
-  > * {
+  .rows {
     flex: 0 0 auto;
-    width: 25%;
-    padding: 0.5rem 1rem;
+    width: 33.333%;
+    padding: 1.5rem;
+
+    &:not(:last-of-type) {
+      border-right: 1px solid #d1d2d3;
+    }
   }
 
   .buttons {
     flex: 1 1 auto;
     justify-content: flex-end;
     position: absolute;
-    right: 0;
-    bottom: 0.5rem;
+    right: 1rem;
+    bottom: 1rem;
   }
 
   [data-tooltip]::before {
     width: 270px;
     left: 300%;
+  }
+
+  .inputs {
+    flex: 1 1 auto;
+
+    > div {
+      display: flex;
+      align-items: center;
+
+      &:not(.checkbox) {
+        width: 100%;
+      }
+    }
+
+    textarea,
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+    }
   }
 
   ul {
@@ -435,26 +457,6 @@ section {
       &:first-of-type {
         flex: 0 0 auto;
         width: 90px;
-      }
-
-      &:last-of-type {
-        flex: 1 1 auto;
-        display: flex;
-        align-items: center;
-
-        > div {
-          display: flex;
-          align-items: center;
-
-          &:not(.checkbox) {
-            width: 100%;
-          }
-        }
-
-        textarea,
-        input[type="text"] {
-          width: 100%;
-        }
       }
     }
 
@@ -471,7 +473,7 @@ section {
   }
 
   .rows {
-    gap: 0.5rem;
+    gap: 1rem;
     display: flex;
     flex-direction: column;
 
@@ -481,13 +483,9 @@ section {
     }
   }
 
-  :is(.item-keyword, .item-mid) {
-    width: 50%;
-  }
-
   .item-ranking {
-    .rows {
-      align-items: flex-end;
+    .inputs {
+      flex-wrap: nowrap;
     }
 
     input {
@@ -516,9 +514,15 @@ section {
   }
 
   .item-created {
+
+    ul {
+      align-items: flex-start;
+      padding-top: .5rem;
+      li:last-of-type {
+        padding: 0
+      }
+    }
     .select {
-      align-self: flex-start;
-      justify-self: flex-start;
     }
   }
 }
@@ -1591,11 +1595,6 @@ section {
 }
 
 .modal {
-  &.modal-confirm {
-    .dialog {
-      width: 400px;
-    }
-  }
 
   input {
     + button {
@@ -1618,6 +1617,19 @@ section {
     }
   }
 
+  &:is(.modal-confirm, .modal-alert) {
+
+    .modal-header {
+      border-bottom:0
+    }
+
+  }
+
+  .modal-header {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #e3e6e9;
+  }
+
   .modal-content {
     gap: 1rem;
   }
@@ -1631,6 +1643,12 @@ section {
 
     .title {
       font-family: "RobotoMedium", "NanumBarunGothic";
+    }
+  }
+
+  &.modal-confirm {
+    .dialog {
+      width: 400px;
     }
   }
 
