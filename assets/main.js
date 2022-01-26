@@ -239,29 +239,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =====================================================
-         Section Keyword History: More Information
-    ===================================================== */
-  const informationDetails = document.querySelector(".more-information-details");
-
-  if (informationDetails) {
-    const informations = document.querySelectorAll(".more-information");
-    informations.forEach((notification) => {
-      notification.addEventListener("click", (event) => {
-        const details = event.target.nextElementSibling;
-        details.classList.toggle("is-active");
-      });
-    });
-
-    const closeButtons = document.querySelectorAll(".close");
-    closeButtons.forEach((close) => {
-      close.addEventListener("click", (event) => {
-        const modal = event.target.closest("article");
-        modal.classList.remove("is-active");
-      });
-    });
-  }
-
-  /* =====================================================
          p42: 상품 순위 조회 > 상품등록
     ===================================================== */
+
+  /* =====================================================
+         Check Validity
+    ===================================================== */
+
+    document.querySelectorAll(".btn-validation").forEach(button => {
+      const input = button.parentElement.querySelector("input")
+      console.log(input)
+    })
+
 });
