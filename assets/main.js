@@ -38,18 +38,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 알림 서비스 설정 전체해제
   const dataToggles = document.querySelectorAll("[data-toggle]");
-  if (dataToggles) {
-    const controllers = document.querySelectorAll(".toggle-controller");
-    controllers.forEach((controller) => {
-      controller.addEventListener("click", (event) => {
+  const controllers = document.querySelectorAll(".toggle-controller");
+  controllers.forEach((controller) => {
+    controller.addEventListener("click", (event) => {
+      if (!controller.classList.contains("is-active")) {
         dataToggles.forEach((toggle) => {
-          if (event.target.dataset.toggle == toggle.dataset.toggle) {
+          if (event.target.dataset.toggle === toggle.dataset.toggle) {
             toggle.classList = controller.classList;
           }
         });
-      });
+      }
+    });
+    dataToggles.forEach((toggle) => {
+      if (!toggle.classList.contains(".controller")) {
+        toggle.addEventListener("click", () => {
+          if (toggle.classList.contains("is-active")) {
+            controller.classList.add("is-active");
+          }
+        });
+      }
+    });
+  });
+
+  // 알림 매체 설정 disabled 처리
+  const changeAlarmInformation = document.querySelector(".content-settings .change-information");
+  if (changeAlarmInformation) {
+    const toggles = changeAlarmInformation.querySelectorAll(".toggle");
+    toggles.forEach((toggle) => {
+      const inputDisabled = () => {
+        const inputs = toggle.parentElement.querySelectorAll("input");
+        inputs.forEach((input) => {
+          if (!toggle.classList.contains("is-active")) {
+            input.disabled = true;
+          } else {
+            input.disabled = false;
+          }
+        });
+      };
+
+      inputDisabled();
+      toggle.addEventListener("click", inputDisabled);
     });
   }
+
+  /* =====================================================
+       Advanced Search 등록일 달력
+  ===================================================== */
+  const advancedSearchCalendar = document.querySelector(".advanced-search .item-created .calendar")
+  if(advancedSearchCalendar) {
+    const no = advancedSearchCalendar.querySelector("#created-date-no")
+    if(no.checked = true) {
+      const inputs = advancedSearchCalendar.closest(".inputs")
+
+    }
+  }
+
 
   /* =====================================================
        Tooltip
@@ -245,10 +288,21 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
          Check Validity
     ===================================================== */
+  document.querySelectorAll(".btn-validation").forEach((button) => {
+    const inputs = button.parentElement;
+    const input = inputs.querySelector("input");
 
-    document.querySelectorAll(".btn-validation").forEach(button => {
-      const input = button.parentElement.querySelector("input")
-      console.log(input)
-    })
+    input.addEventListener("input", () => {
+      input.setCustomValidity("");
+      input.checkValidity();
+    });
 
+    input.addEventListener("invalid", () => {
+      if (input.value === "") {
+        input.setCustomValidity("키워드를 입력해주세요.");
+        const alert = inputs.querySelector(".input-alert");
+      } else {
+      }
+    });
+  });
 });
