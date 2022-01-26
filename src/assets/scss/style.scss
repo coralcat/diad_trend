@@ -134,6 +134,7 @@ button {
       no-repeat right 6px top 6px;
     background-size: 18px;
     padding-right: 1.5rem;
+    min-width: 120px;
     text-overflow: ellipsis;
   }
 }
@@ -392,34 +393,34 @@ section {
 }
 
 .advanced-search {
-  display: none;
-  flex-wrap: wrap;
-  border: 2px solid #333;
-  border-radius: 0.5rem;
+  opacity: 0;
+  max-height: 0;
+  border-top: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
   position: relative;
+  transition: 0.4s, opacity 0.01s;
+  overflow: hidden;
 
   &.is-active {
-    position: absolute;
-    background: white;
-    width: 80%;
-    top: 4rem;
-    left: 1.5rem;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+    max-height: none;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 1rem 0;
   }
 
   > * {
     flex: 0 0 auto;
-    width: 33.333%;
-    padding: 1.5rem;
+    width: 37.5%;
+    padding: 0.5rem 1.5rem;
     border-right: 1px solid #d1d2d3;
 
     &:is(.item-information, .item-alert) {
+      width: 25%;
       border-right: 0;
     }
   }
 
   ul {
-
     li {
       &:first-of-type {
         flex: 0 0 auto;
@@ -429,11 +430,10 @@ section {
   }
 
   .buttons {
+    padding: 0;
+    border-right: 0;
     flex: 1 1 auto;
     justify-content: flex-end;
-    position: absolute;
-    right: 1rem;
-    bottom: 1rem;
   }
 
   [data-tooltip]::before {
@@ -490,10 +490,11 @@ section {
   .item-information {
     display: flex;
     flex-wrap: wrap;
-    gap: .5rem;
+    gap: 0.5rem;
 
     ul {
-      width: 100%
+      width: 100%;
+      align-items: center;
     }
   }
 
@@ -528,14 +529,10 @@ section {
   }
 
   .item-created {
-    ul {
-      align-items: flex-start;
-      padding-top: 0.5rem;
-      li:last-of-type {
-        padding: 0;
-      }
-    }
-    .select {
+    align-items: center;
+
+    .inputs {
+      flex-wrap: nowrap;
     }
   }
 }
@@ -974,8 +971,7 @@ section {
             width: 12px;
             height: 12px;
             display: inline-flex;
-            background-image: linear-gradient($primary-color 0 0),
-              linear-gradient($primary-color 0 0);
+            background-image: linear-gradient($primary-color 0 0), linear-gradient($primary-color 0 0);
             background-position: center;
             background-size: 100% 2px, 2px 100%;
             background-repeat: no-repeat;
@@ -1272,7 +1268,7 @@ section {
             color: #49536b;
           }
 
-          .more-information {
+          .btn-changes {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1302,88 +1298,6 @@ section {
               &::before {
                 content: "new";
                 text-transform: uppercase;
-              }
-            }
-          }
-
-          .more-information-details {
-            opacity: 0;
-            position: absolute;
-            padding: 1rem;
-            background-color: white;
-            border: 2px solid $secondary-color;
-            border-radius: 0.5rem;
-            box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-            word-break: keep-all;
-            transform: translateX(calc(50% + 3rem))
-              translateY(calc(50% - 1.5rem));
-            transition: opacity 0.2s;
-            z-index: -1;
-
-            &.is-active {
-              opacity: 1;
-              display: flex;
-              flex-direction: column;
-              z-index: 1;
-            }
-
-            .title {
-              margin-bottom: 0.75rem;
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-
-              .date {
-                font-size: 13px;
-              }
-            }
-
-            .current {
-              color: $secondary-color;
-            }
-
-            .before {
-              color: #a3a6a9;
-            }
-
-            .list {
-              .row {
-                li {
-                  height: auto;
-                  flex-direction: column;
-                  border-right: 0;
-                  justify-content: center;
-                  font: normal 13px/1.25 "Roboto", "NanumBarunGothic";
-
-                  &:first-of-type {
-                    width: 80px;
-                    padding: 0;
-                    font-family: "NanumBarunGothicLight";
-                    font-weight: bold;
-                  }
-
-                  &:last-of-type {
-                    flex: 1 1 auto;
-                    align-items: flex-start;
-                    gap: 0.75rem;
-                  }
-
-                  .row {
-                    flex-direction: column;
-                    align-items: flex-start;
-
-                    .date {
-                      color: slategray;
-                      font-size: 12px;
-                    }
-
-                    .price {
-                      &::after {
-                        content: "원";
-                      }
-                    }
-                  }
-                }
               }
             }
           }
@@ -1712,6 +1626,59 @@ section {
         &.keyword {
           &::before {
             content: "#";
+          }
+        }
+      }
+    }
+  }
+
+  &.change-details {
+    .list {
+      .title {
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .current {
+        color: $secondary-color;
+      }
+
+      .row {
+        li {
+          min-height: 50px;
+          flex-direction: column;
+          border-right: 0;
+          justify-content: center;
+
+          &:first-of-type {
+            flex: 0 0 auto;
+            width: 100px;
+            padding: 0;
+            font-family: "NanumBarunGothicLight";
+            font-weight: bold;
+          }
+
+          &:last-of-type {
+            flex: 1 1 auto;
+            align-items: flex-start;
+            gap: 0.75rem;
+          }
+
+          .row {
+            flex-direction: column;
+            align-items: flex-start;
+
+            .date {
+              line-height: 1.75;
+            }
+
+            .price {
+              &::after {
+                content: "원";
+              }
+            }
           }
         }
       }
