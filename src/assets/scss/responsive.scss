@@ -1,0 +1,161 @@
+@media screen and (max-width: 480px) {
+  aside {
+    display: none;
+  }
+
+  .content {
+
+    > .wrapper {
+
+      > section {
+        padding: 0;
+        background-color: transparent;
+      }
+    }
+  }
+
+  section {
+
+    .section-header{
+      min-height: auto;
+      margin-bottom: 0;
+    }
+
+    .wrapper {
+      flex-wrap: wrap;
+    }
+  }
+
+  .list {
+    gap: 0.5rem;
+    border: 0;
+    max-width: 100%;
+
+    .row {
+      background-color: white;
+      border-radius: 0.5rem;
+      flex-direction: column;
+      padding: 1rem;
+      align-items: flex-start;
+      gap: 0.25rem;
+
+      &.title {
+        border: 0;
+        padding: .5rem 0;
+        display: flex;
+        flex-direction: row;
+        background-color: transparent;
+
+        > li {
+          background-color: transparent;
+          font: 15px/1 "Roboto","NanumBarunGothic";
+        }
+      }
+
+      li {
+        border: 0 !important;
+        padding: 0;
+        min-height: 0;
+
+        button {
+          border-radius: .5rem;
+        }
+      }
+    }
+  }
+
+  .content-main {
+    .section-overview {
+      .list {
+        .row {
+          &:last-of-type {
+            li {
+              &::before {
+                content: none !important;
+              }
+
+              &.button {
+                margin-top: 1rem;
+                justify-content: center !important;
+
+                button {
+                  height: 32px;
+                }
+              }
+            }
+          }
+
+          &.title {
+            display: none;
+          }
+
+          li {
+            width: 100%;
+            justify-content: flex-start !important;
+
+            &::before {
+              flex-basis: 130px;
+            }
+
+            &:nth-of-type(1) {
+              font-size: 17px;
+              margin-bottom: 0.5rem;
+            }
+            &:nth-of-type(2) {
+              &::before {
+                content: "총 소재: ";
+              }
+            }
+            &:nth-of-type(3) {
+              &::before {
+                content: "등록 소재: ";
+              }
+            }
+            &:nth-of-type(4) {
+              &::before {
+                content: "등록 가능 소재: ";
+              }
+            }
+            &:nth-of-type(5) {
+              &::before {
+                content: "서비스 이용기간: ";
+              }
+            }
+            &:nth-of-type(6) {
+              &::before {
+                content: "잔여일수: ";
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .section-articles {
+      .section-header{
+        display: none;
+      }
+
+      .list {
+
+        .row {
+
+
+          &.title {
+
+            li {
+              font-size: 20px !important;
+            }
+          }
+
+          li {
+
+            &:nth-of-type(1) {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

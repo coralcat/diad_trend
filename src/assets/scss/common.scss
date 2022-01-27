@@ -10,16 +10,14 @@
 
 @font-face {
   font-family: "NanumBarunGothic";
-  src: url("../fonts/NanumBarunGothicRegular.eot"),
-    url("../fonts/NanumBarunGothicRegular.ttf") format("truetype"),
+  src: url("../fonts/NanumBarunGothicRegular.eot"), url("../fonts/NanumBarunGothicRegular.ttf") format("truetype"),
     url("../fonts/NanumBarunGothicRegular.woff") format("woff");
 }
 
 @font-face {
   font-family: "NanumBarunGothicLight";
   font-weight: 300;
-  src: url("../fonts/NanumBarunGothicLight.eot"),
-    url("../fonts/NanumBarunGothicLight.ttf") format("truetype"),
+  src: url("../fonts/NanumBarunGothicLight.eot"), url("../fonts/NanumBarunGothicLight.ttf") format("truetype"),
     url("../fonts/NanumBarunGothicLight.woff") format("woff");
 }
 
@@ -88,8 +86,7 @@ body {
   }
 
   .is-active {
-    display: flex;
-    max-height: none;
+    display: flex !important;
     opacity: 1 !important;
     z-index: 50 !important;
   }
@@ -287,9 +284,55 @@ textarea {
 }
 
 .search {
-
   .x {
     cursor: pointer;
+  }
+}
+
+.hamburg-menu {
+  position: absolute;
+  right: 0.25rem;
+  top: 0.25rem;
+
+  svg {
+    width: 3rem;
+    height: 3rem;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.4s;
+    user-select: none;
+    cursor: pointer;
+
+    path {
+      fill: none;
+      transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+      stroke: white;
+      stroke-width: 5.5;
+      stroke-linecap: round;
+
+      &:first-of-type {
+        stroke-dasharray: 40 139;
+      }
+
+      &:last-of-type {
+        stroke-dasharray: 40 180;
+      }
+    }
+  }
+
+  &.active {
+    .hamburger-menu {
+      svg {
+        transform: rotate(45deg);
+
+        &:first-of-type {
+          stroke-dashoffset: -98px;
+        }
+
+        &:last-of-type {
+          stroke-dashoffset: -138px;
+        }
+      }
+    }
   }
 }
 
@@ -423,7 +466,6 @@ aside {
   box-sizing: border-box;
   position: relative;
 }
-
 
 .inputs {
   display: flex;
@@ -638,7 +680,7 @@ aside {
 /* Radio Button */
 
 input[type="radio"] {
-  position: absolute;
+  display: none;
   opacity: 0;
 }
 
@@ -963,7 +1005,6 @@ input[type="radio"] + label:empty:before {
   }
 
   &:is(.modal-confirm, .modal-alert) {
-
     .dialog {
       min-width: 25rem;
       min-height: 10rem;
@@ -974,11 +1015,11 @@ input[type="radio"] + label:empty:before {
       display: none;
     }
 
-    .modal-content, .buttons {
+    .modal-content,
+    .buttons {
       padding: 0;
     }
   }
-
 
   :is(.modal-header, .modal-content, .buttons) {
     padding: 1.25rem;
@@ -1035,7 +1076,8 @@ input[type="radio"] + label:empty:before {
     }
   }
 
-  .btn-submit, .btn-main {
+  .btn-submit,
+  .btn-main {
     background-color: rgb(118 130 248);
     color: #fff;
     box-shadow: 0px 3px 6px rgba(118, 130, 248, 0.5);
