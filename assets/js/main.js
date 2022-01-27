@@ -82,19 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =====================================================
-       Advanced Search 등록일 달력
-  ===================================================== */
-  const advancedSearchCalendar = document.querySelector(".advanced-search .item-created .calendar")
-  if(advancedSearchCalendar) {
-    const no = advancedSearchCalendar.querySelector("#created-date-no")
-    if(no.checked = true) {
-      const inputs = advancedSearchCalendar.closest(".inputs")
-
-    }
-  }
-
-
-  /* =====================================================
        Tooltip
   ===================================================== */
   const tooltips = document.querySelectorAll(".ico-tooltip");
@@ -250,7 +237,44 @@ document.addEventListener("DOMContentLoaded", () => {
     const button = document.querySelector(".btn-advanced-search");
 
     button.addEventListener("click", () => {
+      initialize();
       advancedSearch.classList.toggle("is-active");
+    });
+
+    //초기화
+    const initialize = () => {
+      const inputs = advancedSearch.querySelectorAll("input[type='text'], input[type='number'], textarea");
+      inputs.forEach((input) => {
+        input.value = "";
+      });
+
+      const checkboxes = advancedSearch.querySelectorAll("input[type='checkbox']");
+      checkboxes.forEach((checkbox) => {
+        checkbox.checked = false;
+      });
+
+      const selections = advancedSearch.querySelectorAll(".select input:first-of-type");
+      selections.forEach((select) => {
+        select.checked = true;
+      });
+    };
+    const clear = advancedSearch.querySelector(".clear");
+    clear.addEventListener("click", initialize);
+
+    // 등록일 사용여부
+    const itemCreated = advancedSearch.querySelector(".item-created");
+    const calendar = itemCreated.querySelector(".calendar");
+    const options = itemCreated.querySelectorAll(".select input");
+
+    options.forEach((option) => {
+      const choose = (event) => {
+        if (event.target.dataset.select === "yes") {
+          calendar.classList.add("is-active");
+        } else {
+          calendar.classList.remove("is-active");
+        }
+      };
+      option.addEventListener("click", choose);
     });
   }
 
