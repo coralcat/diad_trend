@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 {% import 'aside.html' as menu %}
-{{menu.active('ranking')}}
+{{menu.active('lowestPrice')}}
 <script>
   $(function () {
     var dateFormat = "mm/dd/yy",
@@ -33,7 +33,7 @@
   <header class="main-header">
     <section class="title">
       <h1>
-        <span>상품 순위 조회</span>
+        <span>최저가 알림</span>
         <div class="tooltip">
           <div class="ico-tooltip"></div>
           <article class="tooltip-content">

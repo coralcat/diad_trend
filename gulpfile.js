@@ -101,7 +101,7 @@ gulp.task("script", () => {
 
 gulp.task("html", () => {
   return gulp
-    .src(PATH.HTML + "/**/*.html")
+    .src([PATH.HTML + "/**/*.html", "!src/templates/**/*.*"])
     .pipe(
       nunjucks({
         path: ["./src/templates"],

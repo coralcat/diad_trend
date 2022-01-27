@@ -1,0 +1,31 @@
+{% macro active(currentPage = 'index') %}
+<aside>
+  <div class="logo">
+    <a href="index.html">
+      <span>다이애드</span>
+      <span class="impact">TREND</span>
+    </a>
+  </div>
+  <div class="username">
+    <a href="https://diad.co.kr/Mypage/PaymentHistoryView" target="_blank">gabiacns</a>
+  </div>
+  <div class="sub-menu">
+    <div class="zoom-in-out">
+      <span>화면크기</span>
+      <button class="zoom-out" type="button"></button>
+      <button class="zoom-in" type="button"></button>
+    </div>
+    <a href="">로그아웃</a>
+  </div>
+  <!-- <div class="sub-menu">
+    <a href="https://diad.co.kr/Account/DiadLogin">로그인</a>
+    <a href="https://diad.co.kr/Account/CertificationBusiness">회원가입</a>
+  </div> -->
+  <nav>
+    <a class="{% if currentPage == 'ranking' %}is-active{% endif %}" href="ranking.html">상품 순위 조회</a>
+    <a class="{% if currentPage == 'lowestPrice' %}is-active{% endif %}" href="lowest_price.html">최저가 알림</a>
+    <a class="{% if currentPage == 'trend' %}is-active{% endif %}" href="">키워드 트렌드</a>
+    <a class="{% if currentPage == 'settings' %}is-active{% endif %}" href="settings.html">알림설정</a>
+  </nav>
+</aside>
+{% endmacro %}
