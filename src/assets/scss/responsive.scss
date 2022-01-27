@@ -1,4 +1,19 @@
 @media screen and (max-width: 480px) {
+  .responsive {
+    display: flex;
+    padding-left: 1rem;
+    border-bottom: 1px solid #ddd;
+
+    .logo {
+      font-size: 18px;
+    }
+  }
+
+  .chart-container {
+    background: white;
+    border-radius: 0.5rem;
+  }
+
   aside {
     display: none;
   }

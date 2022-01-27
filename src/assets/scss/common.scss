@@ -56,9 +56,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  .hide {
-    display: none;
-  }
   .tilde {
     display: flex;
     align-items: center;
@@ -84,12 +81,17 @@ body {
   address {
     font-style: normal;
   }
+}
 
-  .is-active {
-    display: flex !important;
-    opacity: 1 !important;
-    z-index: 50 !important;
-  }
+.is-active {
+  display: flex !important;
+  opacity: 1 !important;
+  z-index: 50 !important;
+}
+
+.responsive {
+  display: none;
+  align-items: center;
 }
 
 *,
@@ -159,12 +161,6 @@ p {
 small {
   display: flex;
   font-family: "RobotoMedium", "NanumBarunGothic", sans-serif;
-}
-
-.active {
-  opacity: 1 !important;
-  visibility: visible !important;
-  display: flex !important;
 }
 
 fieldset {
@@ -290,9 +286,6 @@ textarea {
 }
 
 .hamburg-menu {
-  position: absolute;
-  right: 0.25rem;
-  top: 0.25rem;
 
   svg {
     width: 3rem;
@@ -305,7 +298,7 @@ textarea {
     path {
       fill: none;
       transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-      stroke: white;
+      stroke: #333;
       stroke-width: 5.5;
       stroke-linecap: round;
 
@@ -463,7 +456,7 @@ aside {
 
 .wrapper {
   display: flex;
-  box-sizing: border-box;
+  gap: 1rem;
   position: relative;
 }
 
@@ -1080,7 +1073,7 @@ input[type="radio"] + label:empty:before {
   .btn-main {
     background-color: rgb(118 130 248);
     color: #fff;
-    box-shadow: 0px 3px 6px rgba(118, 130, 248, 0.5);
+    box-shadow: 0 3px 9px -4px rgba(118, 130, 248,1 );
   }
 
   .btn-cancel {

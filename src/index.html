@@ -1,11 +1,117 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base_chart.html" %} {% block content %}
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("rankingChart");
+    root.setThemes([am5themes_Animated.new(root)]);
 
+    var chart = root.container.children.push(
+      am5percent.PieChart.new(root, {
+        innerRadius: am5.percent(50),
+        layout: root.horizontalLayout,
+      })
+    );
+
+    var series = chart.series.push(
+      am5percent.PieSeries.new(root, {
+        valueField: "value",
+        categoryField: "category",
+      })
+    );
+
+    series.states.create("hidden", {
+      endAngle: -90,
+    });
+
+    series.data.setAll([
+      {
+        category: "40위 안",
+        value: 5,
+      },
+      {
+        category: "41~400위",
+        value: 5,
+      },
+      {
+        category: "400위 밖",
+        value: 6,
+      },
+    ]);
+    var legend = chart.children.push(
+      am5.Legend.new(root, {
+        centerY: am5.percent(50),
+        y: am5.percent(50),
+        marginTop: 15,
+        marginBottom: 15,
+        layout: root.verticalLayout,
+      })
+    );
+
+    legend.data.setAll(series.dataItems);
+
+    series.appear(1000, 100);
+  });
+</script>
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("lowestPriceChart");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(
+      am5percent.PieChart.new(root, {
+        innerRadius: am5.percent(50),
+        layout: root.horizontalLayout,
+      })
+    );
+
+    var series = chart.series.push(
+      am5percent.PieSeries.new(root, {
+        valueField: "value",
+        categoryField: "category",
+        endAngle: 270,
+      })
+    );
+
+    series.states.create("hidden", {
+      endAngle: -90,
+    });
+
+    series.data.setAll([
+      {
+        category: "상승",
+        value: 5,
+      },
+      {
+        category: "유지",
+        value: 6,
+      },
+      {
+        category: "하락",
+        value: 5,
+      },
+    ]);
+
+    var legend = chart.children.push(
+      am5.Legend.new(root, {
+        centerY: am5.percent(50),
+        y: am5.percent(50),
+        marginTop: 15,
+        marginBottom: 15,
+        layout: root.verticalLayout,
+      })
+    );
+
+    legend.data.setAll(series.dataItems);
+    series.appear(1000, 100);
+  });
+</script>
 <div class="content content-main">
   <div class="wrapper">
     <section class="section-overview">
       <header class="section-header">
         <h3>서비스 이용 현황</h3>
-        <a class="right-arrow" href="https://diad.co.kr/Mypage/PaymentHistoryView" target="_blank">서비스 이용 내역 보기</a>
+        <a class="right-arrow" href="https://diad.co.kr/Mypage/PaymentHistoryView" target="_blank"
+          >서비스 이용 내역 보기</a
+        >
       </header>
       <div class="list">
         <ul class="row title">
@@ -42,10 +148,7 @@
         </ul>
         <ul class="row">
           <li>키워드 트렌드</li>
-          <li>
-            서비스 기간이 만료되었거나 서비스 정보가 존재하지 않습니다. 서비스를
-            신청 후 사용해주세요.
-          </li>
+          <li>서비스 기간이 만료되었거나 서비스 정보가 존재하지 않습니다. 서비스를 신청 후 사용해주세요.</li>
           <li class="button">
             <a href="https://diad.co.kr/AdInquire/AdInquireMemberRegister" target="_blank">
               <button class="btn-main" type="button">신청하기</button>
@@ -58,6 +161,14 @@
       <header class="section-header">
         <h3>서비스별 현황</h3>
       </header>
+      <div class="wrapper">
+        <div class="chart-container">
+          <div id="rankingChart" class="chart"></div>
+        </div>
+        <div class="chart-container">
+          <div id="lowestPriceChart" class="chart"></div>
+        </div>
+      </div>
     </section>
     <section class="section-articles">
       <header class="section-header">
@@ -100,9 +211,7 @@
             </li>
           </ul>
           <ul class="row">
-            <li>
-              입찰실행 중이던 11번가 계정이 정지되어버린 후, 재 실행되지…
-            </li>
+            <li>입찰실행 중이던 11번가 계정이 정지되어버린 후, 재 실행되지…</li>
           </ul>
           <ul class="row">
             <li>사용자 지정보기 사용은 어떻게 하나요?</li>

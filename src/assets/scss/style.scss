@@ -1,4 +1,3 @@
-@import url("common.css");
 $primary-color: #7682f8;
 $secondary-color: #5661b1;
 $tertiary-color: #f2f1ff;
@@ -277,19 +276,21 @@ main {
   }
 }
 
+.logo {
+  text-align: center;
+  font: bold 24px/1 "NanumBarunGothic";
+
+  .impact {
+    color: $primary-color;
+  }
+}
+
 aside {
   width: 250px;
   height: 100%;
 
   .logo {
-    display: block;
     padding: 2rem 0 1rem;
-    text-align: center;
-    font: bold 24px/1 "NanumBarunGothic";
-
-    .impact {
-      color: $primary-color;
-    }
   }
 
   .username {
@@ -549,7 +550,9 @@ section {
 }
 
 .chart-container {
+  flex: 1 1 auto;
   height: 300px;
+  width: 100%;
 }
 
 .chart {
@@ -707,7 +710,6 @@ section {
   }
 
   .row {
-
     &:empty {
       display: flex;
       align-items: center;
