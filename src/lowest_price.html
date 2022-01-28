@@ -1,7 +1,4 @@
-{% extends "base.html" %}
-{% block content %}
-{% import 'aside.html' as menu %}
-{{menu.active('lowestPrice')}}
+{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('lowestPrice')}}
 <script>
   $(function () {
     var dateFormat = "mm/dd/yy",
@@ -29,7 +26,7 @@
   });
 </script>
 
-<div class="content content-ranking">
+<div class="content content-lowest-price">
   <header class="main-header">
     <section class="title">
       <h1>
@@ -100,7 +97,7 @@
       <div class="services">
         <header class="section-header">
           <h3>서비스 이용 현황</h3>
-          <a class="right-arrow" href="">서비스 이용 내역 보기</a>
+          <a class="right-arrow" href="https://diad.co.kr/Mypage/PaymentHistoryView">서비스 이용 내역 보기</a>
         </header>
         <div class="list">
           <ul class="row title">
@@ -123,13 +120,15 @@
         <div class="list">
           <ul class="row title">
             <li>전체</li>
-            <li>40위 안</li>
-            <li>400위 밖</li>
+            <li>상승</li>
+            <li>유지</li>
+            <li>하락</li>
           </ul>
           <ul class="row">
             <li>16</li>
-            <li>3</li>
-            <li>1</li>
+            <li>5</li>
+            <li>6</li>
+            <li>5</li>
           </ul>
         </div>
       </div>
@@ -144,7 +143,7 @@
             <button class="btn-sub" type="button" data-modal="search-group">그룹조회</button>
             <button class="btn-sub" type="button" data-modal="edit-group">그룹편집</button>
             <button class="btn-sub" class="ico-download" type="button">엑셀다운</button>
-            <button class="btn-main" type="button" data-modal="create-item">상품등록</button>
+            <button class="btn-main" type="button" data-modal="create-lowest-price-01">상품등록</button>
           </div>
         </div>
         <div class="advanced-search">
@@ -235,7 +234,7 @@
             <li>등록일</li>
             <li class="inputs">
               <div class="select">
-                <input id="created-date-no" type="radio" name="created" data-select="no" checked/>
+                <input id="created-date-no" type="radio" name="created" data-select="no" checked />
                 <label for="created-date-no">미사용</label>
                 <input id="created-date-yes" type="radio" name="created" data-select="yes" />
                 <label for="created-date-yes">사용</label>
@@ -269,9 +268,10 @@
           <div>
             <div class="selectbox">
               <select name="" id="">
-                <option value="keyword">키워드</option>
-                <option value="keyword">키워드</option>
-                <option value="keyword">키워드</option>
+                <option value="">상품명</option>
+                <option value="">스토어명</option>
+                <option value="">그룹명</option>
+                <option value="">상품MID</option>
               </select>
             </div>
             <div class="search">
@@ -314,220 +314,126 @@
         </div>
       </header>
       <!-- list 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
-      <div class="list list-items scroll" data-empty="상품을 등록해주세요">
-        <div class="columns">
-          <ul class="row title fixed">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
-                <label for="checkAll"></label>
+      <div class="list list-items" data-empty="상품을 등록해주세요">
+        <ul class="row title">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
+              <label for="checkAll"></label>
+            </div>
+          </li>
+          <li class="col-important">상품</li>
+          <li>최저가</li>
+          <li>상태</li>
+          <li>그룹</li>
+          <li>등록일</li>
+          <li>최근 갱신시간</li>
+          <li>알림</li>
+        </ul>
+        <ul class="row">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="check-01" name="select-item" type="checkbox" />
+              <label for="check-01"></label>
+            </div>
+          </li>
+          <li class="col-important item">
+            <div class="image">
+              <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
+            </div>
+            <div class="information">
+              <a href="https://search.shopping.naver.com/product/12126547821" target="_blank">
+                <small>상품 MID.12126547821</small>
+              </a>
+              <div class="title" onclick="location.href='lowest_price_details.html'">
+                1kg 커피창고 에티오피아 예가체프 test test test test test test
               </div>
-            </li>
-            <li class="col-important">상품</li>
-            <li>키워드</li>
-          </ul>
-          <ul class="row title scroll-horizontal-01">
-            <li>
-              <div>현재 순위</div>
-              <div class="date">2022-03-01 09:00</div>
-            </li>
-            <li>
-              <div>전일 순위</div>
-              <div class="date">2022-02-28 09:00</div>
-            </li>
-            <li>
-              <div>전주 순위</div>
-              <div class="date">2022-02-22 09:00</div>
-            </li>
-            <li>
-              <div>2주전 순위</div>
-              <div class="date">2022-02-15 09:00</div>
-            </li>
-            <li>
-              <div>전월 순위</div>
-              <div class="date">2022-02-01 09:00</div>
-            </li>
-            <li>판매가</li>
-            <li>그룹</li>
-            <li>등록일</li>
-            <li>최근 갱신시간</li>
-            <li>알림</li>
-          </ul>
-        </div>
-        <div class="columns">
-          <div class="rows fixed">
-            <!-- 갱신이 실패된 경우(클래스명 "failed" 추가) -->
-            <ul class="row failed">
-              <li class="col-check">
-                <div class="checkbox">
-                  <input id="check-01" name="select-item" type="checkbox" />
-                  <label for="check-01"></label>
-                </div>
-              </li>
-              <li class="col-important item">
-                <div
-                  class="item-update-failed"
-                  data-tooltip="상품에 등록된 모든 키워드가 400위 밖으로 상품 정보가 갱신되지 않았습니다."
-                >
-                  <div class="failed">갱신실패</div>
-                  <div class="success">갱신성공 2021-08-01 15:00</div>
-                </div>
-                <div class="image">
-                  <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
-                </div>
-                <div class="information">
-                  <a href="https://search.shopping.naver.com/product/12126547821" target="_blank">
-                    <small>상품 MID.12126547821</small>
-                  </a>
-                  <div class="title" onclick="location.href='ranking_details.html'">
-                    1kg 커피창고 에티오피아 예가체프 test test test test test test
-                  </div>
-                  <div class="store">커피창고</div>
-                </div>
-              </li>
-              <li>
-                <div class="keyword">원두커피</div>
-              </li>
-            </ul>
-            <ul class="row">
-              <li class="col-check">
-                <div class="checkbox">
-                  <input id="check-02" name="select-item" type="checkbox" />
-                  <label for="check-02"></label>
-                </div>
-              </li>
-              <li class="col-important item">
-                <div class="image">
-                  <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
-                </div>
-                <div class="information">
-                  <small>상품 MID.12126547821</small>
-                  <div class="title">1kg 커피창고 에티오피아 예가체프 1kg 커피창고 에티오피아 예가체프</div>
-                  <div class="store">커피창고</div>
-                </div>
-              </li>
-              <li>
-                <div class="keyword">커피원두</div>
-              </li>
-            </ul>
-
-            <!-- 기간이 만료된 경우 -->
-            <ul class="row failed">
-              <li class="col-check">
-                <div class="checkbox">
-                  <input id="check-03" name="select-item" type="checkbox" />
-                  <label for="check-03"></label>
-                </div>
-              </li>
-              <li class="col-important item">
-                <div class="image">
-                  <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
-                </div>
-                <div class="information">
-                  <small>상품 MID.12126547821</small>
-                  <div class="title">1kg 커피창고 에티오피아 예가체프</div>
-                  <div class="store">커피창고</div>
-                </div>
-              </li>
-              <li>
-                <div class="keyword">커피원두</div>
-              </li>
-            </ul>
-          </div>
-          <div class="rows scroll-horizontal-02">
-            <!-- 갱신이 실패된 경우(클래스명 "failed" 추가) -->
-            <ul class="row failed">
-              <li>
-                <div>400위 밖</div>
-                <div
-                  data-tooltip="순위가 400위 밖인 경우 상품 정보가 갱신되지 않을 수 있습니다. 정보가 갱신되지 않은 경우 실제 정보와 차이가 있을 수 있으니, 서비스 이용 시 참고하시기 바랍니다."
-                >
-                  <div class="ico-tooltip"></div>
-                </div>
-              </li>
-              <li>
-                <div>3위</div>
-                <div class="page">3위/1페이지</div>
-                <div class="rank failed"></div>
-              </li>
-              <li>
-                <div>5위</div>
-                <div class="page">5위/1페이지</div>
-                <div class="rank failed"></div>
-              </li>
-              <li>
-                <div>5위</div>
-                <div class="page">5위/1페이지</div>
-                <div class="rank failed"></div>
-              </li>
-              <li>
-                <div>2위</div>
-                <div class="page">3위/1페이지</div>
-                <div class="rank failed"></div>
-              </li>
-              <li>9,900원</li>
-              <li>커피</li>
-              <li>2022-03-01</li>
-              <li>2022-03-01 12:00</li>
-              <li>ON</li>
-            </ul>
-            <ul class="row">
-              <li>
-                <div>1위</div>
-                <div class="page">1위/1페이지</div>
-                <div class="rank up">2</div>
-              </li>
-              <li>
-                <div>3위</div>
-                <div class="page">3위/1페이지</div>
-                <div class="rank down">1</div>
-              </li>
-              <li>
-                <div>5위</div>
-                <div class="page">5위/1페이지</div>
-                <div class="rank up">3</div>
-              </li>
-              <li>
-                <div>5위</div>
-                <div class="page">5위/1페이지</div>
-                <div class="rank up">3</div>
-              </li>
-              <li>
-                <div>2위</div>
-                <div class="page">3위/1페이지</div>
-                <div class="rank same"></div>
-              </li>
-              <li>9,900원</li>
-              <li>커피</li>
-              <li>2022-03-01</li>
-              <li>2022-03-01 12:00</li>
-              <li>ON</li>
-            </ul>
-            <!-- 기간이 만료된 경우 -->
-            <ul class="row failed">
-              <li>
-                <div class="rank failed"></div>
-              </li>
-              <li>
-                <div class="rank failed"></div>
-              </li>
-              <li>
-                <div class="rank failed"></div>
-              </li>
-              <li>
-                <div class="rank failed"></div>
-              </li>
-              <li>
-                <div class="rank failed"></div>
-              </li>
-              <li>9,900원</li>
-              <li>커피</li>
-              <li>2022-03-01</li>
-              <li>2022-03-01 12:00</li>
-              <li>ON</li>
-            </ul>
-          </div>
-        </div>
+              <div class="categories">
+                <span>식품</span>
+                <span>음료</span>
+                <span>커피</span>
+                <span>원두/생두</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="lowest-price">9,900</div>
+            <div class="rank up">100</div>
+          </li>
+          <li>상승</li>
+          <li>커피그룹</li>
+          <li>2022-03-01</li>
+          <li>2022-03-03 15:00</li>
+          <li>ON</li>
+        </ul>
+        <ul class="row">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="check-02" name="select-item" type="checkbox" />
+              <label for="check-02"></label>
+            </div>
+          </li>
+          <li class="col-important item">
+            <div class="image">
+              <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
+            </div>
+            <div class="information">
+              <small>상품 MID.12126547821</small>
+              <div class="title">1kg 커피창고 에티오피아 예가체프 1kg 커피창고 에티오피아 예가체프</div>
+              <div class="categories">
+                <span>식품</span>
+                <span>음료</span>
+                <span>커피</span>
+                <span>원두/생두</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="lowest-price">9,900</div>
+            <div class="rank down">100</div>
+          </li>
+          <li>상승</li>
+          <li>커피그룹</li>
+          <li>2022-03-01</li>
+          <li>2022-03-03 15:00</li>
+          <li>OFF</li>
+        </ul>
+        <ul class="row">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="check-01" name="select-item" type="checkbox" />
+              <label for="check-01"></label>
+            </div>
+          </li>
+          <li class="col-important item">
+            <div class="image">
+              <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
+            </div>
+            <div class="information">
+              <a href="https://search.shopping.naver.com/product/12126547821" target="_blank">
+                <small>상품 MID.12126547821</small>
+              </a>
+              <div class="title" onclick="location.href='lowest_price_details.html'">
+                1kg 커피창고 에티오피아 예가체프 test test test test test test
+              </div>
+              <div class="categories">
+                <span>식품</span>
+                <span>음료</span>
+                <span>커피</span>
+                <span>원두/생두</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="lowest-price">9,900</div>
+            <div class="rank same"></div>
+          </li>
+          <li>유지</li>
+          <li>커피그룹</li>
+          <li>2022-03-01</li>
+          <li>2022-03-03 15:00</li>
+          <li>ON</li>
+        </ul>
       </div>
       <footer class="section-footer">
         <div class="pagination">
@@ -556,7 +462,7 @@
   </div>
 </div>
 
-<div class="modal create-item">
+<div class="modal create-lowest-price-01">
   <div class="dialog">
     <header class="modal-header">
       <h3>상품등록</h3>
@@ -564,7 +470,38 @@
     </header>
     <div class="modal-content">
       <section class="section-impact">
-        <div class="title">등록 가능한 상품 순위 조회 소재는 10개 입니다.</div>
+        <div class="title">등록 가능한 최저가 알림 소재는 10개 입니다.</div>
+        <a href="#" class="right-arrow">등록 가능 소재 개수 추가방법</a>
+      </section>
+      <section>
+        <div class="title">등록하실 상품명을 입력해주세요.</div>
+        <a href="#" class="right-arrow">상품명 확인방법</a>
+      </section>
+      <section>
+        <small>최저가 비교상품의 상품명을 정확하게 입력해주세요.</small>
+        <div class="search inputs">
+          <input type="url" placeholder="상품명을 입력해주세요" required />
+          <span class="refresh x"></span>
+          <small class="input-alert">상품명을 입력해주세요.</small>
+        </div>
+      </section>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" type="submit" data-modal="create-lowest-price-02">조회</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal create-lowest-price-02">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>상품등록</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section class="section-impact">
+        <div class="title">등록 가능한 최저가 알림 소재는 10개 입니다.</div>
         <a href="#" class="right-arrow">등록 가능 소재 개수 추가방법</a>
       </section>
       <section>
@@ -581,12 +518,12 @@
     </div>
     <div class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" type="submit" data-modal="search-item">조회</button>
+      <button class="btn-submit" type="submit" data-modal="create-lowest-price-03">조회</button>
     </div>
   </div>
 </div>
 
-<div class="modal search-item">
+<div class="modal create-lowest-price-03">
   <div class="dialog">
     <header class="modal-header">
       <h3>상품조회완료</h3>
@@ -603,13 +540,18 @@
         <div class="information">
           <small>상품 MID.12126547821</small>
           <div class="title">1kg 커피창고 에티오피아 예가체프 test test test test test test</div>
-          <div class="store">커피창고</div>
+          <div class="categories">
+            <span>식품</span>
+            <span>음료</span>
+            <span>커피</span>
+            <span>원두/생두</span>
+          </div>
         </div>
       </section>
     </div>
     <div class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" type="button" data-modal="create-keyword">확인</button>
+      <button class="btn-submit" type="button" data-modal-alert="create-lowest-price">확인</button>
     </div>
   </div>
 </div>
@@ -724,22 +666,16 @@
 </div>
 
 <div class="modal search-group">
-  <div class="dialog">
+  <div class="dialog small">
     <header class="modal-header">
       <h3>그룹조회</h3>
       <div class="close"></div>
     </header>
     <div class="modal-content">
       <section>
-        <div class="list-header">
-          <ul class="list-count">
-            <li>
-              <span class="selected">0</span>
-            </li>
-            <li>
-              <span class="total">0</span>
-            </li>
-          </ul>
+        <div class="list-header count-group">
+          <span class="selected">0</span>
+          <span class="total">0</span>
         </div>
         <div class="list">
           <ul class="row title">

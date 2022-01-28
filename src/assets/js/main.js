@@ -200,6 +200,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (modalData === "select-group") {
         alertModalContent.innerHTML = "<p>그룹지정이 완료되었습니다.</p>";
       }
+      if (modalData === "create-lowest-price") {
+        alertModalContent.innerHTML = "<p>상품 등록이 완료되었습니다.</p>";
+      }
     };
     const modalAlertButtons = document.querySelectorAll("[data-modal-alert]");
     modalAlertButtons.forEach((button) => {

@@ -14,6 +14,24 @@ body {
     white-space: nowrap;
   }
 
+  .search {
+    position: relative;
+    margin-top: 0.5rem;
+
+    input {
+      padding-right: 1.5rem;
+    }
+
+    .x {
+      position: absolute;
+      top: 12px;
+      right: 0.5rem;
+      width: 12px;
+      height: 12px;
+      opacity: 0.5;
+    }
+  }
+
   :is(.list, .columns, .rows, .chart-container) {
     &:empty {
       display: flex;
@@ -248,6 +266,62 @@ main {
         }
       }
     }
+    .status {
+      gap: 2rem;
+
+      :is(ul, li, .tag, div, span) {
+        display: flex;
+        align-items: center;
+      }
+
+      .tag {
+        font-family: "RobotoMedium";
+        font-size: 14px;
+        background-color: rgba(0, 0, 0, 0.2);
+        color: #333;
+        padding: 0.25rem 0.5rem;
+        border-radius: 30px;
+
+        &.d-day {
+          background-color: rgb(118 130 248);
+          color: #ffffff;
+          font-family: "Roboto";
+          font-size: 13px;
+
+          &::before {
+            content: "D-";
+          }
+        }
+      }
+
+      ul {
+        gap: 0.75rem;
+
+        li {
+          display: flex;
+
+          &:first-of-type {
+            &::after {
+              content: ":";
+            }
+          }
+
+          &:last-of-type {
+            gap: 1rem;
+          }
+
+          .count {
+            font-family: "RobotoMedium", "NanumBarunGothic";
+            padding-left: 0.25rem;
+
+            &::after {
+              content: "개";
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
 
     .section-main {
       background-color: white;
@@ -349,7 +423,7 @@ aside {
       }
 
       &.is-active {
-        color: $primary-color
+        color: $primary-color;
       }
     }
   }
@@ -621,10 +695,32 @@ section {
       cursor: pointer;
     }
 
-    .store {
+    .store,
+    .categories {
       color: slategray;
       font-size: 14px;
       margin-top: 0.25rem;
+    }
+
+    .categories {
+      span {
+        display: inline-flex;
+        align-items: center;
+        &:not(:first-of-type),
+        :not(:last-of-type) {
+          &::before {
+            content: "";
+            display: inline-flex;
+            width: 5px;
+            height: 5px;
+            border: 2px solid $primary-color;
+            border-left: 0;
+            border-bottom: 0;
+            transform: rotate(45deg);
+            margin: 0 0.25rem 0 0;
+          }
+        }
+      }
     }
   }
 }
@@ -678,6 +774,40 @@ section {
 .list-header {
   display: flex;
   justify-content: space-between;
+
+  &.count-group {
+    span {
+      font-size: 16px;
+      font-family: "RobotoMedium";
+      display: flex;
+      align-items: baseline;
+      gap: .15rem
+    }
+
+    ::before,
+    ::after {
+      font-size: 14px;
+    }
+
+    .selected {
+      &::before {
+        content: "선택된 그룹";
+      }
+
+      &::after {
+        content: "개";
+      }
+    }
+    .total {
+      &::before {
+        content: "총";
+      }
+
+      &::after {
+        content: "개의 그룹";
+      }
+    }
+  }
 }
 
 .list {
@@ -802,6 +932,7 @@ section {
         border-radius: 0.25rem;
         height: 24px;
         min-width: 42px;
+        color: white;
 
         &::after {
           font-size: 8px;
@@ -809,7 +940,6 @@ section {
 
         &.up {
           background-color: tomato;
-          color: white;
 
           &::after {
             content: "\25B2";
@@ -818,7 +948,6 @@ section {
 
         &.down {
           background-color: royalblue;
-          color: white;
 
           &::after {
             content: "\25BC";
@@ -827,11 +956,11 @@ section {
 
         &.same {
           justify-content: center;
-          background-color: rgba(255, 165, 0, 0.2);
-          color: orange;
+          background-color: lightgray;
 
           &::after {
             content: "-";
+            font-size: 20px;
           }
         }
 
@@ -1019,66 +1148,7 @@ section {
   }
 }
 
-.content-ranking {
-  .main-header {
-    .status {
-      gap: 2rem;
-
-      :is(ul, li, .tag, div, span) {
-        display: flex;
-        align-items: center;
-      }
-
-      .tag {
-        font-family: "RobotoMedium";
-        font-size: 14px;
-        background-color: rgba(0, 0, 0, 0.2);
-        color: #333;
-        padding: 0.25rem 0.5rem;
-        border-radius: 30px;
-
-        &.d-day {
-          background-color: rgb(118 130 248);
-          color: #ffffff;
-          font-family: 'Roboto';
-          font-size: 13px;
-
-          &::before {
-            content: "D-";
-          }
-        }
-      }
-
-      ul {
-        gap: 0.75rem;
-
-        li {
-          display: flex;
-
-          &:first-of-type {
-            &::after {
-              content: ":";
-            }
-          }
-
-          &:last-of-type {
-            gap: 1rem;
-          }
-
-          .count {
-            font-family: "RobotoMedium", "NanumBarunGothic";
-            padding-left: 0.25rem;
-
-            &::after {
-              content: "개";
-              font-size: 14px;
-            }
-          }
-        }
-      }
-    }
-  }
-
+:is(.content-ranking, .content-lowest-price) {
   .section-main {
     display: flex;
     gap: 1rem;
@@ -1096,7 +1166,7 @@ section {
       }
 
       li {
-        flex-basis: 33.333%;
+        flex-basis: 25%;
       }
     }
 
@@ -1136,7 +1206,7 @@ section {
 
   .list-items {
     .item-update-failed {
-      background-color: rgba(255,99,71,.1);
+      background-color: rgba(255, 99, 71, 0.1);
       color: tomato;
       right: 1rem;
       top: 1rem;
@@ -1205,6 +1275,20 @@ section {
           width: 140px;
           flex-direction: column;
           gap: 0.25rem;
+        }
+      }
+    }
+  }
+}
+
+.content-lowest-price {
+  .list-items {
+    .row {
+      li {
+        flex: 1 1 auto;
+
+        &:not(.col-important) {
+          width: 10%;
         }
       }
     }
@@ -1592,23 +1676,6 @@ section {
 
   &.create-item {
     .modal-content {
-      .search {
-        position: relative;
-        margin-top: 0.5rem;
-
-        input {
-          padding-right: 1.5rem;
-        }
-
-        .x {
-          position: absolute;
-          top: 12px;
-          right: 0.5rem;
-          width: 12px;
-          height: 12px;
-          opacity: 0.5;
-        }
-      }
     }
   }
 
