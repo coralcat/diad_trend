@@ -464,7 +464,8 @@ aside {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
+  min-height: 32px;
 
   p {
     width: 100%;
@@ -618,10 +619,6 @@ aside {
 .checkbox {
   position: relative;
   user-select: none;
-
-  + .checkbox {
-    margin-left: 1rem;
-  }
 
   input {
     position: absolute;
