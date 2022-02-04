@@ -73,12 +73,60 @@
 <script>
   $(function () {
     var dateFormat = "yy-mm-dd",
-      from = $("#keywordChartFrom")
+      from = $("#lowestPriceChartFrom")
         .datepicker()
         .on("change", function () {
           to.datepicker("option", "minDate", getDate(this));
         }),
-      to = $("#keywordChartTo")
+      to = $("#lowestPriceChartTo")
+        .datepicker()
+        .on("change", function () {
+          from.datepicker("option", "maxDate", getDate(this));
+        });
+
+    function getDate(element) {
+      var date;
+      try {
+        date = $.datepicker.parseDate(dateFormat, element.value);
+      } catch (error) {
+        date = null;
+      }
+
+      return date;
+    }
+    var dateFormat = "yy-mm-dd",
+      from = $("#priceChartFrom")
+        .datepicker()
+        .on("change", function () {
+          to.datepicker("option", "minDate", getDate(this));
+        }),
+      to = $("#priceChartTo")
+        .datepicker()
+        .on("change", function () {
+          from.datepicker("option", "maxDate", getDate(this));
+        });
+
+    function getDate(element) {
+      var date;
+      try {
+        date = $.datepicker.parseDate(dateFormat, element.value);
+      } catch (error) {
+        date = null;
+      }
+
+      return date;
+    }
+  });
+</script>
+<script>
+  $(function () {
+    var dateFormat = "yy-mm-dd",
+      from = $("#dailyLowestPriceChartFrom")
+        .datepicker()
+        .on("change", function () {
+          to.datepicker("option", "minDate", getDate(this));
+        }),
+      to = $("#dailyLowestPriceChartTo")
         .datepicker()
         .on("change", function () {
           from.datepicker("option", "maxDate", getDate(this));
@@ -436,7 +484,7 @@
     chart.appear(1000, 100);
   }); // end am5.ready()
 </script>
-<div class="content content-ranking-details">
+<div class="content content-lowest-price-details">
   <header class="main-header">
     <section class="title">
       <h1>
@@ -445,19 +493,17 @@
     </section>
     <section class="section-main">
       <header class="section-header">
-        <h3></h3>
+        <div>
+          <div class="tag-failed">
+            <span class="failed">갱신실패</span>
+            <span class="success">2022-03-01 12:00</span>
+          </div>
+        </div>
         <a href="https://search.shopping.naver.com/gate.nhn?id=12126547821" class="right-arrow" target="_blank"
           >가격비교 상품페이지로 이동</a
         >
       </header>
       <div class="information">
-        <div
-          class="item-update-failed"
-          data-tooltip="상품에 등록된 모든 키워드가 400위 밖으로 상품 정보가 갱신되지 않았습니다."
-        >
-          <div class="failed">갱신실패</div>
-          <div class="success">갱신성공 2021-08-01 15:00</div>
-        </div>
         <div class="image">
           <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
         </div>
@@ -468,7 +514,7 @@
           </ul>
           <ul class="row">
             <li class="title">상품명</li>
-            <li>1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도 〮〮〮</li>
+            <li>1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도...</li>
           </ul>
           <ul class="row">
             <li class="title">판매가</li>
@@ -524,9 +570,9 @@
               <label for="select-1year">1년</label>
             </div>
             <div class="calendar">
-              <input type="text" id="keywordChartFrom" name="" />
+              <input type="text" id="lowestPriceChartFrom" name="" />
               <span>~</span>
-              <input type="text" id="keywordChartTo" name="" />
+              <input type="text" id="lowestPriceChartTo" name="" />
             </div>
             <button type="button">조회</button>
           </div>
@@ -549,17 +595,18 @@
         </div>
       </div>
     </section>
-    <section class="section-keyword-history">
+    <section>
       <header class="section-header multi-line">
         <div class="title">
           <h3>
-            <span>키워드별 순위 이력</span>
+            <span>일별 최저가</span>
             <div class="tooltip">
               <div class="ico-tooltip"></div>
               <article class="tooltip-content">
                 <ul>
-                  <li>키워드별 순위를 한눈에 확인할 수 있는 차트입니다.</li>
-                  <li>기간과 간격을 설정하여 원하는 데이터를 얻을 수 있습니다.</li>
+                  <li>최저가의 일별 추이를 알 수 있습니다.</li>
+                  <li>기간을 설정하여 원하는 데이터를 얻을 수 있습니다.</li>
+                  <li>차트 클릭 시 해당 일의 최저가 차트를 보실 수 있습니다.</li>
                   <li>등록일부터 데이터가 갱신됨으로 등록 후 초반에는 기간 설정에 제한이 있을 수 있습니다.</li>
                 </ul>
               </article>
@@ -572,700 +619,88 @@
         <div class="filters">
           <div>
             <div class="period">
-              <input type="radio" id="select-1day-02" name="keyword-history" />
-              <label for="select-1day-02">1일</label>
-              <input type="radio" id="select-1week-02" name="keyword-history" checked />
-              <label for="select-1week-02">1주</label>
-              <input type="radio" id="select-1month-02" name="keyword-history" />
-              <label for="select-1month-02">1개월</label>
-              <input type="radio" id="select-6months-02" name="keyword-history" />
-              <label for="select-6months-02">6개월</label>
-              <input type="radio" id="select-1year-02" name="keyword-history" />
-              <label for="select-1year-02">1년</label>
+              <input type="radio" id="select-1day" name="keyword-chart" checked />
+              <label for="select-1day">1일</label>
+              <input type="radio" id="select-1week" name="keyword-chart" />
+              <label for="select-1week">1주</label>
+              <input type="radio" id="select-1month" name="keyword-chart" />
+              <label for="select-1month">1개월</label>
+              <input type="radio" id="select-6months" name="keyword-chart" />
+              <label for="select-6months">6개월</label>
+              <input type="radio" id="select-1year" name="keyword-chart" />
+              <label for="select-1year">1년</label>
             </div>
             <div class="calendar">
-              <input type="text" id="priceChartFrom" name="" />
+              <input type="text" id="dailyLowestPriceChartFrom" name="" />
               <span>~</span>
-              <input type="text" id="priceChartTo" name="" />
+              <input type="text" id="dailyLowestPriceChartTo" name="" />
             </div>
             <button type="button">조회</button>
           </div>
         </div>
       </header>
-
-      <!-- list 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
-      <div class="list scroll" data-empty="데이터 갱신 전입니다.">
-        <div class="columns">
-          <ul class="row title fixed">
-            <li>키워드</li>
-          </ul>
-          <ul class="row title scroll-horizontal-01">
-            <li>
-              <div class="date">2022-03-05 18:00</div>
-              <button class="btn-changes" type="button" data-modal="change-details"></button>
-            </li>
-            <li>
-              <div class="date">2022-03-05 15:00</div>
-              <button class="btn-changes new" type="button" data-modal="change-details">2</button>
-            </li>
-            <li class="failed">
-              <div class="date">2022-03-05 12:00</div>
-              <button class="btn-changes failed" type="button" data-modal="change-details">갱신실패</button>
-            </li>
-            <li>
-              <div class="date">2022-03-05 15:00</div>
-              <button class="btn-changes" type="button" data-modal="change-details"></button>
-            </li>
-            <li>
-              <div class="date">2022-03-05 12:00</div>
-              <button class="btn-changes" type="button" data-modal="change-details"></button>
-            </li>
-            <li>
-              <div class="date">2022-03-05 15:00</div>
-              <button class="btn-changes" type="button" data-modal="change-details"></button>
-            </li>
-            <li>
-              <div class="date">2022-03-05 12:00</div>
-              <button type="button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  enable-background="new 0 0 24 24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                >
-                  <g><rect fill="none" height="24" width="24" /></g>
-                  <g>
-                    <g>
-                      <rect height="2" width="9" x="13" y="7" />
-                      <rect height="2" width="9" x="13" y="15" />
-                      <rect height="2" width="6" x="16" y="11" />
-                      <polygon points="13,12 8,7 8,11 2,11 2,13 8,13 8,17" />
-                    </g>
-                  </g>
-                </svg>
-              </button>
-            </li>
-            <li>
-              <div class="date">2022-03-05 15:00</div>
-              <button type="button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  enable-background="new 0 0 24 24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                >
-                  <g><rect fill="none" height="24" width="24" /></g>
-                  <g>
-                    <g>
-                      <rect height="2" width="9" x="13" y="7" />
-                      <rect height="2" width="9" x="13" y="15" />
-                      <rect height="2" width="6" x="16" y="11" />
-                      <polygon points="13,12 8,7 8,11 2,11 2,13 8,13 8,17" />
-                    </g>
-                  </g>
-                </svg>
-              </button>
-            </li>
-            <li>
-              <div class="date">2022-03-05 12:00</div>
-              <button type="button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  enable-background="new 0 0 24 24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                >
-                  <g><rect fill="none" height="24" width="24" /></g>
-                  <g>
-                    <g>
-                      <rect height="2" width="9" x="13" y="7" />
-                      <rect height="2" width="9" x="13" y="15" />
-                      <rect height="2" width="6" x="16" y="11" />
-                      <polygon points="13,12 8,7 8,11 2,11 2,13 8,13 8,17" />
-                    </g>
-                  </g>
-                </svg>
-              </button>
-            </li>
-          </ul>
-        </div>
-        <div class="columns">
-          <div class="rows rows-keyword fixed scroll-vertical-01">
-            <ul class="row">
-              <li>
-                <div>싱글오리진</div>
-                <div class="toggle is-active"></div>
-              </li>
-            </ul>
-            <ul class="row">
-              <li>
-                <div>커피원두</div>
-                <div class="toggle is-active"></div>
-              </li>
-            </ul>
-            <ul class="row">
-              <li>
-                <div>스타벅스</div>
-                <div class="toggle is-active"></div>
-              </li>
-            </ul>
-            <ul class="row">
-              <li>
-                <div>원두커피</div>
-                <div class="toggle"></div>
-              </li>
-            </ul>
-            <ul class="row">
-              <li>
-                <div>커피</div>
-                <div class="toggle"></div>
-              </li>
-            </ul>
-          </div>
-          <div class="rows scroll-horizontal-02 scroll-vertical-02">
-            <ul class="row">
-              <li>
-                <div class="ranking">
-                  <span>1위</span>
-                  <span>1위/1페이지</span>
-                </div>
-                <div class="rank up">44</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>45위</span>
-                  <span>5위/2페이지</span>
-                </div>
-                <div class="rank up">35</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>400위밖</span>
-                </div>
-                <div class="rank failed"></div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>45위</span>
-                  <span>5위/2페이지</span>
-                </div>
-                <div class="rank up">35</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>80위</span>
-                  <span>40위/2페이지</span>
-                </div>
-                <div class="rank down">5</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>45위</span>
-                  <span>5위/2페이지</span>
-                </div>
-                <div class="rank up">35</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>80위</span>
-                  <span>40위/2페이지</span>
-                </div>
-                <div class="rank down">5</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>45위</span>
-                  <span>5위/2페이지</span>
-                </div>
-                <div class="rank up">35</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>80위</span>
-                  <span>40위/2페이지</span>
-                </div>
-                <div class="rank down">5</div>
-              </li>
-            </ul>
-            <ul class="row">
-              <li>
-                <div class="ranking">
-                  <span>1위</span>
-                  <span>1위/1페이지</span>
-                </div>
-                <div class="rank up">44</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>45위</span>
-                  <span>5위/2페이지</span>
-                </div>
-                <div class="rank up">35</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>400위밖</span>
-                </div>
-                <div class="rank failed"></div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>45위</span>
-                  <span>5위/2페이지</span>
-                </div>
-                <div class="rank up">35</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>80위</span>
-                  <span>40위/2페이지</span>
-                </div>
-                <div class="rank down">5</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>45위</span>
-                  <span>5위/2페이지</span>
-                </div>
-                <div class="rank up">35</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>80위</span>
-                  <span>40위/2페이지</span>
-                </div>
-                <div class="rank down">5</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>45위</span>
-                  <span>5위/2페이지</span>
-                </div>
-                <div class="rank up">35</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>80위</span>
-                  <span>40위/2페이지</span>
-                </div>
-                <div class="rank down">5</div>
-              </li>
-            </ul>
-            <ul class="row">
-              <li>
-                <div class="ranking">
-                  <span>1위</span>
-                  <span>1위/1페이지</span>
-                </div>
-                <div class="rank up">4</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>5위</span>
-                  <span>5위/1페이지</span>
-                </div>
-                <div class="rank up">3</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>400위밖</span>
-                </div>
-                <div class="rank failed"></div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>45위</span>
-                  <span>5위/2페이지</span>
-                </div>
-                <div class="rank up">35</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>80위</span>
-                  <span>40위/2페이지</span>
-                </div>
-                <div class="rank down">5</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>45위</span>
-                  <span>5위/2페이지</span>
-                </div>
-                <div class="rank up">35</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>80위</span>
-                  <span>40위/2페이지</span>
-                </div>
-                <div class="rank down">5</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>45위</span>
-                  <span>5위/2페이지</span>
-                </div>
-                <div class="rank up">35</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>80위</span>
-                  <span>40위/2페이지</span>
-                </div>
-                <div class="rank down">5</div>
-              </li>
-            </ul>
-            <ul class="row">
-              <li>
-                <div class="ranking">
-                  <span>43위</span>
-                  <span>3위/2페이지</span>
-                </div>
-                <div class="rank up">44</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>42위</span>
-                  <span>2위/2페이지</span>
-                </div>
-                <div class="rank up">35</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>400위밖</span>
-                </div>
-                <div class="rank failed"></div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>40위</span>
-                  <span>40위/1페이지</span>
-                </div>
-                <div class="rank same"></div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>80위</span>
-                  <span>40위/2페이지</span>
-                </div>
-                <div class="rank down">5</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>45위</span>
-                  <span>5위/2페이지</span>
-                </div>
-                <div class="rank up">35</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>80위</span>
-                  <span>40위/2페이지</span>
-                </div>
-                <div class="rank down">5</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>45위</span>
-                  <span>5위/2페이지</span>
-                </div>
-                <div class="rank up">35</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>80위</span>
-                  <span>40위/2페이지</span>
-                </div>
-                <div class="rank down">5</div>
-              </li>
-            </ul>
-            <ul class="row">
-              <li>
-                <div class="ranking">
-                  <span>3위</span>
-                  <span>3위/1페이지</span>
-                </div>
-                <div class="rank up">44</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>15위</span>
-                  <span>2위/2페이지</span>
-                </div>
-                <div class="rank up">35</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>400위밖</span>
-                </div>
-                <div class="rank failed"></div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>40위</span>
-                  <span>40위/1페이지</span>
-                </div>
-                <div class="rank same"></div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>80위</span>
-                  <span>40위/2페이지</span>
-                </div>
-                <div class="rank down">5</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>45위</span>
-                  <span>5위/2페이지</span>
-                </div>
-                <div class="rank up">35</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>80위</span>
-                  <span>40위/2페이지</span>
-                </div>
-                <div class="rank down">5</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>45위</span>
-                  <span>5위/2페이지</span>
-                </div>
-                <div class="rank up">35</div>
-              </li>
-              <li>
-                <div class="ranking">
-                  <span>80위</span>
-                  <span>40위/2페이지</span>
-                </div>
-                <div class="rank down">5</div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <header class="section-header multi-line">
-        <div class="title">
-          <h3>
-            <span>판매가 차트</span>
-            <div class="tooltip">
-              <div class="ico-tooltip"></div>
-              <article class="tooltip-content">
-                <ul>
-                  <li>판매가 변동을 한눈에 확인할 수 있습니다.</li>
-                  <li>기간과 간격을 설정하여 원하는 데이터를 얻을 수 있습니다.</li>
-                  <li>등록일부터 데이터가 갱신됨으로 등록 후 초반에는 기간 설정에 제한이 있을 수 있습니다.</li>
-                </ul>
-              </article>
-            </div>
-          </h3>
-          <div class="buttons">
-            <button class="ico-download" type="button">엑셀다운</button>
-          </div>
-        </div>
-        <div class="filters">
-          <div>
-            <div class="period">
-              <input type="radio" id="select-1day-03" name="price-chart" checked />
-              <label for="select-1day-03">1일</label>
-              <input type="radio" id="select-1week-03" name="price-chart" />
-              <label for="select-1week-03">1주</label>
-              <input type="radio" id="select-1month-03" name="price-chart" />
-              <label for="select-1month-03">1개월</label>
-              <input type="radio" id="select-6months-03" name="price-chart" />
-              <label for="select-6months-03">6개월</label>
-              <input type="radio" id="select-1year-03" name="price-chart" />
-              <label for="select-1year-03">1년</label>
-            </div>
-            <div class="calendar">
-              <input type="text" id="from" name="from" />
-              <span>~</span>
-              <input type="text" id="to" name="to" />
-            </div>
-            <button type="button">조회</button>
-          </div>
-          <div class="selectbox">
-            <span>그래프간격</span>
-            <select name="" id="">
-              <option value="">1일 00:00</option>
-              <option value="">1일 12:00</option>
-              <option value="">1주 00:00</option>
-              <option value="">1주 12:00</option>
-              <option value="">1개월 00:00</option>
-              <option value="">1개월 12:00</option>
-            </select>
-          </div>
-        </div>
-      </header>
-      <div class="keyword-chart">
-        <div class="chart-container" data-empty="데이터 갱신 전입니다.">
-          <div id="priceChart" class="chart"></div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <header class="section-header">
-        <h3>
-          <span>순위 변동 주간 TOP</span>
-          <div class="tooltip">
-            <div class="ico-tooltip"></div>
-            <div class="tooltip-content">
-              <ul>
-                <li>주간 동안 순위 변동 폭이 큰 키워드 순위를 알려드립니다.</li>
-                <li>매주 일요일 00:00 갱신 데이터를 기준으로 합니다.</li>
-                <li>최근 3개월의 데이터만 노출됩니다.</li>
-                <li>갱신실패 데이터는 포함되지 않습니다.</li>
-              </ul>
-            </div>
-          </div>
-        </h3>
-        <div class="selectbox">
-          <select name="" id="">
-            <option value="">3월 1주차 (2022-03-01 12:00 기준)</option>
-          </select>
-        </div>
-      </header>
-      <div class="ranking-fluctuations">
-        <div class="ranking-chart">
-          <div class="title">순위 상승 TOP</div>
-          <div class="list">
-            <ul class="row title">
-              <li>순위</li>
-              <li>키워드</li>
-              <li>전주대비변동</li>
-            </ul>
-            <!-- rows 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
-            <div class="rows" data-empty="데이터 갱신 전입니다.">
-              <ul class="row">
-                <li>1</li>
-                <li>
-                  <div class="keyword">싱글오리진</div>
-                </li>
-                <li>
-                  <div class="rank up">6</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li>2</li>
-                <li>
-                  <div class="keyword">커피원두</div>
-                </li>
-                <li>
-                  <div class="rank up">4</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li>3</li>
-                <li>
-                  <div class="keyword">원두커피</div>
-                </li>
-                <li>
-                  <div class="rank up">3</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li>4</li>
-                <li>
-                  <div class="keyword">케냐AAA</div>
-                </li>
-                <li>
-                  <div class="rank up">3</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li>5</li>
-                <li>
-                  <div class="keyword">예가체프</div>
-                </li>
-                <li>
-                  <div class="rank up">1</div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="ranking-chart">
-          <div class="title">순위 하락 TOP</div>
-          <div class="list">
-            <ul class="row title">
-              <li>순위</li>
-              <li>키워드</li>
-              <li>전주대비변동</li>
-            </ul>
-            <!-- rows 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
-            <div class="rows" data-empty="데이터 갱신 전입니다.">
-              <ul class="row">
-                <li>1</li>
-                <li>
-                  <div class="keyword">스페셜커피</div>
-                </li>
-                <li>
-                  <div class="rank down">6</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li>2</li>
-                <li>
-                  <div class="keyword">스타벅스원두</div>
-                </li>
-                <li>
-                  <div class="rank down">5</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li>3</li>
-                <li>
-                  <div class="keyword">커피</div>
-                </li>
-                <li>
-                  <div class="rank down">2</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li>4</li>
-                <li>
-                  <div class="keyword">맛 좋은 커피</div>
-                  <div class="keyword">향 좋은 커피</div>
-                  <div class="keyword">참 좋은 커피</div>
-                  <div class="keyword">맛 좋은 커피</div>
-                  <div class="keyword">향 좋은 커피</div>
-                  <div class="keyword">참 좋은 커피</div>
-                  <div class="keyword">맛 좋은 커피</div>
-                  <div class="keyword">향 좋은 커피</div>
-                  <div class="keyword">참 좋은 커피</div>
-                  <div class="keyword">맛 좋은 커피</div>
-                  <div class="keyword">향 좋은 커피</div>
-                  <div class="keyword">참 좋은 커피</div>
-                  <div class="keyword">맛 좋은 커피</div>
-                  <div class="keyword">향 좋은 커피</div>
-                  <div class="keyword">참 좋은 커피</div>
-                  <div class="keyword">맛 좋은 커피</div>
-                  <div class="keyword">향 좋은 커피</div>
-                  <div class="keyword">참 좋은 커피</div>
-                </li>
-                <li>
-                  <div class="rank down">1</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li>5</li>
-                <li>
-                  <div class="keyword">스타벅스</div>
-                </li>
-                <li>
-                  <div class="rank down">2</div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+      <div class="list list-daily-lowest-price">
+        <ul class="row title">
+          <li class="sort">날짜</li>
+          <li class="sort">차트</li>
+          <li class="sort">평균</li>
+          <li class="sort">전일대비</li>
+          <li class="sort">등락율</li>
+          <li class="sort">고가</li>
+          <li class="sort">저가</li>
+        </ul>
+        <ul class="row failed">
+          <li>2022-03-01</li>
+          <li class="col-chart" data-modal-chart=""></li>
+          <li class="price">-</li>
+          <li>
+            <div class="rank failed"></div>
+          </li>
+          <li>
+            <div class="percent failed"></div>
+          </li>
+          <li class="price">-</li>
+          <li class="price">-</li>
+        </ul>
+        <ul class="row">
+          <li>2022-02-28</li>
+          <li class="col-chart"></li>
+          <li class="price">9,800</li>
+          <li>
+            <div class="rank down">90</div>
+          </li>
+          <li>
+            <div class="percent down">0.91</div>
+          </li>
+          <li class="price">9,920</li>
+          <li class="price">9,880</li>
+        </ul>
+        <ul class="row">
+          <li>2022-02-27</li>
+          <li class="col-chart"></li>
+          <li class="price">9,890</li>
+          <li>
+            <div class="rank same"></div>
+          </li>
+          <li>
+            <div class="percent up">0.00</div>
+          </li>
+          <li class="price">9,920</li>
+          <li class="price">9,880</li>
+        </ul>
+        <ul class="row">
+          <li>2022-02-26</li>
+          <li class="col-chart"></li>
+          <li class="price">9,890</li>
+          <li>
+            <div class="rank down">100</div>
+          </li>
+          <li>
+            <div class="percent down">1.00</div>
+          </li>
+          <li class="price">9,880</li>
+          <li class="price">9,920</li>
+        </ul>
       </div>
     </section>
   </div>
@@ -1460,6 +895,18 @@
     <div class="modal-content"></div>
     <div class="buttons">
       <button class="btn-submit close" type="button">확인</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-chart">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>2022-03-01</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <div class="chart" id="priceChart"></div>
     </div>
   </div>
 </div>
