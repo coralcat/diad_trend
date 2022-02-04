@@ -896,7 +896,7 @@ section {
         }
       }
 
-      .btn-chart {
+      .col-chart a {
         display: none;
       }
     }
@@ -967,6 +967,10 @@ section {
           border: 1px solid #ddd;
           border-radius: 2px;
         }
+      }
+
+      &.col-chart {
+        width: 40% !important;
       }
 
       &.col-check {
@@ -1651,10 +1655,7 @@ section {
         min-height: 64px;
 
         &.col-chart {
-          background-image: url(../images/thumb_chart.png);
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: 80%;
+          min-width: 500px;
           position: relative;
           cursor: pointer;
 
@@ -1678,6 +1679,14 @@ section {
               background-size: 70%;
               background-color: rgba(210, 220, 220, 0.5);
             }
+          }
+
+          a {
+            width: 100%;
+          }
+
+          .chart {
+            height: 150px;
           }
         }
 
