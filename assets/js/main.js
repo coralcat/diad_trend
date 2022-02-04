@@ -10,6 +10,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const main = document.querySelector("main");
 
   /* =====================================================
+       Target Smooth Scroll
+  ===================================================== */
+  const anchors = document.querySelectorAll("a[href^='#']");
+  if (anchors[0]) {
+    anchors.forEach((anchor) => {
+      anchor.addEventListener("click", (event) => {
+        event.preventDefault();
+        const button = document.querySelector(anchor.getAttribute("href"))
+        button.scrollIntoView({
+          behavior: "smooth"
+        })
+      });
+    });
+  }
+
+  /* =====================================================
        Input Search Close Button
   ===================================================== */
   const searchInputs = document.querySelectorAll("input[type='search'], input[type='url']");
@@ -126,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const initialize = () => {
       modals.forEach((modal) => {
         modal.classList.remove("is-active");
-        modal.removeAttribute("onclick")
+        modal.removeAttribute("onclick");
       });
     };
 
