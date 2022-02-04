@@ -119,12 +119,14 @@ document.addEventListener("DOMContentLoaded", () => {
   if (modals[0]) {
     const alertModal = document.querySelector(".modal-alert");
     const confirmModal = document.querySelector(".modal-confirm");
+    const chartModal = document.querySelector(".modal-chart");
     const confirmModalContent = confirmModal.querySelector(".modal-content");
     const alertModalContent = alertModal.querySelector(".modal-content");
 
     const initialize = () => {
       modals.forEach((modal) => {
         modal.classList.remove("is-active");
+        modal.removeAttribute("onclick")
       });
     };
 
@@ -176,6 +178,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const openAlertModal = (event) => {
       alertModal.classList.add("is-active");
       const modalData = event.target.dataset.modalAlert;
+      const submit = alertModal.querySelector(".btn-submit.close");
+
       if (modalData === "ungroup") {
         alertModalContent.innerHTML = "<p>그룹해제가 완료되었습니다.</p>";
       }
@@ -199,6 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       if (modalData === "select-group") {
         alertModalContent.innerHTML = "<p>그룹지정이 완료되었습니다.</p>";
+        // submit.onclick = () => initialize();
       }
       if (modalData === "create-lowest-price") {
         alertModalContent.innerHTML = "<p>상품 등록이 완료되었습니다.</p>";
@@ -207,6 +212,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalAlertButtons = document.querySelectorAll("[data-modal-alert]");
     modalAlertButtons.forEach((button) => {
       button.addEventListener("click", openAlertModal);
+    });
+
+    // Chart Modal
+    const openChartModal = (event) => {
+      chartModal.classList.add("is-active");
+      const modalData = event.target.dataset.modalChart;
+
+      if (modalData === "ungroup") {
+        alertModalContent.innerHTML = "<p>그룹해제가 완료되었습니다.</p>";
+      }
+    };
+    const modalChartButtons = document.querySelectorAll("[data-modal-chart]");
+    modalChartButtons.forEach((button) => {
+      button.addEventListener("click", openChartModal);
     });
 
     // Close Modal
