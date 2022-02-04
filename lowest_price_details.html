@@ -328,6 +328,654 @@
     chart.appear(1000, 100);
   }); // end am5.ready()
 </script>
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("priceChart2");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(am5xy.XYChart.new(root, {}));
+
+    var cursor = chart.set(
+      "cursor",
+      am5xy.XYCursor.new(root, {
+        behavior: "none",
+      })
+    );
+    cursor.lineY.set("visible", false);
+
+    // Generate random data
+    var date = new Date();
+    date.setHours(0, 0, 0, 0);
+    var value = 9900;
+    var previousValue = value;
+    var downColor = root.interfaceColors.get("negative");
+    var upColor = root.interfaceColors.get("positive");
+    var color;
+    var previousColor;
+    var previousDataObj;
+
+    function generateData() {
+      value = Math.round(Math.random() * 10 - 5 + value);
+      am5.time.add(date, "day", 1);
+
+      if (value >= previousValue) {
+        color = upColor;
+      } else {
+        color = downColor;
+      }
+      previousValue = value;
+
+      var dataObj = { date: date.getTime(), value: value, color: color }; // color will be used for tooltip background
+
+      // only if changed
+      if (color != previousColor) {
+        if (!previousDataObj) {
+          previousDataObj = dataObj;
+        }
+        previousDataObj.strokeSettings = { stroke: color };
+      }
+
+      previousDataObj = dataObj;
+      previousColor = color;
+
+      return dataObj;
+    }
+
+    function generateDatas(count) {
+      var data = [];
+      for (var i = 0; i < count; ++i) {
+        data.push(generateData());
+      }
+      return data;
+    }
+
+    // Create axes
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+    var xAxis = chart.xAxes.push(
+      am5xy.DateAxis.new(root, {
+        baseInterval: { timeUnit: "day", count: 1 },
+        renderer: am5xy.AxisRendererX.new(root, {}),
+        tooltip: am5.Tooltip.new(root, {}),
+      })
+    );
+
+    var yAxis = chart.yAxes.push(
+      am5xy.ValueAxis.new(root, {
+        renderer: am5xy.AxisRendererY.new(root, {}),
+      })
+    );
+
+    // Add series
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+    var series = chart.series.push(
+      am5xy.LineSeries.new(root, {
+        name: "Series",
+        xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: "value",
+        valueXField: "date",
+      })
+    );
+
+    series.strokes.template.set("templateField", "strokeSettings");
+
+    var tooltip = series.set(
+      "tooltip",
+      am5.Tooltip.new(root, {
+        labelText: "{valueY}",
+      })
+    );
+
+    // this is added in ored adapter to be triggered each time position changes
+    tooltip.on("pointTo", function () {
+      var background = tooltip.get("background");
+      background.set("fill", background.get("fill"));
+    });
+
+    // tooltip bacground takes color from data item
+    tooltip.get("background").adapters.add("fill", function (fill) {
+      if (tooltip.dataItem) {
+        return tooltip.dataItem.dataContext.color;
+      }
+      return fill;
+    });
+
+    // Create axis ranges
+    function createRange(value, endValue, color) {
+      var rangeDataItem = yAxis.makeDataItem({
+        value: value,
+        endValue: endValue,
+      });
+
+      var range = yAxis.createAxisRange(rangeDataItem);
+
+      if (endValue) {
+        rangeDataItem.get("axisFill").setAll({
+          fill: color,
+          fillOpacity: 0.2,
+          visible: true,
+        });
+
+        rangeDataItem.get("label").setAll({
+          fill: am5.color(0xffffff),
+          text: value + "-" + endValue,
+          location: 1,
+          background: am5.RoundedRectangle.new(root, {
+            fill: color,
+          }),
+        });
+      } else {
+        rangeDataItem.get("label").setAll({
+          fill: am5.color(0xffffff),
+          text: value,
+          background: am5.RoundedRectangle.new(root, {
+            fill: color,
+          }),
+        });
+      }
+
+      rangeDataItem.get("grid").setAll({
+        stroke: color,
+        strokeOpacity: 1,
+        location: 1,
+      });
+    }
+
+    createRange(9900, undefined, am5.color(0x297373));
+
+    var data = generateDatas(100);
+    series.data.setAll(data);
+
+    series.appear(1000);
+    chart.appear(1000, 100);
+  }); // end am5.ready()
+</script>
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("priceChart3");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(am5xy.XYChart.new(root, {}));
+
+    var cursor = chart.set(
+      "cursor",
+      am5xy.XYCursor.new(root, {
+        behavior: "none",
+      })
+    );
+    cursor.lineY.set("visible", false);
+
+    // Generate random data
+    var date = new Date();
+    date.setHours(0, 0, 0, 0);
+    var value = 9900;
+    var previousValue = value;
+    var downColor = root.interfaceColors.get("negative");
+    var upColor = root.interfaceColors.get("positive");
+    var color;
+    var previousColor;
+    var previousDataObj;
+
+    function generateData() {
+      value = Math.round(Math.random() * 10 - 5 + value);
+      am5.time.add(date, "day", 1);
+
+      if (value >= previousValue) {
+        color = upColor;
+      } else {
+        color = downColor;
+      }
+      previousValue = value;
+
+      var dataObj = { date: date.getTime(), value: value, color: color }; // color will be used for tooltip background
+
+      // only if changed
+      if (color != previousColor) {
+        if (!previousDataObj) {
+          previousDataObj = dataObj;
+        }
+        previousDataObj.strokeSettings = { stroke: color };
+      }
+
+      previousDataObj = dataObj;
+      previousColor = color;
+
+      return dataObj;
+    }
+
+    function generateDatas(count) {
+      var data = [];
+      for (var i = 0; i < count; ++i) {
+        data.push(generateData());
+      }
+      return data;
+    }
+
+    // Create axes
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+    var xAxis = chart.xAxes.push(
+      am5xy.DateAxis.new(root, {
+        baseInterval: { timeUnit: "day", count: 1 },
+        renderer: am5xy.AxisRendererX.new(root, {}),
+        tooltip: am5.Tooltip.new(root, {}),
+      })
+    );
+
+    var yAxis = chart.yAxes.push(
+      am5xy.ValueAxis.new(root, {
+        renderer: am5xy.AxisRendererY.new(root, {}),
+      })
+    );
+
+    // Add series
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+    var series = chart.series.push(
+      am5xy.LineSeries.new(root, {
+        name: "Series",
+        xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: "value",
+        valueXField: "date",
+      })
+    );
+
+    series.strokes.template.set("templateField", "strokeSettings");
+
+    var tooltip = series.set(
+      "tooltip",
+      am5.Tooltip.new(root, {
+        labelText: "{valueY}",
+      })
+    );
+
+    // this is added in ored adapter to be triggered each time position changes
+    tooltip.on("pointTo", function () {
+      var background = tooltip.get("background");
+      background.set("fill", background.get("fill"));
+    });
+
+    // tooltip bacground takes color from data item
+    tooltip.get("background").adapters.add("fill", function (fill) {
+      if (tooltip.dataItem) {
+        return tooltip.dataItem.dataContext.color;
+      }
+      return fill;
+    });
+
+    // Create axis ranges
+    function createRange(value, endValue, color) {
+      var rangeDataItem = yAxis.makeDataItem({
+        value: value,
+        endValue: endValue,
+      });
+
+      var range = yAxis.createAxisRange(rangeDataItem);
+
+      if (endValue) {
+        rangeDataItem.get("axisFill").setAll({
+          fill: color,
+          fillOpacity: 0.2,
+          visible: true,
+        });
+
+        rangeDataItem.get("label").setAll({
+          fill: am5.color(0xffffff),
+          text: value + "-" + endValue,
+          location: 1,
+          background: am5.RoundedRectangle.new(root, {
+            fill: color,
+          }),
+        });
+      } else {
+        rangeDataItem.get("label").setAll({
+          fill: am5.color(0xffffff),
+          text: value,
+          background: am5.RoundedRectangle.new(root, {
+            fill: color,
+          }),
+        });
+      }
+
+      rangeDataItem.get("grid").setAll({
+        stroke: color,
+        strokeOpacity: 1,
+        location: 1,
+      });
+    }
+
+    createRange(9900, undefined, am5.color(0x297373));
+
+    var data = generateDatas(100);
+    series.data.setAll(data);
+
+    series.appear(1000);
+    chart.appear(1000, 100);
+  }); // end am5.ready()
+</script>
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("priceChart4");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(am5xy.XYChart.new(root, {}));
+
+    var cursor = chart.set(
+      "cursor",
+      am5xy.XYCursor.new(root, {
+        behavior: "none",
+      })
+    );
+    cursor.lineY.set("visible", false);
+
+    // Generate random data
+    var date = new Date();
+    date.setHours(0, 0, 0, 0);
+    var value = 9900;
+    var previousValue = value;
+    var downColor = root.interfaceColors.get("negative");
+    var upColor = root.interfaceColors.get("positive");
+    var color;
+    var previousColor;
+    var previousDataObj;
+
+    function generateData() {
+      value = Math.round(Math.random() * 10 - 5 + value);
+      am5.time.add(date, "day", 1);
+
+      if (value >= previousValue) {
+        color = upColor;
+      } else {
+        color = downColor;
+      }
+      previousValue = value;
+
+      var dataObj = { date: date.getTime(), value: value, color: color }; // color will be used for tooltip background
+
+      // only if changed
+      if (color != previousColor) {
+        if (!previousDataObj) {
+          previousDataObj = dataObj;
+        }
+        previousDataObj.strokeSettings = { stroke: color };
+      }
+
+      previousDataObj = dataObj;
+      previousColor = color;
+
+      return dataObj;
+    }
+
+    function generateDatas(count) {
+      var data = [];
+      for (var i = 0; i < count; ++i) {
+        data.push(generateData());
+      }
+      return data;
+    }
+
+    // Create axes
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+    var xAxis = chart.xAxes.push(
+      am5xy.DateAxis.new(root, {
+        baseInterval: { timeUnit: "day", count: 1 },
+        renderer: am5xy.AxisRendererX.new(root, {}),
+        tooltip: am5.Tooltip.new(root, {}),
+      })
+    );
+
+    var yAxis = chart.yAxes.push(
+      am5xy.ValueAxis.new(root, {
+        renderer: am5xy.AxisRendererY.new(root, {}),
+      })
+    );
+
+    // Add series
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+    var series = chart.series.push(
+      am5xy.LineSeries.new(root, {
+        name: "Series",
+        xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: "value",
+        valueXField: "date",
+      })
+    );
+
+    series.strokes.template.set("templateField", "strokeSettings");
+
+    var tooltip = series.set(
+      "tooltip",
+      am5.Tooltip.new(root, {
+        labelText: "{valueY}",
+      })
+    );
+
+    // this is added in ored adapter to be triggered each time position changes
+    tooltip.on("pointTo", function () {
+      var background = tooltip.get("background");
+      background.set("fill", background.get("fill"));
+    });
+
+    // tooltip bacground takes color from data item
+    tooltip.get("background").adapters.add("fill", function (fill) {
+      if (tooltip.dataItem) {
+        return tooltip.dataItem.dataContext.color;
+      }
+      return fill;
+    });
+
+    // Create axis ranges
+    function createRange(value, endValue, color) {
+      var rangeDataItem = yAxis.makeDataItem({
+        value: value,
+        endValue: endValue,
+      });
+
+      var range = yAxis.createAxisRange(rangeDataItem);
+
+      if (endValue) {
+        rangeDataItem.get("axisFill").setAll({
+          fill: color,
+          fillOpacity: 0.2,
+          visible: true,
+        });
+
+        rangeDataItem.get("label").setAll({
+          fill: am5.color(0xffffff),
+          text: value + "-" + endValue,
+          location: 1,
+          background: am5.RoundedRectangle.new(root, {
+            fill: color,
+          }),
+        });
+      } else {
+        rangeDataItem.get("label").setAll({
+          fill: am5.color(0xffffff),
+          text: value,
+          background: am5.RoundedRectangle.new(root, {
+            fill: color,
+          }),
+        });
+      }
+
+      rangeDataItem.get("grid").setAll({
+        stroke: color,
+        strokeOpacity: 1,
+        location: 1,
+      });
+    }
+
+    createRange(9900, undefined, am5.color(0x297373));
+
+    var data = generateDatas(100);
+    series.data.setAll(data);
+
+    series.appear(1000);
+    chart.appear(1000, 100);
+  }); // end am5.ready()
+</script>
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("priceChart5");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(am5xy.XYChart.new(root, {}));
+
+    var cursor = chart.set(
+      "cursor",
+      am5xy.XYCursor.new(root, {
+        behavior: "none",
+      })
+    );
+    cursor.lineY.set("visible", false);
+
+    // Generate random data
+    var date = new Date();
+    date.setHours(0, 0, 0, 0);
+    var value = 9900;
+    var previousValue = value;
+    var downColor = root.interfaceColors.get("negative");
+    var upColor = root.interfaceColors.get("positive");
+    var color;
+    var previousColor;
+    var previousDataObj;
+
+    function generateData() {
+      value = Math.round(Math.random() * 10 - 5 + value);
+      am5.time.add(date, "day", 1);
+
+      if (value >= previousValue) {
+        color = upColor;
+      } else {
+        color = downColor;
+      }
+      previousValue = value;
+
+      var dataObj = { date: date.getTime(), value: value, color: color }; // color will be used for tooltip background
+
+      // only if changed
+      if (color != previousColor) {
+        if (!previousDataObj) {
+          previousDataObj = dataObj;
+        }
+        previousDataObj.strokeSettings = { stroke: color };
+      }
+
+      previousDataObj = dataObj;
+      previousColor = color;
+
+      return dataObj;
+    }
+
+    function generateDatas(count) {
+      var data = [];
+      for (var i = 0; i < count; ++i) {
+        data.push(generateData());
+      }
+      return data;
+    }
+
+    // Create axes
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+    var xAxis = chart.xAxes.push(
+      am5xy.DateAxis.new(root, {
+        baseInterval: { timeUnit: "day", count: 1 },
+        renderer: am5xy.AxisRendererX.new(root, {}),
+        tooltip: am5.Tooltip.new(root, {}),
+      })
+    );
+
+    var yAxis = chart.yAxes.push(
+      am5xy.ValueAxis.new(root, {
+        renderer: am5xy.AxisRendererY.new(root, {}),
+      })
+    );
+
+    // Add series
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+    var series = chart.series.push(
+      am5xy.LineSeries.new(root, {
+        name: "Series",
+        xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: "value",
+        valueXField: "date",
+      })
+    );
+
+    series.strokes.template.set("templateField", "strokeSettings");
+
+    var tooltip = series.set(
+      "tooltip",
+      am5.Tooltip.new(root, {
+        labelText: "{valueY}",
+      })
+    );
+
+    // this is added in ored adapter to be triggered each time position changes
+    tooltip.on("pointTo", function () {
+      var background = tooltip.get("background");
+      background.set("fill", background.get("fill"));
+    });
+
+    // tooltip bacground takes color from data item
+    tooltip.get("background").adapters.add("fill", function (fill) {
+      if (tooltip.dataItem) {
+        return tooltip.dataItem.dataContext.color;
+      }
+      return fill;
+    });
+
+    // Create axis ranges
+    function createRange(value, endValue, color) {
+      var rangeDataItem = yAxis.makeDataItem({
+        value: value,
+        endValue: endValue,
+      });
+
+      var range = yAxis.createAxisRange(rangeDataItem);
+
+      if (endValue) {
+        rangeDataItem.get("axisFill").setAll({
+          fill: color,
+          fillOpacity: 0.2,
+          visible: true,
+        });
+
+        rangeDataItem.get("label").setAll({
+          fill: am5.color(0xffffff),
+          text: value + "-" + endValue,
+          location: 1,
+          background: am5.RoundedRectangle.new(root, {
+            fill: color,
+          }),
+        });
+      } else {
+        rangeDataItem.get("label").setAll({
+          fill: am5.color(0xffffff),
+          text: value,
+          background: am5.RoundedRectangle.new(root, {
+            fill: color,
+          }),
+        });
+      }
+
+      rangeDataItem.get("grid").setAll({
+        stroke: color,
+        strokeOpacity: 1,
+        location: 1,
+      });
+    }
+
+    createRange(9900, undefined, am5.color(0x297373));
+
+    var data = generateDatas(100);
+    series.data.setAll(data);
+
+    series.appear(1000);
+    chart.appear(1000, 100);
+  }); // end am5.ready()
+</script>
 <div class="content content-lowest-price-details">
   <header class="main-header">
     <section class="title">
@@ -484,7 +1132,7 @@
       <div class="list list-daily-lowest-price">
         <ul class="row title">
           <li class="sort">날짜</li>
-          <li class="sort">차트</li>
+          <li class="col-chart sort">차트</li>
           <li class="sort">평균</li>
           <li class="sort">전일대비</li>
           <li class="sort">등락율</li>
@@ -493,9 +1141,9 @@
         </ul>
         <ul class="row failed">
           <li>2022-03-01</li>
-          <li>
+          <li class="col-chart">
             <a href="#sectionChart">
-              <button class="btn-sub btn-chart">차트반영</button>
+              <div id="priceChart2" class="chart"></div>
             </a>
           </li>
           <li class="price">-</li>
@@ -510,9 +1158,9 @@
         </ul>
         <ul class="row">
           <li>2022-02-28</li>
-          <li>
+          <li class="col-chart">
             <a href="#sectionChart">
-              <button class="btn-sub btn-chart">차트반영</button>
+              <div id="priceChart3" class="chart"></div>
             </a>
           </li>
           <li class="price">9,800</li>
@@ -527,9 +1175,9 @@
         </ul>
         <ul class="row">
           <li>2022-02-27</li>
-          <li>
+          <li class="col-chart">
             <a href="#sectionChart">
-              <button class="btn-sub btn-chart">차트반영</button>
+              <div id="priceChart4" class="chart"></div>
             </a>
           </li>
           <li class="price">9,890</li>
@@ -544,9 +1192,9 @@
         </ul>
         <ul class="row">
           <li>2022-02-26</li>
-          <li>
+          <li class="col-chart">
             <a href="#sectionChart">
-              <button class="btn-sub btn-chart">차트반영</button>
+              <div id="priceChart5" class="chart"></div>
             </a>
           </li>
           <li class="price">9,890</li>
