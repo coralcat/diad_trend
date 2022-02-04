@@ -383,7 +383,7 @@
     // Generate random data
     var date = new Date();
     date.setHours(0, 0, 0, 0);
-    var value = 100;
+    var value = 9900;
     var previousValue = value;
     var downColor = root.interfaceColors.get("negative");
     var upColor = root.interfaceColors.get("positive");
@@ -476,6 +476,49 @@
       }
       return fill;
     });
+
+    // Create axis ranges
+    function createRange(value, endValue, color) {
+      var rangeDataItem = yAxis.makeDataItem({
+        value: value,
+        endValue: endValue,
+      });
+
+      var range = yAxis.createAxisRange(rangeDataItem);
+
+      if (endValue) {
+        rangeDataItem.get("axisFill").setAll({
+          fill: color,
+          fillOpacity: 0.2,
+          visible: true,
+        });
+
+        rangeDataItem.get("label").setAll({
+          fill: am5.color(0xffffff),
+          text: value + "-" + endValue,
+          location: 1,
+          background: am5.RoundedRectangle.new(root, {
+            fill: color,
+          }),
+        });
+      } else {
+        rangeDataItem.get("label").setAll({
+          fill: am5.color(0xffffff),
+          text: value,
+          background: am5.RoundedRectangle.new(root, {
+            fill: color,
+          }),
+        });
+      }
+
+      rangeDataItem.get("grid").setAll({
+        stroke: color,
+        strokeOpacity: 1,
+        location: 1,
+      });
+    }
+
+    createRange(9900, undefined, am5.color(0x297373));
 
     var data = generateDatas(100);
     series.data.setAll(data);
@@ -664,7 +707,7 @@
         </ul>
         <ul class="row">
           <li>2022-02-28</li>
-          <li class="col-chart"></li>
+          <li class="col-chart" data-modal-chart=""></li>
           <li class="price">9,800</li>
           <li>
             <div class="rank down">90</div>
@@ -677,7 +720,7 @@
         </ul>
         <ul class="row">
           <li>2022-02-27</li>
-          <li class="col-chart"></li>
+          <li class="col-chart" data-modal-chart=""></li>
           <li class="price">9,890</li>
           <li>
             <div class="rank same"></div>
@@ -690,7 +733,7 @@
         </ul>
         <ul class="row">
           <li>2022-02-26</li>
-          <li class="col-chart"></li>
+          <li class="col-chart" data-modal-chart=""></li>
           <li class="price">9,890</li>
           <li>
             <div class="rank down">100</div>
