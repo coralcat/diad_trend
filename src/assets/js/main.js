@@ -17,10 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
     anchors.forEach((anchor) => {
       anchor.addEventListener("click", (event) => {
         event.preventDefault();
-        const button = document.querySelector(anchor.getAttribute("href"))
+        const button = document.querySelector(anchor.getAttribute("href"));
         button.scrollIntoView({
-          behavior: "smooth"
-        })
+          behavior: "smooth",
+        });
       });
     });
   }
@@ -82,14 +82,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggles = changeAlarmInformation.querySelectorAll(".toggle");
     toggles.forEach((toggle) => {
       const inputDisabled = () => {
-        const inputs = toggle.parentElement.querySelectorAll("input");
-        inputs.forEach((input) => {
-          if (!toggle.classList.contains("is-active")) {
-            input.disabled = true;
-          } else {
-            input.disabled = false;
-          }
-        });
+        const inputs = toggle.parentElement.querySelector(".inputs");
+        if (!toggle.classList.contains("is-active")) {
+          inputs.style.visibility = "hidden";
+        } else {
+          inputs.style.visibility = "visible";
+        }
       };
 
       inputDisabled();

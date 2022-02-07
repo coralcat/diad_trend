@@ -21,6 +21,21 @@
     url("../fonts/NanumBarunGothicLight.woff") format("woff");
 }
 
+@font-face {
+  font-family: "NanumSquare-Regular";
+  src: url('../fonts/NanumSquareR.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/NanumSquareR.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/NanumSquareR.woff') format('font-woff'), /* Pretty Modern Browsers */
+       url('../fonts/NanumSquareR.ttf?') format('truetype');
+}
+
+@font-face {
+  font-family: "NanumSquare";
+  font-weight: 300;
+  src: url("../fonts/NanumSquareL.otf"),
+    url("../fonts/NanumSquareL.ttf") format("truetype");
+}
+
 // Modno Bright
 $levis-clear-purple: #dcdfe4;
 $auro-peppermint: #d5dbe0;
@@ -39,6 +54,7 @@ $clark-kensington-stowe-mountain: #717593;
 
 $primary-color: #7682f8;
 $secondary-color: #5661b1;
+$tertiary-color: #f2f1ff;
 $dark-primary-color: #27292d;
 $dark-tertiary-color: #85899a;
 $dark-secondary-color: $clark-kensington-stowe-mountain;
@@ -1250,6 +1266,114 @@ input[type="radio"] + label:empty:before {
   }
 }
 
+// Datepicker
+.ui-datepicker {
+  padding: 0.5rem;
+
+  .ui-widget-header {
+    border: 1px solid $primary-color;
+    background: $tertiary-color;
+    color: #333333;
+    font-weight: normal;
+    font-family: "RobotoMedium";
+  }
+
+  .ui-datepicker-prev,
+  .ui-datepicker-next {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+
+    span {
+      display: none;
+    }
+
+
+    &::before {
+      content: "";
+      display: block;
+      border: 2px solid $primary-color;
+      border-left: 0;
+      border-bottom: 0;
+      transform: rotate(45deg);
+      width: 8px;
+      height: 8px;
+    }
+
+    &.ui-state-hover {
+      top: 2px;
+      border: 0;
+      background: transparent;
+      font-weight: unset;
+    }
+  }
+
+  .ui-datepicker-prev {
+
+    &::before {
+      transform: rotate(225deg);
+    }
+  }
+
+  th {
+    font-weight: normal;
+    font-family: "RobotoMedium";
+    font-size: 13px;
+    color: #939699;
+  }
+
+  .ui-datepicker-calendar {
+    margin-bottom: 0;
+
+    .ui-state-default,
+    .ui-widget-content .ui-state-default,
+    .ui-widget-header .ui-state-default,
+    .ui-button,
+    html .ui-button.ui-state-disabled:hover,
+    html .ui-button.ui-state-disabled:active {
+      border: 1px solid #eee;
+      background: transparent;
+      font: normal 13px/1 "Roboto";
+      width: 32px;
+      height: 32px;
+      border-radius: 3px;
+    }
+
+    .ui-state-highlight,
+    .ui-widget-content .ui-state-highlight,
+    .ui-widget-header .ui-state-highlight {
+      border: 1px solid #7682f8;
+      background: #f2f1ff;
+      color: #333;
+      font-family: "RobotoMedium";
+    }
+
+    .ui-state-hover,
+    .ui-widget-content .ui-state-hover,
+    .ui-widget-header .ui-state-hover,
+    .ui-state-focus,
+    .ui-widget-content .ui-state-focus,
+    .ui-widget-header .ui-state-focus,
+    .ui-button:hover,
+    .ui-button:focus {
+      border: 1px solid #e3e6e9;
+      background: #e3e6e9;
+      font-weight: normal;
+    }
+
+    .ui-state-active,
+    .ui-widget-content .ui-state-active,
+    .ui-widget-header .ui-state-active,
+    a.ui-button:active,
+    .ui-button:active,
+    .ui-button.ui-state-active:hover {
+      border: 1px solid $primary-color;
+      background: $primary-color;
+      font-weight: normal;
+      color: white;
+    }
+  }
+}
 /* Page Loader */
 .js .loading::before,
 .js .loading::after {

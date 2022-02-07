@@ -1,5 +1,4 @@
-{% extends "base.html" %} {% block content %}
-
+{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('settings')}}
 <div class="content content-settings">
   <header class="main-header">
     <div class="title">
