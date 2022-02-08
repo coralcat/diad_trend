@@ -159,87 +159,61 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Confirm Modal
+    const confirmData = {
+      checkDeleteKeyword: "<p>키워드 삭제 후 적용하시면 삭제된 키워드와 관련된 데이터가 있는 경우 모두 삭제됩니다. 재등록시에도 삭제된 데이터는 복구되지 않습니다. 삭제를 진행하시겠습니까?</p>",
+      deleteKeyword: "<p>소재 삭제 시 해당 소재의 모든 데이터가 삭제됩니다. 재등록시에도 삭제된 데이터는 복구되지 않습니다. 삭제를 진행하시겠습니까?</p>",
+      checkDeleteGroup: "<p>그룹 삭제 시 그룹에 속한 키워드는 그룹이 해제됩니다. 그룹 삭제를 진행하시겠습니까?</p>",
+      selectGroup: "<p>이미 그룹이 지정된 키워드가 있습니다. 그룹을 지정하실 경우 기존 그룹이 새로 지정된 그룹으로 대체됩니다. 그룹지정을 진행하시겠습니까?</p>"
+    }
+
     const openConfirmModal = (event) => {
       const modalData = event.target.dataset.modalConfirm;
       const submit = confirmModal.querySelector(".btn-submit");
 
+      for (const property in confirmData) {
+        if (modalData === `${property}`) {
+          confirmModalContent.innerHTML = `${confirmData[property]}`
+        }
+      }
+
       submit.setAttribute("data-modal-alert", modalData);
       confirmModal.classList.add("is-active");
       submit.addEventListener("click", openAlertModal);
-      if (modalData === "check-delete-keyword") {
-        confirmModalContent.innerHTML =
-          "<p>키워드 삭제 후 적용하시면 삭제된 키워드와 관련된 데이터가 있는 경우 모두 삭제됩니다. 재등록시에도 삭제된 데이터는 복구되지 않습니다. 삭제를 진행하시겠습니까?</p>";
-      }
-      if (modalData === "delete-keyword") {
-        confirmModalContent.innerHTML =
-          "<p>소재 삭제 시 해당 소재의 모든 데이터가 삭제됩니다. 재등록시에도 삭제된 데이터는 복구되지 않습니다. 삭제를 진행하시겠습니까?</p>";
-      }
-      if (modalData === "check-delete-group") {
-        confirmModalContent.innerHTML =
-          "<p>그룹 삭제 시 그룹에 속한 키워드는 그룹이 해제됩니다. 그룹 삭제를 진행하시겠습니까?</p>";
-      }
-      if (modalData === "select-group") {
-        confirmModalContent.innerHTML =
-          "<p>이미 그룹이 지정된 키워드가 있습니다. 그룹을 지정하실 경우 기존 그룹이 새로 지정된 그룹으로 대체됩니다. 그룹지정을 진행하시겠습니까?</p>";
-      }
     };
+
     const modalConfirmButtons = document.querySelectorAll("[data-modal-confirm]");
     modalConfirmButtons.forEach((button) => {
       button.addEventListener("click", openConfirmModal);
     });
 
     // Alert Modal
+    const alertData = {
+      ungroup: "<p>그룹해제가 완료되었습니다.</p>",
+      createKeyword: "<p>키워드 등록이 완료되었습니다.</p>",
+      createGroup: "<p>그룹 등록이 완료되었습니다.</p>",
+      searchGroup: "<p>적용이 완료되었습니다.</p>",
+      deleteKeyword: "<p>소재 삭제가 완료되었습니다</p>",
+      checkDeleteKeyword: "<p>키워드 삭제가 완료되었습니다</p>",
+      checkDeleteGroup: "<p>그룹 삭제가 완료되었습니다.</p>",
+      selectGroup: "<p>그룹지정이 완료되었습니다.</p>",
+      createLowestPrice: "<p>상품 등록이 완료되었습니다.</p>",
+    };
+
     const openAlertModal = (event) => {
       alertModal.classList.add("is-active");
       const modalData = event.target.dataset.modalAlert;
       const submit = alertModal.querySelector(".btn-submit.close");
 
-      if (modalData === "ungroup") {
-        alertModalContent.innerHTML = "<p>그룹해제가 완료되었습니다.</p>";
-      }
-      if (modalData === "create-keyword") {
-        alertModalContent.innerHTML = "<p>키워드 등록이 완료되었습니다.</p>";
-      }
-      if (modalData === "create-group") {
-        alertModalContent.innerHTML = "<p>그룹 등록이 완료되었습니다.</p>";
-      }
-      if (modalData === "search-group") {
-        alertModalContent.innerHTML = "<p>적용이 완료되었습니다.</p>";
-      }
-      if (modalData === "delete-keyword") {
-        alertModalContent.innerHTML = "<p>소재 삭제가 완료되었습니다</p>";
-      }
-      if (modalData === "check-delete-keyword") {
-        alertModalContent.innerHTML = "<p>키워드 삭제가 완료되었습니다</p>";
-      }
-      if (modalData === "check-delete-group") {
-        alertModalContent.innerHTML = "<p>그룹 삭제가 완료되었습니다.</p>";
-      }
-      if (modalData === "select-group") {
-        alertModalContent.innerHTML = "<p>그룹지정이 완료되었습니다.</p>";
-        // submit.onclick = () => initialize();
-      }
-      if (modalData === "create-lowest-price") {
-        alertModalContent.innerHTML = "<p>상품 등록이 완료되었습니다.</p>";
+      for (const property in alertData) {
+        if (modalData === `${property}`) {
+          alertModalContent.innerHTML = `${alertData[property]}`;
+        }
       }
     };
+
     const modalAlertButtons = document.querySelectorAll("[data-modal-alert]");
     modalAlertButtons.forEach((button) => {
       button.addEventListener("click", openAlertModal);
-    });
-
-    // Chart Modal
-    const openChartModal = (event) => {
-      chartModal.classList.add("is-active");
-      const modalData = event.target.dataset.modalChart;
-
-      if (modalData === "ungroup") {
-        alertModalContent.innerHTML = "<p>그룹해제가 완료되었습니다.</p>";
-      }
-    };
-    const modalChartButtons = document.querySelectorAll("[data-modal-chart]");
-    modalChartButtons.forEach((button) => {
-      button.addEventListener("click", openChartModal);
     });
 
     // Close Modal
