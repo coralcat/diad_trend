@@ -98,15 +98,15 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Tooltip
   ===================================================== */
-  const tooltips = document.querySelectorAll(".ico-tooltip");
-  if (tooltips) {
-    tooltips.forEach((tooltip) => {
-      tooltip.addEventListener("click", (event) => {
-        const content = event.target.nextElementSibling;
-        content.classList.toggle("is-active");
-      });
-    });
-  }
+  // const tooltips = document.querySelectorAll(".tooltip-icon");
+  // if (tooltips) {
+  //   tooltips.forEach((tooltip) => {
+  //     tooltip.addEventListener("click", (event) => {
+  //       const content = event.target.nextElementSibling;
+  //       content.classList.toggle("is-active");
+  //     });
+  //   });
+  // }
 
   /* =====================================================
        Checkbox: Check All
@@ -132,10 +132,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (modals[0]) {
     const alertModal = document.querySelector(".modal-alert");
-    const confirmModal = document.querySelector(".modal-confirm");
-    const chartModal = document.querySelector(".modal-chart");
-    const confirmModalContent = confirmModal.querySelector(".modal-content");
     const alertModalContent = alertModal.querySelector(".modal-content");
+    const confirmModal = document.querySelector(".modal-confirm");
+    const confirmModalContent = confirmModal.querySelector(".modal-content");
 
     const initialize = () => {
       modals.forEach((modal) => {
@@ -160,11 +159,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Confirm Modal
     const confirmData = {
-      checkDeleteKeyword: "<p>키워드 삭제 후 적용하시면 삭제된 키워드와 관련된 데이터가 있는 경우 모두 삭제됩니다. 재등록시에도 삭제된 데이터는 복구되지 않습니다. 삭제를 진행하시겠습니까?</p>",
-      deleteKeyword: "<p>소재 삭제 시 해당 소재의 모든 데이터가 삭제됩니다. 재등록시에도 삭제된 데이터는 복구되지 않습니다. 삭제를 진행하시겠습니까?</p>",
+      checkDeleteKeyword:
+        "<p>키워드를 삭제하시면 관련 데이터가 모두 삭제됩니다. 재등록시에도 삭제된 데이터는 복구되지 않습니다. 삭제를 진행하시겠습니까?</p>",
+      deleteKeyword:
+        "<p>소재 삭제 시 해당 소재의 모든 데이터가 삭제됩니다. 재등록시에도 삭제된 데이터는 복구되지 않습니다. 삭제를 진행하시겠습니까?</p>",
       checkDeleteGroup: "<p>그룹 삭제 시 그룹에 속한 키워드는 그룹이 해제됩니다. 그룹 삭제를 진행하시겠습니까?</p>",
-      selectGroup: "<p>이미 그룹이 지정된 키워드가 있습니다. 그룹을 지정하실 경우 기존 그룹이 새로 지정된 그룹으로 대체됩니다. 그룹지정을 진행하시겠습니까?</p>"
-    }
+      selectGroup:
+        "<p>이미 그룹이 지정된 키워드가 있습니다. 그룹을 지정하실 경우 기존 그룹이 새로 지정된 그룹으로 대체됩니다. 그룹지정을 진행하시겠습니까?</p>",
+    };
 
     const openConfirmModal = (event) => {
       const modalData = event.target.dataset.modalConfirm;
@@ -172,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       for (const property in confirmData) {
         if (modalData === `${property}`) {
-          confirmModalContent.innerHTML = `${confirmData[property]}`
+          confirmModalContent.innerHTML = `${confirmData[property]}`;
         }
       }
 

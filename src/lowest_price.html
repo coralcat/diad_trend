@@ -32,7 +32,6 @@
       <h1>
         <span>최저가 알림</span>
         <div class="tooltip">
-          <div class="ico-tooltip"></div>
           <article class="tooltip-content">
             <ul>
               <li>네이버 쇼핑검색 가격비교 상품의 최저가 정보를 확인할 수 있습니다.</li>
@@ -66,26 +65,6 @@
           <button class="btn-main" type="button">서비스 신청하기</button>
         </a>
       </div>
-
-      <!-- 서비스 이용기간 만료 -->
-      <!-- <div class="subline">
-        <p>
-          서비스 이용기간이 만료되었습니다.
-          <span class="date">2021-07-30</span>
-          등록한 키워드가 삭제됩니다.
-          <span
-            data-tooltip="서비스 이용기간이 만료되었습니다. 만료 후 7일 이내로 서비스를 연장하지 않으면 데이터가 삭제됩니다. 삭제된 데이터는 복구되지 않으니, 서비스 이용 시 유의하시기 바랍니다."
-          >
-            <span class="ico-tooltip"></span>
-          </span>
-        </p>
-        <a
-          href="https://diad.co.kr/AdInquire/AdInquireMemberRegister"
-          target="_blank"
-        >
-          <button class="btn-main" type="button">서비스 신청하기</button>
-        </a>
-      </div> -->
     </section>
     <section class="section-main">
       <div class="services">
@@ -145,13 +124,12 @@
             <li>
               <h5>
                 <span>상품 MID</span>
-                <div
-                  data-tooltip="복수검색은 줄 바꿈(엔터키)으로 구분합니다.
-                    예시: 12345678900
-                      12345678901
-                    "
-                >
-                  <div class="ico-tooltip"></div>
+                <div class="tooltip">
+                  <article class="tooltip-content">
+                    <p>복수검색은 줄 바꿈(엔터키)으로 구분합니다.</p>
+                    <p>12345678900</p>
+                    <p>12345678901</p>
+                  </article>
                 </div>
               </h5>
               <small>복수검색 가능</small>
@@ -188,12 +166,13 @@
               <li>
                 <h5>
                   <span>변동폭</span>
-                  <div
-                    data-tooltip="· 최저가 변동폭을 검색합니다.
-                  · 특정 값을 검색할 경우 이상〮이하 입력 칸에 같은 값을 입력해주세요.
-                  "
-                  >
-                    <div class="ico-tooltip"></div>
+                  <div class="tooltip">
+                    <div class="tooltip-content">
+                      <ul>
+                        <li>최저가 변동폭을 검색합니다.</li>
+                        <li>특정 값을 검색할 경우 이상·이하 입력 칸에 같은 값을 입력해주세요.</li>
+                      </ul>
+                    </div>
                   </div>
                 </h5>
               </li>
@@ -282,7 +261,7 @@
           <div>
             <!-- 상품 선택했을 때, 보여지는 버튼들 -->
             <div class="buttons">
-              <button type="button" data-modal-confirm="delete-keyword">선택삭제</button>
+              <button type="button" data-modal-confirm="deleteKeyword">선택삭제</button>
               <div class="selectbox">
                 <select name="" id="">
                   <option value="">알람설정</option>
@@ -340,8 +319,8 @@
               <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
             </div>
             <div class="information">
-              <a href="https://search.shopping.naver.com/product/12126547821" target="_blank">
-                <small>상품 MID.12126547821</small>
+              <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
+                12126547821
               </a>
               <div class="title" onclick="location.href='lowest_price_details.html'">
                 1kg 커피창고 에티오피아 예가체프 test test test test test test
@@ -376,7 +355,9 @@
               <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
             </div>
             <div class="information">
-              <small>상품 MID.12126547821</small>
+              <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
+                12126547821
+              </a>
               <div class="title">1kg 커피창고 에티오피아 예가체프 1kg 커피창고 에티오피아 예가체프</div>
               <div class="categories">
                 <span>식품</span>
@@ -408,8 +389,8 @@
               <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
             </div>
             <div class="information">
-              <a href="https://search.shopping.naver.com/product/12126547821" target="_blank">
-                <small>상품 MID.12126547821</small>
+              <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
+                12126547821
               </a>
               <div class="title" onclick="location.href='lowest_price_details.html'">
                 1kg 커피창고 에티오피아 예가체프 test test test test test test
@@ -471,22 +452,24 @@
         <div class="title">등록 가능한 최저가 알림 소재는 10개 입니다.</div>
         <a href="#" class="right-arrow">등록 가능 소재 개수 추가방법</a>
       </section>
+      <section></section>
       <section>
-        <div class="title">등록하실 상품명을 입력해주세요.</div>
-        <a href="#" class="right-arrow">상품명 확인방법</a>
-      </section>
-      <section>
-        <small>최저가 비교상품의 상품명을 정확하게 입력해주세요.</small>
         <div class="search inputs">
-          <input type="url" placeholder="상품명을 입력해주세요" required />
-          <span class="refresh x"></span>
+          <div class="title">
+            <div>등록하실 상품명을 입력해주세요.</div>
+            <a href="#" class="right-arrow">상품명 확인방법</a>
+          </div>
+          <div class="input">
+            <input type="url" placeholder="상품명을 입력해주세요" required />
+            <span class="refresh x"></span>
+          </div>
           <small class="input-alert">상품명을 입력해주세요.</small>
         </div>
       </section>
     </div>
     <div class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" type="submit" data-modal="create-lowest-price-02">조회</button>
+      <button class="btn-submit" type="submit" data-modal="create-lowest-price-02">다음 단계</button>
     </div>
   </div>
 </div>
@@ -503,13 +486,15 @@
         <a href="#" class="right-arrow">등록 가능 소재 개수 추가방법</a>
       </section>
       <section>
-        <div class="title">등록하실 상품의 URL을 입력해주세요.</div>
-        <a href="#" class="right-arrow">URL 확인방법</a>
-      </section>
-      <section>
         <div class="search inputs">
-          <input type="url" placeholder="URL을 입력해주세요" required />
-          <span class="refresh x"></span>
+          <div class="title">
+            <div>등록하실 상품의 URL을 입력해주세요.</div>
+            <a href="#" class="right-arrow">URL 확인방법</a>
+          </div>
+          <div class="input">
+            <input type="url" placeholder="URL을 입력해주세요" required />
+            <span class="refresh x"></span>
+          </div>
           <small class="input-alert">상품 URL을 입력해주세요.</small>
         </div>
       </section>
@@ -523,13 +508,13 @@
 
 <div class="modal create-lowest-price-03">
   <div class="dialog">
-    <header class="modal-header">
-      <h3>상품조회완료</h3>
+    <header class="modal-header no-title">
+      <h3></h3>
       <div class="close"></div>
     </header>
     <div class="modal-content">
       <section>
-        <div class="title">상품 조회가 완료되었습니다. 키워드 등록을 진행하시겠습니까?</div>
+        <div class="title">상품 조회가 완료되었습니다. 상품을 등록하시겠습니까?</div>
       </section>
       <section class="section-item item">
         <div class="image">
@@ -827,7 +812,7 @@
     </div>
     <div class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" type="button" data-modal-confirm="select-group">적용</button>
+      <button class="btn-submit" type="button" data-modal-confirm="selectGroup">적용</button>
     </div>
   </div>
 </div>

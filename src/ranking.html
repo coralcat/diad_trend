@@ -1,7 +1,4 @@
-{% extends "base.html" %}
-{% block content %}
-{% import 'aside.html' as menu %}
-{{menu.active('ranking')}}
+{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('ranking')}}
 <script>
   $(function () {
     var dateFormat = "mm/dd/yy",
@@ -35,7 +32,6 @@
       <h1>
         <span>상품 순위 조회</span>
         <div class="tooltip">
-          <div class="ico-tooltip"></div>
           <article class="tooltip-content">
             <ul>
               <li>네이버 쇼핑검색에 노출되는 순위 정보를 확인할 수 있습니다.</li>
@@ -82,11 +78,11 @@
           서비스 이용기간이 만료되었습니다.
           <span class="date">2021-07-30</span>
           등록한 키워드가 삭제됩니다.
-          <span
-            data-tooltip="서비스 이용기간이 만료되었습니다. 만료 후 7일 이내로 서비스를 연장하지 않으면 데이터가 삭제됩니다. 삭제된 데이터는 복구되지 않으니, 서비스 이용 시 유의하시기 바랍니다."
-          >
-            <span class="ico-tooltip"></span>
-          </span>
+          <div class="tooltip">
+            <article class="tooltip-content">
+              서비스 이용기간이 만료되었습니다. 만료 후 7일 이내로 서비스를 연장하지 않으면 데이터가 삭제됩니다. 삭제된 데이터는 복구되지 않으니, 서비스 이용 시 유의하시기 바랍니다.
+            </article>
+          </div>
         </p>
         <a
           href="https://diad.co.kr/AdInquire/AdInquireMemberRegister"
@@ -117,7 +113,7 @@
       </div>
       <div class="ranking">
         <header class="section-header">
-          <h3>판매 순위 현황</h3>
+          <h3>현재 순위 현황</h3>
           <div class="date">최근 갱신시간 (2022-03-01 12:00)</div>
         </header>
         <div class="list">
@@ -152,13 +148,13 @@
             <li>
               <h5>
                 <span>키워드</span>
-                <div
-                  data-tooltip="복수검색은 줄 바꿈(엔터키)으로 구분합니다.
-                    예시: 키워드
-                      상품
-                    "
-                >
-                  <div class="ico-tooltip"></div>
+
+                <div class="tooltip">
+                  <div class="tooltip-content">
+                    <p>복수검색은 줄 바꿈(엔터키)으로 구분합니다.</p>
+                    <p>예시:</p>
+                    <p>키워드 상품</p>
+                  </div>
                 </div>
               </h5>
               <small>복수검색 가능</small>
@@ -179,13 +175,13 @@
             <li>
               <h5>
                 <span>상품 MID</span>
-                <div
-                  data-tooltip="복수검색은 줄 바꿈(엔터키)으로 구분합니다.
-                    예시: 12345678900
-                      12345678901
-                    "
-                >
-                  <div class="ico-tooltip"></div>
+                <div class="tooltip">
+                  <div class="tooltip-content">
+                    <p>복수검색은 줄 바꿈(엔터키)으로 구분합니다.</p>
+                    <p>예시:</p>
+                    <p>12345678900</p>
+                    <p>12345678901</p>
+                  </div>
                 </div>
               </h5>
               <small>복수검색 가능</small>
@@ -212,13 +208,14 @@
             <li>
               <h5>
                 <span>순위</span>
-                <div
-                  data-tooltip="· 순위 범위를 전체순위(1~401위)로 입력해주세요.
-                      · 400위 밖을 검색할 경우 ‘이상’ 입력 칸에 401을 입력해주세요.
-                      · 특정 값을 순위로 검색할 경우 위아래 입력 칸에 같은 값을 입력해주세요.
-                      "
-                >
-                  <div class="ico-tooltip"></div>
+                <div class="tooltip">
+                  <div class="tooltip-content">
+                    <ul>
+                      <li>순위 범위를 전체순위(1~401위)로 입력해주세요.</li>
+                      <li>400위 밖을 검색할 경우 ‘이상’ 입력 칸에 401을 입력해주세요.</li>
+                      <li>특정 값을 순위로 검색할 경우 위아래 입력 칸에 같은 값을 입력해주세요.</li>
+                    </ul>
+                  </div>
                 </div>
               </h5>
             </li>
@@ -235,7 +232,7 @@
             <li>등록일</li>
             <li class="inputs">
               <div class="select">
-                <input id="created-date-no" type="radio" name="created" data-select="no" checked/>
+                <input id="created-date-no" type="radio" name="created" data-select="no" checked />
                 <label for="created-date-no">미사용</label>
                 <input id="created-date-yes" type="radio" name="created" data-select="yes" />
                 <label for="created-date-yes">사용</label>
@@ -290,7 +287,7 @@
           <div>
             <!-- 상품 선택했을 때, 보여지는 버튼들 -->
             <div class="buttons">
-              <button type="button" data-modal-confirm="delete-keyword">선택삭제</button>
+              <button type="button" class="check-delete-item" data-modal-confirm="deleteKeyword">선택삭제</button>
               <button type="button" data-modal="create-keyword">키워드등록</button>
               <div class="selectbox">
                 <select name="" id="">
@@ -372,12 +369,12 @@
                   <div class="failed">갱신실패</div>
                   <div class="success">갱신성공 2021-08-01 15:00</div>
                 </div>
-                <div class="image">
+                <div class="image" onclick="location.href='ranking_details.html'">
                   <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
                 </div>
                 <div class="information">
-                  <a href="https://search.shopping.naver.com/product/12126547821" target="_blank">
-                    <small>상품 MID.12126547821</small>
+                  <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
+                    12126547821
                   </a>
                   <div class="title" onclick="location.href='ranking_details.html'">
                     1kg 커피창고 에티오피아 예가체프 test test test test test test
@@ -397,11 +394,13 @@
                 </div>
               </li>
               <li class="col-important item">
-                <div class="image">
+                <div class="image" onclick="location.href='ranking_details.html'">
                   <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
                 </div>
                 <div class="information">
-                  <small>상품 MID.12126547821</small>
+                  <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
+                    12126547821
+                  </a>
                   <div class="title">1kg 커피창고 에티오피아 예가체프 1kg 커피창고 에티오피아 예가체프</div>
                   <div class="store">커피창고</div>
                 </div>
@@ -420,11 +419,13 @@
                 </div>
               </li>
               <li class="col-important item">
-                <div class="image">
+                <div class="image" onclick="location.href='ranking_details.html'">
                   <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
                 </div>
                 <div class="information">
-                  <small>상품 MID.12126547821</small>
+                  <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
+                    12126547821
+                  </a>
                   <div class="title">1kg 커피창고 에티오피아 예가체프</div>
                   <div class="store">커피창고</div>
                 </div>
@@ -439,10 +440,11 @@
             <ul class="row failed">
               <li>
                 <div>400위 밖</div>
-                <div
-                  data-tooltip="순위가 400위 밖인 경우 상품 정보가 갱신되지 않을 수 있습니다. 정보가 갱신되지 않은 경우 실제 정보와 차이가 있을 수 있으니, 서비스 이용 시 참고하시기 바랍니다."
-                >
-                  <div class="ico-tooltip"></div>
+                <div class="tooltip">
+                  <div class="tooltip-content">
+                    순위가 400위 밖인 경우 상품 정보가 갱신되지 않을 수 있습니다. 정보가 갱신되지 않은 경우 실제 정보와
+                    차이가 있을 수 있으니, 서비스 이용 시 참고하시기 바랍니다.
+                  </div>
                 </div>
               </li>
               <li>
@@ -568,19 +570,20 @@
         <a href="#" class="right-arrow">등록 가능 소재 개수 추가방법</a>
       </section>
       <section>
-        <div class="title">등록하실 상품의 URL을 입력해주세요.</div>
-        <a href="#" class="right-arrow">URL 확인방법</a>
-      </section>
-      <section>
         <div class="search inputs">
-          <input type="url" placeholder="URL을 입력해주세요" required />
-          <span class="refresh x"></span>
+          <div class="title">
+            <div>등록하실 상품의 URL을 입력해주세요.</div>
+            <a href="#" class="right-arrow">URL 확인방법</a>
+          </div>
+          <div class="input">
+            <input type="url" placeholder="URL을 입력해주세요" required />
+            <span class="refresh x"></span>
+          </div>
           <small class="input-alert">상품 URL을 입력해주세요.</small>
         </div>
       </section>
     </div>
     <div class="buttons">
-      <button class="btn-cancel close" type="button">취소</button>
       <button class="btn-submit" type="submit" data-modal="search-item">조회</button>
     </div>
   </div>
@@ -588,7 +591,7 @@
 
 <div class="modal search-item">
   <div class="dialog">
-    <header class="modal-header">
+    <header class="modal-header no-title">
       <h3>상품조회완료</h3>
       <div class="close"></div>
     </header>
@@ -601,7 +604,7 @@
           <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="test" />
         </div>
         <div class="information">
-          <small>상품 MID.12126547821</small>
+          <small class="item-mid">상품 MID.12126547821</small>
           <div class="title">1kg 커피창고 에티오피아 예가체프 test test test test test test</div>
           <div class="store">커피창고</div>
         </div>
@@ -609,7 +612,7 @@
     </div>
     <div class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" type="button" data-modal="createKeyword">확인</button>
+      <button class="btn-submit" type="button" data-modal="create-keyword">확인</button>
     </div>
   </div>
 </div>
@@ -623,7 +626,7 @@
     <div class="modal-content">
       <section>
         <div class="inputs">
-          <input type="text" placeholder="그룹명을 입력해주세요."  maxlength="20" />
+          <input type="text" placeholder="그룹명을 입력해주세요." maxlength="20" />
           <button class="btn-sub" type="button" data-modal-alert="createGroup">그룹추가</button>
         </div>
       </section>
@@ -731,15 +734,9 @@
     </header>
     <div class="modal-content">
       <section>
-        <div class="list-header">
-          <ul class="list-count">
-            <li>
-              <span class="selected">0</span>
-            </li>
-            <li>
-              <span class="total">0</span>
-            </li>
-          </ul>
+        <div class="list-header count-group">
+          <span class="selected">0</span>
+          <span class="total">0</span>
         </div>
         <div class="list">
           <ul class="row title">
@@ -1033,5 +1030,17 @@
   </div>
 </div>
 
-<div class="modal modal-alert"></div>
+<script>
+  const buttonDeleteItem = document.querySelector(".check-delete-item");
+  const listItems = document.querySelector(".list-items");
+  buttonDeleteItem.addEventListener("click", (event) => {
+    const checkboxes = listItems.querySelectorAll("input[type='checkbox']:checked");
+    if (checkboxes.length === 0) {
+      const alertModal = document.querySelector(".modal-alert");
+      const alertModalContent = alertModal.querySelector(".modal-content");
+      alertModal.classList.add("is-active");
+      alertModalContent.innerHTML = "<p>소재를 선택해주세요.</p>";
+    }
+  });
+</script>
 {% endblock %}
