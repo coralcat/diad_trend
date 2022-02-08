@@ -142,8 +142,15 @@ button {
   }
 
   &.btn-dark {
-    background-color: slategray !important;
+    background-color: $secondary-color !important;
     color: white !important;
+  }
+
+  &.ico-search {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' fill='rgb(118, 130, 248)' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: center;
   }
 }
 
@@ -495,10 +502,6 @@ section {
       font-size: 14px;
       background-color: $tertiary-color;
       color: $primary-color;
-
-      &.btn-main {
-        font-family: "NanumbarunGothicLight";
-      }
     }
   }
 }
@@ -1007,7 +1010,7 @@ section {
       }
 
       &.col-check {
-        flex: 0 0 auto;
+        flex: 0 0 auto !important;
         width: 30px !important;
         border-right: 0;
         padding-right: 0;
@@ -1055,14 +1058,14 @@ section {
         min-width: 42px;
         color: white;
 
-        &::after {
+        &::before {
           font-size: 8px;
         }
 
         &.up {
           background-color: tomato;
 
-          &::after {
+          &::before {
             content: "\25B2";
           }
         }
@@ -1070,7 +1073,7 @@ section {
         &.down {
           background-color: royalblue;
 
-          &::after {
+          &::before {
             content: "\25BC";
           }
         }
@@ -1079,7 +1082,7 @@ section {
           justify-content: center;
           background-color: lightgray;
 
-          &::after {
+          &::before {
             content: "-";
             font-size: 20px;
           }
@@ -1089,7 +1092,7 @@ section {
           background-color: #e3e6e9;
           color: slategray;
 
-          &::after {
+          &::before {
             content: "확인불가";
           }
         }
@@ -1193,6 +1196,11 @@ section {
 
           &:first-of-type {
             justify-content: center;
+          }
+
+          button {
+            min-height: 30px;
+            border-radius: 3px;
           }
         }
 
@@ -1355,6 +1363,10 @@ section {
           align-items: center;
           color: #636669;
           padding: 0 1.75rem 0 1rem;
+
+          // &:focus {
+          //   box-shadow: 0 0 0;
+          // }
         }
       }
     }
