@@ -1016,7 +1016,7 @@ input[type="radio"] + label:empty:before {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.25s;
+  transition: 0.2s;
 
   &::before {
     content: "";
@@ -1220,7 +1220,6 @@ input[type="radio"] + label:empty:before {
 .input-alert {
   width: 100%;
   color: orangered;
-  display: none;
 }
 
 .tooltip {

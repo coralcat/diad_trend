@@ -287,7 +287,7 @@
           <div>
             <!-- 상품 선택했을 때, 보여지는 버튼들 -->
             <div class="buttons">
-              <button type="button" class="check-delete-item" data-modal-confirm="deleteItems">선택삭제</button>
+              <button type="button" data-modal="deleteItem">선택삭제</button>
               <button type="button" data-modal="create-keyword">키워드등록</button>
               <div class="selectbox">
                 <select name="" id="">
@@ -297,7 +297,7 @@
                 </select>
               </div>
               <button type="button" data-modal="select-group">그룹지정</button>
-              <button type="button" data-modal-alert="ungroup">그룹해제</button>
+              <button type="button" data-modal="ungroup">그룹해제</button>
             </div>
             <div class="selectbox">
               <select name="" id="">
@@ -311,7 +311,7 @@
         </div>
       </header>
       <!-- list 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
-      <div class="list list-items scroll" data-empty="상품을 등록해주세요">
+      <div class="list list-item scroll" data-empty="상품을 등록해주세요">
         <div class="columns">
           <ul class="row title fixed">
             <li class="col-check">
@@ -627,7 +627,7 @@
       <section>
         <div class="inputs">
           <input type="text" placeholder="그룹명을 입력해주세요." maxlength="20" />
-          <button class="btn-sub" type="button" data-modal-alert="createGroup">그룹추가</button>
+          <button class="btn-sub" type="button" data-modal="createGroup">그룹추가</button>
         </div>
       </section>
       <section>
@@ -640,14 +640,14 @@
               <span class="total">0</span>
             </li>
           </ul>
-          <button class="btn-grayscale" type="button" data-modal-confirm="checkDeleteGroup">선택삭제</button>
+          <button class="btn-grayscale" type="button" data-modal="checkDeleteGroup">선택삭제</button>
         </div>
         <div class="list">
           <ul class="row title">
             <li class="col-check">
               <div class="checkbox">
-                <input id="createKeywordCheckAll" type="checkbox" name="createKeywordCheck" class="check-all" />
-                <label for="createKeywordCheckAll"></label>
+                <input id="editGroupCheckkAll" type="checkbox" name="editGroupCheck" class="check-all" />
+                <label for="editGroupCheckkAll"></label>
               </div>
             </li>
             <li>전체</li>
@@ -656,8 +656,8 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check1" type="checkbox" name="createKeywordCheck" />
-                  <label for="check1"></label>
+                  <input id="check-group-1" type="checkbox" name="editGroupCheck" />
+                  <label for="check-group-1"></label>
                 </div>
               </li>
               <li>커피 원두 (5)</li>
@@ -665,8 +665,8 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check2" type="checkbox" name="createKeywordCheck" />
-                  <label for="check2"></label>
+                  <input id="check-group-2" type="checkbox" name="editGroupCheck" />
+                  <label for="check-group-2"></label>
                 </div>
               </li>
               <li>커피 캡슐 (3)</li>
@@ -674,8 +674,8 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check3" type="checkbox" name="createKeywordCheck" />
-                  <label for="check3"></label>
+                  <input id="check-group-3" type="checkbox" name="editGroupCheck" />
+                  <label for="check-group-3"></label>
                 </div>
               </li>
               <li>커피 그라인더 (2)</li>
@@ -683,8 +683,8 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check4" type="checkbox" name="createKeywordCheck" />
-                  <label for="check4"></label>
+                  <input id="check-group-4" type="checkbox" name="editGroupCheck" />
+                  <label for="check-group-4"></label>
                 </div>
               </li>
               <li>커피 원두 (5)</li>
@@ -692,8 +692,8 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check5" type="checkbox" name="createKeywordCheck" />
-                  <label for="check5"></label>
+                  <input id="check-group-5" type="checkbox" name="editGroupCheck" />
+                  <label for="check-group-5"></label>
                 </div>
               </li>
               <li>커피 캡슐 (3)</li>
@@ -701,8 +701,8 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check6" type="checkbox" name="createKeywordCheck" />
-                  <label for="check6"></label>
+                  <input id="check-group-6" type="checkbox" name="editGroupCheck" />
+                  <label for="check-group-6"></label>
                 </div>
               </li>
               <li>커피 그라인더 (2)</li>
@@ -710,8 +710,8 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check7" type="checkbox" name="createKeywordCheck" />
-                  <label for="check7"></label>
+                  <input id="check-group-7" type="checkbox" name="editGroupCheck" />
+                  <label for="check-group-7"></label>
                 </div>
               </li>
               <li>커피 원두 (5)</li>
@@ -738,7 +738,7 @@
           <span class="selected">0</span>
           <span class="total">0</span>
         </div>
-        <div class="list">
+        <div class="list list-group">
           <ul class="row title">
             <li class="col-check">
               <div class="checkbox">
@@ -827,7 +827,7 @@
     </div>
     <div class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" type="button" data-modal-alert="searchGroup">적용</button>
+      <button class="btn-submit" type="button" data-modal="searchGroup">적용</button>
     </div>
   </div>
 </div>
@@ -844,7 +844,7 @@
           <div class="rows" data-empty="그룹을 추가해주세요.">
             <ul class="row">
               <li>
-                <input id="select-group1" type="radio" name="selectGroup" />
+                <input id="select-group1" type="radio" name="selectGroup" checked />
                 <label for="select-group1">커피 원두 (5)</label>
               </li>
             </ul>
@@ -890,7 +890,7 @@
     </div>
     <div class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" type="button" data-modal-confirm="selectGroup">적용</button>
+      <button class="btn-submit" type="button" data-modal="apply">적용</button>
     </div>
   </div>
 </div>
@@ -909,8 +909,7 @@
       <section class="inputs">
         <p>등록하실 키워드를 추가해주세요.</p>
         <input type="text" placeholder="키워드를 입력해주세요." />
-        <button class="btn-sub btn-validation" type="button" data-modal-alert="createKeyword">키워드추가</button>
-        <span class="input-alert"></span>
+        <button class="btn-sub btn-validation" type="button" data-modal="createKeyword">키워드추가</button>
       </section>
       <section>
         <div class="list-header">
@@ -922,9 +921,9 @@
               <span class="total">9</span>
             </li>
           </ul>
-          <button class="btn-grayscale" type="button" data-modal-confirm="checkDeleteKeyword">선택삭제</button>
+          <button class="btn-grayscale" type="button" data-modal="checkDeleteKeyword">선택삭제</button>
         </div>
-        <div class="list">
+        <div class="list list-keyword">
           <ul class="row title">
             <li class="col-check">
               <div class="checkbox">
@@ -938,8 +937,8 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check1" type="checkbox" name="createKeywordCheck" />
-                  <label for="check1"></label>
+                  <input id="check-keyword-1" type="checkbox" name="createKeywordCheck" />
+                  <label for="check-keyword-1"></label>
                 </div>
               </li>
               <li class="keyword">커피</li>
@@ -947,8 +946,8 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check2" type="checkbox" name="createKeywordCheck" />
-                  <label for="check2"></label>
+                  <input id="check-keyword-2" type="checkbox" name="createKeywordCheck" />
+                  <label for="check-keyword-2"></label>
                 </div>
               </li>
               <li class="keyword">커피원두</li>
@@ -956,8 +955,8 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check3" type="checkbox" name="createKeywordCheck" />
-                  <label for="check3"></label>
+                  <input id="check-keyword-3" type="checkbox" name="createKeywordCheck" />
+                  <label for="check-keyword-3"></label>
                 </div>
               </li>
               <li class="keyword">원두커피</li>
@@ -965,8 +964,8 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check4" type="checkbox" name="createKeywordCheck" />
-                  <label for="check4"></label>
+                  <input id="check-keyword-4" type="checkbox" name="createKeywordCheck" />
+                  <label for="check-keyword-4"></label>
                 </div>
               </li>
               <li class="keyword">커피</li>
@@ -974,8 +973,8 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check5" type="checkbox" name="createKeywordCheck" />
-                  <label for="check5"></label>
+                  <input id="check-keyword-5" type="checkbox" name="createKeywordCheck" />
+                  <label for="check-keyword-5"></label>
                 </div>
               </li>
               <li class="keyword">커피원두</li>
@@ -983,8 +982,8 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check6" type="checkbox" name="createKeywordCheck" />
-                  <label for="check6"></label>
+                  <input id="check-keyword-6" type="checkbox" name="createKeywordCheck" />
+                  <label for="check-keyword-6"></label>
                 </div>
               </li>
               <li class="keyword">원두커피</li>
@@ -992,8 +991,8 @@
             <ul class="row">
               <li class="col-check">
                 <div class="checkbox">
-                  <input id="check7" type="checkbox" name="createKeywordCheck" />
-                  <label for="check7"></label>
+                  <input id="check-keyword-7" type="checkbox" name="createKeywordCheck" />
+                  <label for="check-keyword-7"></label>
                 </div>
               </li>
               <li class="keyword">원두커피</li>
@@ -1029,18 +1028,4 @@
     </div>
   </div>
 </div>
-
-<script>
-  const buttonDeleteItem = document.querySelector(".check-delete-item");
-  const listItems = document.querySelector(".list-items");
-  buttonDeleteItem.addEventListener("click", (event) => {
-    const checkboxes = listItems.querySelectorAll("input[type='checkbox']:checked");
-    if (checkboxes.length === 0) {
-      const alertModal = document.querySelector(".modal-alert");
-      const alertModalContent = alertModal.querySelector(".modal-content");
-      alertModal.classList.add("is-active");
-      alertModalContent.innerHTML = "<p>소재를 선택해주세요.</p>";
-    }
-  });
-</script>
 {% endblock %}

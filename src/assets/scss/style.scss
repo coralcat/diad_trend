@@ -1372,13 +1372,15 @@ section {
     }
   }
 
-  .list-items {
+  .list-item {
     .item-update-failed {
       background-color: rgba(255, 99, 71, 0.1);
       color: tomato;
       right: 1rem;
       top: 1rem;
+      bottom: 1rem;
       gap: 0.5rem;
+      justify-content: center;
       z-index: 1;
     }
 
@@ -1450,7 +1452,7 @@ section {
 }
 
 .content-lowest-price {
-  .list-items {
+  .list-item {
     .row {
       li {
         flex: 1 1 auto;
