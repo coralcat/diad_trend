@@ -116,7 +116,7 @@
             <button class="btn-sub" type="button" data-modal="search-group">그룹조회</button>
             <button class="btn-sub" type="button" data-modal="edit-group">그룹편집</button>
             <button class="btn-sub" class="ico-download" type="button">엑셀다운</button>
-            <button class="btn-main" type="button" data-modal="create-item">상품등록</button>
+            <button class="btn-main" type="button" data-modal="createItem">상품등록</button>
           </div>
         </div>
         <div class="advanced-search">
@@ -269,7 +269,7 @@
                   <option value="">OFF</option>
                 </select>
               </div>
-              <button type="button" data-modal="select-group">그룹지정</button>
+              <button type="button" data-modal="selectGroup">그룹지정</button>
               <button type="button" data-modal="ungroup">그룹해제</button>
             </div>
             <div class="selectbox">
@@ -441,7 +441,7 @@
   </div>
 </div>
 
-<div class="modal create-item">
+<div id="createItem" class="modal create-item">
   <div class="dialog">
     <header class="modal-header">
       <h3>상품등록</h3>
@@ -532,7 +532,7 @@
     </div>
     <div class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" type="button" data-modal="createItem">확인</button>
+      <button class="btn-submit" type="button" data-modal="createItemApply">확인</button>
     </div>
   </div>
 </div>
@@ -560,7 +560,7 @@
               <span class="total">0</span>
             </li>
           </ul>
-          <button class="btn-grayscale" type="button" data-modal="checkDeleteGroup">선택삭제</button>
+          <button class="btn-grayscale" type="button" data-modal="deleteGroup">선택삭제</button>
         </div>
         <div class="list">
           <ul class="row title">
@@ -752,7 +752,7 @@
   </div>
 </div>
 
-<div class="modal select-group">
+<div id="selectGroup" class="modal modal-group">
   <div class="dialog">
     <header class="modal-header">
       <h3>그룹지정</h3>

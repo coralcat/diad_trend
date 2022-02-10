@@ -62,57 +62,66 @@
     var data = [
       {
         date: new Date(2021, 2, 1).getTime(),
-        keyword01: 1,
-        keword02: 5,
-        keyowrd03: 3,
+        singleOrigin: 1,
+        coffeeBean: 5,
+        starbucks: 3,
+        kenyaAA: 24
       },
       {
         date: new Date(2021, 2, 2).getTime(),
-        keyword01: 1,
-        keword02: 2,
-        keyowrd03: 6,
+        singleOrigin: 1,
+        coffeeBean: 2,
+        starbucks: 6,
+        kenyaAA: 25
       },
       {
         date: new Date(2021, 2, 3).getTime(),
-        keyword01: 2,
-        keword02: 3,
-        keyowrd03: 1,
+        singleOrigin: 2,
+        coffeeBean: 3,
+        starbucks: 1,
+        kenyaAA: 28
       },
       {
         date: new Date(2021, 2, 4).getTime(),
-        keyword01: 3,
-        keword02: 4,
-        keyowrd03: 1,
+        singleOrigin: 3,
+        coffeeBean: 4,
+        starbucks: 1,
+        kenyaAA: 26
       },
       {
         date: new Date(2021, 2, 5).getTime(),
-        keyword01: 5,
-        keword02: 1,
-        keyowrd03: 2,
+        singleOrigin: 5,
+        coffeeBean: 1,
+        starbucks: 2,
+        kenyaAA: 420
       },
       {
         date: new Date(2021, 2, 6).getTime(),
-        keyword01: 3,
-        keword02: 2,
-        keyowrd03: 1,
+        singleOrigin: 3,
+        coffeeBean: 2,
+        starbucks: 1,
+        kenyaAA: 7
       },
       {
         date: new Date(2021, 2, 7).getTime(),
-        keyword01: 1,
-        keword02: 2,
-        keyowrd03: 3,
+        singleOrigin: 1,
+        coffeeBean: 2,
+        starbucks: 3,
+        kenyaAA: 2
       },
       {
         date: new Date(2021, 2, 8).getTime(),
-        keyword01: 2,
-        keword02: 1,
-        keyowrd03: 5,
+        singleOrigin: 2,
+        coffeeBean: 1,
+        starbucks: 5,
+        kenyaAA: 9
       },
       {
         date: new Date(2021, 2, 9).getTime(),
-        keyword01: 3,
-        keword02: 5,
-        keyowrd03: 2,
+        singleOrigin: 3,
+        coffeeBean: 5,
+        starbucks: 2,
+        kenyaAA: 6
       },
     ];
 
@@ -135,6 +144,8 @@
 
     var yAxis = chart.yAxes.push(
       am5xy.ValueAxis.new(root, {
+        min: 1,
+        max: 400,
         renderer: am5xy.AxisRendererY.new(root, {
           inversed: true,
         }),
@@ -181,9 +192,10 @@
       series.appear(1000, 100);
     }
 
-    createSeries("싱글오리진", "keyword01");
-    createSeries("커피원두", "keword02");
-    createSeries("스타벅스", "keyowrd03");
+    createSeries("싱글오리진", "singleOrigin");
+    createSeries("커피원두", "coffeeBean");
+    createSeries("스타벅스", "starbucks");
+    createSeries("케냐AA", "kenyaAA");
 
     var cursor = chart.set(
       "cursor",
@@ -374,7 +386,13 @@
     </section>
     <section class="section-main">
       <header class="section-header">
-        <h3></h3>
+        <div
+          class="tag-failed"
+          data-tooltip="상품에 등록된 모든 키워드가 400위 밖인 경우 상품 정보가 갱신되지 않습니다."
+        >
+          <span class="failed">갱신실패</span>
+          <span class="success">2022-03-01 12:00</span>
+        </div>
         <a href="" class="right-arrow">상품페이지로 이동</a>
       </header>
       <div class="information">
@@ -404,7 +422,12 @@
           </ul>
           <ul class="row">
             <li class="title">카테고리</li>
-            <li>식품 > 음료 > 커피 > 원두/생두</li>
+            <li class="categories">
+              <span>식품</span>
+              <span>음료</span>
+              <span>커피</span>
+              <span>원두/생두</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -428,7 +451,7 @@
           </h3>
           <div class="buttons">
             <button class="ico-download" type="button">엑셀다운</button>
-            <button type="button" data-modal="edit-keyword">키워드편집</button>
+            <button type="button" data-modal="editKeyword">키워드편집</button>
           </div>
         </div>
         <div class="filters">
@@ -976,7 +999,7 @@
         </div>
       </div>
     </section>
-    <section>
+    <section class="section-weekly-top">
       <header class="section-header">
         <h3>
           <span>순위 변동 주간 TOP</span>
@@ -1136,7 +1159,7 @@
   </div>
 </div>
 
-<div class="modal edit-keyword">
+<div id="editKeyword" class="modal modal-keyword">
   <div class="dialog">
     <header class="modal-header">
       <h3>키워드 편집</h3>
@@ -1144,7 +1167,7 @@
     </header>
     <div class="modal-content">
       <section class="section-impact">
-        <div class="title">등록 가능한 상품 순위 조회 소재는 10 개 입니다.</div>
+        <div class="title">등록 가능한 상품 순위 조회 소재는 <span class="main-color">10</span>개 입니다.</div>
         <a href="#" class="right-arrow">등록 가능 소재 개수 추가방법</a>
       </section>
       <section class="inputs">
@@ -1162,7 +1185,7 @@
               <span class="total">9</span>
             </li>
           </ul>
-          <button class="btn-grayscale" type="button" data-modal="checkDeleteKeyword">선택삭제</button>
+          <button class="btn-grayscale" type="button" data-modal="deleteKeyword">선택삭제</button>
         </div>
         <div class="list">
           <ul class="row title">
@@ -1296,7 +1319,12 @@
         </ul>
         <ul class="row">
           <li>카테고리</li>
-          <li>식품 &gt; 음료 &gt; 커피 &gt; 원두/생두</li>
+          <li class="categories">
+            <span>식품</span>
+            <span>음료</span>
+            <span>커피</span>
+            <span>원두/생두</span>
+          </li>
         </ul>
       </div>
     </div>

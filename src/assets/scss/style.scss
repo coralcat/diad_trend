@@ -46,6 +46,12 @@ body {
   }
 }
 
+.main-color {
+  color: #7682f8;
+  font-family: "RobotoMedium";
+  font-size: 110%;
+}
+
 p {
   word-break: keep-all;
 }
@@ -678,12 +684,6 @@ section {
   :is(.item-created, .filter-range) {
     align-items: center;
   }
-
-  .item-created {
-    .inputs {
-      flex-wrap: nowrap;
-    }
-  }
 }
 
 .chart-container {
@@ -713,6 +713,33 @@ section {
         position: absolute;
         top: 2px;
         left: 0;
+      }
+    }
+  }
+}
+
+.categories {
+  gap: 4px !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+
+  span {
+    display: inline-flex;
+    align-items: center;
+
+    &:not(:first-of-type),
+    :not(:last-of-type) {
+      &::before {
+        content: "";
+        display: inline-flex;
+        width: 6px;
+        height: 6px;
+        border: 1px solid $primary-color;
+        border-left: 0;
+        border-bottom: 0;
+        transform: rotate(45deg);
+        margin-right: 6px;
       }
     }
   }
@@ -764,33 +791,11 @@ section {
 
     .store,
     .categories {
-      color: slategray;
+      color: $secondary-color;
       font-size: 14px;
       margin-top: 0.75rem;
       display: flex;
       align-items: center;
-      gap: 4px;
-    }
-
-    .categories {
-      span {
-        display: inline-flex;
-        align-items: center;
-        &:not(:first-of-type),
-        :not(:last-of-type) {
-          &::before {
-            content: "";
-            display: inline-flex;
-            width: 5px;
-            height: 5px;
-            border: 2px solid $primary-color;
-            border-left: 0;
-            border-bottom: 0;
-            transform: rotate(45deg);
-            margin-right: 4px;
-          }
-        }
-      }
     }
   }
 }
@@ -1561,7 +1566,6 @@ section {
 }
 
 .content-ranking-details {
-
   .section-keyword-history {
     .list {
       .row {
@@ -1574,7 +1578,7 @@ section {
           }
 
           .failed {
-            background-color: #f1f2f3;
+            background-color: #e3e6e9;
           }
 
           .btn-changes {
@@ -1582,26 +1586,23 @@ section {
             align-items: center;
             justify-content: center;
             flex-wrap: nowrap;
-            background: white;
             color: slategray;
             padding: 0 0.5rem;
             height: 28px;
             min-width: 28px;
-            border-radius: 3px;
-            font-size: 12px;
-            font-weight: normal;
-            font-family: "RobotoMedium";
             background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='18'%3E%3Cg%3E%3Crect fill='none' height='18' width='24'/%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Crect fill='slategray' height='2' width='9' x='13' y='7'/%3E%3Crect fill='slategray' height='2' width='9' x='13' y='15'/%3E%3Crect fill='slategray' height='2' width='6' x='16' y='11'/%3E%3Cpolygon fill='slategray' points='13,12 8,7 8,11 2,11 2,13 8,13 8,17'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
               no-repeat right 7px center;
 
             &:hover {
-              background-color: #e3e6e9;
+              background-color: white;
             }
 
             &:is(.new, .failed) {
               background-color: white;
+              border-radius: 3rem;
               padding-top: 2px;
               padding-right: 1.75rem;
+              font: normal 12px "RobotoMedium", "NanumBarunGothicLight";
             }
             &.new {
               &::before {
@@ -1671,6 +1672,13 @@ section {
           }
         }
       }
+    }
+  }
+
+  .section-weekly-top {
+
+    .tooltip-content {
+      width: 350px;
     }
   }
 
@@ -1867,6 +1875,7 @@ section {
         width: 100%;
         margin-top: 1rem;
         padding: 1.5rem;
+        transition: opacity .4s;
 
         .row {
           justify-content: space-between;
@@ -1958,7 +1967,7 @@ section {
   }
 
   .section-impact {
-    background-color: $tertiary-color;
+    background-color: #f3f6f9;
     padding: 1rem;
     width: fit-content;
     margin: 0.5rem auto;
@@ -1996,7 +2005,7 @@ section {
     background-color: #f3f6f9;
   }
 
-  &:is(.edit-group, .select-group, .search-group, .create-keyword, .edit-keyword) {
+  &:is(.edit-group, .modal-group, .search-group, .modal-keyword) {
     .list {
       margin-top: 0.5rem;
 

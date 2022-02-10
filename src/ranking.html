@@ -259,7 +259,7 @@
           </ul>
           <div class="buttons">
             <button class="btn-sub clear">초기화</button>
-            <button class="btn-main">상세검색</button>
+            <button class="btn-main" data-modal="advancedSearch">상세검색</button>
           </div>
         </div>
         <div class="filters">
@@ -288,15 +288,15 @@
             <!-- 상품 선택했을 때, 보여지는 버튼들 -->
             <div class="buttons">
               <button type="button" data-modal="deleteItem">선택삭제</button>
-              <button type="button" data-modal="create-keyword">키워드등록</button>
+              <button type="button" data-modal="editKeyword">키워드등록</button>
               <div class="selectbox">
                 <select name="" id="">
                   <option value="">알람설정</option>
-                  <option value="">ON</option>
+                  <option value="" data-modal="alarmOn">ON</option>
                   <option value="">OFF</option>
                 </select>
               </div>
-              <button type="button" data-modal="select-group">그룹지정</button>
+              <button type="button" data-modal="selectGroup">그룹지정</button>
               <button type="button" data-modal="ungroup">그룹해제</button>
             </div>
             <div class="selectbox">
@@ -566,7 +566,7 @@
     </header>
     <div class="modal-content">
       <section class="section-impact">
-        <div class="title">등록 가능한 상품 순위 조회 소재는 10개 입니다.</div>
+        <div class="title">등록 가능한 상품 순위 조회 소재는 <span class="main-color">10</span>개 입니다.</div>
         <a href="#" class="right-arrow">등록 가능 소재 개수 추가방법</a>
       </section>
       <section>
@@ -579,12 +579,11 @@
             <input type="url" placeholder="URL을 입력해주세요" required />
             <span class="refresh x"></span>
           </div>
-          <small class="input-alert">상품 URL을 입력해주세요.</small>
         </div>
       </section>
     </div>
     <div class="buttons">
-      <button class="btn-submit" type="submit" data-modal="search-item">조회</button>
+      <button class="btn-submit" type="submit" data-modal="searchItem">조회</button>
     </div>
   </div>
 </div>
@@ -604,7 +603,7 @@
           <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="test" />
         </div>
         <div class="information">
-          <small class="item-mid">상품 MID.12126547821</small>
+          <small class="item-mid">12126547821</small>
           <div class="title">1kg 커피창고 에티오피아 예가체프 test test test test test test</div>
           <div class="store">커피창고</div>
         </div>
@@ -612,7 +611,7 @@
     </div>
     <div class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" type="button" data-modal="create-keyword">확인</button>
+      <button class="btn-submit" type="button" data-modal="modal-keyword">확인</button>
     </div>
   </div>
 </div>
@@ -640,7 +639,7 @@
               <span class="total">0</span>
             </li>
           </ul>
-          <button class="btn-grayscale" type="button" data-modal="checkDeleteGroup">선택삭제</button>
+          <button class="btn-grayscale" type="button" data-modal="deleteGroup">선택삭제</button>
         </div>
         <div class="list">
           <ul class="row title">
@@ -832,7 +831,7 @@
   </div>
 </div>
 
-<div class="modal select-group">
+<div id="selectGroup" class="modal modal-group">
   <div class="dialog">
     <header class="modal-header">
       <h3>그룹지정</h3>
@@ -895,7 +894,7 @@
   </div>
 </div>
 
-<div class="modal create-keyword">
+<div id="editKeyword" class="modal modal-keyword">
   <div class="dialog">
     <header class="modal-header">
       <h3>키워드 등록</h3>
@@ -903,13 +902,13 @@
     </header>
     <div class="modal-content">
       <section class="section-impact">
-        <div class="title">등록 가능한 상품 순위 조회 소재는 10 개 입니다.</div>
+        <div class="title">등록 가능한 상품 순위 조회 소재는 <span class="main-color">10</span>개 입니다.</div>
         <a href="#" class="right-arrow">등록 가능 소재 개수 추가방법</a>
       </section>
       <section class="inputs">
         <p>등록하실 키워드를 추가해주세요.</p>
         <input type="text" placeholder="키워드를 입력해주세요." />
-        <button class="btn-sub btn-validation" type="button" data-modal="createKeyword">키워드추가</button>
+        <button class="btn-sub" type="button" data-modal="createKeyword">키워드추가</button>
       </section>
       <section>
         <div class="list-header">
@@ -921,7 +920,7 @@
               <span class="total">9</span>
             </li>
           </ul>
-          <button class="btn-grayscale" type="button" data-modal="checkDeleteKeyword">선택삭제</button>
+          <button class="btn-grayscale" type="button" data-modal="deleteKeyword">선택삭제</button>
         </div>
         <div class="list list-keyword">
           <ul class="row title">
