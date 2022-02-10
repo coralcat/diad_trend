@@ -12,13 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Target Smooth Scroll
   ===================================================== */
+  // 상품 최저가 리포트: 일별 최저가 차트 클릭시
   const anchors = document.querySelectorAll("a[href^='#']");
   if (anchors[0]) {
     anchors.forEach((anchor) => {
       anchor.addEventListener("click", (event) => {
         event.preventDefault();
-        const button = document.querySelector(anchor.getAttribute("href"));
-        button.scrollIntoView({
+        anchor.getAttribute("href").scrollIntoView({
           behavior: "smooth",
         });
       });
@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Input Search Close Button
   ===================================================== */
+  // 인풋창에 "x"표시 있을시
   const searchInputs = document.querySelectorAll("input[type='search'], input[type='url']");
   if (searchInputs) {
     searchInputs.forEach((input) => {
@@ -339,18 +340,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
-      // 그룹조회
-      if (modalData === "searchGroup") {
-        const list = document.querySelector(".search-group .list");
-        const checkboxes = list.querySelectorAll("input[type='checkbox']:checked");
-        if (checkboxes.length === 0) {
-          alertModal.classList.add("is-active");
-          alertModalContent.innerText = "그룹을 선택해주세요.";
-        } else {
-          openAlertModal();
-        }
-      }
-
       // 상품 순위 조회: 그룹편집팝업 - 그룹추가
       if (modalData === "createGroup") {
         if (event.target.previousElementSibling.value === "") {
@@ -363,7 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // 상품 순위 조회: 그룹편집팝업 - 선택삭제
       if (modalData === "deleteGroup") {
-        const list = document.querySelector(".edit-group .list");
+        const list = document.querySelector(".modal-edit-group .list");
         const checkboxes = list.querySelectorAll("input[type='checkbox']:checked");
         if (checkboxes.length === 0) {
           alertModal.classList.add("is-active");
