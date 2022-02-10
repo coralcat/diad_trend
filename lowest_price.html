@@ -187,7 +187,7 @@
             <button class="btn-sub" type="button" data-modal="search-group">그룹조회</button>
             <button class="btn-sub" type="button" data-modal="edit-group">그룹편집</button>
             <button class="btn-sub" class="ico-download" type="button">엑셀다운</button>
-            <button class="btn-main" type="button" data-modal="create-lowest-price-01">상품등록</button>
+            <button class="btn-main" type="button" data-modal="createItem">상품등록</button>
           </div>
         </div>
         <div class="advanced-search">
@@ -332,7 +332,7 @@
           <div>
             <!-- 상품 선택했을 때, 보여지는 버튼들 -->
             <div class="buttons">
-              <button type="button" data-modal-confirm="deleteKeyword">선택삭제</button>
+              <button type="button" data-modal="deleteItem">선택삭제</button>
               <div class="selectbox">
                 <select name="" id="">
                   <option value="">알람설정</option>
@@ -340,8 +340,8 @@
                   <option value="">OFF</option>
                 </select>
               </div>
-              <button type="button" data-modal="select-group">그룹지정</button>
-              <button type="button" data-modal-alert="ungroup">그룹해제</button>
+              <button type="button" data-modal="selectGroup">그룹지정</button>
+              <button type="button" data-modal="ungroup">그룹해제</button>
             </div>
             <div class="selectbox">
               <select name="" id="">
@@ -355,7 +355,7 @@
         </div>
       </header>
       <!-- list 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
-      <div class="list list-items" data-empty="상품을 등록해주세요">
+      <div class="list list-item" data-empty="상품을 등록해주세요">
         <ul class="row title">
           <li class="col-check">
             <div class="checkbox">
@@ -512,7 +512,7 @@
   </div>
 </div>
 
-<div class="modal create-lowest-price-01">
+<div id="createItem" class="modal create-item">
   <div class="dialog">
     <header class="modal-header">
       <h3>상품등록</h3>
@@ -531,21 +531,20 @@
             <a href="#" class="right-arrow">상품명 확인방법</a>
           </div>
           <div class="input">
-            <input type="url" placeholder="상품명을 입력해주세요" required />
+            <input type="text" placeholder="상품명을 입력해주세요" required />
             <span class="refresh x"></span>
           </div>
-          <small class="input-alert">상품명을 입력해주세요.</small>
         </div>
       </section>
     </div>
     <div class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" type="submit" data-modal="create-lowest-price-02">다음 단계</button>
+      <button class="btn-submit" type="submit" data-modal="createItemStep2">다음 단계</button>
     </div>
   </div>
 </div>
 
-<div class="modal create-lowest-price-02">
+<div class="modal create-item-step2">
   <div class="dialog">
     <header class="modal-header">
       <h3>상품등록</h3>
@@ -566,18 +565,17 @@
             <input type="url" placeholder="URL을 입력해주세요" required />
             <span class="refresh x"></span>
           </div>
-          <small class="input-alert">상품 URL을 입력해주세요.</small>
         </div>
       </section>
     </div>
     <div class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" type="submit" data-modal="create-lowest-price-03">조회</button>
+      <button class="btn-submit" type="submit" data-modal="createItemStep3">조회</button>
     </div>
   </div>
 </div>
 
-<div class="modal create-lowest-price-03">
+<div class="modal create-item-step3">
   <div class="dialog">
     <header class="modal-header no-title">
       <h3></h3>
@@ -605,7 +603,7 @@
     </div>
     <div class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" type="button" data-modal-alert="createLowestPrice">확인</button>
+      <button class="btn-submit" type="button" data-modal="createItemApply">확인</button>
     </div>
   </div>
 </div>
@@ -620,7 +618,7 @@
       <section>
         <div class="inputs">
           <input type="text" placeholder="그룹명을 입력해주세요." maxlength="20" />
-          <button class="btn-sub" type="button" data-modal-alert="createGroup">그룹추가</button>
+          <button class="btn-sub" type="button" data-modal="createGroup">그룹추가</button>
         </div>
       </section>
       <section>
@@ -633,7 +631,7 @@
               <span class="total">0</span>
             </li>
           </ul>
-          <button class="btn-grayscale" type="button" data-modal-confirm="check-delete-group">선택삭제</button>
+          <button class="btn-grayscale" type="button" data-modal="deleteGroup">선택삭제</button>
         </div>
         <div class="list">
           <ul class="row title">
@@ -820,12 +818,12 @@
     </div>
     <div class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" type="button" data-modal-alert="search-group">적용</button>
+      <button class="btn-submit" type="button" data-modal="searchGroup">적용</button>
     </div>
   </div>
 </div>
 
-<div class="modal select-group">
+<div id="selectGroup" class="modal modal-group">
   <div class="dialog">
     <header class="modal-header">
       <h3>그룹지정</h3>
@@ -883,7 +881,7 @@
     </div>
     <div class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" type="button" data-modal-confirm="selectGroup">적용</button>
+      <button class="btn-submit" type="button" data-modal="apply">적용</button>
     </div>
   </div>
 </div>
