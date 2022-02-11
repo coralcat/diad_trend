@@ -375,7 +375,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (alertModal) {
         alertModal.classList.remove("is-active");
-        alertModalContent.innerHTML = "";
+        alertModalContent.innerText = "";
       }
       if (confirmModal) {
         confirmModal.classList.remove("is-active");
@@ -443,9 +443,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =====================================================
-       Section Keyword History: List Scroll
+       Section Keyword History: List Scroll: css로 해결
   ===================================================== */
-  // css로 해결
   // const listScroll = document.querySelector(".list.scroll");
 
   // if (listScroll) {
@@ -469,4 +468,10 @@ document.addEventListener("DOMContentLoaded", () => {
   //     scrollHorizontal02.addEventListener("scroll", handleScrollHorizontal);
   //   }
   // }
+
+  const hamburgMenu = document.querySelector(".hamburg-menu");
+  hamburgMenu.addEventListener("click", () => {
+    const aside = document.querySelector("aside")
+    aside.classList.toggle("is-active")
+  })
 });
