@@ -468,4 +468,10 @@ document.addEventListener("DOMContentLoaded", () => {
   //     scrollHorizontal02.addEventListener("scroll", handleScrollHorizontal);
   //   }
   // }
+
+  const hamburgMenu = document.querySelector(".hamburg-menu");
+  hamburgMenu.addEventListener("click", () => {
+    const aside = document.querySelector("aside")
+    aside.classList.toggle("is-active")
+  })
 });
