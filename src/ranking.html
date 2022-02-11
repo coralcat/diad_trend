@@ -137,10 +137,10 @@
         <div class="title">
           <button class="btn-dark btn-advanced-search" type="button">상세검색</button>
           <div class="buttons">
-            <button class="btn-sub" type="button" data-modal="search-group">그룹조회</button>
-            <button class="btn-sub" type="button" data-modal="edit-group">그룹편집</button>
+            <button class="btn-sub" type="button" data-modal="searchGroup">그룹조회</button>
+            <button class="btn-sub" type="button" data-modal="editGroup">그룹편집</button>
             <button class="btn-sub" class="ico-download" type="button">엑셀다운</button>
-            <button class="btn-main" type="button" data-modal="create-item">상품등록</button>
+            <button class="btn-main" type="button" data-modal="createItem">상품등록</button>
           </div>
         </div>
         <div class="advanced-search">
@@ -311,225 +311,206 @@
         </div>
       </header>
       <!-- list 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
-      <div class="list list-item scroll" data-empty="상품을 등록해주세요">
-        <div class="columns">
-          <ul class="row title fixed">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
-                <label for="checkAll"></label>
+      <div class="list list-item sticky" data-empty="상품을 등록해주세요">
+        <ul class="row title">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
+              <label for="checkAll"></label>
+            </div>
+          </li>
+          <li class="col-important">상품</li>
+          <li class="col-keyword">키워드</li>
+          <li>
+            <div>현재 순위</div>
+            <div class="date">2022-03-01 09:00</div>
+          </li>
+          <li>
+            <div>전일 순위</div>
+            <div class="date">2022-02-28 09:00</div>
+          </li>
+          <li>
+            <div>전주 순위</div>
+            <div class="date">2022-02-22 09:00</div>
+          </li>
+          <li>
+            <div>2주전 순위</div>
+            <div class="date">2022-02-15 09:00</div>
+          </li>
+          <li>
+            <div>전월 순위</div>
+            <div class="date">2022-02-01 09:00</div>
+          </li>
+          <li>판매가</li>
+          <li>그룹</li>
+          <li>등록일</li>
+          <li>최근 갱신시간</li>
+          <li>알림</li>
+        </ul>
+        <ul class="row failed">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="check-01" name="select-item" type="checkbox" />
+              <label for="check-01"></label>
+            </div>
+          </li>
+          <li class="col-important item">
+            <div
+              class="item-update-failed"
+              data-tooltip="상품에 등록된 모든 키워드가 400위 밖으로 상품 정보가 갱신되지 않았습니다."
+            >
+              <div class="failed">갱신실패</div>
+              <div class="success">갱신성공 2021-08-01 15:00</div>
+            </div>
+            <div class="image" onclick="location.href='ranking_details.html'">
+              <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
+            </div>
+            <div class="information">
+              <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
+                12126547821
+              </a>
+              <div class="title" onclick="location.href='ranking_details.html'">
+                1kg 커피창고 에티오피아 예가체프 test test test test test test
               </div>
-            </li>
-            <li class="col-important">상품</li>
-            <li>키워드</li>
-          </ul>
-          <ul class="row title scroll-horizontal-01">
-            <li>
-              <div>현재 순위</div>
-              <div class="date">2022-03-01 09:00</div>
-            </li>
-            <li>
-              <div>전일 순위</div>
-              <div class="date">2022-02-28 09:00</div>
-            </li>
-            <li>
-              <div>전주 순위</div>
-              <div class="date">2022-02-22 09:00</div>
-            </li>
-            <li>
-              <div>2주전 순위</div>
-              <div class="date">2022-02-15 09:00</div>
-            </li>
-            <li>
-              <div>전월 순위</div>
-              <div class="date">2022-02-01 09:00</div>
-            </li>
-            <li>판매가</li>
-            <li>그룹</li>
-            <li>등록일</li>
-            <li>최근 갱신시간</li>
-            <li>알림</li>
-          </ul>
-        </div>
-        <div class="columns">
-          <div class="rows fixed">
-            <!-- 갱신이 실패된 경우(클래스명 "failed" 추가) -->
-            <ul class="row failed">
-              <li class="col-check">
-                <div class="checkbox">
-                  <input id="check-01" name="select-item" type="checkbox" />
-                  <label for="check-01"></label>
-                </div>
-              </li>
-              <li class="col-important item">
-                <div
-                  class="item-update-failed"
-                  data-tooltip="상품에 등록된 모든 키워드가 400위 밖으로 상품 정보가 갱신되지 않았습니다."
-                >
-                  <div class="failed">갱신실패</div>
-                  <div class="success">갱신성공 2021-08-01 15:00</div>
-                </div>
-                <div class="image" onclick="location.href='ranking_details.html'">
-                  <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
-                </div>
-                <div class="information">
-                  <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
-                    12126547821
-                  </a>
-                  <div class="title" onclick="location.href='ranking_details.html'">
-                    1kg 커피창고 에티오피아 예가체프 test test test test test test
-                  </div>
-                  <div class="store">커피창고</div>
-                </div>
-              </li>
-              <li>
-                <div class="keyword">원두커피</div>
-              </li>
-            </ul>
-            <ul class="row">
-              <li class="col-check">
-                <div class="checkbox">
-                  <input id="check-02" name="select-item" type="checkbox" />
-                  <label for="check-02"></label>
-                </div>
-              </li>
-              <li class="col-important item">
-                <div class="image" onclick="location.href='ranking_details.html'">
-                  <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
-                </div>
-                <div class="information">
-                  <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
-                    12126547821
-                  </a>
-                  <div class="title">1kg 커피창고 에티오피아 예가체프 1kg 커피창고 에티오피아 예가체프</div>
-                  <div class="store">커피창고</div>
-                </div>
-              </li>
-              <li>
-                <div class="keyword">커피원두</div>
-              </li>
-            </ul>
+              <div class="store">커피창고</div>
+            </div>
+          </li>
+          <li class="col-keyword">
+            <div class="keyword">원두커피</div>
+          </li>
+          <li>
+            <div>400위 밖</div>
+            <div class="tooltip">
+              <div class="tooltip-content">
+                순위가 400위 밖인 경우 상품 정보가 갱신되지 않을 수 있습니다. 정보가 갱신되지 않은 경우 실제 정보와
+                차이가 있을 수 있으니, 서비스 이용 시 참고하시기 바랍니다.
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>3위</div>
+            <div class="page">3위/1페이지</div>
+            <div class="rank failed"></div>
+          </li>
+          <li>
+            <div>5위</div>
+            <div class="page">5위/1페이지</div>
+            <div class="rank failed"></div>
+          </li>
+          <li>
+            <div>5위</div>
+            <div class="page">5위/1페이지</div>
+            <div class="rank failed"></div>
+          </li>
+          <li>
+            <div>2위</div>
+            <div class="page">3위/1페이지</div>
+            <div class="rank failed"></div>
+          </li>
+          <li>9,900원</li>
+          <li>커피</li>
+          <li>2022-03-01</li>
+          <li>2022-03-01 12:00</li>
+          <li>ON</li>
+        </ul>
+        <ul class="row">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="check-02" name="select-item" type="checkbox" />
+              <label for="check-02"></label>
+            </div>
+          </li>
+          <li class="col-important item">
+            <div class="image" onclick="location.href='ranking_details.html'">
+              <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
+            </div>
+            <div class="information">
+              <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
+                12126547821
+              </a>
+              <div class="title">1kg 커피창고 에티오피아 예가체프 1kg 커피창고 에티오피아 예가체프</div>
+              <div class="store">커피창고</div>
+            </div>
+          </li>
+          <li class="col-keyword">
+            <div class="keyword">커피원두</div>
+          </li>
+          <li>
+            <div>1위</div>
+            <div class="page">1위/1페이지</div>
+            <div class="rank up">2</div>
+          </li>
+          <li>
+            <div>3위</div>
+            <div class="page">3위/1페이지</div>
+            <div class="rank down">1</div>
+          </li>
+          <li>
+            <div>5위</div>
+            <div class="page">5위/1페이지</div>
+            <div class="rank up">3</div>
+          </li>
+          <li>
+            <div>5위</div>
+            <div class="page">5위/1페이지</div>
+            <div class="rank up">3</div>
+          </li>
+          <li>
+            <div>2위</div>
+            <div class="page">3위/1페이지</div>
+            <div class="rank same"></div>
+          </li>
+          <li>9,900원</li>
+          <li>커피</li>
+          <li>2022-03-01</li>
+          <li>2022-03-01 12:00</li>
+          <li>ON</li>
+        </ul>
 
-            <!-- 기간이 만료된 경우 -->
-            <ul class="row failed">
-              <li class="col-check">
-                <div class="checkbox">
-                  <input id="check-03" name="select-item" type="checkbox" />
-                  <label for="check-03"></label>
-                </div>
-              </li>
-              <li class="col-important item">
-                <div class="image" onclick="location.href='ranking_details.html'">
-                  <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
-                </div>
-                <div class="information">
-                  <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
-                    12126547821
-                  </a>
-                  <div class="title">1kg 커피창고 에티오피아 예가체프</div>
-                  <div class="store">커피창고</div>
-                </div>
-              </li>
-              <li>
-                <div class="keyword">커피원두</div>
-              </li>
-            </ul>
-          </div>
-          <div class="rows scroll-horizontal-02">
-            <!-- 갱신이 실패된 경우(클래스명 "failed" 추가) -->
-            <ul class="row failed">
-              <li>
-                <div>400위 밖</div>
-                <div class="tooltip">
-                  <div class="tooltip-content">
-                    순위가 400위 밖인 경우 상품 정보가 갱신되지 않을 수 있습니다. 정보가 갱신되지 않은 경우 실제 정보와
-                    차이가 있을 수 있으니, 서비스 이용 시 참고하시기 바랍니다.
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div>3위</div>
-                <div class="page">3위/1페이지</div>
-                <div class="rank failed"></div>
-              </li>
-              <li>
-                <div>5위</div>
-                <div class="page">5위/1페이지</div>
-                <div class="rank failed"></div>
-              </li>
-              <li>
-                <div>5위</div>
-                <div class="page">5위/1페이지</div>
-                <div class="rank failed"></div>
-              </li>
-              <li>
-                <div>2위</div>
-                <div class="page">3위/1페이지</div>
-                <div class="rank failed"></div>
-              </li>
-              <li>9,900원</li>
-              <li>커피</li>
-              <li>2022-03-01</li>
-              <li>2022-03-01 12:00</li>
-              <li>ON</li>
-            </ul>
-            <ul class="row">
-              <li>
-                <div>1위</div>
-                <div class="page">1위/1페이지</div>
-                <div class="rank up">2</div>
-              </li>
-              <li>
-                <div>3위</div>
-                <div class="page">3위/1페이지</div>
-                <div class="rank down">1</div>
-              </li>
-              <li>
-                <div>5위</div>
-                <div class="page">5위/1페이지</div>
-                <div class="rank up">3</div>
-              </li>
-              <li>
-                <div>5위</div>
-                <div class="page">5위/1페이지</div>
-                <div class="rank up">3</div>
-              </li>
-              <li>
-                <div>2위</div>
-                <div class="page">3위/1페이지</div>
-                <div class="rank same"></div>
-              </li>
-              <li>9,900원</li>
-              <li>커피</li>
-              <li>2022-03-01</li>
-              <li>2022-03-01 12:00</li>
-              <li>ON</li>
-            </ul>
-            <!-- 기간이 만료된 경우 -->
-            <ul class="row failed">
-              <li>
-                <div class="rank failed"></div>
-              </li>
-              <li>
-                <div class="rank failed"></div>
-              </li>
-              <li>
-                <div class="rank failed"></div>
-              </li>
-              <li>
-                <div class="rank failed"></div>
-              </li>
-              <li>
-                <div class="rank failed"></div>
-              </li>
-              <li>9,900원</li>
-              <li>커피</li>
-              <li>2022-03-01</li>
-              <li>2022-03-01 12:00</li>
-              <li>ON</li>
-            </ul>
-          </div>
-        </div>
+        <!-- 기간 만료 -->
+        <ul class="row failed">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="check-03" name="select-item" type="checkbox" />
+              <label for="check-03"></label>
+            </div>
+          </li>
+          <li class="col-important item">
+            <div class="image" onclick="location.href='ranking_details.html'">
+              <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
+            </div>
+            <div class="information">
+              <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
+                12126547821
+              </a>
+              <div class="title">1kg 커피창고 에티오피아 예가체프</div>
+              <div class="store">커피창고</div>
+            </div>
+          </li>
+          <li class="col-keyword">
+            <div class="keyword">커피원두</div>
+          </li>
+          <li>
+            <div class="rank failed"></div>
+          </li>
+          <li>
+            <div class="rank failed"></div>
+          </li>
+          <li>
+            <div class="rank failed"></div>
+          </li>
+          <li>
+            <div class="rank failed"></div>
+          </li>
+          <li>
+            <div class="rank failed"></div>
+          </li>
+          <li>9,900원</li>
+          <li>커피</li>
+          <li>2022-03-01</li>
+          <li>2022-03-01 12:00</li>
+          <li>ON</li>
+        </ul>
       </div>
       <footer class="section-footer">
         <div class="pagination">
@@ -558,7 +539,7 @@
   </div>
 </div>
 
-<div class="modal create-item">
+<div id="createItem" class="modal create-item">
   <div class="dialog">
     <header class="modal-header">
       <h3>상품등록</h3>
@@ -588,7 +569,7 @@
   </div>
 </div>
 
-<div class="modal search-item">
+<div id="searchItem" class="modal search-item">
   <div class="dialog">
     <header class="modal-header no-title">
       <h3>상품조회완료</h3>
@@ -611,12 +592,12 @@
     </div>
     <div class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" type="button" data-modal="modal-keyword">확인</button>
+      <button class="btn-submit" type="button" data-modal="editKeyword">확인</button>
     </div>
   </div>
 </div>
 
-<div class="modal edit-group">
+<div id="editGroup" class="modal modal-edit-group">
   <div class="dialog">
     <header class="modal-header">
       <h3>그룹편집</h3>
@@ -725,7 +706,7 @@
   </div>
 </div>
 
-<div class="modal search-group">
+<div id="searchGroup" class="modal search-group">
   <div class="dialog">
     <header class="modal-header">
       <h3>그룹조회</h3>
