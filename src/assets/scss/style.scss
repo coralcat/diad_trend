@@ -1030,7 +1030,7 @@ section {
       }
 
       &.col-important {
-        width: 30% !important;
+        width: 30%;
         justify-content: flex-start;
       }
 
@@ -1441,7 +1441,7 @@ section {
         }
 
         &.col-important {
-          width: 540px !important;
+          width: 540px;
 
           [data-tooltip] {
             &::before {

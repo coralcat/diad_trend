@@ -1,6 +1,15 @@
 @media screen and (max-width: 480px) {
-  :is(.zoom-in-out, .subline, .btn-advanced-search) {
+  :is(aside .logo, .zoom-in-out, .subline, .btn-advanced-search, .advanced-search) {
     display: none !important;
+  }
+
+  a.right-arrow {
+    padding: 0;
+  }
+
+  main {
+    height: calc(100% - 49px);
+    overflow-x: hidden;
   }
 
   .header {
@@ -28,6 +37,17 @@
     transition: 0.4s;
     z-index: 10;
 
+    .username {
+      padding: 1rem 0;
+    }
+
+    .sub-menu {
+      position: absolute;
+      bottom: calc(1rem + 49px);
+      right: 50%;
+      transform: translateX(50%);
+    }
+
     &.is-active {
       right: 0;
     }
@@ -37,20 +57,22 @@
     overflow-y: auto;
 
     > .wrapper {
-      overflow: hidden;
+      overflow: unset;
       gap: 3rem;
       > section {
         padding: 0;
         background-color: transparent;
+        box-shadow: 0 0 0;
       }
     }
   }
 
   section {
     flex-wrap: wrap;
+
     .section-header {
+      max-width: 100%;
       min-height: auto;
-      margin-bottom: 0;
       flex-direction: column;
       align-items: flex-start !important;
     }
@@ -61,19 +83,35 @@
   }
 
   .list {
-
     gap: 0.5rem;
     border: 0;
     max-width: 100%;
     min-height: auto;
     max-height: none;
     flex-direction: row;
+    flex-wrap: wrap;
+    overflow-x: hidden !important;
+
+    .row {
+      background-color: white;
+
+      &.failed {
+        background-color: #f7f8f9;
+      }
+
+      &.title {
+        display: none;
+      }
+
+      li {
+        max-width: 100% !important;
+        flex-wrap: wrap;
+      }
+    }
   }
 
   .section-main {
-
     .list {
-
       .row {
         background-color: white;
         border-radius: 0.5rem;
@@ -110,10 +148,27 @@
   }
 
   .content-main {
-    .section-main {
-      .list {
-        flex-direction: column;
+    > .wrapper {
+      overflow: visible;
+    }
 
+    .list {
+      flex-direction: column;
+
+      .row {
+        &.title {
+          display: flex;
+        }
+      }
+    }
+
+    .section-main {
+      .section-header {
+        flex-direction: row;
+        align-items: center !important;
+      }
+
+      .list {
         .row {
           &:last-of-type {
             li {
@@ -189,6 +244,8 @@
 
         .title {
           li {
+            background-color: transparent;
+            border-bottom: 0;
             flex-direction: column;
             align-items: flex-start;
           }
@@ -202,16 +259,18 @@
       }
 
       .list {
+        background-color: white;
+
         .row {
           &.title {
             li {
-              font-size: 20px !important;
+              // font-size: 20px !important;
             }
           }
 
           li {
             &:nth-of-type(1) {
-              width: 100%;
+              width: 200px;
             }
           }
         }
@@ -221,12 +280,145 @@
 
   .content-ranking {
     .list {
-
       .row {
+        max-width: 100%;
         flex-direction: column;
 
         li {
           justify-content: flex-start;
+        }
+      }
+    }
+  }
+
+  :is(.content-ranking, .content-lowest-price) {
+    .buttons {
+      flex-wrap: wrap;
+      background-color: #fff;
+      border-radius: 0.5rem;
+      padding: 1rem;
+
+      * {
+        width: calc(50% - 0.25rem);
+        justify-content: center;
+      }
+    }
+
+    .filters {
+      flex-wrap: wrap;
+
+      > div {
+        flex-wrap: wrap;
+      }
+    }
+
+    .list-item {
+      .item-update-failed {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+      }
+      .row {
+        width: 100%;
+        border-radius: 0.5rem;
+
+        .item {
+          .information {
+            width: 60%;
+          }
+        }
+
+        li {
+          background-color: transparent;
+          height: auto;
+          left: auto !important;
+          border-bottom: 0;
+          border-right: 0;
+          display: flex;
+          align-items: center;
+          flex-direction: row !important;
+          width: auto !important;
+
+          &::before {
+            flex-basis: 130px;
+            display: flex;
+            justify-content: flex-start;
+          }
+
+          &:nth-of-type(3) {
+            &::before {
+              content: "키워드: ";
+            }
+          }
+
+          &:nth-of-type(4) {
+            &::before {
+              content: "현재 순위: ";
+            }
+          }
+
+          &:nth-of-type(5) {
+            &::before {
+              content: "전일 순위: ";
+            }
+          }
+
+          &:nth-of-type(6) {
+            &::before {
+              content: "전주 순위: ";
+            }
+          }
+
+          &:nth-of-type(7) {
+            &::before {
+              content: "2주전 순위: ";
+            }
+          }
+
+          &:nth-of-type(8) {
+            &::before {
+              content: "전월 순위: ";
+            }
+          }
+
+          &:nth-of-type(9) {
+            &::before {
+              content: "판매가: ";
+            }
+          }
+
+          &:nth-of-type(10) {
+            &::before {
+              content: "그룹: ";
+            }
+          }
+
+          &:nth-of-type(11) {
+            &::before {
+              content: "등록일: ";
+            }
+          }
+
+          &:nth-of-type(12) {
+            &::before {
+              content: "최근 갱신시간: ";
+            }
+          }
+          &:nth-of-type(13) {
+            &::before {
+              content: "알림: ";
+            }
+          }
+
+          .rank {
+            position: absolute;
+            right: 1rem;
+          }
+
+          .page {
+            margin-bottom: 0;
+          }
         }
       }
     }
