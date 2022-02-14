@@ -166,7 +166,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalMessage = {
       advancedSearch: "검색할 조건이 없습니다.",
       apply: "적용이 완료되었습니다.",
-      deleteItem: "소재 삭제가 완료되었습니다",
       ungroup: "그룹해제가 완료되었습니다.",
       createKeyword: "키워드 등록이 완료되었습니다.",
       createGroup: "그룹 등록이 완료되었습니다.",
@@ -177,6 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
       deleteKeywordApply: "키워드 삭제가 완료되었습니다.",
       deleteItem:
         "소재 삭제 시 해당 소재의 모든 데이터가 삭제됩니다. 재등록시에도 삭제된 데이터는 복구되지 않습니다. 삭제를 진행하시겠습니까?",
+      deleteItemApply: "소재 삭제가 완료되었습니다",
       deleteGroup: "그룹 삭제 시 그룹에 속한 키워드는 그룹이 해제됩니다. 그룹 삭제를 진행하시겠습니까?",
       deleteGroupApply: "그룹 삭제가 완료되었습니다.",
       selectGroup:
@@ -471,7 +471,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const hamburgMenu = document.querySelector(".hamburg-menu");
   hamburgMenu.addEventListener("click", () => {
-    const aside = document.querySelector("aside")
-    aside.classList.toggle("is-active")
-  })
+    const aside = document.querySelector("aside");
+    aside.classList.toggle("is-active");
+  });
 });
