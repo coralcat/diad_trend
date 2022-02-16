@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>다이애드 TREND</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+    <script src="assets/lib/amcharts/index.js"></script>
+    <script src="assets/lib/amcharts/responsive.js"></script>
+    <script src="assets/lib/amcharts/xy.js"></script>
+    <script src="assets/lib/amcharts/percent.js"></script>
+    <script src="assets/lib/amcharts/animated.js"></script>
+
+    <script src="assets/lib/jquery/jquery-3.6.0.js"></script>
+    <script src="assets/lib/jquery/jquery-ui-1.13.0.js"></script>
+    <script src="assets/js/main.js"></script>
+  </head>
+
+  <body>
+    <header class="header responsive">
+      <div class="logo">
+        <a href="index.html">
+          <span>다이애드</span>
+          <span class="impact">TREND</span>
+        </a>
+      </div>
+      <div class="hamburg-menu">
+        <svg viewBox="0 0 100 100" width="80">
+          <path
+            d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40"
+          />
+          <path d="m 30,50 h 40" />
+          <path
+            d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40"
+          />
+        </svg>
+      </div>
+    </header>
+    <main>
+        
+<aside>
+  <div class="logo">
+    <a href="index.html">
+      <span>다이애드</span>
+      <span class="impact">TREND</span>
+    </a>
+  </div>
+  <div class="username">
+    <a href="https://diad.co.kr/Mypage/PaymentHistoryView" target="_blank">gabiacns</a>
+  </div>
+  <div class="sub-menu">
+    <div class="zoom-in-out">
+      <span>화면크기</span>
+      <button class="zoom-out" type="button"></button>
+      <button class="zoom-in" type="button"></button>
+    </div>
+    <a href="">로그아웃</a>
+  </div>
+  <!-- <div class="sub-menu">
+    <a href="https://diad.co.kr/Account/DiadLogin">로그인</a>
+    <a href="https://diad.co.kr/Account/CertificationBusiness">회원가입</a>
+  </div> -->
+  <nav>
+    <a class="" href="ranking.html">상품 순위 조회</a>
+    <a class="" href="lowest_price.html">최저가 알림</a>
+    <a class="is-active" href="keyword.html">키워드 트렌드</a>
+    <a class="" href="settings.html">알림설정</a>
+  </nav>
+</aside>
+
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("keywordChart");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(am5xy.XYChart.new(root, { layout: root.verticalLayout }));
+
+    // Generate random data
+    var date = new Date();
+    date.setHours(0, 0, 0, 0);
+    var value = 100;
+
+    var data = [
+      {
+        date: new Date(2021, 2, 1).getTime(),
+        singleOrigin: 1,
+        coffeeBean: 5,
+        starbucks: 3,
+        kenyaAA: 24
+      },
+      {
+        date: new Date(2021, 2, 2).getTime(),
+        singleOrigin: 1,
+        coffeeBean: 2,
+        starbucks: 6,
+        kenyaAA: 25
+      },
+      {
+        date: new Date(2021, 2, 3).getTime(),
+        singleOrigin: 2,
+        coffeeBean: 3,
+        starbucks: 1,
+        kenyaAA: 28
+      },
+      {
+        date: new Date(2021, 2, 4).getTime(),
+        singleOrigin: 3,
+        coffeeBean: 4,
+        starbucks: 1,
+        kenyaAA: 26
+      },
+      {
+        date: new Date(2021, 2, 5).getTime(),
+        singleOrigin: 5,
+        coffeeBean: 1,
+        starbucks: 2,
+        kenyaAA: 420
+      },
+      {
+        date: new Date(2021, 2, 6).getTime(),
+        singleOrigin: 3,
+        coffeeBean: 2,
+        starbucks: 1,
+        kenyaAA: 7
+      },
+      {
+        date: new Date(2021, 2, 7).getTime(),
+        singleOrigin: 1,
+        coffeeBean: 2,
+        starbucks: 3,
+        kenyaAA: 2
+      },
+      {
+        date: new Date(2021, 2, 8).getTime(),
+        singleOrigin: 2,
+        coffeeBean: 1,
+        starbucks: 5,
+        kenyaAA: 9
+      },
+      {
+        date: new Date(2021, 2, 9).getTime(),
+        singleOrigin: 3,
+        coffeeBean: 5,
+        starbucks: 2,
+        kenyaAA: 6
+      },
+    ];
+
+    var xRenderer = am5xy.AxisRendererX.new(root, {});
+    xRenderer.grid.template.set("location", 0.5);
+    xRenderer.labels.template.setAll({
+      location: 0.5,
+      multiLocation: 0.5,
+    });
+
+    var xAxis = chart.xAxes.push(
+      am5xy.DateAxis.new(root, {
+        baseInterval: { timeUnit: "day", count: 1 },
+        renderer: xRenderer,
+        tooltip: am5.Tooltip.new(root, {}),
+      })
+    );
+    xAxis.get("dateFormats")["day"] = "yyyy/MM/dd";
+    xAxis.data.setAll(data);
+
+    var yAxis = chart.yAxes.push(
+      am5xy.ValueAxis.new(root, {
+        min: 1,
+        max: 400,
+        renderer: am5xy.AxisRendererY.new(root, {
+          inversed: true,
+        }),
+      })
+    );
+
+    function createSeries(name, field) {
+      var series = chart.series.push(
+        am5xy.LineSeries.new(root, {
+          name: name,
+          xAxis: xAxis,
+          yAxis: yAxis,
+          valueYField: field,
+          valueXField: "date",
+          tooltip: am5.Tooltip.new(root, {
+            pointerOrientation: "horizontal",
+            labelText: "[bold]{name} {valueY}[/]위",
+          }),
+        })
+      );
+
+      series.bullets.push(function () {
+        return am5.Bullet.new(root, {
+          sprite: am5.Circle.new(root, {
+            radius: 3,
+            fill: series.get("fill"),
+          }),
+        });
+      });
+
+      // create hover state for series and for mainContainer, so that when series is hovered,
+      // the state would be passed down to the strokes which are in mainContainer.
+      series.set("setStateOnChildren", true);
+      series.states.create("hover", {});
+
+      series.mainContainer.set("setStateOnChildren", true);
+      series.mainContainer.states.create("hover", {});
+
+      series.strokes.template.states.create("hover", {
+        strokeWidth: 4,
+      });
+
+      series.data.setAll(data);
+      series.appear(1000, 100);
+    }
+
+    createSeries("싱글오리진", "singleOrigin");
+    createSeries("커피원두", "coffeeBean");
+    createSeries("스타벅스", "starbucks");
+    createSeries("케냐AA", "kenyaAA");
+
+    var cursor = chart.set(
+      "cursor",
+      am5xy.XYCursor.new(root, {
+        behavior: "none",
+      })
+    );
+    cursor.lineY.set("visible", false);
+
+    var legend = chart.rightAxesContainer.children.push(
+      am5.Legend.new(root, {
+        width: 150,
+        paddingLeft: 15,
+        height: am5.percent(100),
+      })
+    );
+
+    // When legend item container is hovered, dim all the series except the hovered one
+    legend.itemContainers.template.events.on("pointerover", function (e) {
+      var itemContainer = e.target;
+
+      // As series list is data of a legend, dataContext is series
+      var series = itemContainer.dataItem.dataContext;
+
+      chart.series.each(function (chartSeries) {
+        if (chartSeries != series) {
+          chartSeries.strokes.template.setAll({
+            strokeOpacity: 0.15,
+            stroke: am5.color(0x000000),
+          });
+        } else {
+          chartSeries.strokes.template.setAll({
+            strokeWidth: 3,
+          });
+        }
+      });
+    });
+
+    // When legend item container is unhovered, make all series as they are
+    legend.itemContainers.template.events.on("pointerout", function (e) {
+      var itemContainer = e.target;
+      var series = itemContainer.dataItem.dataContext;
+
+      chart.series.each(function (chartSeries) {
+        chartSeries.strokes.template.setAll({
+          strokeOpacity: 1,
+          strokeWidth: 1,
+          stroke: chartSeries.get("fill"),
+        });
+      });
+    });
+
+    legend.itemContainers.template.set("width", am5.p100);
+    legend.valueLabels.template.setAll({
+      width: am5.p100,
+      textAlign: "right",
+    });
+
+    legend.data.setAll(chart.series.values);
+    chart.appear(1000, 100);
+  }); // end am5.ready()
+</script>
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("priceChart");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(am5xy.XYChart.new(root, {}));
+
+    var cursor = chart.set(
+      "cursor",
+      am5xy.XYCursor.new(root, {
+        behavior: "none",
+      })
+    );
+    cursor.lineY.set("visible", false);
+
+    // Generate random data
+    var date = new Date();
+    date.setHours(0, 0, 0, 0);
+    var value = 100;
+    var previousValue = value;
+    var downColor = root.interfaceColors.get("negative");
+    var upColor = root.interfaceColors.get("positive");
+    var color;
+    var previousColor;
+    var previousDataObj;
+
+    function generateData() {
+      value = Math.round(Math.random() * 10 - 5 + value);
+      am5.time.add(date, "day", 1);
+
+      if (value >= previousValue) {
+        color = upColor;
+      } else {
+        color = downColor;
+      }
+      previousValue = value;
+
+      var dataObj = { date: date.getTime(), value: value, color: color }; // color will be used for tooltip background
+
+      // only if changed
+      if (color != previousColor) {
+        if (!previousDataObj) {
+          previousDataObj = dataObj;
+        }
+        previousDataObj.strokeSettings = { stroke: color };
+      }
+
+      previousDataObj = dataObj;
+      previousColor = color;
+
+      return dataObj;
+    }
+
+    function generateDatas(count) {
+      var data = [];
+      for (var i = 0; i < count; ++i) {
+        data.push(generateData());
+      }
+      return data;
+    }
+
+    // Create axes
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+    var xAxis = chart.xAxes.push(
+      am5xy.DateAxis.new(root, {
+        baseInterval: { timeUnit: "day", count: 1 },
+        renderer: am5xy.AxisRendererX.new(root, {}),
+        tooltip: am5.Tooltip.new(root, {}),
+      })
+    );
+
+    var yAxis = chart.yAxes.push(
+      am5xy.ValueAxis.new(root, {
+        renderer: am5xy.AxisRendererY.new(root, {}),
+      })
+    );
+
+    // Add series
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+    var series = chart.series.push(
+      am5xy.LineSeries.new(root, {
+        name: "Series",
+        xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: "value",
+        valueXField: "date",
+      })
+    );
+
+    series.strokes.template.set("templateField", "strokeSettings");
+
+    var tooltip = series.set(
+      "tooltip",
+      am5.Tooltip.new(root, {
+        labelText: "{valueY}",
+      })
+    );
+
+    // this is added in ored adapter to be triggered each time position changes
+    tooltip.on("pointTo", function () {
+      var background = tooltip.get("background");
+      background.set("fill", background.get("fill"));
+    });
+
+    // tooltip bacground takes color from data item
+    tooltip.get("background").adapters.add("fill", function (fill) {
+      if (tooltip.dataItem) {
+        return tooltip.dataItem.dataContext.color;
+      }
+      return fill;
+    });
+
+    var data = generateDatas(100);
+    series.data.setAll(data);
+
+    series.appear(1000);
+    chart.appear(1000, 100);
+  }); // end am5.ready()
+</script>
+<div class="content content-keyword-details">
+  <header class="main-header">
+    <section class="title">
+      <h1>
+        <span>키워드 트렌드 리포트</span>
+      </h1>
+    </section>
+    <section class="section-main">
+      <div class="information">
+        <div class="image">
+          <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
+        </div>
+        <div>
+          <div class="title">
+            <span class="ico-star"></span>
+            <span>커피원두</span>
+          </div>
+          <div class="list">
+            <ul class="row title">
+              <li>월간 검색</li>
+              <li>등록 상품</li>
+              <li>컨텐츠</li>
+            </ul>
+            <ul class="row">
+               <li>38,790건</li>
+               <li>858,518개</li>
+               <li>10,000건</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+  <div class="wrapper">
+    <ul class="tabs">
+      <li class="tab">키워드</li>
+      <li class="tab">상품목록</li>
+      <li class="tab">상위 상품 분석</li>
+      <li class="tab">연관 키워드</li>
+    </ul>
+    <section>
+      <div class="section-header">
+        <h3>검색</h3>
+      </div>
+      <div class="chart-container">
+        <div class="pc">
+          <h5>PC 검색</h5>
+          <ul>
+            <li>
+              <div>월간 검색수</div>
+              <div>8,190</div>
+            </li>
+            <li>
+              <div>월 평균 클릭수</div>
+              <div>64.2</div>
+            </li>
+            <li>
+              <div>월 평균 클릭율</div>
+              <div>0.76%</div>
+            </li>
+            <li>
+              <div>경쟁정도</div>
+              <div>높음</div>
+            </li>
+            <li>
+              <div>월 평균 광고노출</div>
+              <div>15</div>
+            </li>
+          </ul>
+        </div>
+        <div class="chart"></div>
+      </div>
+    </section>
+  </div>
+</div>
+
+    </main>
+  </body>
+</html>

@@ -63,9 +63,9 @@
     <a href="https://diad.co.kr/Account/CertificationBusiness">회원가입</a>
   </div> -->
   <nav>
-    <a class="is-active" href="ranking.html">상품 순위 조회</a>
+    <a class="" href="ranking.html">상품 순위 조회</a>
     <a class="" href="lowest_price.html">최저가 알림</a>
-    <a class="" href="keyword.html">키워드 트렌드</a>
+    <a class="is-active" href="keyword.html">키워드 트렌드</a>
     <a class="" href="settings.html">알림설정</a>
   </nav>
 </aside>
@@ -76,38 +76,40 @@
       from = $("#from")
         .datepicker()
         .on("change", function () {
-          to.datepicker("option", "minDate", getDate(this));
+          to.datepicker("option", "minDate", getDate(this))
         }),
       to = $("#to")
         .datepicker()
         .on("change", function () {
-          from.datepicker("option", "maxDate", getDate(this));
-        });
+          from.datepicker("option", "maxDate", getDate(this))
+        })
 
     function getDate(element) {
-      var date;
+      var date
       try {
-        date = $.datepicker.parseDate(dateFormat, element.value);
+        date = $.datepicker.parseDate(dateFormat, element.value)
       } catch (error) {
-        date = null;
+        date = null
       }
 
-      return date;
+      return date
     }
-  });
+  })
 </script>
 
-<div class="content content-ranking">
+<div class="content content-keyword">
   <header class="main-header">
     <section class="title">
       <h1>
-        <span>상품 순위 조회</span>
+        <span>키워드 트렌드</span>
         <div class="tooltip">
           <article class="tooltip-content">
             <ul>
-              <li>네이버 쇼핑검색에 노출되는 순위 정보를 확인할 수 있습니다.</li>
-              <li>상품마다 키워드별 순위 변동 차트를 제공하여 순위 변동을 한눈에 확인할 수 있습니다.</li>
-              <li>순위 변동 시 알림을 제공합니다.</li>
+              <li>
+                상품, 콘텐츠, 연관 키워드 등 클릭 한번으로 흩어진 정보를 모아 키워드의 트렌드를 한눈에 확인할 수
+                있습니다.
+              </li>
+              <li>키워드 트렌드의 데이터는 네이버를 기준으로 제공합니다.</li>
             </ul>
           </article>
         </div>
@@ -164,448 +166,410 @@
       </div> -->
     </section>
     <section class="section-main">
-      <div class="services">
-        <header class="section-header">
-          <h3>서비스 이용 현황</h3>
-          <a class="right-arrow" href="">서비스 이용 내역 보기</a>
-        </header>
-        <div class="list">
-          <ul class="row title">
-            <li>총 소재</li>
-            <li>등록 소재</li>
-            <li>등록 가능 소재</li>
-          </ul>
-          <ul class="row">
-            <li>20</li>
-            <li>16</li>
-            <li>4</li>
-          </ul>
-        </div>
-      </div>
-      <div class="ranking">
-        <header class="section-header">
-          <h3>현재 순위 현황</h3>
-          <div class="date">최근 갱신시간 (2022-03-01 12:00)</div>
-        </header>
-        <div class="list">
-          <ul class="row title">
-            <li>전체</li>
-            <li>40위 안</li>
-            <li>400위 밖</li>
-          </ul>
-          <ul class="row">
-            <li>16</li>
-            <li>3</li>
-            <li>1</li>
-          </ul>
-        </div>
+      <div class="search">
+        <input type="search" placeholder=" 조회할 키워드를 입력해주세요." />
+        <button class="btn-sub ico-search" type="button"></button>
       </div>
     </section>
   </header>
   <div class="wrapper">
-    <section>
-      <header class="section-header multi-line">
-        <div class="title">
-          <button class="btn-dark btn-advanced-search" type="button">상세검색</button>
-          <div class="buttons">
-            <button class="btn-sub" type="button" data-modal="searchGroup">그룹조회</button>
-            <button class="btn-sub" type="button" data-modal="editGroup">그룹편집</button>
-            <button class="btn-sub" class="ico-download" type="button">엑셀다운</button>
-            <button class="btn-main" type="button" data-modal="createItem">상품등록</button>
-          </div>
-        </div>
-        <div class="advanced-search">
-          <ul class="item-keyword">
-            <li>
-              <h5>
-                <span>키워드</span>
-
-                <div class="tooltip">
-                  <div class="tooltip-content">
-                    <p>복수검색은 줄 바꿈(엔터키)으로 구분합니다.</p>
-                    <p>예시:</p>
-                    <p>키워드 상품</p>
-                  </div>
-                </div>
-              </h5>
-              <small>복수검색 가능</small>
-            </li>
-            <li class="inputs">
-              <textarea name="" id=""></textarea>
-              <div class="select">
-                <input id="keyword-01" type="radio" name="filter-keyword" checked />
-                <label for="keyword-01">일치</label>
-                <input id="keyword-02" type="radio" name="filter-keyword" />
-                <label for="keyword-02">포함</label>
-                <input id="keyword-03" type="radio" name="filter-keyword" />
-                <label for="keyword-03">제외</label>
-              </div>
-            </li>
-          </ul>
-          <ul class="item-mid">
-            <li>
-              <h5>
-                <span>상품 MID</span>
-                <div class="tooltip">
-                  <div class="tooltip-content">
-                    <p>복수검색은 줄 바꿈(엔터키)으로 구분합니다.</p>
-                    <p>예시:</p>
-                    <p>12345678900</p>
-                    <p>12345678901</p>
-                  </div>
-                </div>
-              </h5>
-              <small>복수검색 가능</small>
-            </li>
-            <li class="inputs">
-              <textarea name="" id=""></textarea>
-            </li>
-          </ul>
-          <div class="item-information">
-            <ul>
-              <li>스토어명</li>
-              <li class="inputs"><input type="text" /></li>
-            </ul>
-            <ul>
-              <li>상품명</li>
-              <li class="inputs"><input type="text" /></li>
-            </ul>
-            <ul>
-              <li>그룹</li>
-              <li class="inputs"><input type="text" /></li>
-            </ul>
-          </div>
-          <ul class="filter-range">
-            <li>
-              <h5>
-                <span>순위</span>
-                <div class="tooltip">
-                  <div class="tooltip-content">
-                    <ul>
-                      <li>순위 범위를 전체순위(1~401위)로 입력해주세요.</li>
-                      <li>400위 밖을 검색할 경우 ‘이상’ 입력 칸에 401을 입력해주세요.</li>
-                      <li>특정 값을 순위로 검색할 경우 위아래 입력 칸에 같은 값을 입력해주세요.</li>
-                    </ul>
-                  </div>
-                </div>
-              </h5>
-            </li>
-            <li class="inputs">
-              <div class="up">
-                <input type="number" />
-              </div>
-              <div class="down">
-                <input type="number" />
-              </div>
-            </li>
-          </ul>
-          <ul class="item-created">
-            <li>등록일</li>
-            <li class="inputs">
-              <div class="select">
-                <input id="created-date-no" type="radio" name="created" data-select="no" checked />
-                <label for="created-date-no">미사용</label>
-                <input id="created-date-yes" type="radio" name="created" data-select="yes" />
-                <label for="created-date-yes">사용</label>
-              </div>
-              <div class="calendar">
-                <input type="text" id="from" name="from" />
-                <span>~</span>
-                <input type="text" id="to" name="to" />
-              </div>
-            </li>
-          </ul>
-          <ul class="item-alert">
-            <li>알림</li>
-            <li class="inputs">
-              <div class="checkbox">
-                <input type="checkbox" id="alert-on" />
-                <label for="alert-on">on</label>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" id="alert-off" />
-                <label for="alert-off">off</label>
-              </div>
-            </li>
-          </ul>
-          <div class="buttons">
-            <button class="btn-sub clear">초기화</button>
-            <button class="btn-main" data-modal="advancedSearch">상세검색</button>
-          </div>
-        </div>
-        <div class="filters">
-          <div>
-            <div class="selectbox">
-              <select name="" id="">
-                <option value="keyword">키워드</option>
-                <option value="keyword">키워드</option>
-                <option value="keyword">키워드</option>
-              </select>
-            </div>
-            <div class="search">
-              <input type="search" />
-              <button class="btn-sub ico-search" type="button"></button>
-            </div>
-            <ul class="list-count">
-              <li>
-                <span class="selected">0</span>
-              </li>
-              <li>
-                <span class="total">0</span>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <!-- 상품 선택했을 때, 보여지는 버튼들 -->
-            <div class="buttons">
-              <button type="button" data-modal="deleteItem">선택삭제</button>
-              <button type="button" data-modal="editKeyword">키워드등록</button>
-              <div class="selectbox">
-                <select name="" id="">
-                  <option value="">알람설정</option>
-                  <option value="" data-modal="alarmOn">ON</option>
-                  <option value="">OFF</option>
-                </select>
-              </div>
-              <button type="button" data-modal="selectGroup">그룹지정</button>
-              <button type="button" data-modal="ungroup">그룹해제</button>
-            </div>
-            <div class="selectbox">
-              <select name="" id="">
-                <option value="filter-100">100개씩 보기</option>
-                <option value="filter-50">50개씩 보기</option>
-                <option value="filter-20">20개씩 보기</option>
-                <option value="filter-10">10개씩 보기</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </header>
-      <!-- list 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
-      <div class="list list-item sticky" data-empty="상품을 등록해주세요">
-        <ul class="row title">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
-              <label for="checkAll"></label>
-            </div>
+    <section class="section-list">
+      <header class="section-header">
+        <ul class="tabs">
+          <li class="tab">
+           최근 조회 키워드
           </li>
-          <li class="col-important">상품</li>
-          <li class="col-keyword">키워드</li>
-          <li>
-            <div>현재 순위</div>
-            <div class="date">2022-03-01 09:00</div>
+          <li class="tab">
+            즐겨찾기
           </li>
-          <li>
-            <div>전일 순위</div>
-            <div class="date">2022-02-28 09:00</div>
-          </li>
-          <li>
-            <div>전주 순위</div>
-            <div class="date">2022-02-22 09:00</div>
-          </li>
-          <li>
-            <div>2주전 순위</div>
-            <div class="date">2022-02-15 09:00</div>
-          </li>
-          <li>
-            <div>전월 순위</div>
-            <div class="date">2022-02-01 09:00</div>
-          </li>
-          <li>판매가</li>
-          <li>그룹</li>
-          <li>등록일</li>
-          <li>최근 갱신시간</li>
-          <li>알림</li>
         </ul>
-        <ul class="row failed">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="check-01" name="select-item" type="checkbox" />
-              <label for="check-01"></label>
-            </div>
-          </li>
-          <li class="col-important item">
-            <div
-              class="item-update-failed"
-              data-tooltip="상품에 등록된 모든 키워드가 400위 밖으로 상품 정보가 갱신되지 않았습니다."
-            >
-              <div class="failed">갱신실패</div>
-              <div class="success">갱신성공 2021-08-01 15:00</div>
-            </div>
-            <div class="image" onclick="location.href='ranking_details.html'">
-              <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
-            </div>
-            <div class="information">
-              <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
-                12126547821
-              </a>
-              <div class="title" onclick="location.href='ranking_details.html'">
-                1kg 커피창고 에티오피아 예가체프 test test test test test test
-              </div>
-              <div class="store">커피창고</div>
-            </div>
-          </li>
-          <li class="col-keyword">
-            <div class="keyword">원두커피</div>
-          </li>
-          <li>
-            <div>400위 밖</div>
-            <div class="tooltip">
-              <div class="tooltip-content">
-                순위가 400위 밖인 경우 상품 정보가 갱신되지 않을 수 있습니다. 정보가 갱신되지 않은 경우 실제 정보와
-                차이가 있을 수 있으니, 서비스 이용 시 참고하시기 바랍니다.
-              </div>
-            </div>
-          </li>
-          <li>
-            <div>3위</div>
-            <div class="page">3위/1페이지</div>
-            <div class="rank failed"></div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div class="page">5위/1페이지</div>
-            <div class="rank failed"></div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div class="page">5위/1페이지</div>
-            <div class="rank failed"></div>
-          </li>
-          <li>
-            <div>2위</div>
-            <div class="page">3위/1페이지</div>
-            <div class="rank failed"></div>
-          </li>
-          <li>9,900원</li>
-          <li>커피</li>
-          <li>2022-03-01</li>
-          <li>2022-03-01 12:00</li>
-          <li>ON</li>
+      </header>
+      <div class="tab-content list">
+        <ul class="row title">
+          <li class="col-narrow">즐겨찾기</li>
+          <li>키워드</li>
+          <li>월간 검색</li>
+          <li>등록 상품</li>
+          <li>컨텐츠</li>
+          <li>최근 조회일시</li>
+          <li class="col-narrow">삭제</li>
         </ul>
         <ul class="row">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="check-02" name="select-item" type="checkbox" />
-              <label for="check-02"></label>
-            </div>
-          </li>
-          <li class="col-important item">
-            <div class="image" onclick="location.href='ranking_details.html'">
-              <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
-            </div>
-            <div class="information">
-              <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
-                12126547821
-              </a>
-              <div class="title">1kg 커피창고 에티오피아 예가체프 1kg 커피창고 에티오피아 예가체프</div>
-              <div class="store">커피창고</div>
-            </div>
-          </li>
-          <li class="col-keyword">
-            <div class="keyword">커피원두</div>
-          </li>
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
           <li>
-            <div>1위</div>
-            <div class="page">1위/1페이지</div>
-            <div class="rank up">2</div>
+            <div class="keyword" onclick="location.href='keyword_details.html'">커피원두</div>
           </li>
-          <li>
-            <div>3위</div>
-            <div class="page">3위/1페이지</div>
-            <div class="rank down">1</div>
+          <li>27,420</li>
+          <li>888,376</li>
+          <li>10,000</li>
+          <li>2022-03-01 00:00</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
           </li>
-          <li>
-            <div>5위</div>
-            <div class="page">5위/1페이지</div>
-            <div class="rank up">3</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div class="page">5위/1페이지</div>
-            <div class="rank up">3</div>
-          </li>
-          <li>
-            <div>2위</div>
-            <div class="page">3위/1페이지</div>
-            <div class="rank same"></div>
-          </li>
-          <li>9,900원</li>
-          <li>커피</li>
-          <li>2022-03-01</li>
-          <li>2022-03-01 12:00</li>
-          <li>ON</li>
         </ul>
-
-        <!-- 기간 만료 -->
-        <ul class="row failed">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="check-03" name="select-item" type="checkbox" />
-              <label for="check-03"></label>
-            </div>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle"></div></li>
+          <li>
+            <div class="keyword">나이키</div>
           </li>
-          <li class="col-important item">
-            <div class="image" onclick="location.href='ranking_details.html'">
-              <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
-            </div>
-            <div class="information">
-              <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
-                12126547821
-              </a>
-              <div class="title">1kg 커피창고 에티오피아 예가체프</div>
-              <div class="store">커피창고</div>
-            </div>
+          <li>3,015,300</li>
+          <li>4,718,162</li>
+          <li>99,999</li>
+          <li>2022-02-28 16:30</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
           </li>
-          <li class="col-keyword">
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
+          <li>
+            <div class="keyword">원두커피</div>
+          </li>
+          <li>27,100</li>
+          <li>787,265</li>
+          <li>99,999</li>
+          <li>2022-02-28 09:12</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
+          <li>
+            <div class="keyword">커피머신</div>
+          </li>
+          <li>217,600</li>
+          <li>1,112,202</li>
+          <li>99,999</li>
+          <li>2022-02-26 23:00</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle"></div></li>
+          <li>
+            <div class="keyword">원두</div>
+          </li>
+          <li>37,570</li>
+          <li>51,259</li>
+          <li>99,999</li>
+          <li>2022-02-26 15:00</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
+          <li>
             <div class="keyword">커피원두</div>
           </li>
-          <li>
-            <div class="rank failed"></div>
+          <li>27,420</li>
+          <li>888,376</li>
+          <li>10,000</li>
+          <li>2022-03-01 00:00</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
           </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle"></div></li>
           <li>
-            <div class="rank failed"></div>
+            <div class="keyword">나이키</div>
           </li>
+          <li>3,015,300</li>
+          <li>4,718,162</li>
+          <li>99,999</li>
+          <li>2022-02-28 16:30</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
           <li>
-            <div class="rank failed"></div>
+            <div class="keyword">원두커피</div>
           </li>
+          <li>27,100</li>
+          <li>787,265</li>
+          <li>99,999</li>
+          <li>2022-02-28 09:12</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
           <li>
-            <div class="rank failed"></div>
+            <div class="keyword">커피머신</div>
           </li>
+          <li>217,600</li>
+          <li>1,112,202</li>
+          <li>99,999</li>
+          <li>2022-02-26 23:00</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle"></div></li>
           <li>
-            <div class="rank failed"></div>
+            <div class="keyword">원두</div>
           </li>
-          <li>9,900원</li>
-          <li>커피</li>
-          <li>2022-03-01</li>
-          <li>2022-03-01 12:00</li>
-          <li>ON</li>
+          <li>37,570</li>
+          <li>51,259</li>
+          <li>99,999</li>
+          <li>2022-02-26 15:00</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
+          <li>
+            <div class="keyword">커피원두</div>
+          </li>
+          <li>27,420</li>
+          <li>888,376</li>
+          <li>10,000</li>
+          <li>2022-03-01 00:00</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle"></div></li>
+          <li>
+            <div class="keyword">나이키</div>
+          </li>
+          <li>3,015,300</li>
+          <li>4,718,162</li>
+          <li>99,999</li>
+          <li>2022-02-28 16:30</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
+          <li>
+            <div class="keyword">원두커피</div>
+          </li>
+          <li>27,100</li>
+          <li>787,265</li>
+          <li>99,999</li>
+          <li>2022-02-28 09:12</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
+          <li>
+            <div class="keyword">커피머신</div>
+          </li>
+          <li>217,600</li>
+          <li>1,112,202</li>
+          <li>99,999</li>
+          <li>2022-02-26 23:00</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle"></div></li>
+          <li>
+            <div class="keyword">원두</div>
+          </li>
+          <li>37,570</li>
+          <li>51,259</li>
+          <li>99,999</li>
+          <li>2022-02-26 15:00</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
+          <li>
+            <div class="keyword">커피원두</div>
+          </li>
+          <li>27,420</li>
+          <li>888,376</li>
+          <li>10,000</li>
+          <li>2022-03-01 00:00</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle"></div></li>
+          <li>
+            <div class="keyword">나이키</div>
+          </li>
+          <li>3,015,300</li>
+          <li>4,718,162</li>
+          <li>99,999</li>
+          <li>2022-02-28 16:30</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
+          <li>
+            <div class="keyword">원두커피</div>
+          </li>
+          <li>27,100</li>
+          <li>787,265</li>
+          <li>99,999</li>
+          <li>2022-02-28 09:12</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
+          <li>
+            <div class="keyword">커피머신</div>
+          </li>
+          <li>217,600</li>
+          <li>1,112,202</li>
+          <li>99,999</li>
+          <li>2022-02-26 23:00</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle"></div></li>
+          <li>
+            <div class="keyword">원두</div>
+          </li>
+          <li>37,570</li>
+          <li>51,259</li>
+          <li>99,999</li>
+          <li>2022-02-26 15:00</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
         </ul>
       </div>
-      <footer class="section-footer">
-        <div class="pagination">
-          <button onclick="" type="button">
-            <div class="arrow double left"></div>
-          </button>
-          <button onclick="" type="button">
-            <div class="arrow left"></div>
-          </button>
-          <div class="pages">
-            <button class="is-active" onclick="" type="button">1</button>
-            <button onclick="" type="button">2</button>
-            <button onclick="" type="button">3</button>
-            <button onclick="" type="button">4</button>
-            <button onclick="" type="button">5</button>
-          </div>
-          <button onclick="" type="button">
-            <div class="arrow right"></div>
-          </button>
-          <button onclick="" type="button">
-            <div class="arrow double right"></div>
-          </button>
-        </div>
-      </footer>
+      <div class="tab-content list">
+        <ul class="row title">
+          <li class="col-narrow">즐겨찾기</li>
+          <li>키워드</li>
+          <li>월간 검색</li>
+          <li>등록 상품</li>
+          <li>컨텐츠</li>
+          <li>최근 조회일시</li>
+          <li class="col-narrow">삭제</li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
+          <li>
+            <div class="keyword">커피원두</div>
+          </li>
+          <li>27,420</li>
+          <li>888,376</li>
+          <li>10,000</li>
+          <li>2022-03-01 00:00</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
+          <li>
+            <div class="keyword">나이키</div>
+          </li>
+          <li>3,015,300</li>
+          <li>4,718,162</li>
+          <li>99,999</li>
+          <li>2022-02-28 16:30</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
+          <li>
+            <div class="keyword">원두커피</div>
+          </li>
+          <li>27,100</li>
+          <li>787,265</li>
+          <li>99,999</li>
+          <li>2022-02-28 09:12</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
+          <li>
+            <div class="keyword">커피머신</div>
+          </li>
+          <li>217,600</li>
+          <li>1,112,202</li>
+          <li>99,999</li>
+          <li>2022-02-26 23:00</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
+          <li>
+            <div class="keyword">원두</div>
+          </li>
+          <li>37,570</li>
+          <li>51,259</li>
+          <li>99,999</li>
+          <li>2022-02-26 15:00</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
+          <li>
+            <div class="keyword">커피원두</div>
+          </li>
+          <li>27,420</li>
+          <li>888,376</li>
+          <li>10,000</li>
+          <li>2022-03-01 00:00</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
+          <li>
+            <div class="keyword">나이키</div>
+          </li>
+          <li>3,015,300</li>
+          <li>4,718,162</li>
+          <li>99,999</li>
+          <li>2022-02-28 16:30</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-narrow"><div class="ico-star toggle is-active"></div></li>
+          <li>
+            <div class="keyword">원두커피</div>
+          </li>
+          <li>27,100</li>
+          <li>787,265</li>
+          <li>99,999</li>
+          <li>2022-02-28 09:12</li>
+          <li class="col-narrow">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+      </div>
     </section>
   </div>
 </div>
