@@ -1,3 +1,5 @@
+/** @format */
+
 document.addEventListener("DOMContentLoaded", () => {
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty("--vh", `${vh}px`);
@@ -21,6 +23,16 @@ document.addEventListener("DOMContentLoaded", () => {
   //     });
   //   });
   // }
+  const tooltips = document.querySelectorAll("[data-tooltip]");
+  if (tooltips[0]) {
+    tooltips.forEach((tooltip) => {
+      tooltip.addEventListener("mouseover", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        event.target.parentElement.style.zIndex = "5";
+      });
+    });
+  }
 
   /* =====================================================
        Target Smooth Scroll
@@ -50,6 +62,36 @@ document.addEventListener("DOMContentLoaded", () => {
         const input = event.target.previousElementSibling;
         input.value = "";
       });
+    });
+  }
+
+  /* =====================================================
+       Tab Menu
+  ===================================================== */
+  const tabs = document.querySelectorAll(".tabs .tab");
+  const tabContents = document.querySelectorAll(".tab-content");
+  const activeSection = (event) => {
+    event.stopPropagation();
+    let menuIndex = [...tabs].indexOf(event.target);
+    console.log(tabs);
+
+    tabs.forEach((tab) => {
+      [...tabs].indexOf(tab) === menuIndex ? tab.classList.add("is-active") : tab.classList.remove("is-active");
+    });
+
+    tabContents.forEach((content) => {
+      [...tabContents].indexOf(content) === menuIndex
+        ? content.classList.add("is-active")
+        : content.classList.remove("is-active");
+    });
+  };
+
+  if (tabs[0]) {
+    console.log(tabs);
+    tabs.forEach((tab) => {
+      [...tabs][0].classList.add("is-active");
+      [...tabContents][0].classList.add("is-active");
+      tab.addEventListener("click", activeSection);
     });
   }
 
