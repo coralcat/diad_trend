@@ -25,8 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // }
   const tooltips = document.querySelectorAll("[data-tooltip]");
   if (tooltips[0]) {
-    tooltips.forEach((tooltip) => {
-      tooltip.addEventListener("mouseover", (event) => {
+    tooltips.forEach(tooltip => {
+      tooltip.addEventListener("mouseover", event => {
         event.preventDefault();
         event.stopPropagation();
         event.target.parentElement.style.zIndex = "5";
@@ -40,8 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // 상품 최저가 리포트: 일별 최저가 차트 클릭시
   const anchors = document.querySelectorAll("a[href^='#']");
   if (anchors[0]) {
-    anchors.forEach((anchor) => {
-      anchor.addEventListener("click", (event) => {
+    anchors.forEach(anchor => {
+      anchor.addEventListener("click", event => {
         event.preventDefault();
         anchor.getAttribute("href").scrollIntoView({
           behavior: "smooth",
@@ -56,9 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // 인풋창에 "x"표시 있을시 clear value
   const searchInputs = document.querySelectorAll("input[type='search'], input[type='url']");
   if (searchInputs) {
-    searchInputs.forEach((input) => {
+    searchInputs.forEach(input => {
       const x = input.nextElementSibling;
-      x.addEventListener("click", (event) => {
+      x.addEventListener("click", event => {
         const input = event.target.previousElementSibling;
         input.value = "";
       });
@@ -66,32 +66,55 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =====================================================
+       Layout: 키워드트렌드 리포트 상품목록 유형선택
+  ===================================================== */
+  const layout = document.querySelector(".layout");
+  if (layout) {
+    const types = layout.querySelectorAll("button");
+    const list = document.querySelector(".list-item");
+    types.forEach(type => {
+      type.addEventListener("click", event => {
+        if (event.target.classList.contains("type-list")) {
+          list.classList.add("type-list");
+          list.classList.remove("type-grid");
+        }
+        if (event.target.classList.contains("type-grid")) {
+          list.classList.add("type-grid");
+          list.classList.remove("type-list");
+        }
+      });
+    });
+  }
+
+  /* =====================================================
        Tab Menu
   ===================================================== */
-  const tabs = document.querySelectorAll(".tabs .tab");
+  const tabs = document.querySelectorAll(".tabs li");
   const tabContents = document.querySelectorAll(".tab-content");
-  const activeSection = (event) => {
-    event.stopPropagation();
-    let menuIndex = [...tabs].indexOf(event.target);
-    console.log(tabs);
-
-    tabs.forEach((tab) => {
-      [...tabs].indexOf(tab) === menuIndex ? tab.classList.add("is-active") : tab.classList.remove("is-active");
-    });
-
-    tabContents.forEach((content) => {
-      [...tabContents].indexOf(content) === menuIndex
-        ? content.classList.add("is-active")
-        : content.classList.remove("is-active");
-    });
-  };
 
   if (tabs[0]) {
-    console.log(tabs);
-    tabs.forEach((tab) => {
+    const showTabContent = event => {
+      event.stopPropagation();
+      const tabName = event.target.dataset.tab;
+      const tabs = document.querySelectorAll(`[data-tab='${tabName}']`);
+      const tabContents = document.querySelectorAll(`.tab-content[data-tab='${tabName}']`);
+      let menuIndex = [...tabs].indexOf(event.target);
+
+      tabs.forEach(tab => {
+        [...tabs].indexOf(tab) === menuIndex ? tab.classList.add("is-active") : tab.classList.remove("is-active");
+      });
+
+      tabContents.forEach(content => {
+        [...tabContents].indexOf(content) === 0 && content.classList.add("is-active");
+        [...tabContents].indexOf(content) === menuIndex
+          ? content.classList.add("is-active")
+          : content.classList.remove("is-active");
+      });
+    };
+    tabs.forEach(tab => {
       [...tabs][0].classList.add("is-active");
       [...tabContents][0].classList.add("is-active");
-      tab.addEventListener("click", activeSection);
+      tab.addEventListener("click", showTabContent);
     });
   }
 
@@ -100,8 +123,8 @@ document.addEventListener("DOMContentLoaded", () => {
   ===================================================== */
   const toggles = document.querySelectorAll(".toggle");
   if (toggles) {
-    toggles.forEach((toggle) => {
-      toggle.addEventListener("click", (event) => {
+    toggles.forEach(toggle => {
+      toggle.addEventListener("click", event => {
         const button = event.target;
         button.classList.toggle("is-active");
       });
@@ -111,18 +134,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // 알림 서비스 설정 전체해제 (다른 데에서도 재사용 가능)
   const dataToggles = document.querySelectorAll("[data-toggle]");
   const controllers = document.querySelectorAll(".toggle-controller");
-  controllers.forEach((controller) => {
-    controller.addEventListener("click", (event) => {
+  controllers.forEach(controller => {
+    controller.addEventListener("click", event => {
       const toggleName = event.target.dataset.toggle;
       const toggles = document.getElementsByName(toggleName);
 
       if (!controller.classList.contains("is-active")) {
-        dataToggles.forEach((toggle) => {
+        dataToggles.forEach(toggle => {
           event.target.dataset.toggle === toggle.dataset.toggle && (toggle.classList = controller.classList);
         });
       }
     });
-    dataToggles.forEach((toggle) => {
+    dataToggles.forEach(toggle => {
       if (!toggle.classList.contains(".controller")) {
         toggle.addEventListener("click", () => {
           toggle.classList.contains("is-active") && controller.classList.add("is-active");
@@ -135,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const changeAlarmInformation = document.querySelector(".content-settings .change-information");
   if (changeAlarmInformation) {
     const toggles = changeAlarmInformation.querySelectorAll(".toggle");
-    toggles.forEach((toggle) => {
+    toggles.forEach(toggle => {
       const inputDisabled = () => {
         const inputs = toggle.parentElement.querySelector(".inputs");
         !toggle.classList.contains("is-active")
@@ -150,8 +173,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const detail1 = select[0].closest(".select").querySelector(".details");
     const detail2 = select[1].closest(".select").querySelector(".details");
 
-    select.forEach((button) => {
-      button.addEventListener("click", (event) => {
+    select.forEach(button => {
+      button.addEventListener("click", event => {
         if (event.target === select[0]) {
           detail1.style.opacity = "1";
           detail2.style.opacity = "0";
@@ -176,11 +199,11 @@ document.addEventListener("DOMContentLoaded", () => {
   ===================================================== */
   const checkAll = document.querySelectorAll(".check-all");
   if (checkAll) {
-    checkAll.forEach((all) => {
-      const handleCheckAll = (event) => {
+    checkAll.forEach(all => {
+      const handleCheckAll = event => {
         const inputName = event.target.getAttribute("name");
         const checkboxes = document.getElementsByName(inputName);
-        checkboxes.forEach((checkbox) => {
+        checkboxes.forEach(checkbox => {
           checkbox.checked = all.checked;
 
           const controller = checkbox.classList.contains("check-all");
@@ -227,7 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const initialize = () => {
-      modals.forEach((modal) => {
+      modals.forEach(modal => {
         modal.classList.remove("is-active");
         modal.removeAttribute("onclick");
       });
@@ -235,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alertModal.classList.remove("modal-apply");
     };
 
-    const openModal = (event) => {
+    const openModal = event => {
       event.preventDefault();
       const modalData = event.target.dataset.modal;
       const targetModal = document.getElementById(modalData);
@@ -245,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const inputs = targetModal.querySelectorAll("input");
         if (inputs[0]) {
           targetModal.querySelector("[data-modal]").addEventListener("click", () => {
-            inputs.forEach((input) => {
+            inputs.forEach(input => {
               setTimeout(() => {
                 input.value = "";
               }, 500);
@@ -261,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
           modalData === `${property}` && (confirmModalContent.innerHTML = `${modalMessage[property]}`);
         }
 
-        const openAlertModal = (event) => {
+        const openAlertModal = event => {
           const modalData = event.target.dataset.modal;
           alertModal.classList.add("is-active");
           for (const property in modalMessage) {
@@ -395,7 +418,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Basic Modal
     const modalButtons = document.querySelectorAll("[data-modal]");
-    modalButtons.forEach((button) => {
+    modalButtons.forEach(button => {
       button.addEventListener("click", openModal);
 
       // 알림설정
@@ -410,7 +433,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Close Modal
-    const closeModal = (event) => {
+    const closeModal = event => {
       const modal = event.target.closest(".modal");
       modal.classList.remove("is-active");
       modal.classList.contains("modal-apply");
@@ -429,7 +452,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const closeButtons = document.querySelectorAll(".close");
     if (closeButtons) {
-      closeButtons.forEach((close) => {
+      closeButtons.forEach(close => {
         close.addEventListener("click", closeModal);
       });
     }
@@ -447,15 +470,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //초기화
     const initialize = () => {
-      inputs.forEach((input) => {
+      inputs.forEach(input => {
         input.value = "";
       });
 
-      checkboxes.forEach((checkbox) => {
+      checkboxes.forEach(checkbox => {
         checkbox.checked = false;
       });
 
-      selections.forEach((select) => {
+      selections.forEach(select => {
         select.checked = true;
       });
     };
@@ -474,13 +497,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const calendar = itemCreated.querySelector(".calendar");
     const options = itemCreated.querySelectorAll(".select input");
 
-    options.forEach((option) => {
-      const choose = (event) => {
+    options.forEach(option => {
+      const choose = event => {
         event.target.dataset.select === "yes"
           ? calendar.classList.add("is-active")
           : calendar.classList.remove("is-active");
       };
       option.addEventListener("click", choose);
+    });
+  }
+
+  /* =====================================================
+       Filters: 키워드 트렌드 목록 검색에서
+  ===================================================== */
+  const selector = document.querySelector(".filters .selector.main");
+  if (selector) {
+    const subSelector = document.querySelectorAll(".filters .selector.sub");
+    const input = selector.querySelector("input:checked");
+    subSelector.forEach(sub => {
+      const checkSelect = () => {
+        console.log(sub);
+        if (input.classList.contains("keyword") && sub.classList.contains("selector-keyword")) {
+          console.log("yay1");
+          sub.classList.add("is-active");
+        } else {
+          sub.classList.remove("is-active");
+        }
+
+        if (!input.classList.contains("keyword") && sub.classList.contains("selector-count")) {
+          sub.classList.add("is-active");
+        }
+      };
+
+      checkSelect();
+      sub.addEventListener("change", () => {
+        checkSelect();
+      });
     });
   }
 
