@@ -34,7 +34,6 @@ const DEST_PATH = {
     LIB: "./dist/assets/lib",
   },
 };
-
 gulp.task("library", () => {
   return gulp.src(PATH.ASSETS.LIB + "/**/*.*").pipe(gulp.dest(DEST_PATH.ASSETS.LIB));
 });
@@ -48,14 +47,14 @@ gulp.task("images", () => {
     .src(PATH.ASSETS.IMAGES + "/**/*.*")
     .pipe(imagemin())
     .pipe(gulp.dest(DEST_PATH.ASSETS.IMAGES))
-    .pipe(browserSync.reload({ stream: true }));
+    .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task("favicon", () => {
   return gulp
     .src("src/assets/favicon" + "/**/*.*")
     .pipe(gulp.dest("dist/assets/favicon"))
-    .pipe(browserSync.reload({ stream: true }));
+    .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task("scss", () => {
@@ -70,12 +69,12 @@ gulp.task("scss", () => {
   return gulp
     .src(["src/assets/scss/common.scss", "src/assets/scss/style.scss", "src/assets/scss/responsive.scss"])
     .pipe(sourcemaps.init())
-    .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
-    .pipe(autoprefixer({ cascade: false }))
+    .pipe(sass({outputStyle: "compressed"}).on("error", sass.logError))
+    .pipe(autoprefixer({cascade: false}))
     .pipe(concat("main.css"))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(DEST_PATH.ASSETS.STYLE))
-    .pipe(browserSync.reload({ stream: true }));
+    .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task("script", () => {
@@ -95,7 +94,7 @@ gulp.task("script", () => {
       //     })
       // )
       .pipe(gulp.dest(DEST_PATH.ASSETS.SCRIPT))
-      .pipe(browserSync.reload({ stream: true }))
+      .pipe(browserSync.reload({stream: true}))
   );
 });
 
@@ -105,17 +104,17 @@ gulp.task("html", () => {
     .pipe(
       nunjucks({
         path: ["./src/templates"],
-      })
+      }),
     )
     .pipe(gulp.dest(DEST_PATH.HTML))
-    .pipe(browserSync.reload({ stream: true }));
+    .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task("clean", () => {
   return del(DEST_PATH.HTML);
 });
 
-gulp.task("nodemon", (cb) => {
+gulp.task("nodemon", cb => {
   let started = false;
   return nodemon({
     script: "server.js",
@@ -134,7 +133,7 @@ gulp.task(
       proxy: "http://localhost:8005",
       port: 8006,
     });
-  })
+  }),
 );
 
 gulp.task("watch", () => {

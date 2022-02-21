@@ -1,218 +1,308 @@
+<!-- @format -->
+
 {% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('keyword')}}
 <script>
   am5.ready(function () {
-    var root = am5.Root.new("keywordChart");
+    var root = am5.Root.new("searchChart");
     root.setThemes([am5themes_Animated.new(root)]);
 
-    var chart = root.container.children.push(am5xy.XYChart.new(root, { layout: root.verticalLayout }));
+    var chart = root.container.children.push(
+      am5percent.PieChart.new(root, {
+        innerRadius: am5.percent(50),
+        layout: root.horizontalLayout,
+      })
+    );
+
+    var series = chart.series.push(
+      am5percent.PieSeries.new(root, {
+        valueField: "value",
+        categoryField: "category",
+      })
+    );
+
+    series.states.create("hidden", {
+      endAngle: -90,
+    });
+
+    series.data.setAll([
+      {
+        category: "40위 안",
+        value: 5,
+      },
+      {
+        category: "41~400위",
+        value: 5,
+      },
+      {
+        category: "400위 밖",
+        value: 6,
+      },
+    ]);
+    var legend = chart.children.push(
+      am5.Legend.new(root, {
+        centerY: am5.percent(50),
+        y: am5.percent(50),
+        marginTop: 15,
+        marginBottom: 15,
+        layout: root.verticalLayout,
+      })
+    );
+
+    legend.data.setAll(series.dataItems);
+
+    series.appear(1000, 100);
+  });
+</script>
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("contentsChart");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(
+      am5percent.PieChart.new(root, {
+        innerRadius: am5.percent(50),
+        layout: root.horizontalLayout,
+      })
+    );
+
+    var series = chart.series.push(
+      am5percent.PieSeries.new(root, {
+        valueField: "value",
+        categoryField: "category",
+      })
+    );
+
+    series.states.create("hidden", {
+      endAngle: -90,
+    });
+
+    series.data.setAll([
+      {
+        category: "40위 안",
+        value: 5,
+      },
+      {
+        category: "41~400위",
+        value: 5,
+      },
+      {
+        category: "400위 밖",
+        value: 6,
+      },
+    ]);
+    var legend = chart.children.push(
+      am5.Legend.new(root, {
+        centerY: am5.percent(50),
+        y: am5.percent(50),
+        marginTop: 15,
+        marginBottom: 15,
+        layout: root.verticalLayout,
+      })
+    );
+
+    legend.data.setAll(series.dataItems);
+
+    series.appear(1000, 100);
+  });
+</script>
+<!-- 키워드 트렌드 차트 -->
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("keywordTrendChart");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(am5xy.XYChart.new(root, {}));
+
+    var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
+    cursor.lineY.set("visible", false);
 
     // Generate random data
     var date = new Date();
     date.setHours(0, 0, 0, 0);
     var value = 100;
+    var previousValue = value;
+    var downColor = root.interfaceColors.get("negative");
+    var upColor = root.interfaceColors.get("positive");
+    var color;
+    var previousColor;
+    var previousDataObj;
 
-    var data = [
-      {
-        date: new Date(2021, 2, 1).getTime(),
-        singleOrigin: 1,
-        coffeeBean: 5,
-        starbucks: 3,
-        kenyaAA: 24
-      },
-      {
-        date: new Date(2021, 2, 2).getTime(),
-        singleOrigin: 1,
-        coffeeBean: 2,
-        starbucks: 6,
-        kenyaAA: 25
-      },
-      {
-        date: new Date(2021, 2, 3).getTime(),
-        singleOrigin: 2,
-        coffeeBean: 3,
-        starbucks: 1,
-        kenyaAA: 28
-      },
-      {
-        date: new Date(2021, 2, 4).getTime(),
-        singleOrigin: 3,
-        coffeeBean: 4,
-        starbucks: 1,
-        kenyaAA: 26
-      },
-      {
-        date: new Date(2021, 2, 5).getTime(),
-        singleOrigin: 5,
-        coffeeBean: 1,
-        starbucks: 2,
-        kenyaAA: 420
-      },
-      {
-        date: new Date(2021, 2, 6).getTime(),
-        singleOrigin: 3,
-        coffeeBean: 2,
-        starbucks: 1,
-        kenyaAA: 7
-      },
-      {
-        date: new Date(2021, 2, 7).getTime(),
-        singleOrigin: 1,
-        coffeeBean: 2,
-        starbucks: 3,
-        kenyaAA: 2
-      },
-      {
-        date: new Date(2021, 2, 8).getTime(),
-        singleOrigin: 2,
-        coffeeBean: 1,
-        starbucks: 5,
-        kenyaAA: 9
-      },
-      {
-        date: new Date(2021, 2, 9).getTime(),
-        singleOrigin: 3,
-        coffeeBean: 5,
-        starbucks: 2,
-        kenyaAA: 6
-      },
-    ];
+    function generateData() {
+      value = Math.round(Math.random() * 10 - 5 + value);
+      am5.time.add(date, "day", 1);
 
-    var xRenderer = am5xy.AxisRendererX.new(root, {});
-    xRenderer.grid.template.set("location", 0.5);
-    xRenderer.labels.template.setAll({
-      location: 0.5,
-      multiLocation: 0.5,
-    });
+      if (value >= previousValue) {
+        color = upColor;
+      } else {
+        color = downColor;
+      }
+      previousValue = value;
 
+      var dataObj = { date: date.getTime(), value: value, color: color }; // color will be used for tooltip background
+
+      // only if changed
+      if (color != previousColor) {
+        if (!previousDataObj) {
+          previousDataObj = dataObj;
+        }
+        previousDataObj.strokeSettings = { stroke: color };
+      }
+
+      previousDataObj = dataObj;
+      previousColor = color;
+
+      return dataObj;
+    }
+
+    function generateDatas(count) {
+      var data = [];
+      for (var i = 0; i < count; ++i) {
+        data.push(generateData());
+      }
+      return data;
+    }
+
+    // Create axes
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
     var xAxis = chart.xAxes.push(
       am5xy.DateAxis.new(root, {
         baseInterval: { timeUnit: "day", count: 1 },
-        renderer: xRenderer,
+        renderer: am5xy.AxisRendererX.new(root, {}),
         tooltip: am5.Tooltip.new(root, {}),
       })
     );
-    xAxis.get("dateFormats")["day"] = "yyyy/MM/dd";
-    xAxis.data.setAll(data);
 
     var yAxis = chart.yAxes.push(
       am5xy.ValueAxis.new(root, {
-        min: 1,
-        max: 400,
-        renderer: am5xy.AxisRendererY.new(root, {
-          inversed: true,
-        }),
+        renderer: am5xy.AxisRendererY.new(root, {}),
       })
     );
 
-    function createSeries(name, field) {
-      var series = chart.series.push(
-        am5xy.LineSeries.new(root, {
-          name: name,
-          xAxis: xAxis,
-          yAxis: yAxis,
-          valueYField: field,
-          valueXField: "date",
-          tooltip: am5.Tooltip.new(root, {
-            pointerOrientation: "horizontal",
-            labelText: "[bold]{name} {valueY}[/]위",
-          }),
-        })
-      );
-
-      series.bullets.push(function () {
-        return am5.Bullet.new(root, {
-          sprite: am5.Circle.new(root, {
-            radius: 3,
-            fill: series.get("fill"),
-          }),
-        });
-      });
-
-      // create hover state for series and for mainContainer, so that when series is hovered,
-      // the state would be passed down to the strokes which are in mainContainer.
-      series.set("setStateOnChildren", true);
-      series.states.create("hover", {});
-
-      series.mainContainer.set("setStateOnChildren", true);
-      series.mainContainer.states.create("hover", {});
-
-      series.strokes.template.states.create("hover", {
-        strokeWidth: 4,
-      });
-
-      series.data.setAll(data);
-      series.appear(1000, 100);
-    }
-
-    createSeries("싱글오리진", "singleOrigin");
-    createSeries("커피원두", "coffeeBean");
-    createSeries("스타벅스", "starbucks");
-    createSeries("케냐AA", "kenyaAA");
-
-    var cursor = chart.set(
-      "cursor",
-      am5xy.XYCursor.new(root, {
-        behavior: "none",
-      })
-    );
-    cursor.lineY.set("visible", false);
-
-    var legend = chart.rightAxesContainer.children.push(
-      am5.Legend.new(root, {
-        width: 150,
-        paddingLeft: 15,
-        height: am5.percent(100),
+    // Add series
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+    var series = chart.series.push(
+      am5xy.LineSeries.new(root, {
+        name: "Series",
+        xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: "value",
+        valueXField: "date",
       })
     );
 
-    // When legend item container is hovered, dim all the series except the hovered one
-    legend.itemContainers.template.events.on("pointerover", function (e) {
-      var itemContainer = e.target;
+    series.strokes.template.set("templateField", "strokeSettings");
 
-      // As series list is data of a legend, dataContext is series
-      var series = itemContainer.dataItem.dataContext;
+    var tooltip = series.set(
+      "tooltip",
+      am5.Tooltip.new(root, {
+        labelText: "{valueY}",
+      })
+    );
 
-      chart.series.each(function (chartSeries) {
-        if (chartSeries != series) {
-          chartSeries.strokes.template.setAll({
-            strokeOpacity: 0.15,
-            stroke: am5.color(0x000000),
-          });
-        } else {
-          chartSeries.strokes.template.setAll({
-            strokeWidth: 3,
-          });
-        }
-      });
+    // this is added in ored adapter to be triggered each time position changes
+    tooltip.on("pointTo", function () {
+      var background = tooltip.get("background");
+      background.set("fill", background.get("fill"));
     });
 
-    // When legend item container is unhovered, make all series as they are
-    legend.itemContainers.template.events.on("pointerout", function (e) {
-      var itemContainer = e.target;
-      var series = itemContainer.dataItem.dataContext;
-
-      chart.series.each(function (chartSeries) {
-        chartSeries.strokes.template.setAll({
-          strokeOpacity: 1,
-          strokeWidth: 1,
-          stroke: chartSeries.get("fill"),
-        });
-      });
+    // tooltip bacground takes color from data item
+    tooltip.get("background").adapters.add("fill", function (fill) {
+      if (tooltip.dataItem) {
+        return tooltip.dataItem.dataContext.color;
+      }
+      return fill;
     });
 
-    legend.itemContainers.template.set("width", am5.p100);
-    legend.valueLabels.template.setAll({
-      width: am5.p100,
-      textAlign: "right",
-    });
+    var data = generateDatas(100);
+    series.data.setAll(data);
 
-    legend.data.setAll(chart.series.values);
+    series.appear(1000);
     chart.appear(1000, 100);
   }); // end am5.ready()
 </script>
+<!-- Top 40 카테고리 분석 차트 -->
 <script>
   am5.ready(function () {
-    var root = am5.Root.new("priceChart");
+    var root = am5.Root.new("categoryChart");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(
+      am5percent.PieChart.new(root, {
+        innerRadius: am5.percent(50),
+        layout: root.horizontalLayout,
+      })
+    );
+
+    var series = chart.series.push(
+      am5percent.PieSeries.new(root, {
+        valueField: "value",
+        categoryField: "category",
+      })
+    );
+
+    series.states.create("hidden", {
+      endAngle: -90,
+    });
+
+    series.data.setAll([
+      {
+        category: "식품 〉 음료 〉 커피 〉 원두/생두",
+        value: 24,
+      },
+      {
+        category: "식품 〉 음료 〉 커피 〉 캡슐커피 ",
+        value: 8,
+      },
+      {
+        category: "식품 〉 음료 〉 커피 〉 커피음료",
+        value: 4,
+      },
+      {
+        category: "식품 〉 음료 〉 커피 〉 더치커피",
+        value: 2,
+      },
+      {
+        category: "기타",
+        value: 2,
+      },
+    ]);
+    var legend = chart.children.push(
+      am5.Legend.new(root, {
+        centerY: am5.percent(50),
+        y: am5.percent(50),
+        marginTop: 15,
+        marginBottom: 15,
+        layout: root.verticalLayout,
+      })
+    );
+
+    chart.events.on("datavalidated", function (ev) {
+      var grid = new DataGridXL("chartdata", {
+        data: chart.data
+      });
+
+      grid.events.on("cellvaluechange", function (ev) {
+        for (var r = 0; r < ev.rowIds.length; r++) {
+          var row = chart.data[ev.rowIds[r]];
+          for (var c = 0; c < ev.colIds.length; c++) {
+            var col = grid.getColFromStore(ev.colIds[c]).field;
+            row[col] = ev.changes[r][c];
+          }
+        }
+        chart.invalidateRawData();
+      });
+
+    });
+
+    legend.data.setAll(series.dataItems);
+
+    series.appear(1000, 100);
+  });
+</script>
+<!-- 카테고리 트렌드 차트 -->
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("categoryTrendChart");
     root.setThemes([am5themes_Animated.new(root)]);
 
     var chart = root.container.children.push(am5xy.XYChart.new(root, {}));
@@ -329,7 +419,190 @@
     chart.appear(1000, 100);
   }); // end am5.ready()
 </script>
-<div class="content content-keyword-details">
+<!-- 상품명 분석차트 -->
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("keywordChart");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(
+      am5percent.PieChart.new(root, {
+        innerRadius: am5.percent(50),
+        layout: root.horizontalLayout,
+      })
+    );
+
+    var series = chart.series.push(
+      am5percent.PieSeries.new(root, {
+        valueField: "value",
+        categoryField: "category",
+      })
+    );
+
+    series.states.create("hidden", {
+      endAngle: -90,
+    });
+
+    series.data.setAll([
+      {
+        category: "40위 안",
+        value: 5,
+      },
+      {
+        category: "41~400위",
+        value: 5,
+      },
+      {
+        category: "400위 밖",
+        value: 6,
+      },
+    ]);
+    var legend = chart.children.push(
+      am5.Legend.new(root, {
+        centerY: am5.percent(50),
+        y: am5.percent(50),
+        marginTop: 15,
+        marginBottom: 15,
+        layout: root.verticalLayout,
+      })
+    );
+
+    legend.data.setAll(series.dataItems);
+
+    series.appear(1000, 100);
+  });
+</script>
+<!-- 판매가 분석 -->
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("priceChart");
+    root.setThemes([
+      am5themes_Animated.new(root)
+    ]);
+
+    var chart = root.container.children.push(am5xy.XYChart.new(root, {}));
+
+    var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
+    cursor.lineY.set("visible", false);
+
+    var xRenderer = am5xy.AxisRendererX.new(root, {});
+    xRenderer.labels.template.setAll({
+      location: 0.5,
+      multiLocation: 0.5,
+    });
+
+    var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+      categoryField: "price",
+      renderer: xRenderer,
+      tooltip: am5.Tooltip.new(root, {})
+    }));
+
+    var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+      renderer: am5xy.AxisRendererY.new(root, {})
+    }));
+
+    var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+      name: "판매가 분석",
+      xAxis: xAxis,
+      yAxis: yAxis,
+      valueYField: "value",
+      sequencedInterpolation: true,
+      categoryXField: "price",
+      tooltip: am5.Tooltip.new(root, {
+        labelText: "{valueY}"
+      })
+    }));
+
+    series.columns.template.setAll({ cornerRadiusTL: 5, cornerRadiusTR: 5 });
+    series.columns.template.adapters.add("fill", (fill, target) => {
+      return chart.get("colors").getIndex(series.columns.indexOf(target));
+    });
+
+    series.columns.template.adapters.add("stroke", (stroke, target) => {
+      return chart.get("colors").getIndex(series.columns.indexOf(target));
+    });
+
+
+    // Set data
+    var data = [{
+      price: "750원~9,050원",
+      value: 11
+    }, {
+      price: "9,051원~17,350원",
+      value: 15
+    }, {
+      price: "17,351원~25,650원",
+      value: 9
+    }, {
+      price: "25,651원~",
+      value: 5
+    }];
+
+    xAxis.data.setAll(data);
+    series.data.setAll(data);
+
+
+    // Make stuff animate on load
+    // https://www.amcharts.com/docs/v5/concepts/animations/
+    series.appear(1000);
+    chart.appear(1000, 100);
+
+  }); // end am5.ready()
+</script>
+<!-- Top 40 브랜드 분석 -->
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("brandChart");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(
+      am5percent.PieChart.new(root, {
+        innerRadius: am5.percent(50),
+        layout: root.horizontalLayout,
+      })
+    );
+
+    var series = chart.series.push(
+      am5percent.PieSeries.new(root, {
+        valueField: "value",
+        categoryField: "category",
+      })
+    );
+
+    series.states.create("hidden", {
+      endAngle: -90,
+    });
+
+    series.data.setAll([
+      {
+        category: "40위 안",
+        value: 5,
+      },
+      {
+        category: "41~400위",
+        value: 5,
+      },
+      {
+        category: "400위 밖",
+        value: 6,
+      },
+    ]);
+    var legend = chart.children.push(
+      am5.Legend.new(root, {
+        centerY: am5.percent(50),
+        y: am5.percent(50),
+        marginTop: 15,
+        marginBottom: 15,
+        layout: root.verticalLayout,
+      })
+    );
+
+    legend.data.setAll(series.dataItems);
+
+    series.appear(1000, 100);
+  });
+</script>
+<div class="content content-keyword-trend-details">
   <header class="main-header">
     <section class="title">
       <h1>
@@ -341,67 +614,799 @@
         <div class="image">
           <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
         </div>
-        <div>
-          <div class="title">
-            <span class="ico-star"></span>
-            <span>커피원두</span>
-          </div>
-          <div class="list">
-            <ul class="row title">
-              <li>월간 검색</li>
-              <li>등록 상품</li>
-              <li>컨텐츠</li>
-            </ul>
-            <ul class="row">
-               <li>38,790건</li>
-               <li>858,518개</li>
-               <li>10,000건</li>
-            </ul>
-          </div>
+        <div class="name">
+          <span class="ico-star toggle"></span>
+          <span>커피원두</span>
         </div>
+        <ul class="details">
+          <li class="row">
+            <div>월간 검색</div>
+            <div>38,790건</div>
+            <ul>
+              <li class="row">
+                <div>PC</div>
+                <div>8,190건</div>
+              </li>
+              <li class="row">
+                <div>모바일</div>
+                <div>30,600건</div>
+              </li>
+            </ul>
+          </li>
+          <li class="row">
+            <div>등록 상품</div>
+            <div>858,518개</div>
+          </li>
+          <li class="row">
+            <div>컨텐츠</div>
+            <div>10,000건</div>
+          </li>
+        </ul>
+      </div>
+      <div class="related">
+        <h5>연관키워드</h5>
+        <ul>
+          <li class="keyword">커피원두</li>
+          <li class="keyword">원두커피</li>
+          <li class="keyword">커피머신</li>
+          <li class="keyword">원두</li>
+          <li class="keyword">커피종류</li>
+          <li class="keyword">커피자판기무상임대</li>
+          <li class="keyword">커피자판기</li>
+
+        </ul>
       </div>
     </section>
   </header>
   <div class="wrapper">
     <ul class="tabs">
-      <li class="tab">키워드</li>
-      <li class="tab">상품목록</li>
-      <li class="tab">상위 상품 분석</li>
-      <li class="tab">연관 키워드</li>
+      <li data-tab="sub-menu">키워드</li>
+      <li data-tab="sub-menu">상품목록</li>
+      <li data-tab="sub-menu">상위 상품 분석</li>
+      <li data-tab="sub-menu">연관 키워드</li>
     </ul>
-    <section>
-      <div class="section-header">
-        <h3>검색</h3>
-      </div>
-      <div class="chart-container">
-        <div class="pc">
-          <h5>PC 검색</h5>
-          <ul>
+    <div class="tab-content content-keyword" data-tab="sub-menu">
+      <section class="section-chart" title="검색">
+        <header class="section-header">
+          <h3>검색</h3>
+        </header>
+        <div>
+          <div class="summary">
+            <h5>PC 검색</h5>
+            <ul>
+              <li>
+                <div>월간 검색수</div>
+                <strong>8,190</strong>
+              </li>
+              <li>
+                <div>월 평균 클릭수</div>
+                <strong>64.2</strong>
+              </li>
+              <li>
+                <div>월 평균 클릭율</div>
+                <strong>0.76%</strong>
+              </li>
+              <li>
+                <div>경쟁정도</div>
+                <strong>높음</strong>
+              </li>
+              <li>
+                <div>월 평균 광고노출</div>
+                <strong>15</strong>
+              </li>
+            </ul>
+          </div>
+          <div class="summary">
+            <h5>모바일 검색</h5>
+            <ul>
+              <li>
+                <div>월간 검색수</div>
+                <strong>30,600</strong>
+              </li>
+              <li>
+                <div>월 평균 클릭수</div>
+                <strong>426.8</strong>
+              </li>
+              <li>
+                <div>월 평균 클릭율</div>
+                <strong>1.51%</strong>
+              </li>
+            </ul>
+          </div>
+          <div id="searchChart" class="chart"></div>
+        </div>
+      </section>
+      <section title="상품">
+        <header class="section-header">
+          <h3>상품</h3>
+        </header>
+        <div class="list no-scroll">
+          <ul class="row title">
+            <li>총 등록 상품수</li>
             <li>
-              <div>월간 검색수</div>
-              <div>8,190</div>
+              상품경쟁률
+              <div class="tooltip">
+                <div class="tooltip-content">
+                  <dl>
+                    <dd>상품수 ÷ 월간 검색량 입니다.</dd>
+                    <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                  </dl>
+                </div>
+              </div>
             </li>
-            <li>
-              <div>월 평균 클릭수</div>
-              <div>64.2</div>
-            </li>
-            <li>
-              <div>월 평균 클릭율</div>
-              <div>0.76%</div>
-            </li>
-            <li>
-              <div>경쟁정도</div>
-              <div>높음</div>
-            </li>
-            <li>
-              <div>월 평균 광고노출</div>
-              <div>15</div>
-            </li>
+            <li>1페이지 최다 키워드</li>
+            <li>1페이지 평균가격</li>
+            <li>1페이지 가격비교상품</li>
+          </ul>
+          <ul class="row">
+            <li>858,818</li>
+            <li>22.14:1</li>
+            <li>원두</li>
+            <li>9,910</li>
+            <li>12.50%</li>
           </ul>
         </div>
-        <div class="chart"></div>
-      </div>
-    </section>
+      </section>
+      <section class="section-chart" title="컨텐츠">
+        <header class="section-header">
+          <h3>컨텐츠</h3>
+        </header>
+        <div>
+          <div class="summary">
+            <ul>
+              <li>
+                <div>블로그</div>
+                <strong>3,500</strong>
+              </li>
+              <li>
+                <div>카페</div>
+                <strong>4,000</strong>
+              </li>
+              <li>
+                <div>뉴스</div>
+                <strong>2,500</strong>
+              </li>
+            </ul>
+          </div>
+          <div class="summary">
+            <ul>
+              <li>
+                <div>
+                  블로그경쟁률
+                  <div class="tooltip">
+                    <div class="tooltip-content">
+                      <dl>
+                        <dd>네이버 블로그 콘텐츠량 ÷ 월간 검색량 입니다.</dd>
+                        <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+                <strong>0.09:1</strong>
+              </li>
+              <li>
+                <div>
+                  카페경쟁률
+                  <div class="tooltip">
+                    <div class="tooltip-content">
+                      <dl>
+                        <dd>네이버 카페 콘텐츠량 ÷ 월간 검색량 입니다.</dd>
+                        <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+                <strong>0.1:1</strong>
+              </li>
+              <li>
+                <div>
+                  뉴스경쟁률
+                  <div class="tooltip">
+                    <div class="tooltip-content">
+                      <dl>
+                        <dd>뉴스 콘텐츠량 ÷ 월간 검색량 입니다.</dd>
+                        <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+                <strong>0.06:1</strong>
+              </li>
+            </ul>
+          </div>
+          <div id="contentsChart" class="chart"></div>
+        </div>
+      </section>
+      <section title="키워드 트렌드">
+        <header class="section-header multi-line">
+          <div class="title">
+            <h3>
+              <span>키워드 트렌드</span>
+              <div class="tooltip">
+                <article class="tooltip-content">
+                  <ul>
+                    <li>원하는 기간의 키워드 트렌드를 한눈에 확인할 수 있습니다.</li>
+                    <li>기간은 2017년 8월부터 조회 가능합니다.</li>
+                    <li>트렌드는 조회하신 기간 중 검색 횟수가 가장 높은 시점을 100으로 둔 상대적 값으로 표현됩니다.</li>
+                    <li>
+                      그래프 상에서 조회할 기간을 드래그하면 현재 상위 노출되는 콘텐츠 중 해당 기간 동안 작성된 내용을
+                      확인하실 수 있습니다.
+                    </li>
+                    <li>콘텐츠 기간 조회는 네이버 블로그와 뉴스만 가능합니다.</li>
+                  </ul>
+                </article>
+              </div>
+            </h3>
+            <div class="buttons">
+              <button class="ico-download" type="button">엑셀다운</button>
+            </div>
+          </div>
+          <div class="filters">
+            <div>
+              <div class="selector">
+                <input type="radio" id="select-1week" name="keyword-chart" checked />
+                <label for="select-1week">1주</label>
+                <input type="radio" id="select-1month" name="keyword-chart" />
+                <label for="select-1month">1개월</label>
+                <input type="radio" id="select-6months" name="keyword-chart" />
+                <label for="select-6months">6개월</label>
+                <input type="radio" id="select-1year" name="keyword-chart" />
+                <label for="select-1year">1년</label>
+              </div>
+              <div class="calendar">
+                <input type="text" id="lowestPriceChartFrom" name="" />
+                <span>~</span>
+                <input type="text" id="lowestPriceChartTo" name="" />
+              </div>
+              <button class="btn-sub ico-search" type="button"></button>
+            </div>
+          </div>
+        </header>
+        <div class="chart-container" data-empty="데이터 갱신 전입니다.">
+          <div id="keywordTrendChart" class="chart"></div>
+        </div>
+      </section>
+      <section>
+        <header class="section-header">
+          <ul class="tabs">
+            <li class="is-active" data-tab="article">네이버 블로그</li>
+            <li data-tab="article">네이버 카페</li>
+            <li data-tab="article">뉴스</li>
+          </ul>
+          <div class="filters">
+            <div class="calendar">
+              <input type="text" id="lowestPriceChartFrom" name="" />
+              <span>~</span>
+              <input type="text" id="lowestPriceChartTo" name="" />
+            </div>
+            <button class="btn-main" type="button">조회</button>
+          </div>
+        </header>
+        <div class="tab-content list list-article is-active" data-tab="article">
+          <div class="title">
+            <strong>네이버 블로그</strong>
+            <span>총 3,123건</span>
+          </div>
+          <article>
+            <div class="article-title">가정용 원두커피머신 간편한 오스너 예가클래식</div>
+            <div class="article-content">
+              가정용 원두커피머신 장만을 하게 되었어요. 바리스타 자격증이 있는 친구에게... 1.물탱크에 물을 넣어줌
+              2.그라인더를 이용하여 커피 원
+            </div>
+            <ul class="created">
+              <li>어린왕자의 지구별이야기~!!</li>
+              <li>작성일 2022-01-16</li>
+            </ul>
+          </article>
+          <article>
+            <div class="article-title">디카페인 커피 : 향긋하고 산미있는 원두 #브라운체리 콜롬비아</div>
+            <div class="article-content">
+              9%제거 임산부 커피 원두 200g 서대문구 남가좌동에 쇼룸이 있는 '브라운체리'는... #산미있는원두 #디카페인커피
+              페루 디카페인 Peru
+            </div>
+            <ul class="created">
+              <li>Enviable, 일상을 예술로!</li>
+              <li>작성일 2022-01-02</li>
+            </ul>
+          </article>
+          <article>
+            <div class="article-title">홈카페 원두 추천 송천커피상회</div>
+            <div class="article-content">
+              에스프레소 원두는 송천커피상회 스페셜티 종류 중 하나인데 두 가지 모두 산미가... 올라오는 커피 원두 냄새
+              그래 이거지! 하면서 바로...
+            </div>
+            <ul class="created">
+              <li>알라미의 블로그</li>
+              <li>작성일 2021-12-30</li>
+            </ul>
+          </article>
+        </div>
+        <div class="tab-content list list-article" data-tab="article">
+          <div class="title">
+            <strong>네이버 카페</strong>
+            <span>총 3,123건</span>
+          </div>
+          <article>
+            <div class="article-title">디카페인 커피 : 향긋하고 산미있는 원두 #브라운체리 콜롬비아</div>
+            <div class="article-content">
+              9%제거 임산부 커피 원두 200g 서대문구 남가좌동에 쇼룸이 있는 '브라운체리'는... #산미있는원두 #디카페인커피
+              페루 디카페인 Peru
+            </div>
+            <ul class="created">
+              <li>Enviable, 일상을 예술로!</li>
+              <li>작성일 2022-01-02</li>
+            </ul>
+          </article>
+        </div>
+        <div class="tab-content list list-article" data-tab="article">
+          <div class="title">
+            <strong>네이버 뉴스</strong>
+            <span>총 3,123건</span>
+          </div>
+          <article>
+            <div class="article-title">홈카페 원두 추천 송천커피상회</div>
+            <div class="article-content">
+              에스프레소 원두는 송천커피상회 스페셜티 종류 중 하나인데 두 가지 모두 산미가... 올라오는 커피 원두 냄새
+              그래 이거지! 하면서 바로...
+            </div>
+            <ul class="created">
+              <li>알라미의 블로그</li>
+              <li>작성일 2021-12-30</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </div>
+    <div class="tab-content content-items" data-tab="sub-menu">
+      <section>
+        <header class="section-header multi-line">
+          <div class="title">
+            <h3>
+              <span>Top 40</span>
+              <div class="tooltip">
+                <div class="tooltip-content">
+                  <dl>
+                    <dd>네이버 쇼핑 키워드 검색 시 노출되는 상위 40개의 상품 정보를 제공합니다.</dd>
+                    <dd>광고 상품은 목록에서 제외됩니다.</dd>
+                    <dd>필터를 통해 조건에 맞는 상품 조회가 가능합니다.</dd>
+                  </dl>
+                </div>
+              </div>
+            </h3>
+          </div>
+          <div class="filters">
+            <div class="total">총 40개</div>
+            <div>
+              <div class="selector">
+                <input type="radio" id="select-keyword" name="filter-top40-1" checked="">
+                <label for="select-keyword">키워드</label>
+                <input type="radio" id="select-category" name="filter-top40-1">
+                <label for="select-category">카테고리</label>
+                <input type="radio" id="select-strore" name="filter-top40-1">
+                <label for="select-strore">스토어명</label>
+                <input type="radio" id="select-price" name="filter-top40-1">
+                <label for="select-price">판매가</label>
+                <input type="radio" id="select-brand" name="filter-top40-1">
+                <label for="select-brand">브랜드</label>
+                <input type="radio" id="select-made-by" name="filter-top40-1">
+                <label for="select-made-by">제조사</label>
+              </div>
+              <div class="selector">
+                <input type="radio" id="select-include" name="filter-top40-type" checked="">
+                <label for="select-include">포함</label>
+                <input type="radio" id="select-match" name="filter-top40-type">
+                <label for="select-match">일치</label>
+                <input type="radio" id="select-except" name="filter-top40-type">
+                <label for="select-except">제외</label>
+              </div>
+              <div class="search">
+                <input type="search">
+                <button class="btn-sub ico-search" type="button"></button>
+              </div>
+              <div class="layout buttons">
+                <button class="ico-list type-list is-active" type="button"></button>
+                <button class="ico-grid type-grid" type="button"></button>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="list list-item type-list">
+          <ul class="row title">
+            <li class="col-ranking ico-sort">순위</li>
+            <li class="col-image">이미지</li>
+            <li class="col-title ico-sort">상품명</li>
+            <li class="ico-sort">카테고리</li>
+            <li class="ico-sort">스토어명</li>
+            <li class="ico-sort">판매가</li>
+            <li class="ico-sort">브랜드</li>
+            <li class="ico-sort">제조사</li>
+          </ul>
+          <ul class="row">
+            <li class="col-ranking">1</li>
+            <li class="col-image">
+              <div class="image">
+                <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
+              </div>
+            </li>
+            <li class="col-title">
+              <div class="title">
+                1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도 디카페인 드립
+                에스프레소 분쇄 당일 로스팅 갓볶은 맛있는 고소한 원두 커피 홀빈 가루
+              </div>
+            </li>
+            <li class="">
+              <div class="categories">
+                <span>식품</span>
+                <span>음료</span>
+                <span>커피</span>
+                <span>원두/생두</span>
+              </div>
+            </li>
+            <li class="store">
+              <span class="ico-store"></span>
+              커피창고
+            </li>
+            <li>
+              9,900원
+            </li>
+            <li>커피창고</li>
+            <li>주식회사 커피창고</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <div class="tab-content content-analysis" data-tab="sub-menu">
+      <section>
+        <header class="section-header">
+          <h3>
+            Top 40 카테고리 분석
+            <div class="tooltip">
+              <div class="tooltip-content"></div>
+            </div>
+          </h3>
+        </header>
+        <div class="chart-container">
+          <div class="chart" id="categoryChart"></div>
+        </div>
+      </section>
+      <section>
+        <header class="section-header">
+          <h3>
+            쇼핑 카테고리 트렌드 차트
+            <div class="tooltip">
+              <div class="tooltip-content"></div>
+            </div>
+          </h3>
+        </header>
+        <div class="chart-container">
+          <div class="chart" id="categoryTrendChart"></div>
+        </div>
+      </section>
+      <section>
+        <header class="section-header">
+          <h3>
+            Top 40 상품명 분석
+            <div class="tooltip">
+              <div class="tooltip-content">
+                <dl>
+                  <dd>
+                    네이버 쇼핑 키워드 검색 시 노출되는 상위 40개 상품의 상품명 분석 결과를 제공합니다.
+                  </dd>
+                  <dd>광고 상품은 제외됩니다.</dd>
+                  <dd>띄어쓰기를 기준으로 분석합니다.
+                    <dl>
+                      <dd>
+                        예시: 스타벅스 디카페인 커피원두
+                        → 스타벅스 / 디카페인 / 커피원두
+                      </dd>
+                    </dl>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </h3>
+        </header>
+        <div class="chart-container">
+          <div class="chart" id="keywordChart"></div>
+        </div>
+      </section>
+      <section class="section-price-analysis">
+        <header class="section-header">
+          <h3>
+            Top 40 판매가 분석
+            <div class="tooltip">
+              <div class="tooltip-content">
+                <dl>
+                  <dd>네이버 쇼핑 키워드 검색 시 노출되는 상위 40개 상품의 판매가 분석 결과를 제공합니다.</dd>
+                  <dd>광고 상품은 제외됩니다.</dd>
+                  <dd>일반상품은 판매가, 가격비교상품은 최저가를 기준으로 분석합니다.</dd>
+                  <dd>원하는 구간의 그래프를 더블 클릭하시면 해당 구간의 상품목록을 확인하실 수 있습니다.</dd>
+                </dl>
+              </div>
+            </div>
+          </h3>
+        </header>
+        <div>
+          <div class="summary">
+            <ul>
+              <li>
+                <div>평균 판매가</div>
+                <strong>9,910원</strong>
+              </li>
+              <li>
+                <div>최저가</div>
+                <strong>750원</strong>
+              </li>
+              <li>
+                <div>최고가</div>
+                <strong>32,000원</strong>
+              </li>
+              <li>
+                <div>주요 가격대</div>
+                <strong>9,051~17,350원</strong>
+              </li>
+              <li>
+                <div>가격비교상품</div>
+                <strong>7건 (17.50%)</strong>
+              </li>
+            </ul>
+          </div>
+          <div class="chart-container">
+            <div class="chart" id="priceChart"></div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <header class="section-header">
+          <h3>
+            Top 40 브랜드 분석
+            <div class="tooltip">
+              <div class="tooltip-content"></div>
+            </div>
+          </h3>
+        </header>
+        <div class="chart-container">
+          <div class="chart" id="brandChart"></div>
+        </div>
+      </section>
+    </div>
+    <div class="tab-content content-related-keyword" data-tab="sub-menu">
+      <section>
+        <header class="section-header multi-line">
+          <div class="title">
+            <h3>
+              연관 키워드
+              <div class="tooltip">
+                <div class="tooltip-content"></div>
+              </div>
+            </h3>
+            <div class="buttons">
+              <button class="ico-download">엑셀다운</button>
+            </div>
+          </div>
+          <div class="filters">
+            <div>
+              <div class="selector main">
+                <input type="radio" id="select-keyword" class="select-keyword" name="filter-related" checked="checked">
+                <label for="select-keyword">키워드</label>
+                <input type="radio" id="select-monthly-search" name="filter-related">
+                <label for="select-monthly-search">월간검색수</label>
+                <input type="radio" id="select-monthly-click" name="filter-related">
+                <label for="select-monthly-click">월평균클릭수</label>
+                <input type="radio" id="select-monthly-click-2" name="filter-related">
+                <label for="select-monthly-click-2">월평균클릭율</label>
+              </div>
+              <div class="selector selector-keyword sub">
+                <input type="radio" id="select-include-2" name="filter-related-type" checked="">
+                <label for="select-include-2">포함</label>
+                <input type="radio" id="select-match-2" name="filter-related-type">
+                <label for="select-match-2">일치</label>
+                <input type="radio" id="select-except-2" name="filter-related-type">
+                <label for="select-except-2">제외</label>
+              </div>
+              <div class="selector selector-count sub">
+                <input type="radio" id="select-pc" name="filter-device" checked="">
+                <label for="select-pc">PC</label>
+                <input type="radio" id="select-monthly-mobile" name="filter-device">
+                <label for="select-monthly-mobile">모바일</label>
+              </div>
+              <div class="selector selector-count sub">
+                <input type="radio" id="select-less-than" name="filter-related-operaters" checked="">
+                <label for="select-less-than">&lt;</label>
+                <input type="radio" id="select-greater-than" name="filter-related-operaters">
+                <label for="select-greater-than">&gt;</label>
+                <input type="radio" id="select-less-equal" name="filter-related-operaters">
+                <label for="select-less-equal">&lt;=</label>
+                <input type="radio" id="select-greater-equal" name="filter-related-operaters">
+                <label for="select-greater-equal">&gt;=</label>
+                <input type="radio" id="select-equal" name="filter-related-operaters">
+                <label for="select-equal">=</label>
+              </div>
+            </div>
+            <div class="search">
+              <input type="search">
+              <button class="btn-sub ico-search" type="button"></button>
+            </div>
+          </div>
+          <div class="filters">
+            <div class="total">총 652개</div>
+            <div class="selected-filters">
+              <ul>
+                <li>
+                  <div>월간검색수</div>
+                  <div>pc</div>
+                  <div>포함</div>
+                  <div class="x close"></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </header>
+        <div class="list">
+          <ul class="row title">
+            <li>NO</li>
+            <li class="ico-sort">연관 키워드</li>
+            <li>
+              월간 검색수
+              <div class="tooltip">
+                <div class="tooltip-content">
+                  최근 한 달간 네이버를 이용한 사용자가 PC 및 모바일에서 해당 키워드를 검색한 횟수입니다.
+                </div>
+              </div>
+            </li>
+            <li>
+              월 평균 클릭수
+              <div class="tooltip">
+                <div class="tooltip-content">
+                  최근 한 달간 사용자가 해당 키워드를 검색했을 때, 통합검색 영역에 노출된 광고가 받은 평균 클릭수 입니다.
+                </div>
+              </div>
+            </li>
+            <li>
+              월 평균 클릭률
+              <div class="tooltip">
+                <div class="tooltip-content">
+                  <p>최근 한 달간 해당 키워드로 통합검색 영역에 노출된 광고가 받은 평균 클릭률을 의미합니다.
+                  </p>
+                  <p>예: 광고노출수가 1,000회이고, 노출된 광고를 클릭한 횟수가 5회라면, 클릭률은 0.5% 입니다.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              경쟁정도
+              <div class="tooltip">
+                <div class="tooltip-content">
+                  최근 한 달간 해당 키워드에 대한 경쟁정도를 PC통합검색영역 기준으로 구분한 지표입니다. 다수의 광고주가 추가한 광고일수록 경쟁정도가 높을 수 있습니다.
+                </div>
+              </div>
+            </li>
+            <li>
+              월 평균 노출 광고수
+              <div class="tooltip">
+                <div class="tooltip-content">
+                  최근 한 달간 사용자가 해당 키워드를 검색했을 때, PC통합검색 영역에 노출된 평균 광고 개수입니다. 키워드의 경쟁정도를 가늠해볼 수 있습니다.
+                </div>
+              </div>
+            </li>
+            <li class="ico-sort">PC</li>
+            <li class="ico-sort">모바일</li>
+            <li class="ico-sort">총</li>
+            <li class="ico-sort">PC</li>
+            <li class="ico-sort">모바일</li>
+            <li class="ico-sort">PC</li>
+            <li class="ico-sort">모바일</li>
+            <li class="ico-sort">PC</li>
+            <li class="ico-sort">PC</li>
+          </ul>
+          <ul class="row">
+            <li>1</li>
+            <li>
+              <div class="keyword">커피원두</div>
+            </li>
+            <li>8,100</li>
+            <li>28,200</li>
+            <li>36,300</li>
+            <li>68.4</li>
+            <li>474.9</li>
+            <li>0.95%</li>
+            <li>1.86%</li>
+            <li>높음</li>
+            <li>15</li>
+          </ul>
+          <ul class="row">
+            <li>2</li>
+            <li>
+              <div class="keyword">원두커피</div>
+            </li>
+            <li>7,000</li>
+            <li>20,100</li>
+            <li>27,100</li>
+            <li>52.6</li>
+            <li>263.2</li>
+            <li>0.83%</li>
+            <li>1.42%</li>
+            <li>높음</li>
+            <li>15</li>
+          </ul>
+          <ul class="row">
+            <li>3</li>
+            <li>
+              <div class="keyword">커피머신</div>
+            </li>
+            <li>33,100</li>
+            <li>184,500</li>
+            <li>217,600</li>
+            <li>191.8</li>
+            <li>2682.1</li>
+            <li>0.64%</li>
+            <li>1.57%</li>
+            <li>높음</li>
+            <li>15</li>
+          </ul>
+          <ul class="row">
+            <li>4</li>
+            <li>
+              <div class="keyword">원두</div>
+            </li>
+            <li>7,170</li>
+            <li>30,400</li>
+            <li>37,570</li>
+            <li>59.1</li>
+            <li>492.3</li>
+            <li>0.91%</li>
+            <li>1.77%</li>
+            <li>높음</li>
+            <li>15</li>
+          </ul>
+          <ul class="row">
+            <li>5</li>
+            <li>
+              <div class="keyword">커피종류</div>
+            </li>
+            <li>2,150</li>
+            <li>16,300</li>
+            <li>18,450</li>
+            <li>12.1</li>
+            <li>193</li>
+            <li>0.61%</li>
+            <li>1.27%</li>
+            <li>높음</li>
+            <li>15</li>
+          </ul>
+          <ul class="row">
+            <li>6</li>
+            <li>
+              <div class="keyword">커피자판기무상임대</div>
+            </li>
+            <li>140</li>
+            <li>640</li>
+            <li>780</li>
+            <li>4.4</li>
+            <li>42</li>
+            <li>3.55%</li>
+            <li>7.11%</li>
+            <li>높음</li>
+            <li>15</li>
+          </ul>
+          <ul class="row">
+            <li>7</li>
+            <li>
+              <div class="keyword">커피자판기</div>
+            </li>
+            <li>1,840</li>
+            <li>6,250</li>
+            <li>8,090</li>
+            <li>29.9</li>
+            <li>196</li>
+            <li>1.79%</li>
+            <li>3.4%</li>
+            <li>높음</li>
+            <li>15</li>
+          </ul>
+        </div>
+      </section>
+    </div>
   </div>
 </div>
 {% endblock %}
