@@ -2,82 +2,12 @@
 <script>
   $(function () {
     var dateFormat = "yy-mm-dd",
-      from = $("#lowestPriceChartFrom")
+      from = $("#lowestPriceChartFrom, #dailyLowestPriceChartFrom")
         .datepicker()
         .on("change", function () {
           to.datepicker("option", "minDate", getDate(this));
         }),
-      to = $("#lowestPriceChartTo")
-        .datepicker()
-        .on("change", function () {
-          from.datepicker("option", "maxDate", getDate(this));
-        });
-
-    function getDate(element) {
-      var date;
-      try {
-        date = $.datepicker.parseDate(dateFormat, element.value);
-      } catch (error) {
-        date = null;
-      }
-
-      return date;
-    }
-    var dateFormat = "yy-mm-dd",
-      from = $("#priceChartFrom")
-        .datepicker()
-        .on("change", function () {
-          to.datepicker("option", "minDate", getDate(this));
-        }),
-      to = $("#priceChartTo")
-        .datepicker()
-        .on("change", function () {
-          from.datepicker("option", "maxDate", getDate(this));
-        });
-
-    function getDate(element) {
-      var date;
-      try {
-        date = $.datepicker.parseDate(dateFormat, element.value);
-      } catch (error) {
-        date = null;
-      }
-
-      return date;
-    }
-  });
-</script>
-<script>
-  $(function () {
-    var dateFormat = "yy-mm-dd",
-      from = $("#dailyLowestPriceChartFrom")
-        .datepicker()
-        .on("change", function () {
-          to.datepicker("option", "minDate", getDate(this));
-        }),
-      to = $("#dailyLowestPriceChartTo")
-        .datepicker()
-        .on("change", function () {
-          from.datepicker("option", "maxDate", getDate(this));
-        });
-
-    function getDate(element) {
-      var date;
-      try {
-        date = $.datepicker.parseDate(dateFormat, element.value);
-      } catch (error) {
-        date = null;
-      }
-
-      return date;
-    }
-    var dateFormat = "yy-mm-dd",
-      from = $("#priceChartFrom")
-        .datepicker()
-        .on("change", function () {
-          to.datepicker("option", "minDate", getDate(this));
-        }),
-      to = $("#priceChartTo")
+      to = $("#lowestPriceChartTo, #dailyLowestPriceChartTo")
         .datepicker()
         .on("change", function () {
           from.datepicker("option", "maxDate", getDate(this));
@@ -995,7 +925,7 @@
               <span>~</span>
               <input type="text" id="lowestPriceChartTo" name="" />
             </div>
-            <button class="btn-main" type="button">조회</button>
+            <button class="btn-main ico-search" type="button"></button>
           </div>
         </div>
       </header>
@@ -1040,7 +970,7 @@
               <span>~</span>
               <input type="text" id="dailyLowestPriceChartTo" name="" />
             </div>
-            <button class="btn-main" type="button">조회</button>
+            <button class="btn-main ico-search" type="button"></button>
           </div>
         </div>
       </header>
