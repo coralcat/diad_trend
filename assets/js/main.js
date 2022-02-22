@@ -70,20 +70,23 @@ document.addEventListener("DOMContentLoaded", () => {
   ===================================================== */
   const layout = document.querySelector(".layout");
   if (layout) {
-    const types = layout.querySelectorAll("button");
+    const listType = layout.querySelector(".type-list");
+    const gridType = layout.querySelector(".type-grid");
     const list = document.querySelector(".list-item");
-    types.forEach(type => {
-      type.addEventListener("click", event => {
-        if (event.target.classList.contains("type-list")) {
-          list.classList.add("type-list");
-          list.classList.remove("type-grid");
-        }
-        if (event.target.classList.contains("type-grid")) {
-          list.classList.add("type-grid");
-          list.classList.remove("type-list");
-        }
-      });
-    });
+
+    listType.addEventListener("click", () => {
+      listType.classList.add("is-active");
+      gridType.classList.remove("is-active");
+      list.classList.add("type-list");
+      list.classList.remove("type-grid");
+    })
+
+    gridType.addEventListener("click", () => {
+      gridType.classList.add("is-active");
+      listType.classList.remove("is-active");
+      list.classList.add("type-grid");
+      list.classList.remove("type-list");
+    })
   }
 
   /* =====================================================
