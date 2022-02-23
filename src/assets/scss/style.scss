@@ -32,10 +32,9 @@ body {
   .x {
     position: absolute;
     top: 12px;
-    right: 0.5rem;
+    right: 0.75rem;
     width: 12px;
     height: 12px;
-    opacity: 0.5;
   }
 
   .date {
@@ -1336,12 +1335,16 @@ section {
       padding: 0.5rem;
       border-radius: 0.25rem;
       position: relative;
-      padding-right: 1.5rem;
+      padding-right: 2rem;
 
       span {
+        font-size: 14px;
+        color: $secondary-color;
         &:not(:last-of-type) {
           &::after {
-            content: ",";
+            content: "|";
+            padding: 0 .5rem;
+            color: gainsboro;
           }
         }
       }

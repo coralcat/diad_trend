@@ -1134,27 +1134,39 @@
           </div>
           <div class="filters">
             <div>
-              <div class="selector">
-                <input type="radio" id="select-keyword" name="filter-top40-1" checked="">
-                <label for="select-keyword">키워드</label>
-                <input type="radio" id="select-category" name="filter-top40-1">
-                <label for="select-category">카테고리</label>
-                <input type="radio" id="select-strore" name="filter-top40-1">
-                <label for="select-strore">스토어명</label>
-                <input type="radio" id="select-price" name="filter-top40-1">
-                <label for="select-price">판매가</label>
-                <input type="radio" id="select-brand" name="filter-top40-1">
-                <label for="select-brand">브랜드</label>
-                <input type="radio" id="select-made-by" name="filter-top40-1">
-                <label for="select-made-by">제조사</label>
+              <div class="selector main">
+                <input type="radio" id="selectKeyword" class="select-word" name="filterTop40">
+                <label for="selectKeyword">키워드</label>
+                <input type="radio" id="selectCategory" class="select-word" name="filterTop40">
+                <label for="selectCategory">카테고리</label>
+                <input type="radio" id="selectStrore" class="select-word" name="filterTop40">
+                <label for="selectStrore">스토어명</label>
+                <input type="radio" id="selectPrice" class="select-number" name="filterTop40">
+                <label for="selectPrice">판매가</label>
+                <input type="radio" id="selectBrand" class="select-word" name="filterTop40">
+                <label for="selectBrand">브랜드</label>
+                <input type="radio" id="selectCompany" class="select-word" name="filterTop40">
+                <label for="selectCompany">제조사</label>
               </div>
-              <div class="selector">
-                <input type="radio" id="select-include" name="filter-top40-type" checked="">
-                <label for="select-include">포함</label>
-                <input type="radio" id="select-match" name="filter-top40-type">
-                <label for="select-match">일치</label>
-                <input type="radio" id="select-except" name="filter-top40-type">
-                <label for="select-except">제외</label>
+              <div class="selector selector-word sub">
+                <input type="radio" id="selectInclude" name="filterTop40Sub" checked="">
+                <label for="selectInclude">포함</label>
+                <input type="radio" id="selectMatch" name="filterTop40Sub">
+                <label for="selectMatch">일치</label>
+                <input type="radio" id="selectExcept" name="filterTop40Sub">
+                <label for="selectExcept">제외</label>
+              </div>
+              <div class="selector selector-number sub">
+                <input type="radio" id="select-less-than" name="filter-operaters" checked="">
+                <label for="select-less-than">&lt;</label>
+                <input type="radio" id="select-greater-than" name="filter-operaters">
+                <label for="select-greater-than">&gt;</label>
+                <input type="radio" id="select-less-equal" name="filter-operaters">
+                <label for="select-less-equal">&lt;=</label>
+                <input type="radio" id="select-greater-equal" name="filter-operaters">
+                <label for="select-greater-equal">&gt;=</label>
+                <input type="radio" id="select-equal" name="filter-operaters">
+                <label for="select-equal">=</label>
               </div>
             </div>
             <div class="search">
@@ -1167,21 +1179,15 @@
             <div class="selected-filters">
               <ul>
                 <li class="ico-filter">
-                  <span>월간검색수</span>
-                  <span>pc</span>
-                  <span>포함</span>
+                  <span>판매가</span>
+                  <span>></span>
+                  <span>5000</span>
                   <div class="x close"></div>
                 </li>
                 <li class="ico-filter">
-                  <span>월간검색수</span>
-                  <span>pc</span>
+                  <span>키워드</span>
                   <span>포함</span>
-                  <div class="x close"></div>
-                </li>
-                <li class="ico-filter">
-                  <span>월간검색수</span>
-                  <span>pc</span>
-                  <span>포함</span>
+                  <span>커피</span>
                   <div class="x close"></div>
                 </li>
               </ul>
@@ -1747,16 +1753,17 @@
           <div class="filters">
             <div>
               <div class="selector main">
-                <input type="radio" id="select-related-keyword" class="select-keyword" name="filter-related" checked="checked">
+                <input type="radio" id="select-related-keyword" class="select-word" name="filter-related"
+                  checked="checked">
                 <label for="select-related-keyword">키워드</label>
-                <input type="radio" id="select-related-monthly-search" class="select-operator" name="filter-related">
+                <input type="radio" id="select-related-monthly-search" class="select-number" name="filter-related">
                 <label for="select-related-monthly-search">월간검색수</label>
-                <input type="radio" id="select-related-monthly-click" name="filter-related">
+                <input type="radio" id="select-related-monthly-click" class="select-number" name="filter-related">
                 <label for="select-related-monthly-click">월평균클릭수</label>
-                <input type="radio" id="select-related-monthly-click-2" name="filter-related">
+                <input type="radio" id="select-related-monthly-click-2" class="select-number" name="filter-related">
                 <label for="select-related-monthly-click-2">월평균클릭율</label>
               </div>
-              <div class="selector selector-keyword sub">
+              <div class="selector selector-word sub">
                 <input type="radio" id="select-related-include-2" name="filter-related-type" checked="">
                 <label for="select-related-include-2">포함</label>
                 <input type="radio" id="select-related-match-2" name="filter-related-type">
@@ -1764,13 +1771,13 @@
                 <input type="radio" id="select-related-except-2" name="filter-related-type">
                 <label for="select-related-except-2">제외</label>
               </div>
-              <div class="selector selector-count sub">
+              <div class="selector selector-device sub">
                 <input type="radio" id="select-related-pc" name="filter-device" checked="">
                 <label for="select-related-pc">PC</label>
                 <input type="radio" id="select-related-monthly-mobile" name="filter-device">
                 <label for="select-related-monthly-mobile">모바일</label>
               </div>
-              <div class="selector selector-operator sub">
+              <div class="selector selector-number sub">
                 <input type="radio" id="select-related-less-than" name="filter-related-operaters" checked="">
                 <label for="select-related-less-than">&lt;</label>
                 <input type="radio" id="select-related-greater-than" name="filter-related-operaters">
@@ -1795,8 +1802,8 @@
                 <li class="ico-filter">
                   <span>월간검색수</span>
                   <span>pc</span>
-                  <span>포함</span>
-                  <span>커피</span>
+                  <span>>=</span>
+                  <span>300</span>
                   <div class="x close"></div>
                 </li>
               </ul>
