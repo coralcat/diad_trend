@@ -1343,7 +1343,7 @@ section {
         &:not(:last-of-type) {
           &::after {
             content: "|";
-            padding: 0 .5rem;
+            padding: 0 0.5rem;
             color: gainsboro;
           }
         }
@@ -2092,7 +2092,7 @@ section {
             }
 
             &::after {
-              content: "%)"
+              content: "%)";
             }
           }
         }
@@ -2537,6 +2537,16 @@ section {
       height: 100%;
     }
 
+    .tooltip-content {
+      left: -250px;
+      width: 300px;
+      white-space: normal;
+
+      &::before {
+        left: 255px;
+      }
+    }
+
     .list {
       overflow-x: hidden;
 
@@ -2550,6 +2560,7 @@ section {
           border-color: $primary-color;
         }
       }
+
       .row {
         &.title {
           display: grid;
