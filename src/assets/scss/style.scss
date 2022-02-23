@@ -424,7 +424,7 @@ main {
 
 .logo {
   text-align: center;
-  font: bold 24px/1 "NanumBarunGothic";
+  font: bold 21px/1 "NanumBarunGothic";
 
   .impact {
     color: $primary-color;
@@ -432,12 +432,12 @@ main {
 }
 
 aside {
-  width: 250px;
+  width: 210px;
   height: 100vh;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   .logo {
-    padding: 2rem 0 1rem;
+    padding: 2rem 0;
   }
 
   .username {
@@ -570,7 +570,6 @@ section {
       padding: 0.5rem 1rem;
       background-color: $tertiary-color;
       color: $primary-color;
-      font-size: 14px;
     }
   }
 }
@@ -958,6 +957,10 @@ section {
   border-top: 2px solid $primary-color;
   border-bottom: 1px solid #b3b6b9;
 
+  &:empty {
+    min-height: 200px;
+  }
+
   &.sticky {
     overflow-x: auto;
     position: relative;
@@ -991,6 +994,7 @@ section {
   }
 
   .tag {
+    display: inline-block;
     background: lightseagreen;
     color: white;
     padding: 0.35rem;
@@ -1098,7 +1102,7 @@ section {
 
       &.col-check {
         flex: 0 0 auto !important;
-        width: 30px !important;
+        width: 36px !important;
         border-right: 0;
         padding-right: 0;
       }
@@ -1189,7 +1193,6 @@ section {
 }
 
 .list-article {
-  min-height: 200px;
   max-height: 600px;
   border-top: 0;
 
@@ -1243,9 +1246,12 @@ section {
     gap: 0.75rem;
   }
 
+  .total {
+    min-width: 80px;
+  }
+
   .buttons {
     button {
-      font-size: 15px;
       font-family: "NanumBarunGothic";
       color: $primary-color;
       background-color: $tertiary-color;
@@ -1318,8 +1324,13 @@ section {
   justify-content: flex-start;
 
   ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
     li {
       display: flex;
+      align-items: center;
       gap: 0.25rem;
       border: 1px solid #eee;
       padding: 0.5rem;
@@ -1327,6 +1338,13 @@ section {
       position: relative;
       padding-right: 1.5rem;
 
+      span {
+        &:not(:last-of-type) {
+          &::after {
+            content: ",";
+          }
+        }
+      }
       .x {
         top: 10px;
         cursor: pointer;
@@ -1459,6 +1477,9 @@ section {
     > div {
       flex: 1 1 auto;
       width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
 
     .list {
@@ -1498,12 +1519,6 @@ section {
 
   .filters {
     .buttons {
-      button {
-        color: $secondary-color;
-        background-color: transparent;
-        border: 1px solid #ddd;
-      }
-
       .selectbox {
         select {
           border-radius: 0.25rem;
@@ -1511,6 +1526,9 @@ section {
           align-items: center;
           color: $secondary-color;
           padding: 0 1.75rem 0 1rem;
+          color: #7682f8;
+          background-color: rgba(118, 130, 248, 0.1);
+          border: 0;
 
           &:focus {
             box-shadow: 0 0 0;
@@ -1922,27 +1940,29 @@ section {
     justify-content: center;
     min-height: 120px;
 
-    input {
-      border-radius: 0.5rem;
-      height: 50px;
-      border: 0;
-      padding: 0 1rem;
-    }
+    .search {
+      width: 30%;
+      min-width: 300px;
 
-    .ico-search {
-      position: absolute;
-      right: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 32px;
-      height: 32px;
-      background-size: 100%;
-      background-color: transparent;
-    }
-  }
+      input {
+        border-radius: 0.5rem;
+        height: 50px;
+        border: 0;
+        padding: 0 1rem;
+      }
 
-  .search {
-    width: 50%;
+      .ico-search {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 32px;
+        height: 32px;
+        background-size: 100%;
+        background-color: transparent;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' fill='rgb(118 130 248)' /%3E%3C/svg%3E");
+      }
+    }
   }
 
   .section-list {
@@ -2005,11 +2025,18 @@ section {
   }
 
   .summary {
-    flex: 0 0 200px;
+    flex: 0 0 auto;
+    width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+
+    &.link {
+      min-width: 240px;
+      width: auto;
+      max-width: 400px;
+    }
 
     h5 {
       font-size: 17px;
@@ -2025,23 +2052,53 @@ section {
         padding: 0.75rem;
         background: #f7f8f9;
         border-radius: 0.5rem;
-        color: $primary-color;
         width: 50%;
         align-items: center;
         display: flex;
         justify-content: space-between;
         width: 100%;
-        gap: 0.25rem;
+        gap: 1rem;
 
         > div {
-          font-size: 13px;
+          font-size: 14px;
           color: slategray;
           display: flex;
           align-items: center;
           gap: 3px;
         }
+
+        .title {
+          flex: 1 1 auto;
+          justify-content: space-between;
+          line-height: 1.25;
+          word-break: keep-all;
+        }
+
         strong {
           font-size: 18px;
+          color: $primary-color;
+
+          small {
+            width: 50px;
+            justify-content: right;
+            font: normal 13px/1 "Roboto", "NanumBarunGothic";
+            color: slategray;
+
+            &::before {
+              content: "(";
+            }
+
+            &::after {
+              content: "%)"
+            }
+          }
+        }
+
+        button {
+          background-color: rgba(118, 130, 248, 0.1);
+          color: #7682f8;
+          padding: 0.5rem;
+          font-size: 12px;
         }
       }
     }
@@ -2055,12 +2112,12 @@ section {
     flex-direction: column;
     justify-content: flex-start;
     padding-right: 0;
-    width: 320px;
+    width: 280px;
 
     .section-main {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
     .information {
@@ -2134,13 +2191,11 @@ section {
     .related {
       h5 {
         font-size: 15px;
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.5rem;
       }
 
       ul {
         display: flex;
-        border: 1px solid #f1f2f3;
-        padding: 0.75rem;
         border-radius: 0.5rem;
         flex-wrap: wrap;
         gap: 0.25rem;
@@ -2212,13 +2267,14 @@ section {
         height: 28px;
 
         &.is-active {
+          color: $primary-color;
           &::after {
             content: "";
             width: 100%;
             height: 2px;
             position: absolute;
             bottom: 0;
-            background-color: #5661b1;
+            background-color: $primary-color;
           }
         }
       }
@@ -2259,14 +2315,6 @@ section {
       display: flex;
       flex-direction: column;
       justify-content: center;
-    }
-  }
-
-  .list {
-    overflow-x: hidden;
-
-    li {
-      white-space: nowrap;
     }
   }
 
@@ -2319,8 +2367,6 @@ section {
       }
 
       &.type-list {
-        overflow: unset;
-        overflow-x: scroll;
         position: relative;
 
         .row {
@@ -2329,9 +2375,15 @@ section {
               align-items: center !important;
             }
           }
+
+          .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center !important;
+            font-size: 14px;
+          }
           li {
-            width: 120px;
-            flex: 0 0 auto;
+            width: 10%;
 
             &:nth-of-type(1) {
               position: sticky;
@@ -2350,14 +2402,13 @@ section {
             &:nth-of-type(3) {
               position: sticky;
               left: 170px;
-              width: 540px;
+              width: 400px;
               z-index: 5;
               flex-direction: column;
               align-items: baseline;
             }
 
             &:nth-of-type(4) {
-              width: 240px;
             }
           }
 
@@ -2373,7 +2424,6 @@ section {
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
-            max-height: 32px;
             cursor: pointer;
           }
 
@@ -2408,7 +2458,8 @@ section {
           }
 
           .image {
-            width: 120px;
+            width: 140px;
+            height: 140px;
           }
 
           .title {
@@ -2431,11 +2482,16 @@ section {
           }
 
           li {
+            width: auto;
             padding: 0.25rem;
             min-height: 24px;
             white-space: normal;
             border: 0;
             position: relative !important;
+
+            &.col-image {
+              margin-bottom: 0.5rem;
+            }
 
             &.col-title .tag,
             &:nth-of-type(1),
@@ -2451,8 +2507,12 @@ section {
   }
 
   .content-analysis {
+    .report {
+      flex-direction: row-reverse;
+    }
     .section-price-analysis {
       .summary {
+        width: auto;
         ul {
           width: 100%;
           flex-wrap: nowrap;
@@ -2475,6 +2535,8 @@ section {
     }
 
     .list {
+      overflow-x: hidden;
+
       .keyword {
         cursor: pointer;
         transition: 0.25s;

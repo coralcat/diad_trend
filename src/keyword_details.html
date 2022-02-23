@@ -50,16 +50,12 @@
 
     series.data.setAll([
       {
-        category: "40위 안",
-        value: 5,
+        category: "모바일 월간 검색",
+        value: 30600,
       },
       {
-        category: "41~400위",
-        value: 5,
-      },
-      {
-        category: "400위 밖",
-        value: 6,
+        category: "PC 월간 검색",
+        value: 8190,
       },
     ]);
     var legend = chart.children.push(
@@ -102,16 +98,16 @@
 
     series.data.setAll([
       {
-        category: "40위 안",
-        value: 5,
+        category: "네이버 블로그",
+        value: 3500,
       },
       {
-        category: "41~400위",
-        value: 5,
+        category: "네이버 카페",
+        value: 4000,
       },
       {
-        category: "400위 밖",
-        value: 6,
+        category: "뉴스",
+        value: 2500,
       },
     ]);
     var legend = chart.children.push(
@@ -290,15 +286,15 @@
         value: 2,
       },
     ]);
-    var legend = chart.children.push(
-      am5.Legend.new(root, {
-        centerY: am5.percent(50),
-        y: am5.percent(50),
-        marginTop: 15,
-        marginBottom: 15,
-        layout: root.verticalLayout,
-      })
-    );
+    // var legend = chart.children.push(
+    //   am5.Legend.new(root, {
+    //     centerY: am5.percent(50),
+    //     y: am5.percent(50),
+    //     marginTop: 15,
+    //     marginBottom: 15,
+    //     layout: root.verticalLayout,
+    //   })
+    // );
 
     chart.events.on("datavalidated", function (ev) {
       var grid = new DataGridXL("chartdata", {
@@ -318,7 +314,7 @@
 
     });
 
-    legend.data.setAll(series.dataItems);
+    // legend.data.setAll(series.dataItems);
 
     series.appear(1000, 100);
   });
@@ -607,16 +603,24 @@
 
     series.data.setAll([
       {
-        category: "40위 안",
-        value: 5,
+        category: "스타벅스",
+        value: 16,
       },
       {
-        category: "41~400위",
-        value: 5,
+        category: "테라로사",
+        value: 10,
       },
       {
-        category: "400위 밖",
+        category: "커피창고",
         value: 6,
+      },
+      {
+        category: "브랜드없음",
+        value: 6,
+      },
+      {
+        category: "기타",
+        value: 2,
       },
     ]);
     var legend = chart.children.push(
@@ -876,14 +880,14 @@
           <div class="filters">
             <div>
               <div class="selector">
-                <input type="radio" id="select-1week" name="keyword-chart" checked />
-                <label for="select-1week">1주</label>
-                <input type="radio" id="select-1month" name="keyword-chart" />
-                <label for="select-1month">1개월</label>
-                <input type="radio" id="select-6months" name="keyword-chart" />
-                <label for="select-6months">6개월</label>
-                <input type="radio" id="select-1year" name="keyword-chart" />
-                <label for="select-1year">1년</label>
+                <input type="radio" id="select-trend-1week" name="keywordTrendChart" checked />
+                <label for="select-trend-1month">1개월</label>
+                <input type="radio" id="select-trend-3months" name="keywordTrendChart" />
+                <label for="select-trend-3months">3개월</label>
+                <input type="radio" id="select-trend-6months" name="keywordTrendChart" />
+                <label for="select-trend-6months">6개월</label>
+                <input type="radio" id="select-trend-1year" name="keywordTrendChart" />
+                <label for="select-trend-1year">1년</label>
               </div>
               <div class="calendar">
                 <input type="text" id="keywordTrendChartFrom" name="" />
@@ -1162,10 +1166,22 @@
             <div class="total">총 652개</div>
             <div class="selected-filters">
               <ul>
-                <li>
-                  <div>월간검색수</div>
-                  <div>pc</div>
-                  <div>포함</div>
+                <li class="ico-filter">
+                  <span>월간검색수</span>
+                  <span>pc</span>
+                  <span>포함</span>
+                  <div class="x close"></div>
+                </li>
+                <li class="ico-filter">
+                  <span>월간검색수</span>
+                  <span>pc</span>
+                  <span>포함</span>
+                  <div class="x close"></div>
+                </li>
+                <li class="ico-filter">
+                  <span>월간검색수</span>
+                  <span>pc</span>
+                  <span>포함</span>
                   <div class="x close"></div>
                 </li>
               </ul>
@@ -1222,8 +1238,8 @@
               </div>
             </li>
             <li class="col-title">
-              <div class="tag">가격비교상품</div>
               <div class="title">
+                <div class="tag">가격비교상품</div>
                 1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도 디카페인 드립
                 에스프레소 분쇄 당일 로스팅 갓볶은 맛있는 고소한 원두 커피 홀빈 가루
               </div>
@@ -1401,7 +1417,7 @@
       </section>
     </div>
     <div class="tab-content content-analysis" data-tab="sub-menu">
-      <section>
+      <section title="Top 40 카테고리 분석" class="section-chart">
         <header class="section-header">
           <h3>
             Top 40 카테고리 분석
@@ -1415,11 +1431,65 @@
             </div>
           </h3>
         </header>
-        <div class="chart-container">
+        <div class="report">
+          <div class="summary link">
+            <ul>
+              <li>
+                <div class="title">
+                  <div>식품 〉 음료 〉 커피 〉 원두/생두</div>
+                  <strong>
+                    24
+                    <small>60.00</small>
+                  </strong>
+                </div>
+                <button type="button">상품보기</button>
+              </li>
+              <li>
+                <div class="title">
+                  <div>식품 〉 음료 〉 커피 〉 캡슐커피</div>
+                  <strong>
+                    8
+                    <small>20.00</small>
+                  </strong>
+                </div>
+                <button type="button">상품보기</button>
+              </li>
+              <li>
+                <div class="title">
+                  <div>식품 〉 음료 〉 커피 〉 커피음료</div>
+                  <strong>
+                    4
+                    <small>10.00</small>
+                  </strong>
+                </div>
+                <button type="button">상품보기</button>
+              </li>
+              <li>
+                <div class="title">
+                  <div>식품 〉 음료 〉 커피 〉 더치커피</div>
+                  <strong>
+                    2
+                    <small>5.00</small>
+                  </strong>
+                </div>
+                <button type="button">상품보기</button>
+              </li>
+              <li>
+                <div class="title">
+                  <div>기타</div>
+                  <strong>
+                    2
+                    <small>5.00</small>
+                  </strong>
+                </div>
+                <button type="button">상품보기</button>
+              </li>
+            </ul>
+          </div>
           <div class="chart" id="categoryChart"></div>
         </div>
       </section>
-      <section>
+      <section title="쇼핑 카테고리 트렌드 차트">
         <header class="section-header multi-line">
           <div class="title">
             <h3>
@@ -1435,7 +1505,7 @@
           <div class="filters">
             <div>
               <div class="selector">
-                <input type="radio" id="daily-select-1month" name="shoppingCategoryTrendChart" />
+                <input type="radio" id="daily-select-1month" name="shoppingCategoryTrendChart" checked />
                 <label for="daily-select-1month">1개월</label>
                 <input type="radio" id="daily-select-3months" name="shoppingCategoryTrendChart" />
                 <label for="daily-select-3months">3개월</label>
@@ -1457,7 +1527,7 @@
           <div class="chart" id="categoryTrendChart"></div>
         </div>
       </section>
-      <section>
+      <section title="Top 40 상품명 분석" class="section-chart">
         <header class="section-header">
           <h3>
             Top 40 상품명 분석
@@ -1481,7 +1551,61 @@
             </div>
           </h3>
         </header>
-        <div class="chart-container">
+        <div class="report">
+          <div class="summary link">
+            <ul>
+              <li>
+                <div class="title">
+                  <div>원두커피</div>
+                  <strong>
+                    40
+                    <small>32.26</small>
+                  </strong>
+                </div>
+                <button type="button">상품보기</button>
+              </li>
+              <li>
+                <div class="title">
+                  <div>기타</div>
+                  <strong>
+                    29
+                    <small>23.39</small>
+                  </strong>
+                </div>
+                <button type="button" disabled="disabled">상품보기</button>
+              </li>
+              <li>
+                <div class="title">
+                  <div>원두</div>
+                  <strong>
+                    25
+                    <small>20.16</small>
+                  </strong>
+                </div>
+                <button type="button">상품보기</button>
+              </li>
+              <li>
+                <div class="title">
+                  <div>분쇄</div>
+                  <strong>
+                    15
+                    <small>12.10</small>
+                  </strong>
+                </div>
+                <button type="button">상품보기</button>
+              </li>
+              <li>
+                <div class="title">
+                  <div>커피</div>
+                  <strong>
+                    15
+                    <small>12.10</small>
+                  </strong>
+                </div>
+                <button type="button">상품보기</button>
+              </li>
+            </ul>
+          </div>
           <div class="chart" id="keywordChart"></div>
         </div>
       </section>
@@ -1531,7 +1655,7 @@
           </div>
         </div>
       </section>
-      <section>
+      <section class="section-chart">
         <header class="section-header">
           <h3>
             Top 40 브랜드 분석
@@ -1547,7 +1671,61 @@
             </div>
           </h3>
         </header>
-        <div class="chart-container">
+        <div class="report">
+          <div class="summary link">
+            <ul>
+              <li>
+                <div class="title">
+                  <div>스타벅스</div>
+                  <strong>
+                    16
+                    <small>40.00</small>
+                  </strong>
+                </div>
+                <button type="button">상품보기</button>
+              </li>
+              <li>
+                <div class="title">
+                  <div>테라로사</div>
+                  <strong>
+                    10
+                    <small>25.00</small>
+                  </strong>
+                </div>
+                <button type="button">상품보기</button>
+              </li>
+              <li>
+                <div class="title">
+                  <div>커피창고</div>
+                  <strong>
+                    6
+                    <small>15.00</small>
+                  </strong>
+                </div>
+                <button type="button">상품보기</button>
+              </li>
+              <li>
+                <div class="title">
+                  <div>브랜드 없음</div>
+                  <strong>
+                    6
+                    <small>15.00</small>
+                  </strong>
+                </div>
+                <button type="button">상품보기</button>
+              </li>
+              <li>
+                <div class="title">
+                  <div>기타</div>
+                  <strong>
+                    2
+                    <small>5.00</small>
+                  </strong>
+                </div>
+                <button type="button">상품보기</button>
+              </li>
+            </ul>
+          </div>
           <div class="chart" id="brandChart"></div>
         </div>
       </section>
@@ -1569,40 +1747,40 @@
           <div class="filters">
             <div>
               <div class="selector main">
-                <input type="radio" id="select-keyword" class="select-keyword" name="filter-related" checked="checked">
-                <label for="select-keyword">키워드</label>
-                <input type="radio" id="select-monthly-search" name="filter-related">
-                <label for="select-monthly-search">월간검색수</label>
-                <input type="radio" id="select-monthly-click" name="filter-related">
-                <label for="select-monthly-click">월평균클릭수</label>
-                <input type="radio" id="select-monthly-click-2" name="filter-related">
-                <label for="select-monthly-click-2">월평균클릭율</label>
+                <input type="radio" id="select-related-keyword" class="select-keyword" name="filter-related" checked="checked">
+                <label for="select-related-keyword">키워드</label>
+                <input type="radio" id="select-related-monthly-search" class="select-operator" name="filter-related">
+                <label for="select-related-monthly-search">월간검색수</label>
+                <input type="radio" id="select-related-monthly-click" name="filter-related">
+                <label for="select-related-monthly-click">월평균클릭수</label>
+                <input type="radio" id="select-related-monthly-click-2" name="filter-related">
+                <label for="select-related-monthly-click-2">월평균클릭율</label>
               </div>
               <div class="selector selector-keyword sub">
-                <input type="radio" id="select-include-2" name="filter-related-type" checked="">
-                <label for="select-include-2">포함</label>
-                <input type="radio" id="select-match-2" name="filter-related-type">
-                <label for="select-match-2">일치</label>
-                <input type="radio" id="select-except-2" name="filter-related-type">
-                <label for="select-except-2">제외</label>
+                <input type="radio" id="select-related-include-2" name="filter-related-type" checked="">
+                <label for="select-related-include-2">포함</label>
+                <input type="radio" id="select-related-match-2" name="filter-related-type">
+                <label for="select-related-match-2">일치</label>
+                <input type="radio" id="select-related-except-2" name="filter-related-type">
+                <label for="select-related-except-2">제외</label>
               </div>
               <div class="selector selector-count sub">
-                <input type="radio" id="select-pc" name="filter-device" checked="">
-                <label for="select-pc">PC</label>
-                <input type="radio" id="select-monthly-mobile" name="filter-device">
-                <label for="select-monthly-mobile">모바일</label>
+                <input type="radio" id="select-related-pc" name="filter-device" checked="">
+                <label for="select-related-pc">PC</label>
+                <input type="radio" id="select-related-monthly-mobile" name="filter-device">
+                <label for="select-related-monthly-mobile">모바일</label>
               </div>
-              <div class="selector selector-count sub">
-                <input type="radio" id="select-less-than" name="filter-related-operaters" checked="">
-                <label for="select-less-than">&lt;</label>
-                <input type="radio" id="select-greater-than" name="filter-related-operaters">
-                <label for="select-greater-than">&gt;</label>
-                <input type="radio" id="select-less-equal" name="filter-related-operaters">
-                <label for="select-less-equal">&lt;=</label>
-                <input type="radio" id="select-greater-equal" name="filter-related-operaters">
-                <label for="select-greater-equal">&gt;=</label>
-                <input type="radio" id="select-equal" name="filter-related-operaters">
-                <label for="select-equal">=</label>
+              <div class="selector selector-operator sub">
+                <input type="radio" id="select-related-less-than" name="filter-related-operaters" checked="">
+                <label for="select-related-less-than">&lt;</label>
+                <input type="radio" id="select-related-greater-than" name="filter-related-operaters">
+                <label for="select-related-greater-than">&gt;</label>
+                <input type="radio" id="select-related-less-equal" name="filter-related-operaters">
+                <label for="select-related-less-equal">&lt;=</label>
+                <input type="radio" id="select-related-greater-equal" name="filter-related-operaters">
+                <label for="select-related-greater-equal">&gt;=</label>
+                <input type="radio" id="select-related-equal" name="filter-related-operaters">
+                <label for="select-related-equal">=</label>
               </div>
             </div>
             <div class="search">
@@ -1614,10 +1792,11 @@
             <div class="total">총 652개</div>
             <div class="selected-filters">
               <ul>
-                <li>
-                  <div>월간검색수</div>
-                  <div>pc</div>
-                  <div>포함</div>
+                <li class="ico-filter">
+                  <span>월간검색수</span>
+                  <span>pc</span>
+                  <span>포함</span>
+                  <span>커피</span>
                   <div class="x close"></div>
                 </li>
               </ul>

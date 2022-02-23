@@ -57,11 +57,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInputs = document.querySelectorAll("input[type='search'], input[type='url']");
   if (searchInputs) {
     searchInputs.forEach(input => {
-      const x = input.nextElementSibling;
-      x.addEventListener("click", event => {
-        const input = event.target.previousElementSibling;
-        input.value = "";
-      });
+      const container = input.parentElement;
+      const x = container.querySelector(".x");
+      x &&
+        x.addEventListener("click", () => {
+          const input = container.querySelector("input");
+          input.value = "";
+        });
     });
   }
 
@@ -79,14 +81,14 @@ document.addEventListener("DOMContentLoaded", () => {
       gridType.classList.remove("is-active");
       list.classList.add("type-list");
       list.classList.remove("type-grid");
-    })
+    });
 
     gridType.addEventListener("click", () => {
       gridType.classList.add("is-active");
       listType.classList.remove("is-active");
       list.classList.add("type-grid");
       list.classList.remove("type-list");
-    })
+    });
   }
 
   /* =====================================================
@@ -354,6 +356,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
+      // 키워드 트렌드 조회
+      if (modalData === "searchKeyword") {
+        const inputs = event.target.parentElement;
+        const input = inputs.querySelector("input");
+        if (input.value === "") {
+          alertModal.classList.add("is-active");
+          alertModalContent.innerText = "키워드를 입력해주세요.";
+        }
+      }
+
       // 키워드등록/편집: 선택삭제
       if (modalData === "deleteKeyword") {
         const list = document.querySelector(".modal-keyword .list");
@@ -513,28 +525,51 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Filters: 키워드 트렌드 목록 검색에서
   ===================================================== */
-  const selector = document.querySelector(".filters .selector.main");
-  if (selector) {
-    const subSelector = document.querySelectorAll(".filters .selector.sub");
-    const input = selector.querySelector("input:checked");
-    subSelector.forEach(sub => {
-      const checkSelect = () => {
-        console.log(sub);
-        if (input.classList.contains("keyword") && sub.classList.contains("selector-keyword")) {
-          console.log("yay1");
-          sub.classList.add("is-active");
-        } else {
-          sub.classList.remove("is-active");
-        }
+  const selectors = document.querySelectorAll(".filters .selector.main");
+  if (selectors[0]) {
+    selectors.forEach(mainSelector => {
+      const subSelectors = mainSelector.parentElement.querySelectorAll(".selector.sub");
+      const selects = mainSelector.querySelectorAll("input");
 
-        if (!input.classList.contains("keyword") && sub.classList.contains("selector-count")) {
-          sub.classList.add("is-active");
-        }
-      };
+      selects.forEach(selected => {
+        selected.addEventListener("click", event => {
+          subSelectors.forEach(sub => {
+            const initialize = () => {
+              sub.classList.remove("is-active");
+            };
+            const checkSelect = () => {
+              if (selected.classList.contains("select-keyword") && sub.classList.contains("selector-keyword")) {
+                console.log("yay1");
+                sub.classList.add("is-active");
+              }
 
-      checkSelect();
-      sub.addEventListener("change", () => {
-        checkSelect();
+              if (selected.classList.contains("select-operator") && sub.classList.contains("selector-operator")) {
+                sub.classList.add("is-active");
+              }
+            };
+
+            checkSelect();
+            sub.addEventListener("change", () => {
+              initialize();
+              checkSelect();
+            });
+          });
+        });
+      });
+    });
+  }
+
+  /* =====================================================
+       Filters: 키워드 트렌드 목록 필터링
+  ===================================================== */
+  const selectedFilters = document.querySelectorAll(".selected-filters");
+  if (selectedFilters[0]) {
+    selectedFilters.forEach(filter => {
+      const closes = filter.querySelectorAll(".x");
+      closes.forEach(close => {
+        close.addEventListener("click", event => {
+          event.target.parentElement.remove();
+        });
       });
     });
   }
