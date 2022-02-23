@@ -530,6 +530,8 @@ document.addEventListener("DOMContentLoaded", () => {
     selectors.forEach(mainSelector => {
       const subSelectors = mainSelector.parentElement.querySelectorAll(".selector.sub");
       const selects = mainSelector.querySelectorAll("input");
+      selects[0].checked = true;
+      subSelectors[0].classList.add("is-active");
 
       selects.forEach(selected => {
         selected.addEventListener("click", event => {
@@ -538,16 +540,19 @@ document.addEventListener("DOMContentLoaded", () => {
               sub.classList.remove("is-active");
             };
             const checkSelect = () => {
-              if (selected.classList.contains("select-keyword") && sub.classList.contains("selector-keyword")) {
-                console.log("yay1");
+              if (selected.classList.contains("select-word") && sub.classList.contains("selector-word")) {
                 sub.classList.add("is-active");
               }
 
-              if (selected.classList.contains("select-operator") && sub.classList.contains("selector-operator")) {
+              if (
+                selected.classList.contains("select-number") &&
+                (sub.classList.contains("selector-device") || sub.classList.contains("selector-number"))
+              ) {
                 sub.classList.add("is-active");
               }
             };
 
+            initialize();
             checkSelect();
             sub.addEventListener("change", () => {
               initialize();
