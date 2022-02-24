@@ -1,6 +1,110 @@
 {% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('index')}}
 <script>
   am5.ready(function () {
+    var root = am5.Root.new("mainRankingChart");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(
+      am5percent.PieChart.new(root, {
+        innerRadius: am5.percent(50),
+        layout: root.horizontalLayout,
+      })
+    );
+
+    var series = chart.series.push(
+      am5percent.PieSeries.new(root, {
+        valueField: "value",
+        categoryField: "category",
+      })
+    );
+
+    series.states.create("hidden", {
+      endAngle: -90,
+    });
+
+    series.data.setAll([
+      {
+        category: "총 소재",
+        value: 20,
+      },
+      {
+        category: "등록 소재",
+        value: 16,
+      },
+      {
+        category: "등록 가능 소재",
+        value: 4,
+      },
+    ]);
+    var legend = chart.children.push(
+      am5.Legend.new(root, {
+        centerY: am5.percent(50),
+        y: am5.percent(50),
+        marginTop: 15,
+        marginBottom: 15,
+        layout: root.verticalLayout,
+      })
+    );
+
+    legend.data.setAll(series.dataItems);
+
+    series.appear(1000, 100);
+  });
+</script>
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("mainLowestPriceChart");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(
+      am5percent.PieChart.new(root, {
+        innerRadius: am5.percent(50),
+        layout: root.horizontalLayout,
+      })
+    );
+
+    var series = chart.series.push(
+      am5percent.PieSeries.new(root, {
+        valueField: "value",
+        categoryField: "category",
+      })
+    );
+
+    series.states.create("hidden", {
+      endAngle: -90,
+    });
+
+    series.data.setAll([
+      {
+        category: "총 소재",
+        value: 20,
+      },
+      {
+        category: "등록 소재",
+        value: 16,
+      },
+      {
+        category: "등록 가능 소재",
+        value: 4,
+      },
+    ]);
+    var legend = chart.children.push(
+      am5.Legend.new(root, {
+        centerY: am5.percent(50),
+        y: am5.percent(50),
+        marginTop: 15,
+        marginBottom: 15,
+        layout: root.verticalLayout,
+      })
+    );
+
+    legend.data.setAll(series.dataItems);
+
+    series.appear(1000, 100);
+  });
+</script>
+<script>
+  am5.ready(function () {
     var root = am5.Root.new("rankingChart");
     root.setThemes([am5themes_Animated.new(root)]);
 
@@ -106,55 +210,45 @@
 </script>
 <div class="content content-main">
   <div class="wrapper">
-    <section class="section-main">
+    <section class="section-charts">
       <header class="section-header">
         <h3>서비스 이용 현황</h3>
-        <a class="right-arrow" href="https://diad.co.kr/Mypage/PaymentHistoryView" target="_blank"
-          >서비스 이용 내역 보기</a
-        >
       </header>
-      <div class="list">
-        <ul class="row title">
-          <li>서비스</li>
-          <li>총 소재</li>
-          <li>등록 소재</li>
-          <li>등록 가능 소재</li>
-          <li>서비스 이용기간</li>
-          <li>잔여일수</li>
-        </ul>
-        <ul class="row">
-          <li>상품 순위 조회</li>
-          <li>10개</li>
-          <li>7개</li>
-          <li>3개</li>
-          <li>2021-07-19 ~ 2022-07-13</li>
-          <li>239일</li>
-        </ul>
-        <ul class="row">
-          <li>상품 순위 조회</li>
-          <li>10개</li>
-          <li>9개</li>
-          <li>1개</li>
-          <li>2021-07-19 ~ 2022-07-13</li>
-          <li>239일</li>
-        </ul>
-        <ul class="row">
-          <li>상품 순위 조회</li>
-          <li>10개</li>
-          <li>8개</li>
-          <li>2개</li>
-          <li>2021-07-19 ~ 2022-07-13</li>
-          <li>239일</li>
-        </ul>
-        <ul class="row">
-          <li>키워드 트렌드</li>
-          <li>서비스 기간이 만료되었거나 서비스 정보가 존재하지 않습니다. 서비스를 신청 후 사용해주세요.</li>
-          <li class="button">
-            <a href="https://diad.co.kr/AdInquire/AdInquireMemberRegister" target="_blank">
-              <button class="btn-main" type="button">신청하기</button>
-            </a>
-          </li>
-        </ul>
+      <div class="wrapper">
+        <div class="list">
+          <ul class="row title">
+            <li>
+              <span>상품 순위 조회</span>
+              <span class="date">최근 갱신시간 2022-03-01 12:00</span>
+            </li>
+          </ul>
+          <div id="mainRankingChart" class="chart"></div>
+          <div class="progress">
+            <h3>서비스 기간</h3>
+            <progress value="126" max="365"></progress>
+            <div class="details">
+              <div>2022-03-01 ~ 2023-02-28</div>
+              <div class="remaining-days">239</div>
+            </div>
+          </div>
+        </div>
+        <div class="list">
+          <ul class="row title">
+            <li>
+              <span>최저가 알림</span>
+              <span class="date">최근 갱신시간 2022-03-01 12:00</span>
+            </li>
+          </ul>
+          <div id="mainLowestPriceChart" class="chart"></div>
+          <div class="progress">
+            <h3>서비스 기간</h3>
+            <progress value="126" max="365"></progress>
+            <div class="details">
+              <div>2022-03-01 ~ 2023-02-28</div>
+              <div class="remaining-days">239</div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <section class="section-charts">

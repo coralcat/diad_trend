@@ -657,6 +657,33 @@ aside {
 
 /* Progress */
 
+progress {
+  height: 20px;
+  width: 100%;
+  border-radius: .25rem;
+  border: 0;
+  background-color: #eee;
+
+  &::-webkit-progress-bar {
+    height: 20px;
+    width: 100%;
+    border-radius: .5rem;
+    border: 0;
+    background-color: #eee;
+  }
+  &::-webkit-progress-value {
+    height: 20px;
+    width: 100%;
+    border-radius: .5rem;
+    background-color: $primary-color;
+  }
+  &::-moz-progress-bar {
+    height: 20px;
+    width: 100%;
+    border-radius: .5rem;
+  }
+}
+
 .progress-wrap {
   position: fixed;
   right: 50px;

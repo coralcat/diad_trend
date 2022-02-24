@@ -760,7 +760,7 @@ section {
 
 .chart {
   width: 100%;
-  height: 300px;
+  height: 200px;
   max-width: 100%;
 }
 
@@ -1360,6 +1360,47 @@ section {
   > .wrapper {
     padding: 1.5rem;
   }
+
+  .progress {
+    margin: 0 auto;
+    width: 75%;
+    margin-top: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    h3 {
+      font-size: 17px;
+      justify-content: center;
+    }
+
+    .details {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .remaining-days {
+        color: $primary-color;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+
+        &::before, &::after {
+          color: initial;
+          font-size: 15px;
+        }
+        &::before {
+          content: "잔여일";
+          margin-right: .5rem;
+        }
+
+        &::after {
+          content: "일"
+        }
+      }
+    }
+  }
   section {
     &.section-main {
       .row {
@@ -1494,7 +1535,7 @@ section {
       }
 
       li {
-        flex-basis: 25%;
+        width: 25%;
       }
     }
 
@@ -1944,14 +1985,22 @@ section {
     min-height: 120px;
 
     .search {
-      width: 30%;
-      min-width: 300px;
 
       input {
+        flex: 0 0 auto;
+        width: 400px;
+        min-width: 300px;
         border-radius: 0.5rem;
         height: 50px;
         border: 0;
         padding: 0 1rem;
+        transition: all .45s, margin .85s ;
+
+        &:focus {
+          width: 600px;
+          height: 60px;
+          margin: 2rem 0;
+        }
       }
 
       .ico-search {
@@ -2529,13 +2578,15 @@ section {
     }
   }
 
-  .content-related-keyword {
+  .content-items, .content-related-keyword {
     overflow: hidden !important;
-    height: 100%;
 
     section {
       height: 100%;
     }
+  }
+
+  .content-related-keyword {
 
     .tooltip-content {
       left: -250px;
