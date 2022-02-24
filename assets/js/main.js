@@ -12,6 +12,38 @@ document.addEventListener("DOMContentLoaded", () => {
   const main = document.querySelector("main");
 
   /* =====================================================
+       Progress Bar
+  ===================================================== */
+  const progress = document.querySelectorAll("progress");
+  if (progress[0]) {
+    progress.forEach(bar => {
+      const max = bar.getAttribute("max");
+      const time = (1000 / max) * 5;
+      const value = bar.value;
+
+
+      const loading = () => {
+        value += 1;
+        const addValue = bar.value(value);
+        console.log(addValue)
+        bar.querySelector(".progress-value").innerHTML(`${value}%`);
+
+        if(value === max) {
+          clearInterval(animate)
+        }
+
+        const animate = () =>{
+          setInterval(() => {
+            loading()
+          }, time)
+        }
+
+        animate()
+      };
+    });
+  }
+
+  /* =====================================================
        Tooltip
   ===================================================== */
   // const tooltips = document.querySelectorAll(".tooltip-icon");
