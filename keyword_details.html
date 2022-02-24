@@ -104,7 +104,7 @@
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
         innerRadius: am5.percent(50),
-        layout: root.horizontalLayout,
+        layout: root.verticalLayout,
       })
     );
 
@@ -129,17 +129,7 @@
         value: 8190,
       },
     ]);
-    var legend = chart.children.push(
-      am5.Legend.new(root, {
-        centerY: am5.percent(50),
-        y: am5.percent(50),
-        marginTop: 15,
-        marginBottom: 15,
-        layout: root.verticalLayout,
-      })
-    );
 
-    legend.data.setAll(series.dataItems);
 
     series.appear(1000, 100);
   });
@@ -152,7 +142,7 @@
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
         innerRadius: am5.percent(50),
-        layout: root.horizontalLayout,
+        layout: root.verticalLayout,
       })
     );
 
@@ -181,17 +171,6 @@
         value: 2500,
       },
     ]);
-    var legend = chart.children.push(
-      am5.Legend.new(root, {
-        centerY: am5.percent(50),
-        y: am5.percent(50),
-        marginTop: 15,
-        marginBottom: 15,
-        layout: root.verticalLayout,
-      })
-    );
-
-    legend.data.setAll(series.dataItems);
 
     series.appear(1000, 100);
   });
@@ -775,153 +754,157 @@
     <div class="tab-content content-keyword" data-tab="sub-menu">
       <section class="section-chart" title="검색">
         <header class="section-header">
-          <h3>검색</h3>
+          <h3>키워드 한눈에 보기</h3>
         </header>
-        <div class="report">
-          <div class="summary">
-            <h5>PC 검색</h5>
-            <ul>
-              <li>
-                <div>월간 검색수</div>
-                <strong>8,190</strong>
-              </li>
-              <li>
-                <div>월 평균 클릭수</div>
-                <strong>64.2</strong>
-              </li>
-              <li>
-                <div>월 평균 클릭율</div>
-                <strong>0.76%</strong>
-              </li>
-              <li>
-                <div>경쟁정도</div>
-                <strong>높음</strong>
-              </li>
-              <li>
-                <div>월 평균 광고노출</div>
-                <strong>15</strong>
-              </li>
-            </ul>
-          </div>
-          <div class="summary">
-            <h5>모바일 검색</h5>
-            <ul>
-              <li>
-                <div>월간 검색수</div>
-                <strong>30,600</strong>
-              </li>
-              <li>
-                <div>월 평균 클릭수</div>
-                <strong>426.8</strong>
-              </li>
-              <li>
-                <div>월 평균 클릭율</div>
-                <strong>1.51%</strong>
-              </li>
-            </ul>
-          </div>
-          <div id="searchChart" class="chart"></div>
-        </div>
-      </section>
-      <section title="상품">
-        <header class="section-header">
-          <h3>상품</h3>
-        </header>
-        <div class="list no-scroll">
-          <ul class="row title">
-            <li>총 등록 상품수</li>
+        <div class="summary horizontal">
+          <ul>
             <li>
-              상품경쟁률
-              <div class="tooltip">
-                <div class="tooltip-content">
-                  <dl>
-                    <dd>상품수 ÷ 월간 검색량 입니다.</dd>
-                    <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
-                  </dl>
+              <div>총 등록 상품수</div>
+              <strong>858,818</strong>
+            </li>
+            <li>
+              <div>
+                상품경쟁률
+                <div class="tooltip">
+                  <div class="tooltip-content">
+                    <dl>
+                      <dd>상품수 ÷ 월간 검색량 입니다.</dd>
+                      <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                    </dl>
+                  </div>
                 </div>
               </div>
+              <strong>22.14:1</strong>
             </li>
-            <li>1페이지 최다 키워드</li>
-            <li>1페이지 평균가격</li>
-            <li>1페이지 가격비교상품</li>
-          </ul>
-          <ul class="row">
-            <li>858,818</li>
-            <li>22.14:1</li>
-            <li>원두</li>
-            <li>9,910</li>
-            <li>12.50%</li>
+            <li>
+              <div>1페이지 최다 키워드</div>
+              <strong>원두</strong>
+            </li>
+            <li>
+              <div>1페이지 평균가격</div>
+              <strong>9,910</strong>
+            </li>
+            <li>
+              <div>1페이지 가격비교상품</div>
+              <strong>12.50%</strong>
+            </li>
           </ul>
         </div>
-      </section>
-      <section class="section-chart contents" title="콘텐츠">
-        <header class="section-header">
-          <h3>콘텐츠</h3>
-        </header>
-        <div class="report">
-          <div class="summary">
-            <ul>
-              <li>
-                <div>블로그</div>
-                <strong>3,500</strong>
-              </li>
-              <li>
-                <div>카페</div>
-                <strong>4,000</strong>
-              </li>
-              <li>
-                <div>뉴스</div>
-                <strong>2,500</strong>
-              </li>
-            </ul>
+        <div class="wrapper">
+          <div class="chart-container">
+            <div id="searchChart" class="chart"></div>
+            <div class="report">
+              <div class="summary">
+                <h5>PC 검색</h5>
+                <ul>
+                  <li>
+                    <div>월간 검색수</div>
+                    <strong>8,190</strong>
+                  </li>
+                  <li>
+                    <div>월 평균 클릭수</div>
+                    <strong>64.2</strong>
+                  </li>
+                  <li>
+                    <div>월 평균 클릭율</div>
+                    <strong>0.76%</strong>
+                  </li>
+                  <li>
+                    <div>경쟁정도</div>
+                    <strong>높음</strong>
+                  </li>
+                  <li>
+                    <div>월 평균 광고노출</div>
+                    <strong>15</strong>
+                  </li>
+                </ul>
+              </div>
+              <div class="summary">
+                <h5>모바일 검색</h5>
+                <ul>
+                  <li>
+                    <div>월간 검색수</div>
+                    <strong>30,600</strong>
+                  </li>
+                  <li>
+                    <div>월 평균 클릭수</div>
+                    <strong>426.8</strong>
+                  </li>
+                  <li>
+                    <div>월 평균 클릭율</div>
+                    <strong>1.51%</strong>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div class="summary">
-            <ul>
-              <li>
-                <div>
-                  블로그경쟁률
-                  <div class="tooltip">
-                    <div class="tooltip-content">
-                      <dl>
-                        <dd>네이버 블로그 콘텐츠량 ÷ 월간 검색량 입니다.</dd>
-                        <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
-                      </dl>
+          <div class="chart-container">
+            <div id="contentsChart" class="chart"></div>
+            <div class="report">
+              <div class="summary">
+                <ul>
+                  <li>
+                    <div>블로그</div>
+                    <strong>3,500</strong>
+                  </li>
+                  <li>
+                    <div>카페</div>
+                    <strong>4,000</strong>
+                  </li>
+                  <li>
+                    <div>뉴스</div>
+                    <strong>2,500</strong>
+                  </li>
+                </ul>
+              </div>
+              <div class="summary">
+                <ul>
+                  <li>
+                    <div>
+                      블로그경쟁률
+                      <div class="tooltip">
+                        <div class="tooltip-content">
+                          <dl>
+                            <dd>네이버 블로그 콘텐츠량 ÷ 월간 검색량 입니다.</dd>
+                            <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                          </dl>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <strong>0.09:1</strong>
-              </li>
-              <li>
-                <div>
-                  카페경쟁률
-                  <div class="tooltip">
-                    <div class="tooltip-content">
-                      <dl>
-                        <dd>네이버 카페 콘텐츠량 ÷ 월간 검색량 입니다.</dd>
-                        <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
-                      </dl>
+                    <strong>0.09:1</strong>
+                  </li>
+                  <li>
+                    <div>
+                      카페경쟁률
+                      <div class="tooltip">
+                        <div class="tooltip-content">
+                          <dl>
+                            <dd>네이버 카페 콘텐츠량 ÷ 월간 검색량 입니다.</dd>
+                            <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                          </dl>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <strong>0.1:1</strong>
-              </li>
-              <li>
-                <div>
-                  뉴스경쟁률
-                  <div class="tooltip">
-                    <div class="tooltip-content">
-                      <dl>
-                        <dd>뉴스 콘텐츠량 ÷ 월간 검색량 입니다.</dd>
-                        <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
-                      </dl>
+                    <strong>0.1:1</strong>
+                  </li>
+                  <li>
+                    <div>
+                      뉴스경쟁률
+                      <div class="tooltip">
+                        <div class="tooltip-content">
+                          <dl>
+                            <dd>뉴스 콘텐츠량 ÷ 월간 검색량 입니다.</dd>
+                            <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                          </dl>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <strong>0.06:1</strong>
-              </li>
-            </ul>
+                    <strong>0.06:1</strong>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div id="contentsChart" class="chart"></div>
         </div>
       </section>
       <section title="키워드 트렌드">
@@ -1246,7 +1229,6 @@
             </div>
           </div>
           <div class="filters">
-            <div class="total">총 652개</div>
             <div class="selected-filters">
               <ul>
                 <li class="ico-filter">
@@ -1263,6 +1245,7 @@
                 </li>
               </ul>
             </div>
+            <div class="total">총 652개</div>
           </div>
         </header>
         <div class="list list-item type-list">
@@ -1565,48 +1548,46 @@
           </div>
           <div class="chart" id="categoryChart"></div>
         </div>
-      </section>
-      <section title="쇼핑 카테고리 트렌드 차트">
-        <header class="section-header multi-line">
-          <div class="title">
-            <h3>
-              쇼핑 카테고리 트렌드 차트
-              <div class="tooltip">
-                <div class="tooltip-content">
-                  <dl>
-                    <dd>Top 40 카테고리 분석 상위 3개 카테고리의 검색 클릭 추이를 알 수 있는 쇼핑 트렌드 차트입니다.</dd>
-                    <dd>기간은 2017년 8월부터 조회 가능합니다.</dd>
-                    <dd>트렌드는 조회하신 기간 중 검색 횟수가 가장 높은 시점을 100으로 둔 상대적 값으로 표현됩니다.</dd>
-                  </dl>
+        <div class="chart-container" title="쇼핑 카테고리 트렌드 차트">
+          <header class="section-header multi-line">
+            <div class="title">
+              <h3>
+                쇼핑 카테고리 트렌드 차트
+                <div class="tooltip">
+                  <div class="tooltip-content">
+                    <dl>
+                      <dd>Top 40 카테고리 분석 상위 3개 카테고리의 검색 클릭 추이를 알 수 있는 쇼핑 트렌드 차트입니다.</dd>
+                      <dd>기간은 2017년 8월부터 조회 가능합니다.</dd>
+                      <dd>트렌드는 조회하신 기간 중 검색 횟수가 가장 높은 시점을 100으로 둔 상대적 값으로 표현됩니다.</dd>
+                    </dl>
+                  </div>
                 </div>
+              </h3>
+              <div class="buttons">
+                <button class="ico-download" type="button">엑셀다운</button>
               </div>
-            </h3>
-            <div class="buttons">
-              <button class="ico-download" type="button">엑셀다운</button>
             </div>
-          </div>
-          <div class="filters">
-            <div>
-              <div class="selector">
-                <input type="radio" id="daily-select-1month" name="shoppingCategoryTrendChart" checked />
-                <label for="daily-select-1month">1개월</label>
-                <input type="radio" id="daily-select-3months" name="shoppingCategoryTrendChart" />
-                <label for="daily-select-3months">3개월</label>
-                <input type="radio" id="daily-select-6months" name="shoppingCategoryTrendChart" />
-                <label for="daily-select-6months">6개월</label>
-                <input type="radio" id="daily-select-1year" name="shoppingCategoryTrendChart" />
-                <label for="daily-select-1year">1년</label>
+            <div class="filters">
+              <div>
+                <div class="selector">
+                  <input type="radio" id="daily-select-1month" name="shoppingCategoryTrendChart" checked />
+                  <label for="daily-select-1month">1개월</label>
+                  <input type="radio" id="daily-select-3months" name="shoppingCategoryTrendChart" />
+                  <label for="daily-select-3months">3개월</label>
+                  <input type="radio" id="daily-select-6months" name="shoppingCategoryTrendChart" />
+                  <label for="daily-select-6months">6개월</label>
+                  <input type="radio" id="daily-select-1year" name="shoppingCategoryTrendChart" />
+                  <label for="daily-select-1year">1년</label>
+                </div>
+                <div class="calendar">
+                  <input type="text" id="dailyLowestPriceChartFrom" name="" />
+                  <span>~</span>
+                  <input type="text" id="dailyLowestPriceChartTo" name="" />
+                </div>
+                <button class="btn-main ico-search" type="button"></button>
               </div>
-              <div class="calendar">
-                <input type="text" id="dailyLowestPriceChartFrom" name="" />
-                <span>~</span>
-                <input type="text" id="dailyLowestPriceChartTo" name="" />
-              </div>
-              <button class="btn-main ico-search" type="button"></button>
             </div>
-          </div>
-        </header>
-        <div class="chart-container">
+          </header>
           <div class="chart" id="categoryTrendChart"></div>
         </div>
       </section>
@@ -1709,7 +1690,7 @@
           </h3>
         </header>
         <div>
-          <div class="summary">
+          <div class="summary horizontal">
             <ul>
               <li>
                 <div>평균 판매가</div>
@@ -1873,7 +1854,6 @@
             </div>
           </div>
           <div class="filters">
-            <div class="total">총 652개</div>
             <div class="selected-filters">
               <ul>
                 <li class="ico-filter">
@@ -1885,6 +1865,7 @@
                 </li>
               </ul>
             </div>
+            <div class="total">총 652개</div>
           </div>
         </header>
         <div class="list">
