@@ -505,6 +505,7 @@ section {
     display: flex;
     min-height: 40px;
     gap: 0.75rem;
+    width: 100%;
 
     .tabs {
       li {
@@ -1245,6 +1246,7 @@ section {
 
   .total {
     justify-content: right;
+    text-align: right;
     min-width: 80px;
   }
 
@@ -1289,7 +1291,7 @@ section {
 
       &:checked + label {
         background-color: $tertiary-color;
-        outline: 1px solid #d3d6d9;
+        outline: 1px solid #e3e6e9;
         color: $primary-color;
         border-radius: 3px;
       }
@@ -1999,18 +2001,22 @@ section {
     .search {
       input {
         flex: 0 0 auto;
-        width: 400px;
-        min-width: 300px;
+        width: 300px;
         border-radius: 0.5rem;
         height: 50px;
         border: 0;
-        padding: 0 1rem;
+        padding: 0rem 3.5rem 0rem 1rem;
         transition: all 0.45s, margin 0.85s;
 
         &:focus {
-          width: 600px;
+          width: 360px;
           height: 60px;
           margin: 2rem 0;
+          font-size: 24px;
+
+          &::placeholder {
+            font-size: 15px;
+          }
         }
       }
 
@@ -2327,8 +2333,8 @@ section {
     }
 
     .chart-container {
-      border-radius: .5rem;
-      border: 1px solid #EEE;
+      border-radius: 0.5rem;
+      border: 1px solid #eee;
       padding: 1rem 1.5rem;
       display: flex;
       flex-direction: column;
@@ -2377,10 +2383,6 @@ section {
           strong {
             font-size: 18px;
           }
-
-          span {
-            color: lightslategray;
-          }
         }
       }
     }
@@ -2405,9 +2407,7 @@ section {
   }
 
   .content-keyword {
-
     .summary {
-
       &.horizontal {
         ul {
           li {
@@ -2429,11 +2429,10 @@ section {
         height: 36px;
         justify-content: center;
         background-color: transparent;
-        border: 1px solid lightgray;
+        border: 1px solid #e3e6e9;
 
         &.is-active {
           background-color: $tertiary-color;
-          border: 0;
 
           &.type-list {
             &::before {
@@ -2464,6 +2463,20 @@ section {
       .col-price {
         gap: 0.25rem;
         padding: 1rem;
+      }
+
+      li {
+        .title {
+          line-height: 1.25;
+          white-space: normal;
+          word-break: keep-all;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          cursor: pointer;
+        }
       }
 
       &.type-list {
@@ -2506,16 +2519,6 @@ section {
           }
 
           .title {
-            line-height: 1.25;
-            white-space: normal;
-            word-break: keep-all;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2;
-            cursor: pointer;
-
             .tag {
               line-height: 1;
             }
@@ -2531,15 +2534,16 @@ section {
       &.type-grid {
         border: 0;
         flex-direction: row;
-        gap: 1rem;
+        gap: 1.25rem;
         flex-wrap: wrap;
 
         .row {
           border: 1px solid #f1f2f3;
-          width: calc(100% / 5 - 0.8rem);
+          width: calc(100% / 5 - 1rem);
           border-radius: 0.5rem;
           flex-direction: column;
-          padding: 1rem;
+          padding: 0.75rem;
+          gap: 0.25rem;
 
           &:hover {
             li {
@@ -2557,12 +2561,7 @@ section {
           }
 
           .title {
-            max-width: 500px;
-            font-size: 16px;
-            -webkit-line-clamp: 2;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            margin-bottom: 0.25rem;
           }
 
           .price {
@@ -2577,8 +2576,8 @@ section {
 
           li {
             width: auto;
-            padding: 0.25rem;
-            min-height: 24px;
+            min-height: auto;
+            padding: 0;
             white-space: normal;
             border: 0;
             position: relative !important;
@@ -2590,6 +2589,12 @@ section {
             &.col-title .tag,
             &:nth-of-type(1) {
               display: none;
+            }
+
+            &:nth-of-type(7),
+            &:nth-of-type(8),
+            .categories {
+              font-size: 13px;
             }
           }
         }
