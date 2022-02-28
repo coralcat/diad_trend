@@ -392,6 +392,18 @@ textarea {
   }
 }
 
+.ico-chart {
+  &::before {
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='slategray' d='M10 20h4V4h-4v16zm-6 0h4v-8H4v8zM16 9v11h4V9h-4z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+  }
+}
+
 .ico-list {
   &::before {
     content: "";
@@ -978,20 +990,22 @@ input[type="radio"] + label:empty:before {
     margin-right: 0.5rem;
   }
   select {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
     border: 1px solid #ddd;
     border-radius: 3px;
-    display: flex;
-    flex: 1 1 auto;
     width: 100%;
     height: $input-height;
     -webkit-appearance: none;
-    padding: 0.35rem 1.5rem 0.35rem 0.35rem;
+    padding: 0 1.5rem 0 .35rem;
     font: 15px/1 "NanumBarunGothic";
     background-color: white;
     outline: 0;
     box-sizing: border-box;
     text-align: center;
     cursor: pointer;
+
     &:focus {
       box-shadow: 0 0 1px 1px $primary-color;
     }

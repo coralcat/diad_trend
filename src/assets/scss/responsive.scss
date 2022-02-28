@@ -101,7 +101,6 @@
   }
 
   main {
-    height: calc(100% - 49px);
     overflow: hidden;
     position: relative;
   }
@@ -123,6 +122,10 @@
 
   .zoom-in-out {
     display: none;
+  }
+
+  .search {
+    flex: 1 1 auto
   }
 
   aside {
@@ -178,6 +181,10 @@
       padding: 0 1rem;
 
       &.multi-line {
+
+        :last-child {
+          padding-top: 0;
+        }
       }
     }
 
@@ -256,6 +263,14 @@
     border-radius: 0;
     gap: 2rem;
 
+    section {
+      gap: 0;
+    }
+
+    .section-header {
+      padding: 0;
+    }
+
     .list {
       .row {
         border-radius: 0.5rem;
@@ -308,6 +323,11 @@
 
     section {
       padding: 1rem !important;
+    }
+
+    .progress {
+      width: 100%;
+      padding: 0;
     }
 
     .section-main {
@@ -471,6 +491,17 @@
       > div {
         flex-wrap: wrap;
         justify-content: space-between;
+      }
+    }
+
+    .section-main {
+
+      .list {
+
+        li {
+          justify-content: flex-end !important;
+          gap: 1rem;
+        }
       }
     }
 
