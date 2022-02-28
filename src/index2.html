@@ -1,0 +1,344 @@
+{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('index')}}
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("mainRankingChart");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(
+      am5percent.PieChart.new(root, {
+        innerRadius: am5.percent(50),
+        layout: root.horizontalLayout,
+      })
+    );
+
+    var series = chart.series.push(
+      am5percent.PieSeries.new(root, {
+        valueField: "value",
+        categoryField: "category",
+      })
+    );
+
+    series.states.create("hidden", {
+      endAngle: -90,
+    });
+
+    series.data.setAll([
+      {
+        category: "총 소재",
+        value: 20,
+      },
+      {
+        category: "등록 소재",
+        value: 16,
+      },
+      {
+        category: "등록 가능 소재",
+        value: 4,
+      },
+    ]);
+    var legend = chart.children.push(
+      am5.Legend.new(root, {
+        centerY: am5.percent(50),
+        y: am5.percent(50),
+        marginTop: 15,
+        marginBottom: 15,
+        layout: root.verticalLayout,
+      })
+    );
+
+    legend.data.setAll(series.dataItems);
+
+    series.appear(1000, 100);
+  });
+</script>
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("mainLowestPriceChart");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(
+      am5percent.PieChart.new(root, {
+        innerRadius: am5.percent(50),
+        layout: root.horizontalLayout,
+      })
+    );
+
+    var series = chart.series.push(
+      am5percent.PieSeries.new(root, {
+        valueField: "value",
+        categoryField: "category",
+      })
+    );
+
+    series.states.create("hidden", {
+      endAngle: -90,
+    });
+
+    series.data.setAll([
+      {
+        category: "총 소재",
+        value: 20,
+      },
+      {
+        category: "등록 소재",
+        value: 16,
+      },
+      {
+        category: "등록 가능 소재",
+        value: 4,
+      },
+    ]);
+    var legend = chart.children.push(
+      am5.Legend.new(root, {
+        centerY: am5.percent(50),
+        y: am5.percent(50),
+        marginTop: 15,
+        marginBottom: 15,
+        layout: root.verticalLayout,
+      })
+    );
+
+    legend.data.setAll(series.dataItems);
+
+    series.appear(1000, 100);
+  });
+</script>
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("rankingChart");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(
+      am5percent.PieChart.new(root, {
+        innerRadius: am5.percent(50),
+        layout: root.horizontalLayout,
+      })
+    );
+
+    var series = chart.series.push(
+      am5percent.PieSeries.new(root, {
+        valueField: "value",
+        categoryField: "category",
+      })
+    );
+
+    series.states.create("hidden", {
+      endAngle: -90,
+    });
+
+    series.data.setAll([
+      {
+        category: "40위 안",
+        value: 5,
+      },
+      {
+        category: "41~400위",
+        value: 5,
+      },
+      {
+        category: "400위 밖",
+        value: 6,
+      },
+    ]);
+    var legend = chart.children.push(
+      am5.Legend.new(root, {
+        centerY: am5.percent(50),
+        y: am5.percent(50),
+        marginTop: 15,
+        marginBottom: 15,
+        layout: root.verticalLayout,
+      })
+    );
+
+    legend.data.setAll(series.dataItems);
+
+    series.appear(1000, 100);
+  });
+</script>
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("lowestPriceChart");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(
+      am5percent.PieChart.new(root, {
+        innerRadius: am5.percent(50),
+        layout: root.horizontalLayout,
+      })
+    );
+
+    var series = chart.series.push(
+      am5percent.PieSeries.new(root, {
+        valueField: "value",
+        categoryField: "category",
+        endAngle: 270,
+      })
+    );
+
+    series.states.create("hidden", {
+      endAngle: -90,
+    });
+
+    series.data.setAll([
+      {
+        category: "상승",
+        value: 5,
+      },
+      {
+        category: "유지",
+        value: 6,
+      },
+      {
+        category: "하락",
+        value: 5,
+      },
+    ]);
+
+    var legend = chart.children.push(
+      am5.Legend.new(root, {
+        centerY: am5.percent(50),
+        y: am5.percent(50),
+        marginTop: 15,
+        marginBottom: 15,
+        layout: root.verticalLayout,
+      })
+    );
+
+    legend.data.setAll(series.dataItems);
+    series.appear(1000, 100);
+  });
+</script>
+<div class="content content-main">
+  <div class="wrapper">
+    <section class="section-charts">
+      <header class="section-header">
+        <h3>서비스 이용 현황</h3>
+      </header>
+      <div class="wrapper">
+        <div class="list">
+          <ul class="row title">
+            <li>
+              <span>상품 순위 조회</span>
+              <span class="date">최근 갱신시간 2022-03-01 12:00</span>
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              <div id="mainRankingChart" class="chart"></div>
+
+            </li>
+          </ul>
+          <div class="progress">
+            <h3>서비스 기간</h3>
+            <progress value="126" max="365"></progress>
+            <div class="details">
+              <div>2022-03-01 ~ 2023-02-28</div>
+              <div class="remaining-days">239</div>
+            </div>
+          </div>
+        </div>
+        <div class="list">
+          <ul class="row title">
+            <li>
+              <span>최저가 알림</span>
+              <span class="date">최근 갱신시간 2022-03-01 12:00</span>
+            </li>
+          </ul>
+          <div id="mainLowestPriceChart" class="chart"></div>
+          <div class="progress">
+            <h3>서비스 기간</h3>
+            <progress value="126" max="365"></progress>
+            <div class="details">
+              <div>2022-03-01 ~ 2023-02-28</div>
+              <div class="remaining-days">239</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section-charts">
+      <header class="section-header">
+        <h3>서비스별 현황</h3>
+      </header>
+      <div class="wrapper">
+        <div class="list">
+          <ul class="row title">
+            <li>
+              <span>상품 순위 조회</span>
+              <span class="date">최근 갱신시간 2022-03-01 12:00</span>
+            </li>
+          </ul>
+          <div id="rankingChart" class="chart"></div>
+        </div>
+        <div class="list">
+          <ul class="row title">
+            <li>
+              <span>최저가 알림</span>
+              <span class="date">최근 갱신시간 2022-03-01 12:00</span>
+            </li>
+          </ul>
+          <div id="lowestPriceChart" class="chart"></div>
+        </div>
+      </div>
+    </section>
+    <section class="section-articles">
+      <header class="section-header">
+        <h3>고객센터</h3>
+      </header>
+      <div class="wrapper">
+        <div class="list notification">
+          <ul class="row title">
+            <li>공지사항</li>
+            <li>
+              <a class="more" href="https://diad.co.kr/Customer/NoticeList?Category=Normal" target="_blank">더보기</a>
+            </li>
+          </ul>
+          <ul class="row">
+            <li>[일반] 다이애드 TREND 변경사항 안내</li>
+            <li class="date">2021-10-06</li>
+          </ul>
+          <ul class="row">
+            <li>[일반] 다이애드 TREND 변경사항 안내</li>
+            <li class="date">2021-09-06</li>
+          </ul>
+          <ul class="row">
+            <li>[일반] 다이애드 TREND 서버 긴급 점검 안내</li>
+            <li class="date">2021-09-03</li>
+          </ul>
+          <ul class="row">
+            <li>[일반] 다이애드 TREND 서버 긴급 점검 안내</li>
+            <li class="date">2021-09-02</li>
+          </ul>
+          <ul class="row">
+            <li>[일반] 다이애드 TREND 서버 긴급 점검 안내</li>
+            <li class="date">2021-09-01</li>
+          </ul>
+        </div>
+        <div class="list faq">
+          <ul class="row title">
+            <li>FAQ</li>
+            <li>
+              <a class="more" href="">더보기</a>
+            </li>
+          </ul>
+          <ul class="row">
+            <li>입찰실행 중이던 11번가 계정이 정지되어버린 후, 재 실행되지…</li>
+          </ul>
+          <ul class="row">
+            <li>사용자 지정보기 사용은 어떻게 하나요?</li>
+          </ul>
+          <ul class="row">
+            <li>입찰목록 정렬기능은 무엇인가요?</li>
+          </ul>
+          <ul class="row">
+            <li>복수검색은 어떻게 활용하나요?</li>
+          </ul>
+          <ul class="row">
+            <li>분류 기능은 어떻게 활용하나요?</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
