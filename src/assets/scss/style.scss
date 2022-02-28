@@ -1059,6 +1059,10 @@ section {
         justify-content: center;
         align-items: center;
         font: 14px/1 "Roboto", "NanumBarunGothic";
+
+        &:not(:last-of-type) {
+          border-right: 1px solid #e7e8e9;
+        }
       }
     }
 
@@ -1080,10 +1084,6 @@ section {
       min-height: 36px;
       padding: 0.5rem 1rem;
       transition: background-color 0.25s;
-
-      &:not(:last-of-type) {
-        border-right: 1px solid #e7e8e9;
-      }
 
       &.date {
         justify-content: flex-end;
@@ -1168,7 +1168,7 @@ section {
         font-size: 13px;
         border-radius: 0.25rem;
         height: 24px;
-        min-width: 42px;
+        width: 48px;
         color: white;
 
         &::before {
@@ -1568,8 +1568,8 @@ section {
       min-height: auto;
 
       :not(.title) li {
-        min-height: 54px;
-        justify-content: space-between;
+        height: 54px;
+        gap: .5rem;
       }
 
       li {
@@ -1731,7 +1731,6 @@ section {
     }
 
     .tag-failed {
-      margin-bottom: 1rem;
       background-color: rgba(255, 99, 71, 0.1);
       border-radius: 5px;
       color: tomato;
@@ -1894,6 +1893,8 @@ section {
 .content-ranking-details {
   .section-keyword-history {
     .list {
+      max-height: 360px;
+
       .row {
         &.title {
           .date {
@@ -1949,21 +1950,22 @@ section {
 
         li {
           flex: 0 0 auto;
-          width: 250px;
+          width: 240px;
           justify-content: space-between;
+          gap: .5rem;
 
           &.col-keyword {
             width: 200px !important;
           }
 
           .ranking {
+            flex: 1 1 auto;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 0.5rem;
 
             :nth-of-type(1) {
-              min-width: 36px;
-              justify-content: flex-end;
               display: flex;
             }
 
@@ -2001,6 +2003,10 @@ section {
       flex: 1 1 auto;
       display: flex;
       flex-direction: column;
+
+      .list {
+        max-height: 273px;
+      }
 
       > .title {
         flex: 0 0 auto;

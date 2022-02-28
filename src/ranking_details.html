@@ -392,16 +392,16 @@
           <span class="failed">갱신실패</span>
           <span class="success">2022-03-01 12:00</span>
         </div>
+      </div>
+      <div class="information">
+        <div class="image">
+          <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
+        </div>
         <div class="categories">
           <span>식품</span>
           <span>음료</span>
           <span>커피</span>
           <span>원두/생두</span>
-        </div>
-      </div>
-      <div class="information">
-        <div class="image">
-          <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
         </div>
         <div>
           1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도...
@@ -475,7 +475,7 @@
             </div>
             <button type="button">조회</button>
           </div>
-          <div class="selectbox">
+          <div class="selectbox chart-interval">
             <span>그래프간격</span>
             <select name="" id="">
               <option value="">1일 00:00</option>
@@ -1436,7 +1436,7 @@
             </div>
             <button type="button">조회</button>
           </div>
-          <div class="selectbox">
+          <div class="selectbox chart-interval">
             <span>그래프간격</span>
             <select name="" id="">
               <option value="">1일 00:00</option>
@@ -1479,135 +1479,131 @@
       <div class="ranking-fluctuations">
         <div class="ranking-chart">
           <div class="title">순위 상승 TOP</div>
-          <div class="list">
+          <!-- list 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
+          <div class="list" data-empty="데이터 갱신 전입니다.">
             <ul class="row title">
               <li>순위</li>
               <li>키워드</li>
               <li>전주대비변동</li>
             </ul>
-            <!-- rows 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
-            <div class="rows" data-empty="데이터 갱신 전입니다.">
-              <ul class="row">
-                <li>1</li>
-                <li>
-                  <div class="keyword">싱글오리진</div>
-                </li>
-                <li>
-                  <div class="rank up">6</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li>2</li>
-                <li>
-                  <div class="keyword">커피원두</div>
-                </li>
-                <li>
-                  <div class="rank up">4</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li>3</li>
-                <li>
-                  <div class="keyword">원두커피</div>
-                </li>
-                <li>
-                  <div class="rank up">3</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li>4</li>
-                <li>
-                  <div class="keyword">케냐AAA</div>
-                </li>
-                <li>
-                  <div class="rank up">3</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li>5</li>
-                <li>
-                  <div class="keyword">예가체프</div>
-                </li>
-                <li>
-                  <div class="rank up">1</div>
-                </li>
-              </ul>
-            </div>
+            <ul class="row">
+              <li>1</li>
+              <li>
+                <div class="keyword">싱글오리진</div>
+              </li>
+              <li>
+                <div class="rank up">6</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>2</li>
+              <li>
+                <div class="keyword">커피원두</div>
+              </li>
+              <li>
+                <div class="rank up">4</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>3</li>
+              <li>
+                <div class="keyword">원두커피</div>
+              </li>
+              <li>
+                <div class="rank up">3</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>4</li>
+              <li>
+                <div class="keyword">케냐AAA</div>
+              </li>
+              <li>
+                <div class="rank up">3</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>5</li>
+              <li>
+                <div class="keyword">예가체프</div>
+              </li>
+              <li>
+                <div class="rank up">1</div>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="ranking-chart">
           <div class="title">순위 하락 TOP</div>
-          <div class="list">
+          <!-- list 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
+          <div class="list" data-empty="데이터 갱신 전입니다.">
             <ul class="row title">
               <li>순위</li>
               <li>키워드</li>
               <li>전주대비변동</li>
             </ul>
-            <!-- rows 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
-            <div class="rows" data-empty="데이터 갱신 전입니다.">
-              <ul class="row">
-                <li>1</li>
-                <li>
-                  <div class="keyword">스페셜커피</div>
-                </li>
-                <li>
-                  <div class="rank down">6</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li>2</li>
-                <li>
-                  <div class="keyword">스타벅스원두</div>
-                </li>
-                <li>
-                  <div class="rank down">5</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li>3</li>
-                <li>
-                  <div class="keyword">커피</div>
-                </li>
-                <li>
-                  <div class="rank down">2</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li>4</li>
-                <li>
-                  <div class="keyword">맛 좋은 커피</div>
-                  <div class="keyword">향 좋은 커피</div>
-                  <div class="keyword">참 좋은 커피</div>
-                  <div class="keyword">맛 좋은 커피</div>
-                  <div class="keyword">향 좋은 커피</div>
-                  <div class="keyword">참 좋은 커피</div>
-                  <div class="keyword">맛 좋은 커피</div>
-                  <div class="keyword">향 좋은 커피</div>
-                  <div class="keyword">참 좋은 커피</div>
-                  <div class="keyword">맛 좋은 커피</div>
-                  <div class="keyword">향 좋은 커피</div>
-                  <div class="keyword">참 좋은 커피</div>
-                  <div class="keyword">맛 좋은 커피</div>
-                  <div class="keyword">향 좋은 커피</div>
-                  <div class="keyword">참 좋은 커피</div>
-                  <div class="keyword">맛 좋은 커피</div>
-                  <div class="keyword">향 좋은 커피</div>
-                  <div class="keyword">참 좋은 커피</div>
-                </li>
-                <li>
-                  <div class="rank down">1</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li>5</li>
-                <li>
-                  <div class="keyword">스타벅스</div>
-                </li>
-                <li>
-                  <div class="rank down">2</div>
-                </li>
-              </ul>
-            </div>
+            <ul class="row">
+              <li>1</li>
+              <li>
+                <div class="keyword">스페셜커피</div>
+              </li>
+              <li>
+                <div class="rank down">6</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>2</li>
+              <li>
+                <div class="keyword">스타벅스원두</div>
+              </li>
+              <li>
+                <div class="rank down">5</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>3</li>
+              <li>
+                <div class="keyword">커피</div>
+              </li>
+              <li>
+                <div class="rank down">2</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>4</li>
+              <li>
+                <div class="keyword">맛 좋은 커피</div>
+                <div class="keyword">향 좋은 커피</div>
+                <div class="keyword">참 좋은 커피</div>
+                <div class="keyword">맛 좋은 커피</div>
+                <div class="keyword">향 좋은 커피</div>
+                <div class="keyword">참 좋은 커피</div>
+                <div class="keyword">맛 좋은 커피</div>
+                <div class="keyword">향 좋은 커피</div>
+                <div class="keyword">참 좋은 커피</div>
+                <div class="keyword">맛 좋은 커피</div>
+                <div class="keyword">향 좋은 커피</div>
+                <div class="keyword">참 좋은 커피</div>
+                <div class="keyword">맛 좋은 커피</div>
+                <div class="keyword">향 좋은 커피</div>
+                <div class="keyword">참 좋은 커피</div>
+                <div class="keyword">맛 좋은 커피</div>
+                <div class="keyword">향 좋은 커피</div>
+                <div class="keyword">참 좋은 커피</div>
+              </li>
+              <li>
+                <div class="rank down">1</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>5</li>
+              <li>
+                <div class="keyword">스타벅스</div>
+              </li>
+              <li>
+                <div class="rank down">2</div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

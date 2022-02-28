@@ -1,4 +1,9 @@
 @media screen and (max-width: 1440px) {
+  :is(.content-ranking, .content-lowest-price) {
+    .section-main {
+      flex-wrap: wrap;
+    }
+  }
   :is([class$="details"]) {
     flex-direction: column;
 
@@ -18,16 +23,9 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-
-        > div:nth-of-type(2) {
-          order: 2;
-          flex: 1 1 auto;
-          text-align: left;
-        }
       }
 
       .image {
-        order: 1;
         width: 60px !important;
         height: 60px !important;
       }
@@ -40,17 +38,14 @@
         flex-direction: row;
         flex-wrap: wrap;
         width: auto;
-        order: 4;
         flex: 1 1 auto;
         width: 100%;
+
         > .row {
           flex: 1 1 auto;
           flex-direction: column;
           border-bottom: 0 !important;
           padding-bottom: 0 !important;
-
-          li {
-          }
 
           ul {
             display: none;
@@ -65,7 +60,6 @@
   }
 
   .content-keyword-trend-details {
-
     .main-header {
       .section-main {
         flex-direction: row;
@@ -78,7 +72,7 @@
         .related {
           max-width: 400px;
           border: 1px solid #eee;
-          border-radius: .5rem;
+          border-radius: 0.5rem;
           padding: 1rem;
         }
       }
@@ -86,46 +80,87 @@
   }
 }
 
+@media screen and (max-width: 960px) {
+  .ranking-fluctuations {
+    flex-direction: column;
+
+    .ranking-chart {
+      width: 100% !important;
+    }
+  }
+}
+
 @media screen and (max-width: 480px) {
-  .checkbox label::before {
-    width: 24px;
-    height: 24px;
-    border-radius: 0.25rem;
-  }
-  .checkbox input:checked + label:after {
-    top: 6px;
-    left: 6px;
-  }
   html {
     overflow: hidden;
+
+    body {
+      display: flex;
+      flex-direction: column;
+      .date {
+        font-size: 13px;
+      }
+      h1 {
+        font-size: 20px;
+      }
+
+      h3 {
+        font-size: 17px;
+      }
+
+      a.right-arrow {
+      }
+
+      .chart-container {
+        background: white;
+        border-radius: 0.5rem;
+      }
+
+      .zoom-in-out {
+        display: none;
+      }
+
+      .search {
+        flex: 1 1 auto;
+      }
+
+      .checkbox {
+        label::before {
+          width: 24px;
+          height: 24px;
+          border-radius: 0.25rem;
+        }
+        input:checked + label:after {
+          top: 6px;
+          left: 6px;
+        }
+      }
+
+      main {
+        overflow: hidden;
+        position: relative;
+      }
+    }
   }
 
-  body {
-    display: flex;
-    flex-direction: column;
-    .date {
-      font-size: 13px;
-    }
-    h1 {
-      font-size: 20px;
-    }
-
-    h3 {
-      font-size: 17px;
-    }
+  :is(.filters, .selector, .list, .wrapper .list .row, .wrapper .list li, .item-update-failed, .progress) {
+    min-width: 100%;
+    width: 100% !important;
   }
 
-  :is(aside .logo, .zoom-in-out, .subline, .btn-advanced-search, .advanced-search, .list-count) {
+  :is(aside .logo, .zoom-in-out, .subline, .btn-advanced-search, .advanced-search, .list-count, .chart-interval) {
     display: none !important;
   }
 
-  a.right-arrow {
-    padding: 0;
-  }
-
-  main {
-    overflow: hidden;
-    position: relative;
+  :is([class$="details"]) {
+    .main-header {
+      .details {
+        flex-direction: column;
+        .row {
+          flex-direction: row;
+        }
+      }
+    }
   }
 
   .header {
@@ -136,19 +171,6 @@
     .logo {
       font-size: 18px;
     }
-  }
-
-  .chart-container {
-    background: white;
-    border-radius: 0.5rem;
-  }
-
-  .zoom-in-out {
-    display: none;
-  }
-
-  .search {
-    flex: 1 1 auto;
   }
 
   aside {
@@ -177,8 +199,8 @@
 
     > .wrapper {
       overflow: unset;
-      padding: 0;
-      gap: 1rem;
+      padding: 0 0 1.5rem;
+      gap: 2rem;
 
       > section {
         padding: 0;
@@ -189,7 +211,7 @@
     }
 
     .main-header {
-      padding: 1rem;
+      padding: 1rem 1rem 2rem;
       gap: 0.5rem;
 
       .title {
@@ -204,7 +226,7 @@
       padding: 0 1rem;
 
       &.multi-line {
-        :last-child {
+        div:last-child {
           padding-top: 0;
         }
       }
@@ -217,6 +239,23 @@
   }
 
   .filters {
+    > div {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .selector {
+      justify-content: center;
+
+      + .calendar {
+        width: 80%;
+
+        + button {
+          flex: 1 1 auto;
+          justify-content: center;
+        }
+      }
+    }
     .buttons {
       width: 100%;
       gap: 0;
@@ -247,15 +286,23 @@
     border: 0;
     gap: 0.75rem;
     max-width: 100%;
-    min-height: auto;
-    max-height: none;
+    min-height: auto !important;
+    max-height: none !important;
     flex-direction: row;
     flex-wrap: wrap;
     overflow-x: hidden !important;
 
     .row {
+      padding: 1rem 0.5rem;
       flex: 1 1 auto;
+      flex-direction: column;
       background-color: white;
+
+      &:hover {
+        li {
+          background-color: transparent;
+        }
+      }
 
       &.failed {
         // background-color: #f7f8f9;
@@ -271,6 +318,7 @@
       }
 
       li {
+        border-bottom: 0;
         background-color: transparent;
         width: 100% !important;
         max-width: 100% !important;
@@ -294,7 +342,10 @@
     }
 
     .list {
+      flex-wrap: nowrap;
+
       .row {
+        padding: 0;
         border-radius: 0.5rem;
         flex-direction: column;
         align-items: flex-start;
@@ -348,7 +399,6 @@
     }
 
     .progress {
-      width: 100%;
       padding: 0;
     }
 
@@ -485,9 +535,6 @@
   .content-ranking {
     .list {
       .row {
-        max-width: 100%;
-        flex-direction: column;
-
         li {
           justify-content: flex-start;
 
@@ -531,12 +578,8 @@
         top: auto;
         right: auto;
         bottom: auto;
-        width: 100%;
       }
       .row {
-        width: 100%;
-        padding: 1rem 0.5rem;
-
         .item {
           .information {
             width: 60%;
@@ -546,14 +589,12 @@
         li {
           background-color: transparent;
           left: auto !important;
-          border-bottom: 0;
-          border-right: 0;
           align-items: center;
           flex-direction: row !important;
           width: auto !important;
 
           &::before {
-            flex-basis: 110px;
+            flex-basis: 84px;
             display: flex;
             justify-content: flex-start;
             color: lightslategray;
@@ -633,6 +674,42 @@
           .page {
             margin-bottom: 0;
           }
+        }
+      }
+    }
+  }
+
+  .section-keyword-history {
+    .col-keyword {
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.75rem !important;
+      font-size: 17px;
+      border-bottom: 1px solid #f7f8f9 !important;
+    }
+  }
+
+  .section-weekly-top {
+
+    .section-header{
+      flex-wrap: wrap;
+    }
+
+    .list {
+      gap: 0;
+      padding: .5rem;
+      background-color: white;
+
+      .row {
+        flex-direction: row;
+        padding: 0.5rem 1rem;
+        gap: 1rem;
+        border-bottom: 1px solid #f7f8f9;
+
+        li {
+          min-width: auto;
+          width: auto !important;
+          padding: 0;
+          justify-content: flex-start;
         }
       }
     }
