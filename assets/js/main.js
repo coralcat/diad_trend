@@ -21,24 +21,23 @@ document.addEventListener("DOMContentLoaded", () => {
       const time = (1000 / max) * 5;
       const value = bar.value;
 
-
       const loading = () => {
         value += 1;
         const addValue = bar.value(value);
-        console.log(addValue)
+        console.log(addValue);
         bar.querySelector(".progress-value").innerHTML(`${value}%`);
 
-        if(value === max) {
-          clearInterval(animate)
+        if (value === max) {
+          clearInterval(animate);
         }
 
-        const animate = () =>{
+        const animate = () => {
           setInterval(() => {
-            loading()
-          }, time)
-        }
+            loading();
+          }, time);
+        };
 
-        animate()
+        animate();
       };
     });
   }
@@ -102,26 +101,50 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Layout: 키워드트렌드 리포트 상품목록 유형선택
   ===================================================== */
-  const layout = document.querySelector(".layout");
-  if (layout) {
+  const layout = document.querySelectorAll(".layout");
+  layout.forEach(layout => {
     const listType = layout.querySelector(".type-list");
-    const gridType = layout.querySelector(".type-grid");
-    const list = document.querySelector(".list-item");
+    const list = layout.closest("section").querySelector(".list");
 
-    listType.addEventListener("click", () => {
-      listType.classList.add("is-active");
-      gridType.classList.remove("is-active");
-      list.classList.add("type-list");
-      list.classList.remove("type-grid");
-    });
+    if (layout.classList.contains("layout-grid")) {
+      const gridType = layout.querySelector(".type-grid");
+      console.log(gridType)
 
-    gridType.addEventListener("click", () => {
-      gridType.classList.add("is-active");
-      listType.classList.remove("is-active");
-      list.classList.add("type-grid");
-      list.classList.remove("type-list");
-    });
-  }
+      listType.addEventListener("click", () => {
+        listType.classList.add("is-active");
+        gridType.classList.remove("is-active");
+        list.classList.add("type-list");
+        list.classList.remove("type-grid");
+      });
+
+      gridType.addEventListener("click", () => {
+        gridType.classList.add("is-active");
+        listType.classList.remove("is-active");
+        list.classList.add("type-grid");
+        list.classList.remove("type-list");
+      });
+    }
+
+    if (layout.classList.contains("layout-chart")) {
+      const chartType = layout.querySelector(".type-chart");
+      const chart = layout.closest("section").querySelector(".report");
+      list.style.display = "none"
+
+      listType.addEventListener("click", () =>{
+        listType.classList.add("is-active");
+        chartType.classList.remove("is-active");
+        list.style.display = "flex";
+        chart.style.display = "none"
+      })
+
+      chartType.addEventListener("click", () =>{
+        chartType.classList.add("is-active");
+        listType.classList.remove("is-active");
+        chart.style.display = "flex";
+        list.style.display = "none"
+      })
+    }
+  });
 
   /* =====================================================
        Tab Menu
