@@ -72,6 +72,7 @@ a {
     padding: 0.5rem 0.5rem;
     font-size: 14px;
     transition: background-color 0.2s;
+    color: $secondary-color;
 
     &::after {
       content: "";
@@ -86,7 +87,7 @@ a {
     }
 
     &:hover {
-      background-color: #f1f2f3;
+      background-color: $tertiary-color;
     }
   }
 }
@@ -203,6 +204,20 @@ button {
   &::before {
     content: "#";
     font-size: 13px;
+  }
+}
+
+.item-mid {
+  background: $tertiary-color;
+  border-radius: 3px;
+  margin-bottom: 0.75rem;
+  padding: 5px;
+  color: $primary-color;
+  font-size: 13px;
+  font-family: "RobotoMedium", "NanumBarunGothic";
+
+  &::before {
+    content: "MID:";
   }
 }
 
@@ -785,6 +800,7 @@ section {
 
 .categories {
   gap: 4px !important;
+  display: flex;
   flex-direction: row !important;
   align-items: center !important;
   justify-content: flex-start !important;
@@ -832,20 +848,6 @@ section {
     max-width: calc(100% - 80px - 0.5rem);
     position: relative;
     overflow: hidden;
-
-    .item-mid {
-      background: $tertiary-color;
-      border-radius: 3px;
-      margin-bottom: 0.75rem;
-      padding: 5px;
-      color: $primary-color;
-      font-size: 13px;
-      font-family: "RobotoMedium", "NanumBarunGothic";
-
-      &::before {
-        content: "MID:";
-      }
-    }
 
     .title {
       overflow: hidden;
@@ -1310,7 +1312,7 @@ section {
       padding: 0 0.5rem;
       margin-right: 0;
       padding: 0.5rem 1rem;
-      transition: 0.2s;
+      transition: 0.25s background-color;
 
       &::before,
       &::after {
@@ -1678,25 +1680,46 @@ section {
 }
 
 :is([class$="details"]) {
-  .tooltip-content {
-    left: -2rem;
-    width: 500px;
+  flex-direction: row;
 
-    &::before {
-      left: 36px;
-    }
+  > .wrapper {
+    padding-top: 4.75rem;
   }
-  .section-main {
+
+  .categories {
+    justify-content: center !important;
+  }
+
+  .main-header {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-right: 0;
+    width: 280px;
+
+    .section-main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 1rem;
+
+      &.failed {
+        border: 1px solid tomato;
+        box-shadow: 0 6px 12px -4px rgb(255 99 71 / 10%);
+      }
+    }
+
     .tag-failed {
+      margin-bottom: 1rem;
       background-color: rgba(255, 99, 71, 0.1);
       border-radius: 5px;
       color: tomato;
       font-size: 17px;
-      height: 32px;
       padding: 0 0.75rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      flex-direction: column;
+      padding: 0.5rem;
 
       .success {
         font-size: 13px;
@@ -1714,43 +1737,117 @@ section {
     .information {
       display: flex;
       gap: 1rem;
+      text-align: center;
+      line-height: 1.25;
       position: relative;
-
-      .item-update-failed {
-        top: 50%;
-        left: 0.65rem;
-        transform: translateY(-50%);
-
-        &::before {
-          left: 100%;
-        }
-      }
+      min-width: 200px;
+      flex-direction: column;
+      align-items: center;
 
       .image {
-        width: 183px;
-        height: 183px;
         overflow: hidden;
-        border-radius: 0.25rem;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
 
         img {
           width: 100%;
           max-width: 100%;
         }
       }
-      .list {
-        flex: 1 1 auto;
 
-        li {
-          width: 25%;
-          justify-content: flex-start;
+      .name {
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
 
-          &.title {
-            flex: 0 0 auto;
-            width: 160px;
-            background-color: $tertiary-color;
+      .ico-star {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        &::before {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+
+    .details {
+      width: 100%;
+      background-color: $tertiary-color;
+      border-radius: 0.5rem;
+      padding: 0.75rem;
+      gap: .75rem;
+      display: flex;
+      flex-direction: column;
+      color: $secondary-color;
+
+      li {
+        :first-of-type {
+          font-size: 13px;
+          color: lightslategray;
+        }
+        :last-of-type {
+          font-size: 14px;
+        }
+      }
+
+      > .row {
+        white-space: nowrap;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        &:not(:last-of-type) {
+          border-bottom: 1px solid $tertiary-color;
+          padding-bottom: 0.75rem;
+        }
+
+        ul {
+          width: 100%;
+          margin-top: 0.75rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+
+          li {
+            white-space: nowrap;
+            justify-content: space-between;
+            color: $primary-color;
+            font-size: 13px;
           }
         }
       }
+    }
+
+    .related {
+      h5 {
+        font-size: 15px;
+        margin-bottom: 0.5rem;
+      }
+
+      ul {
+        display: flex;
+        border-radius: 0.5rem;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+
+        .keyword {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .tooltip-content {
+    left: -2rem;
+    width: 500px;
+
+    &::before {
+      left: 36px;
     }
   }
 
@@ -2560,10 +2657,6 @@ section {
             height: 140px;
           }
 
-          .title {
-            margin-bottom: 0.25rem;
-          }
-
           .price {
             font-family: "RobotoMedium", "NanumBarunGothic";
             font-size: 16px;
@@ -2581,6 +2674,29 @@ section {
             white-space: normal;
             border: 0;
             position: relative !important;
+
+            &:nth-of-type(2) {
+              order: 2
+            }
+            &:nth-of-type(3) {
+              order:3
+            }
+            &:nth-of-type(4) {
+              order: 1;
+              margin-bottom: .5rem;
+            }
+            &:nth-of-type(5) {
+              order: 5
+            }
+            &:nth-of-type(6) {
+              order: 4
+            }
+            &:nth-of-type(7) {
+              order: 6
+            }
+            &:nth-of-type(8) {
+              order: 7
+            }
 
             &.col-image {
               margin-bottom: 0.5rem;
@@ -2804,7 +2920,6 @@ section {
 
   .right-arrow {
     padding: 0;
-    color: #a3a6a9;
 
     &::after {
       border-color: #a3a6a9;

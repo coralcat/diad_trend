@@ -1,3 +1,68 @@
+@media screen and (max-width: 1440px) {
+  :is([class$="details"]) {
+    &.content {
+      flex-direction: column;
+
+      .main-header {
+        width: 100%;
+        padding-right: 1.5rem;
+
+        .section-main {
+          gap: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          padding: 1rem;
+        }
+
+        .information {
+          flex-direction: row;
+          flex-wrap: wrap;
+
+          > div:nth-of-type(2) {
+            order: 2;
+            flex: 1 1 auto;
+            text-align: left;
+          }
+        }
+
+        .image {
+          order: 1;
+          width: 50px;
+          height: 50px;
+          border-radius: 0.5rem;
+        }
+
+        .right-arrow {
+          order: 3;
+        }
+
+        .details {
+          flex-direction: row;
+          flex-wrap: wrap;
+          width: auto;
+          order: 4;
+          flex: 1 1 auto;
+          width: 100%;
+          > .row {
+            flex: 1 1 auto;
+            flex-direction: column;
+            border-bottom: 0 !important;
+            padding-bottom: 0 !important;
+
+            li {
+            }
+          }
+        }
+      }
+
+      > .wrapper {
+        padding-top: 0;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 480px) {
   .checkbox label::before {
     width: 24px;
