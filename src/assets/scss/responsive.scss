@@ -111,6 +111,10 @@
       a.right-arrow {
       }
 
+      .col-check {
+        justify-content: flex-start;
+      }
+
       .chart-container {
         background: white;
         border-radius: 0.5rem;
@@ -330,8 +334,8 @@
 
   .section-main {
     background-color: white !important;
-    border-radius: 0;
-    gap: 2rem;
+    padding: 1rem;
+    gap: 2rem !important;
 
     section {
       gap: 0;
@@ -592,6 +596,7 @@
           align-items: center;
           flex-direction: row !important;
           width: auto !important;
+          justify-content: space-between;
 
           &::before {
             flex-basis: 84px;

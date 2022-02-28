@@ -276,6 +276,25 @@ main {
   flex-direction: row;
 }
 
+.section-main {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 6px 12px -4px #e3e6e9;
+
+
+  .row {
+
+    &:not(.title) {
+      &:hover {
+        li {
+          background-color: transparent ;
+        }
+      }
+    }
+  }
+}
+
 .content {
   overflow: hidden;
 
@@ -401,25 +420,6 @@ main {
               content: "개";
               font-size: 14px;
             }
-          }
-        }
-      }
-    }
-  }
-
-  .section-main {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 6px 12px -4px #e3e6e9;
-
-
-    .row {
-
-      &:not(.title) {
-        &:hover {
-          li {
-            background-color: transparent ;
           }
         }
       }
@@ -1202,6 +1202,7 @@ section {
         }
 
         &.failed {
+          justify-content: center;
           background-color: #ffefec;
           color: #ff6347;
 

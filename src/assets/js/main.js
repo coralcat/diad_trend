@@ -10,6 +10,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const main = document.querySelector("main");
+  const wrapper = document.querySelector(".content > .wrapper");
+  const scrollToTop = document.createElement("div");
+  scrollToTop.classList.add("scroll-to-top");
+  wrapper.appendChild(scrollToTop);
+
+  wrapper.addEventListener("scroll", () => {
+    wrapper.scrollTop > 50
+      ? scrollToTop.classList.add("is-active")
+      : scrollToTop.classList.remove("is-active");
+  });
+
+  scrollToTop.addEventListener("click", () => {
+    console.log("test")
+    wrapper.scroll({top: 0, behavior: "smooth"})
+  })
 
   /* =====================================================
        Progress Bar
@@ -108,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (layout.classList.contains("layout-grid")) {
       const gridType = layout.querySelector(".type-grid");
-      console.log(gridType)
+      console.log(gridType);
 
       listType.addEventListener("click", () => {
         listType.classList.add("is-active");
@@ -128,21 +143,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (layout.classList.contains("layout-chart")) {
       const chartType = layout.querySelector(".type-chart");
       const chart = layout.closest("section").querySelector(".report");
-      list.style.display = "none"
+      list.style.display = "none";
 
-      listType.addEventListener("click", () =>{
+      listType.addEventListener("click", () => {
         listType.classList.add("is-active");
         chartType.classList.remove("is-active");
         list.style.display = "flex";
-        chart.style.display = "none"
-      })
+        chart.style.display = "none";
+      });
 
-      chartType.addEventListener("click", () =>{
+      chartType.addEventListener("click", () => {
         chartType.classList.add("is-active");
         listType.classList.remove("is-active");
         chart.style.display = "flex";
-        list.style.display = "none"
-      })
+        list.style.display = "none";
+      });
     }
   });
 
