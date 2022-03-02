@@ -671,10 +671,6 @@ section {
     .select {
       display: flex;
       align-items: center;
-
-      &:not(.checkbox) {
-        width: 100%;
-      }
     }
 
     .calendar {
@@ -1125,7 +1121,7 @@ section {
       &.col-check {
         flex: 0 0 auto !important;
         width: 36px !important;
-        border-right: 0;
+        border-right: 0 !important;
         padding-right: 0;
       }
 
@@ -1570,7 +1566,7 @@ section {
 
       :not(.title) li {
         height: 54px;
-        gap: .5rem;
+        gap: 1rem;
       }
 
       li {
@@ -1580,11 +1576,12 @@ section {
 
     .list {
       li {
-        gap: 0.25rem;
 
         span {
           background-color: #f7f8f9;
           color: #708090;
+          width: 66px;
+          text-align: right;
           padding: 0.5rem;
           border-radius: 5px;
           font-size: 13px;
@@ -2067,6 +2064,7 @@ section {
 
         &.col-chart {
           min-width: 500px;
+          max-width: 600px;
           position: relative;
           cursor: pointer;
 
