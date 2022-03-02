@@ -21,6 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
       : scrollToTop.classList.remove("is-active");
   });
 
+  wrapper.addEventListener("touchmove", () => {
+    wrapper.scrollTop > 50
+      ? scrollToTop.classList.add("is-active")
+      : scrollToTop.classList.remove("is-active");
+  });
+
   scrollToTop.addEventListener("click", () => {
     console.log("test")
     wrapper.scroll({top: 0, behavior: "smooth"})
