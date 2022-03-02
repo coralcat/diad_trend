@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   scrollToTop.addEventListener("click", () => {
-    console.log("test")
     wrapper.scroll({top: 0, behavior: "smooth"})
   })
 
@@ -93,10 +92,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const anchors = document.querySelectorAll("a[href^='#']");
   if (anchors[0]) {
     anchors.forEach(anchor => {
-      anchor.addEventListener("click", event => {
-        event.preventDefault();
+      anchor.addEventListener("click", () => {
         anchor.getAttribute("href").scrollIntoView({
-          behavior: "smooth",
+          behavior: "smooth"
         });
       });
     });
@@ -681,6 +679,9 @@ document.addEventListener("DOMContentLoaded", () => {
   //     scrollHorizontal02.addEventListener("scroll", handleScrollHorizontal);
   //   }
   // }
+
+  const title = document.querySelector(".section-keyword-history .list .title");
+
 
   const hamburgMenu = document.querySelector(".hamburg-menu");
   hamburgMenu.addEventListener("click", () => {
