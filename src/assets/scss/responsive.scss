@@ -147,7 +147,7 @@
     }
   }
 
-  :is(.filters, .selector, .list, .wrapper .list .row, .wrapper .list li, .item-update-failed, .progress) {
+  :is(.filters, .selector, .list, .wrapper .list .row, .list li, .item-update-failed, .progress) {
     min-width: 100%;
     width: 100% !important;
   }
@@ -227,11 +227,25 @@
     flex-wrap: wrap;
 
     .section-header {
-      padding: 0 1rem;
+      padding: 0 1rem !important;
 
       &.multi-line {
         div:last-child {
           padding-top: 0;
+        }
+
+        .title {
+          .buttons {
+            width: auto;
+          }
+        }
+
+        .buttons {
+          width: 100%;
+
+          button {
+            flex: 0 0 25%;
+          }
         }
       }
     }
@@ -324,10 +338,33 @@
       li {
         border-bottom: 0;
         background-color: transparent;
-        width: 100% !important;
         max-width: 100% !important;
         height: auto !important;
         flex-wrap: wrap;
+
+        .rank {
+          &::before {
+            font-size: 8px;
+          }
+
+          &.up {
+            color: tomato;
+            background-color: transparent;
+
+            &::before {
+              content: "\25B2";
+            }
+          }
+
+          &.down {
+            color: royalblue;
+            background-color: transparent;
+
+            &::before {
+              content: "\25BC";
+            }
+          }
+        }
       }
     }
   }
@@ -520,13 +557,17 @@
         background-color: white;
 
         .row {
+          padding: 0.25rem 0;
+          flex-direction: row;
           &.title {
+            padding: 0;
             li {
               // font-size: 20px !important;
             }
           }
 
           li {
+            width: auto !important;
             &:nth-of-type(1) {
               width: 200px;
             }
@@ -552,10 +593,6 @@
   }
 
   :is(.content-ranking, .content-lowest-price) {
-    .buttons {
-      flex-wrap: wrap;
-    }
-
     .filters {
       flex-wrap: wrap;
       flex-direction: column-reverse;
@@ -569,9 +606,11 @@
 
     .section-main {
       .list {
-        li {
-          justify-content: flex-end !important;
-          gap: 1rem;
+        .row:not(.title) {
+          li {
+            justify-content: flex-end;
+            gap: 1rem;
+          }
         }
       }
     }
@@ -596,7 +635,6 @@
           align-items: center;
           flex-direction: row !important;
           width: auto !important;
-          justify-content: space-between;
 
           &::before {
             flex-basis: 84px;
@@ -684,37 +722,86 @@
     }
   }
 
-  .section-keyword-history {
-    .col-keyword {
-      margin-bottom: 0.5rem;
-      padding-bottom: 0.75rem !important;
-      font-size: 17px;
-      border-bottom: 1px solid #f7f8f9 !important;
+  .content-lowest-price {
+    .list {
+      .row {
+        li {
+          justify-content: space-between;
+        }
+      }
     }
   }
 
-  .section-weekly-top {
+  .content-ranking-details {
+    .section-keyword-history {
+      .list {
+        .row {
+          flex-direction: row;
+          overflow-x: auto;
+          gap: 0.5rem;
+          position: relative;
+          padding: 1rem 1rem 1rem 0;
 
-    .section-header{
-      flex-wrap: wrap;
+          li {
+            flex-direction: column;
+            width: auto !important;
+            min-width: auto;
+            border: 1px solid #eee;
+            min-width: auto;
+            border-radius: 0.5rem;
+
+            &.col-keyword {
+              width: 80px !important;
+              width: auto !important;
+              max-width: 120px !important;
+              font-size: 17px;
+              border: 0;
+              display: flex;
+              background-color: white;
+            }
+          }
+        }
+      }
     }
 
-    .list {
-      gap: 0;
-      padding: .5rem;
+
+    .keyword-chart {
+
+      padding: 1rem;
       background-color: white;
+    }
 
-      .row {
-        flex-direction: row;
-        padding: 0.5rem 1rem;
-        gap: 1rem;
-        border-bottom: 1px solid #f7f8f9;
+    .section-weekly-top {
+      .section-header {
+        flex-wrap: wrap;
+      }
 
-        li {
-          min-width: auto;
-          width: auto !important;
-          padding: 0;
-          justify-content: flex-start;
+      .ranking-fluctuations {
+        padding: 1rem;
+        background-color: white;
+      }
+
+      .list {
+        gap: 0;
+        padding: 0.5rem;
+        border: 1px solid #eee;
+        border-radius: 0.5rem;
+
+        .row {
+          flex-direction: row;
+          padding: 0.5rem 1rem;
+          gap: 1rem;
+
+          &:not(:last-of-type) {
+            border-bottom: 1px solid #f7f8f9;
+          }
+
+          li {
+            min-width: auto;
+            width: auto !important;
+            padding: 0;
+            justify-content: flex-start;
+          }
         }
       }
     }
