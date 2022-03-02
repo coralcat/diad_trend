@@ -7,7 +7,7 @@ $violet-medium-color: rgb(214 217 253);
 
 html,
 body {
-  height: 100vh;
+  height: 100%;
   user-select: none;
 
   .bg-red {
@@ -458,7 +458,7 @@ main {
 
 aside {
   width: 210px;
-  height: 100vh;
+  height: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   .logo {
@@ -1002,12 +1002,6 @@ section {
     &::before {
       left: 36px;
       transform: none;
-    }
-  }
-
-  .price {
-    &::after {
-      content: "원";
     }
   }
 
@@ -2046,21 +2040,10 @@ section {
 }
 
 .content-lowest-price-details {
-  .list-daily-lowest-price {
+  .list {
     .row {
       li {
         width: 10%;
-      }
-    }
-
-    .row:not(.title) {
-      &.failed {
-        li:first-of-type::after {
-          content: none !important;
-        }
-      }
-      li {
-        min-height: 64px;
 
         &.col-chart {
           min-width: 500px;
@@ -2108,6 +2091,17 @@ section {
           padding: 0 0.5rem 0 1.75rem;
           font-size: 13px;
         }
+      }
+    }
+
+    .row:not(.title) {
+      &.failed {
+        li:first-of-type::after {
+          content: none !important;
+        }
+      }
+      li {
+        min-height: 64px;
       }
     }
   }
@@ -2274,7 +2268,6 @@ section {
         flex-wrap: nowrap;
 
         li {
-          width: 20%;
           padding: 1.5rem 1rem;
         }
       }
@@ -2300,7 +2293,6 @@ section {
         padding: 0.75rem;
         background: #f7f8f9;
         border-radius: 0.5rem;
-        width: 50%;
         align-items: center;
         display: flex;
         justify-content: space-between;
