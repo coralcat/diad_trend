@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const loading = () => {
         value += 1;
         const addValue = bar.value(value);
-        console.log(addValue);
         bar.querySelector(".progress-value").innerHTML(`${value}%`);
 
         if (value === max) {
@@ -123,7 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (layout.classList.contains("layout-grid")) {
       const gridType = layout.querySelector(".type-grid");
-      console.log(gridType);
 
       listType.addEventListener("click", () => {
         listType.classList.add("is-active");
@@ -679,23 +677,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const historyRows = document.querySelectorAll(".section-keyword-history .list .row");
 
   if (historyRows[0]) {
+    const dateTitle = document.querySelectorAll(".date");
+
     historyRows.forEach(row => {
-      const dateTitle = row.querySelectorAll(".date");
-      dateTitle.forEach(title => {
-        console.log(title)
+      const lists = row.querySelectorAll("li");
 
-        if (!row.classList.contains("title")) {
-          const date = document.createElement("div");
-          date.classList.add("test");
-          date.innerText = title.textContent;
-          const lists = row.childNodes;
-          console.log(lists);
-          lists.forEach(list => {
-            list.appendChild(date);
-          });
-        }
-      })
+      lists.forEach(list => {
+        const index = lists.length
+        const dateIndex = [...dateTitle][index];
+        const date = document.createElement("div");
+        date.classList.add("date-title");
+        date.innerText = dateIndex.textContent;
+        list.prepend(date);
 
+        dateIndex === [...lists].indexOf(1) && list.prepend(date)
+      });
     });
   }
 

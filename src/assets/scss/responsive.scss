@@ -15,7 +15,7 @@
         gap: 0;
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.5rem !important;
         padding: 1rem;
       }
 
@@ -97,6 +97,7 @@
     body {
       display: flex;
       flex-direction: column;
+
       .date {
         font-size: 13px;
       }
@@ -138,6 +139,30 @@
         input:checked + label:after {
           top: 6px;
           left: 6px;
+        }
+      }
+
+      [data-tooltip] {
+        &::before {
+          left: 50% !important;
+        }
+
+        &::after {
+          display: none;
+        }
+      }
+
+      .tooltip {
+        position: unset;
+      }
+
+      .tooltip-content {
+        left: 1rem !important;
+        right: 1rem;
+        width: auto !important;
+
+        &::before {
+          content: none;
         }
       }
 
@@ -228,6 +253,7 @@
 
   section {
     flex-wrap: wrap;
+    width: 100%;
 
     .section-header {
       padding: 0 1rem !important;
@@ -238,7 +264,8 @@
         }
 
         .title {
-          width: 100%;
+          flex: 1 1 auto;
+
           h3 + .buttons {
             width: auto;
           }
@@ -628,12 +655,35 @@
       }
       .row {
         .item {
+          padding: 1rem;
+          .image {
+            border-radius: 0.5rem;
+            width: 60px;
+            height: 60px;
+          }
+
           .information {
             width: 60%;
+            position: unset;
+
+            .title {
+              white-space: normal;
+              display: -webkit-box;
+              -webkit-line-clamp: 2;
+              -webkit-box-orient: vertical;
+            }
+
+            .item-mid {
+              position: absolute;
+              left: 50%;
+              top: -2rem;
+              transform: translateX(-50%);
+            }
           }
         }
 
         li {
+          padding: 0 1rem;
           width: 100% !important;
           background-color: transparent;
           left: auto !important;
@@ -738,14 +788,15 @@
       .list {
         .row {
           flex-direction: row;
+          align-items: center;
           overflow-x: auto;
           gap: 0.5rem;
           position: relative;
-          padding: 1rem 1rem 1rem 0;
+          padding: 0;
 
           li {
-            flex-direction: column;
-            width: auto !important;
+            flex-wrap: wrap;
+            width: 186px !important;
             min-width: auto;
             border: 1px solid #eee;
             min-width: auto !important;
@@ -753,6 +804,7 @@
             box-shadow: 0 4px 8px -4px rgb(0 0 10 / 10%);
 
             &.col-keyword {
+              flex-direction: column;
               min-width: 80px !important;
               width: auto !important;
               max-width: 120px !important;
@@ -761,6 +813,22 @@
               display: flex;
               background-color: white;
               box-shadow: 0 0 0;
+              padding: 2rem 1rem;
+
+              .date-title {
+                display: none;
+              }
+            }
+
+            .date-title {
+              border-bottom: 1px solid #eee;
+              padding-bottom: 0.5rem;
+              flex: 1 1 auto;
+            }
+
+            .ranking {
+              flex-direction: column;
+              align-items: flex-start;
             }
           }
         }
@@ -798,6 +866,7 @@
           }
 
           li {
+            min-height: auto;
             min-width: auto;
             width: auto !important;
             padding: 0;
@@ -998,10 +1067,9 @@
       }
     }
 
-
     .filters {
       flex-direction: column;
-      gap: .5rem;
+      gap: 0.5rem;
 
       .selector {
         flex-wrap: wrap;
@@ -1167,18 +1235,14 @@
     }
 
     .content-analysis {
-
       .report {
         flex-direction: column;
       }
     }
 
     .content-related-keyword {
-
       .list {
-
         .row {
-
           &.title {
             display: none;
           }
@@ -1248,6 +1312,60 @@
               }
             }
           }
+        }
+      }
+    }
+  }
+
+  .content-settings {
+    .main-header {
+      padding: 1rem;
+    }
+
+    section {
+      width: 100% !important;
+      gap: 0 !important;
+    }
+
+    .list {
+      background-color: white;
+      padding: 0 0.5rem;
+      gap: 0;
+
+      .row {
+        flex-direction: row;
+        height: 48px !important;
+
+        &:last-of-type {
+          border-bottom: 0;
+        }
+
+        div {
+        }
+      }
+    }
+
+    .select-alarm-type {
+      flex-wrap: wrap;
+      padding: 0 1rem;
+      width: 100% !important;
+
+      .select {
+        padding: 1rem !important;
+        background-color: white;
+        border: 0 !important;
+        width: 100% !important;
+      }
+
+      .row {
+        flex-wrap: wrap;
+      }
+
+      .inputs {
+        flex-wrap: nowrap;
+
+        input {
+          width: 100%;
         }
       }
     }

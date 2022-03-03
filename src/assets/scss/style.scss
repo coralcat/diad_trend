@@ -985,7 +985,7 @@ section {
     }
 
     .col-important {
-      left: 30px;
+      left: 36px;
     }
   }
 
@@ -1196,6 +1196,7 @@ section {
 
           &::before {
             content: "확인불가";
+            font-size: 10px;
           }
         }
       }
@@ -1612,7 +1613,7 @@ section {
   .list-item {
     &.sticky {
       .col-keyword {
-        left: 570px;
+        left: 576px;
       }
     }
     .item-update-failed {
@@ -1995,27 +1996,9 @@ section {
 
       .list {
         max-height: 273px;
-      }
-
-      > .title {
-        flex: 0 0 auto;
-        font-size: 17px;
-        margin-bottom: 0.5rem;
-      }
-
-      .list {
-        .rows {
-          height: 240px;
-
-          li {
-            min-height: 48px;
-            &:nth-of-type(2) {
-              justify-content: flex-start;
-            }
-          }
-        }
 
         li {
+          min-height: 48px;
           flex-wrap: wrap;
           gap: 0.5rem;
           border-right: 0;
@@ -2025,12 +2008,21 @@ section {
             flex: 0 0 auto;
             width: 50px;
           }
+          &:nth-of-type(2) {
+            justify-content: flex-start;
+          }
 
           &:nth-of-type(3) {
             flex: 0 0 auto;
             width: 120px;
           }
         }
+      }
+
+      > .title {
+        flex: 0 0 auto;
+        font-size: 17px;
+        margin-bottom: 0.5rem;
       }
     }
   }
@@ -2901,11 +2893,12 @@ section {
         padding: 1.75rem;
 
         .title {
+          flex-wrap: wrap;
           width: 100%;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          height: 32px;
+          min-height: 32px;
         }
       }
 
@@ -2919,11 +2912,11 @@ section {
         transition: opacity 0.4s;
 
         .row {
-          justify-content: space-between;
           align-items: center;
           gap: 1rem;
           border: 0;
-          height: 48px;
+          min-height: 48px;
+          padding: .5rem 0;
 
           button {
             height: 32px;

@@ -863,7 +863,7 @@ progress {
 /* Radio Button */
 
 input[type="radio"] {
-  display: none;
+  display: none !important;
   opacity: 0;
 }
 
@@ -876,6 +876,7 @@ input[type="radio"] + label {
 
 input[type="radio"] + label:before {
   content: "";
+  flex: 0 0 auto;
   background: #f3f6f9;
   border-radius: 100%;
   border: 1px solid #e3e6e9;
