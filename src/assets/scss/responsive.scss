@@ -117,7 +117,8 @@
 
       .chart-container {
         background: white;
-        padding: 1rem;
+        padding: 1rem !important;
+        border-radius: 0 !important;
       }
 
       .zoom-in-out {
@@ -189,7 +190,7 @@
 
     .sub-menu {
       position: absolute;
-      bottom: calc(1rem + 49px);
+      bottom: 1rem;
       right: 50%;
       transform: translateX(50%);
     }
@@ -237,6 +238,7 @@
         }
 
         .title {
+          width: 100%;
           h3 + .buttons {
             width: auto;
           }
@@ -286,6 +288,11 @@
 
     .selector {
       justify-content: center;
+
+      label {
+        flex: 1 1 auto;
+        justify-content: center;
+      }
 
       + .calendar {
         width: 80%;
@@ -972,16 +979,55 @@
 
   .content-keyword-trend-details {
     > .wrapper {
+      gap: 1rem;
+
+      > .tabs {
+        li {
+          font-size: 15px;
+          padding: 0.5rem;
+        }
+      }
       > .tab-content {
         padding: 0;
 
         section {
+          background-color: transparent;
           border-radius: 0;
+          padding: 0;
         }
       }
     }
-    .report {
+
+
+    .filters {
       flex-direction: column;
+      gap: .5rem;
+
+      .selector {
+        flex-wrap: wrap;
+
+        &.main {
+          label {
+            flex: 0 0 32%;
+          }
+        }
+
+        &.sub {
+          padding-top: 6px !important;
+        }
+      }
+    }
+
+    .report {
+      .summary {
+        flex: 1 1 auto;
+
+        ul {
+          li {
+            flex-direction: column;
+          }
+        }
+      }
     }
 
     .summary {
@@ -990,20 +1036,219 @@
 
         li {
           padding: 1rem !important;
+          gap: 0.5rem;
+
+          > div {
+            height: 18px;
+          }
         }
       }
     }
 
-    .section-article {
-      .tabs {
-        flex-direction: row;
+    .section-chart {
+      padding: 1rem 0 0 !important;
+      background-color: transparent !important;
+    }
+
+    .content-keyword {
+      .section-article {
+        .tabs {
+          flex-direction: row;
+          padding-left: 1rem;
+        }
+
+        .section-content {
+          .section-header {
+            flex-direction: column;
+            padding-bottom: 1rem !important;
+          }
+        }
+
+        .section-content {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .list {
+          background-color: white;
+          padding: 0 1rem;
+          margin-top: 1rem;
+
+          .created {
+            :first-of-type {
+              flex: 1 1 auto;
+            }
+
+            :last-of-type {
+              flex: 0 0 110px;
+            }
+          }
+        }
+      }
+    }
+
+    .content-items {
+      section {
       }
 
-      .section-header {
+      .layout {
+        display: none;
+      }
+
+      .list {
+        .row {
+          flex-direction: row;
+          flex-wrap: wrap;
+
+          li {
+            width: 100% !important;
+            justify-content: flex-start;
+            padding: 0 1rem;
+
+            &::before {
+              color: slategray;
+              font-size: 13px;
+              width: 86px;
+            }
+
+            .ico-store {
+              display: none;
+            }
+
+            &.col-image {
+              width: fit-content !important;
+              padding-right: 0;
+            }
+
+            &.col-title {
+              width: calc(100% - 86px) !important;
+
+              .title {
+                -webkit-line-clamp: 3;
+              }
+            }
+
+            &:nth-of-type(1) {
+              display: none;
+            }
+
+            &:nth-of-type(4) {
+              &::before {
+                content: "카테고리";
+              }
+            }
+
+            &:nth-of-type(5) {
+              &::before {
+                content: "스토어명";
+              }
+            }
+
+            &:nth-of-type(6) {
+              &::before {
+                content: "판매가";
+              }
+            }
+
+            &:nth-of-type(7) {
+              &::before {
+                content: "브랜드";
+              }
+            }
+
+            &:nth-of-type(8) {
+              &::before {
+                content: "제조사";
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .content-analysis {
+
+      .report {
         flex-direction: column;
       }
-      .section-content {
-        flex-direction: column;
+    }
+
+    .content-related-keyword {
+
+      .list {
+
+        .row {
+
+          &.title {
+            display: none;
+          }
+
+          li {
+            width: 100%;
+            justify-content: space-between;
+
+            &::before {
+              font-size: 13px;
+              color: slategray;
+            }
+
+            &:nth-of-type(1) {
+              display: none;
+            }
+            &:nth-of-type(2) {
+              &::before {
+              }
+            }
+            &:nth-of-type(3) {
+              &::before {
+                content: "월간검색수(PC)";
+              }
+            }
+            &:nth-of-type(4) {
+              &::before {
+                content: "월간검색수(모바일)";
+              }
+            }
+            &:nth-of-type(5) {
+              border-bottom: 1px solid #eee;
+              &::before {
+                content: "월간검색수(합계)";
+              }
+            }
+            &:nth-of-type(6) {
+              &::before {
+                content: "월평균클릭수(PC)";
+              }
+            }
+            &:nth-of-type(7) {
+              border-bottom: 1px solid #eee;
+              &::before {
+                content: "월평균클릭수(모바일)";
+              }
+            }
+            &:nth-of-type(8) {
+              &::before {
+                content: "월평균클릭율(PC)";
+              }
+            }
+            &:nth-of-type(9) {
+              border-bottom: 1px solid #eee;
+              &::before {
+                content: "월평균클릭율(모바일)";
+              }
+            }
+            &:nth-of-type(10) {
+              &::before {
+                content: "경쟁정도(PC)";
+              }
+            }
+            &:nth-of-type(11) {
+              &::before {
+                content: "월평균노출광고수(PC)";
+              }
+            }
+          }
+        }
       }
     }
   }
