@@ -16,20 +16,16 @@ document.addEventListener("DOMContentLoaded", () => {
   wrapper.appendChild(scrollToTop);
 
   wrapper.addEventListener("scroll", () => {
-    wrapper.scrollTop > 50
-      ? scrollToTop.classList.add("is-active")
-      : scrollToTop.classList.remove("is-active");
+    wrapper.scrollTop > 50 ? scrollToTop.classList.add("is-active") : scrollToTop.classList.remove("is-active");
   });
 
   wrapper.addEventListener("touchmove", () => {
-    wrapper.scrollTop > 50
-      ? scrollToTop.classList.add("is-active")
-      : scrollToTop.classList.remove("is-active");
+    wrapper.scrollTop > 50 ? scrollToTop.classList.add("is-active") : scrollToTop.classList.remove("is-active");
   });
 
   scrollToTop.addEventListener("click", () => {
-    wrapper.scroll({top: 0, behavior: "smooth"})
-  })
+    wrapper.scroll({top: 0, behavior: "smooth"});
+  });
 
   /* =====================================================
        Progress Bar
@@ -94,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     anchors.forEach(anchor => {
       anchor.addEventListener("click", () => {
         anchor.getAttribute("href").scrollIntoView({
-          behavior: "smooth"
+          behavior: "smooth",
         });
       });
     });
@@ -680,8 +676,28 @@ document.addEventListener("DOMContentLoaded", () => {
   //   }
   // }
 
-  const title = document.querySelector(".section-keyword-history .list .title");
+  const historyRows = document.querySelectorAll(".section-keyword-history .list .row");
 
+  if (historyRows[0]) {
+    historyRows.forEach(row => {
+      const dateTitle = row.querySelectorAll(".date");
+      dateTitle.forEach(title => {
+        console.log(title)
+
+        if (!row.classList.contains("title")) {
+          const date = document.createElement("div");
+          date.classList.add("test");
+          date.innerText = title.textContent;
+          const lists = row.childNodes;
+          console.log(lists);
+          lists.forEach(list => {
+            list.appendChild(date);
+          });
+        }
+      })
+
+    });
+  }
 
   const hamburgMenu = document.querySelector(".hamburg-menu");
   hamburgMenu.addEventListener("click", () => {
