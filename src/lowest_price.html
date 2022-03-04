@@ -285,8 +285,8 @@
               <button type="button" data-modal="deleteItem">선택삭제</button>
               <div class="selectbox">
                 <select name="" id="">
-                  <option value="">알람설정</option>
-                  <option value="">ON</option>
+                  <option value="">알림설정</option>
+                  <option value="" data-modal="alarmOn">ON</option>
                   <option value="">OFF</option>
                 </select>
               </div>
@@ -362,7 +362,9 @@
           <li>커피그룹</li>
           <li>2022-03-01</li>
           <li>2022-03-03 15:00</li>
-          <li>ON</li>
+          <li>
+            <div id="" class="toggle toggle-switch is-active"></div>
+          </li>
         </ul>
         <ul class="row">
           <li class="col-check">
@@ -396,7 +398,9 @@
           <li>커피그룹</li>
           <li>2022-03-01</li>
           <li>2022-03-03 15:00</li>
-          <li>OFF</li>
+          <li class="col-toggle">
+            <div id="" class="toggle toggle-switch"></div>
+          </li>
         </ul>
         <ul class="row">
           <li class="col-check">
@@ -432,7 +436,9 @@
           <li>커피그룹</li>
           <li>2022-03-01</li>
           <li>2022-03-03 15:00</li>
-          <li>ON</li>
+          <li>
+            <div id="" class="toggle toggle-switch is-active"></div>
+          </li>
         </ul>
       </div>
       <footer class="section-footer">

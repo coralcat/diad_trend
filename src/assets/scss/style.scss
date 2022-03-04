@@ -274,7 +274,7 @@ main {
   width: 100%;
   height: 100%;
   flex-direction: row;
-  padding: .75rem;
+  padding: 0.75rem;
   background-color: white;
 }
 
@@ -1274,9 +1274,6 @@ section {
   }
 
   .total {
-    justify-content: right;
-    text-align: right;
-    min-width: 80px;
   }
 
   .buttons {
@@ -1396,7 +1393,7 @@ section {
 
 .content-main {
   > .wrapper {
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   .progress {
@@ -1672,7 +1669,8 @@ section {
         }
 
         &.col-important {
-          width: 540px;
+          flex: 1 1 auto;
+          min-width: 540px;
 
           [data-tooltip] {
             &::before {
@@ -1696,10 +1694,36 @@ section {
   .list-item {
     .row {
       li {
-        flex: 1 1 auto;
+        white-space: nowrap;
 
-        &:not(.col-important) {
-          width: 5%;
+        // 최저가
+        &:nth-of-type(3) {
+          width: 120px;
+        }
+
+        // 상태
+        &:nth-of-type(4) {
+          width: 80px;
+        }
+
+        // 그룹
+        &:nth-of-type(5) {
+          width: 160px;
+        }
+
+        // 등록일
+        &:nth-of-type(6) {
+          width: 120px;
+        }
+
+        // 최근 갱신시간
+        &:nth-of-type(7) {
+          width: 160px;
+        }
+
+        // 알림
+        &:nth-of-type(8) {
+          width: 80px;
         }
       }
     }
@@ -2458,7 +2482,7 @@ section {
     box-shadow: 0 4px 8px -2px rgb(0 0 10 / 5%);
     overflow: hidden;
     position: sticky;
-    top: 0;
+    top: .5rem;
     z-index: 51;
 
     li {
@@ -2581,6 +2605,7 @@ section {
   .content-items {
     .list {
       .image {
+        flex: 0 0 auto;
         width: 70px;
         height: 70px;
         border-radius: 0.5rem;
@@ -2632,15 +2657,9 @@ section {
               width: 70px;
             }
 
-            &:nth-of-type(2) {
-              width: 100px;
-            }
-
-            &:nth-of-type(3) {
-              width: 400px;
-            }
-
-            &:nth-of-type(4) {
+            &.col-title {
+              flex-wrap: nowrap;
+              width: 450px;
             }
           }
 
@@ -2688,9 +2707,14 @@ section {
             display: none;
           }
 
-          .image {
-            width: 80px;
-            height: 80px;
+          .col-title {
+            justify-content: flex-start;
+            gap: 0.5rem;
+
+            .image {
+              width: 90px;
+              height: 90px;
+            }
           }
 
           .price {
@@ -2710,33 +2734,6 @@ section {
             white-space: normal;
             border: 0;
             position: relative !important;
-
-            &:nth-of-type(2) {
-              order: 2;
-            }
-            &:nth-of-type(3) {
-              order: 3;
-            }
-            &:nth-of-type(4) {
-              order: 1;
-              margin-bottom: 0.5rem;
-            }
-            &:nth-of-type(5) {
-              order: 5;
-            }
-            &:nth-of-type(6) {
-              order: 4;
-            }
-            &:nth-of-type(7) {
-              order: 6;
-            }
-            &:nth-of-type(8) {
-              order: 7;
-            }
-
-            &.col-image {
-              margin-bottom: 0.5rem;
-            }
 
             &.col-title .tag,
             &:nth-of-type(1) {

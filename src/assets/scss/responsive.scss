@@ -95,6 +95,7 @@
     overflow: hidden;
 
     body {
+      font-size: 16px;
       display: flex;
       flex-direction: column;
 
@@ -176,8 +177,6 @@
       .content {
         border-radius: 0;
       }
-
-      .tabs {}
     }
   }
 
@@ -282,6 +281,8 @@
             + .buttons {
               button {
                 flex: 1 1 25%;
+                padding: .5rem;
+                justify-content: center;
               }
             }
           }
@@ -351,14 +352,14 @@
       .selectbox {
         select {
           background-color: transparent !important;
-          font-size: 13px;
+          font-size: 14px;
           padding: 0 1.25rem 0 0rem !important;
         }
       }
 
       button {
         background-color: transparent;
-        font-size: 13px;
+        font-size: 14px;
         padding: 0;
       }
     }
@@ -400,10 +401,19 @@
       }
 
       li {
+        min-height: 32px;
         border-bottom: 0;
         background-color: transparent;
         height: auto !important;
         flex-wrap: wrap;
+
+        &::before {
+          flex-basis: 80px;
+          display: flex;
+          justify-content: flex-start;
+          color: lightslategray;
+          font-size: 14px;
+        }
       }
     }
   }
@@ -441,7 +451,7 @@
           > li {
             justify-content: flex-start;
             background-color: transparent;
-            font: 13px/1 "Roboto", "NanumBarunGothic";
+            font: 14px/1 "Roboto", "NanumBarunGothic";
             color: lightslategray;
           }
         }
@@ -524,7 +534,7 @@
 
             &::before {
               flex-basis: 130px;
-              font-size: 13px;
+              font-size: 14px;
               color: lightslategray;
             }
 
@@ -662,8 +672,10 @@
         bottom: auto;
       }
       .row {
-        .item {
+        .col-important {
+          min-width: auto !important ;
           padding: 1rem;
+
           .image {
             border-radius: 0.5rem;
             width: 60px;
@@ -682,6 +694,7 @@
             }
 
             .item-mid {
+              padding: .5rem;
               position: absolute;
               left: 50%;
               top: -2rem;
@@ -698,14 +711,6 @@
           align-items: center;
           flex-direction: row !important;
           justify-content: flex-start;
-
-          &::before {
-            flex-basis: 84px;
-            display: flex;
-            justify-content: flex-start;
-            color: lightslategray;
-            font-size: 13px;
-          }
 
           .rank {
             position: absolute;
@@ -939,14 +944,6 @@
           min-height: auto !important;
           justify-content: space-between;
 
-          &::before {
-            flex-basis: 84px;
-            display: flex;
-            justify-content: flex-start;
-            color: #789;
-            font-size: 13px;
-          }
-
           &:nth-of-type(3) {
             &::before {
               content: "평균";
@@ -1005,14 +1002,6 @@
           width: 100% !important;
           justify-content: space-between;
 
-          &::before {
-            flex-basis: 84px;
-            display: flex;
-            justify-content: flex-start;
-            color: #789;
-            font-size: 13px;
-          }
-
           &:first-of-type {
             position: absolute;
             right: 0;
@@ -1063,9 +1052,16 @@
       gap: 1rem;
 
       > .tabs {
+        padding: 0;
+        margin: 0 auto;
+        width: calc(100% - 2rem);
+
         li {
-          font-size: 15px;
+          display: flex;
+          align-items: center;
           padding: 0.5rem;
+          word-break: keep-all;
+          font-size: 15px;
         }
       }
       > .tab-content {
@@ -1185,12 +1181,6 @@
             justify-content: flex-start;
             padding: 0 1rem;
 
-            &::before {
-              color: slategray;
-              font-size: 13px;
-              width: 86px;
-            }
-
             .ico-store {
               display: none;
             }
@@ -1201,7 +1191,7 @@
             }
 
             &.col-title {
-              width: calc(100% - 86px) !important;
+              margin-bottom: .5rem;
 
               .title {
                 -webkit-line-clamp: 3;
@@ -1212,31 +1202,31 @@
               display: none;
             }
 
-            &:nth-of-type(4) {
+            &:nth-of-type(3) {
               &::before {
                 content: "카테고리";
               }
             }
 
-            &:nth-of-type(5) {
+            &:nth-of-type(4) {
               &::before {
                 content: "스토어명";
               }
             }
 
-            &:nth-of-type(6) {
+            &:nth-of-type(5) {
               &::before {
                 content: "판매가";
               }
             }
 
-            &:nth-of-type(7) {
+            &:nth-of-type(6) {
               &::before {
                 content: "브랜드";
               }
             }
 
-            &:nth-of-type(8) {
+            &:nth-of-type(7) {
               &::before {
                 content: "제조사";
               }
@@ -1264,7 +1254,7 @@
             justify-content: space-between;
 
             &::before {
-              font-size: 13px;
+              font-size: 14px;
               color: slategray;
             }
 
