@@ -603,12 +603,6 @@ aside {
   padding: 0 1rem 1rem 1rem;
 }
 
-.wrapper {
-  display: flex;
-  gap: 1rem;
-  position: relative;
-}
-
 .inputs {
   display: flex;
   flex-wrap: wrap;
@@ -1464,6 +1458,7 @@ input[type="radio"] + label:empty:before {
   border-radius: 50%;
   background:  $primary-color url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath fill='white' d='M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z'/%3E%3C/svg%3E") no-repeat center;
   box-shadow: 0 3px 9px -4px $primary-color;;
+  cursor: pointer;
 
   &.is-active {
     bottom: 2rem;
@@ -1626,6 +1621,7 @@ input[type="radio"] + label:empty:before {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 6px;
   background-color: #eee;
+  margin: .5rem 0
 }
 
 ::-webkit-scrollbar {

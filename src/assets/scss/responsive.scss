@@ -101,6 +101,7 @@
       .date {
         font-size: 13px;
       }
+
       h1 {
         font-size: 20px;
       }
@@ -154,22 +155,29 @@
 
       .tooltip {
         position: unset;
-      }
 
-      .tooltip-content {
-        left: 1rem !important;
-        right: 1rem;
-        width: auto !important;
+        .tooltip-content {
+          left: 1rem !important;
+          right: 1rem;
+          width: auto !important;
 
-        &::before {
-          content: none;
+          &::before {
+            content: none;
+          }
         }
       }
 
       main {
         overflow: hidden;
+        padding: 0;
         position: relative;
       }
+
+      .content {
+        border-radius: 0;
+      }
+
+      .tabs {}
     }
   }
 
@@ -792,16 +800,20 @@
           overflow-x: auto;
           gap: 0.5rem;
           position: relative;
-          padding: 0;
 
           li {
             flex-wrap: wrap;
             width: 186px !important;
             min-width: auto;
             border: 1px solid #eee;
+            padding: 1rem;
             min-width: auto !important;
             border-radius: 0.5rem;
             box-shadow: 0 4px 8px -4px rgb(0 0 10 / 10%);
+
+            .date-title {
+              display: flex;
+            }
 
             &.col-keyword {
               flex-direction: column;
