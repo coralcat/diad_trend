@@ -678,8 +678,8 @@
 
           .image {
             border-radius: 0.5rem;
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
           }
 
           .information {
@@ -719,6 +719,10 @@
 
           .page {
             margin-bottom: 0;
+          }
+
+          &:not(.col-important) {
+            gap: 0;
           }
         }
       }
@@ -784,7 +788,7 @@
 
         &:nth-of-type(12) {
           &::before {
-            content: "최근 갱신시간";
+            content: "최근 갱신";
           }
         }
         &:nth-of-type(13) {
@@ -923,7 +927,7 @@
 
         &:nth-of-type(7) {
           &::before {
-            content: "최근 갱신시간";
+            content: "최근 갱신";
           }
         }
 
@@ -1068,9 +1072,16 @@
         padding: 0;
 
         section {
-          background-color: transparent;
           border-radius: 0;
-          padding: 0;
+        }
+
+        &.content-items, &.content-related-keyword {
+
+          section {
+            background-color: transparent;
+            border-radius: 0;
+            padding: 0;
+          }
         }
       }
     }
@@ -1122,8 +1133,6 @@
     }
 
     .section-chart {
-      padding: 1rem 0 0 !important;
-      background-color: transparent !important;
     }
 
     .content-keyword {
@@ -1243,6 +1252,16 @@
     }
 
     .content-related-keyword {
+      .filters {
+
+        .selector {
+          &.main {
+            label {
+              flex-basis: calc(50% - .125rem)
+            }
+          }
+        }
+      }
       .list {
         .row {
           &.title {
@@ -1254,8 +1273,7 @@
             justify-content: space-between;
 
             &::before {
-              font-size: 14px;
-              color: slategray;
+              flex-basis: auto;
             }
 
             &:nth-of-type(1) {
