@@ -423,6 +423,7 @@ main {
     overflow-y: auto;
 
     > section {
+      padding: 1rem;
       flex: 1 1 auto;
       background-color: white;
       padding: 1rem;
@@ -515,16 +516,7 @@ aside {
 }
 
 section {
-  padding: 1rem;
-
   &.section-main {
-    background-color: white;
-    border-radius: 0.5rem;
-    box-shadow: 0 6px 12px -4px #e3e6e9;
-
-    .section-header {
-      height: 48px;
-    }
 
     .row {
       &:not(.title) {
@@ -574,7 +566,6 @@ section {
     &:not(.multi-line) {
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid #eee;
 
       > div {
         display: flex;
@@ -1277,10 +1268,21 @@ section {
   }
 
   .buttons {
+    align-items: center;
+    gap: 1rem;
+
+    :not(:last-of-type) {
+      border-right: 1px solid #eee;
+      padding-right: 1rem;
+    }
+
     button {
+      padding: 0;
+      height: auto !important;
       font-family: "NanumBarunGothic";
+      background-color: transparent;
       color: $primary-color;
-      background-color: $tertiary-color;
+      border-radius: 0;
 
       .checkbox {
         input {
@@ -1294,6 +1296,38 @@ section {
                 border-color: $secondary-color;
               }
             }
+          }
+        }
+      }
+    }
+
+    .selectbox{
+      display: flex;
+      align-items: center;
+
+      select {
+        height: auto;
+        color: $primary-color;
+        padding: 0 1rem 0 0;
+        border: 0;
+
+        &:focus {
+          box-shadow: 0 0 0;
+        }
+      }
+
+      &:last-of-type {
+        select {
+          height: 36px;
+          border-radius: 0.25rem;
+          background: transparent;
+          align-items: center;
+          padding: 0 1.75rem 0 1rem;
+          background-color: rgba(118, 130, 248, 0.1);
+          border: 0;
+
+          &:focus {
+            box-shadow: 0 0 0;
           }
         }
       }
@@ -1558,65 +1592,65 @@ section {
     display: flex;
     gap: 1rem;
 
+    .section-header {
+      min-height: auto;
+      height: 36px;
+    }
+
     > div {
+      gap: .5rem;
       flex: 1 1 auto;
       width: 50%;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-    }
+      border-radius: 0.5rem;
+      background: white;
+      padding: 0.75rem;
+      box-shadow: 0 6px 12px -4px #e3e6e9;
 
-    .list {
-      min-height: auto;
-
-      :not(.title) li {
-        height: 54px;
-        gap: 1rem;
-      }
-
-      li {
-        width: 25%;
-      }
-    }
-
-    .list {
-      li {
-        span {
-          background-color: #f7f8f9;
-          color: #708090;
-          width: 66px;
-          text-align: right;
-          padding: 0.5rem;
-          border-radius: 5px;
-          font-size: 13px;
+      &.ranking {
+        strong {
+          text-decoration: underline;
+          cursor: pointer;
         }
       }
     }
 
-    .ranking {
-      strong {
-        text-decoration: underline;
-        cursor: pointer;
-      }
-    }
-  }
+    ul {
+      display: flex;
+      gap: 1rem;
 
-  .filters {
-    .buttons {
-      .selectbox {
-        select {
-          border-radius: 0.25rem;
-          background: transparent;
-          align-items: center;
+      li {
+        background: rgba(118, 130, 248, 0.1);
+        border-radius: 0.5rem;
+        padding: 0.75rem;
+        width: 33.333%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        position: relative;
+        gap: 0.5rem;
+
+        div {
           color: $secondary-color;
-          padding: 0 1.75rem 0 1rem;
-          color: #7682f8;
-          background-color: rgba(118, 130, 248, 0.1);
-          border: 0;
+          width: 100%;
+        }
 
-          &:focus {
-            box-shadow: 0 0 0;
-          }
+        strong {
+          flex: 1 1 auto;
+          display: flex;
+          align-items: center;
+          position: absolute;
+          bottom: 0.75rem;
+          top: 0.75rem;
+          right: 1rem;
+          color: #434649;
+          font-size: 18px;
+        }
+
+        span {
+          color: slategray;
+          font-size: 14px;
         }
       }
     }
@@ -1748,6 +1782,8 @@ section {
     width: 280px;
 
     .section-main {
+      background-color: white;
+      border-radius: .5rem;
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
@@ -1786,7 +1822,7 @@ section {
 
     .information {
       display: flex;
-      gap: 1rem;
+      gap: .75rem;
       text-align: center;
       line-height: 1.25;
       position: relative;
@@ -1804,6 +1840,10 @@ section {
           width: 100%;
           max-width: 100%;
         }
+      }
+
+      .categories {
+        font-size: 13px;
       }
 
       .name {
@@ -2482,7 +2522,7 @@ section {
     box-shadow: 0 4px 8px -2px rgb(0 0 10 / 5%);
     overflow: hidden;
     position: sticky;
-    top: .5rem;
+    top: 0.5rem;
     z-index: 51;
 
     li {
@@ -2534,9 +2574,9 @@ section {
     .tabs {
       flex-direction: column;
       gap: 1rem;
-      padding-top: 0.5rem;
+      padding-top: 1rem;
       width: fit-content;
-      margin-right: 2rem;
+      margin-right: 3rem;
       white-space: nowrap;
 
       li {

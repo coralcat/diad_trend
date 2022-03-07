@@ -1215,7 +1215,7 @@ input[type="radio"] + label:empty:before {
   .dialog {
     min-width: 35rem;
     max-width: 90vw;
-    max-height: 90vw;
+    max-height: 90%;
     background-color: white;
     border-radius: 0.5rem;
     display: flex;
