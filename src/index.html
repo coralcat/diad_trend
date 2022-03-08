@@ -15,6 +15,7 @@
       am5percent.PieSeries.new(root, {
         valueField: "value",
         categoryField: "category",
+        legendValueText: "{value}개"
       })
     );
 
@@ -23,10 +24,6 @@
     });
 
     series.data.setAll([
-      {
-        category: "총 소재",
-        value: 20,
-      },
       {
         category: "등록 소재",
         value: 16,
@@ -67,6 +64,7 @@
       am5percent.PieSeries.new(root, {
         valueField: "value",
         categoryField: "category",
+        legendValueText: "{value}개"
       })
     );
 
@@ -210,7 +208,7 @@
 </script>
 <div class="content content-main">
   <div class="wrapper">
-    <section class="section-charts">
+    <section class="section-chart">
       <header class="section-header">
         <h3>서비스 이용 현황</h3>
       </header>
@@ -251,7 +249,7 @@
         </div>
       </div>
     </section>
-    <section class="section-charts">
+    <section class="section-chart">
       <header class="section-header">
         <h3>서비스별 현황</h3>
       </header>
@@ -276,7 +274,7 @@
         </div>
       </div>
     </section>
-    <section class="section-articles">
+    <section class="section-article">
       <header class="section-header">
         <h3>고객센터</h3>
       </header>

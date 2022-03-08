@@ -665,27 +665,27 @@ aside {
 /* Progress */
 
 progress {
-  height: 20px;
+  height: 16px;
   width: 100%;
   border-radius: 0.25rem;
   border: 0;
   background-color: #eee;
 
   &::-webkit-progress-bar {
-    height: 20px;
+    height: 16px;
     width: 100%;
     border-radius: 0.5rem;
     border: 0;
     background-color: #eee;
   }
   &::-webkit-progress-value {
-    height: 20px;
+    height: 16px;
     width: 100%;
     border-radius: 0.5rem;
     background-color: $primary-color;
   }
   &::-moz-progress-bar {
-    height: 20px;
+    height: 16px;
     width: 100%;
     border-radius: 0.5rem;
   }
@@ -737,7 +737,7 @@ progress {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  margin-top: 1rem;
+  min-height: 40px;
 
   > button {
     background-color: #e3e6e9;

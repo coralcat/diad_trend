@@ -306,10 +306,11 @@
         }
 
         .buttons {
+          flex-wrap: wrap;
           width: 100%;
 
           button {
-            flex: 0 0 25%;
+            min-height: 40px;
           }
 
           + .selectbox {
@@ -371,14 +372,14 @@
         select {
           background-color: transparent !important;
           font-size: 14px;
-          padding: 0 1.25rem 0 0rem !important;
+          padding: 0 1.5rem 0 0rem !important;
         }
       }
 
       button {
         background-color: transparent;
         font-size: 14px;
-        padding: 0;
+        padding: 0 !important;
       }
     }
   }
@@ -553,7 +554,7 @@
       }
     }
 
-    .section-charts {
+    .section-chart {
       .list {
         background-color: #fff;
         border-radius: 0.5rem;
@@ -578,7 +579,7 @@
       }
     }
 
-    .section-articles {
+    .section-article {
       .section-header {
         display: none;
       }
