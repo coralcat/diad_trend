@@ -1247,6 +1247,7 @@ section {
         &:first-of-type {
           padding-right: 1rem;
           border-right: 1px solid #eee;
+          color: $secondary-color
         }
       }
     }
@@ -1350,7 +1351,6 @@ section {
 
       &:checked + label {
         background-color: $tertiary-color;
-        outline: 1px solid #e3e6e9;
         color: $primary-color;
         border-radius: 3px;
       }
