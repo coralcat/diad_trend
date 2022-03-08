@@ -1,21 +1,11 @@
 {% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('index')}}
 <script>
   am5.ready(function () {
-
-    // Create root element
-    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
     var root = am5.Root.new("mainRankingChart");
-
-
-    // Set themes
-    // https://www.amcharts.com/docs/v5/concepts/themes/
     root.setThemes([
       am5themes_Animated.new(root)
     ]);
 
-
-    // Create chart
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/
     var chart = root.container.children.push(am5xy.XYChart.new(root, {
       layout: root.verticalLayout
     }));
@@ -26,15 +16,11 @@
       "label2": 4,
     }]
 
-
-    // Create axes
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
     var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
       categoryField: "title",
       renderer: am5xy.AxisRendererX.new(root, {}),
       tooltip: am5.Tooltip.new(root, {})
     }));
-
     xAxis.data.setAll(data);
 
     var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
@@ -45,17 +31,11 @@
       renderer: am5xy.AxisRendererY.new(root, {})
     }));
 
-
-    // Add legend
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
     var legend = chart.children.push(am5.Legend.new(root, {
       centerX: am5.p50,
       x: am5.p50
     }));
 
-
-    // Add series
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
     function makeSeries(name, fieldName) {
       var series = chart.series.push(am5xy.ColumnSeries.new(root, {
         name: name,
@@ -67,13 +47,11 @@
       }));
 
       series.columns.template.setAll({
+        width: 150,
         tooltipText: "{name}: {valueYTotalPercent.formatNumber('#.#')}%",
         tooltipY: am5.percent(10.0)
       });
       series.data.setAll(data);
-
-      // Make stuff animate on load
-      // https://www.amcharts.com/docs/v5/concepts/animations/
       series.appear();
 
       series.bullets.push(function () {
@@ -88,15 +66,11 @@
         });
       });
 
-      legend.data.push(series);
     }
-
     makeSeries("등록 소재", "label1");
     makeSeries("등록 가능 소재", "label2");
 
 
-    // Make stuff animate on load
-    // https://www.amcharts.com/docs/v5/concepts/animations/
     chart.appear(1000, 100);
 
   }); // end am5.ready()
@@ -104,20 +78,11 @@
 <script>
   am5.ready(function () {
 
-    // Create root element
-    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
     var root = am5.Root.new("mainLowestPriceChart");
-
-
-    // Set themes
-    // https://www.amcharts.com/docs/v5/concepts/themes/
     root.setThemes([
       am5themes_Animated.new(root)
     ]);
 
-
-    // Create chart
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/
     var chart = root.container.children.push(am5xy.XYChart.new(root, {
       layout: root.verticalLayout
     }));
@@ -129,8 +94,6 @@
     }]
 
 
-    // Create axes
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
     var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
       categoryField: "title",
       renderer: am5xy.AxisRendererX.new(root, {}),
@@ -147,17 +110,12 @@
       renderer: am5xy.AxisRendererY.new(root, {})
     }));
 
-
-    // Add legend
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
     var legend = chart.children.push(am5.Legend.new(root, {
       centerX: am5.p50,
       x: am5.p50
     }));
 
 
-    // Add series
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
     function makeSeries(name, fieldName) {
       var series = chart.series.push(am5xy.ColumnSeries.new(root, {
         name: name,
@@ -169,13 +127,12 @@
       }));
 
       series.columns.template.setAll({
+        width: 150,
         tooltipText: "{name}: {valueYTotalPercent.formatNumber('#.#')}%",
         tooltipY: am5.percent(10.0)
       });
       series.data.setAll(data);
 
-      // Make stuff animate on load
-      // https://www.amcharts.com/docs/v5/concepts/animations/
       series.appear();
 
       series.bullets.push(function () {
@@ -190,15 +147,10 @@
         });
       });
 
-      legend.data.push(series);
     }
 
     makeSeries("등록 소재", "label1");
     makeSeries("등록 가능 소재", "label2");
-
-
-    // Make stuff animate on load
-    // https://www.amcharts.com/docs/v5/concepts/animations/
     chart.appear(1000, 100);
 
   }); // end am5.ready()
@@ -219,6 +171,8 @@
       am5percent.PieSeries.new(root, {
         valueField: "value",
         categoryField: "category",
+        legendLabelText: "{category}",
+        legendValueText: "{value}개"
       })
     );
 

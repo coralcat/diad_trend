@@ -1432,7 +1432,8 @@ section {
   .wrapper {
     flex-direction: row;
     flex: 1 1 auto;
-    padding: 0
+    padding: 0;
+    overflow-y: unset;
   }
 
   section {
@@ -1464,6 +1465,7 @@ section {
     }
     .chart {
       flex: 1 1 auto;
+      min-height: 300px;
     }
   }
 
@@ -2407,6 +2409,11 @@ section {
 .content-keyword-trend-details {
   flex-direction: row;
 
+  .report {
+    display: flex;
+    gap: 1rem;
+  }
+
   .layout {
     display: flex;
     gap: 0.5rem;
@@ -2492,7 +2499,9 @@ section {
         flex-wrap: nowrap;
 
         li {
-          padding: 1.5rem 1rem;
+          gap: .5rem;
+          padding: 1rem;
+          flex-wrap: wrap;
         }
       }
     }
@@ -2699,11 +2708,6 @@ section {
   }
 
   .section-chart {
-    .report {
-      display: flex;
-      gap: 1rem;
-    }
-
     &.contents {
       .report {
         align-items: center;
@@ -2812,6 +2816,7 @@ section {
 
       .col-price {
         gap: 0.25rem;
+        flex-direction: column;
       }
 
       li {

@@ -265,15 +265,6 @@
         value: 2,
       },
     ]);
-    // var legend = chart.children.push(
-    //   am5.Legend.new(root, {
-    //     centerY: am5.percent(50),
-    //     y: am5.percent(50),
-    //     marginTop: 15,
-    //     marginBottom: 15,
-    //     layout: root.verticalLayout,
-    //   })
-    // );
 
     chart.events.on("datavalidated", function (ev) {
       var grid = new DataGridXL("chartdata", {
@@ -292,9 +283,6 @@
       });
 
     });
-
-    // legend.data.setAll(series.dataItems);
-
     series.appear(1000, 100);
   });
 </script>
@@ -464,17 +452,6 @@
         value: 15,
       },
     ]);
-    var legend = chart.children.push(
-      am5.Legend.new(root, {
-        centerY: am5.percent(50),
-        y: am5.percent(50),
-        marginTop: 15,
-        marginBottom: 15,
-        layout: root.verticalLayout,
-      })
-    );
-
-    legend.data.setAll(series.dataItems);
 
     series.appear(1000, 100);
   });
@@ -602,17 +579,6 @@
         value: 2,
       },
     ]);
-    var legend = chart.children.push(
-      am5.Legend.new(root, {
-        centerY: am5.percent(50),
-        y: am5.percent(50),
-        marginTop: 15,
-        marginBottom: 15,
-        layout: root.verticalLayout,
-      })
-    );
-
-    legend.data.setAll(series.dataItems);
 
     series.appear(1000, 100);
   });
@@ -1172,7 +1138,7 @@
             </div>
             <div>
               <div class="total">총 652개</div>
-              <div class="layout layout-grid buttons">
+              <div class="layout layout-grid">
                 <button class="ico-list type-list is-active" type="button"></button>
                 <button class="ico-grid type-grid" type="button"></button>
               </div>
@@ -1209,7 +1175,6 @@
               </div>
             </li>
             <li class="store">
-              <span class="ico-store"></span>
               커피창고
             </li>
             <li class="col-price">9,900원</li>
@@ -1266,7 +1231,7 @@
               </div>
             </li>
             <li class="store">
-              <span class="ico-store"></span>
+
               커피창고
             </li>
             <li class="col-price">9,900원</li>
@@ -1293,7 +1258,7 @@
               </div>
             </li>
             <li class="store">
-              <span class="ico-store"></span>
+
               커피창고
             </li>
             <li class="col-price">9,900원</li>
@@ -1320,7 +1285,7 @@
               </div>
             </li>
             <li class="store">
-              <span class="ico-store"></span>
+
               커피창고
             </li>
             <li class="col-price">9,900원</li>
@@ -1347,7 +1312,7 @@
               </div>
             </li>
             <li class="store">
-              <span class="ico-store"></span>
+
               커피창고
             </li>
             <li class="col-price">9,900원</li>
@@ -1374,7 +1339,7 @@
               </div>
             </li>
             <li class="store">
-              <span class="ico-store"></span>
+
               커피창고
             </li>
             <li class="col-price">9,900원</li>
@@ -1398,7 +1363,7 @@
               </div>
             </div>
           </h3>
-          <div class="layout layout-chart buttons">
+          <div class="layout layout-chart">
             <button class="ico-chart type-chart is-active" type="button"></button>
             <button class="ico-list type-list" type="button"></button>
           </div>
@@ -1624,7 +1589,7 @@
               </div>
             </div>
           </h3>
-          <div class="layout layout-chart buttons">
+          <div class="layout layout-chart">
             <button class="ico-chart type-chart is-active" type="button"></button>
             <button class="ico-list type-list" type="button"></button>
           </div>
@@ -1771,7 +1736,7 @@
             </div>
           </h3>
         </header>
-        <div>
+        <div class="report">
           <div class="summary horizontal">
             <ul>
               <li>
@@ -1816,7 +1781,7 @@
               </div>
             </div>
           </h3>
-          <div class="layout layout-chart buttons">
+          <div class="layout layout-chart">
             <button class="ico-chart type-chart is-active" type="button"></button>
             <button class="ico-list type-list" type="button"></button>
           </div>
