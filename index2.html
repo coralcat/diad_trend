@@ -242,8 +242,7 @@
       am5percent.PieSeries.new(root, {
         valueField: "value",
         categoryField: "category",
-        legendLabelText: "{category}",
-        legendValueText: "{value}개"
+        alignLabels: false
       })
     );
 
@@ -265,17 +264,15 @@
         value: 6,
       },
     ]);
-    var legend = chart.children.push(
-      am5.Legend.new(root, {
-        centerX: am5.p50,
-        x: am5.p50,
-        layout: root.verticalLayout
-      })
-    );
 
-    series.labels.template.set("visible", false);
+    series.labels.template.setAll({
+      text: "{category}",
+      textType: "circular",
+      inside: true,
+      radius: 10,
+      fill: am5.color(0xffffff)
+    });
     series.ticks.template.set("visible", false);
-    legend.data.setAll(series.dataItems);
     series.appear(1000, 100);
   });
 </script>
@@ -287,7 +284,7 @@
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
         innerRadius: am5.percent(50),
-        layout: root.verticalLayout,
+        layout: root.verticalLayout
       })
     );
 
@@ -296,6 +293,7 @@
         valueField: "value",
         categoryField: "category",
         endAngle: 270,
+        alignLabels: false
       })
     );
 
@@ -318,17 +316,14 @@
       },
     ]);
 
-    var legend = chart.children.push(
-      am5.Legend.new(root, {
-        centerX: am5.p50,
-        x: am5.p50,
-        layout: root.verticalLayout
-      })
-    );
-
-    series.labels.template.set("visible", false);
+    series.labels.template.setAll({
+      text: "{category}",
+      textType: "circular",
+      inside: true,
+      radius: 10,
+      fill: am5.color(0xffffff)
+    });
     series.ticks.template.set("visible", false);
-    legend.data.setAll(series.dataItems);
     series.appear(1000, 100);
   });
 </script>
