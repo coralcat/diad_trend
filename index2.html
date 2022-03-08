@@ -72,107 +72,207 @@
 
 <script>
   am5.ready(function () {
+
+    // Create root element
+    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
     var root = am5.Root.new("mainRankingChart");
-    root.setThemes([am5themes_Animated.new(root)]);
 
-    var chart = root.container.children.push(
-      am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(50),
-        layout: root.horizontalLayout,
-      })
-    );
 
-    var series = chart.series.push(
-      am5percent.PieSeries.new(root, {
-        valueField: "value",
-        categoryField: "category",
-      })
-    );
-
-    series.states.create("hidden", {
-      endAngle: -90,
-    });
-
-    series.data.setAll([
-      {
-        category: "총 소재",
-        value: 20,
-      },
-      {
-        category: "등록 소재",
-        value: 16,
-      },
-      {
-        category: "등록 가능 소재",
-        value: 4,
-      },
+    // Set themes
+    // https://www.amcharts.com/docs/v5/concepts/themes/
+    root.setThemes([
+      am5themes_Animated.new(root)
     ]);
-    var legend = chart.children.push(
-      am5.Legend.new(root, {
-        centerY: am5.percent(50),
-        y: am5.percent(50),
-        marginTop: 15,
-        marginBottom: 15,
-        layout: root.verticalLayout,
-      })
-    );
 
-    legend.data.setAll(series.dataItems);
 
-    series.appear(1000, 100);
-  });
+    // Create chart
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/
+    var chart = root.container.children.push(am5xy.XYChart.new(root, {
+      layout: root.verticalLayout
+    }));
+
+    var data = [{
+      "title": "상품 순위조회",
+      "label1": 16,
+      "label2": 4,
+    }]
+
+
+    // Create axes
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+    var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+      categoryField: "title",
+      renderer: am5xy.AxisRendererX.new(root, {}),
+      tooltip: am5.Tooltip.new(root, {})
+    }));
+
+    xAxis.data.setAll(data);
+
+    var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+      min: 0,
+      numberFormat: "#'개'",
+      strictMinMax: true,
+      calculateTotals: true,
+      renderer: am5xy.AxisRendererY.new(root, {})
+    }));
+
+
+    // Add legend
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
+    var legend = chart.children.push(am5.Legend.new(root, {
+      centerX: am5.p50,
+      x: am5.p50
+    }));
+
+
+    // Add series
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+    function makeSeries(name, fieldName) {
+      var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+        name: name,
+        stacked: true,
+        xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: fieldName,
+        categoryXField: "title"
+      }));
+
+      series.columns.template.setAll({
+        tooltipText: "{name}: {valueYTotalPercent.formatNumber('#.#')}%",
+        tooltipY: am5.percent(10.0)
+      });
+      series.data.setAll(data);
+
+      // Make stuff animate on load
+      // https://www.amcharts.com/docs/v5/concepts/animations/
+      series.appear();
+
+      series.bullets.push(function () {
+        return am5.Bullet.new(root, {
+          sprite: am5.Label.new(root, {
+            text: "{name}: {valueY.formatNumber('#.#')}개",
+            fill: root.interfaceColors.get("alternativeText"),
+            centerY: am5.p50,
+            centerX: am5.p50,
+            populateText: true
+          })
+        });
+      });
+
+      legend.data.push(series);
+    }
+
+    makeSeries("등록 소재", "label1");
+    makeSeries("등록 가능 소재", "label2");
+
+
+    // Make stuff animate on load
+    // https://www.amcharts.com/docs/v5/concepts/animations/
+    chart.appear(1000, 100);
+
+  }); // end am5.ready()
 </script>
 <script>
   am5.ready(function () {
+
+    // Create root element
+    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
     var root = am5.Root.new("mainLowestPriceChart");
-    root.setThemes([am5themes_Animated.new(root)]);
 
-    var chart = root.container.children.push(
-      am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(50),
-        layout: root.horizontalLayout,
-      })
-    );
 
-    var series = chart.series.push(
-      am5percent.PieSeries.new(root, {
-        valueField: "value",
-        categoryField: "category",
-      })
-    );
-
-    series.states.create("hidden", {
-      endAngle: -90,
-    });
-
-    series.data.setAll([
-      {
-        category: "총 소재",
-        value: 20,
-      },
-      {
-        category: "등록 소재",
-        value: 16,
-      },
-      {
-        category: "등록 가능 소재",
-        value: 4,
-      },
+    // Set themes
+    // https://www.amcharts.com/docs/v5/concepts/themes/
+    root.setThemes([
+      am5themes_Animated.new(root)
     ]);
-    var legend = chart.children.push(
-      am5.Legend.new(root, {
-        centerY: am5.percent(50),
-        y: am5.percent(50),
-        marginTop: 15,
-        marginBottom: 15,
-        layout: root.verticalLayout,
-      })
-    );
 
-    legend.data.setAll(series.dataItems);
 
-    series.appear(1000, 100);
-  });
+    // Create chart
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/
+    var chart = root.container.children.push(am5xy.XYChart.new(root, {
+      layout: root.verticalLayout
+    }));
+
+    var data = [{
+      "title": "최저가 알림",
+      "label1": 16,
+      "label2": 4,
+    }]
+
+
+    // Create axes
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+    var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+      categoryField: "title",
+      renderer: am5xy.AxisRendererX.new(root, {}),
+      tooltip: am5.Tooltip.new(root, {})
+    }));
+
+    xAxis.data.setAll(data);
+
+    var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+      min: 0,
+      numberFormat: "#'개'",
+      strictMinMax: true,
+      calculateTotals: true,
+      renderer: am5xy.AxisRendererY.new(root, {})
+    }));
+
+
+    // Add legend
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
+    var legend = chart.children.push(am5.Legend.new(root, {
+      centerX: am5.p50,
+      x: am5.p50
+    }));
+
+
+    // Add series
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+    function makeSeries(name, fieldName) {
+      var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+        name: name,
+        stacked: true,
+        xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: fieldName,
+        categoryXField: "title"
+      }));
+
+      series.columns.template.setAll({
+        tooltipText: "{name}: {valueYTotalPercent.formatNumber('#.#')}%",
+        tooltipY: am5.percent(10.0)
+      });
+      series.data.setAll(data);
+
+      // Make stuff animate on load
+      // https://www.amcharts.com/docs/v5/concepts/animations/
+      series.appear();
+
+      series.bullets.push(function () {
+        return am5.Bullet.new(root, {
+          sprite: am5.Label.new(root, {
+            text: "{name}: {valueY.formatNumber('#.#')}개",
+            fill: root.interfaceColors.get("alternativeText"),
+            centerY: am5.p50,
+            centerX: am5.p50,
+            populateText: true
+          })
+        });
+      });
+
+      legend.data.push(series);
+    }
+
+    makeSeries("등록 소재", "label1");
+    makeSeries("등록 가능 소재", "label2");
+
+
+    // Make stuff animate on load
+    // https://www.amcharts.com/docs/v5/concepts/animations/
+    chart.appear(1000, 100);
+
+  }); // end am5.ready()
 </script>
 <script>
   am5.ready(function () {
@@ -182,7 +282,7 @@
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
         innerRadius: am5.percent(50),
-        layout: root.horizontalLayout,
+        layout: root.verticalLayout,
       })
     );
 
@@ -213,16 +313,15 @@
     ]);
     var legend = chart.children.push(
       am5.Legend.new(root, {
-        centerY: am5.percent(50),
-        y: am5.percent(50),
-        marginTop: 15,
-        marginBottom: 15,
-        layout: root.verticalLayout,
+        centerX: am5.p50,
+        x: am5.p50,
+        layout: root.verticalLayout
       })
     );
 
+    series.labels.template.set("visible", false);
+    series.ticks.template.set("visible", false);
     legend.data.setAll(series.dataItems);
-
     series.appear(1000, 100);
   });
 </script>
@@ -234,7 +333,7 @@
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
         innerRadius: am5.percent(50),
-        layout: root.horizontalLayout,
+        layout: root.verticalLayout,
       })
     );
 
@@ -267,150 +366,123 @@
 
     var legend = chart.children.push(
       am5.Legend.new(root, {
-        centerY: am5.percent(50),
-        y: am5.percent(50),
-        marginTop: 15,
-        marginBottom: 15,
-        layout: root.verticalLayout,
+        centerX: am5.p50,
+        x: am5.p50,
+        layout: root.verticalLayout
       })
     );
 
+    series.labels.template.set("visible", false);
+    series.ticks.template.set("visible", false);
     legend.data.setAll(series.dataItems);
     series.appear(1000, 100);
   });
 </script>
-<div class="content content-main">
+<div class="content content-dashboard">
   <div class="wrapper">
-    <section class="section-charts">
+    <section class="section-chart">
       <header class="section-header">
-        <h3>서비스 이용 현황</h3>
+        <h3>상품 순위 조회</h3>
       </header>
-      <div class="wrapper">
-        <div class="list">
-          <ul class="row title">
-            <li>
-              <span>상품 순위 조회</span>
-              <span class="date">최근 갱신시간 2022-03-01 12:00</span>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>
-              <div id="mainRankingChart" class="chart"></div>
+      <div class="title">
+        <span>서비스 이용 현황</span>
+        <span class="date">최근 갱신시간 2022-03-01 12:00</span>
+      </div>
+      <div class="chart-container">
+        <div id="mainRankingChart" class="chart"></div>
+        <div id="rankingChart" class="chart"></div>
+      </div>
 
-            </li>
-          </ul>
-          <div class="progress">
-            <h3>서비스 기간</h3>
-            <progress value="126" max="365"></progress>
-            <div class="details">
-              <div>2022-03-01 ~ 2023-02-28</div>
-              <div class="remaining-days">239</div>
-            </div>
-          </div>
-        </div>
-        <div class="list">
-          <ul class="row title">
-            <li>
-              <span>최저가 알림</span>
-              <span class="date">최근 갱신시간 2022-03-01 12:00</span>
-            </li>
-          </ul>
-          <div id="mainLowestPriceChart" class="chart"></div>
-          <div class="progress">
-            <h3>서비스 기간</h3>
-            <progress value="126" max="365"></progress>
-            <div class="details">
-              <div>2022-03-01 ~ 2023-02-28</div>
-              <div class="remaining-days">239</div>
-            </div>
-          </div>
+      <div class="progress">
+        <h3>서비스 기간</h3>
+        <progress value="126" max="365"></progress>
+        <div class="details">
+          <div>2022-03-01 ~ 2023-02-28</div>
+          <div class="remaining-days">239</div>
         </div>
       </div>
     </section>
-    <section class="section-charts">
+    <section class="section-chart">
       <header class="section-header">
-        <h3>서비스별 현황</h3>
+        <h3>최저가 알림</h3>
       </header>
-      <div class="wrapper">
-        <div class="list">
-          <ul class="row title">
-            <li>
-              <span>상품 순위 조회</span>
-              <span class="date">최근 갱신시간 2022-03-01 12:00</span>
-            </li>
-          </ul>
-          <div id="rankingChart" class="chart"></div>
-        </div>
-        <div class="list">
-          <ul class="row title">
-            <li>
-              <span>최저가 알림</span>
-              <span class="date">최근 갱신시간 2022-03-01 12:00</span>
-            </li>
-          </ul>
-          <div id="lowestPriceChart" class="chart"></div>
-        </div>
+      <div class="title">
+        <span>서비스 이용 현황</span>
+        <span class="date">최근 갱신시간 2022-03-01 12:00</span>
       </div>
-    </section>
-    <section class="section-articles">
-      <header class="section-header">
-        <h3>고객센터</h3>
-      </header>
-      <div class="wrapper">
-        <div class="list notification">
-          <ul class="row title">
-            <li>공지사항</li>
-            <li>
-              <a class="more" href="https://diad.co.kr/Customer/NoticeList?Category=Normal" target="_blank">더보기</a>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>[일반] 다이애드 TREND 변경사항 안내</li>
-            <li class="date">2021-10-06</li>
-          </ul>
-          <ul class="row">
-            <li>[일반] 다이애드 TREND 변경사항 안내</li>
-            <li class="date">2021-09-06</li>
-          </ul>
-          <ul class="row">
-            <li>[일반] 다이애드 TREND 서버 긴급 점검 안내</li>
-            <li class="date">2021-09-03</li>
-          </ul>
-          <ul class="row">
-            <li>[일반] 다이애드 TREND 서버 긴급 점검 안내</li>
-            <li class="date">2021-09-02</li>
-          </ul>
-          <ul class="row">
-            <li>[일반] 다이애드 TREND 서버 긴급 점검 안내</li>
-            <li class="date">2021-09-01</li>
-          </ul>
-        </div>
-        <div class="list faq">
-          <ul class="row title">
-            <li>FAQ</li>
-            <li>
-              <a class="more" href="">더보기</a>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>입찰실행 중이던 11번가 계정이 정지되어버린 후, 재 실행되지…</li>
-          </ul>
-          <ul class="row">
-            <li>사용자 지정보기 사용은 어떻게 하나요?</li>
-          </ul>
-          <ul class="row">
-            <li>입찰목록 정렬기능은 무엇인가요?</li>
-          </ul>
-          <ul class="row">
-            <li>복수검색은 어떻게 활용하나요?</li>
-          </ul>
-          <ul class="row">
-            <li>분류 기능은 어떻게 활용하나요?</li>
-          </ul>
+      <div class="chart-container">
+        <div id="mainLowestPriceChart" class="chart"></div>
+        <div id="lowestPriceChart" class="chart"></div>
+      </div>
+
+      <div class="progress">
+        <h3>서비스 기간</h3>
+        <progress value="126" max="365"></progress>
+        <div class="details">
+          <div>2022-03-01 ~ 2023-02-28</div>
+          <div class="remaining-days">239</div>
         </div>
       </div>
     </section>
   </div>
+  <section class="section-article">
+    <header class="section-header">
+      <h3>고객센터</h3>
+    </header>
+    <div class="wrapper">
+      <div class="list notification">
+        <ul class="row title">
+          <li>공지사항</li>
+          <li>
+            <a class="more" href="https://diad.co.kr/Customer/NoticeList?Category=Normal" target="_blank">더보기</a>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>[일반] 다이애드 TREND 변경사항 안내</li>
+          <li class="date">2021-10-06</li>
+        </ul>
+        <ul class="row">
+          <li>[일반] 다이애드 TREND 변경사항 안내</li>
+          <li class="date">2021-09-06</li>
+        </ul>
+        <ul class="row">
+          <li>[일반] 다이애드 TREND 서버 긴급 점검 안내</li>
+          <li class="date">2021-09-03</li>
+        </ul>
+        <ul class="row">
+          <li>[일반] 다이애드 TREND 서버 긴급 점검 안내</li>
+          <li class="date">2021-09-02</li>
+        </ul>
+        <ul class="row">
+          <li>[일반] 다이애드 TREND 서버 긴급 점검 안내</li>
+          <li class="date">2021-09-01</li>
+        </ul>
+      </div>
+      <div class="list faq">
+        <ul class="row title">
+          <li>FAQ</li>
+          <li>
+            <a class="more" href="">더보기</a>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>입찰실행 중이던 11번가 계정이 정지되어버린 후, 재 실행되지…</li>
+        </ul>
+        <ul class="row">
+          <li>사용자 지정보기 사용은 어떻게 하나요?</li>
+        </ul>
+        <ul class="row">
+          <li>입찰목록 정렬기능은 무엇인가요?</li>
+        </ul>
+        <ul class="row">
+          <li>복수검색은 어떻게 활용하나요?</li>
+        </ul>
+        <ul class="row">
+          <li>분류 기능은 어떻게 활용하나요?</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 </div>
 
     </main>
