@@ -700,6 +700,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const hamburgMenu = document.querySelector(".hamburg-menu");
   hamburgMenu.addEventListener("click", () => {
     const aside = document.querySelector("aside");
+    hamburgMenu.classList.toggle("is-active")
     aside.classList.toggle("is-active");
   });
 });
