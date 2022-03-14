@@ -141,6 +141,7 @@ strong {
 button {
   &.ico-search {
     width: 36px;
+    height: 36px !important;
   }
   &.btn-main {
     background-color: $primary-color !important;
@@ -1717,6 +1718,7 @@ section {
               display: block;
               white-space: nowrap;
               text-overflow: ellipsis;
+              line-height: 32px;
               overflow: hidden;
             }
           }
@@ -2045,7 +2047,6 @@ section {
           color: lightslategray;
         }
         :last-of-type {
-          font-size: 14px;
         }
       }
 
@@ -2364,7 +2365,7 @@ section {
         &:focus {
           width: 360px;
           height: 60px;
-          margin: 2rem 0;
+          margin: 3rem 0;
           font-size: 24px;
 
           &::placeholder {
