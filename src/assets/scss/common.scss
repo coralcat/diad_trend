@@ -40,7 +40,7 @@ $farrownball-drawing-room-blue: #2e3548;
 $clark-kensington-stowe-mountain: #717593;
 
 $primary-color: #7682f8;
-$secondary-color: #5B54C6;
+$secondary-color: #5b54c6;
 $tertiary-color: #f2f1ff;
 $dark-primary-color: #27292d;
 $dark-tertiary-color: #85899a;
@@ -338,18 +338,16 @@ textarea {
     }
   }
 
-  &.active {
-    .hamburger-menu {
-      svg {
-        transform: rotate(45deg);
+  &.is-active {
+    svg {
+      transform: rotate(45deg);
 
-        &:first-of-type {
-          stroke-dashoffset: -98px;
-        }
+      &:first-of-type {
+        stroke-dashoffset: -98px;
+      }
 
-        &:last-of-type {
-          stroke-dashoffset: -138px;
-        }
+      &:last-of-type {
+        stroke-dashoffset: -138px;
       }
     }
   }
@@ -1459,8 +1457,10 @@ input[type="radio"] + label:empty:before {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background:  $secondary-color url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath fill='white' d='M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z'/%3E%3C/svg%3E") no-repeat center;
-  box-shadow: 0 3px 9px -4px $primary-color;;
+  background: $secondary-color
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath fill='white' d='M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z'/%3E%3C/svg%3E")
+    no-repeat center;
+  box-shadow: 0 3px 9px -4px $primary-color;
   cursor: pointer;
   z-index: 50;
 
