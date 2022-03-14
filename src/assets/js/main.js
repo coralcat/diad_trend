@@ -10,21 +10,23 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const main = document.querySelector("main");
+  const content = document.querySelector(".content")
   const wrapper = document.querySelector(".content > .wrapper");
   const scrollToTop = document.createElement("div");
   scrollToTop.classList.add("scroll-to-top");
   wrapper.appendChild(scrollToTop);
 
   wrapper.addEventListener("scroll", () => {
+    console.log(wrapper.scrollTop)
     wrapper.scrollTop > 50 ? scrollToTop.classList.add("is-active") : scrollToTop.classList.remove("is-active");
   });
 
-  wrapper.addEventListener("touchmove", () => {
-    wrapper.scrollTop > 50 ? scrollToTop.classList.add("is-active") : scrollToTop.classList.remove("is-active");
+  content.addEventListener("scroll", () => {
+    content.scrollTop > 50 ? scrollToTop.classList.add("is-active") : scrollToTop.classList.remove("is-active");
   });
 
   scrollToTop.addEventListener("click", () => {
-    wrapper.scroll({top: 0, behavior: "smooth"});
+    wrapper.scrollTo({top: 0, behavior: "smooth"});
   });
 
   /* =====================================================

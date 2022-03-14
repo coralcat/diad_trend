@@ -11,6 +11,7 @@
   :is(.content-ranking, .content-lowest-price) {
     .section-main {
       flex-wrap: wrap;
+      gap: 1rem
     }
   }
   :is([class$="details"]) {
@@ -297,6 +298,11 @@
     width: 100%;
 
     .section-header {
+
+      button {
+        height: 40px
+      }
+
       &.multi-line {
         div:last-child {
           padding-top: 0;
@@ -737,7 +743,7 @@
     .filters {
       flex-wrap: wrap;
       flex-direction: column-reverse;
-      gap: 0.5rem;
+      gap: .75rem;
 
       > div {
         flex-wrap: wrap;
