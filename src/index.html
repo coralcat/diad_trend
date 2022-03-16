@@ -6,7 +6,7 @@
 
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(50),
+        innerRadius: am5.percent(70),
         layout: root.horizontalLayout,
       })
     );
@@ -42,8 +42,17 @@
         layout: root.verticalLayout,
       })
     );
-
     legend.data.setAll(series.dataItems);
+
+
+    var label = chart.seriesContainer.children.push(
+      am5.Label.new(root, {
+        textAlign: "center",
+        centerY: am5.p50,
+        centerX: am5.p50,
+        text: "[fontSize:13px]사용량[/]:\n[bold fontSize:20px]80.00%[/]"
+      })
+    );
 
     series.appear(1000, 100);
   });
@@ -55,7 +64,7 @@
 
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(50),
+        innerRadius: am5.percent(70),
         layout: root.horizontalLayout,
       })
     );
@@ -95,8 +104,16 @@
         layout: root.verticalLayout,
       })
     );
-
     legend.data.setAll(series.dataItems);
+
+    var label = chart.seriesContainer.children.push(
+      am5.Label.new(root, {
+        textAlign: "center",
+        centerY: am5.p50,
+        centerX: am5.p50,
+        text: "[fontSize:13px]사용량[/]:\n[bold fontSize:20px]80.00%[/]"
+      })
+    );
 
     series.appear(1000, 100);
   });
@@ -108,7 +125,7 @@
 
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(50),
+        innerRadius: am5.percent(70),
         layout: root.horizontalLayout,
       })
     );
@@ -147,8 +164,16 @@
         layout: root.verticalLayout,
       })
     );
-
     legend.data.setAll(series.dataItems);
+
+    var label = chart.seriesContainer.children.push(
+      am5.Label.new(root, {
+        textAlign: "center",
+        centerY: am5.p50,
+        centerX: am5.p50,
+        text: "[fontSize:13px]1페이지[/]:\n[bold fontSize:20px]31.25%[/]"
+      })
+    );
 
     series.appear(1000, 100);
   });
@@ -160,7 +185,7 @@
 
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(50),
+        innerRadius: am5.percent(70),
         layout: root.horizontalLayout,
       })
     );
@@ -201,8 +226,16 @@
         layout: root.verticalLayout,
       })
     );
-
     legend.data.setAll(series.dataItems);
+
+    var label = chart.seriesContainer.children.push(
+      am5.Label.new(root, {
+        textAlign: "center",
+        centerY: am5.p50,
+        centerX: am5.p50,
+        text: "[fontSize:13px]변동[/]:\n[bold fontSize:20px]62.50%[/]"
+      })
+    );
     series.appear(1000, 100);
   });
 </script>

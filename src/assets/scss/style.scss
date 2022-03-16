@@ -2418,6 +2418,10 @@ section {
 .content-keyword-trend-details {
   flex-direction: row;
 
+  .chart {
+    min-height: 240px;
+  }
+
   .report {
     display: flex;
     gap: 1rem;
@@ -2509,8 +2513,7 @@ section {
 
         li {
           gap: 0.5rem;
-          padding: 1rem;
-          flex-wrap: wrap;
+          flex-direction: column;
         }
       }
     }
