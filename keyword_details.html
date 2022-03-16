@@ -103,7 +103,7 @@
 
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(50),
+        innerRadius: am5.percent(70),
         layout: root.verticalLayout,
       })
     );
@@ -130,6 +130,14 @@
       },
     ]);
 
+    var label = chart.seriesContainer.children.push(
+      am5.Label.new(root, {
+        textAlign: "center",
+        centerY: am5.p50,
+        centerX: am5.p50,
+        text: "[fontSize:13px]총 월간 검색수[/]:\n[bold fontSize:30px]38,790[/]"
+      })
+    );
 
     series.appear(1000, 100);
   });
@@ -141,7 +149,7 @@
 
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(50),
+        innerRadius: am5.percent(70),
         layout: root.verticalLayout,
       })
     );
@@ -171,6 +179,15 @@
         value: 2500,
       },
     ]);
+
+    var label = chart.seriesContainer.children.push(
+      am5.Label.new(root, {
+        textAlign: "center",
+        centerY: am5.p50,
+        centerX: am5.p50,
+        text: "[fontSize:13px]총 콘텐츠[/]:\n[bold fontSize:30px]10,000[/]"
+      })
+    );
 
     series.appear(1000, 100);
   });
@@ -298,7 +315,7 @@
 
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(50),
+        innerRadius: am5.percent(70),
         layout: root.horizontalLayout,
       })
     );
@@ -485,7 +502,7 @@
 
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(50),
+        innerRadius: am5.percent(70),
         layout: root.horizontalLayout,
       })
     );
@@ -612,7 +629,7 @@
 
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(50),
+        innerRadius: am5.percent(70),
         layout: root.horizontalLayout,
       })
     );
