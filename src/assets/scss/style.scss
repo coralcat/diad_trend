@@ -449,8 +449,13 @@ main {
 }
 
 aside {
+  background-color: #1c2242;
   width: 220px;
   height: 100%;
+
+  a {
+    color: white;
+  }
 
   .logo {
     padding: 1.5rem 0;
@@ -462,6 +467,7 @@ aside {
 
     &::after {
       content: "님";
+      color: white;
     }
   }
 
@@ -470,6 +476,13 @@ aside {
     padding: 1rem;
     justify-content: space-around;
     font-size: 14px;
+
+    a {
+      padding: .5rem .75rem;
+      border-radius: .35rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      font-size: 13px;
+    }
 
     .zoom-in-out {
       display: flex;
@@ -496,23 +509,22 @@ aside {
   nav {
     display: flex;
     flex-direction: column;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+    padding: 1rem;
+    gap: 0.5rem;
 
     a {
-      padding: 0.75rem 1.5rem;
-      height: 48px;
+      color: white;
+      padding: 0.75rem;
+      height: 45px;
       display: flex;
       align-items: center;
       font-size: 16px;
       font-family: "NanumBarunGothic";
 
-      &:not(:last-of-type) {
-        border-bottom: 1px solid #f3f6f9;
-      }
-
-      &.is-active {
-        color: $primary-color;
+      &.is-active, &:hover {
+        color: white;
+        background: $secondary-color;
+        border-radius: 0.35rem;
       }
     }
   }
@@ -568,7 +580,7 @@ section {
     &:not(.multi-line) {
       align-items: center;
       justify-content: space-between;
-      padding-bottom: .5rem;
+      padding-bottom: 0.5rem;
 
       > div {
         display: flex;
@@ -2253,7 +2265,7 @@ section {
   .section-weekly-top {
     .section-header {
       border-bottom: 1px solid #eee;
-      padding-bottom: .5rem
+      padding-bottom: 0.5rem;
     }
     .tooltip-content {
       width: 350px;
@@ -2829,15 +2841,13 @@ section {
   }
 
   .content-keyword {
-
     fieldset {
       padding: 1rem;
 
       legend {
         font-size: 17px;
-        padding: 0 .5rem;
+        padding: 0 0.5rem;
       }
-
     }
     .summary {
       &.horizontal {
