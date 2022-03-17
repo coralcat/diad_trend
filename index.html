@@ -76,6 +76,8 @@
 
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
+        startAngle: 180,
+        endAngle: 360,
         innerRadius: am5.percent(70),
         layout: root.horizontalLayout,
       })
@@ -83,6 +85,8 @@
 
     var series = chart.series.push(
       am5percent.PieSeries.new(root, {
+        startAngle: 180,
+        endAngle: 360,
         valueField: "value",
         categoryField: "category",
         legendValueText: "{value}개"
@@ -90,16 +94,21 @@
     );
 
     series.states.create("hidden", {
-      endAngle: -90,
+      startAngle: 180,
+      endAngle: 180
+    });
+
+    series.ticks.template.setAll({
+      forceHidden: true
     });
 
     series.data.setAll([
       {
-        category: "등록 소재",
+        category: "이용량",
         value: 16,
       },
       {
-        category: "등록 가능 소재",
+        category: "잔여량",
         value: 4,
       },
     ]);
@@ -118,9 +127,9 @@
     var label = chart.seriesContainer.children.push(
       am5.Label.new(root, {
         textAlign: "center",
-        centerY: am5.p50,
+        centerY: am5.p100,
         centerX: am5.p50,
-        text: "[fontSize:13px]사용량[/]:\n[bold fontSize:20px]80.00%[/]"
+        text: "[fontSize:15px]잔여[/]:\n[bold fontSize:30px]4[/]개"
       })
     );
 
@@ -134,6 +143,8 @@
 
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
+        startAngle: 180,
+        endAngle: 360,
         innerRadius: am5.percent(70),
         layout: root.horizontalLayout,
       })
@@ -141,6 +152,8 @@
 
     var series = chart.series.push(
       am5percent.PieSeries.new(root, {
+        startAngle: 180,
+        endAngle: 360,
         valueField: "value",
         categoryField: "category",
         legendValueText: "{value}개"
@@ -148,20 +161,21 @@
     );
 
     series.states.create("hidden", {
-      endAngle: -90,
+      startAngle: 180,
+      endAngle: 180
+    });
+
+    series.ticks.template.setAll({
+      forceHidden: true
     });
 
     series.data.setAll([
       {
-        category: "총 소재",
-        value: 20,
-      },
-      {
-        category: "등록 소재",
+        category: "이용량",
         value: 16,
       },
       {
-        category: "등록 가능 소재",
+        category: "잔여량",
         value: 4,
       },
     ]);
@@ -176,12 +190,13 @@
     );
     legend.data.setAll(series.dataItems);
 
+
     var label = chart.seriesContainer.children.push(
       am5.Label.new(root, {
         textAlign: "center",
-        centerY: am5.p50,
+        centerY: am5.p100,
         centerX: am5.p50,
-        text: "[fontSize:13px]사용량[/]:\n[bold fontSize:20px]80.00%[/]"
+        text: "[fontSize:15px]잔여[/]:\n[bold fontSize:30px]4[/]개"
       })
     );
 
