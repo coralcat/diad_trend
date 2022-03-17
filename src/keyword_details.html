@@ -187,6 +187,7 @@
         tooltip: am5.Tooltip.new(root, {}),
       })
     );
+    xAxis.get("dateFormats")["day"] = "yyyy MM.dd";
 
     var yAxis = chart.yAxes.push(
       am5xy.ValueAxis.new(root, {
@@ -198,7 +199,7 @@
     // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
     var series = chart.series.push(
       am5xy.LineSeries.new(root, {
-        name: "Series",
+        name: "키워드 트렌드",
         xAxis: xAxis,
         yAxis: yAxis,
         valueYField: "value",
@@ -211,7 +212,7 @@
     var tooltip = series.set(
       "tooltip",
       am5.Tooltip.new(root, {
-        labelText: "{valueY}",
+        labelText: "[bold]{valueY}[/]건",
       })
     );
 
@@ -308,6 +309,7 @@
   am5.ready(function () {
     var root = am5.Root.new("categoryTrendChart");
     root.setThemes([am5themes_Animated.new(root)]);
+    root.dateFormatter.set("dateFormat", "yyyy MM.dd");
 
     var chart = root.container.children.push(am5xy.XYChart.new(root, {}));
 
@@ -374,6 +376,7 @@
         tooltip: am5.Tooltip.new(root, {}),
       })
     );
+    xAxis.get("dateFormats")["day"] = "yyyy MM.dd";
 
     var yAxis = chart.yAxes.push(
       am5xy.ValueAxis.new(root, {
@@ -385,7 +388,7 @@
     // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
     var series = chart.series.push(
       am5xy.LineSeries.new(root, {
-        name: "Series",
+        name: "쇼핑 카테고리 트렌드 차트",
         xAxis: xAxis,
         yAxis: yAxis,
         valueYField: "value",
@@ -398,7 +401,7 @@
     var tooltip = series.set(
       "tooltip",
       am5.Tooltip.new(root, {
-        labelText: "{valueY}",
+        labelText: "[bold]{valueY}[/]건",
       })
     );
 

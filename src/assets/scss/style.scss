@@ -144,7 +144,7 @@ button {
     height: 36px !important;
   }
   &.btn-main {
-    background-color: $primary-color !important;
+    background-color: $secondary-color !important;
     color: white !important;
     padding: 0 1.5rem;
     border: 0 !important;
@@ -1884,6 +1884,19 @@ section {
           width: 125px;
           flex-direction: column;
           gap: 0.25rem;
+        }
+      }
+    }
+  }
+}
+
+.content-ranking {
+  .list-item {
+    .row {
+      li {
+
+        &:nth-of-type(13) {
+          width: 70px;
         }
       }
     }
