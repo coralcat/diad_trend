@@ -533,9 +533,9 @@ section {
 
   .section-header {
     display: flex;
-    min-height: 48px;
-    gap: 0.75rem;
+    min-height: 36px;
     width: 100%;
+    gap: 0.5rem;
 
     .tabs {
       li {
@@ -568,6 +568,7 @@ section {
     &:not(.multi-line) {
       align-items: center;
       justify-content: space-between;
+      padding-bottom: .5rem;
 
       > div {
         display: flex;
@@ -578,9 +579,10 @@ section {
     &.multi-line {
       flex-direction: column;
 
-      > :last-child {
+      > :last-child,
+      .filters {
         border-top: 1px solid #eee;
-        padding-top: 0.75rem;
+        padding-top: 0.5rem;
       }
     }
 
@@ -1326,7 +1328,7 @@ section {
           height: 36px;
           border-radius: 0.25rem;
           align-items: center;
-          padding: 0 1.75rem 0 .5rem;
+          padding: 0 1.75rem 0 0.5rem;
           border: 1px solid #ddd;
 
           &:focus {
@@ -1397,7 +1399,7 @@ section {
       gap: 0.25rem;
       padding: 0.5rem;
       border-radius: 0.25rem;
-      background-color: $secondary-color;
+      background-color: $primary-color;
       position: relative;
       padding-right: 2rem;
 
@@ -1744,7 +1746,7 @@ section {
 :is(.content-ranking, .content-lowest-price) {
   .section-main {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
 
     .section-header {
       min-height: auto;
@@ -1758,6 +1760,9 @@ section {
       display: flex;
       flex-direction: column;
       border-radius: 0.5rem;
+      background: #fff;
+      padding: 1rem;
+      border-radius: 0.5rem;
 
       &.ranking {
         strong {
@@ -1769,10 +1774,10 @@ section {
 
     ul {
       display: flex;
-      gap: .75rem;
+      gap: 0.75rem;
 
       li {
-        background: white;
+        background: $tertiary-color;
         border-radius: 0.5rem;
         padding: 0.75rem;
         width: 33.333%;
@@ -1781,7 +1786,6 @@ section {
         align-items: center;
         position: relative;
         gap: 0.5rem;
-        box-shadow: 0 6px 12px -4px #e3e6e9;
 
         &:first-of-type {
           strong {
@@ -1881,7 +1885,7 @@ section {
 
         &:not(.col-important) {
           text-align: center;
-          width: 125px;
+          width: 150px;
           flex-direction: column;
           gap: 0.25rem;
         }
@@ -1894,6 +1898,13 @@ section {
   .list-item {
     .row {
       li {
+        &:nth-of-type(9) {
+          width: 100px;
+        }
+
+        &:nth-of-type(11) {
+          width: 120px;
+        }
 
         &:nth-of-type(13) {
           width: 70px;
@@ -2240,6 +2251,10 @@ section {
   }
 
   .section-weekly-top {
+    .section-header {
+      border-bottom: 1px solid #eee;
+      padding-bottom: .5rem
+    }
     .tooltip-content {
       width: 350px;
     }
@@ -2432,7 +2447,7 @@ section {
   flex-direction: row;
 
   .chart {
-    min-height: 240px;
+    height: 240px;
   }
 
   .report {
@@ -2814,6 +2829,16 @@ section {
   }
 
   .content-keyword {
+
+    fieldset {
+      padding: 1rem;
+
+      legend {
+        font-size: 17px;
+        padding: 0 .5rem;
+      }
+
+    }
     .summary {
       &.horizontal {
         ul {
@@ -3351,7 +3376,7 @@ section {
             flex-direction: row;
             justify-content: flex-start;
             align-items: center;
-            gap: .25rem;
+            gap: 0.25rem;
           }
 
           .row {

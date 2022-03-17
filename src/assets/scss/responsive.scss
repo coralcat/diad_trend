@@ -632,17 +632,17 @@
             }
             &:nth-of-type(2) {
               &::before {
-                content: "총 소재";
+                content: "제공량";
               }
             }
             &:nth-of-type(3) {
               &::before {
-                content: "등록 소재";
+                content: "이용량";
               }
             }
             &:nth-of-type(4) {
               &::before {
-                content: "등록 가능 소재";
+                content: "잔여량";
               }
             }
             &:nth-of-type(5) {
