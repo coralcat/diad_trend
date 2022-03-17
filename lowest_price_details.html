@@ -12,7 +12,6 @@
     <script src="assets/lib/amcharts/xy.js"></script>
     <script src="assets/lib/amcharts/percent.js"></script>
     <script src="assets/lib/amcharts/animated.js"></script>
-
     <script src="assets/lib/jquery/jquery-3.6.0.js"></script>
     <script src="assets/lib/jquery/jquery-ui-1.13.0.js"></script>
     <script src="assets/js/main.js"></script>
@@ -166,6 +165,7 @@
         tooltip: am5.Tooltip.new(root, {}),
       })
     );
+    xAxis.get("dateFormats")["day"] = "yyyy MM.dd";
 
     var yAxis = chart.yAxes.push(
       am5xy.ValueAxis.new(root, {
@@ -328,6 +328,7 @@
         tooltip: am5.Tooltip.new(root, {}),
       })
     );
+    xAxis.get("dateFormats")["day"] = "yyyy MM.dd";
 
     var yAxis = chart.yAxes.push(
       am5xy.ValueAxis.new(root, {
@@ -490,6 +491,7 @@
         tooltip: am5.Tooltip.new(root, {}),
       })
     );
+    xAxis.get("dateFormats")["day"] = "yyyy MM.dd";
 
     var yAxis = chart.yAxes.push(
       am5xy.ValueAxis.new(root, {
@@ -652,6 +654,7 @@
         tooltip: am5.Tooltip.new(root, {}),
       })
     );
+    xAxis.get("dateFormats")["day"] = "yyyy MM.dd";
 
     var yAxis = chart.yAxes.push(
       am5xy.ValueAxis.new(root, {
@@ -814,6 +817,7 @@
         tooltip: am5.Tooltip.new(root, {}),
       })
     );
+    xAxis.get("dateFormats")["day"] = "yyyy MM.dd";
 
     var yAxis = chart.yAxes.push(
       am5xy.ValueAxis.new(root, {

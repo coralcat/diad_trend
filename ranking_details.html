@@ -12,7 +12,6 @@
     <script src="assets/lib/amcharts/xy.js"></script>
     <script src="assets/lib/amcharts/percent.js"></script>
     <script src="assets/lib/amcharts/animated.js"></script>
-
     <script src="assets/lib/jquery/jquery-3.6.0.js"></script>
     <script src="assets/lib/jquery/jquery-ui-1.13.0.js"></script>
     <script src="assets/js/main.js"></script>
@@ -122,6 +121,7 @@
   am5.ready(function () {
     var root = am5.Root.new("keywordChart");
     root.setThemes([am5themes_Animated.new(root)]);
+    root.dateFormatter.set("dateFormat", "yyyy MM.dd");
 
     var chart = root.container.children.push(am5xy.XYChart.new(root, { layout: root.verticalLayout }));
 
@@ -210,8 +210,7 @@
         tooltip: am5.Tooltip.new(root, {}),
       })
     );
-    xAxis.get("dateFormats")["day"] = "yyyy/MM/dd";
-    xAxis.data.setAll(data);
+    xAxis.get("dateFormats")["day"] = "yyyy MM.dd";
 
     var yAxis = chart.yAxes.push(
       am5xy.ValueAxis.new(root, {
@@ -399,6 +398,7 @@
         tooltip: am5.Tooltip.new(root, {}),
       })
     );
+    xAxis.get("dateFormats")["day"] = "yyyy MM.dd";
 
     var yAxis = chart.yAxes.push(
       am5xy.ValueAxis.new(root, {

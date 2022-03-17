@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   scrollToTop.addEventListener("click", () => {
     wrapper.scrollTo({top: 0, behavior: "smooth"});
+    content.scrollTo({top: 0, behavior: "smooth"});
   });
 
   /* =====================================================
