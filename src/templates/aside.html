@@ -22,10 +22,18 @@
     <a href="https://diad.co.kr/Account/CertificationBusiness">회원가입</a>
   </div> -->
   <nav>
-    <a class="{% if currentPage == 'ranking' %}is-active{% endif %}" href="ranking.html">상품 순위 조회</a>
-    <a class="{% if currentPage == 'lowestPrice' %}is-active{% endif %}" href="lowest_price.html">최저가 알림</a>
-    <a class="{% if currentPage == 'keyword' %}is-active{% endif %}" href="keyword.html">키워드 트렌드</a>
-    <a class="{% if currentPage == 'settings' %}is-active{% endif %}" href="settings.html">알림설정</a>
+    <a class="{% if currentPage == 'ranking' %}is-active{% endif %}" href="ranking.html">
+      <span>상품 순위 조회</span>
+    </a>
+    <a class="{% if currentPage == 'lowestPrice' %}is-active{% endif %}" href="lowest_price.html">
+      <span>최저가 알림</span>
+    </a>
+    <a class="{% if currentPage == 'keyword' %}is-active{% endif %}" href="keyword.html">
+      <span>키워드 트렌드</span>
+    </a>
+    <a class="{% if currentPage == 'settings' %}is-active{% endif %}" href="settings.html">
+      <span>알림설정</span>
+    </a>
   </nav>
 </aside>
 {% endmacro %}
