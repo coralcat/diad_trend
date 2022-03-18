@@ -2901,11 +2901,6 @@ section {
         }
       }
 
-      .col-price {
-        gap: 0.25rem;
-        flex-direction: column;
-      }
-
       li {
         .title {
           line-height: 1.25;
@@ -2917,6 +2912,18 @@ section {
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 2;
           cursor: pointer;
+        }
+      }
+
+      .col-price {
+        gap: .25rem;
+
+        strong {
+
+          &::after {
+            content: "원";
+            font-size: 15px;
+          }
         }
       }
 
@@ -2993,9 +3000,14 @@ section {
             display: none;
           }
 
+          .col-ranking {
+            font-size: 18px;
+          }
+
           .col-title {
             justify-content: flex-start;
             gap: 0.5rem;
+            font-size: 15px;
 
             .image {
               width: 90px;
@@ -3003,13 +3015,10 @@ section {
             }
           }
 
-          .price {
-            font-family: "RobotoMedium", "NanumBarunGothic";
-            font-size: 16px;
-            color: #7682f8;
+          .col-price {
 
-            &::after {
-              font-size: 15px;
+            strong {
+              font-size: 18px;
             }
           }
 
@@ -3021,8 +3030,7 @@ section {
             border: 0;
             position: relative !important;
 
-            &.col-title .tag,
-            &:nth-of-type(1) {
+            &.col-title .tag {
               display: none;
             }
 
