@@ -10,19 +10,31 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const main = document.querySelector("main");
-  const content = document.querySelector(".content")
+  const content = document.querySelector(".content");
   const wrapper = document.querySelector(".content > .wrapper");
   const scrollToTop = document.createElement("div");
   scrollToTop.classList.add("scroll-to-top");
   wrapper.appendChild(scrollToTop);
 
-  wrapper.addEventListener("scroll", () => {
-    console.log(wrapper.scrollTop)
-    wrapper.scrollTop > 50 ? scrollToTop.classList.add("is-active") : scrollToTop.classList.remove("is-active");
-  });
+  let lastScrollTop = 0;
 
-  content.addEventListener("scroll", () => {
-    content.scrollTop > 50 ? scrollToTop.classList.add("is-active") : scrollToTop.classList.remove("is-active");
+  wrapper.addEventListener("scroll", () => {
+    let currentScrollTop = wrapper.scrollTop;
+
+    console.log(Math.abs(lastScrollTop - currentScrollTop))
+    if(currentScrollTop > 50) {
+      if (currentScrollTop > lastScrollTop) {
+        //Scroll down
+        scrollToTop.classList.remove("is-active");
+      } else {
+        //Scroll up
+        scrollToTop.classList.add("is-active");
+      }
+
+      lastScrollTop = currentScrollTop;
+    } else {
+      scrollToTop.classList.remove("is-active");
+    }
   });
 
   scrollToTop.addEventListener("click", () => {
@@ -252,20 +264,20 @@ document.addEventListener("DOMContentLoaded", () => {
     select.forEach(button => {
       button.addEventListener("click", event => {
         if (event.target === select[0]) {
-          detail1.style.opacity = "1";
-          detail2.style.opacity = "0";
+          detail1.classList.add("is-active")
+          detail2.classList.remove("is-active")
         } else {
-          detail1.style.opacity = "0";
-          detail2.style.opacity = "1";
+          detail1.classList.remove("is-active")
+          detail2.classList.add("is-active")
         }
       });
 
       if (select[0].checked) {
-        detail1.style.opacity = "1";
-        detail2.style.opacity = "0";
+        detail1.classList.add("is-active")
+        detail2.classList.remove("is-active")
       } else {
-        detail1.style.opacity = "0";
-        detail2.style.opacity = "1";
+        detail1.classList.remove("is-active")
+        detail2.classList.add("is-active")
       }
     });
   }
@@ -686,14 +698,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const lists = row.querySelectorAll("li");
 
       lists.forEach(list => {
-        const index = lists.length
+        const index = lists.length;
         const dateIndex = [...dateTitle][index];
         const date = document.createElement("div");
         date.classList.add("date-title");
         date.innerText = dateIndex.textContent;
         list.prepend(date);
 
-        dateIndex === [...lists].indexOf(1) && list.prepend(date)
+        dateIndex === [...lists].indexOf(1) && list.prepend(date);
       });
     });
   }
@@ -701,7 +713,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const hamburgMenu = document.querySelector(".hamburg-menu");
   hamburgMenu.addEventListener("click", () => {
     const aside = document.querySelector("aside");
-    hamburgMenu.classList.toggle("is-active")
+    hamburgMenu.classList.toggle("is-active");
     aside.classList.toggle("is-active");
   });
 });

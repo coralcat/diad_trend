@@ -203,6 +203,7 @@
       },
     ];
 
+
     var xRenderer = am5xy.AxisRendererX.new(root, {});
     xRenderer.grid.template.set("location", 0.5);
     xRenderer.labels.template.setAll({
@@ -222,14 +223,14 @@
     var yAxis = chart.yAxes.push(
       am5xy.ValueAxis.new(root, {
         min: 1,
-        max: 400,
+        max: 40,
         renderer: am5xy.AxisRendererY.new(root, {
           inversed: true,
         }),
       })
     );
 
-    function createSeries(name, field) {
+    function createSeries(name, field, color) {
       var series = chart.series.push(
         am5xy.LineSeries.new(root, {
           name: name,
@@ -237,6 +238,8 @@
           yAxis: yAxis,
           valueYField: field,
           valueXField: "date",
+          stroke: color,
+          fill: color,
           tooltip: am5.Tooltip.new(root, {
             pointerOrientation: "horizontal",
             labelText: "[bold]{name} {valueY}[/]위",
@@ -248,7 +251,7 @@
         return am5.Bullet.new(root, {
           sprite: am5.Circle.new(root, {
             radius: 3,
-            fill: series.get("fill"),
+            fill: color,
           }),
         });
       });
@@ -266,10 +269,10 @@
       series.appear(1000, 100);
     }
 
-    createSeries("싱글오리진", "singleOrigin");
-    createSeries("커피원두", "coffeeBean");
-    createSeries("스타벅스", "starbucks");
-    createSeries("케냐AA", "kenyaAA");
+    createSeries("싱글오리진", "singleOrigin", am5.color(0x5B54C6));
+    createSeries("커피원두", "coffeeBean", am5.color(0xa298f2));
+    createSeries("스타벅스", "starbucks", am5.color(0x3f8cff));
+    createSeries("케냐AA", "kenyaAA", am5.color(0xffa1bf));
 
     var cursor = chart.set(
       "cursor",
