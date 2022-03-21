@@ -50,10 +50,11 @@
 
     series.get("colors").set("colors", [
       am5.color(0x5B54C6),
-      am5.color(0xB252E3),
-      am5.color(0xFA66B3),
-      am5.color(0xE36A52),
-      am5.color(0xFDAA5B),
+      am5.color(0xa298f2),
+      am5.color(0x3f8cff),
+      am5.color(0xffa1bf),
+      am5.color(0x55d2c5),
+      am5.color(0xffce73),
     ]);
 
     series.data.setAll([
@@ -72,7 +73,7 @@
         textAlign: "center",
         centerY: am5.p50,
         centerX: am5.p50,
-        text: "[fontSize:13px]총 월간 검색수[/]:\n[bold fontSize:30px]38,790[/]"
+        text: "[fontSize:13px]총 월간 검색수[/]:\n[#5b54c6 bold fontSize:30px]38,790[/]"
       })
     );
 
@@ -104,10 +105,11 @@
 
     series.get("colors").set("colors", [
       am5.color(0x5B54C6),
-      am5.color(0xB252E3),
-      am5.color(0xFA66B3),
-      am5.color(0xE36A52),
-      am5.color(0xFDAA5B),
+      am5.color(0xa298f2),
+      am5.color(0x3f8cff),
+      am5.color(0xffa1bf),
+      am5.color(0x55d2c5),
+      am5.color(0xffce73),
     ]);
 
     series.data.setAll([
@@ -130,7 +132,7 @@
         textAlign: "center",
         centerY: am5.p50,
         centerX: am5.p50,
-        text: "[fontSize:13px]총 콘텐츠[/]:\n[bold fontSize:30px]10,000[/]"
+        text: "[fontSize:13px]총 콘텐츠[/]:\n[#5b54c6 bold fontSize:30px]10,000[/]"
       })
     );
 
@@ -152,12 +154,6 @@
     var date = new Date();
     date.setHours(0, 0, 0, 0);
     var value = 100;
-    var previousValue = value;
-    var downColor = root.interfaceColors.get("negative");
-    var upColor = root.interfaceColors.get("positive");
-    var color;
-    var previousColor;
-    var previousDataObj;
 
     function generateData() {
       value = Math.round(Math.random() * 10 - 5 + value);
@@ -264,11 +260,13 @@
 
     series.get("colors").set("colors", [
       am5.color(0x5B54C6),
-      am5.color(0xB252E3),
-      am5.color(0xFA66B3),
-      am5.color(0xE36A52),
-      am5.color(0xFDAA5B),
+      am5.color(0xa298f2),
+      am5.color(0x3f8cff),
+      am5.color(0xffa1bf),
+      am5.color(0x55d2c5),
+      am5.color(0xffce73),
     ]);
+
     series.states.create("hidden", {
       endAngle: -90,
     });
@@ -321,52 +319,22 @@
   am5.ready(function () {
     var root = am5.Root.new("categoryTrendChart");
     root.setThemes([am5themes_Animated.new(root)]);
-    root.dateFormatter.set("dateFormat", "yyyy MM.dd");
 
     var chart = root.container.children.push(am5xy.XYChart.new(root, {}));
 
-    var cursor = chart.set(
-      "cursor",
-      am5xy.XYCursor.new(root, {
-        behavior: "none",
-      })
-    );
+    var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
     cursor.lineY.set("visible", false);
 
     // Generate random data
     var date = new Date();
     date.setHours(0, 0, 0, 0);
     var value = 100;
-    var previousValue = value;
-    var downColor = root.interfaceColors.get("negative");
-    var upColor = root.interfaceColors.get("positive");
-    var color;
-    var previousColor;
-    var previousDataObj;
 
     function generateData() {
       value = Math.round(Math.random() * 10 - 5 + value);
       am5.time.add(date, "day", 1);
 
-      if (value >= previousValue) {
-        color = upColor;
-      } else {
-        color = downColor;
-      }
-      previousValue = value;
-
-      var dataObj = { date: date.getTime(), value: value, color: color }; // color will be used for tooltip background
-
-      // only if changed
-      if (color != previousColor) {
-        if (!previousDataObj) {
-          previousDataObj = dataObj;
-        }
-        previousDataObj.strokeSettings = { stroke: color };
-      }
-
-      previousDataObj = dataObj;
-      previousColor = color;
+      var dataObj = { date: date.getTime(), value: value }; // color will be used for tooltip background
 
       return dataObj;
     }
@@ -379,8 +347,6 @@
       return data;
     }
 
-    // Create axes
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
     var xAxis = chart.xAxes.push(
       am5xy.DateAxis.new(root, {
         baseInterval: { timeUnit: "day", count: 1 },
@@ -396,8 +362,6 @@
       })
     );
 
-    // Add series
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
     var series = chart.series.push(
       am5xy.LineSeries.new(root, {
         name: "쇼핑 카테고리 트렌드 차트",
@@ -405,10 +369,35 @@
         yAxis: yAxis,
         valueYField: "value",
         valueXField: "date",
+        fill: am5.color(0x7682f8),
+        stroke: am5.color(0x7682f8),
       })
     );
 
+    series.fills.template.setAll({
+      fillOpacity: 0.2,
+      visible: true
+    });
+
+    series.strokes.template.setAll({
+      strokeWidth: 2
+    });
     series.strokes.template.set("templateField", "strokeSettings");
+
+    series.bullets.push(function () {
+      var circle = am5.Circle.new(root, {
+        radius: 2,
+        fill: root.interfaceColors.get("background"),
+        stroke: series.get("fill"),
+        strokeWidth: 2
+      })
+
+      return am5.Bullet.new(root, {
+        sprite: circle
+      })
+    });
+
+
 
     var tooltip = series.set(
       "tooltip",
@@ -417,20 +406,6 @@
       })
     );
 
-    // this is added in ored adapter to be triggered each time position changes
-    tooltip.on("pointTo", function () {
-      var background = tooltip.get("background");
-      background.set("fill", background.get("fill"));
-    });
-
-    // tooltip bacground takes color from data item
-    tooltip.get("background").adapters.add("fill", function (fill) {
-      if (tooltip.dataItem) {
-        return tooltip.dataItem.dataContext.color;
-      }
-      return fill;
-    });
-
     var data = generateDatas(100);
     series.data.setAll(data);
 
@@ -438,6 +413,7 @@
     chart.appear(1000, 100);
   }); // end am5.ready()
 </script>
+
 <!-- 상품명 분석차트 -->
 <script>
   am5.ready(function () {
@@ -460,12 +436,12 @@
 
     series.get("colors").set("colors", [
       am5.color(0x5B54C6),
-      am5.color(0xB252E3),
-      am5.color(0xFA66B3),
-      am5.color(0xE36A52),
-      am5.color(0xFDAA5B),
+      am5.color(0xa298f2),
+      am5.color(0x3f8cff),
+      am5.color(0xffa1bf),
+      am5.color(0x55d2c5),
+      am5.color(0xffce73),
     ]);
-
     series.states.create("hidden", {
       endAngle: -90,
     });
@@ -518,22 +494,22 @@
       price: "9,051원~17,350원",
       value: 15,
       settings: {
-        fill: am5.color(0xB252E3),
-        stroke: am5.color(0xB252E3)
+        fill: am5.color(0xa298f2),
+        stroke: am5.color(0xa298f2)
       }
     }, {
       price: "17,351원~25,650원",
       value: 9,
       settings: {
-        fill: am5.color(0xFA66B3),
-        stroke: am5.color(0xFA66B3)
+        fill: am5.color(0x3f8cff),
+        stroke: am5.color(0x3f8cff)
       }
     }, {
       price: "25,651원~",
       value: 5,
       settings: {
-        fill: am5.color(0xE36A52),
-        stroke: am5.color(0xE36A52)
+        fill: am5.color(0xffa1bf),
+        stroke: am5.color(0xffa1bf)
       }
     }];
 
@@ -597,13 +573,13 @@
       })
     );
 
-
     series.get("colors").set("colors", [
       am5.color(0x5B54C6),
-      am5.color(0xB252E3),
-      am5.color(0xFA66B3),
-      am5.color(0xE36A52),
-      am5.color(0xFDAA5B),
+      am5.color(0xa298f2),
+      am5.color(0x3f8cff),
+      am5.color(0xffa1bf),
+      am5.color(0x55d2c5),
+      am5.color(0xffce73),
     ]);
 
     series.states.create("hidden", {
@@ -1215,7 +1191,7 @@
             <li class="ico-sort">브랜드</li>
             <li class="ico-sort">제조사</li>
           </ul>
-          <ul class="row">
+          <ul class="row" onclick="window.open('about:blank').location.href='https://search.shopping.naver.com/gate.nhn?id=12126547821'">
             <li class="col-ranking">1</li>
             <li class="col-title">
               <div class="image">
@@ -1234,7 +1210,7 @@
                 <span>원두/생두</span>
               </div>
             </li>
-            <li class="store">
+            <li class="col-store">
               커피창고
             </li>
             <li class="col-price"><strong>9,900</strong></li>
@@ -1261,7 +1237,7 @@
                 <span>원두/생두</span>
               </div>
             </li>
-            <li class="store">
+            <li class="col-store">
               <div class="tag">가격비교상품</div>
             </li>
             <li class="col-price">
@@ -1290,7 +1266,7 @@
                 <span>원두/생두</span>
               </div>
             </li>
-            <li class="store">
+            <li class="col-store">
 
               커피창고
             </li>
@@ -1317,7 +1293,7 @@
                 <span>원두/생두</span>
               </div>
             </li>
-            <li class="store">
+            <li class="col-store">
 
               커피창고
             </li>
@@ -1344,7 +1320,7 @@
                 <span>원두/생두</span>
               </div>
             </li>
-            <li class="store">
+            <li class="col-store">
 
               커피창고
             </li>
@@ -1371,7 +1347,7 @@
                 <span>원두/생두</span>
               </div>
             </li>
-            <li class="store">
+            <li class="col-store">
 
               커피창고
             </li>
@@ -1398,7 +1374,7 @@
                 <span>원두/생두</span>
               </div>
             </li>
-            <li class="store">
+            <li class="col-store">
 
               커피창고
             </li>

@@ -1403,7 +1403,6 @@ input[type="radio"] + label:empty:before {
   &::before {
     content: "\003F";
     color: slategray;
-    font: 13px "Arial";
     line-height: 1;
     margin: 0 0.25rem;
     background-color: #e3e6e9;
