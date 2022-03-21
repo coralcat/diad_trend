@@ -65,7 +65,7 @@
         singleOrigin: 1,
         coffeeBean: 5,
         starbucks: 3,
-        kenyaAA: 24
+        kenyaAA: 24,
       },
       {
         date: new Date(2021, 2, 2).getTime(),
@@ -174,9 +174,6 @@
           }),
         });
       });
-
-      // create hover state for series and for mainContainer, so that when series is hovered,
-      // the state would be passed down to the strokes which are in mainContainer.
       series.set("setStateOnChildren", true);
       series.states.create("hover", {});
 

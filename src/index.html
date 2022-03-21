@@ -8,8 +8,8 @@
       am5percent.PieChart.new(root, {
         startAngle: 180,
         endAngle: 360,
-        innerRadius: am5.percent(70),
-        layout: root.horizontalLayout,
+        innerRadius: am5.percent(80),
+        layout: root.verticalLayout,
       })
     );
 
@@ -22,6 +22,11 @@
         legendValueText: "{value}개"
       })
     );
+
+    series.get("colors").set("colors", [
+      am5.color(0x5b54c6),
+      am5.color(0xeeeeee),
+    ]);
 
     series.states.create("hidden", {
       startAngle: 180,
@@ -44,11 +49,8 @@
     ]);
     var legend = chart.children.push(
       am5.Legend.new(root, {
-        centerY: am5.percent(50),
-        y: am5.percent(50),
-        marginTop: 15,
-        marginBottom: 15,
-        layout: root.verticalLayout,
+        centerX: am5.percent(50),
+        x: am5.percent(50),
       })
     );
     legend.data.setAll(series.dataItems);
@@ -75,8 +77,8 @@
       am5percent.PieChart.new(root, {
         startAngle: 180,
         endAngle: 360,
-        innerRadius: am5.percent(70),
-        layout: root.horizontalLayout,
+        innerRadius: am5.percent(80),
+        layout: root.verticalLayout,
       })
     );
 
@@ -89,6 +91,11 @@
         legendValueText: "{value}개"
       })
     );
+
+    series.get("colors").set("colors", [
+      am5.color(0x5b54c6),
+      am5.color(0xeeeeee),
+    ]);
 
     series.states.create("hidden", {
       startAngle: 180,
@@ -111,15 +118,14 @@
     ]);
     var legend = chart.children.push(
       am5.Legend.new(root, {
-        centerY: am5.percent(50),
-        y: am5.percent(50),
-        marginTop: 15,
-        marginBottom: 15,
-        layout: root.verticalLayout,
+        centerX: am5.percent(50),
+        nameField: "name",
+        fillField: "color",
+        strokeField: "color",
+        x: am5.percent(50),
       })
     );
     legend.data.setAll(series.dataItems);
-
 
     var label = chart.seriesContainer.children.push(
       am5.Label.new(root, {
@@ -141,7 +147,7 @@
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
         innerRadius: am5.percent(70),
-        layout: root.horizontalLayout,
+        layout: root.verticalLayout,
       })
     );
 
@@ -155,6 +161,17 @@
     series.states.create("hidden", {
       endAngle: -90,
     });
+
+
+
+    series.get("colors").set("colors", [
+      am5.color(0x5B54C6),
+      am5.color(0xB252E3),
+      am5.color(0xFA66B3),
+      am5.color(0xE36A52),
+      am5.color(0xFDAA5B),
+    ]);
+
 
     series.data.setAll([
       {
@@ -172,11 +189,9 @@
     ]);
     var legend = chart.children.push(
       am5.Legend.new(root, {
-        centerY: am5.percent(50),
-        y: am5.percent(50),
-        marginTop: 15,
+        centerX: am5.percent(50),
+        x: am5.percent(50),
         marginBottom: 15,
-        layout: root.verticalLayout,
       })
     );
     legend.data.setAll(series.dataItems);
@@ -201,7 +216,7 @@
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
         innerRadius: am5.percent(70),
-        layout: root.horizontalLayout,
+        layout: root.verticalLayout,
       })
     );
 
@@ -212,6 +227,15 @@
         endAngle: 270,
       })
     );
+
+    series.get("colors").set("colors", [
+      am5.color(0x5B54C6),
+      am5.color(0xB252E3),
+      am5.color(0xFA66B3),
+      am5.color(0xE36A52),
+      am5.color(0xFDAA5B),
+    ]);
+
 
     series.states.create("hidden", {
       endAngle: -90,
@@ -234,11 +258,9 @@
 
     var legend = chart.children.push(
       am5.Legend.new(root, {
-        centerY: am5.percent(50),
-        y: am5.percent(50),
-        marginTop: 15,
-        marginBottom: 15,
-        layout: root.verticalLayout,
+        centerX: am5.percent(50),
+        x: am5.percent(50),
+        marginBottom: 15
       })
     );
     legend.data.setAll(series.dataItems);
