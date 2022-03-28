@@ -144,7 +144,7 @@ button {
     height: 36px !important;
   }
   &.btn-main {
-    background-color: $secondary-color ;
+    background-color: $secondary-color;
     color: white !important;
     padding: 0 1.5rem;
     border: 0 !important;
@@ -627,6 +627,10 @@ section {
       padding: 0.5rem 1rem;
       background-color: $tertiary-color;
       color: $primary-color;
+
+      &.btn-main {
+        background-color: $secondary-color;
+      }
     }
   }
 
@@ -1045,7 +1049,7 @@ section {
 
   .tag {
     display: inline-block;
-    background: #333639;
+    background: lightseagreen;
     color: white;
     padding: 0.35rem;
     font-size: 12px;
@@ -1623,6 +1627,9 @@ section {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    border-top: 1px solid #eee;
+    padding-top: 2rem;
+    margin-top: 2rem;
 
     h3 {
       font-size: 17px;
@@ -1860,6 +1867,10 @@ section {
   .wrapper {
     section {
       overflow: hidden;
+    }
+
+    .btn-advanced-search {
+      background-color: $tertiary-color;
     }
   }
 
@@ -2474,6 +2485,12 @@ section {
 
         .keyword {
           cursor: pointer;
+
+          &:hover {
+            color: white;
+            background-color: $secondary-color;
+            border-color: $secondary-color;
+          }
         }
       }
     }
@@ -2745,6 +2762,12 @@ section {
 
         .keyword {
           cursor: pointer;
+
+          &:hover {
+            color: white;
+            background-color: $secondary-color;
+            border-color: $secondary-color;
+          }
         }
       }
     }
@@ -2866,14 +2889,40 @@ section {
   }
 
   .content-keyword {
+    .section-main {
+      .section-content {
+        display: flex;
+        gap: 1rem;
+
+        .wrapper {
+          flex-direction: column;
+          flex: 1 1 auto;
+        }
+      }
+    }
     fieldset {
       padding: 1rem;
+
+      &.items {
+        .summary {
+          height: 100%;
+
+          ul {
+            height: 100%;
+            align-items: center;
+          }
+          li {
+            flex-direction: column;
+          }
+        }
+      }
 
       legend {
         font-size: 17px;
         padding: 0 0.5rem;
       }
     }
+
     .summary {
       &.horizontal {
         ul {
@@ -3127,12 +3176,6 @@ section {
       .keyword {
         cursor: pointer;
         transition: 0.25s;
-
-        &:hover {
-          color: white;
-          background-color: $primary-color;
-          border-color: $primary-color;
-        }
       }
 
       .row {

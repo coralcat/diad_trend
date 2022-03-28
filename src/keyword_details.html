@@ -656,7 +656,7 @@
       <div class="related">
         <h5>연관키워드</h5>
         <ul>
-          <li class="keyword">커피원두</li>
+          <li class="keyword" onclick="window.open('keyword_details.html')">커피원두</li>
           <li class="keyword">원두커피</li>
           <li class="keyword">커피머신</li>
           <li class="keyword">원두</li>
@@ -676,165 +676,173 @@
       <li data-tab="sub-menu">연관 키워드</li>
     </ul>
     <div class="tab-content content-keyword" data-tab="sub-menu">
-      <section class="section-chart" title="검색">
+      <section class="section-main" title="검색">
         <header class="section-header">
           <h3>키워드 한눈에 보기</h3>
         </header>
-        <fieldset>
-          <legend>월간 검색</legend>
-          <div class="report">
-            <div id="searchChart" class="chart"></div>
-            <div class="summary">
-              <h5>PC 검색</h5>
-              <ul>
-                <li>
-                  <div>월간 검색수</div>
-                  <strong>8,190</strong>
-                </li>
-                <li>
-                  <div>월 평균 클릭수</div>
-                  <strong>64.2</strong>
-                </li>
-                <li>
-                  <div>월 평균 클릭율</div>
-                  <strong>0.76%</strong>
-                </li>
-                <li>
-                  <div>경쟁정도</div>
-                  <strong>높음</strong>
-                </li>
-                <li>
-                  <div>월 평균 광고노출</div>
-                  <strong>15</strong>
-                </li>
-              </ul>
-            </div>
-            <div class="summary">
-              <h5>모바일 검색</h5>
-              <ul>
-                <li>
-                  <div>월간 검색수</div>
-                  <strong>30,600</strong>
-                </li>
-                <li>
-                  <div>월 평균 클릭수</div>
-                  <strong>426.8</strong>
-                </li>
-                <li>
-                  <div>월 평균 클릭율</div>
-                  <strong>1.51%</strong>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>컨텐츠</legend>
-          <div class="report">
-            <div id="contentsChart" class="chart"></div>
-            <div class="summary">
-              <h5>컨텐츠</h5>
-              <ul>
-                <li>
-                  <div>블로그</div>
-                  <strong>3,500</strong>
-                </li>
-                <li>
-                  <div>카페</div>
-                  <strong>4,000</strong>
-                </li>
-                <li>
-                  <div>뉴스</div>
-                  <strong>2,500</strong>
-                </li>
-              </ul>
-            </div>
-            <div class="summary">
-              <h5>경쟁률</h5>
-              <ul>
-                <li>
-                  <div>
-                    블로그경쟁률
-                    <div class="tooltip">
-                      <div class="tooltip-content">
-                        <dl>
-                          <dd>네이버 블로그 콘텐츠량 ÷ 월간 검색량 입니다.</dd>
-                          <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
-                        </dl>
-                      </div>
-                    </div>
-                  </div>
-                  <strong>0.09:1</strong>
-                </li>
-                <li>
-                  <div>
-                    카페경쟁률
-                    <div class="tooltip">
-                      <div class="tooltip-content">
-                        <dl>
-                          <dd>네이버 카페 콘텐츠량 ÷ 월간 검색량 입니다.</dd>
-                          <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
-                        </dl>
-                      </div>
-                    </div>
-                  </div>
-                  <strong>0.1:1</strong>
-                </li>
-                <li>
-                  <div>
-                    뉴스경쟁률
-                    <div class="tooltip">
-                      <div class="tooltip-content">
-                        <dl>
-                          <dd>뉴스 콘텐츠량 ÷ 월간 검색량 입니다.</dd>
-                          <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
-                        </dl>
-                      </div>
-                    </div>
-                  </div>
-                  <strong>0.06:1</strong>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>상품</legend>
-          <div class="summary horizontal">
-            <ul>
-              <li>
-                <div>총 등록 상품수</div>
-                <strong>858,818</strong>
-              </li>
-              <li>
-                <div>
-                  상품경쟁률
-                  <div class="tooltip">
-                    <div class="tooltip-content">
-                      <dl>
-                        <dd>상품수 ÷ 월간 검색량 입니다.</dd>
-                        <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
-                      </dl>
-                    </div>
-                  </div>
+        <div class="section-content">
+          <div class="wrapper">
+            <fieldset>
+              <legend>월간 검색</legend>
+              <div class="report">
+                <div id="searchChart" class="chart"></div>
+                <div class="summary">
+                  <h5>PC 검색</h5>
+                  <ul>
+                    <li>
+                      <div>월간 검색수</div>
+                      <strong>8,190</strong>
+                    </li>
+                    <li>
+                      <div>월 평균 클릭수</div>
+                      <strong>64.2</strong>
+                    </li>
+                    <li>
+                      <div>월 평균 클릭율</div>
+                      <strong>0.76%</strong>
+                    </li>
+                    <li>
+                      <div>경쟁정도</div>
+                      <strong>높음</strong>
+                    </li>
+                    <li>
+                      <div>월 평균 광고노출</div>
+                      <strong>15</strong>
+                    </li>
+                  </ul>
                 </div>
-                <strong>22.14:1</strong>
-              </li>
-              <li>
-                <div>1페이지 최다 키워드</div>
-                <strong>원두</strong>
-              </li>
-              <li>
-                <div>1페이지 평균가격</div>
-                <strong>9,910</strong>
-              </li>
-              <li>
-                <div>1페이지 가격비교상품</div>
-                <strong>12.50%</strong>
-              </li>
-            </ul>
+                <div class="summary">
+                  <h5>모바일 검색</h5>
+                  <ul>
+                    <li>
+                      <div>월간 검색수</div>
+                      <strong>30,600</strong>
+                    </li>
+                    <li>
+                      <div>월 평균 클릭수</div>
+                      <strong>426.8</strong>
+                    </li>
+                    <li>
+                      <div>월 평균 클릭율</div>
+                      <strong>1.51%</strong>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>콘텐츠</legend>
+              <div class="report">
+                <div id="contentsChart" class="chart"></div>
+                <div class="summary">
+                  <h5>콘텐츠</h5>
+                  <ul>
+                    <li>
+                      <div>블로그</div>
+                      <strong>3,500</strong>
+                    </li>
+                    <li>
+                      <div>카페</div>
+                      <strong>4,000</strong>
+                    </li>
+                    <li>
+                      <div>뉴스</div>
+                      <strong>2,500</strong>
+                    </li>
+                  </ul>
+                </div>
+                <div class="summary">
+                  <h5>경쟁률</h5>
+                  <ul>
+                    <li>
+                      <div>
+                        블로그경쟁률
+                        <div class="tooltip">
+                          <div class="tooltip-content">
+                            <dl>
+                              <dd>네이버 블로그 콘텐츠량 ÷ 월간 검색량 입니다.</dd>
+                              <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                            </dl>
+                          </div>
+                        </div>
+                      </div>
+                      <strong>0.09:1</strong>
+                    </li>
+                    <li>
+                      <div>
+                        카페경쟁률
+                        <div class="tooltip">
+                          <div class="tooltip-content">
+                            <dl>
+                              <dd>네이버 카페 콘텐츠량 ÷ 월간 검색량 입니다.</dd>
+                              <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                            </dl>
+                          </div>
+                        </div>
+                      </div>
+                      <strong>0.1:1</strong>
+                    </li>
+                    <li>
+                      <div>
+                        뉴스경쟁률
+                        <div class="tooltip">
+                          <div class="tooltip-content">
+                            <dl>
+                              <dd>뉴스 콘텐츠량 ÷ 월간 검색량 입니다.</dd>
+                              <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                            </dl>
+                          </div>
+                        </div>
+                      </div>
+                      <strong>0.06:1</strong>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </fieldset>
           </div>
-        </fieldset>
+          <fieldset class="items">
+            <legend>상품</legend>
+            <div class="summary">
+              <ul>
+                <li>
+                  <div>총 등록 상품수</div>
+                  <strong>858,818</strong>
+                </li>
+                <li>
+                  <div>
+                    상품경쟁률
+                    <div class="tooltip">
+                      <div class="tooltip-content">
+                        <dl>
+                          <dd>상품수 ÷ 월간 검색량 입니다.</dd>
+                          <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
+                  <strong>22.14:1</strong>
+                </li>
+                <li>
+                  <div>1페이지 최다 키워드</div>
+                  <strong>원두</strong>
+                </li>
+                <li>
+                  <div>1페이지 평균가격</div>
+                  <strong>9,910</strong>
+                </li>
+                <li>
+                  <div>1페이지 가격비교상품</div>
+                  <strong>12.50%</strong>
+                </li>
+                <li>
+                  <div>1페이지 브랜드 점유율</div>
+                  <strong>12.50%</strong>
+                </li>
+              </ul>
+            </div>
+          </fieldset>
+        </div>
         <div class="wrapper">
         </div>
       </section>
@@ -2082,7 +2090,7 @@
           <ul class="row">
             <li>1</li>
             <li>
-              <div class="keyword">커피원두</div>
+              <div class="keyword" onclick="window.open('keyword_details.html')">커피원두</div>
             </li>
             <li>8,100건</li>
             <li>28,200건</li>

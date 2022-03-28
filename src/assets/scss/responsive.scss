@@ -90,6 +90,16 @@
       }
     }
   }
+
+  .section-main {
+
+    .section-content {
+      flex-direction: column;
+      .report {
+        flex-direction: column;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 960px) {
