@@ -1437,7 +1437,7 @@ section {
       gap: 0.25rem;
       padding: 0.5rem;
       border-radius: 0.25rem;
-      background-color: $tertiary-color;
+      border: 1px solid $tertiary-color;
       position: relative;
       padding-right: 2rem;
 
@@ -1448,19 +1448,20 @@ section {
 
       span {
         font-size: 14px;
-        color: $primary-color;
+        color: $secondary-color;
 
         &:not(:last-of-type) {
           &::after {
             content: "|";
             padding: 0 0.5rem;
+            color: #ccc
           }
         }
       }
       .x {
         top: 9px;
         right: 0.5rem;
-        background-image: linear-gradient($secondary-color 0 0), linear-gradient($secondary-color 0 0);
+        background-image: linear-gradient(#49536b 0 0), linear-gradient(#49536b 0 0);
         opacity: 0.75;
         cursor: pointer;
       }
@@ -2634,6 +2635,10 @@ section {
         &:hover {
           background-color: $tertiary-color;
           color: $primary-color;
+
+          strong {
+            color: #5b54c6
+          }
         }
 
         > div {
@@ -2939,6 +2944,7 @@ section {
       legend {
         font-size: 17px;
         padding: 0 0.5rem;
+        text-align: center;
       }
     }
 
@@ -3122,6 +3128,7 @@ section {
             &:nth-of-type(6) {
               border-right: 1px solid #eee;
               padding-right: 0.5rem;
+              margin-right: 0.25rem;
             }
 
             &:nth-of-type(7) {
