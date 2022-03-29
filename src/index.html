@@ -8,7 +8,7 @@
       am5percent.PieChart.new(root, {
         startAngle: 180,
         endAngle: 360,
-        innerRadius: am5.percent(80),
+        innerRadius: am5.percent(85),
         layout: root.verticalLayout,
       })
     );
@@ -23,8 +23,16 @@
       })
     );
 
+
+    series.slices.template.setAll({
+      stroke: root.interfaceColors.get("background"),
+      strokeWidth: 2,
+      cornerRadius: 5,
+      tooltipText:
+        "{value}건 ({valuePercentTotal.formatNumber('0.00')}%)"
+    });
     series.get("colors").set("colors", [
-      am5.color(0x7682f8),
+      am5.color(0x5B54C6),
       am5.color(0xeeeeee),
     ]);
 
@@ -61,7 +69,7 @@
         textAlign: "center",
         centerY: am5.p100,
         centerX: am5.p50,
-        text: "[fontSize:15px]잔여[/]:\n[#7682f8 bold fontSize:30px]4[/]개"
+        text: "[fontSize:15px]잔여[/]:\n[#5B54C6 bold fontSize:30px]4[/]개"
       })
     );
 
@@ -77,7 +85,7 @@
       am5percent.PieChart.new(root, {
         startAngle: 180,
         endAngle: 360,
-        innerRadius: am5.percent(80),
+        innerRadius: am5.percent(85),
         layout: root.verticalLayout,
       })
     );
@@ -93,9 +101,17 @@
     );
 
     series.get("colors").set("colors", [
-      am5.color(0x7682f8),
+      am5.color(0x5B54C6),
       am5.color(0xeeeeee),
     ]);
+
+    series.slices.template.setAll({
+      stroke: root.interfaceColors.get("background"),
+      strokeWidth: 2,
+      cornerRadius: 5,
+      tooltipText:
+        "{value}건 ({valuePercentTotal.formatNumber('0.00')}%)"
+    });
 
     series.states.create("hidden", {
       startAngle: 180,
@@ -132,7 +148,7 @@
         textAlign: "center",
         centerY: am5.p100,
         centerX: am5.p50,
-        text: "[fontSize:15px]잔여[/]:\n[#7682f8 bold fontSize:30px]4[/]개"
+        text: "[fontSize:15px]잔여[/]:\n[#5B54C6 bold fontSize:30px]4[/]개"
       })
     );
 
@@ -146,7 +162,7 @@
 
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(70),
+        innerRadius: am5.percent(80),
         layout: root.verticalLayout,
       })
     );
@@ -158,16 +174,25 @@
       })
     );
 
+
+    series.slices.template.setAll({
+      stroke: root.interfaceColors.get("background"),
+      strokeWidth: 2,
+      cornerRadius: 5,
+      tooltipText:
+        "{value}건 ({valuePercentTotal.formatNumber('0.00')}%)"
+    });
+
     series.states.create("hidden", {
       endAngle: -90,
     });
 
     series.get("colors").set("colors", [
       am5.color(0x5B54C6),
-      am5.color(0xa298f2),
-      am5.color(0x3f8cff),
-      am5.color(0xffa1bf),
-      am5.color(0x55d2c5),
+      am5.color(0x11b4d4),
+      am5.color(0xF59083),
+      am5.color(0xf5c432),
+      am5.color(0x49BFEE),
       am5.color(0xffce73),
     ]);
 
@@ -213,7 +238,7 @@
 
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(70),
+        innerRadius: am5.percent(80),
         layout: root.verticalLayout,
       })
     );
@@ -226,12 +251,21 @@
       })
     );
 
+
+    series.slices.template.setAll({
+      stroke: root.interfaceColors.get("background"),
+      strokeWidth: 2,
+      cornerRadius: 5,
+      tooltipText:
+        "{value}건 ({valuePercentTotal.formatNumber('0.00')}%)"
+    });
+
     series.get("colors").set("colors", [
       am5.color(0x5B54C6),
-      am5.color(0xa298f2),
-      am5.color(0x3f8cff),
-      am5.color(0xffa1bf),
-      am5.color(0x55d2c5),
+      am5.color(0x11b4d4),
+      am5.color(0xF59083),
+      am5.color(0xf5c432),
+      am5.color(0x49BFEE),
       am5.color(0xffce73),
     ]);
 

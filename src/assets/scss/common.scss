@@ -55,7 +55,7 @@ html {
 
 body {
   overflow: hidden;
-  background-color: #eff1f7;
+  background-color: #eff3f7;
   color: #333;
   width: 100%;
   overflow-x: hidden;
@@ -1039,7 +1039,7 @@ input[type="radio"] + label:empty:before {
   .row.title {
     position: sticky;
     top: 0;
-    z-index: 5;
+    z-index: 10;
   }
 }
 
@@ -1361,7 +1361,7 @@ input[type="radio"] + label:empty:before {
     content: attr(data-tooltip);
     word-break: keep-all;
     transform: translateX(-50%);
-    background-color: $secondary-color;
+    background-color: #333;
     line-height: 1.5;
     color: white;
     border-radius: 0.25rem;
@@ -1381,7 +1381,7 @@ input[type="radio"] + label:empty:before {
     left: 50%;
     transform: translateX(-50%);
     width: 0;
-    border-bottom: 8px solid $secondary-color;
+    border-bottom: 8px solid #333;
     border-right: 8px solid transparent;
     border-left: 8px solid transparent;
     font-size: 0;
@@ -1410,6 +1410,7 @@ input[type="radio"] + label:empty:before {
     border-radius: 50%;
     width: 18px;
     height: 18px;
+    font-size: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1417,6 +1418,20 @@ input[type="radio"] + label:empty:before {
   }
 
   &:hover {
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      border-bottom: 8px solid #333;
+      border-right: 8px solid transparent;
+      border-left: 8px solid transparent;
+      font-size: 0;
+      line-height: 0;
+    }
     .tooltip-content {
       opacity: 1;
       z-index: 100;
@@ -1438,18 +1453,6 @@ input[type="radio"] + label:empty:before {
   font: 13px/1.5 "NanumBarunGothicLight";
   transition: all 0.2s;
   z-index: -1;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: -8px;
-    width: 0;
-    border-bottom: 8px solid #333;
-    border-right: 8px solid transparent;
-    border-left: 8px solid transparent;
-    font-size: 0;
-    line-height: 0;
-  }
 
   &.is-active {
     z-index: 100 !important;
