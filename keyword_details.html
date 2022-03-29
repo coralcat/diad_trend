@@ -110,7 +110,7 @@
 
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(70),
+        innerRadius: am5.percent(80),
         layout: root.verticalLayout,
       })
     );
@@ -128,12 +128,20 @@
 
     series.get("colors").set("colors", [
       am5.color(0x5B54C6),
-      am5.color(0xa298f2),
-      am5.color(0x3f8cff),
-      am5.color(0xffa1bf),
-      am5.color(0x55d2c5),
+      am5.color(0x11b4d4),
+      am5.color(0xF59083),
+      am5.color(0xf5c432),
+      am5.color(0x49BFEE),
       am5.color(0xffce73),
     ]);
+
+    series.slices.template.setAll({
+      cornerRadius: 5,
+      stroke: root.interfaceColors.get("background"),
+      strokeWidth: 2,
+      tooltipText:
+        "{value}건 ({valuePercentTotal.formatNumber('0.00')}%)"
+    });
 
     series.data.setAll([
       {
@@ -165,7 +173,7 @@
 
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(70),
+        innerRadius: am5.percent(80),
         layout: root.verticalLayout,
       })
     );
@@ -177,16 +185,24 @@
       })
     );
 
+    series.slices.template.setAll({
+      cornerRadius: 5,
+      stroke: root.interfaceColors.get("background"),
+      strokeWidth: 2,
+      tooltipText:
+        "{value}건 ({valuePercentTotal.formatNumber('0.00')}%)"
+    });
+
     series.states.create("hidden", {
       endAngle: -90,
     });
 
     series.get("colors").set("colors", [
       am5.color(0x5B54C6),
-      am5.color(0xa298f2),
-      am5.color(0x3f8cff),
-      am5.color(0xffa1bf),
-      am5.color(0x55d2c5),
+      am5.color(0x11b4d4),
+      am5.color(0xF59083),
+      am5.color(0xf5c432),
+      am5.color(0x49BFEE),
       am5.color(0xffce73),
     ]);
 
@@ -283,16 +299,16 @@
     });
 
     series.strokes.template.setAll({
-      strokeWidth: 2
+      strokeWidth: 1
     });
     series.strokes.template.set("templateField", "strokeSettings");
 
     series.bullets.push(function () {
       var circle = am5.Circle.new(root, {
-        radius: 2,
+        radius: 3,
         fill: root.interfaceColors.get("background"),
         stroke: series.get("fill"),
-        strokeWidth: 2
+        strokeWidth: 1
       })
 
       return am5.Bullet.new(root, {
@@ -324,7 +340,7 @@
 
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(70),
+        innerRadius: am5.percent(80),
         layout: root.horizontalLayout,
       })
     );
@@ -336,12 +352,20 @@
       })
     );
 
+    series.slices.template.setAll({
+      stroke: root.interfaceColors.get("background"),
+      strokeWidth: 2,
+      cornerRadius: 5,
+      tooltipText:
+        "{value}건 ({valuePercentTotal.formatNumber('0.00')}%)"
+    });
+
     series.get("colors").set("colors", [
       am5.color(0x5B54C6),
-      am5.color(0xa298f2),
-      am5.color(0x3f8cff),
-      am5.color(0xffa1bf),
-      am5.color(0x55d2c5),
+      am5.color(0x11b4d4),
+      am5.color(0xF59083),
+      am5.color(0xf5c432),
+      am5.color(0x49BFEE),
       am5.color(0xffce73),
     ]);
 
@@ -392,7 +416,7 @@
     series.appear(1000, 100);
   });
 </script>
-<!-- 카테고리 트렌드 차트 -->
+<!-- 쇼핑 카테고리 트렌드 차트 -->
 <script>
   am5.ready(function () {
     var root = am5.Root.new("categoryTrendChart");
@@ -458,16 +482,16 @@
     });
 
     series.strokes.template.setAll({
-      strokeWidth: 2
+      strokeWidth: 1
     });
     series.strokes.template.set("templateField", "strokeSettings");
 
     series.bullets.push(function () {
       var circle = am5.Circle.new(root, {
-        radius: 2,
+        radius: 3,
         fill: root.interfaceColors.get("background"),
         stroke: series.get("fill"),
-        strokeWidth: 2
+        strokeWidth: 1
       })
 
       return am5.Bullet.new(root, {
@@ -500,7 +524,7 @@
 
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(70),
+        innerRadius: am5.percent(80),
         layout: root.horizontalLayout,
       })
     );
@@ -514,12 +538,21 @@
 
     series.get("colors").set("colors", [
       am5.color(0x5B54C6),
-      am5.color(0xa298f2),
-      am5.color(0x3f8cff),
-      am5.color(0xffa1bf),
-      am5.color(0x55d2c5),
+      am5.color(0x11b4d4),
+      am5.color(0xF59083),
+      am5.color(0xf5c432),
+      am5.color(0x49BFEE),
       am5.color(0xffce73),
     ]);
+
+    series.slices.template.setAll({
+      stroke: root.interfaceColors.get("background"),
+      strokeWidth: 2,
+      cornerRadius: 5,
+      tooltipText:
+        "{value}건 ({valuePercentTotal.formatNumber('0.00')}%)"
+    });
+
     series.states.create("hidden", {
       endAngle: -90,
     });
@@ -565,29 +598,29 @@
       price: "750원~9,050원",
       value: 11,
       settings: {
-        fill: am5.color(0x5b54c6),
-        stroke: am5.color(0x5b54c6)
+        fill: am5.color(0x5B54C6),
+        stroke: am5.color(0x5B54C6)
       }
     }, {
       price: "9,051원~17,350원",
       value: 15,
       settings: {
-        fill: am5.color(0xa298f2),
-        stroke: am5.color(0xa298f2)
+        fill: am5.color(0x11b4d4),
+        stroke: am5.color(0x11b4d4)
       }
     }, {
       price: "17,351원~25,650원",
       value: 9,
       settings: {
-        fill: am5.color(0x3f8cff),
-        stroke: am5.color(0x3f8cff)
+        fill: am5.color(0xF59083),
+        stroke: am5.color(0xF59083)
       }
     }, {
       price: "25,651원~",
       value: 5,
       settings: {
-        fill: am5.color(0xffa1bf),
-        stroke: am5.color(0xffa1bf)
+        fill: am5.color(0xf5c432),
+        stroke: am5.color(0xf5c432)
       }
     }];
 
@@ -639,7 +672,7 @@
 
     var chart = root.container.children.push(
       am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(70),
+        innerRadius: am5.percent(80),
         layout: root.horizontalLayout,
       })
     );
@@ -653,12 +686,20 @@
 
     series.get("colors").set("colors", [
       am5.color(0x5B54C6),
-      am5.color(0xa298f2),
-      am5.color(0x3f8cff),
-      am5.color(0xffa1bf),
-      am5.color(0x55d2c5),
+      am5.color(0x11b4d4),
+      am5.color(0xF59083),
+      am5.color(0xf5c432),
+      am5.color(0x49BFEE),
       am5.color(0xffce73),
     ]);
+
+    series.slices.template.setAll({
+      stroke: root.interfaceColors.get("background"),
+      strokeWidth: 2,
+      cornerRadius: 5,
+      tooltipText:
+        "{value}건 ({valuePercentTotal.formatNumber('0.00')}%)"
+    });
 
     series.states.create("hidden", {
       endAngle: -90,
@@ -754,7 +795,7 @@
       <li data-tab="sub-menu">연관 키워드</li>
     </ul>
     <div class="tab-content content-keyword" data-tab="sub-menu">
-      <section class="section-main" title="검색">
+      <section class="section-main">
         <header class="section-header">
           <h3>키워드 한눈에 보기</h3>
         </header>
@@ -1259,7 +1300,11 @@
               </ul>
             </div>
             <div>
-              <div class="total">총 652개</div>
+              <ul class="list-count">
+                <li>
+                  <span class="total">652</span>
+                </li>
+              </ul>
               <div class="layout layout-grid">
                 <button class="ico-list type-list is-active" type="button"></button>
                 <button class="ico-grid type-grid" type="button"></button>
@@ -1277,7 +1322,8 @@
             <li class="ico-sort">브랜드</li>
             <li class="ico-sort">제조사</li>
           </ul>
-          <ul class="row" onclick="window.open('about:blank').location.href='https://search.shopping.naver.com/gate.nhn?id=12126547821'">
+          <ul class="row"
+            onclick="window.open('about:blank').location.href='https://search.shopping.naver.com/gate.nhn?id=12126547821'">
             <li class="col-ranking">1</li>
             <li class="col-title">
               <div class="image">
@@ -2040,7 +2086,9 @@
             <h3>
               연관 키워드
               <div class="tooltip">
-                <div class="tooltip-content"></div>
+                <div class="tooltip-content">
+                  네이버 검색 광고를 기반으로 한 연관 키워드 리스트입니다.
+                </div>
               </div>
             </h3>
             <div class="buttons">
@@ -2105,7 +2153,11 @@
                 </li>
               </ul>
             </div>
-            <div class="total">총 652개</div>
+            <ul class="list-count">
+              <li>
+                <span class="total">652</span>
+              </li>
+            </ul>
           </div>
         </header>
         <div class="list">
