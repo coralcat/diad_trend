@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
   wrapper.addEventListener("scroll", () => {
     let currentScrollTop = wrapper.scrollTop;
 
-    console.log(Math.abs(lastScrollTop - currentScrollTop))
-    if(currentScrollTop > 50) {
+    console.log(Math.abs(lastScrollTop - currentScrollTop));
+    if (currentScrollTop > 50) {
       if (currentScrollTop > lastScrollTop) {
         //Scroll down
         scrollToTop.classList.remove("is-active");
@@ -264,20 +264,20 @@ document.addEventListener("DOMContentLoaded", () => {
     select.forEach(button => {
       button.addEventListener("click", event => {
         if (event.target === select[0]) {
-          detail1.classList.add("is-active")
-          detail2.classList.remove("is-active")
+          detail1.classList.add("is-active");
+          detail2.classList.remove("is-active");
         } else {
-          detail1.classList.remove("is-active")
-          detail2.classList.add("is-active")
+          detail1.classList.remove("is-active");
+          detail2.classList.add("is-active");
         }
       });
 
       if (select[0].checked) {
-        detail1.classList.add("is-active")
-        detail2.classList.remove("is-active")
+        detail1.classList.add("is-active");
+        detail2.classList.remove("is-active");
       } else {
-        detail1.classList.remove("is-active")
-        detail2.classList.add("is-active")
+        detail1.classList.remove("is-active");
+        detail2.classList.add("is-active");
       }
     });
   }
@@ -618,17 +618,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
       selects.forEach(selected => {
         selected.addEventListener("click", event => {
+
+          const { target } = event
           subSelectors.forEach(sub => {
             const initialize = () => {
               sub.classList.remove("is-active");
             };
             const checkSelect = () => {
-              if (selected.classList.contains("select-word") && sub.classList.contains("selector-word")) {
+              if (target.classList.contains("select-word") && sub.classList.contains("selector-word")) {
+                sub.classList.add("is-active");
+              }
+              if (target.classList.contains("select-category") && sub.classList.contains("selector-category") || sub.classList.contains("selector-word")) {
                 sub.classList.add("is-active");
               }
 
               if (
-                selected.classList.contains("select-number") &&
+                target.classList.contains("select-number") &&
                 (sub.classList.contains("selector-device") || sub.classList.contains("selector-number"))
               ) {
                 sub.classList.add("is-active");

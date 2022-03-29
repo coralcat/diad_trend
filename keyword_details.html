@@ -1245,7 +1245,7 @@
               <div class="selector main">
                 <input type="radio" id="selectKeyword" class="select-word" name="filterTop40">
                 <label for="selectKeyword">키워드</label>
-                <input type="radio" id="selectCategory" class="select-word" name="filterTop40">
+                <input type="radio" id="selectCategory" class="select-category" name="filterTop40">
                 <label for="selectCategory">카테고리</label>
                 <input type="radio" id="selectStrore" class="select-word" name="filterTop40">
                 <label for="selectStrore">스토어명</label>
@@ -1264,16 +1264,26 @@
                 <input type="radio" id="selectExcept" name="filterTop40Sub">
                 <label for="selectExcept">제외</label>
               </div>
+              <div class="selector selector-category sub">
+                <input type="radio" id="selectMain" name="filterCategory" checked="">
+                <label for="selectMain">대분류</label>
+                <input type="radio" id="selectMiddle" name="filterCategory">
+                <label for="selectMiddle">중분류</label>
+                <input type="radio" id="selectSub" name="filterCategory">
+                <label for="selectSub">소분류</label>
+                <input type="radio" id="selectSmall" name="filterCategory">
+                <label for="selectSmall">세분류</label>
+              </div>
               <div class="selector selector-number sub">
-                <input type="radio" id="select-less-than" name="filter-operaters" checked="">
+                <input type="radio" id="select-less-than" name="filterOperaters" checked="">
                 <label for="select-less-than">&lt;</label>
-                <input type="radio" id="select-greater-than" name="filter-operaters">
+                <input type="radio" id="select-greater-than" name="filterOperaters">
                 <label for="select-greater-than">&gt;</label>
-                <input type="radio" id="select-less-equal" name="filter-operaters">
+                <input type="radio" id="select-less-equal" name="filterOperaters">
                 <label for="select-less-equal">&lt;=</label>
-                <input type="radio" id="select-greater-equal" name="filter-operaters">
+                <input type="radio" id="select-greater-equal" name="filterOperaters">
                 <label for="select-greater-equal">&gt;=</label>
-                <input type="radio" id="select-equal" name="filter-operaters">
+                <input type="radio" id="select-equal" name="filterOperaters">
                 <label for="select-equal">=</label>
               </div>
             </div>
