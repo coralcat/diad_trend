@@ -1305,6 +1305,7 @@ section {
 
   > div {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 0.5rem;
   }
@@ -1434,7 +1435,6 @@ section {
     li {
       display: flex;
       align-items: center;
-      gap: 0.25rem;
       padding: 0.5rem;
       border-radius: 0.25rem;
       border: 1px solid $violet-medium-color;
@@ -1453,7 +1453,7 @@ section {
         &:not(:last-of-type) {
           &::after {
             content: "|";
-            padding: 0 0.5rem;
+            padding: 0 0.35rem;
             color: #ccc
           }
         }
@@ -3409,10 +3409,6 @@ section {
         opacity: 0;
       }
     }
-  }
-
-  .modal-content {
-    gap: 1rem;
   }
 
   .section-impact {
