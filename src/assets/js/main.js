@@ -680,17 +680,68 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Filters: 키워드 트렌드 목록 필터링
   ===================================================== */
-  const selectedFilters = document.querySelectorAll(".selected-filters");
-  if (selectedFilters[0]) {
-    selectedFilters.forEach(filter => {
-      const closes = filter.querySelectorAll(".x");
-      closes.forEach(close => {
-        close.addEventListener("click", event => {
-          event.target.parentElement.remove();
+
+  /* =====================================================
+       Filters: 키워드 트렌드 > 연관 키워드 필터링
+  ===================================================== */
+
+  const searchButtons = document.querySelectorAll(".content-keyword-trend-details .search button");
+
+  searchButtons.forEach(button => {
+    button.addEventListener("click", event => {
+      const {target} = event;
+      const content = target.closest(".tab-content");
+      const searchInput = content.querySelector(".search input");
+
+      const validateFilters = () => {
+        if (searchInput.value !== "") {
+          addSelectedFilters();
+          removeSelectedFilters();
+          searchInput.value = "";
+        } else {
+          alertModal.classList.add("is-active");
+          alertModalContent.innerText = "검색어를 입력해주세요.";
+        }
+      };
+
+      const addSelectedFilters = () => {
+        const selectors = content.querySelectorAll(".filters .selector");
+        const selected = document.createElement("ul");
+        const filter = document.createElement("li");
+        filter.classList.add("ico-filter");
+
+        filter.innerHTML = `<span>${[...selectors][0].querySelector("input:checked + label").innerText}</span>`;
+        if ([...selectors][1].classList.contains("is-active")) {
+          filter.innerHTML += `<span>${[...selectors][1].querySelector("input:checked + label").innerText}</span>`;
+        }
+        if ([...selectors][2].classList.contains("is-active")) {
+          filter.innerHTML += `<span>${[...selectors][2].querySelector("input:checked + label").innerText}</span>`;
+        }
+        if ([...selectors][3].classList.contains("is-active")) {
+          filter.innerHTML += `<span>${[...selectors][3].querySelector("input:checked + label").innerText}</span>`;
+        }
+        filter.innerHTML += `<span>${searchInput.value}</span>`;
+        filter.innerHTML += `<div class="x close"></div>`;
+
+        const result = content.querySelector(".selected-filters");
+        result.appendChild(selected);
+        selected.appendChild(filter);
+      };
+
+      const removeSelectedFilters = () => {
+        const selectedFilters = content.querySelector(".selected-filters");
+        const closes = selectedFilters.querySelectorAll(".x");
+        closes.forEach(close => {
+          close.addEventListener("click", event => {
+            event.target.parentElement.remove();
+            console.log("clicked!");
+          });
         });
-      });
+      };
+
+      validateFilters();
     });
-  }
+  });
 
   /* =====================================================
        Section Keyword History: List Scroll: css로 해결
