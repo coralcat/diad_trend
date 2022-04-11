@@ -287,7 +287,10 @@
               </select>
             </div>
             <div class="search">
-              <input type="search" />
+              <div class="input">
+                <input type="search" />
+                <span class="x"></span>
+              </div>
               <button class="btn-main ico-search" type="button"></button>
             </div>
             <ul class="list-count">
@@ -575,7 +578,7 @@
           </div>
           <div class="input">
             <input type="url" placeholder="URL을 입력해주세요" required />
-            <span class="refresh x"></span>
+            <span class="x"></span>
           </div>
         </div>
       </section>
@@ -623,7 +626,10 @@
     <div class="modal-content">
       <section>
         <div class="inputs">
-          <input type="text" placeholder="그룹명을 입력해주세요." maxlength="20" />
+          <div class="input">
+            <input type="text" placeholder="그룹명을 입력해주세요." maxlength="20" />
+            <span class="x"></span>
+          </div>
           <button class="btn-sub" type="button" data-modal="createGroup">그룹추가</button>
         </div>
       </section>
@@ -903,7 +909,10 @@
       </section>
       <section class="inputs">
         <p>등록하실 키워드를 추가해주세요.</p>
-        <input type="text" placeholder="키워드를 입력해주세요." />
+        <div class="input">
+          <input type="text" placeholder="키워드를 입력해주세요." />
+          <span class="x"></span>
+        </div>
         <button class="btn-sub" type="button" data-modal="createKeyword">키워드추가</button>
       </section>
       <section>

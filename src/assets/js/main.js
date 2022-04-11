@@ -113,18 +113,20 @@ document.addEventListener("DOMContentLoaded", () => {
        Input Search Clear Button
   ===================================================== */
   // 인풋창에 "x"표시 있을시 clear value
-  const searchInputs = document.querySelectorAll("input[type='search'], input[type='url']");
-  if (searchInputs) {
-    searchInputs.forEach(input => {
-      const container = input.parentElement;
-      const x = container.querySelector(".x");
-      x &&
-        x.addEventListener("click", () => {
-          const input = container.querySelector("input");
-          input.value = "";
-        });
+  const inputs = document.querySelectorAll(".input input");
+  inputs.forEach(input => {
+    input.addEventListener("keyup", event => {
+      const {target} = event;
+      const container = target.closest(".input");
+      const clear = container.querySelector(".x");
+      clear.classList.add("is-active");
+
+      clear.addEventListener("click", () => {
+        clear.classList.remove("is-active");
+        input.value = "";
+      });
     });
-  }
+  });
 
   /* =====================================================
        Layout: 키워드트렌드 리포트 상품목록 유형선택
@@ -572,7 +574,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.classList.contains("modal-apply") && initialize();
   };
 
-  const closeButtons = document.querySelectorAll(".close");
+  const closeButtons = document.querySelectorAll(".modal .close");
   if (closeButtons) {
     closeButtons.forEach(close => {
       close.addEventListener("click", closeModal);
@@ -734,7 +736,6 @@ document.addEventListener("DOMContentLoaded", () => {
         closes.forEach(close => {
           close.addEventListener("click", event => {
             event.target.parentElement.remove();
-            console.log("clicked!");
           });
         });
       };

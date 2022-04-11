@@ -139,94 +139,98 @@ body {
       outline: 0;
     }
   }
+}
 
-  input {
-    &:is(::-ms-clear, ::-ms-reveal) {
-      display: none;
-      width: 0;
-      height: 0;
-    }
-
-    &:is(::-webkit-search-decoration, ::-webkit-search-cancel-button, ::-webkit-search-results-button, ::-webkit-search-results-decoration) {
-      display: none;
-    }
-
-    /* Chrome, Safari, Edge, Opera */
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-
-    &:read-only {
-      background-color: rgba($sherwin-williams-wishful-blue, 0.5);
-    }
-
-    &:focus {
-      border-color: $input-outline-color !important;
-    }
-
-    &:disabled {
-      background-color: rgba(0, 0, 0, 0.1);
-    }
-
-    &:is([type="text"], [type="url"], [type="password"], [type="search"], [type="number"], [type="tel"], [type="email"]) {
-      -webkit-appearance: none;
-      height: $input-height;
-      background-color: white;
-      border: 1px solid #e3e6e9;
-      border-radius: 3px;
-      padding: 0.5rem 0.25rem;
-      position: relative;
-      font: 15px/1 "NanumBarunGothic";
-    }
-
-    &[type="password"] {
-      font-family: initial;
-    }
+input {
+  &::-ms-clear,
+  &::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
   }
 
-  textarea {
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    display: none;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    flex: 1 1 auto;
-    max-width: 100%;
-    min-height: 5rem;
-    background-color: white;
-    border: 1px solid gainsboro;
-    border-radius: 0.25rem;
-    padding: 0.5rem;
-    resize: none;
-    font: 15px/1 "NanumBarunGothic";
-
-    &:focus {
-      border-color: $primary-color;
-    }
-  }
-
-  label {
-    font-weight: normal;
-    /* bootstrap*/
-    margin-bottom: 0;
-    /* bootstrap*/
-  }
-
-  fieldset {
-    border-radius: 0.5rem;
-    border: 1px solid #ddd;
-
-    legend {
-    }
-  }
-
-  section {
-    position: relative;
-  }
-
-  ul {
     margin: 0;
-    padding: 0;
-    list-style: none;
   }
+
+  &:read-only {
+    background-color: rgba($sherwin-williams-wishful-blue, 0.5);
+  }
+
+  &:focus {
+    border-color: $input-outline-color !important;
+  }
+
+  &:disabled {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &:is([type="text"], [type="url"], [type="password"], [type="search"], [type="number"], [type="tel"], [type="email"]) {
+    -webkit-appearance: none;
+    height: $input-height;
+    background-color: white;
+    border: 1px solid #e3e6e9;
+    border-radius: 3px;
+    padding: 0.5rem 0.25rem;
+    position: relative;
+    font: 15px/1 "NanumBarunGothic";
+  }
+
+  &[type="password"] {
+    font-family: initial;
+  }
+}
+
+textarea {
+  -webkit-appearance: none;
+  flex: 1 1 auto;
+  max-width: 100%;
+  min-height: 5rem;
+  background-color: white;
+  border: 1px solid gainsboro;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  resize: none;
+  font: 15px/1 "NanumBarunGothic";
+
+  &:focus {
+    border-color: $primary-color;
+  }
+}
+
+label {
+  font-weight: normal;
+  /* bootstrap*/
+  margin-bottom: 0;
+  /* bootstrap*/
+}
+
+fieldset {
+  border-radius: 0.5rem;
+  border: 1px solid #ddd;
+
+  legend {
+  }
+}
+
+section {
+  position: relative;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 :not(.ui-datepicker):empty {
@@ -248,6 +252,8 @@ body {
 }
 
 .x {
+  opacity: 0;
+  visibility: hidden;
   display: flex;
   width: 18px;
   height: 18px;
@@ -256,6 +262,7 @@ body {
   background-size: 100% 2px, 2px 100%;
   background-repeat: no-repeat;
   transform: rotate(45deg);
+  transition: opacity .25s;
 }
 
 .is-active {
@@ -558,6 +565,10 @@ aside {
 
 .content-title + .content-view {
   padding: 0 1rem 1rem 1rem;
+}
+
+.input {
+  position: relative;
 }
 
 .inputs {
