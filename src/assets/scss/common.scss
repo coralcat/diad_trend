@@ -252,8 +252,6 @@ ul {
 }
 
 .x {
-  opacity: 0;
-  visibility: hidden;
   display: flex;
   width: 18px;
   height: 18px;
@@ -290,8 +288,10 @@ ul {
   display: flex;
 }
 
-.search {
+.input {
   .x {
+    opacity: 0;
+    visibility: hidden;
     cursor: pointer;
   }
 }

@@ -694,12 +694,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const {target} = event;
       const content = target.closest(".tab-content");
       const searchInput = content.querySelector(".search input");
+      const clearInput = content.querySelector(".x");
+      const selectedFilters = content.querySelector(".selected-filters");
 
       const validateFilters = () => {
         if (searchInput.value !== "") {
           addSelectedFilters();
           removeSelectedFilters();
           searchInput.value = "";
+          clearInput.classList.remove("is-active");
         } else {
           alertModal.classList.add("is-active");
           alertModalContent.innerText = "검색어를 입력해주세요.";
@@ -712,26 +715,23 @@ document.addEventListener("DOMContentLoaded", () => {
         const filter = document.createElement("li");
         filter.classList.add("ico-filter");
 
-        filter.innerHTML = `<span>${[...selectors][0].querySelector("input:checked + label").innerText}</span>`;
-        if ([...selectors][1].classList.contains("is-active")) {
-          filter.innerHTML += `<span>${[...selectors][1].querySelector("input:checked + label").innerText}</span>`;
-        }
-        if ([...selectors][2].classList.contains("is-active")) {
-          filter.innerHTML += `<span>${[...selectors][2].querySelector("input:checked + label").innerText}</span>`;
-        }
-        if ([...selectors][3].classList.contains("is-active")) {
-          filter.innerHTML += `<span>${[...selectors][3].querySelector("input:checked + label").innerText}</span>`;
-        }
+        selectors.forEach(selector => {
+          if (selector.classList.contains("main") || selector.classList.contains("is-active")) {
+            const span = document.createElement("span");
+            const text = selector.querySelector("input:checked + label").innerText;
+
+            span.innerText = `${text}`;
+            return filter.append(span)
+          }
+        });
         filter.innerHTML += `<span>${searchInput.value}</span>`;
         filter.innerHTML += `<div class="x close"></div>`;
 
-        const result = content.querySelector(".selected-filters");
-        result.appendChild(selected);
+        selectedFilters.appendChild(selected);
         selected.appendChild(filter);
       };
 
       const removeSelectedFilters = () => {
-        const selectedFilters = content.querySelector(".selected-filters");
         const closes = selectedFilters.querySelectorAll(".x");
         closes.forEach(close => {
           close.addEventListener("click", event => {
