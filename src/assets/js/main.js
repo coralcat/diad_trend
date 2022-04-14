@@ -374,22 +374,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const openModal = event => {
     event.preventDefault();
-    const modalData = event.target.dataset.modal;
+    const {target} = event;
+    const modalData = target.dataset.modal;
     const targetModal = document.getElementById(modalData);
     if (targetModal) {
       targetModal.classList.add("is-active");
-
-      const inputs = targetModal.querySelectorAll("input");
-      if (inputs[0]) {
-        targetModal.querySelector("[data-modal]").addEventListener("click", () => {
-          inputs.forEach(input => {
-            setTimeout(() => {
-              input.value = "";
-            }, 500);
-          });
-        });
-      }
+      targetModal.querySelector("[data-modal]").addEventListener("click", () => {
+        setTimeout(() => {
+          targetModal.querySelector("input").value = "";
+        }, 500);
+      });
     }
+
+    const openAlertModal = () => {
+      alertModal.classList.add("is-active");
+      for (const property in modalMessage) {
+        modalData === `${property}` && (alertModalContent.innerText = `${modalMessage[property]}`);
+      }
+    };
 
     const openConfirmModal = () => {
       confirmModal.classList.add("is-active");
@@ -398,24 +400,16 @@ document.addEventListener("DOMContentLoaded", () => {
         modalData === `${property}` && (confirmModalContent.innerHTML = `${modalMessage[property]}`);
       }
 
-      const openAlertModal = event => {
-        const modalData = event.target.dataset.modal;
-        alertModal.classList.add("is-active");
-        for (const property in modalMessage) {
-          modalData === `${property}` && (alertModalContent.innerText = `${modalMessage[property]}`);
-        }
-      };
-
       submit.setAttribute("data-modal", `${modalData}Apply`);
       confirmModal.classList.add("is-active");
       submit.addEventListener("click", openAlertModal);
     };
 
-    const openAlertModal = () => {
+    // Modal in Modal
+    const currentModal = target.closest(".modal");
+    const validateMessage = message => {
+      alertModalContent.innerText = message;
       alertModal.classList.add("is-active");
-      for (const property in modalMessage) {
-        modalData === `${property}` && (alertModalContent.innerText = `${modalMessage[property]}`);
-      }
     };
 
     // 적용, 완료
@@ -426,27 +420,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 상품 순위 조회: 상품등록팝업 - 조회
     if (modalData === "searchItem") {
-      const inputs = event.target.closest(".dialog");
-      const input = inputs.querySelector("input");
-      if (input.value === "") {
-        const customModal = document.getElementById(modalData);
-        customModal && customModal.classList.remove("is-active");
-        alertModalContent.innerText = "상품 URL을 입력해주세요.";
-        alertModal.classList.add("is-active");
+      if (currentModal.querySelector("input").value === "") {
+        validateMessage("상품 URL을 입력해주세요.");
       } else {
         document.querySelector(".search-item").classList.add("is-active");
       }
     }
 
     // 조회 목록화면에 상품 선택시 누르는 버튼들
-    if (event.target.closest(".filters")) {
+    if (target.closest(".filters")) {
       const listItem = document.querySelector(".list-item");
       const checkboxes = listItem.querySelectorAll("input[type='checkbox']:checked");
       if (checkboxes.length === 0) {
         const customModal = document.getElementById(modalData);
         customModal && customModal.classList.remove("is-active");
-        alertModal.classList.add("is-active");
-        alertModalContent.innerText = "소재를 선택해주세요.";
+        validateMessage("소재를 선택해주세요.");
       } else {
         modalData === "deleteItem" && openConfirmModal();
         modalData === "ungroup" && openAlertModal();
@@ -455,11 +443,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 키워드등록/편집: 키워드추가
     if (modalData === "createKeyword") {
-      const inputs = event.target.parentElement;
-      const input = inputs.querySelector("input");
-      if (input.value === "") {
-        alertModal.classList.add("is-active");
-        alertModalContent.innerText = "키워드를 입력해주세요.";
+      if (currentModal.querySelector("input").value === "") {
+        validateMessage("키워드를 입력해주세요.");
       } else {
         openAlertModal();
       }
@@ -467,21 +452,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 키워드 트렌드 조회
     if (modalData === "searchKeyword") {
-      const inputs = event.target.parentElement;
-      const input = inputs.querySelector("input");
-      if (input.value === "") {
-        alertModal.classList.add("is-active");
-        alertModalContent.innerText = "키워드를 입력해주세요.";
+      if (currentModal.querySelector("input").value === "") {
+        validateMessage("키워드를 입력해주세요.");
       }
     }
 
     // 키워드등록/편집: 선택삭제
     if (modalData === "deleteKeyword") {
-      const list = document.querySelector(".modal-keyword .list");
-      const checkboxes = list.querySelectorAll("input[type='checkbox']:checked");
+      const checkboxes = currentModal.querySelectorAll("input[type='checkbox']:checked");
       if (checkboxes.length === 0) {
-        alertModal.classList.add("is-active");
-        alertModalContent.innerText = "키워드를 선택해주세요.";
+        validateMessage("키워드를 선택해주세요.");
       } else {
         openConfirmModal();
       }
@@ -489,9 +469,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 상품 순위 조회: 그룹편집팝업 - 그룹추가
     if (modalData === "createGroup") {
-      if (event.target.previousElementSibling.value === "") {
-        alertModal.classList.add("is-active");
-        alertModalContent.innerText = "그룹명을 입력해주세요.";
+      if (currentModal.querySelector("input").value === "") {
+        validateMessage("그룹명을 입력해주세요.");
       } else {
         openAlertModal();
       }
@@ -499,23 +478,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 상품 순위 조회: 그룹편집팝업 - 선택삭제
     if (modalData === "deleteGroup") {
-      const list = document.querySelector(".modal-edit-group .list");
-      const checkboxes = list.querySelectorAll("input[type='checkbox']:checked");
+      const checkboxes = currentModal.querySelectorAll("input[type='checkbox']:checked");
       if (checkboxes.length === 0) {
-        alertModal.classList.add("is-active");
-        alertModalContent.innerText = "그룹을 선택해주세요.";
+        validateMessage("그룹을 선택해주세요.");
       } else {
+        checkboxes.forEach(checked => {
+          const row = checked.closest(".row");
+          row.remove();
+        });
         openConfirmModal();
       }
     }
 
     // 최저가 알림: 상품등록팝업 - 다음단계
     if (modalData === "createItemStep2") {
-      const inputs = event.target.closest(".dialog");
-      const input = inputs.querySelector("input");
-      if (input.value === "") {
-        alertModal.classList.add("is-active");
-        alertModalContent.innerText = "상품명을 입력해주세요.";
+      if (currentModal.querySelector("input").value === "") {
+        validateMessage("상품명을 입력해주세요.");
       } else {
         document.querySelector(".create-item-step2").classList.add("is-active");
       }
@@ -523,11 +501,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 최저가 알림: 상품등록팝업 - 조회
     if (modalData === "createItemStep3") {
-      const inputs = event.target.closest(".dialog");
-      const input = inputs.querySelector("input");
-      if (input.value === "") {
-        alertModal.classList.add("is-active");
-        alertModalContent.innerText = "상품 URL을 입력해주세요.";
+      if (currentModal.querySelector("input").value === "") {
+        validateMessage("상품 URL을 입력해주세요.");
       } else {
         document.querySelector(".create-item-step3").classList.add("is-active");
       }
@@ -721,7 +696,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const text = selector.querySelector("input:checked + label").innerText;
 
             span.innerText = `${text}`;
-            return filter.append(span)
+            return filter.append(span);
           }
         });
         filter.innerHTML += `<span>${searchInput.value}</span>`;

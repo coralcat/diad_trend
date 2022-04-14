@@ -66,33 +66,31 @@ p {
   word-break: keep-all;
 }
 
-a {
-  &.right-arrow {
-    border-radius: 0.25rem;
-    padding: 0.5rem 0.5rem;
-    font-size: 14px;
-    transition: background-color 0.2s;
-    color: $secondary-color;
+.right-arrow {
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.5rem;
+  font-size: 14px;
+  transition: background-color 0.2s;
+  color: $secondary-color;
+
+  &::after {
+    content: "";
+    display: inline-flex;
+    border: 1px solid #333;
+    border-left: none;
+    border-bottom: none;
+    transform: rotate(45deg);
+    width: 6px;
+    height: 6px;
+    margin-left: 0.15rem;
+  }
+
+  &:hover {
+    color: white;
+    background-color: $secondary-color;
 
     &::after {
-      content: "";
-      display: inline-flex;
-      border: 1px solid #333;
-      border-left: none;
-      border-bottom: none;
-      transform: rotate(45deg);
-      width: 6px;
-      height: 6px;
-      margin-left: 0.15rem;
-    }
-
-    &:hover {
-      color: white;
-      background-color: $secondary-color;
-
-      &::after {
-        border-color: white;
-      }
+      border-color: white;
     }
   }
 }
@@ -3378,6 +3376,7 @@ section {
     }
 
     &:hover {
+      color: $secondary-color;
       background-color: transparent;
     }
   }

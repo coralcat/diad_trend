@@ -569,6 +569,10 @@ aside {
 
 .input {
   position: relative;
+
+  input {
+    flex: 1 1 auto;
+  }
 }
 
 .inputs {
@@ -592,7 +596,7 @@ aside {
 
   .input {
     position: relative;
-    width: 100%;
+    flex: 1 1 auto;
 
     input {
       width: 100%;
