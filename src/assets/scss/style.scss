@@ -302,12 +302,10 @@ main {
 
       h1 {
         .tooltip {
-          height: 24px;
 
           &::before {
-            width: 24px;
-            height: 24px;
-            font-size: 20px;
+            width: 28px;
+            height: 28px;
           }
 
           .tooltip-content {
@@ -726,6 +724,10 @@ section {
     input[type="text"],
     input[type="number"] {
       width: 100%;
+
+      &:focus {
+        outline: 2px solid $primary-color;
+      }
     }
   }
 
@@ -1176,6 +1178,13 @@ section {
       &.col-important {
         width: 30%;
         justify-content: flex-start;
+      }
+
+      .price {
+
+        &::after {
+          content: "원";
+        }
       }
 
       .percent {
@@ -2672,7 +2681,6 @@ section {
           font-size: 14px;
           display: flex;
           align-items: center;
-          gap: 3px;
         }
 
         .title {
