@@ -153,17 +153,17 @@
         <ul>
           <li>
             <div>제공량</div>
-            <strong>20개</strong>
+            <strong>20</strong>
             <span>100.00%</span>
           </li>
           <li>
             <div>이용량</div>
-            <strong>16개</strong>
+            <strong>16</strong>
             <span>80.00%</span>
           </li>
           <li>
             <div>잔여량</div>
-            <strong>4개</strong>
+            <strong>4</strong>
             <span>20.00%</span>
           </li>
         </ul>
@@ -176,22 +176,22 @@
         <ul>
           <li>
             <div>전체</div>
-            <strong>16건</strong>
+            <strong>16</strong>
             <span>100.00%</span>
           </li>
           <li>
             <div>상승</div>
-            <strong>3건</strong>
+            <strong>3</strong>
             <span>18.75%</span>
           </li>
           <li>
             <div>유지</div>
-            <strong>12건</strong>
+            <strong>12</strong>
             <span>75.00%</span>
           </li>
           <li>
             <div>하락</div>
-            <strong>1건</strong>
+            <strong>1</strong>
             <span>6.25%</span>
           </li>
         </ul>
@@ -337,7 +337,10 @@
               </select>
             </div>
             <div class="search">
-              <input type="search" />
+              <div class="input">
+                <input type="search" />
+                <span class="x"></span>
+              </div>
               <button class="btn-main ico-search" type="button"></button>
             </div>
             <ul class="list-count">
@@ -554,7 +557,7 @@
           </div>
           <div class="input">
             <input type="text" placeholder="상품명을 입력해주세요" required />
-            <span class="refresh x"></span>
+            <span class="x"></span>
           </div>
         </div>
       </section>
@@ -585,7 +588,7 @@
           </div>
           <div class="input">
             <input type="url" placeholder="URL을 입력해주세요" required />
-            <span class="refresh x"></span>
+            <span class="x"></span>
           </div>
         </div>
       </section>
@@ -639,7 +642,10 @@
     <div class="modal-content">
       <section>
         <div class="inputs">
-          <input type="text" placeholder="그룹명을 입력해주세요." maxlength="20" />
+          <div class="input">
+            <input type="text" placeholder="그룹명을 입력해주세요." maxlength="20" />
+            <span class="x"></span>
+          </div>
           <button class="btn-sub" type="button" data-modal="createGroup">그룹추가</button>
         </div>
       </section>
@@ -907,30 +913,6 @@
     </div>
   </div>
 </div>
-
-<div class="modal modal-confirm">
-  <div class="dialog">
-    <header class="modal-header">
-      <div class="close"></div>
-    </header>
-    <div class="modal-content"></div>
-    <div class="buttons">
-      <button class="btn-cancel close" type="button">아니오</button>
-      <button class="btn-submit" type="button">예</button>
-    </div>
-  </div>
-</div>
-
-<div class="modal modal-alert">
-  <div class="dialog">
-    <div class="modal-content"></div>
-    <div class="buttons">
-      <button class="btn-submit close" type="button">확인</button>
-    </div>
-  </div>
-</div>
-
-<div class="modal modal-alert"></div>
 
     </main>
   </body>
