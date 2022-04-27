@@ -709,7 +709,7 @@ progress {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  min-height: 40px;
+  min-height: 36px;
 
   > button {
     background-color: #e3e6e9;
@@ -1035,7 +1035,7 @@ input[type="radio"] {
   .row.title {
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 15;
   }
 }
 
@@ -1102,26 +1102,6 @@ input[type="radio"] {
   flex-direction: row-reverse;
   align-items: center;
   position: relative;
-}
-
-.pagenation {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  a {
-    padding: 0.5rem;
-    display: flex;
-    align-items: center;
-    &.active {
-      color: orangered;
-    }
-    svg + svg {
-      margin-left: -1rem;
-    }
-  }
 }
 
 /* =====================================================
@@ -1344,13 +1324,14 @@ input[type="radio"] {
   &::before {
     opacity: 0;
     max-height: 0;
+    min-width: 300px;
     content: attr(data-tooltip);
     word-break: keep-all;
     transform: translateX(-50%);
     background-color: #333;
     line-height: 1.5;
     color: white;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
     position: absolute;
     top: calc(100% + 0.5rem);
     left: 50%;
@@ -1361,7 +1342,7 @@ input[type="radio"] {
 
   &::after {
     opacity: 0;
-    content: "";
+    content: none;
     position: absolute;
     top: calc(100% + 0.15rem);
     left: 50%;
@@ -1405,7 +1386,7 @@ input[type="radio"] {
 
   &:hover {
     &::after {
-      content: "";
+      content: none;
       position: absolute;
       bottom: -1rem;
       left: 50%;
@@ -1431,7 +1412,7 @@ input[type="radio"] {
   top: 2rem;
   padding: 1rem 0.75rem;
   width: 360px;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   background-color: #333;
   color: white;
   text-align: left;
