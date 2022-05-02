@@ -513,6 +513,14 @@ document.addEventListener("DOMContentLoaded", () => {
       alertModal.classList.add("modal-apply");
       openAlertModal();
     }
+
+    if (modalData === "advancedSearch") {
+      const advancedSearch = target.closest(".advanced-search");
+      if (advancedSearch.querySelector("textarea").value === "") {
+        validateMessage("검색할 조건이 없습니다.");
+      } else {
+      }
+    }
   };
 
   // Basic Modal
@@ -603,6 +611,20 @@ document.addEventListener("DOMContentLoaded", () => {
       };
       option.addEventListener("click", choose);
     });
+
+    // 키워드 효과
+    // const keyword = advancedSearch.querySelector("textarea");
+    // keyword.addEventListener("keyup", event => {
+    //   const {target, code} = event;
+    //   if (code === "Comma") {
+    //     const keywords = target.value.split(",");
+    //     const wrapper = document.createElement("div");
+    //     wrapper.classList.add("keyword");
+    //     keywords.forEach(keyword => {
+    //       wrapper.appendChild(keyword);
+    //     });
+    //   }
+    // });
   }
 
   /* =====================================================
