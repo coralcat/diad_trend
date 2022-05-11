@@ -214,10 +214,10 @@ button {
 .item-mid {
   background: $tertiary-color;
   border-radius: 3px;
-  margin-bottom: 0.5rem;
-  padding: 5px;
+  margin-bottom: 0.35rem;
+  padding: 3px;
   color: $secondary-color;
-  font-size: 13px;
+  font-size: 11px;
   font-family: "RobotoMedium", "NanumBarunGothic";
 
   &::before {
@@ -302,7 +302,6 @@ main {
 
       h1 {
         .tooltip {
-
           &::before {
             width: 28px;
             height: 28px;
@@ -921,8 +920,8 @@ section {
     .store,
     .categories {
       color: $secondary-color;
-      font-size: 14px;
-      margin-top: 0.5rem;
+      font-size: 13px;
+      margin-top: 0.75rem;
       display: flex;
       align-items: center;
     }
@@ -1103,7 +1102,7 @@ section {
         }
 
         &.ico-sort {
-          transition: background-color .45s;
+          transition: background-color 0.45s;
 
           &:hover {
             background-color: #e6e9ff !important;
@@ -1181,7 +1180,6 @@ section {
       }
 
       .price {
-
         &::after {
           content: "원";
         }
