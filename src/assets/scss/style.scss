@@ -1,8 +1,8 @@
 /** @format */
 
+$main-color: #5b54c6;
 $primary-color: #7682f8;
-$secondary-color: #5b54c6;
-$tertiary-color: rgb(118 130 248 / 10%);
+$secondary-color: rgb(118 130 248 / 10%);
 $violet-medium-color: rgb(214 217 253);
 
 html,
@@ -44,6 +44,14 @@ body {
     white-space: nowrap;
   }
 
+  .price {
+    &:not(:empty) {
+      &::after {
+        content: "원";
+      }
+    }
+  }
+
   .search {
     position: relative;
     display: flex;
@@ -59,7 +67,7 @@ body {
 .main-color {
   color: #7682f8;
   font-family: "RobotoMedium";
-  font-size: 110%;
+  font-size: 120%;
 }
 
 p {
@@ -67,11 +75,7 @@ p {
 }
 
 .right-arrow {
-  border-radius: 0.25rem;
-  padding: 0.5rem 0.5rem;
-  font-size: 14px;
-  transition: background-color 0.2s;
-  color: $secondary-color;
+  color: $main-color;
 
   &::after {
     content: "";
@@ -86,12 +90,7 @@ p {
   }
 
   &:hover {
-    color: white;
-    background-color: $secondary-color;
-
-    &::after {
-      border-color: white;
-    }
+    text-decoration: underline;
   }
 }
 
@@ -104,20 +103,11 @@ h3 {
 }
 
 h1 {
-  font-size: 24px;
-
-  .tooltip-icon {
-    width: 24px;
-    height: 24px;
-
-    &::before {
-      font-size: 17px;
-    }
-  }
+  font-size: 22px;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 h5 {
@@ -147,14 +137,14 @@ button {
     height: 36px !important;
   }
   &.btn-main {
-    background-color: $secondary-color;
+    background-color: $main-color;
     color: white !important;
     padding: 0 1.5rem;
     border: 0 !important;
   }
 
   &.btn-sub {
-    background-color: $tertiary-color;
+    background-color: $secondary-color;
     color: $primary-color;
     padding: 0.5rem 1rem;
   }
@@ -168,7 +158,7 @@ button {
   }
 
   &.btn-dark {
-    background-color: $secondary-color !important;
+    background-color: $main-color !important;
     color: white !important;
   }
 }
@@ -184,7 +174,7 @@ button {
       no-repeat right 6px center;
     background-size: 18px;
     padding-right: 1.5rem;
-    min-width: 120px;
+    max-width: 120px;
     text-overflow: ellipsis;
   }
 }
@@ -198,7 +188,7 @@ button {
   border-radius: 0.25rem;
   padding: 0.25rem 0.35rem;
   gap: 2px;
-  color: $secondary-color;
+  color: $main-color;
   word-break: break-word;
   white-space: normal;
   text-align: center;
@@ -212,12 +202,12 @@ button {
 }
 
 .item-mid {
-  background: $tertiary-color;
+  background: $secondary-color;
   border-radius: 3px;
-  margin-bottom: 0.5rem;
-  padding: 5px;
-  color: $secondary-color;
-  font-size: 13px;
+  margin-bottom: 0.35rem;
+  padding: 3px;
+  color: $main-color;
+  font-size: 11px;
   font-family: "RobotoMedium", "NanumBarunGothic";
 
   &::before {
@@ -228,7 +218,7 @@ button {
 .item-update-failed {
   background: rgba(225, 225, 225, 0.75);
   padding: 0.35rem 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: 3px;
   font-size: 13px;
   position: absolute;
   display: flex;
@@ -290,11 +280,11 @@ main {
     padding: 1rem 1rem 1rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
 
     .title {
       width: 100%;
-      min-height: 36px;
+      min-height: 32px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -302,20 +292,14 @@ main {
 
       h1 {
         .tooltip {
-
           &::before {
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
           }
 
           .tooltip-content {
-            top: 2.5rem;
             left: -5rem;
             width: 30rem;
-
-            &::before {
-              left: calc(5rem + 8px);
-            }
           }
         }
       }
@@ -328,7 +312,7 @@ main {
       font-family: "RobotoMedium", "NanumBarunGothic";
 
       .date {
-        font-size: 15px;
+        font-size: 14px;
         color: #333;
       }
 
@@ -371,7 +355,7 @@ main {
         border-radius: 30px;
 
         &.d-day {
-          background-color: $secondary-color;
+          background-color: #839bb3;
           color: #ffffff;
           font-family: "Roboto";
           font-size: 13px;
@@ -383,7 +367,7 @@ main {
       }
 
       ul {
-        gap: 0.75rem;
+        gap: 0.5rem;
 
         li {
           display: flex;
@@ -426,10 +410,10 @@ main {
       padding: 1rem;
       flex: 1 1 auto;
       background-color: white;
-      padding: 1rem;
+      padding: 0.75rem;
       border-radius: 0.5rem;
       display: flex;
-      gap: 1rem;
+      gap: 0.5rem;
       flex-direction: column;
       box-shadow: 0 6px 12px -4px #e3e6e9;
     }
@@ -467,7 +451,7 @@ aside {
 
   .sub-menu {
     display: flex;
-    padding: 1rem;
+    padding: 0.75rem;
     justify-content: space-around;
     font-size: 14px;
 
@@ -475,7 +459,7 @@ aside {
       padding: 0.5rem 0.75rem;
       border-radius: 0.35rem;
       background-color: rgba(255, 255, 255, 0.1);
-      font-size: 13px;
+      font-size: 12px;
     }
 
     .zoom-in-out {
@@ -503,16 +487,38 @@ aside {
   nav {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
-    gap: 0.5rem;
+    margin-top: 0.75rem;
+
+    [class*="ico"] {
+      width: 20px;
+      height: 20px;
+      background-size: 100%;
+      z-index: 5;
+    }
+
+    .ico-ranking {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' width='48'%3E%3Cpath fill='white' d='M8.55 26.5Q7.5 26.5 6.75 25.775Q6 25.05 6 24Q6 22.95 6.75 22.225Q7.5 21.5 8.55 21.5Q9.55 21.5 10.275 22.25Q11 23 11 24Q11 25 10.275 25.75Q9.55 26.5 8.55 26.5ZM8.5 14Q7.45 14 6.725 13.275Q6 12.55 6 11.5Q6 10.45 6.725 9.725Q7.45 9 8.5 9Q9.55 9 10.275 9.725Q11 10.45 11 11.5Q11 12.55 10.275 13.275Q9.55 14 8.5 14ZM8.55 39Q7.5 39 6.75 38.275Q6 37.55 6 36.55Q6 35.5 6.75 34.75Q7.5 34 8.55 34Q9.55 34 10.275 34.75Q11 35.5 11 36.55Q11 37.55 10.275 38.275Q9.55 39 8.55 39ZM16 38V35H42V38ZM16 25.5V22.5H42V25.5ZM16 13V10H42V13Z'/%3E%3C/svg%3E");
+    }
+
+    .ico-price {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' width='48'%3E%3Cpath fill='white' d='M13.5 29.9V27.65H8V24.65H19V19.4H9.55Q8.95 19.4 8.475 18.95Q8 18.5 8 17.85V9.65Q8 9 8.45 8.575Q8.9 8.15 9.5 8.15H13.5V5.9H16.5V8.15H22V11.15H11V16.4H20.45Q21.1 16.4 21.55 16.825Q22 17.25 22 17.95V26.15Q22 26.75 21.575 27.2Q21.15 27.65 20.5 27.65H16.5V29.9ZM27.9 41.9 19.4 33.4 21.5 31.3 27.9 37.7 39.9 25.7 42 27.8Z'/%3E%3C/svg%3E");
+    }
+
+    .ico-trend {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' width='48'%3E%3Cpath fill='white' d='M6.15 36 4 33.85 18.6 19.3 26.95 27.65 39 15.6H32.65V12.6H44V23.95H41.05V17.8L26.9 31.95L18.55 23.6Z'/%3E%3C/svg%3E");
+    }
+
+    .ico-alarm {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' width='48'%3E%3Cpath fill='white' d='M8 38V35H12.2V19.7Q12.2 15.6 14.675 12.275Q17.15 8.95 21.2 8.1V6.65Q21.2 5.5 22.025 4.75Q22.85 4 24 4Q25.15 4 25.975 4.75Q26.8 5.5 26.8 6.65V8.1Q30.85 8.95 33.35 12.275Q35.85 15.6 35.85 19.7V35H40V38ZM24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25ZM24 44Q22.4 44 21.2 42.825Q20 41.65 20 40H28Q28 41.65 26.825 42.825Q25.65 44 24 44ZM15.2 35H32.85V19.7Q32.85 15.95 30.325 13.375Q27.8 10.8 24.05 10.8Q20.35 10.8 17.775 13.375Q15.2 15.95 15.2 19.7Z'/%3E%3C/svg%3E");
+    }
 
     a {
       color: white;
-      padding: 0.75rem;
-      height: 42px;
+      padding: 0.75rem 1rem;
+      height: 45px;
       display: flex;
       align-items: center;
-      font-size: 16px;
+      gap: 0.5rem;
       font-family: "NanumBarunGothic";
       background-size: 200% 200%;
       position: relative;
@@ -529,8 +535,7 @@ aside {
         left: 0;
         width: 100%;
         height: 100%;
-        border-radius: 0.25rem;
-        background: linear-gradient(130deg, $secondary-color 60%, #686ade);
+        background: linear-gradient(130deg, $main-color 60%, #686ade);
         opacity: 0;
         transition: opacity 0.25s;
       }
@@ -540,6 +545,19 @@ aside {
         color: white;
         &::after {
           opacity: 1;
+        }
+      }
+      &.is-active {
+        &::before {
+          content: "";
+          top: 0;
+          right: 0;
+          bottom: 0;
+          width: 4px;
+          height: 100%;
+          position: absolute;
+          background-color: rgba(255, 255, 255, 0.25);
+          z-index: 100;
         }
       }
     }
@@ -561,7 +579,6 @@ section {
 
   .section-header {
     display: flex;
-    min-height: 36px;
     width: 100%;
     gap: 0.5rem;
 
@@ -573,7 +590,7 @@ section {
 
         &:hover,
         &.is-active {
-          color: $secondary-color;
+          color: $main-color;
           position: relative;
 
           &::before {
@@ -584,7 +601,7 @@ section {
             width: -moz-fit-content;
             width: 100%;
             height: 2px;
-            background-color: $secondary-color;
+            background-color: $main-color;
             display: block;
             left: 50%;
             transform: translateX(-50%);
@@ -626,11 +643,11 @@ section {
     button {
       height: 36px;
       padding: 0.5rem 1rem;
-      background-color: $tertiary-color;
-      color: $primary-color;
+      background-color: $secondary-color;
+      color: $main-color;
 
       &.btn-main {
-        background-color: $secondary-color;
+        background-color: $main-color;
       }
     }
   }
@@ -689,22 +706,34 @@ section {
     border-right: 0;
     flex: 1 1 auto;
     justify-content: flex-end;
-    padding-right: 1.5rem;
+    padding-right: 1rem;
   }
 
-  .tooltip-content {
-    top: -6px;
-    left: 2.5rem;
-    transform: none;
-
-    &::before {
-      top: 12px;
-      left: -12px;
-      transform: rotate(-90deg);
+  .tooltip {
+    &::after {
+      top: 6px;
+      transform: translate(calc(1rem + 5px), 0) rotate(270deg);
+      bottom: auto;
     }
 
-    dd {
-      width: auto !important;
+    &:hover {
+      &::after {
+        transform: translate(1rem, 0) rotate(270deg);
+      }
+
+      .tooltip-content {
+        left: 2.5rem;
+      }
+    }
+
+    .tooltip-content {
+      top: 50%;
+      left: calc(2.5rem + 5px);
+      transform: translateY(-50%);
+
+      dd {
+        width: auto !important;
+      }
     }
   }
 
@@ -738,7 +767,7 @@ section {
     h5 {
       display: flex;
       align-items: center;
-      font: normal 15px/1 "NanumBarunGothic";
+      font: normal 14px/1 "NanumBarunGothic";
     }
 
     small {
@@ -893,9 +922,10 @@ section {
 
   .image {
     flex: 0 0 auto;
-    width: 72px;
-    height: 72px;
-    border-radius: 0.5rem;
+    background: repeating-linear-gradient(45deg, #f9f9f9, #f9f9f9 10px, #eee 10px, #eee 20px);
+    width: 64px;
+    height: 64px;
+    border-radius: 3px;
     overflow: hidden;
     cursor: pointer;
 
@@ -907,22 +937,27 @@ section {
   .information {
     flex: 1 1 auto;
     max-width: calc(100% - 80px - 0.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
     position: relative;
     overflow: hidden;
 
     .title {
-      overflow: hidden;
-      max-width: none;
+      max-width: 100%;
       white-space: nowrap;
       text-overflow: ellipsis;
+      font-size: 15px;
+      overflow: hidden;
       cursor: pointer;
     }
 
     .store,
     .categories {
-      color: $secondary-color;
-      font-size: 14px;
-      margin-top: 0.5rem;
+      color: $main-color;
+      font-size: 13px;
+      margin-top: 0.35rem;
       display: flex;
       align-items: center;
     }
@@ -1063,22 +1098,17 @@ section {
     border-radius: 3px;
   }
 
+  .rows {
+    flex: 1 1 auto;
+    min-height: 12rem;
+  }
+
   .row {
-    &:hover {
-      li {
-        background-color: #f7f8f9;
-      }
-    }
     &:empty {
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100px;
-
-      &::before {
-        content: "상품을 등록해주세요.";
-        color: slategray;
-      }
     }
 
     &.failed {
@@ -1092,10 +1122,8 @@ section {
 
       > li {
         background-color: #f1f2fe;
-        color: $secondary-color;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        border-bottom: 1px solid #e7e8e9;
+        color: $main-color;
         font: 14px/1 "Roboto", "NanumBarunGothic";
 
         &:not(:last-of-type) {
@@ -1103,7 +1131,7 @@ section {
         }
 
         &.ico-sort {
-          transition: background-color .45s;
+          transition: background-color 0.45s;
 
           &:hover {
             background-color: #e6e9ff !important;
@@ -1118,6 +1146,28 @@ section {
       }
     }
 
+    &:not(.title) {
+      &:nth-of-type(even) {
+        li {
+          background-color: #f7f8f9;
+        }
+      }
+    }
+
+    &.row-no-keyword {
+      li {
+        &:nth-of-type(4) {
+          width: 750px !important;
+        }
+        &:nth-of-type(5),
+        &:nth-of-type(6),
+        &:nth-of-type(7),
+        &:nth-of-type(8) {
+          display: none;
+        }
+      }
+    }
+
     li {
       flex: 1 1 auto;
       display: flex;
@@ -1125,11 +1175,15 @@ section {
       align-items: center;
       justify-content: center;
       background-color: white;
-      border-bottom: 1px solid #e7e8e9;
       width: 20%;
       min-height: 36px;
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1rem;
+      font-family: "RobotoMedium", "NanumBarunGothic";
       transition: background-color 0.25s;
+
+      &:not(:last-of-type) {
+        border-right: 1px solid #eee;
+      }
 
       &.date {
         justify-content: flex-end;
@@ -1148,22 +1202,6 @@ section {
         }
       }
 
-      &.col-2x {
-        width: 2rem !important;
-      }
-
-      &.col-3x {
-        width: 3rem !important;
-      }
-
-      &.col-4x {
-        width: 4rem !important;
-      }
-
-      &.col-10x {
-        width: 10rem !important;
-      }
-
       &.col-chart {
         width: 40% !important;
       }
@@ -1178,13 +1216,6 @@ section {
       &.col-important {
         width: 30%;
         justify-content: flex-start;
-      }
-
-      .price {
-
-        &::after {
-          content: "원";
-        }
       }
 
       .percent {
@@ -1217,12 +1248,13 @@ section {
         align-items: center;
         justify-content: flex-end;
         padding: 0 0.35rem;
-        gap: 5px;
-        font-size: 13px;
+        gap: 3px;
         border-radius: 0.25rem;
-        height: 20px;
+        height: 22px;
         min-width: 40px;
+        width: 48px;
         color: white;
+        font-size: 13px;
 
         &::before {
           font-size: 8px;
@@ -1235,6 +1267,11 @@ section {
           &::before {
             content: "\25B2";
           }
+
+          &.current {
+            color: white;
+            background-color: tomato;
+          }
         }
 
         &.down {
@@ -1243,6 +1280,11 @@ section {
 
           &::before {
             content: "\25BC";
+          }
+
+          &.current {
+            color: white;
+            background-color: royalblue;
           }
         }
 
@@ -1309,7 +1351,7 @@ section {
         &:first-of-type {
           padding-right: 1rem;
           border-right: 1px solid #eee;
-          color: $secondary-color;
+          color: $main-color;
           font-family: "NanumBarunGothicLight";
           font-weight: bold;
         }
@@ -1348,6 +1390,11 @@ section {
       background-color: transparent;
       color: slategray;
       border-radius: 0;
+      transition: color 0.4s;
+
+      &:hover {
+        color: $main-color;
+      }
 
       .checkbox {
         input {
@@ -1358,7 +1405,7 @@ section {
               }
 
               &:after {
-                border-color: $secondary-color;
+                border-color: $main-color;
               }
             }
           }
@@ -1399,10 +1446,10 @@ section {
 
   .selector {
     display: flex;
-    background-color: #f7f8f9;
+    background-color: #f1f2f3;
     border-radius: 3px;
-    padding: 6px;
-    gap: 0.25rem;
+    padding: 5px;
+    color: slategray;
     overflow: hidden;
 
     &.sub {
@@ -1413,15 +1460,10 @@ section {
       display: none;
 
       &:checked + label {
-        background-color: $tertiary-color;
-        color: $primary-color;
+        background-color: white;
+        color: $main-color;
         border-radius: 3px;
-      }
-
-      &:hover + label {
-        background-color: $tertiary-color;
-        color: $primary-color;
-        border-radius: 3px;
+        border: 1px solid $main-color;
       }
     }
 
@@ -1467,7 +1509,7 @@ section {
 
       span {
         font-size: 14px;
-        color: $secondary-color;
+        color: $main-color;
 
         &:not(:last-of-type) {
           &::after {
@@ -1567,7 +1609,7 @@ section {
         &::before,
         &::after {
           color: initial;
-          font-size: 15px;
+          font-size: 14px;
         }
         &::before {
           content: "잔여일";
@@ -1674,7 +1716,7 @@ section {
         &::before,
         &::after {
           color: initial;
-          font-size: 15px;
+          font-size: 14px;
         }
         &::before {
           content: "잔여일";
@@ -1817,8 +1859,8 @@ section {
     gap: 1rem;
 
     .section-header {
-      min-height: auto;
-      height: 36px;
+      padding-bottom: 0;
+      border-bottom: 0;
     }
 
     > div {
@@ -1829,7 +1871,7 @@ section {
       flex-direction: column;
       border-radius: 0.5rem;
       background: #fff;
-      padding: 1rem;
+      padding: 0.75rem;
       border-radius: 0.5rem;
 
       &.ranking {
@@ -1845,9 +1887,9 @@ section {
       gap: 0.75rem;
 
       li {
-        background: $tertiary-color;
+        background: $secondary-color;
         border-radius: 0.5rem;
-        padding: 0.75rem;
+        padding: 0.5rem;
         width: 33.333%;
         display: flex;
         flex-wrap: wrap;
@@ -1862,7 +1904,7 @@ section {
         }
 
         div {
-          color: $secondary-color;
+          color: $main-color;
           width: 100%;
         }
 
@@ -1877,7 +1919,7 @@ section {
           transform: translateY(-50%);
           right: 1rem;
           color: #49536b;
-          font-size: 24px;
+          font-size: 22px;
           gap: 2px;
 
           &::after {
@@ -1905,7 +1947,7 @@ section {
     }
 
     .btn-advanced-search {
-      background-color: $tertiary-color;
+      background-color: $secondary-color;
     }
   }
 
@@ -1917,6 +1959,7 @@ section {
         left: 576px;
       }
     }
+
     .item-update-failed {
       background-color: rgba(255, 99, 71, 0.1);
       color: tomato;
@@ -1924,6 +1967,34 @@ section {
       gap: 0.5rem;
       justify-content: center;
       z-index: 1;
+    }
+
+    .tooltip {
+      &::after {
+        transform: translate(25px, -50%) rotate(270deg);
+        top: 50%;
+        bottom: auto;
+      }
+
+      &:hover {
+        &::after {
+          transform: translate(20px, -50%) rotate(270deg);
+        }
+
+        .tooltip-content {
+          transform: translate(1rem, -50%);
+        }
+      }
+    }
+    .tooltip-content {
+      left: 100%;
+      top: 50%;
+      transform: translate(calc(1rem + 5px), -50%);
+
+      &::before {
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
 
     .rows {
@@ -1944,13 +2015,13 @@ section {
       }
 
       li {
-        height: 96px;
         position: relative;
         flex: 0 0 auto;
 
         .page {
-          font-size: 13px;
+          display: flex;
           margin-bottom: 0.35rem;
+          font-size: 12px;
 
           &::before {
             content: "(";
@@ -1964,19 +2035,39 @@ section {
         &.col-important {
           flex: 1 1 auto;
           min-width: 540px;
+          font-family: "Roboto", "NanumBarunGothic";
 
           [data-tooltip] {
             &::before {
-              left: 0;
+              left: -305px;
+              transform: translate(-1rem, -50%);
+              top: 50%;
+            }
+
+            &::after {
+              left: -10px;
+              transform: translate(-1rem, -50%) rotate(90deg);
+              top: 50%;
+            }
+
+            &:hover {
+              &::before {
+                left: -300px;
+              }
+
+              &::after {
+                left: -5px;
+              }
             }
           }
         }
 
         &:not(.col-important) {
-          text-align: center;
-          width: 150px;
           flex-direction: column;
           gap: 0.25rem;
+          width: 150px;
+          text-align: center;
+          font-family: "RobotoMedium", "NanumBarunGothic";
         }
       }
     }
@@ -2007,6 +2098,7 @@ section {
   .list-item {
     .row {
       li {
+        flex: 1 1 auto;
         white-space: nowrap;
 
         // 최저가
@@ -2047,7 +2139,7 @@ section {
   flex-direction: row;
 
   > .wrapper {
-    padding-top: 4.25rem;
+    padding-top: 3.75rem;
   }
 
   .categories {
@@ -2065,8 +2157,9 @@ section {
       border-radius: 0.5rem;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1rem;
       padding: 1rem;
+      box-shadow: 0 6px 12px -4px #e3e6e9;
 
       &.failed {
         border: 1px solid tomato;
@@ -2078,7 +2171,6 @@ section {
       background-color: rgba(255, 99, 71, 0.1);
       border-radius: 5px;
       color: tomato;
-      font-size: 17px;
       padding: 0 0.75rem;
       display: flex;
       align-items: center;
@@ -2108,6 +2200,7 @@ section {
       min-width: 200px;
       flex-direction: column;
       align-items: center;
+      font-family: "RobotoMedium", "NanumBarunGothic";
 
       .image {
         overflow: hidden;
@@ -2126,11 +2219,8 @@ section {
       }
 
       .name {
-        font-size: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
+        font-size: 16px;
+        word-break: keep-all;
       }
 
       .ico-star {
@@ -2143,17 +2233,21 @@ section {
           height: 24px;
         }
       }
+
+      .right-arrow {
+        margin-top: 0.5rem;
+      }
     }
 
     .details {
       width: 100%;
-      background-color: $tertiary-color;
+      background-color: $secondary-color;
       border-radius: 0.5rem;
       padding: 0.75rem;
       gap: 0.75rem;
       display: flex;
       flex-direction: column;
-      color: $secondary-color;
+      color: $main-color;
 
       li {
         :first-of-type {
@@ -2170,7 +2264,7 @@ section {
         flex-wrap: wrap;
 
         &:not(:last-of-type) {
-          border-bottom: 1px solid $tertiary-color;
+          border-bottom: 1px solid $secondary-color;
           padding-bottom: 0.75rem;
         }
 
@@ -2193,7 +2287,7 @@ section {
 
     .related {
       h5 {
-        font-size: 15px;
+        font-size: 14px;
         margin-bottom: 0.5rem;
       }
 
@@ -2253,20 +2347,17 @@ section {
             font-family: "RobotoMedium", "NanumBarunGothic";
             color: #49536b;
           }
-          .failed {
-            background-color: #e3e6e9;
-          }
 
           .btn-changes {
             display: flex;
             align-items: center;
             justify-content: center;
             flex-wrap: nowrap;
-            color: slategray;
+            color: $main-color;
             padding: 0 0.5rem;
             height: 28px;
             min-width: 28px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='18'%3E%3Cg%3E%3Crect fill='none' height='18' width='24'/%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Crect fill='slategray' height='2' width='9' x='13' y='7'/%3E%3Crect fill='slategray' height='2' width='9' x='13' y='15'/%3E%3Crect fill='slategray' height='2' width='6' x='16' y='11'/%3E%3Cpolygon fill='slategray' points='13,12 8,7 8,11 2,11 2,13 8,13 8,17'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='18'%3E%3Cg%3E%3Crect fill='none' height='18' width='24'/%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Crect fill='rgb(91 84 198)' height='2' width='9' x='13' y='7'/%3E%3Crect fill='rgb(91 84 198)' height='2' width='9' x='13' y='15'/%3E%3Crect fill='rgb(91 84 198)' height='2' width='6' x='16' y='11'/%3E%3Cpolygon fill='rgb(91 84 198)' points='13,12 8,7 8,11 2,11 2,13 8,13 8,17'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
               no-repeat right 7px center;
 
             &:hover {
@@ -2276,7 +2367,6 @@ section {
             &:is(.new, .failed) {
               background-color: white;
               border-radius: 3rem;
-              padding-top: 2px;
               padding-right: 1.75rem;
               font: normal 12px "RobotoMedium", "NanumBarunGothicLight";
             }
@@ -2286,16 +2376,16 @@ section {
                 text-transform: uppercase;
               }
             }
+            &.failed {
+              color: white;
+              background: tomato
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='18'%3E%3Cg%3E%3Crect fill='none' height='18' width='24'/%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Crect fill='white' height='2' width='9' x='13' y='7'/%3E%3Crect fill='white' height='2' width='9' x='13' y='15'/%3E%3Crect fill='white' height='2' width='6' x='16' y='11'/%3E%3Cpolygon fill='white' points='13,12 8,7 8,11 2,11 2,13 8,13 8,17'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+                no-repeat right 7px center;
+            }
           }
 
           .col-keyword {
             justify-content: center;
-          }
-        }
-
-        &:not(.title) {
-          li {
-            height: 48px;
           }
         }
 
@@ -2307,6 +2397,10 @@ section {
 
           &.col-keyword {
             width: 200px !important;
+
+            .keyword {
+              max-width: 70%;
+            }
           }
 
           .ranking {
@@ -2354,12 +2448,27 @@ section {
     gap: 1rem;
 
     .ranking-chart {
-      width: 50%;
       flex: 1 1 auto;
+      width: 50%;
       display: flex;
       flex-direction: column;
 
       .list {
+        flex: 1 1 auto;
+
+        .rows {
+          flex: 1 1 auto;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .row {
+          flex: 1 1 auto;
+
+          &.title {
+            max-height: 48px;
+          }
+        }
         li {
           min-height: 48px;
           flex-wrap: wrap;
@@ -2385,7 +2494,7 @@ section {
       > .title {
         flex: 0 0 auto;
         font-size: 17px;
-        margin-bottom: 0.5rem;
+        margin: 0.5rem 0;
       }
     }
   }
@@ -2485,7 +2594,7 @@ section {
           font-size: 24px;
 
           &::placeholder {
-            font-size: 15px;
+            font-size: 14px;
           }
         }
       }
@@ -2527,8 +2636,8 @@ section {
 
           &:hover {
             color: white;
-            background-color: $secondary-color;
-            border-color: $secondary-color;
+            background-color: $main-color;
+            border-color: $main-color;
           }
         }
       }
@@ -2561,7 +2670,7 @@ section {
       border: 1px solid #e3e6e9;
 
       &.is-active {
-        background-color: $tertiary-color;
+        background-color: $secondary-color;
 
         &.type-list {
           &::before {
@@ -2646,8 +2755,8 @@ section {
     }
 
     h5 {
-      font-size: 15px;
-      color: $secondary-color;
+      font-size: 14px;
+      color: $main-color;
     }
 
     ul {
@@ -2669,7 +2778,7 @@ section {
         transition: 0.25s;
 
         &:hover {
-          background-color: $tertiary-color;
+          background-color: $secondary-color;
           color: $primary-color;
 
           strong {
@@ -2710,13 +2819,13 @@ section {
         }
 
         button {
-          background-color: $tertiary-color;
+          background-color: $secondary-color;
           color: $primary-color;
           padding: 0.5rem;
           font-size: 12px;
 
           &:hover {
-            background-color: $secondary-color;
+            background-color: $main-color;
             color: white;
           }
         }
@@ -2766,13 +2875,13 @@ section {
 
     .details {
       width: 100%;
-      background-color: $tertiary-color;
+      background-color: $secondary-color;
       border-radius: 0.5rem;
       padding: 1rem;
       gap: 1rem;
       display: flex;
       flex-direction: column;
-      color: $secondary-color;
+      color: $main-color;
 
       > .row {
         white-space: nowrap;
@@ -2780,7 +2889,7 @@ section {
         flex-wrap: wrap;
 
         &:not(:last-of-type) {
-          border-bottom: 1px solid $tertiary-color;
+          border-bottom: 1px solid $secondary-color;
           padding-bottom: 0.75rem;
         }
 
@@ -2803,7 +2912,7 @@ section {
 
     .related {
       h5 {
-        font-size: 15px;
+        font-size: 14px;
         margin-bottom: 0.5rem;
       }
 
@@ -2818,8 +2927,8 @@ section {
 
           &:hover {
             color: white;
-            background-color: $secondary-color;
-            border-color: $secondary-color;
+            background-color: $main-color;
+            border-color: $main-color;
           }
         }
       }
@@ -2855,7 +2964,7 @@ section {
       &.is-active {
         position: relative;
         color: white;
-        background-color: $secondary-color;
+        background-color: $main-color;
       }
     }
   }
@@ -2987,7 +3096,7 @@ section {
       &.horizontal {
         ul {
           li {
-            background-color: $tertiary-color;
+            background-color: $secondary-color;
           }
         }
       }
@@ -3031,7 +3140,7 @@ section {
         strong {
           &::after {
             content: "원";
-            font-size: 15px;
+            font-size: 14px;
           }
         }
       }
@@ -3116,7 +3225,7 @@ section {
           .col-title {
             justify-content: center;
             gap: 1rem;
-            font-size: 15px;
+            font-size: 14px;
 
             .image {
               width: 100px;
@@ -3412,7 +3521,7 @@ section {
     }
 
     &:hover {
-      color: $secondary-color;
+      color: $main-color;
       background-color: transparent;
     }
   }
@@ -3422,8 +3531,13 @@ section {
   }
 
   &:is(.modal-confirm, .modal-alert) {
+    &.is-active {
+      z-index: 51 !important;
+    }
     .modal-header {
       border-bottom: 0;
+
+      z-index: 100;
     }
   }
 
@@ -3507,6 +3621,10 @@ section {
   }
 
   &.change-details {
+    .list-header {
+      justify-content: center;
+      gap: 0.5rem;
+    }
     .list {
       .title {
         margin-bottom: 0.75rem;
@@ -3516,12 +3634,12 @@ section {
       }
 
       .current {
-        color: $secondary-color;
+        color: $main-color;
       }
 
       .row {
         li {
-          min-height: 50px;
+          min-height: 48px;
           flex-direction: column;
           border-right: 0;
           justify-content: center;

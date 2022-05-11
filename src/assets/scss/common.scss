@@ -40,8 +40,8 @@ $farrownball-drawing-room-blue: #2e3548;
 $clark-kensington-stowe-mountain: #717593;
 
 $primary-color: #7682f8;
-$secondary-color: #5b54c6;
-$tertiary-color: #f2f1ff;
+$main-color: #5b54c6;
+$secondary-color: #f2f1ff;
 $dark-primary-color: #27292d;
 $dark-tertiary-color: #85899a;
 $dark-secondary-color: $clark-kensington-stowe-mountain;
@@ -66,11 +66,7 @@ body {
   background-color: #eff3f7;
   color: #333;
   width: 100%;
-  overflow-x: hidden;
-  text-rendering: optimizeLegibility;
-  font: 15px/1 "Roboto", "NanumBarunGothic";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font: 14px "Roboto", "NanumBarunGothic";
 
   img {
     display: block;
@@ -118,7 +114,7 @@ body {
     background: transparent;
     border-radius: 0.25rem;
     white-space: nowrap;
-    font: 15px/1 "Roboto", "NanumBarunGothic";
+    font: 14px/1 "Roboto", "NanumBarunGothic";
     transition: background 0.2s;
     cursor: pointer;
 
@@ -183,7 +179,7 @@ input {
     border-radius: 3px;
     padding: 0.5rem 0.35rem;
     position: relative;
-    font: 15px/1 "NanumBarunGothic";
+    font: 14px/1 "NanumBarunGothic";
   }
 
   &[type="password"] {
@@ -201,7 +197,7 @@ textarea {
   border-radius: 0.25rem;
   padding: 0.5rem;
   resize: none;
-  font: 15px/1 "NanumBarunGothic";
+  font: 14px/1 "NanumBarunGothic";
 
   &:focus {
     border-color: $primary-color;
@@ -228,8 +224,6 @@ section {
 }
 
 ul {
-  margin: 0;
-  padding: 0;
   list-style: none;
 }
 
@@ -260,7 +254,7 @@ ul {
   background-size: 100% 2px, 2px 100%;
   background-repeat: no-repeat;
   transform: rotate(45deg);
-  transition: opacity .25s;
+  transition: opacity 0.25s;
 }
 
 .is-active {
@@ -376,8 +370,8 @@ ul {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='24'%3E%3Cg%3E%3Cpath d='M0,0h24 M24,24H0' fill='none'/%3E%3Cpath fill='lightgray' d='M4.25,5.61C6.27,8.2,10,13,10,13v6c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1v-6c0,0,3.72-4.8,5.74-7.39 C20.25,4.95,19.78,4,18.95,4H5.04C4.21,4,3.74,4.95,4.25,5.61z'/%3E%3Cpath d='M0,0h24v24H0V0z' fill='none'/%3E%3C/g%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-size: 100%;
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
     display: inline-block;
   }
 }
@@ -403,9 +397,9 @@ ul {
 }
 
 .ico-download {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='24'%3E%3Cg%3E%3Crect fill='none' height='24' width='24'/%3E%3C/g%3E%3Cg%3E%3Cpath fill='rgb(118, 130, 248)' d='M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='24'%3E%3Cg%3E%3Crect fill='none' height='24' width='24'/%3E%3C/g%3E%3Cg%3E%3Cpath fill='rgb(91, 84, 198)' d='M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-size: 15px 15px;
+  background-size: 14px 14px;
   background-position: center left 0.75rem;
   padding-left: 1.75rem !important;
 }
@@ -413,7 +407,7 @@ ul {
 .ico-refresh {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='rgb(118, 130, 248)' d='M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-size: 15px 15px;
+  background-size: 14px 14px;
   background-position: center left 0.65rem;
   padding-left: 1.75rem !important;
 }
@@ -520,7 +514,7 @@ aside {
   flex-grow: 0;
   flex-shrink: 0;
   flex-direction: column;
-  transition: 0s;
+  transition: width 0.25s;
   ul {
     flex-direction: column;
     li {
@@ -654,7 +648,7 @@ progress {
     height: 12px;
     width: 100%;
     border-radius: 0.5rem;
-    background-color: $secondary-color;
+    background-color: $main-color;
   }
   &::-moz-progress-bar {
     height: 12px;
@@ -678,7 +672,7 @@ progress {
   opacity: 0;
   visibility: hidden;
   background-color: lightsteelblue;
-  transform: translateY(15px);
+  transform: translateY(14px);
   -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
 }
@@ -709,7 +703,7 @@ progress {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  min-height: 36px;
+  min-height: 24px;
 
   > button {
     background-color: #e3e6e9;
@@ -785,29 +779,15 @@ progress {
     opacity: 0;
 
     &:checked {
-
       + label {
-
         &::before {
           content: "";
-          background: $primary-color;
-          border-color: $primary-color;
+          background: $main-color;
+          border-color: $main-color;
         }
 
         &::after {
-          content: "";
-          width: 10px;
-          height: 6px;
-          position: absolute;
-          top: 4px;
-          left: 4px;
-          border: 2px solid white;
-          border-top: none;
-          border-right: none;
-          background: transparent;
-          opacity: 1;
-          -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+          border-color: white;
         }
       }
     }
@@ -831,6 +811,22 @@ progress {
       border: 1px solid #ddd;
       background-color: white;
       transition: 0.2s;
+    }
+
+    &::after {
+      content: "";
+      width: 10px;
+      height: 6px;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      border: 2px solid #e3e6e9;
+      border-top: none;
+      border-right: none;
+      background: transparent;
+      opacity: 1;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
     }
   }
 }
@@ -864,7 +860,6 @@ input[type="radio"] {
     }
 
     &:empty {
-
       &::before {
         margin-right: 0;
       }
@@ -872,9 +867,7 @@ input[type="radio"] {
   }
 
   &:is(:hover, :checked) {
-
     + label {
-
       &::before {
         border-color: $primary-color !important;
         background-color: $primary-color !important;
@@ -884,14 +877,12 @@ input[type="radio"] {
   }
 
   &:focus {
-
     + label:before {
       outline: none;
     }
   }
 
   &:disabled {
-
     + label {
       cursor: auto;
 
@@ -902,9 +893,7 @@ input[type="radio"] {
     }
 
     &:checked {
-
       + label {
-
         &:before {
           box-shadow: inset 0 0 0 2px #f4f4f4;
           border-color: #b4b4b4;
@@ -964,6 +953,7 @@ input[type="radio"] {
   align-items: center;
   position: relative;
   white-space: nowrap;
+  flex-wrap: nowrap !important;
 
   &::-ms-expand {
     display: none;
@@ -997,7 +987,7 @@ input[type="radio"] {
     height: $input-height;
     -webkit-appearance: none;
     padding: 0 1.5rem 0 0.35rem;
-    font: 15px/1 "NanumBarunGothic";
+    font: 14px/1 "NanumBarunGothic";
     background-color: white;
     color: #333;
     outline: 0;
@@ -1022,7 +1012,7 @@ input[type="radio"] {
 
     &:hover,
     &.is-active {
-      color: $secondary-color;
+      color: $main-color;
     }
   }
 }
@@ -1035,7 +1025,7 @@ input[type="radio"] {
   .row.title {
     position: sticky;
     top: 0;
-    z-index: 15;
+    z-index: 51;
   }
 }
 
@@ -1112,36 +1102,47 @@ input[type="radio"] {
 }
 
 .toggle-switch {
-  overflow: hidden;
-  position: relative;
-  user-select: none;
-  background-color: #ccc;
-  height: 14px;
-  width: 32px;
-  border-radius: 25px;
-  transition: 0.2s;
-  overflow: unset;
+  input {
+    appearance: none;
+    display: none;
 
-  &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: -3px;
-    left: -2px;
-    width: 1.25rem;
-    height: 1.25rem;
-    background-color: white;
-    border-radius: 50%;
-    transition: 0.2s;
-    box-shadow: 0 5px 10px 0px rgb(0 0 0 / 15%);
-  }
+    + label {
+      overflow: hidden;
+      position: relative;
+      user-select: none;
+      background-color: #ccc;
+      height: 14px;
+      width: 28px;
+      border-radius: 25px;
+      transition: 0.2s;
+      overflow: unset;
+      cursor: pointer;
 
-  &.is-active {
-    background-color: rgb(118 130 248 / 35%);
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -2px;
+        left: -3px;
+        width: 1.15rem;
+        height: 1.15rem;
+        background-color: white;
+        border-radius: 50%;
+        transition: 0.2s;
+        box-shadow: 0 5px 10px 0px rgb(0 0 0 / 15%);
+      }
+    }
 
-    &::before {
-      left: 14px;
-      background-color: $primary-color;
+    &:checked {
+      + label {
+        background-color: rgb(118 130 248 / 35%);
+        z-index: 10 !important;
+
+        &::before {
+          left: 13px;
+          background-color: $main-color;
+        }
+      }
     }
   }
 }
@@ -1179,6 +1180,7 @@ input[type="radio"] {
 
     .modal-content {
       align-items: center;
+      font-size: 16px;
     }
 
     .buttons {
@@ -1312,25 +1314,27 @@ input[type="radio"] {
     &::before,
     &::after {
       opacity: 1;
+      visibility: visible;
       z-index: 1;
     }
 
     &::before {
-      max-height: none;
-      width: 300px;
-      padding: 1rem;
-      white-space: pre-line;
+      max-height: 400px;
     }
   }
 
   &::before {
     opacity: 0;
+    visibility: hidden;
     max-height: 0;
     min-width: 300px;
+    width: 300px;
+    white-space: pre-line;
     content: attr(data-tooltip);
     word-break: keep-all;
     transform: translateX(-50%);
     background-color: #333;
+    padding: 0.75rem;
     line-height: 1.5;
     color: white;
     border-radius: 0.5rem;
@@ -1338,24 +1342,24 @@ input[type="radio"] {
     top: calc(100% + 0.5rem);
     left: 50%;
     font: 13px/1.5 "NanumBarunGothicLight";
-    transition: opacity 0.2s;
+    transition: all 0.2s;
     z-index: -1;
   }
 
   &::after {
     opacity: 0;
-    content: none;
+    content: "";
     position: absolute;
     top: calc(100% + 0.15rem);
     left: 50%;
     transform: translateX(-50%);
     width: 0;
-    border-bottom: 8px solid #333;
-    border-right: 8px solid transparent;
-    border-left: 8px solid transparent;
+    border-bottom: 7px solid #333;
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
     font-size: 0;
     line-height: 0;
-    transition: opacity 0.2s;
+    transition: all 0.2s;
   }
 }
 
@@ -1371,44 +1375,57 @@ input[type="radio"] {
 
   &::before {
     content: "";
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' width='48'%3E%3Cpath fill='slategray' d='M24.2 35.65Q25 35.65 25.55 35.1Q26.1 34.55 26.1 33.75Q26.1 32.95 25.55 32.4Q25 31.85 24.2 31.85Q23.4 31.85 22.85 32.4Q22.3 32.95 22.3 33.75Q22.3 34.55 22.85 35.1Q23.4 35.65 24.2 35.65ZM22.45 28.35H25.4Q25.4 27.05 25.725 25.975Q26.05 24.9 27.75 23.5Q29.3 22.2 29.95 20.95Q30.6 19.7 30.6 18.2Q30.6 15.55 28.875 13.95Q27.15 12.35 24.3 12.35Q21.85 12.35 19.975 13.575Q18.1 14.8 17.25 16.95L19.9 17.95Q20.45 16.55 21.55 15.775Q22.65 15 24.15 15Q25.85 15 26.9 15.925Q27.95 16.85 27.95 18.3Q27.95 19.4 27.3 20.375Q26.65 21.35 25.4 22.4Q23.9 23.7 23.175 24.975Q22.45 26.25 22.45 28.35ZM24 44Q19.8 44 16.15 42.475Q12.5 40.95 9.8 38.25Q7.1 35.55 5.55 31.9Q4 28.25 4 24Q4 19.8 5.55 16.15Q7.1 12.5 9.8 9.8Q12.5 7.1 16.15 5.55Q19.8 4 24 4Q28.15 4 31.8 5.55Q35.45 7.1 38.15 9.8Q40.85 12.5 42.425 16.15Q44 19.8 44 24Q44 28.25 42.425 31.9Q40.85 35.55 38.15 38.25Q35.45 40.95 31.8 42.475Q28.15 44 24 44ZM24 23.45Q24 23.45 24 23.45Q24 23.45 24 23.45Q24 23.45 24 23.45Q24 23.45 24 23.45Q24 23.45 24 23.45Q24 23.45 24 23.45Q24 23.45 24 23.45Q24 23.45 24 23.45ZM24 41Q31.05 41 36.025 36Q41 31 41 24Q41 17 36.025 12Q31.05 7 24 7Q16.85 7 11.925 12Q7 17 7 24Q7 31 11.925 36Q16.85 41 24 41Z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' width='48'%3E%3Cpath fill='rgb(131 155 179)' d='M24.2 35.65Q25 35.65 25.55 35.1Q26.1 34.55 26.1 33.75Q26.1 32.95 25.55 32.4Q25 31.85 24.2 31.85Q23.4 31.85 22.85 32.4Q22.3 32.95 22.3 33.75Q22.3 34.55 22.85 35.1Q23.4 35.65 24.2 35.65ZM22.45 28.35H25.4Q25.4 27.05 25.725 25.975Q26.05 24.9 27.75 23.5Q29.3 22.2 29.95 20.95Q30.6 19.7 30.6 18.2Q30.6 15.55 28.875 13.95Q27.15 12.35 24.3 12.35Q21.85 12.35 19.975 13.575Q18.1 14.8 17.25 16.95L19.9 17.95Q20.45 16.55 21.55 15.775Q22.65 15 24.15 15Q25.85 15 26.9 15.925Q27.95 16.85 27.95 18.3Q27.95 19.4 27.3 20.375Q26.65 21.35 25.4 22.4Q23.9 23.7 23.175 24.975Q22.45 26.25 22.45 28.35ZM24 44Q19.8 44 16.15 42.475Q12.5 40.95 9.8 38.25Q7.1 35.55 5.55 31.9Q4 28.25 4 24Q4 19.8 5.55 16.15Q7.1 12.5 9.8 9.8Q12.5 7.1 16.15 5.55Q19.8 4 24 4Q28.15 4 31.8 5.55Q35.45 7.1 38.15 9.8Q40.85 12.5 42.425 16.15Q44 19.8 44 24Q44 28.25 42.425 31.9Q40.85 35.55 38.15 38.25Q35.45 40.95 31.8 42.475Q28.15 44 24 44ZM24 23.45Q24 23.45 24 23.45Q24 23.45 24 23.45Q24 23.45 24 23.45Q24 23.45 24 23.45Q24 23.45 24 23.45Q24 23.45 24 23.45Q24 23.45 24 23.45Q24 23.45 24 23.45ZM24 41Q31.05 41 36.025 36Q41 31 41 24Q41 17 36.025 12Q31.05 7 24 7Q16.85 7 11.925 12Q7 17 7 24Q7 31 11.925 36Q16.85 41 24 41Z'/%3E%3C/svg%3E");
     background-size: 100%;
     background-repeat: no-repeat;
     margin: 0 0.25rem;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
   }
 
+  &::after {
+    content: "";
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translate(-50%, 5px);
+    border-bottom: 7px solid #333;
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+    transition: all 0.2s;
+  }
+
   &:hover {
+    z-index: 100;
+
     &::after {
-      content: none;
-      position: absolute;
-      bottom: -1rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      border-bottom: 8px solid #333;
-      border-right: 8px solid transparent;
-      border-left: 8px solid transparent;
-      font-size: 0;
-      line-height: 0;
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0);
     }
+
     .tooltip-content {
       opacity: 1;
-      z-index: 100;
+      visibility: visible;
+      max-height: 300px;
+      transform: translate(0, 8px);
     }
   }
 }
 
 .tooltip-content {
   opacity: 0;
+  visibility: hidden;
+  max-height: 0;
   word-break: keep-all;
   position: absolute;
-  top: 2rem;
+  top: 100%;
   padding: 1rem 0.75rem;
   width: 360px;
   border-radius: 0.5rem;
@@ -1416,8 +1433,8 @@ input[type="radio"] {
   color: white;
   text-align: left;
   font: 13px/1.5 "NanumBarunGothicLight";
+  transform: translate(0, 13px);
   transition: all 0.2s;
-  z-index: -1;
 
   &.is-active {
     z-index: 100 !important;
@@ -1432,12 +1449,12 @@ input[type="radio"] {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background: $secondary-color
+  background: $main-color
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath fill='white' d='M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z'/%3E%3C/svg%3E")
     no-repeat center;
   box-shadow: 0 3px 9px -4px $primary-color;
   cursor: pointer;
-  z-index: 50;
+  z-index: 100 !important;
 
   &.is-active {
     bottom: 2rem;
@@ -1451,7 +1468,7 @@ input[type="radio"] {
 
   .ui-widget-header {
     border: 1px solid $primary-color;
-    background: $tertiary-color;
+    background: $secondary-color;
     color: #333333;
     font-weight: normal;
     font-family: "RobotoMedium";
@@ -1511,7 +1528,7 @@ input[type="radio"] {
       border: 1px solid #eee;
       background: transparent;
       font: normal 13px/1 "Roboto";
-      width: 32px;
+      width: 29px;
       height: 32px;
       border-radius: 3px;
     }
@@ -1654,7 +1671,7 @@ input[type="radio"] {
 }
 
 .dark-mode .selectbox::before {
-  border: solid $secondary-color;
+  border: solid $main-color;
   border-width: 0 1px 1px 0;
 }
 
