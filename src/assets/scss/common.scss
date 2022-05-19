@@ -68,7 +68,7 @@ body {
   width: 100%;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
-  font: 15px/1 "Roboto", "NanumBarunGothic";
+  font: 14px/1 "Roboto", "NanumBarunGothic";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -118,7 +118,7 @@ body {
     background: transparent;
     border-radius: 0.25rem;
     white-space: nowrap;
-    font: 15px/1 "Roboto", "NanumBarunGothic";
+    font: 14px/1 "Roboto", "NanumBarunGothic";
     transition: background 0.2s;
     cursor: pointer;
 
@@ -183,7 +183,7 @@ input {
     border-radius: 3px;
     padding: 0.5rem 0.35rem;
     position: relative;
-    font: 15px/1 "NanumBarunGothic";
+    font: 14px/1 "NanumBarunGothic";
   }
 
   &[type="password"] {
@@ -201,7 +201,7 @@ textarea {
   border-radius: 0.25rem;
   padding: 0.5rem;
   resize: none;
-  font: 15px/1 "NanumBarunGothic";
+  font: 14px/1 "NanumBarunGothic";
 
   &:focus {
     border-color: $primary-color;
@@ -376,8 +376,8 @@ ul {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='24'%3E%3Cg%3E%3Cpath d='M0,0h24 M24,24H0' fill='none'/%3E%3Cpath fill='lightgray' d='M4.25,5.61C6.27,8.2,10,13,10,13v6c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1v-6c0,0,3.72-4.8,5.74-7.39 C20.25,4.95,19.78,4,18.95,4H5.04C4.21,4,3.74,4.95,4.25,5.61z'/%3E%3Cpath d='M0,0h24v24H0V0z' fill='none'/%3E%3C/g%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-size: 100%;
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
     display: inline-block;
   }
 }
@@ -403,9 +403,9 @@ ul {
 }
 
 .ico-download {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='24'%3E%3Cg%3E%3Crect fill='none' height='24' width='24'/%3E%3C/g%3E%3Cg%3E%3Cpath fill='rgb(118, 130, 248)' d='M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='24'%3E%3Cg%3E%3Crect fill='none' height='24' width='24'/%3E%3C/g%3E%3Cg%3E%3Cpath fill='rgb(91, 84, 198)' d='M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-size: 15px 15px;
+  background-size: 14px 14px;
   background-position: center left 0.75rem;
   padding-left: 1.75rem !important;
 }
@@ -413,7 +413,7 @@ ul {
 .ico-refresh {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='rgb(118, 130, 248)' d='M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-size: 15px 15px;
+  background-size: 14px 14px;
   background-position: center left 0.65rem;
   padding-left: 1.75rem !important;
 }
@@ -520,7 +520,7 @@ aside {
   flex-grow: 0;
   flex-shrink: 0;
   flex-direction: column;
-  transition: 0s;
+  transition: width .25s;
   ul {
     flex-direction: column;
     li {
@@ -678,7 +678,7 @@ progress {
   opacity: 0;
   visibility: hidden;
   background-color: lightsteelblue;
-  transform: translateY(15px);
+  transform: translateY(14px);
   -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
 }
@@ -709,7 +709,7 @@ progress {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  min-height: 36px;
+  min-height: 24px;
 
   > button {
     background-color: #e3e6e9;
@@ -997,7 +997,7 @@ input[type="radio"] {
     height: $input-height;
     -webkit-appearance: none;
     padding: 0 1.5rem 0 0.35rem;
-    font: 15px/1 "NanumBarunGothic";
+    font: 14px/1 "NanumBarunGothic";
     background-color: white;
     color: #333;
     outline: 0;
@@ -1117,7 +1117,7 @@ input[type="radio"] {
   user-select: none;
   background-color: #ccc;
   height: 14px;
-  width: 32px;
+  width: 28px;
   border-radius: 25px;
   transition: 0.2s;
   overflow: unset;
@@ -1126,10 +1126,10 @@ input[type="radio"] {
     content: "";
     display: block;
     position: absolute;
-    top: -3px;
-    left: -2px;
-    width: 1.25rem;
-    height: 1.25rem;
+    top: -2px;
+    left: -3px;
+    width: 1.15rem;
+    height: 1.15rem;
     background-color: white;
     border-radius: 50%;
     transition: 0.2s;
@@ -1138,9 +1138,10 @@ input[type="radio"] {
 
   &.is-active {
     background-color: rgb(118 130 248 / 35%);
+    z-index: 10 !important;
 
     &::before {
-      left: 14px;
+      left: 13px;
       background-color: $secondary-color;
     }
   }

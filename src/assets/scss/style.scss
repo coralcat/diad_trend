@@ -67,10 +67,6 @@ p {
 }
 
 .right-arrow {
-  border-radius: 0.25rem;
-  padding: 0.5rem 0.5rem;
-  font-size: 14px;
-  transition: background-color 0.2s;
   color: $secondary-color;
 
   &::after {
@@ -86,12 +82,8 @@ p {
   }
 
   &:hover {
-    color: white;
-    background-color: $secondary-color;
+    text-decoration: underline;
 
-    &::after {
-      border-color: white;
-    }
   }
 }
 
@@ -104,20 +96,11 @@ h3 {
 }
 
 h1 {
-  font-size: 24px;
-
-  .tooltip-icon {
-    width: 24px;
-    height: 24px;
-
-    &::before {
-      font-size: 17px;
-    }
-  }
+  font-size: 22px;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 h5 {
@@ -184,7 +167,7 @@ button {
       no-repeat right 6px center;
     background-size: 18px;
     padding-right: 1.5rem;
-    min-width: 120px;
+    max-width: 120px;
     text-overflow: ellipsis;
   }
 }
@@ -294,7 +277,7 @@ main {
 
     .title {
       width: 100%;
-      min-height: 36px;
+      min-height: 32px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -303,8 +286,8 @@ main {
       h1 {
         .tooltip {
           &::before {
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
           }
 
           .tooltip-content {
@@ -327,7 +310,7 @@ main {
       font-family: "RobotoMedium", "NanumBarunGothic";
 
       .date {
-        font-size: 15px;
+        font-size: 14px;
         color: #333;
       }
 
@@ -370,7 +353,7 @@ main {
         border-radius: 30px;
 
         &.d-day {
-          background-color: $secondary-color;
+          background-color: #839bb3;
           color: #ffffff;
           font-family: "Roboto";
           font-size: 13px;
@@ -382,7 +365,7 @@ main {
       }
 
       ul {
-        gap: 0.75rem;
+        gap: 0.5rem;
 
         li {
           display: flex;
@@ -428,7 +411,7 @@ main {
       padding: 1rem;
       border-radius: 0.5rem;
       display: flex;
-      gap: 1rem;
+      gap: .75rem;
       flex-direction: column;
       box-shadow: 0 6px 12px -4px #e3e6e9;
     }
@@ -466,7 +449,7 @@ aside {
 
   .sub-menu {
     display: flex;
-    padding: 1rem;
+    padding: .75rem;
     justify-content: space-around;
     font-size: 14px;
 
@@ -474,7 +457,7 @@ aside {
       padding: 0.5rem 0.75rem;
       border-radius: 0.35rem;
       background-color: rgba(255, 255, 255, 0.1);
-      font-size: 13px;
+      font-size: 12px;
     }
 
     .zoom-in-out {
@@ -502,16 +485,38 @@ aside {
   nav {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
-    gap: 0.5rem;
+    margin-top: .75rem;
+
+    [class*=ico] {
+      width: 20px;
+      height: 20px;
+      background-size: 100%;
+      z-index: 5;
+    }
+
+    .ico-ranking {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' width='48'%3E%3Cpath fill='white' d='M8.55 26.5Q7.5 26.5 6.75 25.775Q6 25.05 6 24Q6 22.95 6.75 22.225Q7.5 21.5 8.55 21.5Q9.55 21.5 10.275 22.25Q11 23 11 24Q11 25 10.275 25.75Q9.55 26.5 8.55 26.5ZM8.5 14Q7.45 14 6.725 13.275Q6 12.55 6 11.5Q6 10.45 6.725 9.725Q7.45 9 8.5 9Q9.55 9 10.275 9.725Q11 10.45 11 11.5Q11 12.55 10.275 13.275Q9.55 14 8.5 14ZM8.55 39Q7.5 39 6.75 38.275Q6 37.55 6 36.55Q6 35.5 6.75 34.75Q7.5 34 8.55 34Q9.55 34 10.275 34.75Q11 35.5 11 36.55Q11 37.55 10.275 38.275Q9.55 39 8.55 39ZM16 38V35H42V38ZM16 25.5V22.5H42V25.5ZM16 13V10H42V13Z'/%3E%3C/svg%3E");
+    }
+
+    .ico-price {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' width='48'%3E%3Cpath fill='white' d='M13.5 29.9V27.65H8V24.65H19V19.4H9.55Q8.95 19.4 8.475 18.95Q8 18.5 8 17.85V9.65Q8 9 8.45 8.575Q8.9 8.15 9.5 8.15H13.5V5.9H16.5V8.15H22V11.15H11V16.4H20.45Q21.1 16.4 21.55 16.825Q22 17.25 22 17.95V26.15Q22 26.75 21.575 27.2Q21.15 27.65 20.5 27.65H16.5V29.9ZM27.9 41.9 19.4 33.4 21.5 31.3 27.9 37.7 39.9 25.7 42 27.8Z'/%3E%3C/svg%3E");
+    }
+
+    .ico-trend {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' width='48'%3E%3Cpath fill='white' d='M6.15 36 4 33.85 18.6 19.3 26.95 27.65 39 15.6H32.65V12.6H44V23.95H41.05V17.8L26.9 31.95L18.55 23.6Z'/%3E%3C/svg%3E");
+    }
+
+    .ico-alarm {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' width='48'%3E%3Cpath fill='white' d='M8 38V35H12.2V19.7Q12.2 15.6 14.675 12.275Q17.15 8.95 21.2 8.1V6.65Q21.2 5.5 22.025 4.75Q22.85 4 24 4Q25.15 4 25.975 4.75Q26.8 5.5 26.8 6.65V8.1Q30.85 8.95 33.35 12.275Q35.85 15.6 35.85 19.7V35H40V38ZM24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25ZM24 44Q22.4 44 21.2 42.825Q20 41.65 20 40H28Q28 41.65 26.825 42.825Q25.65 44 24 44ZM15.2 35H32.85V19.7Q32.85 15.95 30.325 13.375Q27.8 10.8 24.05 10.8Q20.35 10.8 17.775 13.375Q15.2 15.95 15.2 19.7Z'/%3E%3C/svg%3E");
+    }
 
     a {
       color: white;
-      padding: 0.75rem;
-      height: 42px;
+      padding: 0.75rem 1rem;
+      height: 45px;
       display: flex;
       align-items: center;
-      font-size: 16px;
+      gap: .5rem;
       font-family: "NanumBarunGothic";
       background-size: 200% 200%;
       position: relative;
@@ -528,7 +533,6 @@ aside {
         left: 0;
         width: 100%;
         height: 100%;
-        border-radius: 0.25rem;
         background: linear-gradient(130deg, $secondary-color 60%, #686ade);
         opacity: 0;
         transition: opacity 0.25s;
@@ -539,6 +543,19 @@ aside {
         color: white;
         &::after {
           opacity: 1;
+        }
+      }
+      &.is-active {
+        &::before {
+          content: "";
+          top: 0;
+          left: 0;
+          bottom: 0;
+          width: 4px;
+          height: 100%;
+          position: absolute;
+          background-color: slategray;
+          z-index: 100;
         }
       }
     }
@@ -560,7 +577,6 @@ section {
 
   .section-header {
     display: flex;
-    min-height: 36px;
     width: 100%;
     gap: 0.5rem;
 
@@ -626,7 +642,7 @@ section {
       height: 36px;
       padding: 0.5rem 1rem;
       background-color: $tertiary-color;
-      color: $primary-color;
+      color: $secondary-color;
 
       &.btn-main {
         background-color: $secondary-color;
@@ -737,7 +753,7 @@ section {
     h5 {
       display: flex;
       align-items: center;
-      font: normal 15px/1 "NanumBarunGothic";
+      font: normal 14px/1 "NanumBarunGothic";
     }
 
     small {
@@ -892,9 +908,9 @@ section {
 
   .image {
     flex: 0 0 auto;
-    width: 72px;
-    height: 72px;
-    border-radius: 0.5rem;
+    width: 64px;
+    height: 64px;
+    border-radius: 3px;
     overflow: hidden;
     cursor: pointer;
 
@@ -906,6 +922,11 @@ section {
   .information {
     flex: 1 1 auto;
     max-width: calc(100% - 80px - 0.5rem);
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
     position: relative;
     overflow: hidden;
 
@@ -921,7 +942,7 @@ section {
     .categories {
       color: $secondary-color;
       font-size: 13px;
-      margin-top: 0.75rem;
+      margin-top: 0.35rem;
       display: flex;
       align-items: center;
     }
@@ -1075,7 +1096,7 @@ section {
       min-height: 100px;
 
       &::before {
-        content: "상품을 등록해주세요.";
+        content: "키워드를 추가해주세요.";
         color: slategray;
       }
     }
@@ -1090,6 +1111,7 @@ section {
       margin-bottom: 0 !important;
 
       > li {
+        padding: 0.5rem 1rem;
         background-color: #f1f2fe;
         color: $secondary-color;
         display: flex;
@@ -1127,7 +1149,7 @@ section {
       border-bottom: 1px solid #e7e8e9;
       width: 20%;
       min-height: 36px;
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1rem;
       transition: background-color 0.25s;
 
       &.date {
@@ -1145,22 +1167,6 @@ section {
           border: 1px solid #ddd;
           border-radius: 2px;
         }
-      }
-
-      &.col-2x {
-        width: 2rem !important;
-      }
-
-      &.col-3x {
-        width: 3rem !important;
-      }
-
-      &.col-4x {
-        width: 4rem !important;
-      }
-
-      &.col-10x {
-        width: 10rem !important;
       }
 
       &.col-chart {
@@ -1218,7 +1224,7 @@ section {
         gap: 5px;
         font-size: 13px;
         border-radius: 0.25rem;
-        height: 20px;
+        height: 22px;
         min-width: 40px;
         color: white;
 
@@ -1346,6 +1352,11 @@ section {
       background-color: transparent;
       color: slategray;
       border-radius: 0;
+      transition: color .4s;
+
+      &:hover {
+        color: $secondary-color;
+      }
 
       .checkbox {
         input {
@@ -1565,7 +1576,7 @@ section {
         &::before,
         &::after {
           color: initial;
-          font-size: 15px;
+          font-size: 14px;
         }
         &::before {
           content: "잔여일";
@@ -1672,7 +1683,7 @@ section {
         &::before,
         &::after {
           color: initial;
-          font-size: 15px;
+          font-size: 14px;
         }
         &::before {
           content: "잔여일";
@@ -1815,8 +1826,8 @@ section {
     gap: 1rem;
 
     .section-header {
-      min-height: auto;
-      height: 36px;
+      padding-bottom: 0;
+      border-bottom: 0
     }
 
     > div {
@@ -1942,7 +1953,6 @@ section {
       }
 
       li {
-        height: 96px;
         position: relative;
         flex: 0 0 auto;
 
@@ -2191,7 +2201,7 @@ section {
 
     .related {
       h5 {
-        font-size: 15px;
+        font-size: 14px;
         margin-bottom: 0.5rem;
       }
 
@@ -2483,7 +2493,7 @@ section {
           font-size: 24px;
 
           &::placeholder {
-            font-size: 15px;
+            font-size: 14px;
           }
         }
       }
@@ -2644,7 +2654,7 @@ section {
     }
 
     h5 {
-      font-size: 15px;
+      font-size: 14px;
       color: $secondary-color;
     }
 
@@ -2801,7 +2811,7 @@ section {
 
     .related {
       h5 {
-        font-size: 15px;
+        font-size: 14px;
         margin-bottom: 0.5rem;
       }
 
@@ -3029,7 +3039,7 @@ section {
         strong {
           &::after {
             content: "원";
-            font-size: 15px;
+            font-size: 14px;
           }
         }
       }
@@ -3114,7 +3124,7 @@ section {
           .col-title {
             justify-content: center;
             gap: 1rem;
-            font-size: 15px;
+            font-size: 14px;
 
             .image {
               width: 100px;
@@ -3420,8 +3430,13 @@ section {
   }
 
   &:is(.modal-confirm, .modal-alert) {
+    &.is-active {
+      z-index: 51 !important;
+    }
     .modal-header {
       border-bottom: 0;
+
+      z-index: 100;
     }
   }
 
