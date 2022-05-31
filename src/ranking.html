@@ -321,8 +321,7 @@
           </div>
         </div>
       </header>
-      <!-- list 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
-      <div class="list list-item sticky" data-empty="상품을 등록해주세요">
+      <div class="list list-item sticky">
         <ul class="row title">
           <li class="col-check">
             <div class="checkbox">
@@ -358,184 +357,186 @@
           <li class="ico-sort">최근 갱신시간</li>
           <li>알림</li>
         </ul>
-        <ul class="row failed">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="check-01" name="select-item" type="checkbox" />
-              <label for="check-01"></label>
-            </div>
-          </li>
-          <li class="col-important item">
-            <div
-              class="item-update-failed"
-              data-tooltip="상품에 등록된 모든 키워드가 400위 밖으로 상품 정보가 갱신되지 않았습니다.">
-              <div class="failed">갱신실패</div>
-              <div class="success">갱신성공 2021-08-01 15:00</div>
-            </div>
-            <div class="image" onclick="location.href='ranking_details.html'">
-              <img src="https://source.unsplash.com/random/100x100/?coffee/1" alt="" />
-            </div>
-            <div class="information">
-              <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
-                12126547821
-              </a>
-              <div class="title" onclick="location.href='ranking_details.html'">
-                1kg 커피창고 에티오피아 예가체프 test test test test test test
+        <div class="rows" data-empty="상품을 등록해주세요">
+          <ul class="row failed">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-01" name="select-item" type="checkbox" />
+                <label for="check-01"></label>
               </div>
-              <div class="store">커피창고</div>
-            </div>
-          </li>
-          <li class="col-keyword">
-            <div class="keyword">원두커피</div>
-          </li>
-          <li>
-            <div>400위 밖</div>
-            <div class="tooltip">
-              <div class="tooltip-content">
-                순위가 400위 밖인 경우 상품 정보가 갱신되지 않을 수 있습니다. 정보가 갱신되지 않은 경우 실제 정보와
-                차이가 있을 수 있으니, 서비스 이용 시 참고하시기 바랍니다.
+            </li>
+            <li class="col-important item">
+              <div
+                class="item-update-failed"
+                data-tooltip="상품에 등록된 모든 키워드가 400위 밖으로 상품 정보가 갱신되지 않았습니다.">
+                <div class="failed">갱신실패</div>
+                <div class="success">갱신성공 2021-08-01 15:00</div>
               </div>
-            </div>
-          </li>
-          <li>
-            <div>3위</div>
-            <div class="page">3위/1페이지</div>
-            <div class="rank failed"></div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div class="page">5위/1페이지</div>
-            <div class="rank failed"></div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div class="page">5위/1페이지</div>
-            <div class="rank failed"></div>
-          </li>
-          <li>
-            <div>2위</div>
-            <div class="page">3위/1페이지</div>
-            <div class="rank failed"></div>
-          </li>
-          <li>9,900원</li>
-          <li>커피</li>
-          <li>2022-03-01</li>
-          <li>2022-03-01 12:00</li>
-          <li>
-            <div class="toggle-switch">
-              <input id="toggle1" type="checkbox" />
-              <label for="toggle1"></label>
-            </div>
-          </li>
-        </ul>
-        <ul class="row">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="check-02" name="select-item" type="checkbox" />
-              <label for="check-02"></label>
-            </div>
-          </li>
-          <li class="col-important item">
-            <div class="image" onclick="location.href='ranking_details.html'">
-              <img src="https://source.unsplash.com/random/100x100/?coffee/2" alt="" />
-            </div>
-            <div class="information">
-              <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
-                12126547821
-              </a>
-              <div class="title">1kg 커피창고 에티오피아 예가체프 1kg 커피창고 에티오피아 예가체프</div>
-              <div class="store">커피창고</div>
-            </div>
-          </li>
-          <li class="col-keyword">
-            <div class="keyword">커피원두</div>
-          </li>
-          <li>
-            <div>1위</div>
-            <div class="page">1위/1페이지</div>
-            <div class="rank up">2</div>
-          </li>
-          <li>
-            <div>3위</div>
-            <div class="page">3위/1페이지</div>
-            <div class="rank down">1</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div class="page">5위/1페이지</div>
-            <div class="rank up">3</div>
-          </li>
-          <li>
-            <div>5위</div>
-            <div class="page">5위/1페이지</div>
-            <div class="rank up">3</div>
-          </li>
-          <li>
-            <div>2위</div>
-            <div class="page">3위/1페이지</div>
-            <div class="rank same"></div>
-          </li>
-          <li>9,900원</li>
-          <li>커피</li>
-          <li>2022-03-01</li>
-          <li>2022-03-01 12:00</li>
-          <li>
-            <div class="toggle-switch">
-              <input id="toggle2" type="checkbox" />
-              <label for="toggle2"></label>
-            </div>
-          </li>
-        </ul>
+              <div class="image" onclick="location.href='ranking_details.html'">
+                <img src="https://source.unsplash.com/random/100x100/?coffee/1" alt="" />
+              </div>
+              <div class="information">
+                <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
+                  12126547821
+                </a>
+                <div class="title" onclick="location.href='ranking_details.html'">
+                  1kg 커피창고 에티오피아 예가체프 test test test test test test
+                </div>
+                <div class="store">커피창고</div>
+              </div>
+            </li>
+            <li class="col-keyword">
+              <div class="keyword">원두커피</div>
+            </li>
+            <li>
+              <div>400위 밖</div>
+              <div class="tooltip">
+                <div class="tooltip-content">
+                  순위가 400위 밖인 경우 상품 정보가 갱신되지 않을 수 있습니다. 정보가 갱신되지 않은 경우 실제 정보와
+                  차이가 있을 수 있으니, 서비스 이용 시 참고하시기 바랍니다.
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>3위</div>
+              <div class="page">3위/1페이지</div>
+              <div class="rank failed"></div>
+            </li>
+            <li>
+              <div>5위</div>
+              <div class="page">5위/1페이지</div>
+              <div class="rank failed"></div>
+            </li>
+            <li>
+              <div>5위</div>
+              <div class="page">5위/1페이지</div>
+              <div class="rank failed"></div>
+            </li>
+            <li>
+              <div>2위</div>
+              <div class="page">3위/1페이지</div>
+              <div class="rank failed"></div>
+            </li>
+            <li>9,900원</li>
+            <li>커피</li>
+            <li>2022-03-01</li>
+            <li>2022-03-01 12:00</li>
+            <li>
+              <div class="toggle-switch">
+                <input id="toggle1" type="checkbox" />
+                <label for="toggle1"></label>
+              </div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-02" name="select-item" type="checkbox" />
+                <label for="check-02"></label>
+              </div>
+            </li>
+            <li class="col-important item">
+              <div class="image" onclick="location.href='ranking_details.html'">
+                <img src="https://source.unsplash.com/random/100x100/?coffee/2" alt="" />
+              </div>
+              <div class="information">
+                <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
+                  12126547821
+                </a>
+                <div class="title">1kg 커피창고 에티오피아 예가체프 1kg 커피창고 에티오피아 예가체프</div>
+                <div class="store">커피창고</div>
+              </div>
+            </li>
+            <li class="col-keyword">
+              <div class="keyword">커피원두</div>
+            </li>
+            <li>
+              <div>1위</div>
+              <div class="page">1위/1페이지</div>
+              <div class="rank current up">2</div>
+            </li>
+            <li>
+              <div>3위</div>
+              <div class="page">3위/1페이지</div>
+              <div class="rank down">1</div>
+            </li>
+            <li>
+              <div>5위</div>
+              <div class="page">5위/1페이지</div>
+              <div class="rank up">3</div>
+            </li>
+            <li>
+              <div>5위</div>
+              <div class="page">5위/1페이지</div>
+              <div class="rank up">3</div>
+            </li>
+            <li>
+              <div>2위</div>
+              <div class="page">3위/1페이지</div>
+              <div class="rank same"></div>
+            </li>
+            <li>9,900원</li>
+            <li>커피</li>
+            <li>2022-03-01</li>
+            <li>2022-03-01 12:00</li>
+            <li>
+              <div class="toggle-switch">
+                <input id="toggle2" type="checkbox" />
+                <label for="toggle2"></label>
+              </div>
+            </li>
+          </ul>
 
-        <!-- 기간 만료 -->
-        <ul class="row failed">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="check-03" name="select-item" type="checkbox" />
-              <label for="check-03"></label>
-            </div>
-          </li>
-          <li class="col-important item">
-            <div class="image" onclick="location.href='ranking_details.html'">
-              <img src="https://source.unsplash.com/random/100x100/?coffee/3" alt="" />
-            </div>
-            <div class="information">
-              <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
-                12126547821
-              </a>
-              <div class="title">1kg 커피창고 에티오피아 예가체프</div>
-              <div class="store">커피창고</div>
-            </div>
-          </li>
-          <li class="col-keyword">
-            <div class="keyword">커피원두</div>
-          </li>
-          <li>
-            <div class="rank failed"></div>
-          </li>
-          <li>
-            <div class="rank failed"></div>
-          </li>
-          <li>
-            <div class="rank failed"></div>
-          </li>
-          <li>
-            <div class="rank failed"></div>
-          </li>
-          <li>
-            <div class="rank failed"></div>
-          </li>
-          <li>9,900원</li>
-          <li>커피</li>
-          <li>2022-03-01</li>
-          <li>2022-03-01 12:00</li>
-          <li>
-            <div class="toggle-switch">
-              <input id="toggle3" type="checkbox" />
-              <label for="toggle3"></label>
-            </div>
-          </li>
-        </ul>
+          <!-- 기간 만료 -->
+          <ul class="row failed">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-03" name="select-item" type="checkbox" />
+                <label for="check-03"></label>
+              </div>
+            </li>
+            <li class="col-important item">
+              <div class="image" onclick="location.href='ranking_details.html'">
+                <img src="https://source.unsplash.com/random/100x100/?coffee/3" alt="" />
+              </div>
+              <div class="information">
+                <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
+                  12126547821
+                </a>
+                <div class="title">1kg 커피창고 에티오피아 예가체프</div>
+                <div class="store">커피창고</div>
+              </div>
+            </li>
+            <li class="col-keyword">
+              <div class="keyword">커피원두</div>
+            </li>
+            <li>
+              <div class="rank current failed"></div>
+            </li>
+            <li>
+              <div class="rank failed"></div>
+            </li>
+            <li>
+              <div class="rank failed"></div>
+            </li>
+            <li>
+              <div class="rank failed"></div>
+            </li>
+            <li>
+              <div class="rank failed"></div>
+            </li>
+            <li>9,900원</li>
+            <li>커피</li>
+            <li>2022-03-01</li>
+            <li>2022-03-01 12:00</li>
+            <li>
+              <div class="toggle-switch">
+                <input id="toggle3" type="checkbox" />
+                <label for="toggle3"></label>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
       <footer class="section-footer">
         <div class="pagination">
