@@ -40,8 +40,8 @@ $farrownball-drawing-room-blue: #2e3548;
 $clark-kensington-stowe-mountain: #717593;
 
 $primary-color: #7682f8;
-$secondary-color: #5b54c6;
-$tertiary-color: #f2f1ff;
+$main-color: #5b54c6;
+$secondary-color: #f2f1ff;
 $dark-primary-color: #27292d;
 $dark-tertiary-color: #85899a;
 $dark-secondary-color: $clark-kensington-stowe-mountain;
@@ -66,11 +66,7 @@ body {
   background-color: #eff3f7;
   color: #333;
   width: 100%;
-  overflow-x: hidden;
-  text-rendering: optimizeLegibility;
-  font: 14px/1 "Roboto", "NanumBarunGothic";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font: 14px "Roboto", "NanumBarunGothic";
 
   img {
     display: block;
@@ -228,8 +224,6 @@ section {
 }
 
 ul {
-  margin: 0;
-  padding: 0;
   list-style: none;
 }
 
@@ -654,7 +648,7 @@ progress {
     height: 12px;
     width: 100%;
     border-radius: 0.5rem;
-    background-color: $secondary-color;
+    background-color: $main-color;
   }
   &::-moz-progress-bar {
     height: 12px;
@@ -788,8 +782,8 @@ progress {
       + label {
         &::before {
           content: "";
-          background: $secondary-color;
-          border-color: $secondary-color;
+          background: $main-color;
+          border-color: $main-color;
         }
 
         &::after {
@@ -1018,7 +1012,7 @@ input[type="radio"] {
 
     &:hover,
     &.is-active {
-      color: $secondary-color;
+      color: $main-color;
     }
   }
 }
@@ -1146,7 +1140,7 @@ input[type="radio"] {
 
         &::before {
           left: 13px;
-          background-color: $secondary-color;
+          background-color: $main-color;
         }
       }
     }
@@ -1408,7 +1402,7 @@ input[type="radio"] {
   }
 
   &:hover {
-    z-index: 10;
+    z-index: 100;
 
     &::after {
       opacity: 1;
@@ -1455,12 +1449,12 @@ input[type="radio"] {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background: $secondary-color
+  background: $main-color
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath fill='white' d='M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z'/%3E%3C/svg%3E")
     no-repeat center;
   box-shadow: 0 3px 9px -4px $primary-color;
   cursor: pointer;
-  z-index: 50;
+  z-index: 100 !important;
 
   &.is-active {
     bottom: 2rem;
@@ -1474,7 +1468,7 @@ input[type="radio"] {
 
   .ui-widget-header {
     border: 1px solid $primary-color;
-    background: $tertiary-color;
+    background: $secondary-color;
     color: #333333;
     font-weight: normal;
     font-family: "RobotoMedium";
@@ -1677,7 +1671,7 @@ input[type="radio"] {
 }
 
 .dark-mode .selectbox::before {
-  border: solid $secondary-color;
+  border: solid $main-color;
   border-width: 0 1px 1px 0;
 }
 
