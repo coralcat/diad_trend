@@ -766,27 +766,6 @@ document.addEventListener("DOMContentLoaded", () => {
   //   }
   // }
 
-  const historyRows = document.querySelectorAll(".section-keyword-history .list .row");
-
-  if (historyRows[0]) {
-    const dateTitle = document.querySelectorAll(".date");
-
-    historyRows.forEach(row => {
-      const lists = row.querySelectorAll("li");
-
-      lists.forEach(list => {
-        const index = lists.length;
-        const dateIndex = [...dateTitle][index];
-        const date = document.createElement("div");
-        date.classList.add("date-title");
-        date.innerText = dateIndex.textContent;
-        list.prepend(date);
-
-        dateIndex === [...lists].indexOf(1) && list.prepend(date);
-      });
-    });
-  }
-
   const hamburgMenu = document.querySelector(".hamburg-menu");
   hamburgMenu.addEventListener("click", () => {
     const aside = document.querySelector("aside");
