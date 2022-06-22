@@ -96,32 +96,33 @@
     <section class="section-my-alarm">
       <header class="section-header">
         <h3>나의 알림 서비스 현황</h3>
-        <a class="right-arrow" href="https://diad.co.kr/Mypage/PaymentHistoryView">서비스 이용 내역 보기</a>
+        <a class="right-arrow" href="https://diad.co.kr/Mypage/PaymentHistoryView" target="_blank">서비스 이용 내역 보기</a>
       </header>
-      <div class="list">
-        <ul class="row title">
-          <li>서비스구분</li>
-          <li>사용여부</li>
-          <li>사용기간</li>
-          <li>알림설정</li>
-          <li>매체설정</li>
-          <li>알림 ON 소재</li>
+      <div class="alarms">
+        <ul class="alarm">
+          <li class="title">
+            상품순위조회
+            <div class="tag green">사용중</div>
+          </li>
+          <li class="period">
+            <div class="">2022-03-31 ~ 2022-05-07</div>
+            <div>1개월 7일</div>
+          </li>
+          <li class="land">카카오톡/이메일</li>
+          <li class="quantity">15개</li>
+          <li class="subscribe">ON</li>
         </ul>
-        <ul class="row">
-          <li>상품순위조회</li>
-          <li>Y</li>
-          <li>2022-03-31 ~ 2022-05-07 (1개월 7일)</li>
-          <li>ON</li>
-          <li>카카오톡/이메일</li>
-          <li>15개</li>
-        </ul>
-        <ul class="row">
-          <li>최저가알림</li>
-          <li>N</li>
-          <li>-</li>
-          <li>OFF</li>
-          <li>카카오톡/이메일</li>
-          <li>-</li>
+        <ul class="alarm">
+          <li class="title">
+            최저가알림
+            <div class="tag red">사용안함</div>
+          </li>
+          <li class="period">
+            <div class="">-</div>
+          </li>
+          <li class="land">카카오톡/이메일</li>
+          <li class="quantity">0</li>
+          <li class="subscribe">OFF</li>
         </ul>
       </div>
     </section>
@@ -129,7 +130,7 @@
       <header class="section-header">
         <h3>알림 서비스 설정</h3>
         <div class="toggle toggle-switch toggle-controller is-active" data-toggle="alarm-services">
-          <input id="toggle1" type="checkbox" />
+          <input id="toggle1" type="checkbox" checked />
           <label for="toggle1"></label>
         </div>
       </header>
@@ -137,7 +138,7 @@
         <div class="row">
           <div>상품 순위 조회</div>
           <div class="toggle toggle-switch is-active" data-toggle="alarm-services">
-            <input id="toggle2" type="checkbox" />
+            <input id="toggle2" type="checkbox" checked />
             <label for="toggle2"></label>
           </div>
         </div>
@@ -163,20 +164,20 @@
                 가입 시 입력한 이메일 / 휴대전화 번호(카카오 알림톡)로 알림 받기
               </label>
             </div>
-            <a href="#" class="right-arrow">가입 정보 변경</a>
+            <a href="https://diad.co.kr/Mypage/Membermanage " target="_blank" class="right-arrow">가입 정보 변경</a>
           </div>
           <div class="details">
             <div class="row">
-              <div class="toggle toggle-switch is-active">
-                <input id="toggle7" type="checkbox" />
+              <div class="toggle-switch">
+                <input id="toggle7" type="checkbox" checked />
                 <label for="toggle7"></label>
               </div>
               <div class="row-title">휴대전화 번호</div>
               <span>010-1234-***</span>
             </div>
             <div class="row">
-              <div class="toggle toggle-switch is-active">
-                <input id="toggle8" type="checkbox" />
+              <div class="toggle-switch">
+                <input id="toggle8" type="checkbox" checked />
                 <label for="toggle8"></label>
               </div>
               <div class="row-title">이메일</div>
