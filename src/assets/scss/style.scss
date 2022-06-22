@@ -3515,17 +3515,17 @@ section {
 
         .period {
           width: 100%;
-          font-family: 'Roboto';
+          align-items: flex-start;
+          height: 64px;
+
+          .tag {
+            margin-bottom: .35rem;
+          }
 
           div {
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-
-            &:first-of-type {
-            }
 
             &:last-of-type {
+              font-family: 'Roboto';
               font-size: 13px;
             }
           }
@@ -3626,7 +3626,7 @@ section {
         transition: .25s;
 
         &.is-active {
-          padding: 1.5rem;
+          padding: 1rem;
           max-height: 200px;
         }
 
