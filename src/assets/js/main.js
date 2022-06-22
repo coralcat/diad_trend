@@ -243,18 +243,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // 알림 매체 설정 disabled 처리
   const changeAlarmInformation = document.querySelector(".content-settings .change-information");
   if (changeAlarmInformation) {
-    const toggles = changeAlarmInformation.querySelectorAll(".toggle");
-    toggles.forEach(toggle => {
-      const inputDisabled = () => {
-        const inputs = toggle.parentElement.querySelector(".inputs");
-        !toggle.classList.contains("is-active")
-          ? (inputs.style.visibility = "hidden")
-          : (inputs.style.visibility = "visible");
-      };
-      inputDisabled();
-      toggle.addEventListener("click", inputDisabled);
-    });
-
     const select = document.getElementsByName("selectRecieveInformation");
     const detail1 = select[0].closest(".select").querySelector(".details");
     const detail2 = select[1].closest(".select").querySelector(".details");
@@ -267,15 +255,25 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           detail1.classList.remove("is-active");
           detail2.classList.add("is-active");
+
+          const toggles = detail2.querySelectorAll(".toggle-switch");
+          const inputDisabled = (event) => {
+            const row = event.target.closest(".row");
+            const checked = row.querySelector("input:checked")
+            const inputs = row.querySelector(".inputs");
+            checked
+              ? (inputs.classList.add("is-active"))
+              : (inputs.classList.remove("is-active"));
+          };
+          toggles.forEach(toggle => {
+            toggle.addEventListener("click", inputDisabled);
+          });
         }
       });
 
       if (select[0].checked) {
         detail1.classList.add("is-active");
         detail2.classList.remove("is-active");
-      } else {
-        detail1.classList.remove("is-active");
-        detail2.classList.add("is-active");
       }
     });
   }
