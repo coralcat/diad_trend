@@ -336,9 +336,12 @@
         border-radius: 0;
 
         .section-header {
-          padding: .5rem 1rem;
+          padding: 1rem;
         }
 
+        &.section-chart {
+          background-color: white;
+        }
       }
     }
 
