@@ -399,7 +399,6 @@ main {
     overflow-y: auto;
 
     > section {
-      padding: 1rem;
       flex: 1 1 auto;
       background-color: white;
       padding: 0.75rem;
@@ -972,7 +971,6 @@ section {
       max-width: 100%;
       white-space: nowrap;
       text-overflow: ellipsis;
-      overflow: hidden;
       cursor: pointer;
     }
 
@@ -1390,9 +1388,6 @@ section {
     gap: 0.5rem;
   }
 
-  .total {
-  }
-
   .buttons {
     align-items: center;
     gap: 1rem;
@@ -1490,7 +1485,6 @@ section {
       display: flex;
       align-items: center;
       height: 30px;
-      padding: 0 0.5rem;
       margin-right: 0;
       padding: 0.5rem 1rem;
       transition: 0.25s background-color;
@@ -1584,12 +1578,6 @@ section {
       border-radius: 0.5rem;
       display: flex;
       padding: 0.5rem;
-
-      > div:first-of-type {
-      }
-
-      > div:last-of-type {
-      }
     }
 
     .chart {
@@ -1710,10 +1698,43 @@ section {
     padding: 1rem;
   }
 
+  .list {
+    position: relative;
+  }
+
+  .failed {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: calc(100% - 39px);
+    top: 39px;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255,255,255,.85);
+
+    p {
+      font-size: 17px;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    button {
+      height: 40px;
+      font-size: 14px;
+    }
+  }
+
   .chart {
-    width: 300px;
+    display: flex;
+    justify-content: center;
     align-self: center;
     padding: 1rem;
+    position: relative;
+
+    canvas {
+      height: auto !important;
+    }
   }
 
   .progress {
@@ -1799,16 +1820,11 @@ section {
     }
 
     &.section-chart {
-      &:first-of-type {
-        .chart {
-          min-height: 150px;
-          height: 180px;
-        }
-      }
 
       .list {
         flex: 1 1 auto;
         flex-wrap: wrap;
+        width: 50%;
       }
 
       .title {
@@ -1818,10 +1834,6 @@ section {
           justify-content: space-between;
           align-items: center;
         }
-      }
-
-      .chart {
-        height: 300px;
       }
     }
 
@@ -1876,6 +1888,7 @@ section {
             }
 
             &:nth-of-type(2) {
+              flex: 0 0 100px;
               justify-content: flex-end;
             }
           }
@@ -1926,7 +1939,7 @@ section {
         flex-wrap: wrap;
         align-items: center;
         position: relative;
-        gap: 0.5rem;
+        gap: 3px;
 
         &:first-of-type {
           strong {
@@ -2209,7 +2222,6 @@ section {
       background-color: rgba(255, 99, 71, 0.1);
       border-radius: 5px;
       color: tomato;
-      padding: 0 0.75rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -2291,9 +2303,6 @@ section {
         :first-of-type {
           font-size: 13px;
           color: lightslategray;
-        }
-
-        :last-of-type {
         }
       }
 
@@ -2662,7 +2671,7 @@ section {
     justify-content: center !important;
 
     .tabs {
-      gap: .5rem
+      gap: 0.5rem;
     }
   }
 
@@ -2678,8 +2687,32 @@ section {
         z-index: 100;
       }
 
+      &:not(.title) {
+
+        li {
+          &:nth-of-type(3),
+          &:nth-of-type(5) {
+  
+            &::after {
+              content: "건";
+            }
+          }
+          &:nth-of-type(4) {
+  
+            &::after {
+              content: "개";
+            }
+          }
+        }
+      }
+
       li {
         width: 14.286%;
+
+        &:first-of-type,
+        &:last-of-type {
+          width: 2rem;
+        }
 
         .keyword {
           cursor: pointer;
@@ -3458,6 +3491,8 @@ section {
 }
 
 .content-settings {
+  overflow-y: auto;
+  
   .wrapper {
     flex: 0 0 auto;
     width: 50vw;
@@ -3480,7 +3515,7 @@ section {
       gap: 0.5rem;
 
       .alarm {
-        width: calc(50% - .25rem);
+        width: calc(50% - 0.25rem);
         padding: 0.75rem;
         border: 1px solid #eee;
         border-radius: 0.5rem;
@@ -3510,7 +3545,6 @@ section {
           gap: 0.5rem;
           width: 100%;
           position: relative;
-
         }
 
         .period {
@@ -3519,17 +3553,15 @@ section {
           height: 64px;
 
           .tag {
-            margin-bottom: .35rem;
+            margin-bottom: 0.35rem;
           }
 
           div {
-
             &:last-of-type {
-              font-family: 'Roboto';
+              font-family: "Roboto";
               font-size: 13px;
             }
           }
-
         }
 
         .land {
@@ -3603,7 +3635,6 @@ section {
       overflow: hidden;
 
       .select {
-
         .title {
           flex-wrap: wrap;
           width: 100%;
@@ -3623,7 +3654,7 @@ section {
         flex: 1 1 auto;
         width: 100%;
         flex-wrap: wrap;
-        transition: .25s;
+        transition: 0.25s;
 
         &.is-active {
           padding: 1rem;
@@ -3656,7 +3687,7 @@ section {
             opacity: 0;
             visibility: hidden;
             flex: 1 1 auto;
-            transition: opacity .25s;
+            transition: opacity 0.25s;
           }
         }
       }
