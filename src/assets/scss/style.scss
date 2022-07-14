@@ -269,6 +269,30 @@ main {
   background-color: #eff3f7;
   overflow: hidden;
 
+  fieldset {
+    padding: 1rem;
+
+    &.items {
+      .summary {
+        height: 100%;
+
+        ul {
+          height: 100%;
+          align-items: center;
+        }
+
+        li {
+          flex-direction: column;
+        }
+      }
+    }
+
+    legend {
+      font-size: 17px;
+      padding: 0 0.5rem;
+      text-align: center;
+    }
+  }
   .main-header {
     flex: 0 0 auto;
     padding: 1rem 1rem 1rem;
@@ -1133,6 +1157,15 @@ section {
     &.title {
       margin-bottom: 0 !important;
 
+      .date {
+        display: flex;
+        gap: 2px;
+
+        strong {
+          color: #333;
+        }
+      }
+
       > li {
         background-color: #f1f2fe;
         border-bottom: 1px solid #e7e8e9;
@@ -1698,6 +1731,43 @@ section {
     padding: 1rem;
   }
 
+  fieldset {
+    flex: 1 1 50%;
+    margin: 0.5rem 0;
+    position: relative;
+
+    .information {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      position: absolute;
+      right: 1rem;
+      top: 0.5rem;
+      
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background: #f7f8f9;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        gap: 1rem;
+        color: #49536b;
+        
+        span {
+          display: flex;
+          align-items: center;
+          gap: 2px
+        }
+
+        strong {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+
   .list {
     position: relative;
   }
@@ -1712,7 +1782,7 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(255,255,255,.85);
+    background-color: rgba(255, 255, 255, 0.85);
 
     p {
       font-size: 17px;
@@ -1727,26 +1797,29 @@ section {
 
   .chart {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     align-self: center;
-    padding: 1rem;
+    margin: 1rem 0;
     position: relative;
 
-    canvas {
-      height: auto !important;
+    &[class$="service-chart"] {
+      min-height: auto;
+      height: 160px !important;
+    }
+
+    &[class*="detail-chart"]  {
+      height: 240px
     }
   }
 
   .progress {
     margin: 0 auto;
     width: 60%;
-    padding: 1rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     border-top: 1px solid #eee;
-    padding-top: 2rem;
-    margin-top: 2rem;
+    padding-top: 1rem;
 
     h3 {
       font-size: 17px;
@@ -1820,7 +1893,6 @@ section {
     }
 
     &.section-chart {
-
       .list {
         flex: 1 1 auto;
         flex-wrap: wrap;
@@ -2688,17 +2760,14 @@ section {
       }
 
       &:not(.title) {
-
         li {
           &:nth-of-type(3),
           &:nth-of-type(5) {
-  
             &::after {
               content: "건";
             }
           }
           &:nth-of-type(4) {
-  
             &::after {
               content: "개";
             }
@@ -3155,31 +3224,6 @@ section {
       }
     }
 
-    fieldset {
-      padding: 1rem;
-
-      &.items {
-        .summary {
-          height: 100%;
-
-          ul {
-            height: 100%;
-            align-items: center;
-          }
-
-          li {
-            flex-direction: column;
-          }
-        }
-      }
-
-      legend {
-        font-size: 17px;
-        padding: 0 0.5rem;
-        text-align: center;
-      }
-    }
-
     .summary {
       &.horizontal {
         ul {
@@ -3492,7 +3536,7 @@ section {
 
 .content-settings {
   overflow-y: auto;
-  
+
   .wrapper {
     flex: 0 0 auto;
     width: 50vw;

@@ -315,14 +315,22 @@
         <h3>서비스 이용 현황</h3>
       </header>
       <div class="wrapper">
-        <div class="list">
-          <ul class="row title">
+        <fieldset>
+          <legend>상품 순위 조회</legend>
+          <ul class="information">
             <li>
-              <span>상품 순위 조회</span>
-              <span class="date">최근 갱신시간 2022-03-01 12:00</span>
+              <span>서비스 타입</span>
+              <strong>F</strong>
+            </li>
+            <li>
+              <span>제공량</span>
+              <span>
+                <strong>100</strong>
+                건
+              </span>
             </li>
           </ul>
-          <div id="mainRankingChart" class="chart"></div>
+          <div id="mainRankingChart" class="chart rank-service-chart"></div>
           <div class="progress">
             <h3>서비스 기간</h3>
             <progress value="126" max="365"></progress>
@@ -331,15 +339,23 @@
               <div class="remaining-days">239</div>
             </div>
           </div>
-        </div>
-        <div class="list">
-          <ul class="row title">
+        </fieldset>
+        <fieldset>
+          <legend>최저가 알림</legend>
+          <ul class="information">
             <li>
-              <span>최저가 알림</span>
-              <span class="date">최근 갱신시간 2022-03-01 12:00</span>
+              <span>서비스 타입</span>
+              <strong>F</strong>
+            </li>
+            <li>
+              <span>제공량</span>
+              <span>
+                <strong>100</strong>
+                건
+              </span>
             </li>
           </ul>
-          <div id="mainLowestPriceChart" class="chart"></div>
+          <div id="mainLowestPriceChart" class="chart lowest-service-chart"></div>
           <div class="progress">
             <h3>서비스 기간</h3>
             <progress value="126" max="365"></progress>
@@ -348,7 +364,7 @@
               <div class="remaining-days">239</div>
             </div>
           </div>
-        </div>
+        </fieldset>
       </div>
     </section>
     <section class="section-chart">
@@ -356,24 +372,26 @@
         <h3>서비스별 현황</h3>
       </header>
       <div class="wrapper">
-        <div class="list">
-          <ul class="row title">
+        <fieldset>
+          <legend>상품 순위 조회</legend>
+          <ul class="information">
             <li>
-              <span>상품 순위 조회</span>
-              <span class="date">최근 갱신시간 2022-03-01 12:00</span>
+              <span>최근 갱신시간</span>
+              <strong>2022-03-01 12:00</strong>
             </li>
           </ul>
-          <div id="rankingChart" class="chart"></div>
-        </div>
-        <div class="list">
-          <ul class="row title">
+          <div id="rankingChart" class="chart detail-chart"></div>
+        </fieldset>
+        <fieldset>
+          <legend>최저가 알림</legend>
+          <ul class="information">
             <li>
-              <span>최저가 알림</span>
-              <span class="date">최근 갱신시간 2022-03-01 12:00</span>
+              <span>최근 갱신시간</span>
+              <strong>2022-03-01 12:00</strong>
             </li>
           </ul>
-          <div id="lowestPriceChart" class="chart"></div>
-        </div>
+          <div id="lowestPriceChart" class="chart detail-chart-lowest"></div>
+        <!-- </fieldset> -->
       </div>
     </section>
     <section class="section-article">
