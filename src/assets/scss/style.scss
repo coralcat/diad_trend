@@ -92,8 +92,7 @@ p {
   }
 }
 
-h1,
-h3 {
+h1, h3, h4 {
   line-height: 1;
   font-weight: normal;
   display: flex;
@@ -1593,44 +1592,126 @@ section {
   }
 
   h1 {
-    font-size: 32px;
+    font-size: 2vw;
+    margin-bottom: 2rem;
     flex-direction: column;
-    align-items: flex-start;
-    margin: 2rem 0;
+    align-items: center;
   }
 
   p {
     font-size: 17px;
+    text-align: center;
   }
 
-  .search {
-    margin-bottom: 3rem;
+  .section-main {
 
-    input {
-      background-color: #f3f6f9;
-      border: 0;
-      font-size: 16px;
-      padding: 2rem 1rem;
-      border-radius: 60px;
+
+    h1 {
+      align-items: flex-start;
+    }
+
+    p {
+      text-align: left;
+    }
+
+    .search {
+      margin: .5rem 0 3rem;
+      display: block;
+  
+      input {
+        width: 40%;
+        background-color: #f3f6f9;
+        border: 0;
+        font-size: 16px;
+        padding: 1.75rem 1rem;
+        border-radius: 60px;
+        transition: width .4s;
+
+        &:focus {
+          width: 60%;
+        }
+  
+        &.ico-search {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' fill='slategray' /%3E%3C/svg%3E");
+          background-size: 30px 30px;
+          background-position: right 1rem center;
+        }
+      }
+    }
+  
+    .keywords {
+
+      .keyword {
+        font-size: 17px;
+        border-radius: 30px;
+        padding: 0.35rem 0.75rem;
+      }
+
+      .title {
+        margin-bottom: 1rem;
+      }
+  
+      ul {
+        display: flex;
+        gap: 0.75rem;
+  
+        li {
+        }
+      }
     }
   }
 
-  .keywords {
-    .title {
-      margin-bottom: 1rem;
+  .section-about {
+
+    h1 {
+      margin-bottom: 1rem
     }
 
     ul {
+      margin: 2rem auto;
+      width: 100%;
       display: flex;
-      gap: 0.75rem;
+      gap: 4rem;
+      justify-content: center;
 
       li {
+        width: 160px;
+        padding: 9rem 1rem 1rem;
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: 80%;
+
+        &:nth-of-type(1) {
+          background-image: url(../images/ico_ranking.png);
+        }
+
+        &:nth-of-type(2) {
+          background-image: url(../images/ico_lowest_price.png);
+        }
+
+        &:nth-of-type(3) {
+          background-image: url(../images/ico_trend.png);
+        }
+
+        p {
+          font-size: 17px;
+          color: $main-color;
+        }
+      }
+    }
+
+    .buttons {
+      margin: 0 auto;
+
+      button {
+        height: 36px;
       }
     }
   }
 
   .section-price {
     align-items: center;
+
     ul {
       display: flex;
       justify-content: space-around;
@@ -1639,6 +1720,7 @@ section {
       li {
         width: 240px;
         border: 1px solid #eee;
+        background-color: #f3f6f9;
         border-radius: 0.5rem;
         display: flex;
         flex-direction: column;
@@ -1646,13 +1728,24 @@ section {
         overflow: hidden;
 
         .title {
-          background-color: $main-color;
           padding: 1rem;
-          color: white;
+          text-align: center;
+          border-bottom: 1px solid #eee;
+
+          * {
+            justify-content: center;
+          }
+          
+          h3 {
+          }
+
+          h4 {
+            color: $primary-color
+          }
         }
 
         dl {
-          padding: 1rem;
+          padding: 1.5rem 1.5rem 2rem;
           display: flex;
           flex-direction: column;
           gap: 1rem;
@@ -1668,7 +1761,7 @@ section {
               position: absolute;
               top: 4px;
               left: 4px;
-              border: 2px solid $primary-color;
+              border: 2px solid mediumseagreen;
               border-top: none;
               border-right: none;
               background: transparent;
@@ -1682,6 +1775,14 @@ section {
             }
           }
         }
+
+        .right-arrow {
+          font-size: 13px;
+        }
+
+        button {
+          border-radius: 60px;
+        }
       }
     }
 
@@ -1694,6 +1795,75 @@ section {
       button {
         height: 36px;
         background-color: $main-color;
+      }
+    }
+  }
+
+  .section-faq  {
+
+    .dropdown {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+
+      li {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background-color: #f3f6f9;
+        border-radius: 3px;
+        transition: background-color .25s;
+
+        &.is-active {
+          background-color: $main-color;
+          color: white;
+
+          .question {
+            border-bottom: 1px solid rgba(255,255,255,.1);
+
+            &::before {
+              transform: rotate(315deg);
+              margin-top:6px;
+              border-color: white;
+            }
+          }
+
+          .answer {
+            opacity: 1;
+            visibility: visible;
+            max-height: 999px;
+            padding: 1rem;
+
+          }
+        }
+      }
+
+      .question {
+        padding: 1rem;
+        transition: background-color .25s;
+        cursor: pointer;
+
+        &::before {
+          content: "";
+          width: 10px;
+          height: 10px;
+          border: 2px solid #666;
+          border-left: 0;
+          border-bottom: 0;
+          display: block;
+          position: absolute;
+          right: 1.25rem;
+          transform: rotate(135deg);
+          transition: .4s
+        }
+      }
+
+      .answer {
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        padding: 0 1rem;
+        transition: .25s;
       }
     }
   }
