@@ -770,4 +770,13 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburgMenu.classList.toggle("is-active");
     aside.classList.toggle("is-active");
   });
+
+  /* =====================================================
+       Dropdown
+  ===================================================== */
+  const dropdown = document.querySelector(".dropdown");
+  dropdown.addEventListener("click", (event) => {
+    console.log(event.target)
+    event.target.closest("li").classList.toggle("is-active")
+  })
 });
