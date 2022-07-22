@@ -631,27 +631,27 @@ aside {
 /* Progress */
 
 progress {
-  height: 12px;
+  height: 10px;
   width: 100%;
   border-radius: 0.25rem;
   border: 0;
   background-color: #eee;
 
   &::-webkit-progress-bar {
-    height: 12px;
+    height: 10px;
     width: 100%;
     border-radius: 0.5rem;
     border: 0;
     background-color: #eee;
   }
   &::-webkit-progress-value {
-    height: 12px;
+    height: 10px;
     width: 100%;
     border-radius: 0.5rem;
     background-color: $main-color;
   }
   &::-moz-progress-bar {
-    height: 12px;
+    height: 10px;
     width: 100%;
     border-radius: 0.5rem;
   }
@@ -1269,9 +1269,9 @@ input[type="radio"] {
 
   .btn-submit,
   .btn-main {
-    background-color: rgb(118 130 248);
+    background-color: $main-color;
     color: #fff;
-    box-shadow: 0 3px 9px -4px rgba(118, 130, 248, 1);
+    box-shadow: 0 3px 9px -4px $main-color;
   }
 
   .btn-cancel {
