@@ -697,13 +697,13 @@ progress {
 }
 
 /* Pagination */
-
 .pagination {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   min-height: 24px;
+  padding: 1rem 0;
 
   > button {
     background-color: #e3e6e9;

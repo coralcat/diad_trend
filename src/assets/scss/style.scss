@@ -37,7 +37,7 @@ body {
   }
 
   .date {
-    font-size: 14px;
+    font-size: 13px;
     color: slategray;
     display: contents;
     white-space: nowrap;
@@ -92,7 +92,9 @@ p {
   }
 }
 
-h1, h3, h4 {
+h1,
+h3,
+h4 {
   line-height: 1;
   font-weight: normal;
   display: flex;
@@ -163,6 +165,7 @@ button {
 
 .calendar {
   display: flex;
+  flex-wrap: nowrap !important;
   gap: 0.5rem;
   align-items: center;
 
@@ -1138,7 +1141,7 @@ section {
 
   .rows {
     flex: 1 1 auto;
-    min-height: 12rem;
+    min-height: 6rem;
   }
 
   .row {
@@ -1189,7 +1192,7 @@ section {
 
     &:last-of-type:not(.title) {
       li {
-        border-bottom: 0;
+        border-bottom: 1px solid #f7f8f9;
       }
     }
 
@@ -1225,7 +1228,7 @@ section {
       background-color: white;
       width: 20%;
       min-height: 36px;
-      padding: 0.75rem;
+      padding: 0.5rem 0.75rem;
       font-family: "RobotoMedium", "NanumBarunGothic";
       transition: background-color 0.25s;
 
@@ -1370,7 +1373,7 @@ section {
   border-top: 0;
 
   article {
-    padding: 1.25rem 0;
+    padding: 1rem 0;
 
     &:not(:last-of-type) {
       border-bottom: 1px solid #eee;
@@ -1378,8 +1381,9 @@ section {
 
     .article-title {
       font-weight: bold;
-      margin-bottom: 1rem;
+      margin-bottom: 0.35rem;
       font-family: "RobotoMedium", "NanumBarunGothicLight";
+      font-size: 16px;
     }
 
     .article-content {
@@ -1391,6 +1395,7 @@ section {
       -webkit-box-orient: vertical;
       overflow: hidden;
       line-height: 1.5;
+      color: slategray;
     }
 
     .created {
@@ -1424,24 +1429,37 @@ section {
 
   .buttons {
     align-items: center;
-    gap: 1rem;
+    gap: 0;
+
+    > *:not(.selectbox:last-of-type) {
+      margin: 0 0.5rem;
+      padding: 0 0.75rem !important;
+      position: relative;
+      border-radius: .35rem;
+    }
 
     :not(:last-of-type) {
-      border-right: 1px solid #eee;
-      padding-right: 1rem;
+
+      &::after {
+        content: "|";
+        padding-left: 1rem;
+        color: #ddd;
+        position: absolute;
+        right: -.75rem
+      }
     }
 
     button {
       padding: 0;
-      height: auto !important;
       font-family: "NanumBarunGothic";
       background-color: transparent;
-      color: slategray;
+      color: #333;
       border-radius: 0;
-      transition: color 0.4s;
+      transition: 0.4s;
 
       &:hover {
         color: $main-color;
+        background-color: $secondary-color;
       }
 
       .checkbox {
@@ -1469,7 +1487,6 @@ section {
         height: auto;
         padding: 0 1rem 0 0;
         border: 0;
-        color: slategray;
 
         &:focus {
           box-shadow: 0 0 0;
@@ -1557,6 +1574,7 @@ section {
       span {
         font-size: 14px;
         color: $main-color;
+        white-space: nowrap;
 
         &:not(:last-of-type) {
           &::after {
@@ -1604,8 +1622,6 @@ section {
   }
 
   .section-main {
-
-
     h1 {
       align-items: flex-start;
     }
@@ -1615,9 +1631,9 @@ section {
     }
 
     .search {
-      margin: .5rem 0 3rem;
+      margin: 0.5rem 0 3rem;
       display: block;
-  
+
       input {
         width: 40%;
         background-color: #f3f6f9;
@@ -1625,12 +1641,12 @@ section {
         font-size: 16px;
         padding: 1.75rem 1rem;
         border-radius: 60px;
-        transition: width .4s;
+        transition: width 0.4s;
 
         &:focus {
           width: 60%;
         }
-  
+
         &.ico-search {
           background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' fill='slategray' /%3E%3C/svg%3E");
           background-size: 30px 30px;
@@ -1638,9 +1654,8 @@ section {
         }
       }
     }
-  
-    .keywords {
 
+    .keywords {
       .keyword {
         font-size: 17px;
         border-radius: 30px;
@@ -1650,11 +1665,11 @@ section {
       .title {
         margin-bottom: 1rem;
       }
-  
+
       ul {
         display: flex;
         gap: 0.75rem;
-  
+
         li {
         }
       }
@@ -1662,9 +1677,8 @@ section {
   }
 
   .section-about {
-
     h1 {
-      margin-bottom: 1rem
+      margin-bottom: 1rem;
     }
 
     ul {
@@ -1704,7 +1718,10 @@ section {
       margin: 0 auto;
 
       button {
-        height: 36px;
+        height: 45px;
+        width: 200px;
+        justify-content: center;
+        font-size: 16px;
       }
     }
   }
@@ -1735,12 +1752,12 @@ section {
           * {
             justify-content: center;
           }
-          
+
           h3 {
           }
 
           h4 {
-            color: $primary-color
+            color: $primary-color;
           }
         }
 
@@ -1788,7 +1805,7 @@ section {
 
     .buttons {
       flex-direction: column;
-      padding: 1rem;
+      padding: 1rem 1rem 1.5rem;
       justify-content: center;
       align-items: center;
 
@@ -1799,12 +1816,11 @@ section {
     }
   }
 
-  .section-faq  {
-
+  .section-faq {
     .dropdown {
       display: flex;
       flex-direction: column;
-      gap: .75rem;
+      gap: 0.75rem;
 
       li {
         position: relative;
@@ -1812,18 +1828,18 @@ section {
         flex-direction: column;
         background-color: #f3f6f9;
         border-radius: 3px;
-        transition: background-color .25s;
+        transition: background-color 0.25s;
 
         &.is-active {
           background-color: $main-color;
           color: white;
 
           .question {
-            border-bottom: 1px solid rgba(255,255,255,.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
             &::before {
               transform: rotate(315deg);
-              margin-top:6px;
+              margin-top: 6px;
               border-color: white;
             }
           }
@@ -1833,14 +1849,13 @@ section {
             visibility: visible;
             max-height: 999px;
             padding: 1rem;
-
           }
         }
       }
 
       .question {
         padding: 1rem;
-        transition: background-color .25s;
+        transition: background-color 0.25s;
         cursor: pointer;
 
         &::before {
@@ -1854,7 +1869,7 @@ section {
           position: absolute;
           right: 1.25rem;
           transform: rotate(135deg);
-          transition: .4s
+          transition: 0.4s;
         }
       }
 
@@ -1863,7 +1878,7 @@ section {
         visibility: hidden;
         max-height: 0;
         padding: 0 1rem;
-        transition: .25s;
+        transition: 0.25s;
       }
     }
   }
@@ -2262,11 +2277,15 @@ section {
 }
 
 :is(.content-ranking, .content-lowest-price) {
+
+  .pagination {
+    padding: 0
+  }
   .section-main {
     display: flex;
     gap: 1rem;
-    width: fit-content;
     align-self: center;
+    width: 90%;
 
     .section-header {
       padding-bottom: 0;
@@ -2295,24 +2314,17 @@ section {
       gap: 0.75rem;
 
       li {
-        background: $secondary-color;
+        background: #f3f6f9;
         border-radius: 0.5rem;
         padding: 0.5rem;
-        width: 180px;
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         position: relative;
         gap: 3px;
 
-        &:first-of-type {
-          strong {
-            color: $main-color;
-          }
-        }
-
         div {
-          color: $main-color;
           width: 100%;
         }
 
@@ -2326,7 +2338,7 @@ section {
           top: 50%;
           transform: translateY(-50%);
           right: 1rem;
-          color: #49536b;
+          color: $main-color;
           font-size: 22px;
           gap: 2px;
 
@@ -2427,6 +2439,7 @@ section {
       li {
         position: relative;
         flex: 0 0 auto;
+        // border-bottom: 1px solid #eee;
 
         .page {
           display: flex;
@@ -3071,7 +3084,7 @@ section {
 
         &:first-of-type,
         &:last-of-type {
-          width: 2rem;
+          width: 2.5rem;
         }
 
         .keyword {
@@ -3440,12 +3453,13 @@ section {
     .tabs {
       flex-direction: column;
       gap: 1rem;
-      padding-top: 1rem;
+      padding-top: 0.5rem;
       width: fit-content;
       margin-right: 3rem;
       white-space: nowrap;
 
       li {
+        font-size: 15px;
         height: 28px;
 
         &.is-active {
@@ -3865,6 +3879,7 @@ section {
           width: 30%;
           display: flex;
           flex-direction: column;
+          white-space: nowrap;
 
           &::before {
             font-size: 13px;
