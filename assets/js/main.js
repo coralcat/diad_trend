@@ -775,8 +775,10 @@ document.addEventListener("DOMContentLoaded", () => {
        Dropdown
   ===================================================== */
   const dropdown = document.querySelector(".dropdown");
-  dropdown.addEventListener("click", (event) => {
-    console.log(event.target)
-    event.target.closest("li").classList.toggle("is-active")
-  })
+  if(dropdown) {
+    dropdown.addEventListener("click", (event) => {
+      console.log(event.target)
+      event.target.closest("li").classList.toggle("is-active")
+    })
+  }
 });
