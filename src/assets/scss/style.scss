@@ -696,6 +696,11 @@ section {
       &.btn-main {
         background-color: $main-color;
       }
+
+      &.ico-search {
+        background-color: $main-color;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' fill='white' /%3E%3C/svg%3E");
+      }
     }
   }
 
@@ -1101,8 +1106,7 @@ section {
 }
 
 .list {
-  border-top: 2px solid $primary-color;
-  border-bottom: 1px solid #b3b6b9;
+  border-top: 1px solid #e3e6e9;
 
   &:empty {
     min-height: 200px;
@@ -1142,6 +1146,10 @@ section {
   .rows {
     flex: 1 1 auto;
     min-height: 6rem;
+
+    &:empty {
+      border-bottom: 1px solid #eee
+    }
   }
 
   .row {
@@ -1159,8 +1167,6 @@ section {
     }
 
     &.title {
-      margin-bottom: 0 !important;
-
       .date {
         display: flex;
         gap: 2px;
@@ -1171,36 +1177,24 @@ section {
       }
 
       > li {
-        background-color: #f1f2fe;
-        border-bottom: 1px solid #e7e8e9;
-        color: $main-color;
+        min-height: 45px;
+        background-color: #f3f6f9;
+        color: #565e72;
         font: 14px/1 "Roboto", "NanumBarunGothic";
-
-        &:not(:last-of-type) {
-          border-right: 1px solid #e7e8e9;
-        }
 
         &.ico-sort {
           transition: background-color 0.45s;
 
           &:hover {
-            background-color: #e6e9ff !important;
+            background-color: #e3e6e9 !important;
           }
         }
       }
     }
 
-    &:last-of-type:not(.title) {
-      li {
-        border-bottom: 1px solid #f7f8f9;
-      }
-    }
-
     &:not(.title) {
-      &:nth-of-type(even) {
-        li {
-          background-color: #f7f8f9;
-        }
+      li {
+        border-right: 1px solid #f3f6f9;
       }
     }
 
@@ -1220,21 +1214,18 @@ section {
     }
 
     li {
+      background-color: white;
+      border-bottom: 1px solid #eee;
       flex: 1 1 auto;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      background-color: white;
       width: 20%;
       min-height: 36px;
       padding: 0.5rem 0.75rem;
       font-family: "RobotoMedium", "NanumBarunGothic";
       transition: background-color 0.25s;
-
-      &:not(:last-of-type) {
-        border-right: 1px solid #eee;
-      }
 
       &.date {
         justify-content: flex-end;
@@ -1344,7 +1335,6 @@ section {
 
         &.same {
           justify-content: center;
-          color: slategray;
           background-color: #e3e6e9;
 
           &::before {
@@ -1435,17 +1425,16 @@ section {
       margin: 0 0.5rem;
       padding: 0 0.75rem !important;
       position: relative;
-      border-radius: .35rem;
+      border-radius: 0.35rem;
     }
 
     :not(:last-of-type) {
-
       &::after {
         content: "|";
         padding-left: 1rem;
         color: #ddd;
         position: absolute;
-        right: -.75rem
+        right: -0.75rem;
       }
     }
 
@@ -2277,9 +2266,8 @@ section {
 }
 
 :is(.content-ranking, .content-lowest-price) {
-
   .pagination {
-    padding: 0
+    padding: 0;
   }
   .section-main {
     display: flex;
@@ -2314,7 +2302,7 @@ section {
       gap: 0.75rem;
 
       li {
-        background: #f3f6f9;
+        background: $secondary-color;
         border-radius: 0.5rem;
         padding: 0.5rem;
         width: 100%;
@@ -2426,6 +2414,7 @@ section {
 
     .row {
       &.title {
+        
         .date {
           font: normal 13px/1 "Roboto";
         }
@@ -2439,7 +2428,7 @@ section {
       li {
         position: relative;
         flex: 0 0 auto;
-        // border-bottom: 1px solid #eee;
+        border-bottom: 1px solid #eee;
 
         .page {
           display: flex;
@@ -2780,11 +2769,12 @@ section {
             padding: 0 0.5rem;
             height: 28px;
             min-width: 28px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='18'%3E%3Cg%3E%3Crect fill='none' height='18' width='24'/%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Crect fill='rgb(91 84 198)' height='2' width='9' x='13' y='7'/%3E%3Crect fill='rgb(91 84 198)' height='2' width='9' x='13' y='15'/%3E%3Crect fill='rgb(91 84 198)' height='2' width='6' x='16' y='11'/%3E%3Cpolygon fill='rgb(91 84 198)' points='13,12 8,7 8,11 2,11 2,13 8,13 8,17'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+            background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='18'%3E%3Cg%3E%3Crect fill='none' height='18' width='24'/%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Crect fill='rgb(91 84 198)' height='2' width='9' x='13' y='7'/%3E%3Crect fill='rgb(91 84 198)' height='2' width='9' x='13' y='15'/%3E%3Crect fill='rgb(91 84 198)' height='2' width='6' x='16' y='11'/%3E%3Cpolygon fill='rgb(91 84 198)' points='13,12 8,7 8,11 2,11 2,13 8,13 8,17'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
               no-repeat right 7px center;
 
             &:hover {
-              background-color: white;
+              background: $main-color url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='18'%3E%3Cg%3E%3Crect fill='none' height='18' width='24'/%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Crect fill='white' height='2' width='9' x='13' y='7'/%3E%3Crect fill='white' height='2' width='9' x='13' y='15'/%3E%3Crect fill='white' height='2' width='6' x='16' y='11'/%3E%3Cpolygon fill='white' points='13,12 8,7 8,11 2,11 2,13 8,13 8,17'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+                no-repeat right 7px center;
             }
 
             &:is(.new, .failed) {
@@ -4188,9 +4178,8 @@ section {
           &:first-of-type {
             flex: 0 0 auto;
             width: 100px;
-            padding: 0;
-            font-family: "NanumBarunGothicLight";
-            font-weight: bold;
+            color: #565e72;
+            align-items: flex-start;
           }
 
           &:last-of-type {
