@@ -1104,7 +1104,7 @@ input[type="radio"] {
 .toggle-switch {
   input {
     appearance: none;
-    display: none;
+    display: none !important;
 
     + label {
       position: relative;
