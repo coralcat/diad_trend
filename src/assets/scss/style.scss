@@ -1148,7 +1148,7 @@ section {
     min-height: 6rem;
 
     &:empty {
-      border-bottom: 1px solid #eee
+      border-bottom: 1px solid #eee;
     }
   }
 
@@ -1345,8 +1345,9 @@ section {
 
         &.failed {
           justify-content: center;
-          border: 1px solid #e1e2e3;
           color: slategray;
+          padding: 0 1px;
+          background: #f3f6f9;
 
           &::before {
             content: "확인불가";
@@ -2414,7 +2415,6 @@ section {
 
     .row {
       &.title {
-        
         .date {
           font: normal 13px/1 "Roboto";
         }
@@ -2769,11 +2769,13 @@ section {
             padding: 0 0.5rem;
             height: 28px;
             min-width: 28px;
-            background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='18'%3E%3Cg%3E%3Crect fill='none' height='18' width='24'/%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Crect fill='rgb(91 84 198)' height='2' width='9' x='13' y='7'/%3E%3Crect fill='rgb(91 84 198)' height='2' width='9' x='13' y='15'/%3E%3Crect fill='rgb(91 84 198)' height='2' width='6' x='16' y='11'/%3E%3Cpolygon fill='rgb(91 84 198)' points='13,12 8,7 8,11 2,11 2,13 8,13 8,17'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+            background: white
+              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='18'%3E%3Cg%3E%3Crect fill='none' height='18' width='24'/%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Crect fill='rgb(91 84 198)' height='2' width='9' x='13' y='7'/%3E%3Crect fill='rgb(91 84 198)' height='2' width='9' x='13' y='15'/%3E%3Crect fill='rgb(91 84 198)' height='2' width='6' x='16' y='11'/%3E%3Cpolygon fill='rgb(91 84 198)' points='13,12 8,7 8,11 2,11 2,13 8,13 8,17'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
               no-repeat right 7px center;
 
             &:hover {
-              background: $main-color url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='18'%3E%3Cg%3E%3Crect fill='none' height='18' width='24'/%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Crect fill='white' height='2' width='9' x='13' y='7'/%3E%3Crect fill='white' height='2' width='9' x='13' y='15'/%3E%3Crect fill='white' height='2' width='6' x='16' y='11'/%3E%3Cpolygon fill='white' points='13,12 8,7 8,11 2,11 2,13 8,13 8,17'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+              background: $main-color
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='18'%3E%3Cg%3E%3Crect fill='none' height='18' width='24'/%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Crect fill='white' height='2' width='9' x='13' y='7'/%3E%3Crect fill='white' height='2' width='9' x='13' y='15'/%3E%3Crect fill='white' height='2' width='6' x='16' y='11'/%3E%3Cpolygon fill='white' points='13,12 8,7 8,11 2,11 2,13 8,13 8,17'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
                 no-repeat right 7px center;
             }
 
@@ -2821,8 +2823,7 @@ section {
             flex: 1 1 auto;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 0.5rem;
+            gap: 3px;
 
             :nth-of-type(1) {
               display: flex;
