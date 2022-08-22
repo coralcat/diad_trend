@@ -17,11 +17,10 @@
 
     .main-header {
       width: 100%;
-      padding-right: 1.5rem;
+      padding-right: 1rem;
     }
 
     .section-main {
-      gap: 0;
       display: flex;
       flex-direction: column;
       gap: 0.5rem !important;
@@ -117,7 +116,6 @@
 
     .summary {
       width: 100%;
-      flex-direction: row;
 
       .link {
         max-width: none;
@@ -127,7 +125,8 @@
         width: 100%;
 
         li {
-          width: 16%;
+          flex: 1 1 15%;
+          word-break: keep-all;
         }
       }
     }
@@ -154,6 +153,10 @@
   .filters {
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  .content-keyword-trend-details .summary ul li {
+    flex-basis: 20%;
   }
 }
 
@@ -203,123 +206,6 @@
 }
 
 @media screen and (max-width: 640px) {
-  .content-alarm-services {
-    background-color: transparent;
-    padding: 0;
-
-    &.ranking {
-      gap: 0.5rem;
-
-      section:not(.section-buttons) {
-        padding: 3rem 1rem 1rem !important;
-        background-color: white !important;
-      }
-      .section-items .texts small {
-        position: absolute;
-        top: 1rem;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-
-      .list .row {
-        border: 1px solid #e3e6e9;
-        border-radius: 5px;
-        padding: 0 0.5rem !important;
-      }
-
-      .list .row li:nth-of-type(1)::before {
-        content: "키워드";
-      }
-
-      .list .row li:nth-of-type(2)::before {
-        content: "현재 순위";
-      }
-
-      .list .row li:nth-of-type(3)::before {
-        content: "등락";
-      }
-
-      .list .row li:nth-of-type(4)::before {
-        content: "전 타임 순위";
-      }
-    }
-
-    &.lowest-price {
-      gap: 0.5rem;
-
-      .list .row li:nth-of-type(2)::before {
-        content: "현재 순위";
-      }
-
-      .list .row li:nth-of-type(3)::before {
-        content: "등락";
-      }
-
-      .list .row li:nth-of-type(4)::before {
-        content: "전 타임 순위";
-      }
-    }
-
-    .image {
-      width: 45px !important;
-      height: 45px !important;
-    }
-
-    .section-header {
-      padding: 0 1rem;
-
-      .title {
-        font-size: 16px;
-      }
-
-      h1 {
-        font-size: 24px;
-      }
-
-      p {
-        font-size: 15px;
-      }
-
-      .updated {
-        font-size: 17px;
-      }
-    }
-
-    .list {
-      border: 0;
-
-      .row {
-        background-color: white;
-        padding-top: 3rem;
-        position: relative;
-
-        &.title {
-          display: none;
-        }
-
-        .texts {
-          .title {
-            font-size: 16px;
-          }
-
-          small {
-            position: absolute;
-            top: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-          }
-        }
-
-        li {
-          width: 100% !important;
-          justify-content: space-between;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 480px) {
   html {
     overflow: hidden;
 
@@ -427,7 +313,6 @@
     }
 
     &.modal-edit-group {
-
       .list-count {
         display: flex !important;
       }
@@ -604,6 +489,7 @@
             border-radius: 0;
             height: 54px;
             font-size: 17px;
+            background-color: #333639;
           }
 
           + .selectbox {
@@ -648,11 +534,13 @@
     }
 
     .selector {
+      background-color: #e4e9ed;
       justify-content: center;
 
       label {
         flex: 1 1 auto;
         justify-content: center;
+        padding: 0.35rem;
       }
     }
     .calendar {
@@ -760,88 +648,6 @@
     }
   }
 
-  .content-dashboard {
-    padding: 0;
-    gap: 1rem;
-
-    section {
-      border-radius: 0;
-    }
-
-    .wrapper {
-      padding: 0;
-      flex-direction: column;
-      gap: 1rem;
-
-      section {
-        padding: 1rem;
-        background-color: white;
-      }
-
-      .section-chart {
-        width: 100%;
-
-        .section-header {
-          padding: 0 !important;
-        }
-
-        .chart-container {
-          border-radius: 0.5rem !important;
-
-          .chart {
-            min-height: 100px;
-            height: 30vh;
-            max-height: 250px;
-          }
-        }
-      }
-    }
-
-    .list {
-      border: 1px solid #eee;
-      flex-direction: column;
-
-      .row {
-        max-width: 100%;
-        &.title {
-          display: flex;
-        }
-      }
-    }
-
-    .progress {
-      padding: 0;
-    }
-
-    .section-article {
-      .section-header {
-        display: none;
-      }
-
-      .list {
-        gap: 0;
-        background-color: white;
-
-        .row {
-          padding: 0.25rem 0;
-          flex-direction: row;
-          &.title {
-            padding: 0;
-            li {
-              // font-size: 20px !important;
-            }
-          }
-
-          li {
-            width: auto !important;
-            &:nth-of-type(1) {
-              width: 200px;
-            }
-          }
-        }
-      }
-    }
-  }
   .content-main {
     > .wrapper {
       overflow: visible;
@@ -1040,10 +846,6 @@
       flex-wrap: wrap;
       flex-direction: column-reverse;
 
-      .buttons {
-        margin-bottom: 0.5rem;
-      }
-
       > div {
         flex-wrap: wrap;
         justify-content: space-between;
@@ -1060,10 +862,9 @@
         top: auto;
         right: auto;
         bottom: auto;
-        width: auto
+        width: auto;
       }
       .row {
-
         &.failed {
           li {
             background-color: transparent;
@@ -1253,10 +1054,6 @@
         .details {
           padding: 0.75rem;
           flex-direction: column;
-
-          .row {
-            flex-direction: row;
-          }
         }
       }
 
@@ -1456,7 +1253,7 @@
         li {
           display: flex;
           align-items: center;
-          padding: 0.5rem;
+          padding: 0.35rem 0.5rem;
           word-break: keep-all;
           font-size: 14px;
         }
@@ -1491,11 +1288,11 @@
 
     .filters {
       .selector {
-        flex-wrap: wrap;
+        justify-content: space-between;
 
         &.main {
           label {
-            flex: 0 0 32%;
+            flex: 0 0 15%;
           }
         }
 
@@ -1521,12 +1318,13 @@
 
     .summary {
       ul {
-        flex-direction: column;
+        flex-wrap: wrap !important;
 
         li {
           padding: 0.75rem !important;
           gap: 0.5rem;
           flex-direction: row !important;
+          flex-basis: 100%;
 
           > div {
             height: 18px;
@@ -1917,6 +1715,121 @@
 
         input {
           width: 100%;
+        }
+      }
+    }
+  }
+
+  .content-alarm-services {
+    background-color: transparent;
+    padding: 0;
+
+    &.ranking {
+      gap: 0.5rem;
+
+      section:not(.section-buttons) {
+        padding: 3rem 1rem 1rem !important;
+        background-color: white !important;
+      }
+      .section-items .texts small {
+        position: absolute;
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .list .row {
+        border: 1px solid #e3e6e9;
+        border-radius: 5px;
+        padding: 0 0.5rem !important;
+      }
+
+      .list .row li:nth-of-type(1)::before {
+        content: "키워드";
+      }
+
+      .list .row li:nth-of-type(2)::before {
+        content: "현재 순위";
+      }
+
+      .list .row li:nth-of-type(3)::before {
+        content: "등락";
+      }
+
+      .list .row li:nth-of-type(4)::before {
+        content: "전 타임 순위";
+      }
+    }
+
+    &.lowest-price {
+      gap: 0.5rem;
+
+      .list .row li:nth-of-type(2)::before {
+        content: "현재 순위";
+      }
+
+      .list .row li:nth-of-type(3)::before {
+        content: "등락";
+      }
+
+      .list .row li:nth-of-type(4)::before {
+        content: "전 타임 순위";
+      }
+    }
+
+    .image {
+      width: 45px !important;
+      height: 45px !important;
+    }
+
+    .section-header {
+      padding: 3rem 1rem 1rem;
+
+      .title {
+        font-size: 16px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+
+      .updated {
+        font-size: 17px;
+      }
+    }
+
+    .list {
+      border: 0;
+
+      .row {
+        background-color: white;
+        padding-top: 3rem;
+        position: relative;
+
+        &.title {
+          display: none;
+        }
+
+        .texts {
+          .title {
+            font-size: 16px;
+          }
+
+          small {
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+
+        li {
+          width: 100% !important;
+          justify-content: space-between;
         }
       }
     }
