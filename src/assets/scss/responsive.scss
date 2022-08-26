@@ -212,6 +212,7 @@
     body {
       display: flex;
       flex-direction: column;
+      overflow: hidden !important;
 
       .date {
         font-size: 13px;
@@ -223,9 +224,6 @@
 
       h3 {
         font-size: 17px;
-      }
-
-      a.right-arrow {
       }
 
       .scroll-to-top {
@@ -295,10 +293,24 @@
         }
       }
 
+      .main-header {
+        .services {
+          gap: 0.5rem;
+
+          .date {
+            display: none !important;
+          }
+        }
+      }
+
       main {
         overflow: hidden;
         padding: 0;
         position: relative;
+
+        &.mutated {
+          padding: 0;
+        }
       }
 
       .content {
@@ -423,10 +435,11 @@
         border-radius: 0;
 
         .section-header {
-          padding: 1rem;
+          padding: 0 1rem;
         }
 
         &.section-chart {
+          padding-top: 0.5rem;
           background-color: white;
         }
       }
@@ -821,6 +834,8 @@
   }
 
   :is(.content-ranking, .content-lowest-price) {
+    padding-bottom: 3rem;
+
     .section-main {
       ul {
         flex-direction: row;
@@ -1054,6 +1069,10 @@
         .details {
           padding: 0.75rem;
           flex-direction: column;
+
+          .row {
+            flex-direction: row;
+          }
         }
       }
 
@@ -1076,12 +1095,11 @@
           overflow-x: auto;
           gap: 0.5rem;
           position: relative;
-          padding: 1rem 0;
+          padding: 0;
 
           li {
             flex-wrap: wrap;
             width: fit-content !important;
-            min-width: auto;
             padding: 1rem;
             min-width: auto !important;
             height: 100% !important;
@@ -1098,16 +1116,17 @@
             }
 
             &.col-keyword {
-              flex-direction: column;
-              min-width: 80px !important;
               width: auto !important;
-              max-width: 120px !important;
-              font-size: 17px;
+              height: fit-content !important;
               border: 0;
-              display: flex;
               background-color: white;
-              box-shadow: 0 0 0;
-              padding: 2rem 1rem;
+              font-size: 17px;
+              white-space: nowrap;
+              padding: 1rem;
+              
+              .keyword {
+                max-width: none;
+              }
 
               .date-title {
                 display: none;
@@ -1721,8 +1740,17 @@
   }
 
   .content-alarm-services {
+    width: 100%;
     background-color: transparent;
     padding: 0;
+
+    .caution {
+      padding: 1.5rem 0.5rem;
+    }
+
+    &.expired {
+      background-color: white;
+    }
 
     &.ranking {
       gap: 0.5rem;
@@ -1802,6 +1830,10 @@
       }
     }
 
+    .section-buttons {
+      padding-bottom: 2rem;
+    }
+
     .list {
       border: 0;
 
@@ -1830,6 +1862,20 @@
         li {
           width: 100% !important;
           justify-content: space-between;
+        }
+      }
+    }
+
+    + footer {
+      width: 100%;
+      padding: 1rem;
+
+      ul {
+        flex-direction: column;
+        gap: 0;
+
+        li {
+          font-size: 13px;
         }
       }
     }
