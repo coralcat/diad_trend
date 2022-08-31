@@ -1899,6 +1899,10 @@
       flex-direction: column;
       gap: 1rem;
       margin: 0;
+
+      &::before {
+        content: none
+      }
     }
   }
 }

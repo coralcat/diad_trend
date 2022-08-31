@@ -1997,6 +1997,7 @@ section {
         background-color: #f3f6f9;
         border-radius: 0.5rem;
         transition: background-color 0.25s;
+        overflow: hidden;
 
         &.is-active {
           border: 1px solid #e1e2e3;
@@ -2004,7 +2005,7 @@ section {
           .question {
             border-bottom: 1px solid #e1e2e3;
 
-            &::before {
+            &::after {
               transform: rotate(315deg);
               margin-top: 6px;
             }
@@ -2015,6 +2016,7 @@ section {
             visibility: visible;
             max-height: 999px;
             padding: 1rem;
+            background-color: white;
 
             .caution {
               margin-top: 1rem;
@@ -2023,7 +2025,7 @@ section {
                 text-align: left;
                 font-size: 14px;
                 line-height: 1.75;
-                opacity: .85;
+                opacity: 0.85;
               }
             }
           }
@@ -2031,12 +2033,15 @@ section {
       }
 
       .question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         padding: 1rem;
         font-size: 17px;
         transition: background-color 0.25s;
         cursor: pointer;
 
-        &::before {
+        &::after {
           content: "";
           width: 10px;
           height: 10px;
@@ -2044,8 +2049,6 @@ section {
           border-left: 0;
           border-bottom: 0;
           display: block;
-          position: absolute;
-          right: 1.25rem;
           transform: rotate(135deg);
           transition: 0.4s;
         }
