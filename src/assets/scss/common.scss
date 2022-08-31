@@ -86,7 +86,6 @@ body {
   :is(h1, h2, h3, h4, h5, p) {
     margin: 0;
     line-height: 1.25;
-    word-break: break-all;
   }
 
   a {
@@ -506,7 +505,6 @@ header {
 main {
   flex: 1 1 auto;
   display: flex;
-  flex-direction: column;
   height: calc(var(--vh, 1vh) * 100);
 }
 

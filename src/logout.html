@@ -2,34 +2,29 @@
 <div class="content content-logout">
   <div class="wrapper">
     <section class="section-main">
-      <h1>
-        <span>소비자 생각이 궁금할 때,</span>
-        <span>키워드 트렌드</span>
-      </h1>
-      <p>셀러를 위한 키워드의 모든 것. 클릭 한 번으로 한 번에.</p>
-      <p>지금 바로 검색해보세요.</p>
-      <div class="search">
-        <input class="ico-search" type="search" placeholder="검색할 키워드를 입력해주세요." />
-      </div>
-      <div class="keywords">
-        <div class="title">인기 검색어</div>
-        <ul>
-          <li>
-            <div class="keyword">커피원두</div>
-          </li>
-          <li>
-            <div class="keyword">원두커피</div>
-          </li>
-          <li>
-            <div class="keyword">캡슐커피</div>
-          </li>
-          <li>
-            <div class="keyword">냉면</div>
-          </li>
-          <li>
-            <div class="keyword">함흥냉면</div>
-          </li>
-        </ul>
+      <div class="wrapper">
+        <div class="section-title">
+          <h1>
+            <p>소비자 생각이 궁금할 때,</p>
+            <p>키워드 트렌드</p>
+          </h1>
+          <p>셀러를 위한 키워드의 모든 것. 클릭 한 번으로 한 번에.</p>
+          <p>지금 바로 검색해보세요.</p>
+          <div class="search">
+            <input type="search" placeholder="검색할 키워드를 입력해주세요." />
+            <button></button>
+          </div>
+          <div class="keywords">
+            <a href="" class="keyword">커피원두</a>
+            <a href="" class="keyword">원두커피</a>
+            <a href="" class="keyword">캡슐커피</a>
+            <a href="" class="keyword">냉면</a>
+            <a href="" class="keyword">함흥냉면</a>
+          </div>
+        </div>
+        <div class="image">
+          <img src="assets/images/main_conversation.png" alt="Alternate Text" />
+        </div>
       </div>
     </section>
     <section class="section-about">
@@ -39,12 +34,15 @@
       <p>지금 바로 사용해보세요.</p>
       <ul>
         <li>
+          <i><img src="assets/images/ico_ranking.svg" alt=""></i>
           <p>상품 순위 조회</p>
         </li>
         <li>
+          <i><img src="assets/images/ico_lowest_price.svg" alt=""></i>
           <p>최저가 알림</p>
         </li>
         <li>
+          <i><img src="assets/images/ico_keyword_trend.svg" alt=""></i>
           <p>키워드 트렌드</p>
         </li>
       </ul>
@@ -59,7 +57,8 @@
         <li>
           <div>
             <div class="title">
-              <h3>상품 순위 조회</h3>
+              <small>Product Rank Tracking</small>
+              <h3>상품 순위 추적</h3>
               <h4>회원가입 시 무료</h4>
             </div>
             <dl>
@@ -74,48 +73,50 @@
           </div>
           <div class="buttons">
             <a href="" class="right-arrow">자세히 알아보기</a>
-            <button class="btn-main" type="button">서비스 신청</button>
+            <button type="button" onclick="">서비스 신청</button>
           </div>
         </li>
         <li>
           <div>
             <div class="title">
-              <h3>최저가 알림</h3>
+              <small>Lowest Price Tracking</small>
+              <h3>최저가 추적</h3>
               <h4>회원가입 시 무료</h4>
             </div>
             <dl>
               <dd>최저가 차트</dd>
               <dd>일별 최저가</dd>
               <dd>
-                <span>최저가 알림 서비스(유료)</span>
+                <span>최저가 추적 서비스(유료)</span>
                 <small>하루 300원, 이메일과 카카오 알림톡</small>
               </dd>
             </dl>
           </div>
           <div class="buttons">
             <a href="" class="right-arrow">자세히 알아보기</a>
-            <button class="btn-main" type="button">서비스 신청</button>
+            <button type="button" onclick="">서비스 신청</button>
           </div>
         </li>
         <li>
           <div class="title">
+            <small>Keyword Trend</small>
             <h3>키워드 트렌드</h3>
             <h4>누구나 무료</h4>
           </div>
           <dl>
-            <dd>키워드 검색</dd>
+            <dd>키워드 한눈에 보기</dd>
             <dd>키워드 콘텐츠</dd>
             <dd>키워드 상품</dd>
             <dd>키워드 트렌드</dd>
-            <dd>연간 키워드</dd>
+            <dd>연관 키워드</dd>
             <dd>
-              <span>리포트 보관함</span>
-              <small>회원만 사용 가능</small>
+              <span>내 보관함(유료)</span>
+              <small>서비스 예정</small>
             </dd>
           </dl>
           <div class="buttons">
             <a href="" class="right-arrow">자세히 알아보기</a>
-            <button class="btn-main" type="button">키워드 트렌드 이용하기</button>
+            <button type="button" onclick="">키워드 트렌드 이용하기</button>
           </div>
         </li>
       </ul>
@@ -126,31 +127,40 @@
         <li>
           <div class="question">비회원도 서비스 이용이 가능한가요?</div>
           <div class="answer">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto corrupti error pariatur?
+            트렌드 중 상품 순위 추적과 최저가 추적 기능은 서비스를 신청한 회원만 이용 가능한 기능입니다. 
+키워드 트렌드의 키워드 조회 기능은 회원/비회원 누구나 이용 가능합니다.
           </div>
         </li>
         <li>
           <div class="question">서비스를 이용하려면 어떻게 해야 하나요?</div>
           <div class="answer">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem distinctio pariatur blanditiis fuga vitae harum molestias eos animi fugiat quam?
+            키워드 트렌드의 키워드 조회 기능은 접속 후 자유롭게 이용이 가능합니다. 상품 순위 추적과 최저가 추적 기능은 회원 가입 후 <a href="" target="_blank">홈페이지 > 문의하기 > 회원문의</a>를 통해 서비스 신청을 하시면 다이애드 운영팀에서 검토 후 서비스 타입을 부여해드립니다. 부여 받은 서비스 타입에 맞게 서비스를 이용하시면 됩니다.
           </div>
         </li>
         <li>
           <div class="question">알림 서비스를 사용하고 싶어요.</div>
           <div class="answer">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam iusto, voluptatem nemo itaque iste laudantium repellendus possimus ducimus fuga quod, distinctio officia dolores esse doloremque consequatur aspernatur quisquam, dolorem consectetur.
+            알림 서비스는 상품 순위 추적과 최저가 추적 기능을 사용하는 사용자에 한하여 이용 가능한 부가 서비스입니다. 기존 기능들과 달리 알림 서비스의 경우 유료로 제공하고 있습니다. <a href="" target="_blank">홈페이지 > 마이페이지 > 결제</a>에서 알림 서비스 결제가 가능합니다.
           </div>
         </li>
         <li>
           <div class="question">서비스 타입을 변경할 수 있나요?</div>
           <div class="answer">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus numquam mollitia ullam eveniet sapiente iure ipsum odio, commodi fugiat id illo quaerat ad, perferendis dignissimos non, officia animi aliquam unde officiis sunt facilis. Ducimus consequatur nostrum dicta eligendi hic quasi tenetur omnis, odio id. Quia reiciendis consequuntur vel sint voluptatum!
+            가능합니다. <a href="" target="_blank">홈페이지 > 문의하기 > 회원문의</a>에서 서비스 타입 변경을 신청하시면 변경하실 수 있습니다. 유선연락이나 카카오톡 채널을 통해서도 서비스 타입 변경이 가능하며, 이 경우 ‘회원 아이디’를 남겨 주셔야 합니다.
+            <div class="caution">
+              <p>※ 서비스 타입 변경은 기존 서비스 기간 동안은 상향 조정만 가능하며, 기존 서비스 기간 종료 후 새로운 서비스 기간은 하향 조정도 가능합니다. 자세한 내용은 다이애드 운영팀과 상담하세요.</p>
+              <p>※ 다이애드 운영팀  전화 1644-4527  이메일 diad@gabiacns.com</p>
+            </div>
           </div>
         </li>
         <li>
           <div class="question">서비스를 해지하고 싶어요.</div>
           <div class="answer">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione numquam odio, earum recusandae facere accusantium dolorem ullam repellendus. Porro est illo optio at exercitationem?
+            <a href="" target="_blank">홈페이지 > 문의하기 > 회원문의</a>에서 서비스 해지를 신청하시면 해지하실 수 있습니다. 유선연락이나 카카오톡 채널을 통해서도 서비스 해지가 가능하며, 이 경우 ‘회원 아이디’를 남겨 주셔야 합니다.
+            <div class="caution">
+              <p>※ 유료 서비스의 경우 환불절차가 필요하므로, 다이애드 운영팀과 상담하세요.</p>
+              <p>※ 다이애드 운영팀  전화 1644-4527  이메일 diad@gabiacns.com</p>
+            </div>
           </div>
         </li>
       </ul>

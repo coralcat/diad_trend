@@ -777,7 +777,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const dropdown = document.querySelector(".dropdown");
   if(dropdown) {
     dropdown.addEventListener("click", (event) => {
-      console.log(event.target)
+      const lists = dropdown.querySelectorAll("li")
+      lists.forEach(list => {
+        console.log(list)
+        list.classList.remove("is-active")
+      })
       event.target.closest("li").classList.toggle("is-active")
     })
   }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284.05 294.61">
+	<defs>
+		<style>.cls-1{fill:none;stroke:#9fa7fd;stroke-linecap:round;stroke-linejoin:round;stroke-width:12px;}</style>
+	</defs>
+	<g id="_Õ__1">
+		<g>
+			<g>
+				<ellipse class="cls-1" cx="138.57" cy="78.29" rx="72.29" ry="71.98" transform="translate(55.56 214.09) rotate(-88.03)"/>
+				<line class="cls-1" x1="189.53" y1="129.25" x2="210.41" y2="150.14"/>
+				<path class="cls-1" d="M273.45,213.88h0c6.02-5.87,6.15-15.51,.28-21.53l-41.36-42.45c-5.87-6.02-15.51-6.15-21.53-.28h0c-6.02,5.87-6.15,15.51-.28,21.53l41.36,42.45c5.87,6.02,15.51,6.15,21.53,.28Z"/>
+			</g>
+			<circle class="cls-1" cx="138.57" cy="78.29" r="45.98" transform="translate(30.2 194.86) rotate(-76.55)"/>
+			<g>
+				<polyline class="cls-1" points="93.56 288.61 6 288.61 6 210.44 93.56 210.44"/>
+				<rect class="cls-1" x="93.56" y="180.79" width="87.56" height="107.82"/>
+				<polyline class="cls-1" points="181.12 237.87 268.68 237.87 268.68 288.61 181.12 288.61"/>
+			</g>
+		</g>
+	</g>
+</svg>
