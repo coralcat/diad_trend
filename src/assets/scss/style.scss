@@ -1668,6 +1668,10 @@ section {
     p {
       font-size: 17px;
       text-align: center;
+
+      span {
+        display: block
+      }
     }
   }
 
@@ -2000,10 +2004,10 @@ section {
         overflow: hidden;
 
         &.is-active {
-          border: 1px solid #e1e2e3;
 
           .question {
-            border-bottom: 1px solid #e1e2e3;
+            border-bottom: 2px dotted #e1e2e3;
+            color: $main-color;
 
             &::after {
               transform: rotate(315deg);
@@ -2016,7 +2020,6 @@ section {
             visibility: visible;
             max-height: 999px;
             padding: 1rem;
-            background-color: white;
 
             .caution {
               margin-top: 1rem;
@@ -2038,7 +2041,7 @@ section {
         align-items: center;
         padding: 1rem;
         font-size: 17px;
-        transition: background-color 0.25s;
+        transition: color 0.25s;
         cursor: pointer;
 
         &::after {
@@ -2063,7 +2066,7 @@ section {
         transition: 0.25s;
 
         a {
-          color: $main-color;
+          color: slategray;
           font-size: 16px;
           padding-right: 3px;
           text-decoration: underline;
