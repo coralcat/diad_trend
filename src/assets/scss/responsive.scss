@@ -403,6 +403,8 @@
       right: 50%;
       transform: translateX(50%);
       white-space: nowrap;
+      display: flex;
+      gap: .75rem
     }
 
     nav {
@@ -1918,12 +1920,7 @@
       padding: 3rem 1rem !important;
 
       h1 {
-        font-size: 32px;
         margin-bottom: 1rem;
-
-        p {
-          font-size: 32px;
-        }
       }
 
       p {
