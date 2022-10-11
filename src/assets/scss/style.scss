@@ -1415,6 +1415,12 @@ section {
       margin-bottom: 0.35rem;
       font-family: "RobotoMedium", "NanumBarunGothicLight";
       font-size: 16px;
+
+      strong {
+        color: $primary-color;
+        font-weight: bold;
+        font-family: 'NanumBarunGothicLight';
+      }
     }
 
     .article-content {
@@ -1427,6 +1433,12 @@ section {
       overflow: hidden;
       line-height: 1.5;
       color: slategray;
+
+      strong {
+        font-weight: bold;
+        color: $primary-color;
+        font-family: "NanumBarunGothicLight";
+      }
     }
 
     .created {
@@ -3607,7 +3619,7 @@ section {
         border-bottom: 1px solid #ddd;
 
         .title {
-          strong {
+          strong:not(.total strong) {
             font-size: 18px;
           }
         }
@@ -3634,12 +3646,12 @@ section {
   }
 
   .content-keyword {
-    .tooltip-content {
-      left: auto;
-      right: -3rem;
-    }
 
     .section-main {
+      .tooltip-content {
+        left: auto;
+        right: -3rem;
+      }
       .section-content {
         display: flex;
         gap: 1rem;
@@ -3823,6 +3835,13 @@ section {
             border: 0;
             position: relative !important;
             background-color: transparent;
+
+            &.col-ranking {
+              &::after {
+                content: "위";
+                font-size: 16px
+              }
+            }
 
             &.col-title .tag {
               display: none;
