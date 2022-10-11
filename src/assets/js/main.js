@@ -34,6 +34,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  if(matchMedia("screen and (max-width: 640px)")) {
+    content.addEventListener("scroll", () => {
+      let currentScrollTop = content.scrollTop;
+  
+      if (currentScrollTop > 50) {
+        if (currentScrollTop > lastScrollTop) {
+          //Scroll down
+          scrollToTop.classList.remove("is-active");
+        } else {
+          //Scroll up
+          scrollToTop.classList.add("is-active");
+        }
+  
+        lastScrollTop = currentScrollTop;
+      } else {
+        scrollToTop.classList.remove("is-active");
+      }
+    });
+  }
+
   scrollToTop.addEventListener("click", () => {
     wrapper.scrollTo({top: 0, behavior: "smooth"});
     content.scrollTo({top: 0, behavior: "smooth"});

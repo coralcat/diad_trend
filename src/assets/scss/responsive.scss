@@ -487,6 +487,7 @@
                 flex: 1 1 25%;
                 padding: 0.5rem;
                 justify-content: center;
+                z-index: 101;
               }
             }
           }
@@ -838,6 +839,13 @@
 
   :is(.content-ranking, .content-lowest-price) {
     padding-bottom: 3rem;
+
+    .scroll-to-top {
+
+      &.is-active {
+        bottom: 4rem
+      }
+    }
 
     .section-main {
       ul {
