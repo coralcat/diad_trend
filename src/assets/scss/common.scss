@@ -68,7 +68,6 @@ body {
   width: 100%;
   font: 14px "Roboto", "NanumBarunGothic";
 
-
   svg {
     display: flex;
     fill: $ecos-paints-quiet-peace;
@@ -1422,17 +1421,16 @@ input[type="radio"] {
 .tooltip-content {
   opacity: 0;
   visibility: hidden;
-  max-height: 0;
   word-break: keep-all;
   position: absolute;
   top: 100%;
-  padding: 1rem 0.75rem;
+  padding: 0.75rem;
   width: 360px;
   border-radius: 0.5rem;
   background-color: #333;
   color: white;
   text-align: left;
-  font: 12px/1.5 "NanumBarunGothicLight";
+  font: 12px/1.25 "NanumBarunGothicLight";
   transform: translate(0, 13px);
   transition: all 0.2s;
 
