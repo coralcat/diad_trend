@@ -1417,9 +1417,20 @@ section {
       font-size: 16px;
 
       strong {
-        color: $primary-color;
         font-weight: bold;
         font-family: "NanumBarunGothicLight";
+        position: relative;
+        color: #333;
+
+        &::before {
+          content: "";
+          background-color: rgb(255 101 0 / 25%);
+          width: 100%;
+          height: 20px;
+          display: inline-flex;
+          position: absolute;
+          z-index: -1;
+        }
       }
     }
 
@@ -1436,8 +1447,19 @@ section {
 
       strong {
         font-weight: bold;
-        color: $primary-color;
         font-family: "NanumBarunGothicLight";
+        position: relative;
+        color: #333;
+
+        &::before {
+          content: "";
+          background-color: rgb(255 215 0 / 25%);
+          width: 100%;
+          height: 20px;
+          display: inline-flex;
+          position: absolute;
+          z-index: -1;
+        }
       }
     }
 
@@ -2473,17 +2495,6 @@ section {
       }
     }
 
-    .tooltip-content {
-      left: 100%;
-      top: 50%;
-      transform: translate(calc(1rem + 5px), -50%);
-
-      &::before {
-        top: 50%;
-        transform: translate(-50%, -50%);
-      }
-    }
-
     .rows {
       &:empty {
         flex: 1 1 auto;
@@ -2506,17 +2517,17 @@ section {
           }
 
           .tooltip {
-
             &::after {
               transform: none;
               top: calc(100% + 5px);
-              left: 6px
+              left: 6px;
             }
 
             .tooltip-content {
+              width: 360px;
               top: calc(100% + 12px);
               transform: none;
-              left: -5rem
+              left: -5rem;
             }
           }
         }
@@ -2532,6 +2543,18 @@ section {
         position: relative;
         flex: 0 0 auto;
         border-bottom: 1px solid #eee;
+
+        .tooltip-content {
+          left: 100%;
+          top: 10%;
+          transform: translate(calc(1rem + 5px), -50%);
+          width: 480px;
+
+          &::before {
+            top: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
 
         .page {
           display: flex;
@@ -3232,6 +3255,7 @@ section {
 
   .chart {
     height: 240px;
+    flex: 1 1 auto;
   }
 
   .report {
@@ -3340,7 +3364,7 @@ section {
 
     h5 {
       font-size: 14px;
-      color: $main-color;
+      color: slategray;
     }
 
     ul {
@@ -3358,16 +3382,12 @@ section {
         display: flex;
         justify-content: space-between;
         width: 100%;
-        gap: 1rem;
+        gap: 0.5rem;
         transition: 0.25s;
 
         &:hover {
           background-color: $secondary-color;
           color: $primary-color;
-
-          strong {
-            color: #5b54c6;
-          }
         }
 
         > div {
@@ -3385,6 +3405,7 @@ section {
         }
 
         strong {
+          color: $main-color;
           font-size: 17px;
           display: flex;
           align-items: center;
@@ -3442,6 +3463,10 @@ section {
     gap: 1.25rem;
     padding-right: 0;
     width: 280px;
+
+    .title {
+      min-height: 42px;
+    }
 
     .section-main {
       gap: 1.5rem;
@@ -3824,13 +3849,15 @@ section {
           }
 
           .col-title {
+            text-align: center;
             justify-content: center;
             gap: 1rem;
-            font-size: 14px;
+            font-size: 15px;
+            margin-bottom: 0.35rem;
 
             .image {
-              width: 100px;
-              height: 100px;
+              width: 120px;
+              height: 120px;
             }
           }
 
@@ -3841,7 +3868,14 @@ section {
           .col-price {
             flex: 1 1 100%;
             strong {
-              font-size: 18px;
+              color: $main-color;
+              font-size: 17px;
+              display: flex;
+              align-items: center;
+
+              &::after {
+                color: #333;
+              }
             }
           }
 
@@ -3889,9 +3923,28 @@ section {
   }
 
   .content-analysis {
+
+    .section-chart {
+      .chart {
+        width: calc(100% - 450px);
+      }
+  
+      .summary {
+        width: 450px;
+  
+        .title > div:first-of-type {
+          text-overflow: ellipsis;
+          width: 300px;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+      }
+    }
+
     .report {
       flex-direction: row-reverse;
       align-items: center;
+      overflow: hidden;
     }
 
     .section-price-analysis {
