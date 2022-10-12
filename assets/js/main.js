@@ -34,6 +34,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  if(matchMedia("screen and (max-width: 640px)")) {
+    content.addEventListener("scroll", () => {
+      let currentScrollTop = content.scrollTop;
+  
+      if (currentScrollTop > 50) {
+        if (currentScrollTop > lastScrollTop) {
+          //Scroll down
+          scrollToTop.classList.remove("is-active");
+        } else {
+          //Scroll up
+          scrollToTop.classList.add("is-active");
+        }
+  
+        lastScrollTop = currentScrollTop;
+      } else {
+        scrollToTop.classList.remove("is-active");
+      }
+    });
+  }
+
   scrollToTop.addEventListener("click", () => {
     wrapper.scrollTo({top: 0, behavior: "smooth"});
     content.scrollTo({top: 0, behavior: "smooth"});
@@ -414,7 +434,7 @@ document.addEventListener("DOMContentLoaded", () => {
       openAlertModal();
     }
 
-    // 상품 순위 조회: 상품등록팝업 - 조회
+    // 상품 순위 추적: 상품등록팝업 - 조회
     if (modalData === "searchItem") {
       if (currentModal.querySelector("input").value === "") {
         validateMessage("상품 URL을 입력해주세요.");
@@ -463,7 +483,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // 상품 순위 조회: 그룹편집팝업 - 그룹추가
+    // 상품 순위 추적: 그룹편집팝업 - 그룹추가
     if (modalData === "createGroup") {
       if (currentModal.querySelector("input").value === "") {
         validateMessage("그룹명을 입력해주세요.");
@@ -472,7 +492,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // 상품 순위 조회: 그룹편집팝업 - 선택삭제
+    // 상품 순위 추적: 그룹편집팝업 - 선택삭제
     if (modalData === "deleteGroup") {
       const checkboxes = currentModal.querySelectorAll("input[type='checkbox']:checked");
       if (checkboxes.length === 0) {
