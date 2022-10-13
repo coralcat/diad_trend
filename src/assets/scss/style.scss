@@ -17,7 +17,6 @@ $emoji-text-color: #8a8a8a;
 html,
 body {
   height: 100%;
-  user-select: none;
 
   .bg-red {
     background-color: tomato !important;
@@ -947,6 +946,10 @@ section {
   width: 100%;
   max-width: 100%;
   min-height: 200px;
+
+  canvas {
+    width: 100% !important
+  }
 }
 
 .tooltip-content {
@@ -1228,6 +1231,10 @@ section {
         color: #565e72;
         font: 14px/1 "Roboto", "NanumBarunGothic";
 
+        &:not(:last-of-type) {
+          border-right: 1px solid #eee
+        }
+
         &.ico-sort {
           transition: background-color 0.45s;
 
@@ -1429,7 +1436,6 @@ section {
           height: 20px;
           display: inline-flex;
           position: absolute;
-          z-index: -1;
         }
       }
     }
@@ -1458,7 +1464,6 @@ section {
           height: 20px;
           display: inline-flex;
           position: absolute;
-          z-index: -1;
         }
       }
     }
@@ -2305,8 +2310,8 @@ section {
         white-space: nowrap;
         display: flex;
         align-items: center;
-        background-color: $main-color;
-        color: white;
+        background-color: $secondary-color;
+        color: $main-color;
         padding: 0.35rem 0.5rem;
         border-radius: 3px;
         font-size: 13px;
@@ -3668,6 +3673,15 @@ section {
           }
         }
       }
+
+      article {
+        cursor: pointer;
+        transition: background-color .25s;
+
+        &:hover {
+          background-color: #f3f6f9;
+        }
+      }
     }
   }
 
@@ -3764,6 +3778,13 @@ section {
         position: relative;
 
         .row {
+
+          &:hover {  
+            li {
+              background-color: #f7f8f9;
+            }
+          }
+
           &.title {
             li {
               align-items: center !important;
@@ -3797,6 +3818,12 @@ section {
 
             &.col-store {
               width: 180px;
+              text-align: center;
+            }
+
+            &:nth-of-type(6),
+            &:nth-of-type(7) {
+              text-align: center;
             }
           }
 
@@ -3834,6 +3861,7 @@ section {
           background: white;
           flex-wrap: wrap;
           transition: background-color 0.25s;
+          position: relative;
 
           &:hover {
             background-color: #f7f8f9;
@@ -3843,39 +3871,12 @@ section {
             display: none;
           }
 
-          .col-ranking {
-            font-size: 18px;
-            margin-bottom: 0.5rem;
-          }
+          &:nth-of-type(2),
+          &:nth-of-type(3),
+          &:nth-of-type(4) {
 
-          .col-title {
-            text-align: center;
-            justify-content: center;
-            gap: 1rem;
-            font-size: 15px;
-            margin-bottom: 0.35rem;
-
-            .image {
-              width: 120px;
-              height: 120px;
-            }
-          }
-
-          .col-store {
-            flex: 1 1 100%;
-          }
-
-          .col-price {
-            flex: 1 1 100%;
-            strong {
-              color: $main-color;
-              font-size: 17px;
-              display: flex;
-              align-items: center;
-
-              &::after {
-                color: #333;
-              }
+            .col-ranking {
+              background-color: #11b4d4;
             }
           }
 
@@ -3889,18 +3890,53 @@ section {
             background-color: transparent;
 
             &.col-ranking {
-              &::after {
-                content: "위";
-                font-size: 16px;
+              font-size: 15px;
+              margin-bottom: 0.5rem;
+              position: absolute !important;
+              left: 1rem;
+              top: 0;
+              background: #d3d6d9;
+              border-radius: 0 0 3px 3px;
+              padding: 3px;
+              color: white;
+              width: 1.75rem;
+              height: 2.25rem;
+            }
+
+            &.col-title {
+              text-align: center;
+              justify-content: center;
+              gap: 1rem;
+              font-size: 15px;
+              margin-bottom: 0.35rem;
+
+              .tag {
+                display: none;
+              }
+  
+              .image {
+                width: 120px;
+                height: 120px;
               }
             }
 
-            &.col-title .tag {
-              display: none;
+            &.col-store {
+              flex: 1 1 100%;
+            }
+  
+            &.col-price {
+              flex: 1 1 100%;
+              strong {
+                font-size: 17px;
+                display: flex;
+                align-items: center;
+  
+                &::after {
+                  color: #333;
+                }
+              }
             }
 
-            &:nth-of-type(6),
-            &:nth-of-type(7),
             .categories {
               font-size: 13px;
             }
@@ -3911,10 +3947,10 @@ section {
               color: darkgray;
             }
 
-            &:nth-of-type(6) {
-              border-right: 1px solid #eee;
-              padding-right: 0.5rem;
-              margin-right: 0.25rem;
+            &:nth-of-type(7) {
+              border-left: 1px solid #eee;
+              padding-left: 0.5rem;
+              margin-left: 0.25rem;
             }
           }
         }
