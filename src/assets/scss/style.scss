@@ -18,6 +18,20 @@ html,
 body {
   height: 100%;
 
+  sup {
+    color: $primary-color;
+    font: small-caption;
+    margin-right: 2px;
+
+    &::before {
+      content: "["
+    }
+
+    &::after {
+      content: "]"
+    }
+  }
+
   .bg-red {
     background-color: tomato !important;
   }
@@ -1897,7 +1911,7 @@ section {
 
         h3 {
           font-size: 24px;
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.75rem;
 
           &::before {
             content: none;
@@ -1906,7 +1920,7 @@ section {
 
         h4 {
           color: #939699;
-          font-size: 17px;
+          font-size: 16px;
         }
       }
 
@@ -1985,6 +1999,7 @@ section {
         align-items: center;
         gap: 0.5rem;
         line-height: 1;
+        cursor: pointer;
 
         &:after {
           content: "";
@@ -2058,6 +2073,10 @@ section {
             visibility: visible;
             max-height: 999px;
             padding: 1rem;
+
+            strong {
+              color: $primary-color
+            }
 
             .caution {
               margin-top: 1rem;
