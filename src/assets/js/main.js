@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  if(matchMedia("screen and (max-width: 640px)")) {
+  if(matchMedia("screen and (max-width: 640px)").matches) {
     content.addEventListener("scroll", () => {
       let currentScrollTop = content.scrollTop;
   
@@ -92,18 +92,22 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Tooltip
   ===================================================== */
-  // const tooltips = document.querySelectorAll(".tooltip-icon");
-  // if (tooltips) {
-  //   tooltips.forEach((tooltip) => {
-  //     tooltip.addEventListener("click", (event) => {
-  //       const content = event.target.nextElementSibling;
-  //       content.classList.toggle("is-active");
-  //     });
-  //   });
-  // }
-  const tooltips = document.querySelectorAll("[data-tooltip]");
-  if (tooltips[0]) {
-    tooltips.forEach(tooltip => {
+
+  const tooltips = document.querySelectorAll(".tooltip");
+  if (matchMedia("screen and (max-width: 640px)").matches) {
+    console.log()
+    tooltips.forEach((tooltip) => {
+      tooltip.addEventListener("click", (event) => {
+        tooltip.classList.toggle("is-active");
+        const content = tooltip.querySelector(".tooltip-content");
+        content.style.top = `${event.clientY}px`;
+      });
+    });
+  }
+
+  const easyTooltips = document.querySelectorAll("[data-tooltip]");
+  if (easyTooltips[0]) {
+    easyTooltips.forEach(tooltip => {
       tooltip.addEventListener("mouseover", event => {
         event.preventDefault();
         event.stopPropagation();
