@@ -15,6 +15,14 @@
   :is([class$="details"]) {
     flex-direction: column;
 
+    &.sample {
+      flex-wrap: nowrap;
+
+      .wrapper {
+        width: 100%;
+      }
+    }
+
     .main-header {
       width: 100%;
       padding-right: 1rem;
@@ -214,6 +222,11 @@
       flex-direction: column;
       overflow: hidden !important;
 
+      .top-banner {
+        font-size: 14px;
+        padding: .5rem;
+      }
+
       .date {
         font-size: 13px;
       }
@@ -224,6 +237,7 @@
 
       h3 {
         font-size: 17px;
+        white-space: nowrap;
       }
 
       .scroll-to-top {
@@ -279,28 +293,29 @@
         }
       }
 
-
       .tooltip {
-        &::after {display: none;}
+        &::after {
+          display: none;
+        }
         .tooltip-content {
           opacity: 0 !important;
           visibility: hidden !important;
-          transition: none;
-        }
-
-        .tooltip-content {
+          white-space: normal !important;
           left: 1rem !important;
-          right: 1rem;
+          right: 1rem !important;
           width: auto !important;
           position: fixed;
           margin-top: 0.5rem;
+          transition: opacity 0.25s;
         }
-    
+
         &.is-active {
+          z-index: 60 !important;
+
           .tooltip-content {
             opacity: 1 !important;
             visibility: visible !important;
-          } 
+          }
         }
       }
 
@@ -443,13 +458,13 @@
       > section {
         background-color: transparent;
         gap: 0.5rem;
-        padding: 0;
+        padding: 0 1rem;
         box-shadow: 0 0 0;
         border-radius: 0;
         max-width: 100%;
 
         .section-header {
-          padding: 0 1rem;
+          padding: 0 0 0.5rem;
         }
 
         &.section-chart {
@@ -1268,10 +1283,6 @@
       display: none !important;
     }
 
-    .section-header {
-      padding: 0 !important;
-    }
-
     .section-main {
       .information {
         .details {
@@ -1279,6 +1290,7 @@
 
           .row {
             justify-content: center;
+            flex-direction: column;
           }
         }
       }
@@ -1356,6 +1368,10 @@
           }
         }
       }
+
+      .chart {
+        width: 100% !important;
+      }
     }
 
     .summary {
@@ -1369,7 +1385,6 @@
           flex-basis: 100%;
 
           > div {
-            height: 18px;
           }
         }
       }
@@ -1419,7 +1434,8 @@
             }
 
             :last-of-type {
-              flex: 0 0 110px;
+              flex: 0 0 auto;
+              width: fit-content;
             }
           }
         }
@@ -1427,9 +1443,6 @@
     }
 
     .content-items {
-      section {
-      }
-
       .list {
         .row {
           flex-direction: row;
@@ -1511,6 +1524,16 @@
       .report {
         flex-direction: column-reverse !important;
       }
+
+      .section-chart {
+        .summary {
+          .title {
+            > div:first-of-type {
+              width: auto;
+            }
+          }
+        }
+      }
     }
 
     .content-related-keyword {
@@ -1540,10 +1563,7 @@
             &:nth-of-type(1) {
               display: none;
             }
-            &:nth-of-type(2) {
-              &::before {
-              }
-            }
+
             &:nth-of-type(3) {
               &::before {
                 content: "월간검색수(PC)";
@@ -1615,6 +1635,10 @@
       }
     }
 
+    .tabs {
+      transform: scale(0.9);
+    }
+
     .list {
       .row {
         li {
@@ -1681,6 +1705,7 @@
   }
 
   .content-settings {
+    padding-bottom: 3rem;
     .wrapper {
       gap: 1rem;
       min-width: auto;
@@ -1690,6 +1715,19 @@
 
     .main-header {
       padding: 1rem;
+
+      .btn-main {
+        position: fixed;
+        justify-content: center;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        border-radius: 0;
+        height: 54px !important;
+        font-size: 17px !important;
+        background-color: #333639;
+        z-index: 100;
+      }
     }
 
     section {
@@ -1713,6 +1751,7 @@
       gap: 0;
 
       .row {
+        padding: 1rem 0;
         flex-direction: row;
         word-break: keep-all;
 
@@ -1725,15 +1764,12 @@
         &:last-of-type {
           border-bottom: 0;
         }
-
-        div {
-        }
       }
     }
 
     .select-alarm-type {
       flex-wrap: wrap;
-      padding: 1rem;
+      padding: 1rem 0 !important;
       width: 100% !important;
 
       .details {
@@ -1745,6 +1781,10 @@
         background-color: white;
         border: 0 !important;
         width: 100% !important;
+
+        .title {
+          margin-bottom: 0.5rem;
+        }
       }
 
       .row {
