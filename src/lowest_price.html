@@ -27,6 +27,13 @@
 </script>
 
 <div class="content content-lowest-price">
+  <div class="top-banner">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+      <path d="M0 0h24v24H0V0z" fill="none" />
+      <path fill='white' d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
+    </svg>
+    예시 화면입니다. 서비스를 사용하려면 로그인해주세요.
+  </div>
   <header class="main-header">
     <section class="title">
       <h1>
@@ -133,9 +140,9 @@
           </div>
         </div>
         <div class="advanced-search">
-          <ul class="mid">
-            <li>
-              <h5>
+          <ul>
+            <li class="mid">
+              <div>
                 <span>상품 MID</span>
                 <div class="tooltip">
                   <article class="tooltip-content">
@@ -144,105 +151,170 @@
                     <p>12345678901</p>
                   </article>
                 </div>
-              </h5>
-              <small>복수검색 가능</small>
+                <small>복수검색 가능</small>
+              </div>
+              <div class="inputs">
+                <textarea
+                  id=""
+                  name=""></textarea>
+              </div>
             </li>
-            <li class="inputs">
-              <textarea name="" id=""></textarea>
-            </li>
-          </ul>
-          <div class="item-status">
-            <ul>
-              <li>상태</li>
-              <li class="inputs">
+            <li class="item-status">
+              <div>현재 상태</div>
+              <div class="inputs">
                 <div class="checkbox">
-                  <input type="checkbox" id="status-change" name="item-status" />
-                  <label for="status-change">변동</label>
+                  <input
+                    id="status-change-anony"
+                    type="checkbox"
+                    name="item-status">
+                  <label for="status-change-anony">변동</label>
                 </div>
                 <div class="checkbox">
                   (
-                  <input type="checkbox" id="status-change-up" name="item-status" />
-                  <label for="status-change-up">상승</label>
+                  <input
+                    id="status-change-anony-up"
+                    type="checkbox"
+                    name="item-status">
+                  <label for="status-change-anony-up">상승</label>
                 </div>
                 <div class="checkbox">
-                  <input type="checkbox" id="status-change-down" name="item-status" />
-                  <label for="status-change-down">하락</label>
+                  <input
+                    id="status-change-anony-down"
+                    type="checkbox"
+                    name="item-status">
+                  <label for="status-change-anony-down">하락</label>
                   )
                 </div>
                 <div class="checkbox no-change">
-                  <input type="checkbox" id="status-nochange" name="item-status" />
+                  <input
+                    id="status-nochange"
+                    type="checkbox"
+                    name="item-status">
                   <label for="status-nochange">유지</label>
                 </div>
-              </li>
-            </ul>
-            <ul class="filter-range">
-              <li>
-                <h5>
-                  <span>변동폭</span>
-                  <div class="tooltip">
-                    <div class="tooltip-content">
-                      <dl>
-                        <dd>최저가 변동폭을 검색합니다.</dd>
-                        <dd>특정 값을 검색할 경우 이상·이하 입력 칸에 같은 값을 입력해주세요.</dd>
-                      </dl>
-                    </div>
+              </div>
+            </li>
+            <li class="filter-range">
+              <div>
+                <span>변동폭</span>
+                <div class="tooltip">
+                  <div class="tooltip-content">
+                    <dl>
+                      <dd>최저가 변동폭을 검색합니다.</dd>
+                      <dd>특정 값을 검색할 경우 이상·이하 입력 칸에 같은 값을 입력해주세요.</dd>
+                    </dl>
                   </div>
-                </h5>
-              </li>
-              <li class="inputs">
+                </div>
+              </div>
+              <div class="inputs price-display">
                 <div class="up">
-                  <input type="number" />
+                  <input
+                    id="minchange"
+                    type="number"
+                    disabled>
                 </div>
                 <div class="down">
-                  <input type="number" />
+                  <input
+                    id="maxchange"
+                    type="number"
+                    disabled>
                 </div>
-              </li>
-            </ul>
-          </div>
-          <div class="item-information">
-            <ul>
-              <li>스토어명</li>
-              <li class="inputs"><input type="text" /></li>
-            </ul>
-            <ul>
-              <li>상품명</li>
-              <li class="inputs"><input type="text" /></li>
-            </ul>
-            <ul>
-              <li>그룹</li>
-              <li class="inputs"><input type="text" /></li>
-            </ul>
-          </div>
-          <div></div>
-          <ul class="item-created">
-            <li>등록일</li>
-            <li class="inputs">
-              <div class="select">
-                <input id="created-date-no" type="radio" name="created" data-select="no" checked />
-                <label for="created-date-no">미사용</label>
-                <input id="created-date-yes" type="radio" name="created" data-select="yes" />
-                <label for="created-date-yes">사용</label>
-              </div>
-              <div class="calendar">
-                <input type="text" id="from" name="from" />
-                <span>~</span>
-                <input type="text" id="to" name="to" />
+                <input
+                  id="pricecheck"
+                  type="hidden">
               </div>
             </li>
           </ul>
-          <ul class="item-alert">
-            <li>알림</li>
+          <ul>
             <li>
-              <div class="toggle-switch">
-                <input id="filterAlarm" type="checkbox" />
-                <label for="filterAlarm"></label>
+              <div>최근 30일 변동</div>
+              <div class="inputs">
+                <div class="checkbox">
+                  <input
+                    id="check-fluctuate"
+                    type="checkbox">
+                  <label for="check-fluctuate">변동</label>
+                </div>
+                <div class="checkbox">
+                  <input
+                    id="check-maintain"
+                    type="checkbox">
+                  <label for="check-maintain">유지</label>
+                </div>
+              </div>
+            </li>
+            <li class="last-changed">
+              <div>최근 변동일</div>
+              <div class="inputs">
+                <div class="calendar">
+                  <input
+                    id="lastChangedFrom"
+                    type="text"
+                    autocomplete="off">
+                  <span>~</span>
+                  <input
+                    id="lastChangedTo"
+                    type="text"
+                    autocomplete="off">
+                </div>
+              </div>
+            </li>
+            <li class="item-created">
+              <div>등록일</div>
+              <div class="inputs">
+                <div class="calendar">
+                  <input
+                    id="from"
+                    type="text"
+                    name="from">
+                  <span>~</span>
+                  <input
+                    id="to"
+                    type="text"
+                    name="to">
+                </div>
               </div>
             </li>
           </ul>
-          <div class="buttons">
-            <button class="btn-sub clear">초기화</button>
-            <button class="btn-main">상세검색</button>
-          </div>
+          <ul>
+            <li>
+              <div>상품명</div>
+              <div class="inputs">
+                <input type="text">
+              </div>
+            </li>
+            <li>
+              <div>그룹</div>
+              <div class="inputs">
+                <input type="text">
+              </div>
+            </li>
+            <li>
+              <div>알림</div>
+              <div class="inputs">
+                <div class="checkbox">
+                  <input
+                    id="alert-on"
+                    type="checkbox">
+                  <label for="alert-on">on</label>
+                </div>
+                <div class="checkbox">
+                  <input
+                    id="alert-off"
+                    type="checkbox">
+                  <label for="alert-off">off</label>
+                </div>
+              </div>
+            </li>
+            <li class="buttons">
+              <button class="btn-sub clear">
+                초기화
+              </button>
+              <button class="btn-main">
+                상세검색
+              </button>
+            </li>
+          </ul>
         </div>
         <div class="filters">
           <div>

@@ -27,6 +27,13 @@
 </script>
 
 <div class="content content-ranking">
+  <div class="top-banner">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+      <path d="M0 0h24v24H0V0z" fill="none" />
+      <path fill='white' d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
+    </svg>
+    예시 화면입니다. 서비스를 사용하려면 로그인해주세요.
+  </div>
   <header class="main-header">
     <section class="title">
       <h1>
@@ -159,11 +166,10 @@
           </div>
         </div>
         <div class="advanced-search">
-          <ul class="item-keyword">
-            <li>
-              <h5>
+          <ul>
+            <li class="item-keyword">
+              <div>
                 <span>키워드</span>
-
                 <div class="tooltip">
                   <div class="tooltip-content">
                     <p>복수검색은 줄 바꿈(엔터키)으로 구분합니다.</p>
@@ -171,57 +177,32 @@
                     <p>키워드 상품</p>
                   </div>
                 </div>
-              </h5>
-              <small>복수검색 가능</small>
-            </li>
-            <li class="inputs">
-              <textarea name="" id=""></textarea>
-              <div class="select">
-                <input id="keyword-01" type="radio" name="filter-keyword" checked />
-                <label for="keyword-01">일치</label>
-                <input id="keyword-02" type="radio" name="filter-keyword" />
-                <label for="keyword-02">포함</label>
-                <input id="keyword-03" type="radio" name="filter-keyword" />
-                <label for="keyword-03">제외</label>
+                <small>복수검색 가능</small>
+              </div>
+              <div class="inputs">
+                <textarea id="" name=""></textarea>
+                <div class="select">
+                  <input
+                    id="keyword-01"
+                    type="radio"
+                    name="filter-keyword"
+                    checked>
+                  <label for="keyword-01">일치</label>
+                  <input
+                    id="keyword-02"
+                    type="radio"
+                    name="filter-keyword">
+                  <label for="keyword-02">포함</label>
+                  <input
+                    id="keyword-03"
+                    type="radio"
+                    name="filter-keyword">
+                  <label for="keyword-03">제외</label>
+                </div>
               </div>
             </li>
-          </ul>
-          <ul class="mid">
-            <li>
-              <h5>
-                <span>상품 MID</span>
-                <div class="tooltip">
-                  <div class="tooltip-content">
-                    <p>복수검색은 줄 바꿈(엔터키)으로 구분합니다.</p>
-                    <p>예시:</p>
-                    <p>12345678900</p>
-                    <p>12345678901</p>
-                  </div>
-                </div>
-              </h5>
-              <small>복수검색 가능</small>
-            </li>
-            <li class="inputs">
-              <textarea name="" id=""></textarea>
-            </li>
-          </ul>
-          <div class="item-information">
-            <ul>
-              <li>스토어명</li>
-              <li class="inputs"><input type="text" /></li>
-            </ul>
-            <ul>
-              <li>상품명</li>
-              <li class="inputs"><input type="text" /></li>
-            </ul>
-            <ul>
-              <li>그룹</li>
-              <li class="inputs"><input type="text" /></li>
-            </ul>
-          </div>
-          <ul class="filter-range">
-            <li>
-              <h5>
+            <li class="filter-range">
+              <div>
                 <span>순위</span>
                 <div class="tooltip">
                   <div class="tooltip-content">
@@ -232,46 +213,101 @@
                     </dl>
                   </div>
                 </div>
-              </h5>
-            </li>
-            <li class="inputs">
-              <div class="up">
-                <input type="number" />
               </div>
-              <div class="down">
-                <input type="number" />
-              </div>
-            </li>
-          </ul>
-          <ul class="item-created">
-            <li>등록일</li>
-            <li class="inputs">
-              <div class="select">
-                <input id="created-date-no" type="radio" name="created" data-select="no" checked />
-                <label for="created-date-no">미사용</label>
-                <input id="created-date-yes" type="radio" name="created" data-select="yes" />
-                <label for="created-date-yes">사용</label>
-              </div>
-              <div class="calendar">
-                <input type="text" id="from" name="from" />
-                <span>~</span>
-                <input type="text" id="to" name="to" />
+              <div class="inputs">
+                <div class="up">
+                  <input type="number">
+                </div>
+                <div class="down">
+                  <input type="number">
+                </div>
               </div>
             </li>
           </ul>
-          <ul class="item-alert">
-            <li>알림</li>
+          <ul>
+            <li class="mid">
+              <div>
+                <span>상품 MID</span>
+                <div class="tooltip">
+                  <div class="tooltip-content">
+                    <p>복수검색은 줄 바꿈(엔터키)으로 구분합니다.</p>
+                    <p>예시:</p>
+                    <p>12345678900</p>
+                    <p>12345678901</p>
+                  </div>
+                </div>
+                <small>복수검색 가능</small>
+              </div>
+              <div class="inputs">
+                <textarea id="" name=""></textarea>
+              </div>
+            </li>
+            <li class="item-created">
+              <div>등록일</div>
+              <div class="inputs">
+                <div class="calendar">
+                  <input
+                    id="from"
+                    type="text"
+                    name="from"
+                    autocomplete="off">
+                  <span>~</span>
+                  <input
+                    id="to"
+                    type="text"
+                    name="to"
+                    autocomplete="off">
+                </div>
+              </div>
+            </li>
+          </ul>
+          <ul>
             <li>
-              <div class="toggle-switch">
-                <input id="filterAlarm" type="checkbox" />
-                <label for="filterAlarm"></label>
+              <div>스토어명</div>
+              <div class="inputs">
+                <input type="text">
               </div>
             </li>
+            <li>
+              <div>상품명</div>
+              <div class="inputs">
+                <input type="text">
+              </div>
+            </li>
+            <li>
+              <div>그룹</div>
+              <div class="inputs">
+                <input type="text">
+              </div>
+            </li>
+            <li class="item-alert">
+              <div>알림</div>
+              <div class="inputs">
+                <div class="checkbox">
+                  <input
+                    id="alert-on"
+                    type="checkbox">
+                  <label for="alert-on">on</label>
+                </div>
+                <div class="checkbox">
+                  <input
+                    id="alert-off"
+                    type="checkbox">
+                  <label for="alert-off">off</label>
+                </div>
+              </div>
+            </li>
+            <li class="buttons">
+              <button class="btn-sub clear">
+                초기화
+              </button>
+              <button
+                class="btn-main"
+                data-modal="advancedSearch">
+                상세검색
+              </button>
+            </li>
           </ul>
-          <div class="buttons">
-            <button class="btn-sub clear">초기화</button>
-            <button class="btn-main" data-modal="advancedSearch">상세검색</button>
-          </div>
         </div>
         <div class="filters">
           <div>

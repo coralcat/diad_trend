@@ -267,22 +267,6 @@
         flex: 1 1 auto;
       }
 
-      .checkbox {
-        label {
-          &::before {
-            width: 24px;
-            height: 24px;
-            border-radius: 0.25rem;
-          }
-        }
-        input + label:after {
-          top: 6px;
-          left: 6px;
-          width: 12px;
-          height: 7px;
-        }
-      }
-
       [data-tooltip] {
         &::before {
           left: 50% !important;
@@ -654,6 +638,7 @@
 
         li {
           width: 100%;
+          padding: 0 .5rem;
         }
       }
 
@@ -673,7 +658,7 @@
         }
       }
       li {
-        padding: 0;
+        padding: 0 .5rem;
         min-height: 32px !important;
         height: auto !important;
         border-bottom: 0;
@@ -904,6 +889,23 @@
     }
 
     .list-item {
+
+      .checkbox {
+        label {
+          &::before {
+            width: 24px;
+            height: 24px;
+            border-radius: 0.25rem;
+          }
+        }
+        input + label:after {
+          top: 6px;
+          left: 6px;
+          width: 12px;
+          height: 7px;
+        }
+      }
+
       .tooltip {
         display: none;
       }
@@ -1057,35 +1059,41 @@
       li {
         &:nth-of-type(3) {
           &::before {
-            content: "최저가";
+            content: "브랜드";
           }
         }
 
         &:nth-of-type(4) {
           &::before {
-            content: "상태";
+            content: "최저가";
           }
         }
 
         &:nth-of-type(5) {
           &::before {
-            content: "그룹";
+            content: "현재 상태";
           }
         }
 
         &:nth-of-type(6) {
           &::before {
-            content: "등록일";
+            content: "그룹";
           }
         }
 
         &:nth-of-type(7) {
           &::before {
-            content: "최근 갱신";
+            content: "등록일";
           }
         }
 
         &:nth-of-type(8) {
+          &::before {
+            content: "최근 갱신시간";
+          }
+        }
+
+        &:nth-of-type(9) {
           &::before {
             content: "알림";
           }
