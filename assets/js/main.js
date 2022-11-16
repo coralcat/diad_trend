@@ -34,10 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  if(matchMedia("screen and (max-width: 640px)").matches) {
+  if (matchMedia("screen and (max-width: 640px)").matches) {
     content.addEventListener("scroll", () => {
       let currentScrollTop = content.scrollTop;
-  
+
       if (currentScrollTop > 50) {
         if (currentScrollTop > lastScrollTop) {
           //Scroll down
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
           //Scroll up
           scrollToTop.classList.add("is-active");
         }
-  
+
         lastScrollTop = currentScrollTop;
       } else {
         scrollToTop.classList.remove("is-active");
@@ -95,9 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const tooltips = document.querySelectorAll(".tooltip");
   if (matchMedia("screen and (max-width: 640px)").matches) {
-    console.log()
-    tooltips.forEach((tooltip) => {
-      tooltip.addEventListener("click", (event) => {
+    console.log();
+    tooltips.forEach(tooltip => {
+      tooltip.addEventListener("click", event => {
         tooltip.classList.toggle("is-active");
         const content = tooltip.querySelector(".tooltip-content");
         content.style.top = `${event.clientY}px`;
@@ -281,13 +281,11 @@ document.addEventListener("DOMContentLoaded", () => {
           detail2.classList.add("is-active");
 
           const toggles = detail2.querySelectorAll(".toggle-switch");
-          const inputDisabled = (event) => {
+          const inputDisabled = event => {
             const row = event.target.closest(".row");
-            const checked = row.querySelector("input:checked")
+            const checked = row.querySelector("input:checked");
             const inputs = row.querySelector(".inputs");
-            checked
-              ? (inputs.classList.add("is-active"))
-              : (inputs.classList.remove("is-active"));
+            checked ? inputs.classList.add("is-active") : inputs.classList.remove("is-active");
           };
           toggles.forEach(toggle => {
             toggle.addEventListener("click", inputDisabled);
@@ -761,33 +759,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* =====================================================
-       Section Keyword History: List Scroll: css로 해결
-  ===================================================== */
-  // const listScroll = document.querySelector(".list.scroll");
-
-  // if (listScroll) {
-  //   var scrollVertical01 = document.querySelector(".scroll-vertical-01");
-  //   var scrollVertical02 = document.querySelector(".scroll-vertical-02");
-  //   var scrollHorizontal01 = document.querySelector(".scroll-horizontal-01");
-  //   var scrollHorizontal02 = document.querySelector(".scroll-horizontal-02");
-
-  //   if (scrollVertical01) {
-  //     const handleScrollVertical = () => {
-  //       scrollVertical01.scrollTop = scrollVertical02.scrollTop;
-  //     };
-  //     scrollVertical02.addEventListener("scroll", handleScrollVertical);
-  //   }
-
-  //   if (scrollHorizontal01) {
-  //     const handleScrollHorizontal = () => {
-  //       scrollHorizontal01.scrollLeft = scrollHorizontal02.scrollLeft;
-  //     };
-
-  //     scrollHorizontal02.addEventListener("scroll", handleScrollHorizontal);
-  //   }
-  // }
-
   const hamburgMenu = document.querySelector(".hamburg-menu");
   hamburgMenu.addEventListener("click", () => {
     const aside = document.querySelector("aside");
@@ -799,13 +770,35 @@ document.addEventListener("DOMContentLoaded", () => {
        Dropdown
   ===================================================== */
   const dropdown = document.querySelector(".dropdown");
-  if(dropdown) {
-    dropdown.addEventListener("click", (event) => {
-      const lists = dropdown.querySelectorAll("li")
+  if (dropdown) {
+    dropdown.addEventListener("click", event => {
+      const lists = dropdown.querySelectorAll("li");
       lists.forEach(list => {
-        list.classList.remove("is-active")
-      })
-      event.target.closest("li").classList.toggle("is-active")
-    })
+        list.classList.remove("is-active");
+      });
+      event.target.closest("li").classList.toggle("is-active");
+    });
+  }
+
+  // 키워드 콘텐츠에서 키워드 bold 처리
+  const sectionArticle = document.querySelector(".content-keyword-trend-details .section-article");
+  if (sectionArticle) {
+    const articleLists = sectionArticle.querySelectorAll(".list-article");
+    // 원두 대신 [키워드]
+    const willChangeKeyword = "<strong>원두</strong>";
+
+    articleLists.forEach(list => {
+      const titles = list.querySelectorAll(".article-title");
+      const contents = list.querySelectorAll(".article-content");
+
+      titles.forEach(title => {
+        // 원두 대신 [키워드]
+        title.innerHTML = title.innerHTML.replace(/원두/g, willChangeKeyword);
+      });
+      contents.forEach(content => {
+        // 원두 대신 [키워드]
+        content.innerHTML = content.innerHTML.replace(/원두/g, willChangeKeyword);
+      });
+    });
   }
 });
