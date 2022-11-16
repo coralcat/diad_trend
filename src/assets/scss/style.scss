@@ -169,7 +169,7 @@ button {
 
   &.btn-sub {
     background-color: $secondary-color;
-    color: $primary-color;
+    color: $main-color;
     padding: 0.5rem 1rem;
   }
 
@@ -369,6 +369,10 @@ button {
   &.red {
     background-color: rgb(255 99 71 / 15%);
     color: rgb(255 99 71);
+  }
+
+  &.naver {
+    background: linear-gradient(90deg, #01C73C 30%, #63A7CE, #8183DA);
   }
 }
 
@@ -2242,8 +2246,10 @@ section {
     position: absolute;
     display: flex;
     width: 100%;
-    height: calc(100% - 39px);
-    top: 39px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: .5rem;
     flex: 1 1 auto;
     flex-direction: column;
     align-items: center;
@@ -2252,7 +2258,7 @@ section {
 
     p {
       font-size: 17px;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       text-align: center;
     }
     button {
@@ -3795,14 +3801,21 @@ section {
 
       li {
         .title {
-          line-height: 1.25;
-          white-space: normal;
-          word-break: keep-all;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 2;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 3px;
+          
+          span {
+            line-height: 1.25;
+            white-space: normal;
+            word-break: keep-all;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+          }
         }
       }
 
@@ -3946,13 +3959,13 @@ section {
               font-size: 15px;
               margin-bottom: 0.35rem;
 
-              .tag {
-                display: none;
-              }
-
               .image {
                 width: 120px;
                 height: 120px;
+              }
+
+              .title {
+                align-items: center;
               }
             }
 
@@ -4639,6 +4652,13 @@ section {
     }
   }
 
+  .caution {
+    color: slategray;
+    padding-top: 0.5rem;
+    font-size: 13px;
+    font-family: "MinLight";
+  }
+
   .right-arrow {
     padding: 0;
 
@@ -4728,10 +4748,34 @@ section {
       li {
         border-right: 0;
         justify-content: flex-start;
+        position: relative;
 
         &.keyword {
           &::before {
             content: "#";
+          }
+        }
+
+        .count {
+          background-color: rgb(112 128 144 / 10%);
+          color: slategray;
+          border-radius: 50px;
+          padding: 3px 10px 3px .5rem;
+          font-family: 'Roboto';
+          font-size: 12px;
+          position: absolute;
+          right: 1.15rem;
+          display: flex;
+          gap: 3px;
+          align-items: center;
+  
+          &::before {
+            content: "";
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='rgb(112 128 144 / 50%)' d='M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z'/%3E%3C/svg%3E") no-repeat left center;
+            display: inline-block;
+            background-size: 100%;
+            width: 12px;
+            height: 12px;
           }
         }
       }
@@ -4742,7 +4786,6 @@ section {
     .list {
       li {
         gap: 0.75rem;
-        position: relative;
       }
 
       input {
@@ -4750,17 +4793,6 @@ section {
         background-color: transparent;
         border: 1px solid #eee;
         padding-right: 3.5rem;
-      }
-
-      .count {
-        background-color: rgb(112 128 144 / 10%);
-        color: slategray;
-        border-radius: 50px;
-        padding: 3px 10px;
-        font-family: 'Roboto';
-        font-size: 12px;
-        position: absolute;
-        right: 1.15rem;
       }
     }
   }
@@ -5151,6 +5183,28 @@ section {
         &::before {
           content: "확인불가";
           font-size: 10px;
+        }
+      }
+    }
+
+    .row {
+
+      li {
+
+        &:nth-of-type(9),
+        &:nth-of-type(10) {
+
+          .tag {
+            background-color: transparent;
+            font-size: 14px;
+            &.up {
+              color: tomato;
+            }
+
+            &.down {
+              color: royalblue;
+            }
+          }
         }
       }
     }
