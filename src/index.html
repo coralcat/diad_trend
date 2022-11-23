@@ -1,4 +1,9 @@
 {% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('index')}}
+<style>
+  .chart canvas {
+    width: auto !important;
+  }
+</style>
 <script>
   am5.ready(function () {
     var root = am5.Root.new("mainRankingChart");
