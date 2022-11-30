@@ -660,9 +660,7 @@ document.addEventListener("DOMContentLoaded", () => {
         selected.addEventListener("click", event => {
           const {target} = event;
           subSelectors.forEach(sub => {
-            const initialize = () => {
-              sub.classList.remove("is-active");
-            };
+            const initialize = () => sub.classList.remove("is-active");
             const checkSelect = () => {
               if (target.classList.contains("select-word") && sub.classList.contains("selector-word")) {
                 sub.classList.add("is-active");
@@ -679,6 +677,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 (sub.classList.contains("selector-device") || sub.classList.contains("selector-number"))
               ) {
                 sub.classList.add("is-active");
+                subSelectors[0].classList.remove("is-active");
+
+                const devices = document.querySelectorAll(".selector-device [class*='select']")
+                if (target.closest(".select-monthly-search")) {
+                  devices.forEach(device => {
+                      device.style.display = "flex"
+                  })
+                }
+                if (target.closest(".select-monthly-search2")) {
+                  devices.forEach(device => {
+                    if(device.classList.contains("select-google")) {
+                      device.style.display = "flex"
+                      device.querySelector("input").checked = true;
+                    } else {
+                      device.style.display = "none"
+                    }
+                  })
+                }
+                if (target.closest(".select-monthly-click")) {
+                  devices.forEach(device => {
+                    if(device.classList.contains("select-naver-pc") || device.classList.contains("select-naver-mobile")) {
+                      device.style.display = "flex"
+                      device.querySelector("input").checked = true;
+                    } else {
+                      device.style.display = "none"
+                    }
+                  })
+                }
               }
             };
 
@@ -800,5 +826,44 @@ document.addEventListener("DOMContentLoaded", () => {
         content.innerHTML = content.innerHTML.replace(/원두/g, willChangeKeyword);
       });
     });
+  }
+
+  // 키워드 트랜드 - 연관 키워드 목록
+  const relatedKeywordContent = document.querySelector(".content-related-keyword")
+  if (relatedKeywordContent) {
+    const checkNaver = document.getElementById("checkNaverList");
+    const checkGoogle = document.getElementById("checkGoogleList");
+    const lists = relatedKeywordContent.querySelectorAll(".list");
+    relatedKeywordContent.querySelector(".list.all").classList.add("is-active")
+
+    checkNaver.addEventListener("change", (event) => {
+      lists.forEach(list => {
+        list.classList.remove("is-active")
+      })
+      if (event.target.checked === true) {
+        if(checkGoogle.checked === true) {
+          relatedKeywordContent.querySelector(".list.all").classList.add("is-active")
+        } else {
+          relatedKeywordContent.querySelector(".list.naver").classList.add("is-active")
+        }
+      } else if(checkGoogle.checked === true) {
+        relatedKeywordContent.querySelector(".list.google").classList.add("is-active")
+      }
+    })
+
+    checkGoogle.addEventListener("change", (event) => {
+      lists.forEach(list => {
+        list.classList.remove("is-active")
+      })
+      if (event.target.checked === true) {
+        if(checkNaver.checked === true) {
+          relatedKeywordContent.querySelector(".list.all").classList.add("is-active")
+        } else {
+          relatedKeywordContent.querySelector(".list.google").classList.add("is-active")
+        }
+      } else if(checkNaver.checked === true) {
+        relatedKeywordContent.querySelector(".list.naver").classList.add("is-active")
+      }
+    })
   }
 });

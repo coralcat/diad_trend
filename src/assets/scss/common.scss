@@ -304,6 +304,12 @@ ul {
   background-repeat: no-repeat;
 }
 
+.ico-link {
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3CError%3E%3CCode%3EAccessDenied%3C/Code%3E%3CMessage%3EAccess Denied%3C/Message%3E%3CRequestId%3EKTET5D8Q09N385Q3%3C/RequestId%3E%3CHostId%3ElI3rVWH+sUGqOMRpZYXZBiboTEfB+1QonqYDDrPBeQYWslbSgVOwNDhqbnTKLnfcyNrHoHzHcLM=%3C/HostId%3E%3C/Error%3E");
+  background-size: 20px 20px;
+  background-position: center;
+}
+
 .ico-edit {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3E%3C/svg%3E");
   background-size: 20px 20px;
