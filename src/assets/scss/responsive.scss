@@ -118,12 +118,8 @@
       }
     }
 
-    .report {
-      flex-wrap: wrap;
-    }
-
     .summary {
-      width: 100%;
+      width: 100% !important ;
 
       .link {
         max-width: none;
@@ -136,6 +132,12 @@
           flex: 1 1 15%;
           word-break: keep-all;
         }
+      }
+    }
+
+    .content-keyword {
+      .report {
+        flex-wrap: wrap;
       }
     }
   }
@@ -224,7 +226,7 @@
 
       .top-banner {
         font-size: 14px;
-        padding: .5rem;
+        padding: 0.5rem;
       }
 
       .date {
@@ -385,6 +387,8 @@
   aside {
     width: 250px;
     position: absolute;
+    top: auto;
+    left: auto;
     right: -250px;
     transition: 0.4s;
 
@@ -638,7 +642,7 @@
 
         li {
           width: 100%;
-          padding: 0 .5rem;
+          padding: 0 0.5rem;
         }
       }
 
@@ -658,7 +662,7 @@
         }
       }
       li {
-        padding: 0 .5rem;
+        padding: 0 0.5rem;
         min-height: 32px !important;
         height: auto !important;
         border-bottom: 0;
@@ -889,7 +893,6 @@
     }
 
     .list-item {
-
       .checkbox {
         label {
           &::before {
