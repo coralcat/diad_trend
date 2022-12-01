@@ -679,31 +679,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 sub.classList.add("is-active");
                 subSelectors[0].classList.remove("is-active");
 
-                const devices = document.querySelectorAll(".selector-device [class*='select']")
+                const devices = document.querySelectorAll(".selector-device [class*='select']");
                 if (target.closest(".select-monthly-search")) {
                   devices.forEach(device => {
-                      device.style.display = "flex"
-                  })
+                    device.style.display = "flex";
+                  });
                 }
                 if (target.closest(".select-monthly-search2")) {
                   devices.forEach(device => {
-                    if(device.classList.contains("select-google")) {
-                      device.style.display = "flex"
+                    if (device.classList.contains("select-google")) {
+                      device.style.display = "flex";
                       device.querySelector("input").checked = true;
                     } else {
-                      device.style.display = "none"
+                      device.style.display = "none";
                     }
-                  })
+                  });
                 }
                 if (target.closest(".select-monthly-click")) {
                   devices.forEach(device => {
-                    if(device.classList.contains("select-naver-pc") || device.classList.contains("select-naver-mobile")) {
-                      device.style.display = "flex"
+                    if (
+                      device.classList.contains("select-naver-pc") ||
+                      device.classList.contains("select-naver-mobile")
+                    ) {
+                      device.style.display = "flex";
                       device.querySelector("input").checked = true;
                     } else {
-                      device.style.display = "none"
+                      device.style.display = "none";
                     }
-                  })
+                  });
                 }
               }
             };
@@ -829,41 +832,51 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 키워드 트랜드 - 연관 키워드 목록
-  const relatedKeywordContent = document.querySelector(".content-related-keyword")
+  const relatedKeywordContent = document.querySelector(".content-related-keyword");
   if (relatedKeywordContent) {
     const checkNaver = document.getElementById("checkNaverList");
     const checkGoogle = document.getElementById("checkGoogleList");
-    const lists = relatedKeywordContent.querySelectorAll(".list");
-    relatedKeywordContent.querySelector(".list.all").classList.add("is-active")
+    const list = relatedKeywordContent.querySelector(".list");
+    list.classList.add("all");
 
-    checkNaver.addEventListener("change", (event) => {
-      lists.forEach(list => {
-        list.classList.remove("is-active")
-      })
-      if (event.target.checked === true) {
-        if(checkGoogle.checked === true) {
-          relatedKeywordContent.querySelector(".list.all").classList.add("is-active")
-        } else {
-          relatedKeywordContent.querySelector(".list.naver").classList.add("is-active")
-        }
-      } else if(checkGoogle.checked === true) {
-        relatedKeywordContent.querySelector(".list.google").classList.add("is-active")
-      }
-    })
+    const initialize = () => {
+      list.classList.remove("all", "naver", "google");
+    };
 
-    checkGoogle.addEventListener("change", (event) => {
-      lists.forEach(list => {
-        list.classList.remove("is-active")
-      })
-      if (event.target.checked === true) {
-        if(checkNaver.checked === true) {
-          relatedKeywordContent.querySelector(".list.all").classList.add("is-active")
+    const changeFilters = event => {
+      initialize();
+      if (event.target.id === "checkNaverList") {
+        if (event.target.checked === true) {
+          if (checkGoogle.checked === true) {
+            list.classList.add("all");
+          } else {
+            list.classList.add("naver");
+          }
+        } else if (checkGoogle.checked === true) {
+          list.classList.add("google");
         } else {
-          relatedKeywordContent.querySelector(".list.google").classList.add("is-active")
+          list.classList.add("all");
         }
-      } else if(checkNaver.checked === true) {
-        relatedKeywordContent.querySelector(".list.naver").classList.add("is-active")
       }
-    })
+
+      if (event.target.id === "checkGoogleList") {
+        if (event.target.checked === true) {
+          if (checkNaver.checked === true) {
+            list.classList.add("all");
+          } else {
+            list.classList.add("google");
+          }
+        } else if (checkNaver.checked === true) {
+          list.classList.add("naver");
+        } else {
+          list.classList.add("all");
+        }
+      }
+    };
+
+    const checkboxes = relatedKeywordContent.querySelectorAll(".filters .checkboxes input");
+    checkboxes.forEach(check => {
+      check.addEventListener("click", changeFilters);
+    });
   }
 });
