@@ -1811,6 +1811,7 @@ section {
   .checkboxes {
     display: flex;
     gap: 0.5rem;
+    height: 100%;
 
     .checkbox {
       display: flex;
@@ -3836,6 +3837,7 @@ section {
       .title {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
+        justify-content: center;
       }
     }
   }
