@@ -1,0 +1,783 @@
+<template>
+  <div class="content content-lowest-price">
+    <div class="top-banner">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path fill='white' d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
+      </svg>
+      예시 화면입니다. 서비스를 사용하려면 로그인해주세요.
+    </div>
+    <header class="main-header">
+      <section class="title">
+        <h1>
+          <span>최저가 추적</span>
+          <div class="tooltip">
+            <article class="tooltip-content">
+              <dl>
+                <dd>네이버 쇼핑 가격비교 상품의 최저가 정보를 확인할 수 있습니다.</dd>
+                <dd>상품마다 최저가 변동 차트를 제공하여 최저가 변동을 한눈에 확인할 수 있습니다.</dd>
+                <dd>최저가 변동 시 알림을 제공합니다. (유료 부가서비스)</dd>
+                <dd>최저가 갱신은 00:00, 03:00, 06:00, 09:00, 12:00, 15:00, 18:00, 21:00 3시간 단위로 진행됩니다.</dd>
+              </dl>
+            </article>
+          </div>
+        </h1>
+        <div class="subline">
+          <p>※ 서비스 기간이 만료했거나 서비스 정보가 없습니다. 서비스 신청 후 이용해 주시기 바랍니다.</p>
+          <a
+            @click="$onclickGoToService('AdInquire/AdInquireMemberRegister')"
+          >
+            <button
+              class="btn-main"
+              type="button"
+            >서비스 신청하기</button>
+          </a>
+        </div>
+      </section>
+      <section class="section-main">
+        <div class="services">
+          <header class="section-header">
+            <h3>서비스 이용 현황</h3>
+            <a
+              v-if="$mobileck() == false"
+              :href="$goToService('Mypage/PaymentHistoryView')"
+              class="right-arrow"
+              target="_blank"
+            >서비스 이용 내역 보기</a>
+            <a
+              v-else
+              class="right-arrow"
+              @click="$cannotService()"
+            >서비스 이용 내역 보기</a>
+          </header>
+          <ul>
+            <li>
+              <div>제공량</div>
+              <strong>20</strong>
+              <span>100.00</span>
+            </li>
+            <li>
+              <div>이용량</div>
+              <strong>16</strong>
+              <span>80.00</span>
+            </li>
+            <li>
+              <div>잔여량</div>
+              <strong>4</strong>
+              <span>20.00</span>
+            </li>
+          </ul>
+        </div>
+        <div class="ranking">
+          <header class="section-header">
+            <h3>현재 최저가 현황</h3>
+            <div class="date">
+              최근 갱신시간 (2022-03-01 12:00)
+            </div>
+          </header>
+          <ul>
+            <li>
+              <div>전체</div>
+              <strong>16</strong>
+              <span>100.00</span>
+            </li>
+            <li>
+              <div>상승</div>
+              <strong>3</strong>
+              <span>18.75</span>
+            </li>
+            <li>
+              <div>유지</div>
+              <strong>12</strong>
+              <span>75.00</span>
+            </li>
+            <li>
+              <div>하락</div>
+              <strong>1</strong>
+              <span>6.25</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </header>
+    <div class="wrapper">
+      <section>
+        <header class="section-header multi-line">
+          <div class="title">
+            <button
+              class="btn-advanced-search"
+              type="button"
+            >
+              상세검색
+            </button>
+            <div class="buttons">
+              <button
+                class="btn-sub"
+                type="button"
+                data-modal="searchGroup"
+              >
+                그룹조회
+              </button>
+              <button
+                class="btn-sub"
+                type="button"
+                data-modal="editGroup"
+              >
+                그룹편집
+              </button>
+              <button
+                class="btn-sub"
+                type="button"
+              >
+                엑셀다운
+              </button>
+              <button
+                class="btn-main"
+                type="button"
+                data-modal="createItem"
+              >
+                상품등록
+              </button>
+            </div>
+          </div>
+          <div class="advanced-search">
+            <ul>
+              <li class="mid">
+                <div>
+                  <span>상품 MID</span>
+                  <div class="tooltip">
+                    <article class="tooltip-content">
+                      <p>복수검색은 줄 바꿈(엔터키)으로 구분합니다.</p>
+                      <p>12345678900</p>
+                      <p>12345678901</p>
+                    </article>
+                  </div>
+                  <small>복수검색 가능</small>
+                </div>
+                <div class="inputs">
+                  <textarea
+                    id=""
+                    name=""
+                  />
+                </div>
+              </li>
+              <li class="item-status">
+                <div>현재 상태</div>
+                <div class="inputs">
+                  <div class="checkbox">
+                    <input
+                      id="status-change-anony"
+                      type="checkbox"
+                      name="item-status"
+                    >
+                    <label for="status-change-anony">변동</label>
+                  </div>
+                  <div class="checkbox">
+                    (
+                    <input
+                      id="status-change-anony-up"
+                      type="checkbox"
+                      name="item-status"
+                    >
+                    <label for="status-change-anony-up">상승</label>
+                  </div>
+                  <div class="checkbox">
+                    <input
+                      id="status-change-anony-down"
+                      type="checkbox"
+                      name="item-status"
+                    >
+                    <label for="status-change-anony-down">하락</label>
+                    )
+                  </div>
+                  <div class="checkbox no-change">
+                    <input
+                      id="status-nochange"
+                      type="checkbox"
+                      name="item-status"
+                    >
+                    <label for="status-nochange">유지</label>
+                  </div>
+                </div>
+              </li>
+              <li class="filter-range">
+                <div>
+                  <span>변동폭</span>
+                  <div class="tooltip">
+                    <div class="tooltip-content">
+                      <dl>
+                        <dd>최저가 변동폭을 검색합니다.</dd>
+                        <dd>특정 값을 검색할 경우 이상·이하 입력 칸에 같은 값을 입력해주세요.</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+                <div class="inputs price-display">
+                  <div class="up">
+                    <input 
+                      id="minchange"
+                      type="number"
+                      disabled
+                    >
+                  </div>
+                  <div class="down">
+                    <input 
+                      id="maxchange"
+                      type="number"
+                      disabled
+                    >
+                  </div>
+                  <input
+                    id="pricecheck"
+                    type="hidden"
+                  >
+                </div>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <div>최근 30일 변동</div>
+                <div class="inputs">
+                  <div class="checkbox">
+                    <input
+                      id="check-fluctuate"
+                      type="checkbox"
+                    >
+                    <label for="check-fluctuate">변동</label>
+                  </div>
+                  <div class="checkbox">
+                    <input
+                      id="check-maintain"
+                      type="checkbox"
+                    >
+                    <label for="check-maintain">유지</label>
+                  </div>
+                </div>
+              </li>
+              <li class="last-changed">
+                <div>최근 변동일</div>
+                <div class="inputs">
+                  <div class="calendar">
+                    <input
+                      id="lastChangedFrom"
+                      type="text"
+                      autocomplete="off"
+                    >
+                    <span>~</span>
+                    <input
+                      id="lastChangedTo"
+                      type="text"
+                      autocomplete="off"
+                    >
+                  </div>
+                </div>
+              </li>
+              <li class="item-created">                
+                <div>등록일</div>
+                <div class="inputs">
+                  <div class="calendar">
+                    <input
+                      id="from"
+                      type="text"
+                      name="from"
+                    >
+                    <span>~</span>
+                    <input
+                      id="to"
+                      type="text"
+                      name="to"
+                    >
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <div>상품명</div>
+                <div class="inputs">
+                  <input type="text">
+                </div>
+              </li>
+              <li>
+                <div>그룹</div>
+                <div class="inputs">
+                  <input type="text">
+                </div>
+              </li>
+              <li>
+                <div>알림</div>
+                <div class="inputs">
+                  <div class="checkbox">
+                    <input
+                      id="alert-on"
+                      type="checkbox"
+                    >
+                    <label for="alert-on">on</label>
+                  </div>
+                  <div class="checkbox">
+                    <input
+                      id="alert-off"
+                      type="checkbox"
+                    >
+                    <label for="alert-off">off</label>
+                  </div>
+                </div>
+              </li>
+              <li class="buttons">                
+                <button class="btn-sub clear">
+                  초기화
+                </button>
+                <button class="btn-main">
+                  상세검색
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="filters">
+            <div>
+              <div class="selectbox">
+                <select
+                  id=""
+                  name=""
+                >
+                  <option value="">
+                    상품명
+                  </option>
+                  <option value="">
+                    스토어명
+                  </option>
+                  <option value="">
+                    그룹명
+                  </option>
+                  <option value="">
+                    상품MID
+                  </option>
+                </select>
+              </div>
+              <div class="search">
+                <input type="search">
+                <button
+                  class="btn-main ico-search"
+                  type="button"
+                />
+              </div>
+              <ul class="list-count">
+                <li>
+                  <span class="selected">0</span>
+                </li>
+                <li>
+                  <span class="total">0</span>
+                </li>
+              </ul>
+            </div>
+            <div class="buttons">
+              <button
+                type="button"
+                data-modal="deleteItem"
+              >
+                선택삭제
+              </button>
+              <div class="selectbox">
+                <select
+                  id=""
+                  name=""
+                >
+                  <option value="">
+                    알림설정
+                  </option>
+                  <option
+                    value=""
+                    data-modal="alarmOn"
+                  >
+                    ON
+                  </option>
+                  <option value="">
+                    OFF
+                  </option>
+                </select>
+              </div>
+              <button
+                type="button"
+                data-modal="selectGroup"
+              >
+                그룹지정
+              </button>
+              <button
+                type="button"
+                data-modal="ungroup"
+              >
+                그룹해제
+              </button>
+              <div class="selectbox">
+                <select
+                  id=""
+                  name=""
+                >
+                  <option value="filter-100">
+                    100개씩 보기
+                  </option>
+                  <option value="filter-50">
+                    50개씩 보기
+                  </option>
+                  <option value="filter-20">
+                    20개씩 보기
+                  </option>
+                  <option value="filter-10">
+                    10개씩 보기
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </header>
+        
+        <div
+          class="list list-item sticky"
+          data-empty="상품을 등록해주세요"
+        >
+          <ul class="row title">
+            <li class="col-check">
+              <div class="checkbox">
+                <input
+                  id="checkAll"
+                  class="check-all"
+                  name="select-item"
+                  type="checkbox"
+                >
+                <label for="checkAll" />
+              </div>
+            </li>
+            <li class="col-important">
+              상품
+            </li>
+            <li>
+              브랜드
+            </li>
+            <li class="col-100 ico-sort">
+              최저가
+            </li>
+            <li class="col-100 ico-sort">
+              현재 상태
+            </li>
+            <li class="ico-sort">
+              최근 30일 변동
+              <div class="tooltip type2">
+                <article class="tooltip-content">
+                  <dl>
+                    <dd>최근 30일 동안의 최저가 변동(상승, 하락) 여부를 알 수 있습니다.</dd>
+                    <dd>최근 30일 동안 최저가 변동이 1회라도 있으면 변동입니다.</dd>
+                    <dd>최근 30일은 당일 포함 30일입니다.</dd>
+                  </dl>
+                </article>
+              </div>
+            </li>
+            <li class="multiple">
+              <div>
+                최근 30일 변동 횟수
+                <div class="tooltip type2">
+                  <article class="tooltip-content">
+                    <dl>
+                      <dd>최근 30일 동안의 최저가 상승과 하락 횟수를 알 수 있습니다.</dd>
+                      <dd>최근 30일은 당일 포함 30일입니다.</dd>
+                    </dl>
+                  </article>
+                </div>
+              </div>
+              <ul>
+                <li class="ico-sort">상승</li>
+                <li class="ico-sort">하락</li>
+              </ul>
+            </li>
+            <li class="ico-sort">
+              최근 30일<br /> 최대 상승 금액
+              <div class="tooltip type2">
+                <article class="tooltip-content">
+                  <dl>
+                    <dd>최근 30일 동안의 최저가가 상승한 건 중 금액이 가장 큰 값을 알 수 있습니다.</dd>
+                    <dd>금액 아래에는 최대 상승 금액으로 변동한 갱신 타임이 표시됩니다.</dd>
+                    <dd>최대 상승 금액이 동일한 갱신 타임이 있는 경우 최근 일시가 표시됩니다.</dd>
+                    <dd>최근 30일은 당일 포함 30일입니다.</dd>
+                  </dl>
+                </article>
+              </div>
+            </li>
+            <li class="ico-sort">
+              최근 30일<br /> 최대 하락 금액
+              <div class="tooltip type2">
+                <article class="tooltip-content">
+                  <dl>
+                    <dd>최근 30일 동안의 최저가가 하락한 건 중 금액이 가장 큰 값을 알 수 있습니다.</dd>
+                    <dd>금액 아래에는 최대 하락 금액으로 변동한 갱신 타임이 표시됩니다.</dd>
+                    <dd>최대 하락 금액이 동일한 갱신 타임이 있는 경우 최근 일시가 표시됩니다.</dd>
+                    <dd>최근 30일은 당일 포함 30일입니다.</dd>
+                  </dl>
+                </article>
+              </div>
+            </li>
+            <li class="ico-sort">최근 변동 일시</li>
+            <li class="ico-sort">
+              그룹
+            </li>
+            <li class="ico-sort">
+              등록일
+            </li>
+            <li class="ico-sort">
+              최근 갱신시간
+            </li>
+            <li class="ico-sort">
+              알림
+            </li>
+          </ul>
+          <ul class="row failed">
+            <li class="col-check">
+              <div class="checkbox">
+                <input
+                  id="check-01"
+                  name="select-item"
+                  type="checkbox"
+                >
+                <label for="check-01" />
+              </div>
+            </li>
+            <li
+              class="col-important item"
+              @click="goDetail()"
+            >
+              <div class="image">
+                <img
+                  src="https://source.unsplash.com/random/100x100/?coffee/1"
+                  alt=""
+                >
+              </div>
+              <div class="information">
+                <a
+                  class="item-mid"
+                  href="https://search.shopping.naver.com/product/12126547821"
+                  target="_blank"
+                >
+                  12126547821
+                </a>
+                <div
+                  class="title"
+                  @click="goDetail()"
+                >
+                  1kg 커피창고 에티오피아 예가체프 커피원두
+                </div>
+                <div class="categories">
+                  <span>식품</span>
+                  <span>음료</span>
+                  <span>커피</span>
+                  <span>원두/생두</span>
+                </div>
+              </div>              
+              <div class="item-update-failed">
+                <div 
+                  class="failed"
+                  data-tooltip="네이버 검색 API 호출 오류로 갱신에 실패하였습니다."
+                >
+                  <div class="ico-x">
+                    갱신실패
+                  </div>
+                </div>
+                <span 
+                  class="date"
+                >
+                  갱신성공 2021-08-01 15:00
+                </span>
+              </div>
+            </li>
+            <li>
+              -
+            </li>
+            <li class="col-100">
+              <div class="price">
+                9,900
+              </div>
+              <div class="tag up">
+                100
+              </div>
+            </li>
+            <li class="col-100">
+              <div class="tag type-border up" />
+            </li>
+            <li>변동</li>
+            <li class="col-100">0건</li>
+            <li class="col-100">1건</li>
+            <li>-</li>
+            <li>
+              <div class="tag down">10</div>
+              <div class="date">2022-11-01 06:00</div>
+            </li>
+            <li>2022-11-01 06:00</li>
+            <li>커피그룹</li>
+            <li>2022-03-01</li>
+            <li>2022-03-03 15:00</li>
+            <li>
+              <div
+                id=""
+                class="toggle toggle-switch is-active">
+                <input type="checkbox">
+                <label for="" />
+              </div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input
+                  id="check-02"
+                  name="select-item"
+                  type="checkbox"
+                >
+                <label for="check-02" />
+              </div>
+            </li>
+            <li class="col-important item">
+              <div class="image">
+                <img
+                  src="https://source.unsplash.com/random/100x100/?coffee/2"
+                  alt=""
+                >
+              </div>
+              <div class="information">
+                <a
+                  class="item-mid"
+                  href="https://search.shopping.naver.com/product/12126547821"
+                  target="_blank"
+                >
+                  12126547821
+                </a>
+                <div class="title">
+                  1kg 커피창고 에티오피아 예가체프 1kg 커피창고 에티오피아 예가체프
+                </div>
+                <div class="categories">
+                  <span>식품</span>
+                  <span>음료</span>
+                  <span>커피</span>
+                  <span>원두/생두</span>
+                </div>
+              </div>
+            </li>
+            <li>
+              -
+            </li>
+            <li class="col-100">
+              <div class="price">
+                9,900
+              </div>
+              <div class="tag down">
+                100
+              </div>
+            </li>
+            <li class="col-100">
+              <div class="tag up type-border" />
+            </li>
+            <li>변동</li>
+            <li class="col-100">0건</li>
+            <li class="col-100">1건</li>
+            <li>-</li>
+            <li>-</li>
+            <li>2022-11-01 06:00</li>
+            <li>커피그룹</li>
+            <li>2022-03-01</li>
+            <li>2022-03-03 15:00</li>
+            <li class="col-toggle">
+              <div
+                id=""
+                class="toggle toggle-switch is-active">
+                <input type="checkbox">
+                <label for="" />
+              </div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input
+                  id="check-01"
+                  name="select-item"
+                  type="checkbox"
+                >
+                <label for="check-01" />
+              </div>
+            </li>
+            <li class="col-important item">
+              <div class="image">
+                <img
+                  src="https://source.unsplash.com/random/100x100/?coffee/3"
+                  alt=""
+                >
+              </div>
+              <div class="information">
+                <a
+                  class="item-mid"
+                  href="https://search.shopping.naver.com/product/12126547821"
+                  target="_blank"
+                >
+                  12126547821
+                </a>
+                <div
+                  class="title"
+                  @click="goDetail()"
+                >
+                  1kg 커피창고 에티오피아 예가체프
+                </div>
+                <div class="categories">
+                  <span>식품</span>
+                  <span>음료</span>
+                  <span>커피</span>
+                  <span>원두/생두</span>
+                </div>
+              </div>
+            </li>
+            <li>
+              -
+            </li>
+            <li class="col-100">
+              <div class="price">9,900</div>
+              <div class="tag same" />
+            </li>
+            <li class="col-100">
+              <div class="tag same type-border" />
+            </li>
+            <li>변동</li>
+            <li class="col-100">0건</li>
+            <li class="col-100">1건</li>
+            <li>
+              <div class="tag up">3,760</div>
+              <div class="date">2022-11-01 06:00</div>
+            </li>
+            <li>
+              <div class="tag down">4,430</div>
+              <div class="date">2022-11-01 06:00</div>
+            </li>
+            <li>2022-11-01 06:00</li>
+            <li>커피그룹</li>
+            <li>2022-03-01</li>
+            <li>2022-03-03 15:00</li>
+            <li>
+              <div
+                id=""
+                class="toggle toggle-switch is-active">
+                <input type="checkbox">
+                <label for="" />
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+
+  methods: {
+    
+    goDetail() {
+        this.$router.push({name: 'AnonymousLowestPriceDetailView'})
+    },
+  },
+  
+}
+</script>

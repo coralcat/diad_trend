@@ -120,33 +120,18 @@
   <header class="main-header">
     <section class="title">
       <h1>
-        <span>최저가 알림</span>
+        <span>최저가 추적</span>
         <div class="tooltip">
           <article class="tooltip-content">
             <dl>
-              <dd>네이버 쇼핑검색 가격비교 상품의 최저가 정보를 확인할 수 있습니다.</dd>
+              <dd>네이버 쇼핑 가격비교 상품의 최저가 정보를 확인할 수 있습니다.</dd>
               <dd>상품마다 최저가 변동 차트를 제공하여 최저가 변동을 한눈에 확인할 수 있습니다.</dd>
               <dd>최저가 변동 시 알림을 제공합니다. (유료 부가서비스)</dd>
+              <dd>최저가 갱신은 00:00, 03:00, 06:00, 09:00, 12:00, 15:00, 18:00, 21:00 3시간 단위로 진행됩니다.</dd>
             </dl>
           </article>
         </div>
       </h1>
-
-      <!-- <div class="subline status">
-        <ul class="services">
-          <li>서비스</li>
-          <li>
-            <div>제공량 <span class="count">30</span></div>
-          </li>
-        </ul>
-        <ul class="service-period">
-          <li>서비스 이용기간</li>
-          <li>
-            <span class="tag d-day">310</span>
-            2022-03-01 ~ 2023-02-28
-          </li>
-        </ul>
-      </div> -->
 
       <!-- 서비스 신청 전 -->
       <div class="subline">
@@ -447,7 +432,6 @@
           </div>
         </div>
       </header>
-      <!-- list 내부에 소스코드가 아무것도 없으면 data-empty 텍스트 출력(띄어쓰기도 X) -->
       <div class="list list-item" data-empty="상품을 등록해주세요">
         <ul class="row title">
           <li class="col-check">
@@ -457,12 +441,77 @@
             </div>
           </li>
           <li class="col-important">상품</li>
-          <li class="ico-sort">최저가</li>
-          <li class="ico-sort">상태</li>
-          <li class="ico-sort">그룹</li>
-          <li class="ico-sort">등록일</li>
-          <li class="ico-sort">최근 갱신시간</li>
-          <li class="ico-sort">알림</li>
+          <li class="ico-sort">브랜드</li>
+          <li class="col-100 ico-sort">최저가</li>
+          <li class="col-100 ico-sort">현재 상태</li>
+          <li class="ico-sort">
+            최근 30일 변동
+            <div class="tooltip type2">
+              <article class="tooltip-content">
+                <dl>
+                  <dd>최근 30일 동안의 최저가 변동(상승, 하락) 여부를 알 수 있습니다.</dd>
+                  <dd>최근 30일 동안 최저가 변동이 1회라도 있으면 변동입니다.</dd>
+                  <dd>최근 30일은 당일 포함 30일입니다.</dd>
+                </dl>
+              </article>
+            </div>
+          </li>
+          <li class="multiple">
+            <div>
+              최근 30일 변동 횟수
+              <div class="tooltip type2">
+                <article class="tooltip-content">
+                  <dl>
+                    <dd>최근 30일 동안의 최저가 상승과 하락 횟수를 알 수 있습니다.</dd>
+                    <dd>최근 30일은 당일 포함 30일입니다.</dd>
+                  </dl>
+                </article>
+              </div>
+            </div>
+            <ul>
+              <li class="ico-sort">상승</li>
+              <li class="ico-sort">하락</li>
+            </ul>
+          </li>
+          <li class="ico-sort">
+            최근 30일<br /> 최대 상승 금액
+            <div class="tooltip type2">
+              <article class="tooltip-content">
+                <dl>
+                  <dd>최근 30일 동안의 최저가가 상승한 건 중 금액이 가장 큰 값을 알 수 있습니다.</dd>
+                  <dd>금액 아래에는 최대 상승 금액으로 변동한 갱신 타임이 표시됩니다.</dd>
+                  <dd>최대 상승 금액이 동일한 갱신 타임이 있는 경우 최근 일시가 표시됩니다.</dd>
+                  <dd>최근 30일은 당일 포함 30일입니다.</dd>
+                </dl>
+              </article>
+            </div>
+          </li>
+          <li class="ico-sort">
+            최근 30일<br /> 최대 하락 금액
+            <div class="tooltip type2">
+              <article class="tooltip-content">
+                <dl>
+                  <dd>최근 30일 동안의 최저가가 하락한 건 중 금액이 가장 큰 값을 알 수 있습니다.</dd>
+                  <dd>금액 아래에는 최대 하락 금액으로 변동한 갱신 타임이 표시됩니다.</dd>
+                  <dd>최대 하락 금액이 동일한 갱신 타임이 있는 경우 최근 일시가 표시됩니다.</dd>
+                  <dd>최근 30일은 당일 포함 30일입니다.</dd>
+                </dl>
+              </article>
+            </div>
+          </li>
+          <li class="ico-sort">최근 변동 일시</li>
+          <li class="ico-sort">
+            그룹
+          </li>
+          <li class="ico-sort">
+            등록일
+          </li>
+          <li class="ico-sort">
+            최근 갱신시간
+          </li>
+          <li class="ico-sort">
+            알림
+          </li>
         </ul>
         <ul class="row failed">
           <li class="col-check">
@@ -490,23 +539,45 @@
               </div>
             </div>
             <div class="item-update-failed">
-              <div class="failed" data-tooltip="상품에 등록된 모든 키워드가 400위 밖으로 상품 정보가 갱신되지 않았습니다.">
+              <div class="failed" data-tooltip="네이버 검색 API 호출 오류로 갱신에 실패하였습니다.">
                 <div class="ico-x"> 갱신실패 </div>
               </div>
+              <span class="date">
+                갱신성공 2021-08-01 15:00
+              </span>
             </div>
           </li>
-          <li>
-            <div class="lowest-price">9,900</div>
-            <div class="tag up">100</div>
+          <li title="브랜드">
+            -
           </li>
-          <li>상승</li>
-          <li>커피그룹</li>
-          <li>2022-03-01</li>
-          <li>2022-03-03 15:00</li>
-          <li>
-            <div class="toggle-switch">
-              <input id="toggle1" type="checkbox" />
-              <label for="toggle1"></label>
+          <li title="최저가" class="col-100">
+            <div class="price">
+              9,900
+            </div>
+            <div class="tag up">
+              100
+            </div>
+          </li>
+          <li title="현재 상태" class="col-100">
+            <div class="tag type-border up" />
+          </li>
+          <li title="최근 30일 변동">변동</li>
+          <li title="최근 30일 변동 횟수" class="col-100">0건</li>
+          <li title="최근 30일 최대 상승 금액" class="col-100">1건</li>
+          <li title="최근 30일 최대 하락 금액">
+            <div class="tag down">10</div>
+            <div class="date">2022-11-01 06:00</div>
+          </li>
+          <li title="최근 변동 일시">2022-11-01 06:00</li>
+          <li title="그룹">커피그룹</li>
+          <li title="등록일">2022-03-01</li>
+          <li title="최근 갱신시간">2022-03-03 15:00</li>
+          <li title="알림">
+            <div
+              id=""
+              class="toggle toggle-switch is-active">
+              <input type="checkbox">
+              <label for="" />
             </div>
           </li>
         </ul>
@@ -534,18 +605,34 @@
               </div>
             </div>
           </li>
-          <li>
-            <div class="lowest-price">9,900</div>
-            <div class="tag down">100</div>
+          <li title="브랜드">
+            -
           </li>
-          <li>상승</li>
-          <li>커피그룹</li>
-          <li>2022-03-01</li>
-          <li>2022-03-03 15:00</li>
-          <li class="col-toggle">
-            <div class="toggle-switch">
-              <input id="toggle2" type="checkbox" />
-              <label for="toggle2"></label>
+          <li title="최저가" class="col-100">
+            <div class="price">
+              9,900
+            </div>
+            <div class="tag down">
+              100
+            </div>
+          </li>
+          <li title="현재 상태" class="col-100">
+            <div class="tag up type-border" />
+          </li>
+          <li title="최근 30일 변동">변동</li>
+          <li title="최근 30일 변동 횟수" class="col-100">0건</li>
+          <li title="최근 30일 최대 상승 금액" class="col-100">1건</li>
+          <li title="최근 30일 최대 하락 금액">-</li>
+          <li title="최근 변동 일시">2022-11-01 06:00</li>
+          <li title="그룹">커피그룹</li>
+          <li title="등록일">2022-03-01</li>
+          <li title="최근 갱신시간">2022-03-03 15:00</li>
+          <li title="알림" class="col-toggle">
+            <div
+              id=""
+              class="toggle toggle-switch is-active">
+              <input type="checkbox">
+              <label for="" />
             </div>
           </li>
         </ul>
@@ -575,18 +662,36 @@
               </div>
             </div>
           </li>
-          <li>
-            <div class="lowest-price">9,900</div>
-            <div class="tag same"></div>
+          <li title="브랜드">
+            -
           </li>
-          <li>유지</li>
-          <li>커피그룹</li>
-          <li>2022-03-01</li>
-          <li>2022-03-03 15:00</li>
-          <li>
-            <div class="toggle-switch">
-              <input id="toggle3" type="checkbox" />
-              <label for="toggle3"></label>
+          <li title="최저가" class="col-100">
+            <div class="price">9,900</div>
+            <div class="tag same" />
+          </li>
+          <li title="현재 상태" class="col-100">
+            <div class="tag same type-border" />
+          </li>
+          <li title="최근 30일 변동">변동</li>
+          <li title="최근 30일 변동 횟수" class="col-100">1건</li>
+          <li title="최근 30일 최대 상승 금액">
+            <div class="tag up">3,760</div>
+            <div class="date">2022-11-01 06:00</div>
+          </li>
+          <li title="최근 30일 최대 하락 금액">
+            <div class="tag down">4,430</div>
+            <div class="date">2022-11-01 06:00</div>
+          </li>
+          <li title="최근 변동 일시">2022-11-01 06:00</li>
+          <li title="그룹">커피그룹</li>
+          <li title="등록일">2022-03-01</li>
+          <li title="최근 갱신시간">2022-03-03 15:00</li>
+          <li title="알림">
+            <div
+              id=""
+              class="toggle toggle-switch is-active">
+              <input type="checkbox">
+              <label for="" />
             </div>
           </li>
         </ul>
