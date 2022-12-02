@@ -110,16 +110,22 @@
         }
 
         .related {
-          max-width: 400px;
+          width: clamp(400px, 100%, 100%);
           border: 1px solid #eee;
           border-radius: 0.75rem;
-          padding: 1rem;
+          padding: 0.75rem;
         }
       }
     }
 
     .summary {
-      width: 100% !important ;
+      width: 100% !important;
+
+      &.horizontal {
+        ul {
+          flex-wrap: wrap;
+        }
+      }
 
       .link {
         max-width: none;
@@ -446,13 +452,13 @@
       > section {
         background-color: transparent;
         gap: 0.5rem;
-        padding: 0 1rem;
+        padding: 0;
         box-shadow: 0 0 0;
         border-radius: 0;
         max-width: 100%;
 
         .section-header {
-          padding: 0 0 0.5rem;
+          padding: 0 1rem 0.5rem;
         }
 
         &.section-chart {
@@ -643,14 +649,6 @@
         li {
           width: 100%;
           padding: 0 0.5rem;
-        }
-      }
-
-      &:not(.title) {
-        &:nth-of-type(even) {
-          li {
-            background-color: transparent;
-          }
         }
       }
 
@@ -989,69 +987,8 @@
   .content-ranking {
     .list-item {
       li {
-        &:nth-of-type(3) {
-          &::before {
-            content: "키워드";
-          }
-        }
-
-        &:nth-of-type(4) {
-          &::before {
-            content: "현재 순위";
-          }
-        }
-
-        &:nth-of-type(5) {
-          &::before {
-            content: "전일 순위";
-          }
-        }
-
-        &:nth-of-type(6) {
-          &::before {
-            content: "전주 순위";
-          }
-        }
-
-        &:nth-of-type(7) {
-          &::before {
-            content: "2주전 순위";
-          }
-        }
-
-        &:nth-of-type(8) {
-          &::before {
-            content: "전월 순위";
-          }
-        }
-
-        &:nth-of-type(9) {
-          &::before {
-            content: "판매가";
-          }
-        }
-
-        &:nth-of-type(10) {
-          &::before {
-            content: "그룹";
-          }
-        }
-
-        &:nth-of-type(11) {
-          &::before {
-            content: "등록일";
-          }
-        }
-
-        &:nth-of-type(12) {
-          &::before {
-            content: "최근 갱신";
-          }
-        }
-        &:nth-of-type(13) {
-          &::before {
-            content: "알림";
-          }
+        &::before {
+          content: attr(title);
         }
       }
     }
@@ -1060,46 +997,8 @@
   .content-lowest-price {
     .list-item {
       li {
-        &:nth-of-type(3) {
-          &::before {
-            content: "브랜드";
-          }
-        }
-
-        &:nth-of-type(4) {
-          &::before {
-            content: "최저가";
-          }
-        }
-
-        &:nth-of-type(5) {
-          &::before {
-            content: "현재 상태";
-          }
-        }
-
-        &:nth-of-type(6) {
-          &::before {
-            content: "그룹";
-          }
-        }
-
-        &:nth-of-type(7) {
-          &::before {
-            content: "등록일";
-          }
-        }
-
-        &:nth-of-type(8) {
-          &::before {
-            content: "최근 갱신시간";
-          }
-        }
-
-        &:nth-of-type(9) {
-          &::before {
-            content: "알림";
-          }
+        &::before {
+          content: attr(title);
         }
       }
     }
@@ -1148,7 +1047,7 @@
           li {
             flex-wrap: wrap;
             width: fit-content !important;
-            padding: 1rem;
+            padding: 0.75rem;
             min-width: auto !important;
             height: 100% !important;
             flex-direction: column;
@@ -1245,39 +1144,17 @@
           width: 100%;
           justify-content: space-between;
 
+          &::before {
+            content: attr(title);
+          }
+
           &:nth-of-type(1) {
             font-size: 18px;
             justify-content: center;
             height: 40px !important;
-          }
 
-          &:nth-of-type(3) {
             &::before {
-              content: "평균";
-            }
-          }
-
-          &:nth-of-type(4) {
-            &::before {
-              content: "전일대비";
-            }
-          }
-
-          &:nth-of-type(5) {
-            &::before {
-              content: "등락율";
-            }
-          }
-
-          &:nth-of-type(6) {
-            &::before {
-              content: "고가";
-            }
-          }
-
-          &:nth-of-type(7) {
-            &::before {
-              content: "저가";
+              content: none;
             }
           }
 
@@ -1331,8 +1208,8 @@
           border-radius: 0;
         }
 
-        &.content-items,
-        &.content-related-keyword {
+        &.content-related-keyword,
+        &.content-shopping {
           section {
             background-color: transparent;
             border-radius: 0;
@@ -1369,6 +1246,7 @@
 
     .report {
       gap: 0.5rem !important;
+      flex-wrap: wrap;
 
       .summary {
         flex: 1 1 auto;
@@ -1395,7 +1273,8 @@
           flex-direction: row !important;
           flex-basis: 100%;
 
-          > div {
+          li {
+            padding: 0 !important
           }
         }
       }
@@ -1453,94 +1332,31 @@
       }
     }
 
-    .content-items {
-      .list {
-        .row {
-          flex-direction: row;
-          flex-wrap: wrap;
+    .content-articles {
+      .section-article {
 
-          .col-price {
-            flex-direction: row;
-          }
+        .section-content {
+          flex-direction: column;
+        }
 
+        .tabs {
+          width: 100%;
+          
           li {
-            width: 100% !important;
-            justify-content: flex-start;
-
-            .ico-store {
-              display: none;
-            }
-
-            &.col-image {
-              width: fit-content !important;
-              padding-right: 0;
-            }
-
-            &.col-title {
-              margin-bottom: 0.5rem;
-
-              .title {
-                -webkit-line-clamp: 3;
-              }
-            }
-
-            &:nth-of-type(1) {
-              display: none;
-            }
-
-            &:nth-of-type(3) {
-              &::before {
-                content: "카테고리";
-              }
-            }
-
-            &:nth-of-type(4) {
-              &::before {
-                content: "스토어명";
-              }
-            }
-
-            &:nth-of-type(5) {
-              &::before {
-                content: "판매가";
-              }
-            }
-
-            &:nth-of-type(6) {
-              &::before {
-                content: "브랜드";
-              }
-            }
-
-            &:nth-of-type(7) {
-              &::before {
-                content: "제조사";
-              }
+            .sub {
+              flex-direction: row;
             }
           }
         }
-      }
-    }
 
-    .content-analysis {
-      .report {
-        flex-direction: column;
-      }
+        .tab-content {
+          margin-left: 0;
 
-      .chart-container {
-        padding: 0 !important;
-        border: 0;
-      }
+          .section-header {
+            flex-direction: column;
 
-      .report {
-        flex-direction: column-reverse !important;
-      }
-
-      .section-chart {
-        .summary {
-          .title {
-            > div:first-of-type {
-              width: auto;
+            .filters {
+              flex-direction: row;
             }
           }
         }
@@ -1549,6 +1365,11 @@
 
     .content-related-keyword {
       .filters {
+        .checkboxes {
+          height: 42px;
+          width: 100%;
+          justify-content: center;
+        }
         .selector {
           &.main {
             label {
@@ -1557,6 +1378,7 @@
           }
         }
       }
+
       .list {
         .row {
           &.title {
@@ -1569,59 +1391,47 @@
 
             &::before {
               flex-basis: auto;
+              content: attr(title);
             }
 
             &:nth-of-type(1) {
               display: none;
             }
+          }
+        }
+      }
+    }
 
-            &:nth-of-type(3) {
-              &::before {
-                content: "월간검색수(PC)";
-              }
-            }
-            &:nth-of-type(4) {
-              &::before {
-                content: "월간검색수(모바일)";
-              }
-            }
-            &:nth-of-type(5) {
-              border-bottom: 1px solid #eee;
-              &::before {
-                content: "월간검색수(합계)";
-              }
-            }
-            &:nth-of-type(6) {
-              &::before {
-                content: "월평균클릭수(PC)";
-              }
-            }
-            &:nth-of-type(7) {
-              border-bottom: 1px solid #eee;
-              &::before {
-                content: "월평균클릭수(모바일)";
-              }
-            }
-            &:nth-of-type(8) {
-              &::before {
-                content: "월평균클릭율(PC)";
-              }
-            }
-            &:nth-of-type(9) {
-              border-bottom: 1px solid #eee;
-              &::before {
-                content: "월평균클릭율(모바일)";
-              }
-            }
-            &:nth-of-type(10) {
-              &::before {
-                content: "경쟁정도(PC)";
-              }
-            }
-            &:nth-of-type(11) {
-              &::before {
-                content: "월평균노출광고수(PC)";
-              }
+    .content-shopping {
+      .report {
+        background-color: white;
+        padding: 1rem;
+
+        .summary {
+          order: 1;
+        }
+      }
+      
+      .list {
+        .image {
+          border-radius: 0.5rem;
+          width: 70px;
+          height: 70px;
+        }
+
+        li {
+          flex-direction: row !important;
+          width: 100% !important;
+          justify-content: space-between;
+
+          &::before {
+            content: attr(title);
+          }
+
+          &:nth-of-type(1),
+          &:nth-of-type(2) {
+            &::before {
+              content: none;
             }
           }
         }

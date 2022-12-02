@@ -427,8 +427,7 @@ main {
   height: 100%;
   flex-direction: row;
   background-color: #eff3f7;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
 
   &.mutated {
     display: flex;
@@ -580,6 +579,7 @@ main {
     gap: 1rem;
     padding: 0 1rem 1rem;
     width: 100%;
+    overflow-x: hidden;
 
     > section {
       flex: 1 1 auto;
@@ -1374,15 +1374,16 @@ section {
     &.failed {
       justify-content: center;
       color: tomato;
-      padding: 0 1px;
+      padding: 0 3px;
       background: rgb(255 99 71 / 10%);
 
       &::before {
         content: "확인불가";
-        font-size: 12px;
+        font-size: 11px;
       }
     }
   }
+
   button {
     font-size: 13px;
   }
@@ -1514,6 +1515,10 @@ section {
       padding: 0.75rem;
       font-family: "RobotoMedium", "MinRegular";
       transition: background-color 0.25s;
+
+      &[title="키워드"]::before {
+        content: none !important
+      }
 
       &.date {
         justify-content: flex-end;
@@ -1806,7 +1811,6 @@ section {
   .checkboxes {
     display: flex;
     gap: 0.5rem;
-    height: 100%;
 
     .checkbox {
       display: flex;
@@ -2600,6 +2604,7 @@ section {
 }
 
 :is(.content-ranking, .content-lowest-price) {
+  overflow: hidden;
   .pagination {
     padding: 0;
   }
@@ -3013,7 +3018,7 @@ section {
       }
 
       .name {
-        font-size: 20px;
+        font-size: 16px;
         word-break: keep-all;
         display: flex;
         flex-direction: column;
@@ -3136,6 +3141,17 @@ section {
 }
 
 .content-ranking-details {
+
+  .main-header {
+
+    .information {
+
+      .name {
+        font-size: 16px;
+      }
+    }
+  }
+
   .date-title {
     display: none;
   }
@@ -3827,6 +3843,7 @@ section {
   .section-items {
     .list {
       max-height: 80vh;
+      
       .image {
         flex: 0 0 auto;
         width: 45px;
@@ -4091,9 +4108,6 @@ section {
     }
 
     .section-chart {
-      .chart {
-        width: calc(100% - 450px);
-      }
 
       .summary {
         width: 450px;
@@ -4299,7 +4313,7 @@ section {
     }
   }
 
-  .content-items {
+  .content-articles {
     overflow: hidden;
 
     .section-article {
@@ -4328,8 +4342,6 @@ section {
       .tabs {
         user-select: none;
         flex-direction: column;
-        width: -webkit-fit-content;
-        width: -moz-fit-content;
         width: fit-content;
         white-space: nowrap;
         height: fit-content;
@@ -5352,8 +5364,8 @@ section {
   }
 }
 
-[class*="content-ranking"],
-[class*="content-lowest-price"] {
+[class="content-ranking"],
+[class="content-lowest-price"] {
   .list {
     .row {
       li {
