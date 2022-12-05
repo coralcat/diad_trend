@@ -181,6 +181,9 @@
     width: 50px;
 
     .logo {
+      background: none;
+      padding-left: 0;
+      
       span:not(.responsive) {
         display: none;
       }
@@ -387,6 +390,19 @@
 
     .logo {
       font-size: 18px;
+
+      a {
+        background: url(../images/logo_diad_trend.svg) no-repeat;
+        width: 130px;
+        height: 24px;
+        background-size: 100%;
+        padding-left: 3.75rem;
+        display: flex;
+        align-items: flex-end;
+        font-size: 24px;
+        font-family: 'RobotoMedium';
+        color: #333;
+      }
     }
   }
 

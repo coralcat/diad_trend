@@ -608,8 +608,12 @@ aside {
 
   .logo {
     text-align: center;
-    font: 18px/1 "MinMedium";
-    padding: 1.5rem 0;
+    font-size: 22px;
+    margin: 1.5rem auto;
+    background: url(../images/logo_diad_trend_wh.svg) no-repeat;
+    background-size: 120px;
+    width: fit-content;
+    padding-left: 3.5rem;
 
     .impact {
       color: $primary-color;
