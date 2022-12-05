@@ -1577,6 +1577,48 @@ section {
 .list-article {
   border-top: 0;
 
+  &.list-thumbnail {
+    article {
+      display: flex;
+      gap: .75rem;
+
+      .image {
+        flex: 0 0 80px;
+        
+        img {
+          width: 100%
+        }
+      }
+
+      .texts {
+        flex: 1 1 auto;
+      }
+    }
+  }
+
+  &.youtube {
+
+    article {
+
+      .article-title {
+        margin-bottom: 0;
+      }
+
+      .count {
+        margin-top: 3px;
+        margin-bottom: .5rem
+      }
+
+      .image {
+        flex: 0 0 160px;
+        
+        img {
+          width: 100%
+        }
+      }
+    }
+  }
+
   article {
     padding: 1rem 0;
 
@@ -1635,7 +1677,7 @@ section {
     }
 
     .article-title {
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.75rem;
       font-family: "RobotoMedium", "MinMedium";
       font-size: 16px;
 
@@ -1647,7 +1689,7 @@ section {
     }
 
     .article-content {
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.35rem;
       font-size: 14px;
       -webkit-line-clamp: 3;
       text-overflow: ellipsis;
@@ -1663,13 +1705,23 @@ section {
       }
     }
 
-    .created {
+    ul {
       font-size: 13px;
-      color: lightslategray;
       display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
-      li {
-        &:first-of-type {
+
+      &.created {
+        color: lightslategray;
+      }
+
+      &.hashtags {
+        gap: .5rem;
+        margin-top: .75rem
+      }
+
+      li:not(.hashtags li) {
+        &:not(:last-of-type) {
           padding-right: 1rem;
           border-right: 1px solid #eee;
         }
@@ -4374,7 +4426,7 @@ section {
 
             li {
               padding: 0.35rem 1rem;
-              border-radius: 0.35rem;
+              border-radius: 50px;
               text-align: center;
               justify-content: center;
               border-bottom: 0;
@@ -4415,12 +4467,16 @@ section {
             }
 
             .ico-link {
+              background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'%3E%3Cpath fill='slategray' d='M14 3v2h3.59l-9.83 9.83l1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7Z'/%3E%3C/svg%3E");
               display: inline-flex;
               font-size: 12px;
               border: 1px solid #eee;
               padding: 3px 5px;
               border-radius: 3px;
               color: #5c55c6;
+              padding-right: 1.35rem;
+              background-position: right 5px center;
+              background-size: 14px;
             }
           }
         }

@@ -1361,6 +1361,17 @@
             }
           }
         }
+
+        article {
+          flex-direction: column;
+        }
+
+        .list {
+
+          li {
+            width: auto
+          }
+        }
       }
     }
 
