@@ -1,6 +1,6 @@
 @media screen and (max-width: 1440px) {
   aside {
-    width: 165px;
+    width: 180px;
   }
 
   .content-dashboard {
@@ -183,7 +183,7 @@
     .logo {
       background: none;
       padding-left: 0;
-      
+
       span:not(.responsive) {
         display: none;
       }
@@ -199,7 +199,17 @@
     }
 
     nav {
+      margin: 0;
+      border: 0;
+      padding: 0;
+
       a {
+        justify-content: center;
+
+        &::after {
+          border-radius: 0;
+        }
+
         span {
           display: none;
         }
@@ -393,14 +403,14 @@
 
       a {
         background: url(../images/logo_diad_trend.svg) no-repeat;
-        width: 130px;
-        height: 24px;
+        width: 110px;
+        height: 20px;
         background-size: 100%;
-        padding-left: 3.75rem;
+        padding-left: 3.15rem;
         display: flex;
-        align-items: flex-end;
-        font-size: 24px;
-        font-family: 'RobotoMedium';
+        align-items: normal;
+        font-size: 22px;
+        font-family: "RobotoMedium";
         color: #333;
       }
     }
@@ -1291,7 +1301,7 @@
           flex-basis: 100%;
 
           li {
-            padding: 0 !important
+            padding: 0 !important;
           }
         }
       }
@@ -1351,14 +1361,13 @@
 
     .content-articles {
       .section-article {
-
         .section-content {
           flex-direction: column;
         }
 
         .tabs {
           width: 100%;
-          
+
           li {
             .sub {
               flex-direction: row;
@@ -1383,9 +1392,8 @@
         }
 
         .list {
-
           li {
-            width: auto
+            width: auto;
           }
         }
       }
@@ -1439,7 +1447,7 @@
           order: 1;
         }
       }
-      
+
       .list {
         .image {
           border-radius: 0.5rem;
