@@ -1,27 +1,30 @@
 {% macro active(currentPage = 'index') %}
-<aside>
-  <div class="logo">
-    <a href="index.html">
-      <span class="responsive">D</span>
-      <span>trend</span>
-    </a>
+<aside class="is-active">
+  <div class="slide-handler">
+    <svg class="is-active" viewBox="0 0 100 100" width="80">
+      <path d="m 30,33 h 40 c 0,0 8.5,-0.68551 8.5,10.375 0,8.292653 -6.122707,9.002293 -8.5,6.625 l -11.071429,-11.071429" />
+      <path d="m 70,50 h -40" />
+      <path d="m 30,67 h 40 c 0,0 8.5,0.68551 8.5,-10.375 0,-8.292653 -6.122707,-9.002293 -8.5,-6.625 l -11.071429,11.071429" />
+    </svg>
   </div>
-  <div class="username">
-    <a href="https://diad.co.kr/Mypage/PaymentHistoryView" target="_blank">gabiacns</a>
-  </div>
-  <div class="sub-menu">
-    <!-- <div class="zoom-in-out">
-      <span>화면크기</span>
-      <button class="zoom-out" type="button"></button>
-      <button class="zoom-in" type="button"></button>
-    </div> -->
-    <a href="">로그아웃</a>
-  </div>
-  <!-- <div class="sub-menu">
-    <a href="https://diad.co.kr/Account/DiadLogin">로그인</a>
-    <a href="https://diad.co.kr/Account/CertificationBusiness">회원가입</a>
-  </div> -->
   <nav>
+    <div>
+      <menu>
+        <i class="ico-ranking"></i>
+        스토어
+      </menu>
+      <ul>
+        <li>지마켓 판매량 추적</li>
+        <li>네이버 순위 추적</li>
+        <li>네이버 최저가 추적</li>
+      </ul>
+    </div>
+    <ul>
+      <li>
+      </li>
+      <li></li>
+      <li></li>
+    </ul>
     <a class="{% if currentPage == 'ranking' %}is-active{% endif %}" href="ranking.html">
       <i class="ico-ranking"></i>
       <span>상품 순위 추적</span>
