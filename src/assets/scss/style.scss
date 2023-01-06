@@ -803,6 +803,12 @@ aside {
       }
     }
 
+    .wmp {
+      &::before {
+        content: "W";
+      }
+    }
+
     .gmarket {
       &::before {
         content: "g.";
@@ -1716,6 +1722,7 @@ section {
         background-color: #f7f8f9;
         color: #565e72;
         font-family: "Roboto", "MinLight" !important;
+        word-break: keep-all;
 
         &:not(:last-of-type) {
           border-right: 1px solid #eee;
@@ -3802,7 +3809,8 @@ section {
 
   .section-account {
     flex: 0 0 auto !important;
-    align-self: flex-start;
+    height: fit-content !important;
+    max-height: 100%;
     width: 240px;
 
     small {
@@ -3972,30 +3980,31 @@ section {
         &.col-id {
           width: 240px;
         }
+
+        &.col-important {
+          min-width: 300px !important;
+    
+          .information {
+            height: auto;
+            max-width: calc(100% - 40px - 0.5rem);
+    
+            .title {
+              white-space: normal;
+              -webkit-line-clamp: 2;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+            }
+          }
+        }
+    
+        .col-keyword {
+          left: 332px !important;
+        }
       }
     }
   }
 
   .content-naver-searchad-shopping {
-    .col-important {
-      min-width: 300px !important;
-
-      .information {
-        height: auto;
-        max-width: calc(100% - 40px - 0.5rem);
-
-        .title {
-          white-space: normal;
-          -webkit-line-clamp: 2;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-        }
-      }
-    }
-
-    .col-keyword {
-      left: 332px !important;
-    }
   }
 }
 
