@@ -1,64 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>다이애드 TREND</title>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
-    <script src="assets/lib/amcharts/index.js"></script>
-    <script src="assets/lib/amcharts/responsive.js"></script>
-    <script src="assets/lib/amcharts/xy.js"></script>
-    <script src="assets/lib/amcharts/percent.js"></script>
-    <script src="assets/lib/amcharts/animated.js"></script>
-    <script src="assets/lib/jquery/jquery-3.6.0.js"></script>
-    <script src="assets/lib/jquery/jquery-ui-1.13.0.js"></script>
-    <script src="assets/js/main.js"></script>
-  </head>
 
-  <body>
-    <header class="header responsive">
-      <div class="logo">
-        <a href="index.html">trend</a>
-      </div>
-      <div class="hamburg-menu">
-        <svg viewBox="0 0 100 100" width="80">
-          <path
-            d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40"
-          />
-          <path d="m 30,50 h 40" />
-          <path
-            d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40"
-          />
-        </svg>
-      </div>
-    </header>
-    <main>
-        
-<aside>
-  <div class="logo">
-    <a href="index.html">
-      <span class="responsive">D</span>
-      <span>trend</span>
-    </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>다이애드 TREND</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+  <script src="assets/lib/amcharts/index.js"></script>
+  <script src="assets/lib/amcharts/responsive.js"></script>
+  <script src="assets/lib/amcharts/xy.js"></script>
+  <script src="assets/lib/amcharts/percent.js"></script>
+  <script src="assets/lib/amcharts/animated.js"></script>
+  <script src="assets/lib/jquery/jquery-3.6.0.js"></script>
+  <script src="assets/lib/jquery/jquery-ui-1.13.0.js"></script>
+  <script src="assets/js/main.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo">
+      <a href="index.html">trend</a>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a href="#" class="username" target="_blank">
+            coralcat님 환영합니다!
+          </a>
+        </li>
+        <li>
+          <a class="ico-cog settings">
+            <ul>
+              <li>계정 설정</li>
+              <li>알림 설정</li>
+            </ul>
+          </a>
+        </li>
+        <li>
+          <button>로그아웃</button>
+        </li>
+      </ul>
+    </nav>
+    <div class="hamburg-menu responsive">
+      <svg viewBox="0 0 100 100" width="80">
+        <path
+          d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
+        <path d="m 30,50 h 40" />
+        <path
+          d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
+      </svg>
+    </div>
+  </header>
+  <main>
+      
+<aside class="is-active">
+  <div class="slide-handler">
+    <svg class="is-active" viewBox="0 0 100 100" width="80">
+      <path d="m 30,33 h 40 c 0,0 8.5,-0.68551 8.5,10.375 0,8.292653 -6.122707,9.002293 -8.5,6.625 l -11.071429,-11.071429" />
+      <path d="m 70,50 h -40" />
+      <path d="m 30,67 h 40 c 0,0 8.5,0.68551 8.5,-10.375 0,-8.292653 -6.122707,-9.002293 -8.5,-6.625 l -11.071429,11.071429" />
+    </svg>
   </div>
-  <div class="username">
-    <a href="https://diad.co.kr/Mypage/PaymentHistoryView" target="_blank">gabiacns</a>
-  </div>
-  <div class="sub-menu">
-    <!-- <div class="zoom-in-out">
-      <span>화면크기</span>
-      <button class="zoom-out" type="button"></button>
-      <button class="zoom-in" type="button"></button>
-    </div> -->
-    <a href="">로그아웃</a>
-  </div>
-  <!-- <div class="sub-menu">
-    <a href="https://diad.co.kr/Account/DiadLogin">로그인</a>
-    <a href="https://diad.co.kr/Account/CertificationBusiness">회원가입</a>
-  </div> -->
   <nav>
+    <div>
+      <menu>
+        <i class="ico-ranking"></i>
+        스토어
+      </menu>
+      <ul>
+        <li>
+          <span class="gmarket">지마켓 판매량 추적</span>
+        </li>
+        <li>
+          <span class="naver">네이버 순위 추적</span>
+        </li>
+        <li>
+          <span class="naver">네이버 최저가 추적</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <menu>
+        <i class="ico-price"></i>
+        자동입찰
+      </menu>
+      <ul>
+        <li>
+          <span class="naver" onclick="location.href='bid_naver_search.html'">네이버 검색광고</span>
+        </li>
+        <li>
+          <span class="naver">네이버 쇼핑검색광고</span>
+        </li>
+        <li>
+          <span class="naver">네이버 파워콘텐츠</span>
+        </li>
+        <li>
+          <span class="eleventh">11번가 포커스클릭</span>
+        </li>
+        <li>
+          <span class="eleventh">11번가 브랜드검색</span>
+        </li>
+        <li>
+          <span class="gmarket">지마켓 파워클릭</span>
+        </li>
+        <li>
+          <span class="google">구글 검색광고</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <menu>
+        <i class="ico-trend"></i>
+        키워드
+      </menu>
+      <ul>
+        <li>
+          <i class="ico-trend"></i>
+          <span>키워드 분석</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <menu>
+        <i class="ico-ranking"></i>
+        다이애드 +
+      </menu>
+      <ul>
+        <li>
+          <span>다이애드 캘린더</span>
+        </li>
+        <li>
+          <span>다이애드 매뉴얼</span>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <nav style="display: none;">
     <a class="" href="ranking.html">
       <i class="ico-ranking"></i>
       <span>상품 순위 추적</span>
@@ -1531,21 +1610,6 @@
               </article>
             </li>
             <li>
-              월간 평균 검색량
-              <article class="tooltip">
-                <div class="tooltip-content">
-                  <dl>
-                    <dd>
-                      월간 평균 검색량은 지난 12개월 동안 Google을 기준으로, 조회한 키워드와 유사 검색어를 검색한 평균 횟수입니다.
-                    </dd>
-                    <dd>
-                      이 정보를 이용해 해당 키워드가 연중 시기별로 얼마나 자주 검색되는지 알아볼 수 있습니다.
-                    </dd>
-                  </dl>
-                </div>
-              </article>
-            </li>
-            <li>
               3개월간 변동
               <article class="tooltip">
                 <div class="tooltip-content">
@@ -1652,7 +1716,6 @@
             <li class="ico-sort">총</li>
             <li class="ico-sort">구글</li>
             <li class="ico-sort">구글</li>
-            <li class="ico-sort">구글</li>
             <li class="ico-sort">네이버 PC</li>
             <li class="ico-sort">네이버 MO</li>
             <li class="ico-sort">네이버 PC</li>
@@ -1679,9 +1742,6 @@
             </li>
             <li title="총 월간 검색수">
               <div class="">38,200</div>
-            </li>
-            <li title="구글 월 평균 검색량">
-              <div class="">1,900</div>
             </li>
             <li title="구글 3개월간 변동">
               <div class="percent up">19</div>
@@ -1734,9 +1794,6 @@
             <li title="총 월간 검색수">
               <div class="">28,400</div>
             </li>
-            <li title="구글 월 평균 검색량">
-              <div class="">1,300</div>
-            </li>
             <li title="구글 3개월간 변동">
               <div class="percent">0</div>
             </li>
@@ -1787,9 +1844,6 @@
             </li>
             <li title="총 월간 검색수">
               <div class="">217,600</div>
-            </li>
-            <li title="구글 월 평균 검색량">
-              <div class=""></div>
             </li>
             <li title="구글 3개월간 변동">
               <div class="percent"></div>
@@ -1842,9 +1896,6 @@
             <li title="총 월간 검색수">
               <div class="">39,970</div>
             </li>
-            <li title="구글 월 평균 검색량">
-              <div class="">2,400</div>
-            </li>
             <li title="구글 3개월간 변동">
               <div class="percent">0</div>
             </li>
@@ -1856,12 +1907,6 @@
             </li>
             <li title="네이버MO 월 평균 클릭수">
               <div class="">492.3</div>
-            </li>
-            <li title="네이버PC 월 평균 클릭률">
-              <div class="percent">0.91</div>
-            </li>
-            <li title="네이버MO 월 평균 클릭률">
-              <div class="percent">1.77</div>
             </li>
             <li title="네이버PC 경쟁정도">
               <div class="tag high type-border"></div>
@@ -1895,9 +1940,6 @@
             </li>
             <li title="총 월간 검색수">
               <div class="">18,450</div>
-            </li>
-            <li title="구글 월 평균 검색량">
-              <div class=""></div>
             </li>
             <li title="구글 3개월간 변동">
               <div class="percent"></div>
@@ -1949,9 +1991,6 @@
             </li>
             <li title="총 월간 검색수">
               <div class="">2,770</div>
-            </li>
-            <li title="구글 월 평균 검색량">
-              <div class="">260</div>
             </li>
             <li title="구글 3개월간 변동">
               <div class="percent up">321</div>
@@ -3468,6 +3507,7 @@
   </div>
 </div>
 
-    </main>
-  </body>
+  </main>
+</body>
+
 </html>

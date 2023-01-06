@@ -788,12 +788,41 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // 메뉴
   const hamburgMenu = document.querySelector(".hamburg-menu");
+  const aside = document.querySelector("aside");
   hamburgMenu.addEventListener("click", () => {
-    const aside = document.querySelector("aside");
     hamburgMenu.classList.toggle("is-active");
     aside.classList.toggle("is-active");
   });
+  
+  const slideHandler = document.querySelector(".slide-handler svg");
+  slideHandler.addEventListener("click", () => {
+    if(aside.classList.contains("is-active")) {
+      aside.classList.remove("is-active");
+      aside.classList.add("icons-only")
+    } else {
+      aside.classList.remove("icons-only");       
+      aside.classList.add("is-active")
+    }
+    slideHandler.classList.toggle("is-active");
+  })
+
+  const menus = document.querySelectorAll("aside nav menu");
+  menus.forEach(menu => {
+    menu.addEventListener("click", (event) => {
+      // menu.closest("div").classList.remove("is-active");
+      // console.log(menu.closest("div").classList);
+      // if(event.target.closest("div").classList.contains("is-active")){
+      //   console.log("actived")
+      //   event.target.closest("div").classList.remove("is-active");
+      // } else {
+      //   console.log("non actived")
+      //   event.target.closest("div").classList.add("is-active");
+      // }
+      event.target.closest("div").classList.toggle("is-active");
+    })
+  })
 
   /* =====================================================
        Dropdown
