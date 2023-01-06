@@ -95,7 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const tooltips = document.querySelectorAll(".tooltip");
   if (matchMedia("screen and (max-width: 640px)").matches) {
-    console.log();
     tooltips.forEach(tooltip => {
       tooltip.addEventListener("click", event => {
         tooltip.classList.toggle("is-active");
@@ -206,6 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const showTabContent = event => {
     event.stopPropagation();
     const tabName = event.target.dataset.tab;
+    console.log(tabName); 
     const tabs = document.querySelectorAll(`[data-tab='${tabName}']`);
     const tabContents = document.querySelectorAll(`.tab-content[data-tab='${tabName}']`);
     let menuIndex = [...tabs].indexOf(event.target);
