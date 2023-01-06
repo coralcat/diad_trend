@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>다이애드 TREND</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+  <script src="assets/lib/amcharts/index.js"></script>
+  <script src="assets/lib/amcharts/responsive.js"></script>
+  <script src="assets/lib/amcharts/xy.js"></script>
+  <script src="assets/lib/amcharts/percent.js"></script>
+  <script src="assets/lib/amcharts/animated.js"></script>
+  <script src="assets/lib/jquery/jquery-3.6.0.js"></script>
+  <script src="assets/lib/jquery/jquery-ui-1.13.0.js"></script>
+  <script src="assets/js/main.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo">
+      <a href="index.html">trend</a>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a href="#" class="username" target="_blank">
+            coralcat님 환영합니다!
+          </a>
+        </li>
+        <li>
+          <a class="ico-cog settings">
+            <ul>
+              <li>계정 설정</li>
+              <li>알림 설정</li>
+            </ul>
+          </a>
+        </li>
+        <li>
+          <button>로그아웃</button>
+        </li>
+      </ul>
+    </nav>
+    <div class="hamburg-menu responsive">
+      <svg viewBox="0 0 100 100" width="80">
+        <path
+          d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
+        <path d="m 30,50 h 40" />
+        <path
+          d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
+      </svg>
+    </div>
+  </header>
+  <main>
+      
+<aside class="is-active">
+  <div class="slide-handler">
+    <svg class="is-active" viewBox="0 0 100 100" width="80">
+      <path d="m 30,33 h 40 c 0,0 8.5,-0.68551 8.5,10.375 0,8.292653 -6.122707,9.002293 -8.5,6.625 l -11.071429,-11.071429" />
+      <path d="m 70,50 h -40" />
+      <path d="m 30,67 h 40 c 0,0 8.5,0.68551 8.5,-10.375 0,-8.292653 -6.122707,-9.002293 -8.5,-6.625 l -11.071429,11.071429" />
+    </svg>
+  </div>
+  <nav>
+    <div>
+      <menu>
+        <i class="ico-ranking"></i>
+        스토어
+      </menu>
+      <ul>
+        <li>
+          <span class="gmarket">지마켓 판매량 추적</span>
+        </li>
+        <li>
+          <span class="naver">네이버 순위 추적</span>
+        </li>
+        <li>
+          <span class="naver">네이버 최저가 추적</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <menu>
+        <i class="ico-price"></i>
+        자동입찰
+      </menu>
+      <ul>
+        <li>
+          <span class="naver" onclick="location.href='bid_naver.html'">네이버</span>
+        </li>
+        <li>
+          <span class="eleventh" onclick="location.href='bid_11st.html'">11번가</span>
+        </li>
+        <li>
+          <span class="gmarket" onclick="location.href='bid_gmarket.html'">지마켓 파워클릭</span>
+        </li>
+        <li>
+          <span class="google" onclick="location.href='bid_google.html'">구글 검색광고</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <menu>
+        <i class="ico-trend"></i>
+        키워드
+      </menu>
+      <ul>
+        <li>
+          <i class="ico-trend"></i>
+          <span>키워드 분석</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <menu>
+        <i class="ico-ranking"></i>
+        다이애드 +
+      </menu>
+      <ul>
+        <li>
+          <span>다이애드 캘린더</span>
+        </li>
+        <li>
+          <span>다이애드 매뉴얼</span>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <nav style="display: none;">
+    <a class="" href="ranking.html">
+      <i class="ico-ranking"></i>
+      <span>상품 순위 추적</span>
+    </a>
+    <a class="" href="lowest_price.html">
+      <i class="ico-price"></i>
+      <span>최저가 알림</span>
+    </a>
+    <a class="is-active" href="keyword.html">
+      <i class="ico-trend"></i>
+      <span>키워드 트렌드</span>
+    </a>
+    <a class="" href="settings.html">
+      <i class="ico-alarm"></i>
+      <span>알림설정</span>
+    </a>
+  </nav>
+</aside>
+
+<div class="content content-bidding">
+  <header class="main-header">
+    <div class="title">
+      <ul class="tabs">
+        <li data-tab="eleventh">
+          11번가 포커스클릭
+        </li>
+        <li data-tab="eleventh">
+          11번가 브랜드검색
+        </li>
+      </ul>
+    </div>
+  </header>
+  <div class="wrapper">
+    <div class="tab-content content-11st-focus-click" data-tab="eleventh">
+      <section class="section-account">
+        <header class="section-header">
+          <h3>3scoltd</h3>
+        </header>
+        <div class="sync">
+          <div class="selectbox">
+            <select name="sync-account" id="">
+              <option value="">3scoltd</option>
+              <option value="">cjlion2004</option>
+            </select>
+          </div>
+          <button class="btn-main ico-sync"></button>
+        </div>
+        <ul class="details-sync">
+          <li class="center">
+            <div>동기화 시간</div>
+            <div>2022-12-07 오전 10:06:38</div>
+          </li>
+          <li>
+            <div>동기화 건수</div>
+            <div class="times">144</div>
+          </li>
+          <li>
+            <div>비즈머니</div>
+            <div class="price">3,529,904</div>
+          </li>
+        </ul>
+        <ul class="details-bidding">
+          <li>
+            <div>전체</div>
+            <div class="times">
+              <strong>144</strong>
+            </div>
+          <li>
+            <div>입찰실행</div>
+            <div class="times"></div>
+          </li>
+          <li>
+            <div>입찰성공</div>
+            <div class="times">3</div>
+          </li>
+          <li>
+            <div>입찰실패</div>
+            <div class="times">4</div>
+          </li>
+          <li>
+            <div>최대입찰가도달</div>
+            <div class="times"></div>
+          </li>
+          <li>
+            <div>희망순위미도달</div>
+            <div class="times"></div>
+          </li>
+          </li>
+        </ul>
+        <small>※ 건수를 클릭하면 해당 리스트만 불러옵니다.</small>
+        <div class="accounts">
+          <h3>계정별 입찰 현황</h3>
+          <ul class="details-accounts">
+            <li>
+              <div>3scoltd</div>
+              <div>
+                <strong class="times"></strong>
+                <small class="percent"></small>
+              </div>
+            </li>
+            <li>
+              <div>cjlion2004</div>
+              <div>
+                <strong class="times"></strong>
+                <small class="percent"></small>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section>
+        <header class="section-header multi-line">
+          <div class="title">
+            <button class="btn-advanced-search" type="button">상세검색</button>
+            <div class="buttons">
+              <button class="btn-sub" type="button" data-modal="">분류조회</button>
+              <button class="btn-sub" class="ico-download" type="button">엑셀다운</button>
+              <button class="btn-main" type="button" data-modal="createItem">뭘루할까?</button>
+            </div>
+          </div>
+          <div class="advanced-search">
+            <ul>
+              <li class="item-keyword">
+                <div>
+                  <span>키워드</span>
+                  <div class="tooltip">
+                    <div class="tooltip-content">
+                      <p>복수검색은 줄 바꿈(엔터키)으로 구분합니다.</p>
+                      <p>예시:</p>
+                      <p>키워드 상품</p>
+                    </div>
+                  </div>
+                  <small>복수검색 가능</small>
+                </div>
+                <div class="inputs">
+                  <textarea id="" name=""></textarea>
+                  <div class="select">
+                    <input
+                      id="keyword-01"
+                      type="radio"
+                      name="filter-keyword"
+                      checked>
+                    <label for="keyword-01">일치</label>
+                    <input
+                      id="keyword-02"
+                      type="radio"
+                      name="filter-keyword">
+                    <label for="keyword-02">포함</label>
+                    <input
+                      id="keyword-03"
+                      type="radio"
+                      name="filter-keyword">
+                    <label for="keyword-03">제외</label>
+                  </div>
+                </div>
+              </li>
+              <li class="filter-range">
+                <div>
+                  <span>순위</span>
+                  <div class="tooltip">
+                    <div class="tooltip-content">
+                      <dl>
+                        <dd>순위 범위를 전체순위(1~401위)로 입력해주세요.</dd>
+                        <dd>400위 밖을 검색할 경우 ‘이상’ 입력 칸에 401을 입력해주세요.</dd>
+                        <dd>특정 값을 순위로 검색할 경우 위아래 입력 칸에 같은 값을 입력해주세요.</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+                <div class="inputs">
+                  <div class="up">
+                    <input type="number">
+                  </div>
+                  <div class="down">
+                    <input type="number">
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul>
+              <li class="mid">
+                <div>
+                  <span>상품 MID</span>
+                  <div class="tooltip">
+                    <div class="tooltip-content">
+                      <p>복수검색은 줄 바꿈(엔터키)으로 구분합니다.</p>
+                      <p>예시:</p>
+                      <p>12345678900</p>
+                      <p>12345678901</p>
+                    </div>
+                  </div>
+                  <small>복수검색 가능</small>
+                </div>
+                <div class="inputs">
+                  <textarea id="" name=""></textarea>
+                </div>
+              </li>
+              <li class="item-created">
+                <div>등록일</div>
+                <div class="inputs">
+                  <div class="calendar">
+                    <input
+                      id="from"
+                      type="text"
+                      name="from"
+                      autocomplete="off">
+                    <span>~</span>
+                    <input
+                      id="to"
+                      type="text"
+                      name="to"
+                      autocomplete="off">
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <div>스토어명</div>
+                <div class="inputs">
+                  <input type="text">
+                </div>
+              </li>
+              <li>
+                <div>상품명</div>
+                <div class="inputs">
+                  <input type="text">
+                </div>
+              </li>
+              <li>
+                <div>그룹</div>
+                <div class="inputs">
+                  <input type="text">
+                </div>
+              </li>
+              <li class="item-alert">
+                <div>알림</div>
+                <div class="inputs">
+                  <div class="checkbox">
+                    <input
+                      id="alert-on"
+                      type="checkbox">
+                    <label for="alert-on">on</label>
+                  </div>
+                  <div class="checkbox">
+                    <input
+                      id="alert-off"
+                      type="checkbox">
+                    <label for="alert-off">off</label>
+                  </div>
+                </div>
+              </li>
+              <li class="buttons">
+                <button class="btn-sub clear">
+                  초기화
+                </button>
+                <button
+                  class="btn-main"
+                  data-modal="advancedSearch">
+                  상세검색
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="filters">
+            <div>
+              <button class="ico-eye" title="사용자 지정 보기"></button>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="keyword">키워드</option>
+                  <option value="keyword">키워드</option>
+                  <option value="keyword">키워드</option>
+                </select>
+              </div>
+              <div class="search">
+                <div class="input">
+                  <input type="search" />
+                  <span class="x"></span>
+                </div>
+                <button class="btn-main ico-search" type="button"></button>
+              </div>
+              <ul class="list-count">
+                <li>
+                  <span class="selected times">0</span>
+                </li>
+                <li>
+                  <span class="total times">9,206</span>
+                </li>
+              </ul>
+            </div>
+            <div class="buttons">
+              <button type="button" data-modal="">선택한 키워드 관리</button>
+              <button type="button" data-modal="">분류관리</button>
+              <button type="button" data-modal="">입찰이력</button>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="filter-100">100개씩 보기</option>
+                  <option value="filter-50">50개씩 보기</option>
+                  <option value="filter-20">20개씩 보기</option>
+                  <option value="filter-10">10개씩 보기</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="list sticky">
+          <ul class="row title">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
+                <label for="checkAll"></label>
+              </div>
+            </li>
+            <li class="col-important ico-sort">상품</li>
+            <li class="col-keyword ico-sort">키워드</li>
+            <li class="ico-sort">
+              입찰상태
+              <div class="tooltip type2">
+                <div class="tooltip-content">
+                </div>
+              </div>
+            </li>
+            <li>
+              <span>
+                입찰설정
+              </span>
+              <div class="tooltip type2">
+                <div class="tooltip-content">
+                </div>
+              </div>
+            </li>
+            <li>
+              입찰주기
+              <div class="tooltip type2">
+                <div class="tooltip-content">
+                </div>
+              </div>
+            </li>
+            <li class="ico-sort">
+              입찰대상
+              <div class="tooltip type2">
+                <div class="tooltip-content">
+                </div>
+              </div>
+            </li>
+            <li class="ico-sort">최대입찰가</li>
+            <li class="ico-sort">입찰가감액</li>
+            <li class="ico-sort">희망순위</li>
+            <li class="ico-sort">입찰가</li>
+            <li class="ico-sort">현재순위</li>
+            <li class="ico-sort">최대입찰가 도달여부</li>
+            <li class="ico-sort">희망순위 도달여부</li>
+            <li class="ico-sort">입찰결과</li>
+            <li class="ico-sort">키워드등록</li>
+            <li class="ico-sort">분류명</li>
+            <li class="ico-sort">키워드상태</li>
+            <li class="ico-sort">광고그룹</li>
+            <li class="ico-sort">그룹상태</li>
+            <li class="ico-sort">캠페인</li>
+            <li class="ico-sort">캠페인상태</li>
+            <li class="ico-sort">입찰등록일</li>
+            <li class="ico-sort">입찰수정일</li>
+          </ul>
+          <div class="rows" data-empty="상품을 등록해주세요">
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input id="check-01" name="select-item" type="checkbox" />
+                  <label for="check-01"></label>
+                </div>
+              </li>
+              <li title="상품" class="col-important item">
+                <div class="image" onclick="location.href='ranking_details.html'">
+                  <img src="http://image.11st.co.kr/pd/v2/3/8/3/2/0/0/ukCEp/1392383200_L300.jpg" alt="" />
+                </div>
+                <div class="information">
+                  <div class="title">킹썰 스포츠 등산 자전거 겨울 방한 장갑 휴대폰터치가능</div>
+                </div>
+              </li>
+              <li title="키워드" class="col-keyword">
+                <div class="keyword">등산장갑</div>
+              </li>
+              <li title="입찰상태">
+                정지
+              </li>
+              <li title="입찰설정">
+                <button>고급설정</button>
+              </li>
+              <li title="입찰주기">
+                5
+              </li>
+              <li title="입찰대상">
+                PC일반
+              </li>
+              <li title="최대입찰가">
+                <div class="price">
+                  1,000
+                </div>
+              </li>
+              <li title="입찰가감액">
+                <div class="price"></div>
+              </li>
+              <li title="희망순위">
+                3
+              </li>
+              <li title="입찰가">
+                <div class="price"></div>
+              </li>
+              <li title="현재순위"></li>
+              <li title="최대입찰가 도달여부">
+                미도달
+              </li>
+              <li title="희망순위 도달여부">
+                미도달
+              </li>
+              <li title="입찰결과">
+                <div>
+                  <span>실패</span>
+                  <button>이력</button>
+                </div>
+              </li>
+              <li title="키워드등록">직접</li>
+              <li title="분류명"></li>
+              <li title="키워드상태">
+                <div>
+                  <div class="tag type-border">노출가능</div>
+                  <span>ON</span>
+                </div>
+              </li>
+              <li title="광고그룹">
+                #3s299...600
+              </li>
+              <li title="그룹상태">
+                <div>
+                  <div class="tag type-border">노출가능</div>
+                  <span>ON</span>
+                </div>
+              </li>
+              <li title="캠페인">
+                수동입찰
+              </li>
+              <li title="캠페인상태">
+                <div>
+                  <div class="tag type-border">노출가능</div>
+                  <span>ON</span>
+                </div>
+              </li>
+              <li title="입찰등록일">
+                2022-04-12
+              </li>
+              <li title="입찰수정일">
+                2022-11-08
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="tab-content content-11st-brand-search" data-tab="eleventh">
+      <section class="section-account">
+        <header class="section-header">
+          <h3>bokdanji</h3>
+        </header>
+        <div class="sync">
+          <div class="selectbox">
+            <select name="sync-account" id="">
+              <option value="">bokdanji</option>
+            </select>
+          </div>
+          <button class="btn-main ico-sync"></button>
+        </div>
+        <ul class="details-sync">
+          <li class="center">
+            <div>동기화 시간</div>
+            <div>2021-08-20 오전 9:36:43</div>
+          </li>
+          <li>
+            <div>동기화 건수</div>
+            <div class="times">50</div>
+          </li>
+          <li>
+            <div>비즈머니</div>
+            <div class="price">1,894,071</div>
+          </li>
+        </ul>
+        <ul class="details-bidding">
+          <li>
+            <div>전체</div>
+            <div class="times">
+              <strong>50</strong>
+            </div>
+          <li>
+            <div>입찰실행</div>
+            <div class="times"></div>
+          </li>
+          <li>
+            <div>입찰성공</div>
+            <div class="times"></div>
+          </li>
+          <li>
+            <div>입찰실패</div>
+            <div class="times"></div>
+          </li>
+          <li>
+            <div>최대입찰가도달</div>
+            <div class="times"></div>
+          </li>
+          <li>
+            <div>희망순위미도달</div>
+            <div class="times"></div>
+          </li>
+          </li>
+        </ul>
+        <small>※ 건수를 클릭하면 해당 리스트만 불러옵니다.</small>
+        <div class="accounts">
+          <h3>계정별 입찰 현황</h3>
+          <ul class="details-accounts">
+            <li>
+              <div>bokdanji</div>
+              <div>
+                <strong class="times"></strong>
+                <small class="percent"></small>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section>
+        <header class="section-header multi-line">
+          <div class="title">
+            <button class="btn-advanced-search" type="button">상세검색</button>
+            <div class="buttons">
+              <button class="btn-sub" type="button" data-modal="">분류조회</button>
+              <button class="btn-sub" class="ico-download" type="button">엑셀다운</button>
+              <button class="btn-main" type="button" data-modal="createItem">뭘루할까?</button>
+            </div>
+          </div>
+          <div class="advanced-search">
+            <ul>
+              <li class="item-keyword">
+                <div>
+                  <span>키워드</span>
+                  <div class="tooltip">
+                    <div class="tooltip-content">
+                      <p>복수검색은 줄 바꿈(엔터키)으로 구분합니다.</p>
+                      <p>예시:</p>
+                      <p>키워드 상품</p>
+                    </div>
+                  </div>
+                  <small>복수검색 가능</small>
+                </div>
+                <div class="inputs">
+                  <textarea id="" name=""></textarea>
+                  <div class="select">
+                    <input
+                      id="keyword-01"
+                      type="radio"
+                      name="filter-keyword"
+                      checked>
+                    <label for="keyword-01">일치</label>
+                    <input
+                      id="keyword-02"
+                      type="radio"
+                      name="filter-keyword">
+                    <label for="keyword-02">포함</label>
+                    <input
+                      id="keyword-03"
+                      type="radio"
+                      name="filter-keyword">
+                    <label for="keyword-03">제외</label>
+                  </div>
+                </div>
+              </li>
+              <li class="filter-range">
+                <div>
+                  <span>순위</span>
+                  <div class="tooltip">
+                    <div class="tooltip-content">
+                      <dl>
+                        <dd>순위 범위를 전체순위(1~401위)로 입력해주세요.</dd>
+                        <dd>400위 밖을 검색할 경우 ‘이상’ 입력 칸에 401을 입력해주세요.</dd>
+                        <dd>특정 값을 순위로 검색할 경우 위아래 입력 칸에 같은 값을 입력해주세요.</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+                <div class="inputs">
+                  <div class="up">
+                    <input type="number">
+                  </div>
+                  <div class="down">
+                    <input type="number">
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul>
+              <li class="mid">
+                <div>
+                  <span>상품 MID</span>
+                  <div class="tooltip">
+                    <div class="tooltip-content">
+                      <p>복수검색은 줄 바꿈(엔터키)으로 구분합니다.</p>
+                      <p>예시:</p>
+                      <p>12345678900</p>
+                      <p>12345678901</p>
+                    </div>
+                  </div>
+                  <small>복수검색 가능</small>
+                </div>
+                <div class="inputs">
+                  <textarea id="" name=""></textarea>
+                </div>
+              </li>
+              <li class="item-created">
+                <div>등록일</div>
+                <div class="inputs">
+                  <div class="calendar">
+                    <input
+                      id="from"
+                      type="text"
+                      name="from"
+                      autocomplete="off">
+                    <span>~</span>
+                    <input
+                      id="to"
+                      type="text"
+                      name="to"
+                      autocomplete="off">
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <div>스토어명</div>
+                <div class="inputs">
+                  <input type="text">
+                </div>
+              </li>
+              <li>
+                <div>상품명</div>
+                <div class="inputs">
+                  <input type="text">
+                </div>
+              </li>
+              <li>
+                <div>그룹</div>
+                <div class="inputs">
+                  <input type="text">
+                </div>
+              </li>
+              <li class="item-alert">
+                <div>알림</div>
+                <div class="inputs">
+                  <div class="checkbox">
+                    <input
+                      id="alert-on"
+                      type="checkbox">
+                    <label for="alert-on">on</label>
+                  </div>
+                  <div class="checkbox">
+                    <input
+                      id="alert-off"
+                      type="checkbox">
+                    <label for="alert-off">off</label>
+                  </div>
+                </div>
+              </li>
+              <li class="buttons">
+                <button class="btn-sub clear">
+                  초기화
+                </button>
+                <button
+                  class="btn-main"
+                  data-modal="advancedSearch">
+                  상세검색
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="filters">
+            <div>
+              <button class="ico-eye" title="사용자 지정 보기"></button>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="keyword">키워드</option>
+                  <option value="keyword">키워드</option>
+                  <option value="keyword">키워드</option>
+                </select>
+              </div>
+              <div class="search">
+                <div class="input">
+                  <input type="search" />
+                  <span class="x"></span>
+                </div>
+                <button class="btn-main ico-search" type="button"></button>
+              </div>
+              <ul class="list-count">
+                <li>
+                  <span class="selected times">0</span>
+                </li>
+                <li>
+                  <span class="total times">50</span>
+                </li>
+              </ul>
+            </div>
+            <div class="buttons">
+              <button type="button" data-modal="deleteItem">선택한 키워드 관리</button>
+              <button type="button" data-modal="createKeyword">분류관리</button>
+              <button type="button" data-modal="">입찰이력</button>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="filter-100">100개씩 보기</option>
+                  <option value="filter-50">50개씩 보기</option>
+                  <option value="filter-20">20개씩 보기</option>
+                  <option value="filter-10">10개씩 보기</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="list sticky">
+          <ul class="row title">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
+                <label for="checkAll"></label>
+              </div>
+            </li>
+            <li class="col-keyword ico-sort">키워드</li>
+            <li class="ico-sort">
+              입찰상태
+              <div class="tooltip type2">
+                <div class="tooltip-content">
+                </div>
+              </div>
+            </li>
+            <li>
+              <span>
+                입찰설정
+              </span>
+              <div class="tooltip type2">
+                <div class="tooltip-content">
+                </div>
+              </div>
+            </li>
+            <li>
+              입찰주기
+              <div class="tooltip type2">
+                <div class="tooltip-content">
+                </div>
+              </div>
+            </li>
+            <li class="ico-sort">
+              입찰대상
+              <div class="tooltip type2">
+                <div class="tooltip-content">
+                </div>
+              </div>
+            </li>
+            <li class="ico-sort">입찰기본가</li>
+            <li class="ico-sort">최대입찰가</li>
+            <li class="ico-sort">입찰가감액</li>
+            <li class="ico-sort">하향입찰</li>
+            <li class="ico-sort">입찰가</li>
+            <li class="ico-sort">최대입찰가 도달여부</li>
+            <li class="ico-sort">입찰결과</li>
+            <li class="ico-sort">광고대상</li>
+            <li class="ico-sort col-url">대상 URL</li>
+            <li class="ico-sort">분류명</li>
+            <li class="ico-sort">키워드상태</li>
+            <li class="ico-sort">소재명</li>
+            <li class="ico-sort">소재상태</li>
+            <li class="ico-sort">광고그룹</li>
+            <li class="ico-sort">그룹상태</li>
+            <li class="ico-sort">캠페인</li>
+            <li class="ico-sort">캠페인상태</li>
+            <li class="ico-sort">입찰등록일</li>
+            <li class="ico-sort">입찰수정일</li>
+          </ul>
+          <div class="rows" data-empty="상품을 등록해주세요">
+            <ul class="row">
+              <li class="col-check">
+                <div class="checkbox">
+                  <input id="check-01" name="select-item" type="checkbox" />
+                  <label for="check-01"></label>
+                </div>
+              </li>
+              <li title="키워드" class="col-keyword">
+                <div class="keyword">제주산조릿대차</div>
+              </li>
+              <li title="입찰상태">
+                정지
+              </li>
+              <li title="입찰설정">
+                <button>고급설정</button>
+              </li>
+              <li title="입찰주기">
+                5
+              </li>
+              <li title="입찰대상">
+                PC일반
+              </li>
+              <li title="입찰기본가"></li>
+              <li title="최대입찰가">
+                <div class="price">
+                  1,000
+                </div>
+              </li>
+              <li title="입찰가감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                OFF
+              </li>
+              <li title="입찰가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가 도달여부">
+                미도달
+              </li>
+              <li title="입찰결과">
+                <div>
+                  <span>실패</span>
+                  <button>이력</button>
+                </div>
+              </li>
+              <li title="광고대상"></li>
+              <li class="col-url" title="대상 URL"></li>
+              <li title="분류명">
+                브랜딩검색1
+              </li>
+              <li title="키워드상태">
+                <div>
+                  <div class="tag type-border">노출가능</div>
+                  <span>ON</span>
+                </div>
+              </li>
+              <li title="소재명">
+                01_브랜딩소재
+              </li>
+              <li title="소재상태">
+                <div>
+                  <div class="tag type-border">노출가능</div>
+                  <span>ON</span>
+                </div>
+              </li>
+              <li title="광고그룹">
+                01_브랜딩그룹
+              </li>
+              <li title="그룹상태">
+                <div>
+                  <div class="tag type-border">노출가능</div>
+                  <span>ON</span>
+                </div>
+              </li>
+              <li title="캠페인">
+                PC
+              </li>
+              <li title="캠페인상태">
+                <div>
+                  <div class="tag type-border">노출가능</div>
+                  <span>ON</span>
+                </div>
+              </li>
+              <li title="입찰등록일">
+                2022-04-12
+              </li>
+              <li title="입찰수정일">
+                2022-11-08
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+  </main>
+</body>
+
+</html>
