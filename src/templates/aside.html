@@ -14,17 +14,74 @@
         스토어
       </menu>
       <ul>
-        <li>지마켓 판매량 추적</li>
-        <li>네이버 순위 추적</li>
-        <li>네이버 최저가 추적</li>
+        <li>
+          <span class="gmarket">지마켓 판매량 추적</span>
+        </li>
+        <li>
+          <span class="naver">네이버 순위 추적</span>
+        </li>
+        <li>
+          <span class="naver">네이버 최저가 추적</span>
+        </li>
       </ul>
     </div>
-    <ul>
-      <li>
-      </li>
-      <li></li>
-      <li></li>
-    </ul>
+    <div>
+      <menu>
+        <i class="ico-price"></i>
+        자동입찰
+      </menu>
+      <ul>
+        <li>
+          <span class="naver" onclick="location.href='bid_naver_search.html'">네이버 검색광고</span>
+        </li>
+        <li>
+          <span class="naver">네이버 쇼핑검색광고</span>
+        </li>
+        <li>
+          <span class="naver">네이버 파워콘텐츠</span>
+        </li>
+        <li>
+          <span class="eleventh">11번가 포커스클릭</span>
+        </li>
+        <li>
+          <span class="eleventh">11번가 브랜드검색</span>
+        </li>
+        <li>
+          <span class="gmarket">지마켓 파워클릭</span>
+        </li>
+        <li>
+          <span class="google">구글 검색광고</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <menu>
+        <i class="ico-trend"></i>
+        키워드
+      </menu>
+      <ul>
+        <li>
+          <i class="ico-trend"></i>
+          <span>키워드 분석</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <menu>
+        <i class="ico-ranking"></i>
+        다이애드 +
+      </menu>
+      <ul>
+        <li>
+          <span>다이애드 캘린더</span>
+        </li>
+        <li>
+          <span>다이애드 매뉴얼</span>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <nav style="display: none;">
     <a class="{% if currentPage == 'ranking' %}is-active{% endif %}" href="ranking.html">
       <i class="ico-ranking"></i>
       <span>상품 순위 추적</span>

@@ -811,6 +811,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const menus = document.querySelectorAll("aside nav menu");
   menus.forEach(menu => {
     menu.addEventListener("click", (event) => {
+      // menu.closest("div").classList.remove("is-active");
+      // console.log(menu.closest("div").classList);
+      // if(event.target.closest("div").classList.contains("is-active")){
+      //   console.log("actived")
+      //   event.target.closest("div").classList.remove("is-active");
+      // } else {
+      //   console.log("non actived")
+      //   event.target.closest("div").classList.add("is-active");
+      // }
       event.target.closest("div").classList.toggle("is-active");
     })
   })
