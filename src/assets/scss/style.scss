@@ -428,7 +428,7 @@ header {
     width: 100%;
     height: 50px;
     padding: 0 1rem;
-    z-index: 100;
+    // z-index: 100;
     position: relative;
   }
 
@@ -560,37 +560,7 @@ aside {
   gap: 1rem;
   overflow-y: auto;
 
-  &.icons-only {
-    width: 50px;
-
-    .slide-handler {
-      margin-top: 0;
-      border: 0;
-    }
-
-    nav {
-      width: 100%;
-      margin: 0;
-      border: 0;
-      padding: 0;
-      gap: 0;
-
-      a {
-        padding: 0.75rem;
-        &::after {
-          border-radius: 0;
-        }
-
-        span {
-          opacity: 0;
-          display: none;
-          animation: fadeOut 0.25s forwards;
-        }
-      }
-    }
-  }
-
-  .slide-handler {
+  .aside-handler {
     width: 3rem;
     height: 3rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -602,9 +572,10 @@ aside {
     }
 
     svg {
-      width: 100%;
-      transition: transform 400ms;
       user-select: none;
+      width: 100%;
+      transform: rotate(180deg);
+      transition: transform 400ms;
       cursor: pointer;
 
       path {
@@ -615,27 +586,65 @@ aside {
         stroke-linecap: round;
 
         &:first-of-type {
-          stroke-dasharray: 40 82;
+          stroke-dasharray: 14 82;
+          stroke-dashoffset: -72px;
         }
 
         &:last-of-type {
-          stroke-dasharray: 40 82;
+          stroke-dasharray: 14 82;
+          stroke-dashoffset: -72px;
         }
       }
+    }
+  }
 
-      &.is-active {
-        transform: rotate(180deg);
+  &.icons-only {
+    width: 50px;
 
+    .aside-handler {
+      margin-top: 0;
+      border: 0;
+
+      svg {
         path {
+          stroke-dashoffset: unset !important;
+
           &:first-of-type {
-            stroke-dasharray: 14 82;
-            stroke-dashoffset: -72px;
+            stroke-dasharray: 40 82;
           }
 
           &:last-of-type {
-            stroke-dasharray: 14 82;
-            stroke-dashoffset: -72px;
+            stroke-dasharray: 40 82;
           }
+        }
+      }
+    }
+
+    nav {
+      width: 100%;
+      margin: 0;
+      border: 0;
+      padding: 0;
+      gap: 0;
+
+      menu {
+        span {
+          opacity: 0;
+          display: none;
+          animation: fadeOut 0.25s forwards;
+        }
+      }
+
+      a {
+        padding: 0.75rem;
+        &::after {
+          border-radius: 0;
+        }
+
+        span {
+          opacity: 0;
+          display: none;
+          animation: fadeOut 0.25s forwards;
         }
       }
     }
@@ -687,7 +696,9 @@ aside {
       &:hover,
       &.is-active {
         menu {
-          color: $primary-color;
+          span {
+            color: $primary-color;
+          }
 
           .ico-ranking {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' width='48'%3E%3Cpath fill='%237682f8' d='M8.55 26.5Q7.5 26.5 6.75 25.775Q6 25.05 6 24Q6 22.95 6.75 22.225Q7.5 21.5 8.55 21.5Q9.55 21.5 10.275 22.25Q11 23 11 24Q11 25 10.275 25.75Q9.55 26.5 8.55 26.5ZM8.5 14Q7.45 14 6.725 13.275Q6 12.55 6 11.5Q6 10.45 6.725 9.725Q7.45 9 8.5 9Q9.55 9 10.275 9.725Q11 10.45 11 11.5Q11 12.55 10.275 13.275Q9.55 14 8.5 14ZM8.55 39Q7.5 39 6.75 38.275Q6 37.55 6 36.55Q6 35.5 6.75 34.75Q7.5 34 8.55 34Q9.55 34 10.275 34.75Q11 35.5 11 36.55Q11 37.55 10.275 38.275Q9.55 39 8.55 39ZM16 38V35H42V38ZM16 25.5V22.5H42V25.5ZM16 13V10H42V13Z'/%3E%3C/svg%3E");
@@ -715,11 +726,10 @@ aside {
       }
 
       menu {
-        color: #fff;
-        padding: 0.35rem 0.75rem;
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        padding: 0.35rem 0.75rem;
         background-size: 200% 200%;
         position: relative;
         z-index: 10;
@@ -778,6 +788,7 @@ aside {
       gap: 0.5rem;
       color: rgba(255, 255, 255, 0.75);
       z-index: 5;
+      transition: color 0.25s;
 
       &::before {
         border: 1px solid rgba(255, 255, 255, 0.25);
@@ -1021,6 +1032,7 @@ section {
     display: flex;
     width: 100%;
     gap: 0.5rem;
+    position: relative;
 
     .tabs {
       li {
@@ -1116,13 +1128,15 @@ section {
 .advanced-search {
   opacity: 0;
   max-height: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
   display: flex;
   flex-wrap: wrap;
   border-radius: 0.5rem;
   background-color: #f7f8f9;
-  position: relative;
+  border: 1px solid $main-color;
   transition: 0.4s;
-  z-index: -1;
 
   :is(input, select, textarea) {
     border: 0;
@@ -1131,9 +1145,8 @@ section {
 
   &.is-active {
     max-height: 400px;
-    position: relative;
     padding: 1rem 0;
-    border: 1px solid $main-color;
+    z-index: 52 !important;
   }
 
   ul {
@@ -1469,7 +1482,7 @@ section {
 
     .selected {
       &::before {
-        content: "선택된 그룹";
+        content: "선택";
       }
 
       &::after {
@@ -1483,7 +1496,7 @@ section {
       }
 
       &::after {
-        content: "개의 그룹";
+        content: "개";
       }
     }
   }
@@ -2065,6 +2078,18 @@ section {
   }
 }
 
+.list-checkbox {
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 50vw;
+  gap: 0.5rem;
+  padding: 1rem;
+
+  .checkbox {
+    flex: 0 0 calc(20% - 0.4rem);
+  }
+}
+
 .filters {
   display: flex;
   justify-content: space-between;
@@ -2086,20 +2111,24 @@ section {
     align-items: center;
     gap: 0;
 
-    > *:not(.selectbox:last-of-type) {
-      margin: 0 0.5rem;
-      padding: 0 0.75rem;
-      position: relative;
-      border-radius: 0.35rem;
-    }
+    > * {
+      &:not(.selectbox:last-of-type) {
+        margin: 0 0.5rem;
+        padding: 0 0.75rem;
+        position: relative;
+        border-radius: 0.35rem;
+      }
 
-    :not(:last-of-type) {
-      &::after {
-        content: "|";
-        padding-left: 1rem;
-        color: #ddd;
-        position: absolute;
-        right: -0.75rem;
+      &:not(:last-of-type) {
+        &::after {
+          content: "|";
+          padding-left: 1rem;
+          color: #ddd;
+          position: absolute;
+          right: -0.75rem;
+          top: 50%;
+          transform: translateY(-50%);
+        }
       }
     }
 
@@ -2239,6 +2268,51 @@ section {
             &::after {
               border-color: $main-color;
             }
+          }
+        }
+      }
+    }
+  }
+
+  .dropdown {
+    user-select: none;
+
+    ul {
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
+      max-height: 0;
+      transform: translateY(7px);
+      transition: opacity .35s, transform 0.25s;
+      min-width: 100%;
+    }
+
+    &:hover {
+      z-index: 100;
+
+      ul {
+        opacity: 1;
+        visibility: visible;
+        max-height: 999px;
+        background-color: white;
+        border: 1px solid #eee;
+        transform: translateY(0);
+
+        li {
+          min-height: 36px;
+          padding: 0.5rem 0.75rem;
+          display: flex;
+          align-items: center;
+          white-space: nowrap;
+          transition: color .25s;
+          cursor: pointer;
+
+          &:not(:last-of-type) {
+            border-bottom: 1px solid #f3f6f9;
+          }
+
+          &:hover {
+            color: $main-color
           }
         }
       }
@@ -2663,7 +2737,7 @@ section {
   }
 
   .section-faq {
-    .dropdown {
+    .accordion {
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
@@ -3983,11 +4057,11 @@ section {
 
         &.col-important {
           min-width: 300px !important;
-    
+
           .information {
             height: auto;
             max-width: calc(100% - 40px - 0.5rem);
-    
+
             .title {
               white-space: normal;
               -webkit-line-clamp: 2;
@@ -3996,7 +4070,7 @@ section {
             }
           }
         }
-    
+
         .col-keyword {
           left: 332px !important;
         }
@@ -5763,7 +5837,7 @@ section {
     background-color: #f3f6f9;
   }
 
-  &:is(.modal-edit-group, .modal-group, .search-group, .modal-keyword) {
+  &:is(.modal-edit, .modal-group, .modal-lookup, .modal-keyword) {
     .list {
       margin-top: 0.5rem;
       max-height: 300px;
@@ -5806,7 +5880,7 @@ section {
     }
   }
 
-  &.modal-edit-group {
+  &.modal-edit {
     .list {
       li {
         gap: 0.75rem;

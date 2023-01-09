@@ -180,22 +180,24 @@
   aside {
     width: 50px;
 
-    .logo {
-      background: none;
-      padding-left: 0;
+    .aside-handler {
+      margin-top: 0;
+      border: 0;
 
-      span:not(.responsive) {
-        display: none;
+      svg {
+  
+        path {
+          stroke-dashoffset: unset !important;
+  
+          &:first-of-type {
+            stroke-dasharray: 40 82;
+          }
+  
+          &:last-of-type {
+            stroke-dasharray: 40 82;
+          }
+        }
       }
-
-      .responsive {
-        display: flex;
-      }
-    }
-
-    .username,
-    .sub-menu {
-      display: none;
     }
 
     nav {
@@ -205,6 +207,15 @@
       padding: 0;
       gap: 0;
 
+      menu {
+
+        span {
+          opacity: 0;
+          display: none;
+          animation: fadeOut 0.25s forwards;
+        }
+      }
+
       a {
         padding: 0.75rem;
         &::after {
@@ -212,7 +223,9 @@
         }
 
         span {
+          opacity: 0;
           display: none;
+          animation: fadeOut 0.25s forwards;
         }
       }
     }
@@ -356,7 +369,7 @@
       padding: 0 1rem;
     }
 
-    &.modal-edit-group {
+    &.modal-edit {
       .list-count {
         display: flex !important;
       }
