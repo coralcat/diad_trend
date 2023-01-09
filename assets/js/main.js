@@ -796,21 +796,23 @@ document.addEventListener("DOMContentLoaded", () => {
     aside.classList.toggle("is-active");
   });
   
-  const slideHandler = document.querySelector(".slide-handler svg");
-  slideHandler.addEventListener("click", () => {
-    if(aside.classList.contains("is-active")) {
-      aside.classList.remove("is-active");
-      aside.classList.add("icons-only")
-    } else {
-      aside.classList.remove("icons-only");       
-      aside.classList.add("is-active")
-    }
-    slideHandler.classList.toggle("is-active");
+  const asideHandler = document.querySelector(".aside-handler");
+  asideHandler.addEventListener("click", () => {
+    aside.classList.contains("icons-only") 
+    ? aside.classList.remove("icons-only") 
+    : aside.classList.add("icons-only");
   })
 
-  const menus = document.querySelectorAll("aside nav menu");
+  if (matchMedia("screen and (max-width: 960px)").matches) {
+    aside.classList.add("icons-only")
+  }
+
+
+
+  const menus = document.querySelectorAll("aside nav menu span");
   menus.forEach(menu => {
     menu.addEventListener("click", (event) => {
+      event.stopPropagation();
       // menu.closest("div").classList.remove("is-active");
       // console.log(menu.closest("div").classList);
       // if(event.target.closest("div").classList.contains("is-active")){
@@ -825,12 +827,12 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   /* =====================================================
-       Dropdown
+       Accordion
   ===================================================== */
-  const dropdown = document.querySelector(".dropdown");
-  if (dropdown) {
-    dropdown.addEventListener("click", event => {
-      const lists = dropdown.querySelectorAll("li");
+  const accordion = document.querySelector(".accordion");
+  if (accordion) {
+    accordion.addEventListener("click", event => {
+      const lists = accordion.querySelectorAll("li");
       lists.forEach(list => {
         list.classList.remove("is-active");
       });

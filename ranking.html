@@ -55,19 +55,19 @@
   </header>
   <main>
       
-<aside class="is-active">
-  <div class="slide-handler">
-    <svg class="is-active" viewBox="0 0 100 100" width="80">
+<aside>
+  <button class="aside-handler">
+    <svg viewBox="0 0 100 100" width="80">
       <path d="m 30,33 h 40 c 0,0 8.5,-0.68551 8.5,10.375 0,8.292653 -6.122707,9.002293 -8.5,6.625 l -11.071429,-11.071429" />
       <path d="m 70,50 h -40" />
       <path d="m 30,67 h 40 c 0,0 8.5,0.68551 8.5,-10.375 0,-8.292653 -6.122707,-9.002293 -8.5,-6.625 l -11.071429,11.071429" />
     </svg>
-  </div>
+  </button>
   <nav>
     <div>
       <menu>
         <i class="ico-ranking"></i>
-        스토어
+        <span>스토어</span>
       </menu>
       <ul>
         <li>
@@ -83,8 +83,8 @@
     </div>
     <div>
       <menu>
-        <i class="ico-price"></i>
-        자동입찰
+        <i class="ico-price" onclick="location.href='/bid_naver.html'"></i>
+        <span>자동입찰</span>
       </menu>
       <ul>
         <li>
@@ -104,7 +104,7 @@
     <div>
       <menu>
         <i class="ico-trend"></i>
-        키워드
+        <span>키워드</span>
       </menu>
       <ul>
         <li>
@@ -116,7 +116,7 @@
     <div>
       <menu>
         <i class="ico-ranking"></i>
-        다이애드 +
+        <span>다이애드 +</span>
       </menu>
       <ul>
         <li>
@@ -808,7 +808,7 @@
   </div>
 </div>
 
-<div id="editGroup" class="modal modal-edit-group">
+<div id="editGroup" class="modal modal-edit">
   <div class="dialog">
     <header class="modal-header">
       <h3>그룹편집</h3>
@@ -939,7 +939,7 @@
   </div>
 </div>
 
-<div id="searchGroup" class="modal search-group">
+<div id="searchGroup" class="modal modal-lookup">
   <div class="dialog">
     <header class="modal-header">
       <h3>그룹조회</h3>
