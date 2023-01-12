@@ -234,7 +234,7 @@ button {
     background-size: 18px;
     padding-right: 1.5rem;
     text-overflow: ellipsis;
-    font-family: "Roboto";
+    font-family: "Roboto", "MinRegular";
   }
 }
 
@@ -716,6 +716,10 @@ aside {
           .ico-alarm {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' width='48'%3E%3Cpath fill='%237682f8' d='M8 38V35H12.2V19.7Q12.2 15.6 14.675 12.275Q17.15 8.95 21.2 8.1V6.65Q21.2 5.5 22.025 4.75Q22.85 4 24 4Q25.15 4 25.975 4.75Q26.8 5.5 26.8 6.65V8.1Q30.85 8.95 33.35 12.275Q35.85 15.6 35.85 19.7V35H40V38ZM24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25ZM24 44Q22.4 44 21.2 42.825Q20 41.65 20 40H28Q28 41.65 26.825 42.825Q25.65 44 24 44ZM15.2 35H32.85V19.7Q32.85 15.95 30.325 13.375Q27.8 10.8 24.05 10.8Q20.35 10.8 17.775 13.375Q15.2 15.95 15.2 19.7Z'/%3E%3C/svg%3E");
           }
+
+          .ico-calendar {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z' fill='%237682f8' /%3E%3C/svg%3E");
+          }
         }
       }
 
@@ -784,6 +788,7 @@ aside {
     }
 
     span {
+      flex: 1;
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -1450,11 +1455,19 @@ section {
       &::before {
         content: "선택";
       }
+
+      &::after {
+        content: "건";
+      }
     }
 
     .total {
       &::before {
         content: "총";
+      }
+
+      &::after {
+        content: "건";
       }
     }
   }
@@ -1809,9 +1822,18 @@ section {
       width: 20%;
       min-height: 36px;
       padding: 0.75rem 0.5rem;
-      text-align: center;
       font-family: "RobotoMedium", "MinRegular";
       transition: background-color 0.25s;
+
+      &:empty {
+        &::after {
+          content: "-";
+        }
+      }
+
+      a {
+        text-decoration: underline;
+      }
 
       &[title="키워드"]::before {
         content: none !important;
@@ -1832,6 +1854,11 @@ section {
           border: 1px solid #ddd;
           border-radius: 2px;
         }
+      }
+
+      &.col-100 {
+        flex: 0 0 auto;
+        width: 100px;
       }
 
       &.col-chart {
@@ -2348,10 +2375,19 @@ section {
         }
       }
 
-      .x {
+      .close {
+        position: absolute;
         top: 8px;
         right: 0.5rem;
+        width: 10px;
+        height: 10px;
         background-image: linear-gradient(#49536b 0 0), linear-gradient(#49536b 0 0);
+        display: flex;
+        background-position: center;
+        background-size: 100% 2px, 2px 100%;
+        background-repeat: no-repeat;
+        transform: rotate(45deg);
+        transition: opacity 0.25s;
         cursor: pointer;
       }
     }
@@ -3032,7 +3068,6 @@ section {
 
         &:not(.title) {
           :nth-child(1) {
-            display: block;
             white-space: nowrap;
             text-overflow: ellipsis;
             line-height: 32px;
@@ -3157,7 +3192,7 @@ section {
     }
   }
 
-  .list-item {
+  .list {
     flex: 1 1 auto;
 
     &.sticky {
@@ -3274,6 +3309,8 @@ section {
         .page {
           display: flex;
           font-size: 12px;
+          width: 100%;
+          justify-content: center;
 
           &::before {
             content: "(";
@@ -3292,8 +3329,33 @@ section {
   }
 }
 
+.content-tracking.gmarket {
+  .list {
+
+    .row {
+
+      li {
+
+        &:nth-of-type(2) {
+          width: 120px;
+          flex: 0 0 auto;
+        }
+
+        &:nth-of-type(3) {
+          flex: 0 0 auto;
+          width: 360px;
+  
+          &:not(.title li) {
+            justify-content: flex-start;
+          }
+        }
+      }
+    }
+  }
+}
+
 .content-ranking {
-  .list-item {
+  .list {
     .row {
       li {
         &:nth-of-type(5),
@@ -3330,7 +3392,7 @@ section {
 }
 
 .content-lowest-price {
-  .list-item {
+  .list {
     .row {
       &:not(.title) {
         .tooltip {
@@ -3340,7 +3402,6 @@ section {
         }
       }
       li {
-
         &:nth-of-type(9),
         &:nth-of-type(10) {
           .tag {
@@ -3357,10 +3418,6 @@ section {
               color: royalblue;
             }
           }
-        }
-
-        &.col-100 {
-          width: 100px;
         }
 
         // 알림
@@ -3401,6 +3458,7 @@ section {
     gap: 1.25rem;
 
     .section-main {
+      overflow-x: hidden;
       overflow-y: auto;
       background-color: white;
       border-radius: 0.5rem;
@@ -3883,7 +3941,7 @@ section {
     small {
       word-break: keep-all;
       text-align: center;
-      font-size: 13px
+      font-size: 13px;
     }
 
     header {
@@ -3939,7 +3997,7 @@ section {
           display: flex;
           align-items: center;
           gap: 3px;
-          font-size: 15px
+          font-size: 15px;
         }
 
         &:not(:last-child) {
@@ -4616,7 +4674,7 @@ section {
           }
 
           .name {
-            font-size: 15px
+            font-size: 15px;
           }
 
           .categories {
@@ -4751,7 +4809,7 @@ section {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                gap: .5rem;
+                gap: 0.5rem;
               }
             }
 
@@ -4774,7 +4832,7 @@ section {
 
             .categories {
               font-size: 13px;
-              order: 3
+              order: 3;
             }
 
             &:nth-of-type(5),

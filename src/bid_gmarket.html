@@ -1,4 +1,30 @@
-{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('keyword')}}
+{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('bidGmarket')}}
+<script>
+  $(function () {
+    var dateFormat = "mm/dd/yy",
+      from = $("#from")
+        .datepicker()
+        .on("change", function () {
+          to.datepicker("option", "minDate", getDate(this));
+        }),
+      to = $("#to")
+        .datepicker()
+        .on("change", function () {
+          from.datepicker("option", "maxDate", getDate(this));
+        });
+
+    function getDate(element) {
+      var date;
+      try {
+        date = $.datepicker.parseDate(dateFormat, element.value);
+      } catch (error) {
+        date = null;
+      }
+
+      return date;
+    }
+  });
+</script>
 <div class="content content-bidding">
   <header class="main-header">
     <div class="title">

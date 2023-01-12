@@ -931,7 +931,7 @@
       }
     }
 
-    .list-item {
+    .list {
       .checkbox {
         label {
           &::before {
@@ -1028,18 +1028,9 @@
     }
   }
 
-  .content-ranking {
-    .list-item {
-      li {
-        &::before {
-          content: attr(title);
-        }
-      }
-    }
-  }
-
+  .content-ranking,
   .content-lowest-price {
-    .list-item {
+    .list {
       li {
         &::before {
           content: attr(title);

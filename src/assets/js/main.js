@@ -447,7 +447,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 조회 목록화면에 상품 선택시 누르는 버튼들
     if (target.closest(".filters")) {
-      const listItem = document.querySelector(".list-item");
+      const listItem = document.querySelector(".list");
       const checkboxes = listItem.querySelectorAll("input[type='checkbox']:checked");
       if (checkboxes.length === 0) {
         const customModal = document.getElementById(modalData);
@@ -910,4 +910,27 @@ document.addEventListener("DOMContentLoaded", () => {
       check.addEventListener("click", changeFilters);
     });
   }
+
+  // 날짜 구하기
+  
+  const date1 = document.querySelector(".list .date.d-1");
+  const date7 = document.querySelector(".list .date.d-7");
+  const date14 = document.querySelector(".list .date.d-14");
+  const date30 = document.querySelector(".list .date.d-30");
+
+  const getDateAgo = (days) => {
+    let dateCopy = new Date();
+    dateCopy.setDate(dateCopy.getDate() - days)
+
+    const year =  dateCopy.getFullYear();
+    const month = dateCopy.getMonth() + 1;
+    const day = dateCopy.getDate()
+
+    return `${year}년 ${month}월 ${day}일`
+  }
+
+  date1 && (date1.textContent = getDateAgo(1))
+  date1 && (date7.textContent = getDateAgo(7))
+  date1 && (date14.textContent = getDateAgo(14))
+  date1 && (date30.textContent = getDateAgo(30))
 });

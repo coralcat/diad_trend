@@ -1,4 +1,10 @@
 {% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('lowestPrice')}}
+<style>
+  .chart canvas {
+    width: auto !important;
+    max-height: none;
+  }
+</style>
 <script>
   $(function () {
     var dateFormat = "yy-mm-dd",
