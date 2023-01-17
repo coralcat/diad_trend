@@ -421,16 +421,6 @@ fieldset {
 }
 
 header {
-  &.header {
-    flex: 0 0 auto;
-    align-items: center;
-    border-bottom: 1px solid #e3e3e9;
-    width: 100%;
-    height: 50px;
-    padding: 0 1rem;
-    // z-index: 100;
-    position: relative;
-  }
 
   .logo {
     text-align: center;
@@ -439,6 +429,7 @@ header {
     background-size: 120px;
     width: fit-content;
     padding-left: 3.5rem;
+    font-family: "RobotoMedium";
 
     .impact {
       color: $primary-color;
@@ -527,6 +518,17 @@ header {
       }
     }
   }
+}
+
+.header {
+  flex: 0 0 auto;
+  align-items: center;
+  border-bottom: 1px solid #e3e3e9;
+  width: 100%;
+  height: 50px;
+  padding: 0 1rem;
+  // z-index: 100;
+  position: relative;
 }
 
 main {
@@ -629,6 +631,11 @@ aside {
       gap: 0;
 
       menu {
+
+        &::after {
+          content: none !important
+        }
+
         span {
           opacity: 0;
           display: none;
@@ -697,6 +704,7 @@ aside {
       &:hover,
       &.is-active {
         menu {
+
           span {
             color: $primary-color;
           }
@@ -724,9 +732,20 @@ aside {
       }
 
       &.is-active {
+        menu {
+
+
+          &.more {
+            &::after {
+              transform: rotate(315deg);
+            }
+          }
+        }
+
         ul {
           max-height: 999px;
           opacity: 1;
+          visibility: visible;
         }
       }
 
@@ -739,23 +758,42 @@ aside {
         position: relative;
         z-index: 10;
         cursor: pointer;
+
+        &.more {
+
+          &::after {
+            content: "";
+            width: 8px;
+            height: 8px;
+            display: inline-block;
+            border: 1px solid rgba(255,255,255, .25);
+            border-left: 0;
+            border-bottom: 0;
+            transform: rotate(135deg);
+            transition: .25s
+          }
+        }
       }
     }
 
     ul {
       max-height: 0;
       opacity: 0;
+      visibility: hidden;
       padding: 0 0.5rem;
+      display: flex;
+      gap: 5px;
       transition: 0.25s;
 
       li {
-        padding: 0.75rem 0.75rem;
+        padding: 0.5rem 0.75rem;
         color: white;
         display: flex;
         align-items: center;
         gap: 0.5rem;
         background-size: 200% 200%;
         position: relative;
+        font-size: 13px;
         z-index: 10;
         cursor: pointer;
 
@@ -791,7 +829,7 @@ aside {
       flex: 1;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.35rem;
       color: rgba(255, 255, 255, 0.75);
       z-index: 5;
       transition: color 0.25s;
@@ -854,11 +892,14 @@ aside {
       display: flex;
       gap: 1.5rem;
       align-items: baseline;
+      overflow-x: auto;
+      overflow-y: hidden;
 
       li {
         opacity: 0.35;
         position: relative;
-        font-size: 24px;
+        font-size: clamp(18px, 2vw, 24px);
+        white-space: nowrap;
         transition: 0.25s;
 
         &:hover,
@@ -3337,13 +3378,13 @@ section {
       li {
 
         &:nth-of-type(2) {
-          width: 120px;
+          width: 80px;
           flex: 0 0 auto;
         }
 
         &:nth-of-type(3) {
           flex: 0 0 auto;
-          width: 360px;
+          width: 150px;
   
           &:not(.title li) {
             justify-content: flex-start;

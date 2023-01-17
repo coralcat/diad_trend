@@ -60,7 +60,6 @@
           > .row {
             flex-direction: column;
             flex: 1 1 auto;
-            align-items: center;
             border-bottom: 0 !important;
             padding-bottom: 0 !important;
             gap: 0.25rem;
@@ -178,59 +177,6 @@
 }
 
 @media screen and (max-width: 960px) {
-  aside {
-    width: 50px;
-
-    .aside-handler {
-      margin-top: 0;
-      border: 0;
-
-      svg {
-  
-        path {
-          stroke-dashoffset: unset !important;
-  
-          &:first-of-type {
-            stroke-dasharray: 40 82;
-          }
-  
-          &:last-of-type {
-            stroke-dasharray: 40 82;
-          }
-        }
-      }
-    }
-
-    nav {
-      width: 100%;
-      margin: 0;
-      border: 0;
-      padding: 0;
-      gap: 0;
-
-      menu {
-
-        span {
-          opacity: 0;
-          display: none;
-          animation: fadeOut 0.25s forwards;
-        }
-      }
-
-      a {
-        padding: 0.75rem;
-        &::after {
-          border-radius: 0;
-        }
-
-        span {
-          opacity: 0;
-          display: none;
-          animation: fadeOut 0.25s forwards;
-        }
-      }
-    }
-  }
 
   .section-main {
     .section-content {
@@ -257,6 +203,10 @@
       display: flex;
       flex-direction: column;
       overflow: hidden !important;
+
+      .responsive {
+        display: flex;
+      }
 
       .top-banner {
         font-size: 14px;
@@ -397,8 +347,20 @@
     }
   }
 
-  :is(.filters, .selector, .list, .wrapper .list .row, .list
-      li, .item-update-failed, .progress, .col-chart, .report, .summary, .summary ul, .summary li) {
+  :is(
+      .filters,
+      .selector,
+      .list,
+      .wrapper .list .row,
+      .list li,
+      .item-update-failed,
+      .progress,
+      .col-chart,
+      .report,
+      .summary,
+      .summary ul,
+      .summary li
+    ) {
     width: 100%;
     max-width: 100%;
   }
@@ -411,19 +373,17 @@
     min-height: 49px;
     display: flex;
     padding-left: 1rem;
+    padding-right: 0;
     border-bottom: 1px solid #ddd;
+
+    nav {
+      display: none;
+    }
 
     .logo {
       font-size: 18px;
 
       a {
-        background: url(../images/logo_diad_trend.svg) no-repeat;
-        width: 110px;
-        height: 20px;
-        background-size: 100%;
-        padding-left: 3.15rem;
-        display: flex;
-        align-items: normal;
         font-size: 22px;
         font-family: "RobotoMedium";
         color: #333;
@@ -441,10 +401,6 @@
 
     .logo {
       span:not(.responsive) {
-        display: flex;
-      }
-
-      .responsive {
         display: flex;
       }
     }
@@ -700,16 +656,21 @@
           }
         }
       }
+
       li {
-        padding: 0 0.5rem;
+        padding: 0;
+        width: auto !important;
         min-height: 32px !important;
         height: auto !important;
         border-bottom: 0;
         background-color: transparent;
         flex-wrap: wrap;
         border: 0 !important;
+        justify-content: space-between !important;
+        position: relative;
 
         &::before {
+          content: attr(title);
           flex-basis: 80px;
           display: flex;
           color: lightslategray;
@@ -967,7 +928,7 @@
         }
         .col-important {
           justify-content: flex-start;
-          padding: .75rem;
+          padding: 0.75rem;
           min-width: auto !important;
           border-radius: 3px;
           margin: 0.75rem 0;
@@ -1010,11 +971,6 @@
           flex-direction: row !important;
           justify-content: flex-start;
 
-          &::before {
-            position: absolute;
-            left: 0;
-          }
-
           .page {
             margin-bottom: 0;
           }
@@ -1023,17 +979,6 @@
             justify-content: flex-end;
             gap: 0.5rem;
           }
-        }
-      }
-    }
-  }
-
-  .content-ranking,
-  .content-lowest-price {
-    .list {
-      li {
-        &::before {
-          content: attr(title);
         }
       }
     }
@@ -1179,10 +1124,6 @@
           width: 100%;
           justify-content: space-between;
 
-          &::before {
-            content: attr(title);
-          }
-
           &:nth-of-type(1) {
             font-size: 18px;
             justify-content: center;
@@ -1292,7 +1233,6 @@
             flex-direction: column;
 
             .title {
-
               > div:first-of-type {
                 width: auto !important;
               }
@@ -1441,11 +1381,6 @@
             width: 100% !important;
             justify-content: space-between;
 
-            &::before {
-              flex-basis: auto;
-              content: attr(title);
-            }
-
             &:nth-of-type(1) {
               display: none;
             }
@@ -1476,10 +1411,6 @@
           width: 100% !important;
           justify-content: space-between;
 
-          &::before {
-            content: attr(title);
-          }
-
           &:nth-of-type(1),
           &:nth-of-type(2) {
             &::before {
@@ -1494,7 +1425,6 @@
           }
 
           &.col-price {
-
             > div {
               flex-direction: row;
             }
@@ -1620,14 +1550,13 @@
       width: 100% !important;
       gap: 0 !important;
       background-color: white !important;
-      
+
       .section-header {
         padding-left: 0 !important;
       }
     }
 
     .section-my-alarm {
-
       .alarms {
         flex-wrap: wrap;
 
