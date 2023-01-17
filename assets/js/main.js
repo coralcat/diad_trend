@@ -803,26 +803,19 @@ document.addEventListener("DOMContentLoaded", () => {
     : aside.classList.add("icons-only");
   })
 
-  if (matchMedia("screen and (max-width: 960px)").matches) {
-    aside.classList.add("icons-only")
-  }
+  matchMedia("screen and (max-width: 960px)").matches && aside.classList.add("icons-only");
+  matchMedia("screen and (max-width: 640px)").matches && aside.classList.remove("icons-only");
 
 
 
   const menus = document.querySelectorAll("aside nav menu span");
   menus.forEach(menu => {
+    menu.closest("div").querySelector("ul") && menu.closest("menu").classList.add("more")
     menu.addEventListener("click", (event) => {
       event.stopPropagation();
-      // menu.closest("div").classList.remove("is-active");
-      // console.log(menu.closest("div").classList);
-      // if(event.target.closest("div").classList.contains("is-active")){
-      //   console.log("actived")
-      //   event.target.closest("div").classList.remove("is-active");
-      // } else {
-      //   console.log("non actived")
-      //   event.target.closest("div").classList.add("is-active");
-      // }
-      event.target.closest("div").classList.toggle("is-active");
+      if(!event.target.classList.contains("ico-link")) {
+        event.target.closest("div").classList.toggle("is-active");
+      }
     })
   })
 
