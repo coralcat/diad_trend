@@ -3,8 +3,8 @@
 $main-color: #5b54c6;
 $trend-color: #5b54c6;
 $primary-color: #7682f8;
-$secondary-color: rgb(118 130 248 / 10%);
-$violet-medium-color: rgb(214 217 253);
+$secondary-color: rgba(118, 130, 248, .1);
+$violet-medium-color: rgb(214, 217, 253);
 
 $emoji-base-color: #ffda6a;
 $emoji-like-color: #548dff;
@@ -90,6 +90,64 @@ body {
     }
   }
 
+  .grade {
+    width: 18px;
+    height: 18px;
+    border-radius: 30px;
+    background-color: #333;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+
+    &.purple {
+      background-color: #904CB8;
+    }
+
+    &.red {
+      background-color: #E0575C;
+    }
+
+    &.blue {
+      background-color: #447BC9;
+    }
+
+    &.green {
+      background-color: #49AB67;
+    }
+  }
+
+  .service-type {
+    strong {
+      background-color: $secondary-color;
+      color: $main-color !important;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      border-radius: 50%;
+
+      &:empty {
+
+        &::before {
+          content: "-";
+        }
+      }
+    }
+
+    &.button {
+      strong {
+        background-color: $main-color;
+        color: white !important;
+        font-size: 13px !important;
+        cursor: pointer;
+      }
+    }
+  }
+
   .price {
     flex-direction: row-reverse;
     &::after {
@@ -106,6 +164,7 @@ body {
   .times {
     &::after {
       content: "건";
+      color: #333
     }
   }
 
@@ -294,7 +353,7 @@ button {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0px 3px 12px 10px rgb(60 120 180 / 15%);
+  box-shadow: 0px 3px 12px 10px rgba(60, 120, 180, .15);
 
   * {
     animation: fadeInOut 2.5s infinite 0.5s;
@@ -369,13 +428,24 @@ button {
   font-family: "굴림";
   line-height: normal;
 
+  &.d-day {
+    padding: 3px 0.5rem;
+    border-radius: 30px;
+    font-family: "Roboto";
+    font-size: 12px !important;
+
+    &::before {
+      content: "D-";
+    }
+  }
+
   &.green {
-    background-color: rgb(34 139 34 / 10%);
+    background-color: rgba(34, 139, 34, .1);
     color: forestgreen;
   }
 
   &.red {
-    background-color: rgb(255 99 71 / 10%);
+    background-color: rgba(255, 99, 71, .1);
     color: tomato;
   }
 
@@ -418,10 +488,14 @@ fieldset {
     display: flex;
     align-items: center;
   }
+
+  .information {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
 header {
-
   .logo {
     text-align: center;
     font-size: 22px;
@@ -631,9 +705,8 @@ aside {
       gap: 0;
 
       menu {
-
         &::after {
-          content: none !important
+          content: none !important;
         }
 
         span {
@@ -704,7 +777,6 @@ aside {
       &:hover,
       &.is-active {
         menu {
-
           span {
             color: $primary-color;
           }
@@ -733,8 +805,6 @@ aside {
 
       &.is-active {
         menu {
-
-
           &.more {
             &::after {
               transform: rotate(315deg);
@@ -760,17 +830,16 @@ aside {
         cursor: pointer;
 
         &.more {
-
           &::after {
             content: "";
             width: 8px;
             height: 8px;
             display: inline-block;
-            border: 1px solid rgba(255,255,255, .25);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             border-left: 0;
             border-bottom: 0;
             transform: rotate(135deg);
-            transition: .25s
+            transition: 0.25s;
           }
         }
       }
@@ -994,17 +1063,12 @@ aside {
         background-color: rgba(0, 0, 0, 0.2);
         color: #333;
         padding: 3px 0.5rem;
-        border-radius: 30px;
 
         &.d-day {
           background-color: #333639;
           color: white;
           font-family: "Roboto";
           font-size: 12px;
-
-          &::before {
-            content: "D-";
-          }
         }
       }
 
@@ -1071,6 +1135,17 @@ section {
             background-color: transparent;
           }
         }
+      }
+    }
+
+    .tag {
+
+      &.d-day {
+        background-color: transparent;
+        border: 1px solid rgba(118, 130, 248, .5);
+        padding: 2px 6px;
+        font-family: "RobotoMedium";
+        color: $main-color;
       }
     }
   }
@@ -1590,6 +1665,18 @@ section {
     }
   }
 
+  button {
+    font-size: 13px;
+    padding: .35rem .75rem;
+  }
+
+  .selectbox {
+
+    select{
+      height: 30px;
+    }
+  }
+
   .tag:not(.list-product .tag) {
     display: flex;
     align-items: center;
@@ -1627,20 +1714,20 @@ section {
     }
 
     &.high {
-      border-color: rgb(255 99 71 / 15%);
+      border-color: rgba(255, 99, 71, .15);
 
       &::before {
         content: "높음";
-        color: rgb(255 99 71);
+        color: rgb(255, 99, 71);
       }
     }
 
     &.medium {
-      border-color: rgb(255 165 0 / 15%);
+      border-color: rgba(255, 165, 0, .15);
 
       &::before {
         content: "중간";
-        color: rgb(255 165 0);
+        color: rgb(255, 165, 0);
       }
     }
 
@@ -1665,7 +1752,7 @@ section {
       }
 
       &.type-border {
-        border-color: rgb(255 99 71 / 15%);
+        border-color: rgba(255, 99, 71, .15);
 
         &::before {
           content: "상승";
@@ -1686,7 +1773,7 @@ section {
       }
 
       &.type-border {
-        border-color: rgb(65 105 225 / 15%);
+        border-color: rgba(65, 105, 225, .15);
 
         &::before {
           content: "하락";
@@ -1718,17 +1805,13 @@ section {
       justify-content: center;
       color: tomato;
       padding: 0 3px;
-      background: rgb(255 99 71 / 10%);
+      background: rgba(255, 99, 71, .1);
 
       &::before {
         content: "확인불가";
         font-size: 11px;
       }
     }
-  }
-
-  button {
-    font-size: 13px;
   }
 
   .tooltip-content {
@@ -1858,8 +1941,10 @@ section {
       flex: 1 1 auto;
       display: flex;
       flex-wrap: wrap;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 3px;
       width: 20%;
       min-height: 36px;
       padding: 0.75rem 0.5rem;
@@ -1915,6 +2000,7 @@ section {
 
       &.col-important {
         flex: 1 1 auto;
+        flex-direction: row;
         flex-wrap: nowrap;
         min-width: 540px;
         z-index: 10;
@@ -1970,6 +2056,7 @@ section {
       > div {
         display: flex;
         align-items: center;
+        gap: 5px;
 
         &:empty:not(.ico-star, .image, .tag) {
           &::after {
@@ -2088,7 +2175,7 @@ section {
 
       strong {
         &::before {
-          background-color: rgb(255 101 0 / 25%);
+          background-color: rgba(255, 101, 0, .25);
         }
       }
     }
@@ -2105,7 +2192,7 @@ section {
 
       strong {
         &::before {
-          background-color: rgb(255 215 0 / 25%);
+          background-color: rgba(255, 215, 0, .25);
         }
       }
     }
@@ -2449,7 +2536,7 @@ section {
   section {
     align-items: center;
     padding: 3rem !important;
-    width: min(1000px, 100%);
+    width: calc(min(1000px, 100%));
     margin: 0 auto;
 
     .section-title {
@@ -2940,20 +3027,6 @@ section {
           color: #49536b;
         }
 
-        &.service-type {
-          strong {
-            background-color: $secondary-color;
-            color: $main-color;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            border-radius: 50%;
-          }
-        }
-
         &.date {
           strong {
             font-size: 14px;
@@ -3134,89 +3207,105 @@ section {
   }
 }
 
+.section-main:not([class$="details"] .section-main) {
+  display: flex;
+  gap: 1rem;
+
+  .section-header {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  > div {
+    gap: 5px;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    background: #fff;
+    padding: 0.75rem;
+
+    &.ranking {
+      strong {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+
+  ul {
+    display: flex;
+    gap: 0.75rem;
+
+    li {
+      background: #f3f6f9;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      gap: 3px;
+
+      small {
+        width: 100%;
+      }
+
+      strong {
+        flex: 1 1 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 1rem;
+        font-size: 20px;
+        gap: 2px;
+        color: #49536b;
+      }
+
+      small {
+        color: slategray;
+        font-size: 13px;
+        max-width: 80%;
+        word-break: keep-all;
+      }
+
+      dl {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-top: .5rem;
+        font-size: 13px;
+
+        dt {
+
+          &::after {
+            content: ":"
+          }
+        }
+
+        dd {
+          margin-right: 5px;
+
+          &.times {
+            color: $main-color;
+            font-size: 15px;
+            font-family: "RobotoMedium";
+          }
+        }
+      }
+    }
+  }
+}
+
 :is(.content-ranking, .content-lowest-price, .content-bidding) {
   overflow: hidden;
   .pagination {
     padding: 0;
-  }
-  .section-main {
-    display: flex;
-    gap: 1rem;
-    align-self: center;
-    width: 90%;
-
-    .section-header {
-      padding-bottom: 0;
-      border-bottom: 0;
-    }
-
-    > div {
-      gap: 5px;
-      flex: 1 1 auto;
-      display: flex;
-      flex-direction: column;
-      border-radius: 0.5rem;
-      background: #fff;
-      padding: 0.75rem;
-
-      &.ranking {
-        strong {
-          text-decoration: underline;
-          cursor: pointer;
-        }
-      }
-    }
-
-    ul {
-      display: flex;
-      gap: 0.75rem;
-
-      li {
-        background: #f3f6f9;
-        border-radius: 0.5rem;
-        padding: 0.5rem;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        position: relative;
-        gap: 3px;
-
-        div {
-          width: 100%;
-        }
-
-        strong {
-          flex: 1 1 auto;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          position: absolute;
-          bottom: 0.75rem;
-          top: 50%;
-          transform: translateY(-50%);
-          right: 1rem;
-          font-size: 20px;
-          gap: 2px;
-          color: #49536b;
-
-          &::after {
-            content: "건";
-            font-size: initial;
-            text-decoration: none;
-          }
-        }
-
-        span {
-          color: slategray;
-          font-size: 14px;
-
-          &::after {
-            content: "%";
-          }
-        }
-      }
-    }
   }
 
   .wrapper {
@@ -3370,13 +3459,13 @@ section {
   }
 }
 
+.content-tracking {
+}
+
 .content-tracking.gmarket {
   .list {
-
     .row {
-
       li {
-
         &:nth-of-type(2) {
           width: 80px;
           flex: 0 0 auto;
@@ -3385,10 +3474,6 @@ section {
         &:nth-of-type(3) {
           flex: 0 0 auto;
           width: 150px;
-  
-          &:not(.title li) {
-            justify-content: flex-start;
-          }
         }
       }
     }
@@ -3511,7 +3596,7 @@ section {
 
       &.failed {
         border: 1px solid tomato;
-        box-shadow: 0 6px 12px -4px rgb(255 99 71 / 10%);
+        box-shadow: 0 6px 12px -4px rgba(255, 99, 71, .1);
 
         .tag-failed {
           display: flex;
@@ -4521,7 +4606,7 @@ section {
     max-width: 720px;
     margin: 1rem auto 0;
     background-color: rgba(255, 255, 255, 0.75);
-    box-shadow: 0 4px 8px -2px rgb(0 0 10 / 5%);
+    box-shadow: 0 4px 8px -2px rgba(0, 0, 10, 0.05);
     overflow: hidden;
     position: sticky;
     top: 0.5rem;
@@ -5950,7 +6035,7 @@ section {
         }
 
         .count {
-          background-color: rgb(112 128 144 / 10%);
+          background-color: rgba(112, 128, 144, .1);
           color: slategray;
           border-radius: 50px;
           padding: 3px 10px 3px 0.5rem;

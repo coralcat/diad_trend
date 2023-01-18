@@ -8,10 +8,10 @@
     </svg>
   </button>
   <nav>
-    <div>
+    <div class="{% if currentPage == 'tracking' %}is-active{% endif %}">
       <menu>
         <i class="ico-ranking"></i>
-        <span>스토어</span>
+        <span onclick="location.href='tracking.html'">스토어</span>
       </menu>
       <ul>
         <li class="{% if currentPage == 'sales' %}is-active{% endif %}">
@@ -25,10 +25,10 @@
         </li>
       </ul>
     </div>
-    <div>
+    <div class="{% if currentPage == 'bidding' %}is-active{% endif %}">
       <menu>
-        <i class="ico-price" onclick="location.href='bid_naver.html'"></i>
-        <span>자동입찰</span>
+        <i class="ico-price"></i>
+        <span onclick="location.href='bidding.html'">자동입찰</span>
       </menu>
       <ul>
         <li class="{% if currentPage == 'bidNaver' %}is-active{% endif %}">
