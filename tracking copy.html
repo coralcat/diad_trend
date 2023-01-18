@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>다이애드 TREND</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+  <script src="assets/lib/amcharts/index.js"></script>
+  <script src="assets/lib/amcharts/responsive.js"></script>
+  <script src="assets/lib/amcharts/xy.js"></script>
+  <script src="assets/lib/amcharts/percent.js"></script>
+  <script src="assets/lib/amcharts/animated.js"></script>
+  <script src="assets/lib/jquery/jquery-3.6.0.js"></script>
+  <script src="assets/lib/jquery/jquery-ui-1.13.0.js"></script>
+  <script src="assets/js/main.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo">
+      <a href="index.html">trend</a>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a href="#" class="username" target="_blank">
+            coralcat님 환영합니다!
+          </a>
+        </li>
+        <li>
+          <a class="ico-cog settings">
+            <ul>
+              <li>계정 설정</li>
+              <li>알림 설정</li>
+            </ul>
+          </a>
+        </li>
+        <li>
+          <button>로그아웃</button>
+        </li>
+      </ul>
+    </nav>
+    <div class="hamburg-menu responsive">
+      <svg viewBox="0 0 100 100" width="80">
+        <path
+          d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
+        <path d="m 30,50 h 40" />
+        <path
+          d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
+      </svg>
+    </div>
+  </header>
+  <main>
+      
+<aside>
+  <button class="aside-handler">
+    <svg viewBox="0 0 100 100" width="80">
+      <path d="m 30,33 h 40 c 0,0 8.5,-0.68551 8.5,10.375 0,8.292653 -6.122707,9.002293 -8.5,6.625 l -11.071429,-11.071429" />
+      <path d="m 70,50 h -40" />
+      <path d="m 30,67 h 40 c 0,0 8.5,0.68551 8.5,-10.375 0,-8.292653 -6.122707,-9.002293 -8.5,-6.625 l -11.071429,11.071429" />
+    </svg>
+  </button>
+  <nav>
+    <div class="is-active">
+      <menu>
+        <i class="ico-ranking"></i>
+        <span onclick="location.href='tracking.html'">스토어</span>
+      </menu>
+      <ul>
+        <li class="">
+          <span class="gmarket" onclick="location.href='track_gmarket.html'">지마켓 판매량 추적</span>
+        </li>
+        <li class="">
+          <span class="naver" onclick="location.href='ranking.html'">네이버 순위 추적</span>
+        </li>
+        <li class="">
+          <span class="naver" onclick="location.href='lowest_price.html'">네이버 최저가 추적</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <menu>
+        <i class="ico-price" onclick="location.href='bid_naver.html'"></i>
+        <span>자동입찰</span>
+      </menu>
+      <ul>
+        <li class="">
+          <span class="naver" onclick="location.href='bid_naver.html'">네이버</span>
+        </li>
+        <li class="">
+          <span class="eleventh" onclick="location.href='bid_11st.html'">11번가</span>
+        </li>
+        <li class="">
+          <span class="gmarket" onclick="location.href='bid_gmarket.html'">지마켓 파워클릭</span>
+        </li>
+        <li class="">
+          <span class="google" onclick="location.href='bid_google.html'">구글 검색광고</span>
+        </li>
+      </ul>
+    </div>
+    <div class="">
+      <menu>
+        <i class="ico-trend"></i>
+        <span onclick="location.href='keyword.html'">키워드 분석</span>
+      </menu>
+    </div>
+    <div>
+      <menu>
+        <i class="ico-calendar"></i>
+        <span onclick="location.href='calendar.html'">다이애드 캘린더</span>
+      </menu>
+    </div>
+    <div>
+      <menu>
+        <i class="ico-ranking"></i>
+        <span class="ico-link" onclick="window.open('https://blog.diad.co.kr/manual')">다이애드 매뉴얼</span>
+      </menu>
+    </div>
+    <div style="display: none;">
+      <menu>
+        <i class="ico-ranking"></i>
+        <span>다이애드 +</span>
+      </menu>
+      <ul>
+        <li>
+          <span>다이애드 캘린더</span>
+        </li>
+        <li>
+          <span onclick="window.open('https://blog.diad.co.kr/manual')">다이애드 매뉴얼</span>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <nav style="display: none;">
+    <a class="" href="ranking.html">
+      <i class="ico-ranking"></i>
+      <span>상품 순위 추적</span>
+    </a>
+    <a class="" href="lowest_price.html">
+      <i class="ico-price"></i>
+      <span>최저가 알림</span>
+    </a>
+    <a class="" href="keyword.html">
+      <i class="ico-trend"></i>
+      <span>키워드 트렌드</span>
+    </a>
+    <a class="" href="settings.html">
+      <i class="ico-alarm"></i>
+      <span>알림설정</span>
+    </a>
+  </nav>
+</aside>
+
+<style>
+  .chart canvas {
+    max-height: none !important;
+  }
+</style>
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("rankingChart");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(
+      am5percent.PieChart.new(root, {
+        innerRadius: am5.percent(80),
+        layout: root.verticalLayout,
+      })
+    );
+
+    var series = chart.series.push(
+      am5percent.PieSeries.new(root, {
+        valueField: "value",
+        categoryField: "category",
+      })
+    );
+
+
+    series.slices.template.setAll({
+      stroke: root.interfaceColors.get("background"),
+      strokeWidth: 2,
+      cornerRadius: 5,
+      tooltipText:
+        "{value}건 ({valuePercentTotal.formatNumber('0.00')}%)"
+    });
+
+    series.states.create("hidden", {
+      endAngle: -90,
+    });
+
+    series.get("colors").set("colors", [
+      am5.color(0x5B54C6),
+      am5.color(0x11b4d4),
+      am5.color(0xffb83f),
+      am5.color(0xff6347),
+      am5.color(0x4169e1),
+      am5.color(0xffce73),
+    ]);
+
+    series.data.setAll([
+      {
+        category: "40위 안",
+        value: 5,
+      },
+      {
+        category: "41~400위",
+        value: 5,
+      },
+      {
+        category: "400위 밖",
+        value: 6,
+      },
+    ]);
+    var legend = chart.children.push(
+      am5.Legend.new(root, {
+        centerX: am5.percent(50),
+        x: am5.percent(50),
+        marginBottom: 15,
+      })
+    );
+    legend.data.setAll(series.dataItems);
+
+    var label = chart.seriesContainer.children.push(
+      am5.Label.new(root, {
+        textAlign: "center",
+        centerY: am5.p50,
+        centerX: am5.p50,
+        text: "[fontSize:13px]1페이지[/]:\n[#49536b bold fontSize:24px]31.25%[/]"
+      })
+    );
+
+    series.appear(1000, 100);
+  });
+</script>
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("lowestPriceChart");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(
+      am5percent.PieChart.new(root, {
+        innerRadius: am5.percent(80),
+        layout: root.verticalLayout,
+      })
+    );
+
+    var series = chart.series.push(
+      am5percent.PieSeries.new(root, {
+        valueField: "value",
+        categoryField: "category",
+        endAngle: 270,
+      })
+    );
+
+
+    series.slices.template.setAll({
+      stroke: root.interfaceColors.get("background"),
+      strokeWidth: 2,
+      cornerRadius: 5,
+      tooltipText:
+        "{value}건 ({valuePercentTotal.formatNumber('0.00')}%)"
+    });
+
+    series.get("colors").set("colors", [
+      am5.color(0x5B54C6),
+      am5.color(0x11b4d4),
+      am5.color(0xffb83f),
+      am5.color(0xff6347),
+      am5.color(0x4169e1),
+      am5.color(0xffce73),
+    ]);
+
+    series.states.create("hidden", {
+      endAngle: -90,
+    });
+
+    series.data.setAll([
+      {
+        category: "상승",
+        value: 5,
+      },
+      {
+        category: "유지",
+        value: 6,
+      },
+      {
+        category: "하락",
+        value: 5,
+      },
+    ]);
+
+    var legend = chart.children.push(
+      am5.Legend.new(root, {
+        centerX: am5.percent(50),
+        x: am5.percent(50),
+        marginBottom: 15
+      })
+    );
+    legend.data.setAll(series.dataItems);
+
+    var label = chart.seriesContainer.children.push(
+      am5.Label.new(root, {
+        textAlign: "center",
+        centerY: am5.p50,
+        centerX: am5.p50,
+        text: "[fontSize:13px]변동[/]:\n[#49536b bold fontSize:24px]62.50%[/]"
+      })
+    );
+    series.appear(1000, 100);
+  });
+</script>
+<div class="content content-tracking">
+  <header class="main-header">
+    <section class="title">
+      <h1>
+        <span>스토어</span>
+        <div class="tooltip">
+          <article class="tooltip-content">
+            <dl>
+              <dd></dd>
+            </dl>
+          </article>
+        </div>
+      </h1>
+    </section>
+    <section class="section-main">
+      <div class="services">
+        <header class="section-header">
+          <h3>스토어 이용 현황</h3>
+          <a class="right-arrow" href="">서비스 이용 내역 보기</a>
+        </header>
+        <ul>
+          <li>
+            <div class="service-type">
+              <strong>G</strong>
+            </div>
+            <div>지마켓 판매량 추적</div>
+            <span>2022-12-22 ~ 2023-06-30</span>
+            <dl>
+              <dd class="tag d-day">183</dd>
+              <dt>제공량</dt>
+              <dd class="times">100</dd>
+              <dt>잔여량</dt>
+              <dd class="times">75</dd>
+            </dl>
+          </li>
+          <li>
+            <div class="service-type">
+              <strong>G</strong>
+            </div>
+            <div>네이버 순위 추적</div>
+            <span>2022-07-30 ~ 2024-09-29</span>
+            <dl>
+              <dd class="tag d-day">640</dd>
+              <dt>제공량</dt>
+              <dd class="times">100</dd>
+              <dt>잔여량</dt>
+              <dd class="times">71</dd>
+            </dl>
+          </li>
+          <li>
+            <div class="service-type">
+              <strong>F</strong>
+            </div>
+            <div>네이버 최저가 추적</div>
+            <span>2022-07-23 ~ 2024-09-27</span>
+            <dl>
+              <dd class="tag d-day">638</dd>
+              <dt>제공량</dt>
+              <dd class="times">90</dd>
+              <dt>잔여량</dt>
+              <dd class="times">58</dd>
+            </dl>
+          </li>
+          <li>
+            <div class="service-type">
+              <strong></strong>
+            </div>
+            <div>네이버 순위 추적 M</div>
+            <span>2022-07-30 ~ 2024-09-29</span>
+            <dl>
+              <dd class="tag d-day">640</dd>
+              <dt>제공량</dt>
+              <dd class="times"></dd>
+              <dt>잔여량</dt>
+              <dd class="times"></dd>
+            </dl>
+          </li>
+          <li>
+            <div class="service-type button">
+              <strong onclick="window.open('https://diad.co.kr/Mypage/PaymentView')">신청</strong>
+            </div>
+            <div>네이버 최저가 추적 M</div>
+            <span>서비스 기간이 만료되었거나 서비스 정보가 존재하지 않습니다. 신청 후 사용 해 주세요
+            </span>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </header>
+  <div class="wrapper">
+    <section>
+      <div class="list-header">
+        <h3>지마켓 판매량 추적</h3>
+        <ul class="list-count">
+          <li>
+            <span class="total">0</span>
+          </li>
+        </ul>
+      </div>
+      <div class="list">
+        <ul class="row title">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
+              <label for="checkAll"></label>
+            </div>
+          </li>
+          <li class="ico-sort">그래프</li>
+          <li class="ico-sort">그룹명</li>
+          <li class="ico-sort">상품수</li>
+          <li class="ico-sort">비교일 판매량</li>
+          <li class="ico-sort">기준일 판매량</li>
+          <li class="ico-sort">
+            전일(D-1)
+            <div class="date d-1">2023-01-10 09:00</div>
+          </li>
+          <li class="ico-sort">
+            전주(D-7)
+            <div class="date d-7">2023-01-04 09:00</div>
+          </li>
+          <li class="ico-sort">
+            2주(D-14)
+            <div class="date d-14">2022-12-28 09:00</div>
+          </li>
+          <li class="ico-sort">
+            전월(D-30)
+            <div class="date d-30">2022-12-12 09:00</div>
+          </li>
+          <li class="ico-sort">가격 변경</li>
+          <li class="ico-sort">배송비 변경</li>
+          <li class="ico-sort">상품명 변경</li>
+          <li class="ico-sort">검색 실패</li>
+        </ul>
+        <div class="rows" data-empty="상품을 등록해주세요">
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-01" name="select-item" type="checkbox" />
+                <label for="check-01"></label>
+              </div>
+            </li>
+            <li title="그래프">
+              <button class="ico-chart" type="button">
+              </button>
+            </li>
+            <li title="그룹명">
+              <a href="track_gmarket_details.html">그룹_A</a>
+            </li>
+            <li title="상품수">
+              <div class="times">221</div>
+            </li>
+            <li title="비교일 판매량">
+              <div class="times">76,421</div>
+              <div>(0)</div>
+            </li>
+            <li title="기준일 판매량">
+              <div class="times">76,421</div>
+            </li>
+            <li title="전일(D-1)">
+              <div class="times">76,421</div>
+            </li>
+            <li title="전주(D-7)">
+              <div class="times">76,420</div>
+              <div class="tag up">1</div>
+            </li>
+            <li title="2주(D-14)">
+              <div class="times">76,417</div>
+              <div class="tag up">4</div>
+            </li>
+            <li title="전월(D-30)">
+              <div class="times">76,413</div>
+              <div class="tag up">8</div>
+            </li>
+            <li title="가격 변경">
+              <div class="times"></div>
+            </li>
+            <li title="배송비 변경">
+              <div class="times"></div>
+            </li>
+            <li title="상품명 변경">
+              <div class="times"></div>
+            </li>
+            <li title="검색 실패">
+              <div class="times">206</div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-02" name="select-item" type="checkbox" />
+                <label for="check-02"></label>
+              </div>
+            </li>
+            <li title="그래프">
+              <button class="ico-chart" type="button">
+              </button>
+            </li>
+            <li title="그룹명">
+              <a href="">그룹_B</a>
+            </li>
+            <li title="상품수">
+              <div class="times">207</div>
+            </li>
+            <li title="비교일 판매량">
+              <div class="times">45,863</div>
+              <div class="tag up">2</div>
+            </li>
+            <li title="기준일 판매량">
+              <div class="times">45,865</div>
+            </li>
+            <li title="전일(D-1)">
+              <div class="times">45,863</div>
+              <div class="tag up">2</div>
+            </li>
+            <li title="전주(D-7)">
+              <div class="times">45,856</div>
+              <div class="tag up">9</div>
+            </li>
+            <li title="2주(D-14)">
+              <div class="times">45,850</div>
+              <div class="tag up">15</div>
+            </li>
+            <li title="전월(D-30)">
+              <div class="times">45,836</div>
+              <div class="tag up">29</div>
+            </li>
+            <li title="가격 변경">
+              <div class="times"></div>
+            </li>
+            <li title="배송비 변경">
+              <div class="times"></div>
+            </li>
+            <li title="상품명 변경">
+              <div class="times"></div>
+            </li>
+            <li title="검색 실패">
+              <div class="times">159</div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-03" name="select-item" type="checkbox" />
+                <label for="check-03"></label>
+              </div>
+            </li>
+            <li title="그래프">
+              <button class="ico-chart" type="button">
+              </button>
+            </li>
+            <li title="그룹명">
+              <a href="">그룹_C</a>
+            </li>
+            <li title="상품수">
+              <div class="times">11</div>
+            </li>
+            <li title="비교일 판매량">
+              <div class="times">205,946</div>
+              <div class="tag up">41</div>
+            </li>
+            <li title="기준일 판매량">
+              <div class="times">205,987</div>
+            </li>
+            <li title="전일(D-1)">
+              <div class="times">205,946</div>
+              <div class="tag up">41</div>
+            </li>
+            <li title="전주(D-7)">
+              <div class="times">205,813</div>
+              <div class="tag up">174</div>
+            </li>
+            <li title="2주(D-14)">
+              <div class="times">205,620</div>
+              <div class="tag up">367</div>
+            </li>
+            <li title="전월(D-30)">
+              <div class="times">205,174</div>
+              <div class="tag up">813</div>
+            </li>
+            <li title="가격 변경">
+              <div class="times"></div>
+            </li>
+            <li title="배송비 변경">
+              <div class="times"></div>
+            </li>
+            <li title="상품명 변경">
+              <div class="times"></div>
+            </li>
+            <li title="검색 실패">
+              <div class="times">1</div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-04" name="select-item" type="checkbox" />
+                <label for="check-04"></label>
+              </div>
+            </li>
+            <li title="그래프">
+              <button class="ico-chart" type="button">
+              </button>
+            </li>
+            <li title="그룹명">
+              <a href="">그룹_D</a>
+            </li>
+            <li title="상품수">
+              <div class="times">10</div>
+            </li>
+            <li title="비교일 판매량">
+              <div class="times">3,597</div>
+            </li>
+            <li title="기준일 판매량">
+              <div class="times">3,597</div>
+            </li>
+            <li title="전일(D-1)">
+              <div class="times">3,597</div>
+            </li>
+            <li title="전주(D-7)">
+              <div class="times">3,595</div>
+              <div class="tag up">3</div>
+            </li>
+            <li title="2주(D-14)">
+              <div class="times">3,589</div>
+              <div class="tag up">8</div>
+            </li>
+            <li title="전월(D-30)">
+              <div class="times">3,577</div>
+              <div class="tag up">20</div>
+            </li>
+            <li title="가격 변경">
+              <div class="times"></div>
+            </li>
+            <li title="배송비 변경">
+              <div class="times"></div>
+            </li>
+            <li title="상품명 변경">
+              <div class="times"></div>
+            </li>
+            <li title="검색 실패">
+              <div class="times">9</div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-04" name="select-item" type="checkbox" />
+                <label for="check-04"></label>
+              </div>
+            </li>
+            <li title="그래프">
+              <button class="ico-chart" type="button">
+              </button>
+            </li>
+            <li title="그룹명">
+              <a href="">그룹_E</a>
+            </li>
+            <li title="상품수">
+              <div class="times">10</div>
+            </li>
+            <li title="비교일 판매량">
+              <div class="times">6,097</div>
+            </li>
+            <li title="기준일 판매량">
+              <div class="times">6,097</div>
+            </li>
+            <li title="전일(D-1)">
+              <div class="times">6,097</div>
+            </li>
+            <li title="전주(D-7)">
+              <div class="times">6,089</div>
+              <div class="tag up">8</div>
+            </li>
+            <li title="2주(D-14)">
+              <div class="times">6,085</div>
+              <div class="tag up">12</div>
+            </li>
+            <li title="전월(D-30)">
+              <div class="times">6,075</div>
+              <div class="tag up">22</div>
+            </li>
+            <li title="가격 변경">
+              <div class="times"></div>
+            </li>
+            <li title="배송비 변경">
+              <div class="times"></div>
+            </li>
+            <li title="상품명 변경">
+              <div class="times"></div>
+            </li>
+            <li title="검색 실패">
+              <div class="times">9</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <footer class="section-footer">
+        <div class="pagination">
+          <button onclick="" type="button">
+            <div class="arrow double left"></div>
+          </button>
+          <button onclick="" type="button">
+            <div class="arrow left"></div>
+          </button>
+          <div class="pages">
+            <button class="is-active" onclick="" type="button">1</button>
+            <button onclick="" type="button">2</button>
+            <button onclick="" type="button">3</button>
+            <button onclick="" type="button">4</button>
+            <button onclick="" type="button">5</button>
+          </div>
+          <button onclick="" type="button">
+            <div class="arrow right"></div>
+          </button>
+          <button onclick="" type="button">
+            <div class="arrow double right"></div>
+          </button>
+        </div>
+      </footer>
+    </section>
+    <section class="section-chart">
+      <div class="wrapper">
+        <fieldset>
+          <legend>네이버 순위 추적</legend>
+          <ul class="information">
+            <li class="date">
+              <span>최근 갱신시간</span>
+              <strong>2022-03-01 12:00</strong>
+            </li>
+          </ul>
+          <div id="rankingChart" class="chart detail-chart"></div>
+        </fieldset>
+        <fieldset>
+          <legend>네이버 최저가 추적</legend>
+          <ul class="information">
+            <li class="date">
+              <span>최근 갱신시간</span>
+              <strong>2022-03-01 12:00</strong>
+            </li>
+          </ul>
+          <div id="lowestPriceChart" class="chart detail-chart-lowest"></div>
+          <!-- </fieldset> -->
+      </div>
+    </section>
+  </div>
+</div>
+
+  </main>
+</body>
+
+</html>

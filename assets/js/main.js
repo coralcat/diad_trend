@@ -904,8 +904,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 날짜 구하기
-  
+  // 날짜 구하기  
   const date1 = document.querySelector(".list .date.d-1");
   const date7 = document.querySelector(".list .date.d-7");
   const date14 = document.querySelector(".list .date.d-14");
