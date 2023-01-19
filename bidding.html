@@ -159,159 +159,6 @@
     max-height: none !important;
   }
 </style>
-<script>
-  am5.ready(function () {
-    var root = am5.Root.new("rankingChart");
-    root.setThemes([am5themes_Animated.new(root)]);
-
-    var chart = root.container.children.push(
-      am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(80),
-        layout: root.verticalLayout,
-      })
-    );
-
-    var series = chart.series.push(
-      am5percent.PieSeries.new(root, {
-        valueField: "value",
-        categoryField: "category",
-      })
-    );
-
-
-    series.slices.template.setAll({
-      stroke: root.interfaceColors.get("background"),
-      strokeWidth: 2,
-      cornerRadius: 5,
-      tooltipText:
-        "{value}건 ({valuePercentTotal.formatNumber('0.00')}%)"
-    });
-
-    series.states.create("hidden", {
-      endAngle: -90,
-    });
-
-    series.get("colors").set("colors", [
-      am5.color(0x5B54C6),
-      am5.color(0x11b4d4),
-      am5.color(0xffb83f),
-      am5.color(0xff6347),
-      am5.color(0x4169e1),
-      am5.color(0xffce73),
-    ]);
-
-    series.data.setAll([
-      {
-        category: "40위 안",
-        value: 5,
-      },
-      {
-        category: "41~400위",
-        value: 5,
-      },
-      {
-        category: "400위 밖",
-        value: 6,
-      },
-    ]);
-    var legend = chart.children.push(
-      am5.Legend.new(root, {
-        centerX: am5.percent(50),
-        x: am5.percent(50),
-        marginBottom: 15,
-      })
-    );
-    legend.data.setAll(series.dataItems);
-
-    var label = chart.seriesContainer.children.push(
-      am5.Label.new(root, {
-        textAlign: "center",
-        centerY: am5.p50,
-        centerX: am5.p50,
-        text: "[fontSize:13px]1페이지[/]:\n[#49536b bold fontSize:24px]31.25%[/]"
-      })
-    );
-
-    series.appear(1000, 100);
-  });
-</script>
-<script>
-  am5.ready(function () {
-    var root = am5.Root.new("lowestPriceChart");
-    root.setThemes([am5themes_Animated.new(root)]);
-
-    var chart = root.container.children.push(
-      am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(80),
-        layout: root.verticalLayout,
-      })
-    );
-
-    var series = chart.series.push(
-      am5percent.PieSeries.new(root, {
-        valueField: "value",
-        categoryField: "category",
-        endAngle: 270,
-      })
-    );
-
-
-    series.slices.template.setAll({
-      stroke: root.interfaceColors.get("background"),
-      strokeWidth: 2,
-      cornerRadius: 5,
-      tooltipText:
-        "{value}건 ({valuePercentTotal.formatNumber('0.00')}%)"
-    });
-
-    series.get("colors").set("colors", [
-      am5.color(0x5B54C6),
-      am5.color(0x11b4d4),
-      am5.color(0xffb83f),
-      am5.color(0xff6347),
-      am5.color(0x4169e1),
-      am5.color(0xffce73),
-    ]);
-
-    series.states.create("hidden", {
-      endAngle: -90,
-    });
-
-    series.data.setAll([
-      {
-        category: "상승",
-        value: 5,
-      },
-      {
-        category: "유지",
-        value: 6,
-      },
-      {
-        category: "하락",
-        value: 5,
-      },
-    ]);
-
-    var legend = chart.children.push(
-      am5.Legend.new(root, {
-        centerX: am5.percent(50),
-        x: am5.percent(50),
-        marginBottom: 15
-      })
-    );
-    legend.data.setAll(series.dataItems);
-
-    var label = chart.seriesContainer.children.push(
-      am5.Label.new(root, {
-        textAlign: "center",
-        centerY: am5.p50,
-        centerX: am5.p50,
-        text: "[fontSize:13px]변동[/]:\n[#49536b bold fontSize:24px]62.50%[/]"
-      })
-    );
-    series.appear(1000, 100);
-  });
-</script>
 <div class="content content-tracking">
   <header class="main-header">
     <section class="title">
@@ -366,7 +213,7 @@
               <dt>
                 <div class="grade blue">B</div>                
               </dt>
-              <dd>제한없음</dd>
+              <dd>30분</dd>
               <dt>제공량</dt>
               <dd class="times">30</dd>
               <dt>잔여량</dt>
@@ -502,28 +349,28 @@
               </div>
             </li>
             <li title="키워드개수">
-              <div class="times"></div>
+              <div class="times">33</div>
             </li>
             <li title="비율">
-              <div class="percent"></div>
+              <div class="percent">11</div>
             </li>
             <li title="전체">
-              <div class="times"></div>
+              <div class="times">453</div>
             </li>
             <li title="입찰실행">
-              <div class="times"></div>
+              <div class="times">33</div>
             </li>
             <li title="입찰성공">
-              <div class="times"></div>
+              <div class="times">6</div>
             </li>
             <li title="입찰실패">
-              <div class="times"></div>
+              <div class="times">27</div>
             </li>
             <li title="최대입찰가도달">
-              <div class="times"></div>
+              <div class="times">5</div>
             </li>
             <li title="희망순위미도달">
-              <div class="times"></div>
+              <div class="times">10</div>
             </li>
           </ul>
           <ul class="row">
@@ -590,28 +437,28 @@
               </div>
             </li>
             <li title="키워드개수">
-              <div class="times"></div>
+              <div class="times">811</div>
             </li>
             <li title="비율">
-              <div class="percent"></div>
+              <div class="percent">81</div>
             </li>
             <li title="전체">
-              <div class="times"></div>
+              <div class="times">980</div>
             </li>
             <li title="입찰실행">
-              <div class="times"></div>
+              <div class="times">811</div>
             </li>
             <li title="입찰성공">
-              <div class="times"></div>
+              <div class="times">496</div>
             </li>
             <li title="입찰실패">
-              <div class="times"></div>
+              <div class="times">315</div>
             </li>
             <li title="최대입찰가도달">
-              <div class="times"></div>
+              <div class="times">188</div>
             </li>
             <li title="희망순위미도달">
-              <div class="times"></div>
+              <div class="times">6</div>
             </li>
           </ul>
           <ul class="row">
@@ -684,7 +531,7 @@
               <div class="percent"></div>
             </li>
             <li title="전체">
-              <div class="times"></div>
+              <div class="times">500</div>
             </li>
             <li title="입찰실행">
               <div class="times"></div>
@@ -722,28 +569,28 @@
               </div>
             </li>
             <li title="키워드개수">
-              <div class="times"></div>
+              <div class="times">1322</div>
             </li>
             <li title="비율">
-              <div class="percent"></div>
+              <div class="percent">88</div>
             </li>
             <li title="전체">
-              <div class="times"></div>
+              <div class="times">3,264</div>
             </li>
             <li title="입찰실행">
-              <div class="times"></div>
+              <div class="times">1,322</div>
             </li>
             <li title="입찰성공">
-              <div class="times"></div>
+              <div class="times">1,034</div>
             </li>
             <li title="입찰실패">
-              <div class="times"></div>
+              <div class="times">288</div>
             </li>
             <li title="최대입찰가도달">
-              <div class="times"></div>
+              <div class="times">246</div>
             </li>
             <li title="희망순위미도달">
-              <div class="times"></div>
+              <div class="times">243</div>
             </li>
           </ul>
           <ul class="row">
@@ -815,30 +662,6 @@
           </button>
         </div>
       </footer>
-    </section>
-    <section class="section-chart">
-      <div class="wrapper">
-        <fieldset>
-          <legend>네이버 순위 추적</legend>
-          <ul class="information">
-            <li class="date">
-              <span>최근 갱신시간</span>
-              <strong>2022-03-01 12:00</strong>
-            </li>
-          </ul>
-          <div id="rankingChart" class="chart detail-chart"></div>
-        </fieldset>
-        <fieldset>
-          <legend>네이버 최저가 추적</legend>
-          <ul class="information">
-            <li class="date">
-              <span>최근 갱신시간</span>
-              <strong>2022-03-01 12:00</strong>
-            </li>
-          </ul>
-          <div id="lowestPriceChart" class="chart detail-chart-lowest"></div>
-          <!-- </fieldset> -->
-      </div>
     </section>
   </div>
 </div>
