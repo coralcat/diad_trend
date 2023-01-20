@@ -3,7 +3,7 @@
 $main-color: #5b54c6;
 $trend-color: #5b54c6;
 $primary-color: #7682f8;
-$secondary-color: rgba(118, 130, 248, .1);
+$secondary-color: rgba(118, 130, 248, 0.1);
 $violet-medium-color: rgb(214, 217, 253);
 
 $emoji-base-color: #ffda6a;
@@ -102,19 +102,19 @@ body {
     font-size: 12px;
 
     &.purple {
-      background-color: #904CB8;
+      background-color: #904cb8;
     }
 
     &.red {
-      background-color: #E0575C;
+      background-color: #e0575c;
     }
 
     &.blue {
-      background-color: #447BC9;
+      background-color: #447bc9;
     }
 
     &.green {
-      background-color: #49AB67;
+      background-color: #49ab67;
     }
   }
 
@@ -131,7 +131,6 @@ body {
       border-radius: 50%;
 
       &:empty {
-
         &::before {
           content: "-";
         }
@@ -144,7 +143,7 @@ body {
         color: white !important;
         font-size: 13px !important;
         cursor: pointer;
-        box-shadow: 0px 3px 12px 0px rgba(91, 84, 198, .3);
+        box-shadow: 0px 3px 12px 0px rgba(91, 84, 198, 0.3);
       }
     }
   }
@@ -165,7 +164,7 @@ body {
   .times {
     &::after {
       content: "건";
-      color: #333
+      color: #333;
     }
   }
 
@@ -393,7 +392,7 @@ button {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0px 3px 12px 10px rgba(60, 120, 180, .15);
+  box-shadow: 0px 3px 12px 10px rgba(60, 120, 180, 0.15);
 
   * {
     animation: fadeInOut 2.5s infinite 0.5s;
@@ -459,7 +458,6 @@ button {
 }
 
 .inputs {
-
   .title {
     flex-direction: column;
   }
@@ -487,12 +485,12 @@ button {
   }
 
   &.green {
-    background-color: rgba(34, 139, 34, .1);
+    background-color: rgba(34, 139, 34, 0.1);
     color: forestgreen;
   }
 
   &.red {
-    background-color: rgba(255, 99, 71, .1);
+    background-color: rgba(255, 99, 71, 0.1);
     color: tomato;
   }
 
@@ -1185,10 +1183,9 @@ section {
     }
 
     .tag {
-
       &.d-day {
         background-color: transparent;
-        border: 1px solid rgba(118, 130, 248, .5);
+        border: 1px solid rgba(118, 130, 248, 0.5);
         padding: 2px 6px;
         font-family: "RobotoMedium";
         color: $main-color;
@@ -1323,7 +1320,7 @@ section {
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: 0.5rem;
     position: relative;
 
     &:is(.advanced-search > ul) {
@@ -1331,12 +1328,12 @@ section {
 
       > li:not(:last-of-type) {
         border-bottom: 1px solid #eee;
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
         padding-bottom: 1rem;
       }
 
       &:last-of-type {
-        padding-bottom: 3rem
+        padding-bottom: 3rem;
       }
     }
 
@@ -1374,9 +1371,9 @@ section {
   .options {
     display: flex;
     align-items: center;
-    gap: .5rem;
+    gap: 0.5rem;
     font-size: 12px;
-    margin-left: .5rem ;
+    margin-left: 0.5rem;
 
     label {
       outline: 1px solid #ddd;
@@ -1386,12 +1383,12 @@ section {
 
       &::before,
       &::after {
-        content: none !important
+        content: none !important;
       }
 
       &:is(input:checked + label) {
         outline: 1px solid $main-color;
-        color: $main-color
+        color: $main-color;
       }
     }
   }
@@ -1768,12 +1765,11 @@ section {
 
   button {
     font-size: 13px;
-    padding: .35rem .75rem;
+    padding: 0.35rem 0.75rem;
   }
 
   .selectbox {
-
-    select{
+    select {
       height: 30px;
     }
   }
@@ -1815,7 +1811,7 @@ section {
     }
 
     &.high {
-      border-color: rgba(255, 99, 71, .15);
+      border-color: rgba(255, 99, 71, 0.15);
 
       &::before {
         content: "높음";
@@ -1824,7 +1820,7 @@ section {
     }
 
     &.medium {
-      border-color: rgba(255, 165, 0, .15);
+      border-color: rgba(255, 165, 0, 0.15);
 
       &::before {
         content: "중간";
@@ -1853,7 +1849,7 @@ section {
       }
 
       &.type-border {
-        border-color: rgba(255, 99, 71, .15);
+        border-color: rgba(255, 99, 71, 0.15);
 
         &::before {
           content: "상승";
@@ -1874,7 +1870,7 @@ section {
       }
 
       &.type-border {
-        border-color: rgba(65, 105, 225, .15);
+        border-color: rgba(65, 105, 225, 0.15);
 
         &::before {
           content: "하락";
@@ -1906,7 +1902,7 @@ section {
       justify-content: center;
       color: tomato;
       padding: 0 3px;
-      background: rgba(255, 99, 71, .1);
+      background: rgba(255, 99, 71, 0.1);
 
       &::before {
         content: "확인불가";
@@ -2168,6 +2164,24 @@ section {
   }
 }
 
+.list-form {
+  padding: 0.5rem 0;
+
+  .row {
+    li {
+      justify-content: flex-start;
+
+      &:first-of-type {
+        flex: 0 0 150px;
+      }
+
+      div ~ div {
+        margin-left: 1rem;
+      }
+    }
+  }
+}
+
 .list-article {
   border-top: 0;
 
@@ -2275,7 +2289,7 @@ section {
 
       strong {
         &::before {
-          background-color: rgba(255, 101, 0, .25);
+          background-color: rgba(255, 101, 0, 0.25);
         }
       }
     }
@@ -2292,7 +2306,7 @@ section {
 
       strong {
         &::before {
-          background-color: rgba(255, 215, 0, .25);
+          background-color: rgba(255, 215, 0, 0.25);
         }
       }
     }
@@ -3340,13 +3354,12 @@ section {
         display: flex;
         align-items: center;
         gap: 5px;
-        margin-top: .5rem;
+        margin-top: 0.5rem;
         font-size: 13px;
 
         dt {
-
           &::after {
-            content: ":"
+            content: ":";
           }
         }
 
@@ -3658,7 +3671,7 @@ section {
 
       &.failed {
         border: 1px solid tomato;
-        box-shadow: 0 6px 12px -4px rgba(255, 99, 71, .1);
+        box-shadow: 0 6px 12px -4px rgba(255, 99, 71, 0.1);
 
         .tag-failed {
           display: flex;
@@ -5976,12 +5989,13 @@ section {
       background-color: #f3f6f9;
       border: 1px solid #f3f6f9;
       height: 36px;
+      width: 100px;
+      flex: 1 1 auto;
     }
   }
 
   .caution {
     color: slategray;
-    padding-top: 0.5rem;
     font-size: 13px;
     font-family: "MinLight";
   }
@@ -6082,46 +6096,53 @@ section {
     background-color: #f3f6f9;
   }
 
-  &:is(.modal-edit, .modal-group, .modal-lookup, .modal-keyword) {
-    .list {
-      margin-top: 0.5rem;
-      max-height: 300px;
+  .list-header {
+    margin-bottom: 0.5rem;
+  }
 
-      li {
-        border-right: 0;
-        justify-content: flex-start;
-        position: relative;
+  .list {
+    max-height: 360px;
 
-        &.keyword {
-          &::before {
-            content: "#";
-          }
-        }
+    li {
+      border: 0;
+      flex-direction: row;
+      justify-content: flex-start;
+      padding: 0.25rem 0.5rem;
+      position: relative;
 
-        .count {
-          background-color: rgba(112, 128, 144, .1);
-          color: slategray;
-          border-radius: 50px;
-          padding: 3px 10px 3px 0.5rem;
-          font-family: "Roboto";
-          font-size: 12px;
-          position: absolute;
-          right: 1.15rem;
-          display: flex;
-          gap: 3px;
-          align-items: center;
-
-          &::before {
-            content: "";
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='rgb(112 128 144 / 50%)' d='M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z'/%3E%3C/svg%3E")
-              no-repeat left center;
-            display: inline-block;
-            background-size: 100%;
-            width: 12px;
-            height: 12px;
-          }
+      &.keyword {
+        &::before {
+          content: "#";
         }
       }
+
+      .count {
+        background-color: rgba(112, 128, 144, 0.1);
+        color: slategray;
+        border-radius: 50px;
+        padding: 3px 10px 3px 0.5rem;
+        font-family: "Roboto";
+        font-size: 12px;
+        position: absolute;
+        right: 1.15rem;
+        display: flex;
+        gap: 3px;
+        align-items: center;
+
+        &::before {
+          content: "";
+          background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='rgb(112 128 144 / 50%)' d='M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z'/%3E%3C/svg%3E")
+            no-repeat left center;
+          display: inline-block;
+          background-size: 100%;
+          width: 12px;
+          height: 12px;
+        }
+      }
+    }
+
+    + .caution {
+      padding-top: 0.5rem;
     }
   }
 
