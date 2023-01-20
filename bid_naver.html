@@ -307,7 +307,7 @@
           </div>
           <div class="advanced-search">
             <ul>
-              <li class="item-keyword">
+              <li>
                 <div>
                   <span>키워드</span>
                   <div class="tooltip">
@@ -341,129 +341,283 @@
                   </div>
                 </div>
               </li>
-              <li class="filter-range">
-                <div>
-                  <span>순위</span>
-                  <div class="tooltip">
-                    <div class="tooltip-content">
-                      <dl>
-                        <dd>순위 범위를 전체순위(1~401위)로 입력해주세요.</dd>
-                        <dd>400위 밖을 검색할 경우 ‘이상’ 입력 칸에 401을 입력해주세요.</dd>
-                        <dd>특정 값을 순위로 검색할 경우 위아래 입력 칸에 같은 값을 입력해주세요.</dd>
-                      </dl>
+            </ul>
+            <ul>
+              <li>
+                <div>입찰설정</div>
+                <div class="inputs">
+                  <div class="checkbox">
+                    <input id="bidding-on" type="checkbox" name="bidding-settings" />
+                    <label for="bidding-on">설정</label>
+                    <div class="options">
+                      <div class="checkbox">
+                        <input id="settings-normal" type="checkbox" name="bidding-settings" />
+                        <label for="settings-normal">일반설정</label>
+                      </div>
+                      <div class="checkbox">
+                        <input id="settings-advanced" type="checkbox" name="bidding-settings" />
+                        <label for="settings-advanced">고급설정</label>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="inputs">
-                  <div class="up">
-                    <input type="number">
+                  <div class="checkbox">
+                    <input id="bidding-off" type="checkbox" name="bidding-settings" />
+                    <label for="bidding-off">미설정</label>
                   </div>
-                  <div class="down">
-                    <input type="number">
+                </div>
+              </li>
+              <li>
+                <ul>
+                  <li>
+                    <div>입찰주기</div>
+                    <div class="inputs">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">같음</option>
+                          <option value="">이상</option>
+                          <option value="">이하</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>희망순위</div>
+                    <div class="inputs">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">같음</option>
+                          <option value="">이상</option>
+                          <option value="">이하</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>입찰기본가</div>
+                    <div class="inputs">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">같음</option>
+                          <option value="">이상</option>
+                          <option value="">이하</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>최대입찰가</div>
+                    <div class="inputs">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">같음</option>
+                          <option value="">이상</option>
+                          <option value="">이하</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>입찰가액</div>
+                    <div class="inputs">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">같음</option>
+                          <option value="">이상</option>
+                          <option value="">이하</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>입찰감액</div>
+                    <div class="inputs">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">같음</option>
+                          <option value="">이상</option>
+                          <option value="">이하</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <ul>
+                  <li>
+                    <div>입찰대상</div>
+                    <div class="inputs">
+                      <div class="checkbox">
+                        <input id="bidding-pc" type="checkbox" />
+                        <label for="bidding-pc">PC</label>
+                        <div class="options">
+                          <div class="checkbox">
+                            <input id="bidding-pc-normal" type="checkbox" name="bidding-pc" />
+                            <label for="bidding-pc-normal">일반</label>
+                          </div>
+                          <div class="checkbox">
+                            <input id="bidding-pc-local" type="checkbox" name="bidding-pc" />
+                            <label for="bidding-pc-local">지역</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="checkbox">
+                        <input id="bidding-mobile" type="checkbox" />
+                        <label for="bidding-mobile">모바일</label>
+                        <div class="options">
+                          <div class="checkbox">
+                            <input id="bidding-mobile-normal" type="checkbox" name="bidding-mobile" />
+                            <label for="bidding-mobile-normal">일반</label>
+                          </div>
+                          <div class="checkbox">
+                            <input id="bidding-mobile-local" type="checkbox" name="bidding-mobile" />
+                            <label for="bidding-mobile-local">지역</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>하향입찰</div>
+                    <div class="inputs">
+                      <div class="checkbox">
+                        <input id="bidding-down-on" type="checkbox" name="bidding-down" />
+                        <label for="bidding-down-on">사용</label>
+                      </div>
+                      <div class="checkbox">
+                        <input id="bidding-down-off" type="checkbox" name="bidding-down" />
+                        <label for="bidding-down-off">미사용</label>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <div>입찰상태</div>
+                <div class="inputs">
+                  <div class="checkbox">
+                    <input id="bidding-status-on" type="checkbox" name="bidding-status" />
+                    <label for="bidding-status-on">입찰실행</label>
+                    <div class="options">
+                      <span>최대입찰가: </span>
+                      <div class="checkbox">
+                        <input id="bidding-highest-price-succeded" type="checkbox" name="bidding-highest-price" />
+                        <label for="bidding-highest-price-succeded">도달</label>
+                      </div>
+                      <div class="checkbox">
+                        <input id="bidding-highest-price-failed" type="checkbox" name="bidding-highest-price" />
+                        <label for="bidding-highest-price-failed">미도달</label>
+                      </div>
+                    </div>
+                    <div class="options">
+                      <span>희망순위: </span>
+                      <div class="checkbox">
+                        <input id="bidding-priority-succeded" type="checkbox" name="bidding-priority" />
+                        <label for="bidding-priority-succeded">도달</label>
+                      </div>
+                      <div class="checkbox">
+                        <input id="bidding-priority-failed" type="checkbox" name="bidding-priority" />
+                        <label for="bidding-priority-failed">미도달</label>
+                      </div>
+                    </div>
+                    <div class="options">
+                      <span>입찰결과: </span>
+                      <div class="checkbox">
+                        <input id="bidding-results-succeded" type="checkbox" name="bidding-results" />
+                        <label for="bidding-results-succeded">성공</label>
+                      </div>
+                      <div class="checkbox">
+                        <input id="bidding-results-failed" type="checkbox" name="bidding-results" />
+                        <label for="bidding-results-failed">실패</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="checkbox">
+                    <input id="bidding-status-off" type="checkbox" name="bidding-status" />
+                    <label for="bidding-status-off">입찰정지</label>
                   </div>
                 </div>
               </li>
             </ul>
             <ul>
-              <li class="mid">
-                <div>
-                  <span>상품 MID</span>
-                  <div class="tooltip">
-                    <div class="tooltip-content">
-                      <p>복수검색은 줄 바꿈(엔터키)으로 구분합니다.</p>
-                      <p>예시:</p>
-                      <p>12345678900</p>
-                      <p>12345678901</p>
+              <li>
+                <ul>
+                  <li>
+                    <div>캠페인</div>
+                    <div class="inputs">
+                      <input type="text">
                     </div>
-                  </div>
-                  <small>복수검색 가능</small>
-                </div>
-                <div class="inputs">
-                  <textarea id="" name=""></textarea>
-                </div>
-              </li>
-              <li class="item-created">
-                <div>등록일</div>
-                <div class="inputs">
-                  <div class="calendar">
-                    <input
-                      id="from"
-                      type="text"
-                      name="from"
-                      autocomplete="off">
-                    <span>~</span>
-                    <input
-                      id="to"
-                      type="text"
-                      name="to"
-                      autocomplete="off">
-                  </div>
-                </div>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <div>캠페인</div>
-                <div class="inputs">
-                  <input type="text">
-                </div>
+                  </li>
+                  <li>
+                    <div>그룹</div>
+                    <div class="inputs">
+                      <input type="text">
+                    </div>
+                  </li>
+                </ul>
               </li>
               <li>
-                <div>그룹</div>
-                <div class="inputs">
-                  <input type="text">
-                </div>
-              </li>
-              <li>
-                <div>키워드</div>
-                <div class="inputs">
-                  <div class="checkbox">
-                    <input
-                      id="keyword-on"
-                      type="checkbox">
-                    <label for="keyword-on">on</label>
-                  </div>
-                  <div class="checkbox">
-                    <input
-                      id="keyword-off"
-                      type="checkbox">
-                    <label for="keyword-off">off</label>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div>그룹</div>
-                <div class="inputs">
-                  <div class="checkbox">
-                    <input
-                      id="group-on"
-                      type="checkbox">
-                    <label for="group-on">on</label>
-                  </div>
-                  <div class="checkbox">
-                    <input
-                      id="group-off"
-                      type="checkbox">
-                    <label for="group-off">off</label>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div>캠페인</div>
-                <div class="inputs">
-                  <div class="checkbox">
-                    <input
-                      id="campaign-on"
-                      type="checkbox">
-                    <label for="campaign-on">on</label>
-                  </div>
-                  <div class="checkbox">
-                    <input
-                      id="campaign-off"
-                      type="checkbox">
-                    <label for="campaign-off">off</label>
-                  </div>
-                </div>
+                <ul>
+                  <li>
+                    <div>키워드</div>
+                    <div class="inputs">
+                      <div class="checkbox">
+                        <input
+                          id="keyword-on"
+                          type="checkbox">
+                        <label for="keyword-on">on</label>
+                      </div>
+                      <div class="checkbox">
+                        <input
+                          id="keyword-off"
+                          type="checkbox">
+                        <label for="keyword-off">off</label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>그룹</div>
+                    <div class="inputs">
+                      <div class="checkbox">
+                        <input
+                          id="group-on"
+                          type="checkbox">
+                        <label for="group-on">on</label>
+                      </div>
+                      <div class="checkbox">
+                        <input
+                          id="group-off"
+                          type="checkbox">
+                        <label for="group-off">off</label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>캠페인</div>
+                    <div class="inputs">
+                      <div class="checkbox">
+                        <input
+                          id="campaign-on"
+                          type="checkbox">
+                        <label for="campaign-on">on</label>
+                      </div>
+                      <div class="checkbox">
+                        <input
+                          id="campaign-off"
+                          type="checkbox">
+                        <label for="campaign-off">off</label>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
               </li>
               <li class="buttons">
                 <button class="btn-sub clear">
@@ -627,7 +781,9 @@
               <li title="지역설정">
                 미설정
               </li>
-              <li title="입찰기본가"></li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
               <li title="최대입찰가">
                 <div class="price">
                   1,000
@@ -664,28 +820,22 @@
               </li>
               <li title="분류명"></li>
               <li title="키워드상태">
-                <div>
-                  <div class="tag type-border">노출가능</div>
-                  <span>ON</span>
-                </div>
+                <div class="tag type-border">노출가능</div>
+                <span>ON</span>
               </li>
               <li title="광고그룹">
                 16차
               </li>
               <li title="그룹상태">
-                <div>
-                  <div class="tag type-border">노출가능</div>
-                  <span>ON</span>
-                </div>
+                <div class="tag type-border">노출가능</div>
+                <span>ON</span>
               </li>
               <li title="캠페인">
                 PC
               </li>
               <li title="캠페인상태">
-                <div>
-                  <div class="tag type-border">노출가능</div>
-                  <span>ON</span>
-                </div>
+                <div class="tag type-border">노출가능</div>
+                <span>ON</span>
               </li>
               <li class="col-url" title="URL">
                 <div>
@@ -837,7 +987,7 @@
           </div>
           <div class="advanced-search">
             <ul>
-              <li class="item-keyword">
+              <li>
                 <div>
                   <span>키워드</span>
                   <div class="tooltip">
@@ -871,101 +1021,330 @@
                   </div>
                 </div>
               </li>
-              <li class="filter-range">
+              <li>
                 <div>
-                  <span>순위</span>
-                  <div class="tooltip">
-                    <div class="tooltip-content">
-                      <dl>
-                        <dd>순위 범위를 전체순위(1~401위)로 입력해주세요.</dd>
-                        <dd>400위 밖을 검색할 경우 ‘이상’ 입력 칸에 401을 입력해주세요.</dd>
-                        <dd>특정 값을 순위로 검색할 경우 위아래 입력 칸에 같은 값을 입력해주세요.</dd>
-                      </dl>
-                    </div>
-                  </div>
-                </div>
-                <div class="inputs">
-                  <div class="up">
-                    <input type="number">
-                  </div>
-                  <div class="down">
-                    <input type="number">
-                  </div>
-                </div>
-              </li>
-            </ul>
-            <ul>
-              <li class="mid">
-                <div>
-                  <span>상품 MID</span>
+                  <span>쇼핑/몰ID</span>
                   <div class="tooltip">
                     <div class="tooltip-content">
                       <p>복수검색은 줄 바꿈(엔터키)으로 구분합니다.</p>
                       <p>예시:</p>
-                      <p>12345678900</p>
-                      <p>12345678901</p>
+                      <p>키워드 상품</p>
                     </div>
                   </div>
                   <small>복수검색 가능</small>
                 </div>
                 <div class="inputs">
+                  <div class="select">
+                    <input
+                      id="shopping-01"
+                      type="radio"
+                      name="filter-shopping"
+                      checked>
+                    <label for="shopping-01">쇼핑ID</label>
+                    <input
+                      id="shopping-02"
+                      type="radio"
+                      name="filter-shopping">
+                    <label for="shopping-02">몰상품ID</label>
+                  </div>
                   <textarea id="" name=""></textarea>
-                </div>
-              </li>
-              <li class="item-created">
-                <div>등록일</div>
-                <div class="inputs">
-                  <div class="calendar">
+                  <div class="select">
                     <input
-                      id="from"
-                      type="text"
-                      name="from"
-                      autocomplete="off">
-                    <span>~</span>
+                      id="keyword-01"
+                      type="radio"
+                      name="filter-keyword"
+                      checked>
+                    <label for="keyword-01">일치</label>
                     <input
-                      id="to"
-                      type="text"
-                      name="to"
-                      autocomplete="off">
+                      id="keyword-02"
+                      type="radio"
+                      name="filter-keyword">
+                    <label for="keyword-02">포함</label>
+                    <input
+                      id="keyword-03"
+                      type="radio"
+                      name="filter-keyword">
+                    <label for="keyword-03">제외</label>
                   </div>
                 </div>
               </li>
             </ul>
             <ul>
               <li>
-                <div>스토어명</div>
+                <div>입찰설정</div>
                 <div class="inputs">
-                  <input type="text">
+                  <div class="checkbox">
+                    <input id="bidding-on-2" type="checkbox" name="bidding-settings-2" />
+                    <label for="bidding-on-2">설정</label>
+                    <div class="options">
+                      <div class="checkbox">
+                        <input id="settings-normal-2" type="checkbox" name="bidding-settings-2" />
+                        <label for="settings-normal-2">일반설정</label>
+                      </div>
+                      <div class="checkbox">
+                        <input id="settings-advanced-2" type="checkbox" name="bidding-settings-2" />
+                        <label for="settings-advanced-2">고급설정</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="checkbox">
+                    <input id="bidding-off-2" type="checkbox" name="bidding-settings-2" />
+                    <label for="bidding-off-2">미설정</label>
+                  </div>
                 </div>
               </li>
               <li>
-                <div>상품명</div>
-                <div class="inputs">
-                  <input type="text">
-                </div>
+                <ul>
+                  <li>
+                    <div>입찰주기</div>
+                    <div class="inputs">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">같음</option>
+                          <option value="">이상</option>
+                          <option value="">이하</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>희망순위</div>
+                    <div class="inputs">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">같음</option>
+                          <option value="">이상</option>
+                          <option value="">이하</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>입찰기본가</div>
+                    <div class="inputs">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">같음</option>
+                          <option value="">이상</option>
+                          <option value="">이하</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>최대입찰가</div>
+                    <div class="inputs">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">같음</option>
+                          <option value="">이상</option>
+                          <option value="">이하</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>입찰가액</div>
+                    <div class="inputs">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">같음</option>
+                          <option value="">이상</option>
+                          <option value="">이하</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>입찰감액</div>
+                    <div class="inputs">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">같음</option>
+                          <option value="">이상</option>
+                          <option value="">이하</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <ul>
+                  <li>
+                    <div>입찰대상</div>
+                    <div class="inputs">
+                      <div class="checkbox">
+                        <input id="bidding-pc-2" type="checkbox" name="bidding-pc-2" />
+                        <label for="bidding-pc-2">PC</label>
+                        <div class="options">
+                          <div class="checkbox">
+                            <input id="bidding-pc-all" type="checkbox" name="bidding-pc-2" />
+                            <label for="bidding-pc-all">통합</label>
+                          </div>
+                          <div class="checkbox">
+                            <input id="bidding-pc-more" type="checkbox" name="bidding-pc-2" />
+                            <label for="bidding-pc-more">더보기</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="checkbox">
+                        <input id="bidding-mobile-2" type="checkbox" name="bidding-mobile-2" />
+                        <label for="bidding-mobile-2">모바일</label>
+                        <div class="options">
+                          <div class="checkbox">
+                            <input id="bidding-mobile-all" type="checkbox" name="bidding-mobile-2" />
+                            <label for="bidding-mobile-all">통합</label>
+                          </div>
+                          <div class="checkbox">
+                            <input id="bidding-mobile-more" type="checkbox" name="bidding-mobile-2" />
+                            <label for="bidding-mobile-more">더보기</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>하향입찰</div>
+                    <div class="inputs">
+                      <div class="checkbox">
+                        <input id="bidding-down-on-2" type="checkbox" name="bidding-down-2" />
+                        <label for="bidding-down-on-2">사용</label>
+                      </div>
+                      <div class="checkbox">
+                        <input id="bidding-down-off-2" type="checkbox" name="bidding-down-2" />
+                        <label for="bidding-down-off-2">미사용</label>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
               </li>
               <li>
-                <div>그룹</div>
+                <div>입찰상태</div>
                 <div class="inputs">
-                  <input type="text">
+                  <div class="checkbox">
+                    <input id="bidding-status-on-2" type="checkbox" name="bidding-status-2" />
+                    <label for="bidding-status-on-2">입찰실행</label>
+                    <div class="options">
+                      <span>최대입찰가: </span>
+                      <div class="checkbox">
+                        <input id="bidding-highest-price-succeded-2" type="checkbox" name="bidding-highest-price-2" />
+                        <label for="bidding-highest-price-succeded-2">도달</label>
+                      </div>
+                      <div class="checkbox">
+                        <input id="bidding-highest-price-failed-2" type="checkbox" name="bidding-highest-price-2" />
+                        <label for="bidding-highest-price-failed-2">미도달</label>
+                      </div>
+                    </div>
+                    <div class="options">
+                      <span>희망순위: </span>
+                      <div class="checkbox">
+                        <input id="bidding-priority-succeded-2" type="checkbox" name="bidding-priority-2" />
+                        <label for="bidding-priority-succeded-2">도달</label>
+                      </div>
+                      <div class="checkbox">
+                        <input id="bidding-priority-failed-2" type="checkbox" name="bidding-priority-2" />
+                        <label for="bidding-priority-failed-2">미도달</label>
+                      </div>
+                    </div>
+                    <div class="options">
+                      <span>입찰결과: </span>
+                      <div class="checkbox">
+                        <input id="bidding-results-succeded-2" type="checkbox" name="bidding-results-2" />
+                        <label for="bidding-results-succeded-2">성공</label>
+                      </div>
+                      <div class="checkbox">
+                        <input id="bidding-results-failed-2" type="checkbox" name="bidding-results-2" />
+                        <label for="bidding-results-failed-2">실패</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="checkbox">
+                    <input id="bidding-status-off-2" type="checkbox" name="bidding-status-2" />
+                    <label for="bidding-status-off-2">입찰미실행</label>
+                  </div>
+                  <div class="checkbox">
+                    <input id="bidding-status-stop-2" type="checkbox" name="bidding-status-2" />
+                    <label for="bidding-status-stop-2">입찰정지</label>
+                  </div>
                 </div>
               </li>
-              <li class="item-alert">
-                <div>알림</div>
-                <div class="inputs">
-                  <div class="checkbox">
-                    <input
-                      id="alert-on"
-                      type="checkbox">
-                    <label for="alert-on">on</label>
-                  </div>
-                  <div class="checkbox">
-                    <input
-                      id="alert-off"
-                      type="checkbox">
-                    <label for="alert-off">off</label>
-                  </div>
-                </div>
+            </ul>
+            <ul>
+              <li>
+                <ul>
+                  <li>
+                    <div>캠페인</div>
+                    <div class="inputs">
+                      <input type="text">
+                    </div>
+                  </li>
+                  <li>
+                    <div>그룹</div>
+                    <div class="inputs">
+                      <input type="text">
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <li>
+                    <div>키워드</div>
+                    <div class="inputs">
+                      <div class="checkbox">
+                        <input id="keyword-on-2" type="checkbox">
+                        <label for="keyword-on-2">on</label>
+                      </div>
+                      <div class="checkbox">
+                        <input id="keyword-off-2" type="checkbox">
+                        <label for="keyword-off-2">off</label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>그룹</div>
+                    <div class="inputs">
+                      <div class="checkbox">
+                        <input
+                          id="group-on-2"
+                          type="checkbox">
+                        <label for="group-on-2">on</label>
+                      </div>
+                      <div class="checkbox">
+                        <input
+                          id="group-off-2"
+                          type="checkbox">
+                        <label for="group-off-2">off</label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>캠페인</div>
+                    <div class="inputs">
+                      <div class="checkbox">
+                        <input
+                          id="campaign-on-2"
+                          type="checkbox">
+                        <label for="campaign-on-2">on</label>
+                      </div>
+                      <div class="checkbox">
+                        <input
+                          id="campaign-off-2"
+                          type="checkbox">
+                        <label for="campaign-off-2">off</label>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
               </li>
               <li class="buttons">
                 <button class="btn-sub clear">
@@ -1097,7 +1476,8 @@
                   <img src="https://shopping-phinf.pstatic.net/main_8227850/82278506728.9.jpg" alt="" />
                 </div>
                 <div class="information">
-                  <a class="item-mid" href="https://search.shopping.naver.com/gate.nhn?id=33257516674" target="_blank">33257516674</a>
+                  <a class="item-mid" href="https://search.shopping.naver.com/gate.nhn?id=33257516674"
+                    target="_blank">33257516674</a>
                   <div class="title">쥬련제작소 30수 170g 프렌치 코마사 목욕 수건 5장 세트</div>
                 </div>
               </li>
@@ -1116,7 +1496,9 @@
               <li title="입찰대상">
                 PC일반
               </li>
-              <li title="입찰기본가"></li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
               <li title="최대입찰가">
                 <div class="price">
                   1,000
@@ -1152,28 +1534,22 @@
               </li>
               <li title="분류명"></li>
               <li title="키워드상태">
-                <div>
-                  <div class="tag type-border">노출가능</div>
-                  <span>ON</span>
-                </div>
+                <div class="tag type-border">노출가능</div>
+                <span>ON</span>
               </li>
               <li title="광고그룹">
                 광고그룹#1
               </li>
               <li title="그룹상태">
-                <div>
-                  <div class="tag type-border">노출가능</div>
-                  <span>ON</span>
-                </div>
+                <div class="tag type-border">노출가능</div>
+                <span>ON</span>
               </li>
               <li title="캠페인">
                 리빙윈도 겸용
               </li>
               <li title="캠페인상태">
-                <div>
-                  <div class="tag type-border">노출가능</div>
-                  <span>ON</span>
-                </div>
+                <div class="tag type-border">노출가능</div>
+                <span>ON</span>
               </li>
               <li class="col-id" title="소재 ID">
                 <div>
@@ -1318,7 +1694,7 @@
           </div>
           <div class="advanced-search">
             <ul>
-              <li class="item-keyword">
+              <li>
                 <div>
                   <span>키워드</span>
                   <div class="tooltip">
@@ -1352,101 +1728,283 @@
                   </div>
                 </div>
               </li>
-              <li class="filter-range">
-                <div>
-                  <span>순위</span>
-                  <div class="tooltip">
-                    <div class="tooltip-content">
-                      <dl>
-                        <dd>순위 범위를 전체순위(1~401위)로 입력해주세요.</dd>
-                        <dd>400위 밖을 검색할 경우 ‘이상’ 입력 칸에 401을 입력해주세요.</dd>
-                        <dd>특정 값을 순위로 검색할 경우 위아래 입력 칸에 같은 값을 입력해주세요.</dd>
-                      </dl>
+            </ul>
+            <ul>
+              <li>
+                <div>입찰설정</div>
+                <div class="inputs">
+                  <div class="checkbox">
+                    <input id="bidding-on-3" type="checkbox" name="bidding-settings-3" />
+                    <label for="bidding-on-3">설정</label>
+                    <div class="options">
+                      <div class="checkbox">
+                        <input id="settings-normal-3" type="checkbox" name="bidding-settings-3" />
+                        <label for="settings-normal-3">일반설정</label>
+                      </div>
+                      <div class="checkbox">
+                        <input id="settings-advanced-3" type="checkbox" name="bidding-settings-3" />
+                        <label for="settings-advanced-3">고급설정</label>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="inputs">
-                  <div class="up">
-                    <input type="number">
+                  <div class="checkbox">
+                    <input id="bidding-off-3" type="checkbox" name="bidding-settings-3" />
+                    <label for="bidding-off-3">미설정</label>
                   </div>
-                  <div class="down">
-                    <input type="number">
+                </div>
+              </li>
+              <li>
+                <ul>
+                  <li>
+                    <div>입찰주기</div>
+                    <div class="inputs">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">같음</option>
+                          <option value="">이상</option>
+                          <option value="">이하</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>희망순위</div>
+                    <div class="inputs">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">같음</option>
+                          <option value="">이상</option>
+                          <option value="">이하</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>입찰기본가</div>
+                    <div class="inputs">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">같음</option>
+                          <option value="">이상</option>
+                          <option value="">이하</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>최대입찰가</div>
+                    <div class="inputs">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">같음</option>
+                          <option value="">이상</option>
+                          <option value="">이하</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>입찰가액</div>
+                    <div class="inputs">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">같음</option>
+                          <option value="">이상</option>
+                          <option value="">이하</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>입찰감액</div>
+                    <div class="inputs">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">같음</option>
+                          <option value="">이상</option>
+                          <option value="">이하</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <ul>
+                  <li>
+                    <div>입찰대상</div>
+                    <div class="inputs">
+                      <div class="checkbox">
+                        <input id="bidding-pc-3" type="checkbox" name="bidding-pc-3" />
+                        <label for="bidding-pc-3">PC</label>
+                        <div class="options">
+                          <div class="checkbox">
+                            <input id="bidding-pc-normal-3" type="checkbox" name="bidding-pc-3" />
+                            <label for="bidding-pc-normal-3">일반</label>
+                          </div>
+                          <div class="checkbox">
+                            <input id="bidding-pc-local-3" type="checkbox" name="bidding-pc-3" />
+                            <label for="bidding-pc-local-3">지역</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="checkbox">
+                        <input id="bidding-mobile-3" type="checkbox" name="bidding-mobile-3" />
+                        <label for="bidding-mobile-3">모바일</label>
+                        <div class="options">
+                          <div class="checkbox">
+                            <input id="bidding-mobile-normal-3" type="checkbox" name="bidding-mobile-3" />
+                            <label for="bidding-mobile-normal-3">일반</label>
+                          </div>
+                          <div class="checkbox">
+                            <input id="bidding-mobile-local-3" type="checkbox" name="bidding-mobile-3" />
+                            <label for="bidding-mobile-local-3">지역</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>하향입찰</div>
+                    <div class="inputs">
+                      <div class="checkbox">
+                        <input id="bidding-down-on-3" type="checkbox" name="bidding-down-3" />
+                        <label for="bidding-down-on-3">사용</label>
+                      </div>
+                      <div class="checkbox">
+                        <input id="bidding-down-off-3" type="checkbox" name="bidding-down-3" />
+                        <label for="bidding-down-off-3">미사용</label>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <div>입찰상태</div>
+                <div class="inputs">
+                  <div class="checkbox">
+                    <input id="bidding-status-on-3" type="checkbox" name="bidding-status-3" />
+                    <label for="bidding-status-on-3">입찰실행</label>
+                    <div class="options">
+                      <span>최대입찰가: </span>
+                      <div class="checkbox">
+                        <input id="bidding-highest-price-succeded-3" type="checkbox" name="bidding-highest-price-3" />
+                        <label for="bidding-highest-price-succeded-3">도달</label>
+                      </div>
+                      <div class="checkbox">
+                        <input id="bidding-highest-price-failed-3" type="checkbox" name="bidding-highest-price-3" />
+                        <label for="bidding-highest-price-failed-3">미도달</label>
+                      </div>
+                    </div>
+                    <div class="options">
+                      <span>희망순위: </span>
+                      <div class="checkbox">
+                        <input id="bidding-priority-succeded-3" type="checkbox" name="bidding-priority-3" />
+                        <label for="bidding-priority-succeded-3">도달</label>
+                      </div>
+                      <div class="checkbox">
+                        <input id="bidding-priority-failed-3" type="checkbox" name="bidding-priority-3" />
+                        <label for="bidding-priority-failed-3">미도달</label>
+                      </div>
+                    </div>
+                    <div class="options">
+                      <span>입찰결과: </span>
+                      <div class="checkbox">
+                        <input id="bidding-results-succeded-3" type="checkbox" name="bidding-results-3" />
+                        <label for="bidding-results-succeded-3">성공</label>
+                      </div>
+                      <div class="checkbox">
+                        <input id="bidding-results-failed-3" type="checkbox" name="bidding-results-3" />
+                        <label for="bidding-results-failed-3">실패</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="checkbox">
+                    <input id="bidding-status-off-3" type="checkbox" name="bidding-status-3" />
+                    <label for="bidding-status-off-3">입찰미실행</label>
+                  </div>
+                  <div class="checkbox">
+                    <input id="bidding-status-stop-3" type="checkbox" name="bidding-status-3" />
+                    <label for="bidding-status-stop-3">입찰정지</label>
                   </div>
                 </div>
               </li>
             </ul>
             <ul>
-              <li class="mid">
-                <div>
-                  <span>상품 MID</span>
-                  <div class="tooltip">
-                    <div class="tooltip-content">
-                      <p>복수검색은 줄 바꿈(엔터키)으로 구분합니다.</p>
-                      <p>예시:</p>
-                      <p>12345678900</p>
-                      <p>12345678901</p>
+              <li>
+                <ul>
+                  <li>
+                    <div>캠페인</div>
+                    <div class="inputs">
+                      <input type="text">
                     </div>
-                  </div>
-                  <small>복수검색 가능</small>
-                </div>
-                <div class="inputs">
-                  <textarea id="" name=""></textarea>
-                </div>
-              </li>
-              <li class="item-created">
-                <div>등록일</div>
-                <div class="inputs">
-                  <div class="calendar">
-                    <input
-                      id="from"
-                      type="text"
-                      name="from"
-                      autocomplete="off">
-                    <span>~</span>
-                    <input
-                      id="to"
-                      type="text"
-                      name="to"
-                      autocomplete="off">
-                  </div>
-                </div>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <div>스토어명</div>
-                <div class="inputs">
-                  <input type="text">
-                </div>
+                  </li>
+                  <li>
+                    <div>그룹</div>
+                    <div class="inputs">
+                      <input type="text">
+                    </div>
+                  </li>
+                </ul>
               </li>
               <li>
-                <div>상품명</div>
-                <div class="inputs">
-                  <input type="text">
-                </div>
-              </li>
-              <li>
-                <div>그룹</div>
-                <div class="inputs">
-                  <input type="text">
-                </div>
-              </li>
-              <li class="item-alert">
-                <div>알림</div>
-                <div class="inputs">
-                  <div class="checkbox">
-                    <input
-                      id="alert-on"
-                      type="checkbox">
-                    <label for="alert-on">on</label>
-                  </div>
-                  <div class="checkbox">
-                    <input
-                      id="alert-off"
-                      type="checkbox">
-                    <label for="alert-off">off</label>
-                  </div>
-                </div>
+                <ul>
+                  <li>
+                    <div>키워드</div>
+                    <div class="inputs">
+                      <div class="checkbox">
+                        <input id="keyword-on-2" type="checkbox">
+                        <label for="keyword-on-2">on</label>
+                      </div>
+                      <div class="checkbox">
+                        <input id="keyword-off-2" type="checkbox">
+                        <label for="keyword-off-2">off</label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>그룹</div>
+                    <div class="inputs">
+                      <div class="checkbox">
+                        <input
+                          id="group-on-2"
+                          type="checkbox">
+                        <label for="group-on-2">on</label>
+                      </div>
+                      <div class="checkbox">
+                        <input
+                          id="group-off-2"
+                          type="checkbox">
+                        <label for="group-off-2">off</label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>캠페인</div>
+                    <div class="inputs">
+                      <div class="checkbox">
+                        <input
+                          id="campaign-on-2"
+                          type="checkbox">
+                        <label for="campaign-on-2">on</label>
+                      </div>
+                      <div class="checkbox">
+                        <input
+                          id="campaign-off-2"
+                          type="checkbox">
+                        <label for="campaign-off-2">off</label>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
               </li>
               <li class="buttons">
                 <button class="btn-sub clear">
@@ -1598,7 +2156,9 @@
               <li title="지역설정">
                 미설정
               </li>
-              <li title="입찰기본가"></li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
               <li title="최대입찰가">
                 <div class="price">
                   1,000
@@ -1635,28 +2195,22 @@
               </li>
               <li title="분류명"></li>
               <li title="키워드상태">
-                <div>
-                  <div class="tag type-border">노출가능</div>
-                  <span>ON</span>
-                </div>
+                <div class="tag type-border">노출가능</div>
+                <span>ON</span>
               </li>
               <li title="광고그룹">
                 16차
               </li>
               <li title="그룹상태">
-                <div>
-                  <div class="tag type-border">노출가능</div>
-                  <span>ON</span>
-                </div>
+                <div class="tag type-border">노출가능</div>
+                <span>ON</span>
               </li>
               <li title="캠페인">
                 PC
               </li>
               <li title="캠페인상태">
-                <div>
-                  <div class="tag type-border">노출가능</div>
-                  <span>ON</span>
-                </div>
+                <div class="tag type-border">노출가능</div>
+                <span>ON</span>
               </li>
               <li class="col-url" title="URL">
                 <div>

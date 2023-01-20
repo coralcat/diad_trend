@@ -205,7 +205,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const showTabContent = event => {
     event.stopPropagation();
     const tabName = event.target.dataset.tab;
-    console.log(tabName); 
     const tabs = document.querySelectorAll(`[data-tab='${tabName}']`);
     const tabContents = document.querySelectorAll(`.tab-content[data-tab='${tabName}']`);
     let menuIndex = [...tabs].indexOf(event.target);
@@ -585,50 +584,53 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Advanced Search
   ===================================================== */
-  const advancedSearch = document.querySelector(".advanced-search");
-  if (advancedSearch) {
-    const button = document.querySelector(".btn-advanced-search");
-    const inputs = advancedSearch.querySelectorAll("input[type='text'], input[type='number'], textarea");
-    const checkboxes = advancedSearch.querySelectorAll("input[type='checkbox']");
-    const selections = advancedSearch.querySelectorAll(".select input:first-of-type");
+  const advancedSearch = document.querySelectorAll(".advanced-search");
+  if (advancedSearch[0]) {
 
-    //초기화
-    const initialize = () => {
-      inputs.forEach(input => {
-        input.value = "";
-      });
+    advancedSearch.forEach(search => {
+      const button = search.closest("section").querySelector(".btn-advanced-search");
+      const inputs = search.querySelectorAll("input[type='text'], input[type='number'], textarea");
+      const checkboxes = search.querySelectorAll("input[type='checkbox']");
+      const selections = search.querySelectorAll(".select input:first-of-type");
 
-      checkboxes.forEach(checkbox => {
-        checkbox.checked = false;
-      });
-
-      selections.forEach(select => {
-        select.checked = true;
-      });
-    };
-
-    button.addEventListener("click", () => {
-      initialize();
-      advancedSearch.classList.toggle("is-active");
-    });
-
-    // 초기화
-    const clear = advancedSearch.querySelector(".clear");
-    clear.addEventListener("click", initialize);
-
-    // 등록일 사용여부
-    const itemCreated = advancedSearch.querySelector(".item-created");
-    const calendar = itemCreated.querySelector(".calendar");
-    const options = itemCreated.querySelectorAll(".select input");
-
-    options.forEach(option => {
-      const choose = event => {
-        event.target.dataset.select === "yes"
-          ? calendar.classList.add("is-active")
-          : calendar.classList.remove("is-active");
+      //초기화
+      const initialize = () => {
+        inputs.forEach(input => {
+          input.value = "";
+        });
+  
+        checkboxes.forEach(checkbox => {
+          checkbox.checked = false;
+        });
+  
+        selections.forEach(select => {
+          select.checked = true;
+        });
       };
-      option.addEventListener("click", choose);
-    });
+
+      // 초기화
+      const clear = search.querySelector(".clear");
+      clear.addEventListener("click", initialize);
+  
+      // 등록일 사용여부
+      const itemCreated = search.querySelector(".item-created");
+      const calendar = itemCreated && itemCreated.querySelector(".calendar");
+      const options = itemCreated && itemCreated.querySelectorAll(".select input");
+  
+      options && options.forEach(option => {
+        const choose = event => {
+          event.target.dataset.select === "yes"
+            ? calendar.classList.add("is-active")
+            : calendar.classList.remove("is-active");
+        };
+        option.addEventListener("click", choose);
+      });
+
+      button.addEventListener("click", () => {
+        initialize();
+        search.classList.toggle("is-active");
+      });
+    })
 
     // 키워드 효과
     // const keyword = advancedSearch.querySelector("textarea");
