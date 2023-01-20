@@ -661,10 +661,10 @@
               <div class="dropdown">
                 <button class="" type="button" data-modal="">선택한 키워드 관리</button>
                 <ul>
-                  <li>일반설정</li>
-                  <li>일반부분설정</li>
-                  <li>고급설정</li>
-                  <li>고급부분설정</li>
+                  <li data-modal="settingsNormal">일반설정</li>
+                  <li data-modal="settingsNormalPart">일반부분설정</li>
+                  <li data-modal="settingsAdvanced">고급설정</li>
+                  <li data-modal="settingsAdvancedPart">고급부분설정</li>
                   <li>입찰실행</li>
                   <li>입찰정지</li>
                   <li>입찰삭제</li>
@@ -2231,7 +2231,7 @@
   </div>
 </div>
 
-<div id="selectColumns" class="modal">
+<div id="selectColumns" class="modal" title="사용자지정보기">
   <div class="dialog">
     <header class="modal-header">
       <h3>사용자 지정 보기</h3>
@@ -2359,7 +2359,7 @@
   </div>
 </div>
 
-<div id="searchGroup" class="modal modal-lookup">
+<div id="searchGroup" class="modal modal-lookup" title="분류조회">
   <div class="dialog">
     <header class="modal-header">
       <h3>분류조회</h3>
@@ -2489,7 +2489,7 @@
   </div>
 </div>
 
-<div id="editCategories" class="modal modal-edit">
+<div id="editCategories" class="modal modal-edit" title="분류편집">
   <div class="dialog">
     <header class="modal-header">
       <h3>분류편집</h3>
@@ -2616,6 +2616,249 @@
     </div>
     <div class="buttons">
       <button class="btn-main close" type="button">닫기</button>
+    </div>
+  </div>
+</div>
+
+<div id="settingsNormal" class="modal" title="일반설정">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>일반설정</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section>
+        <div class="caution">
+          <p>※ 입찰주기는 사용하신 등급에 따라 선택조건이 달라집니다.</p>
+          <p>※ 현재 회원님의 사용등급은 이므로 0분 이상 설정이 가능합니다.</p>
+          <p>※ 입찰은 PC 15위, 모바일 5위 이내로 설정이 가능합니다.</p>
+          <p>※ 광고센터에서 특정 지역을 광고 노출 제외 지역으로 설정할 경우 입찰이 원활하지 않을 수 있습니다. (예: 서울)</p>
+          <p>※ 요일/시간 노출 제외시 자동입찰 OFF 설정 필수(고급설정 활용)</p>
+        </div>
+      </section>
+      <section>
+        <div class="list list-form">
+          <ul class="row">
+            <li>입찰주기</li>
+            <li>
+              <input type="text" />분
+            </li>
+          </ul>
+          <ul class="row">
+            <li>입찰대상</li>
+            <li>
+              <input id="pc-normal" type="radio" name="bidding-modal">
+              <label for="pc-normal">PC 일반</label>
+              <input id="pc-local" type="radio" name="bidding-modal">
+              <label for="pc-local">PC 지역</label>
+              <input id="mobile-normal" type="radio" name="bidding-modal">
+              <label for="mobile-normal">모바일 일반</label>
+              <input id="mobile-local" type="radio" name="bidding-modal">
+              <label for="mobile-local">모바일 지역</label>
+            </li>
+          </ul>
+          <ul class="row">
+            <li>희망순위</li>
+            <li>
+              <input type="number">위
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              입찰기본가
+              <article class="tooltip">
+                <div class="tooltip-content">
+                  <dl>
+                    <dd>입찰가를 원하는 금액으로 빠르게 조정하기 위해 설정하는 금액입니다.</dd>
+                    <dd>필수 입력 항목이 아니므로, 미사용 시 입력하지 않으셔도 됩니다.</dd>
+                    <dd>순위 확인이 불가하고 현재 입찰가보다 클 때 적용됩니다.</dd>
+                    <dd>최대입찰가보다 클 수 없습니다.</dd>
+                  </dl>
+                </div>
+              </article>
+            </li>
+            <li>
+              <input type="number">원
+            </li>
+          </ul>
+          <ul class="row">
+            <li>최대입찰가</li>
+            <li>
+              <input type="number">원
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              입찰가감액
+              <article class="tooltip">
+                <div class="tooltip-content">
+                  <dl>
+                    <dd>입찰가감액은 필수 입력 항목으로, 미사용 시 '0'원을 입력합니다.</dd>
+                  </dl>
+                </div>
+              </article>
+            </li>
+            <li>
+              <div>가액</div>
+              <input type="number">원
+              <div>감액</div>
+              <input type="number">원
+            </li>
+          </ul>
+          <ul class="row">
+            <li>하향입찰</li>
+            <li>
+              <input id="check-bidding-down-on" type="radio" name="bidding-down-modal" />
+              <label for="check-bidding-down-on">ON</label>
+              <input id="check-bidding-down-off" type="radio" name="bidding-down-modal" />
+              <label for="check-bidding-down-off">OFF</label>
+              <input type="number">회
+            </li>
+          </ul>
+        </div>
+      </section> 
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" type="button" data-modal="">입찰적용</button>
+    </div>
+  </div>
+</div>
+<div id="settingsNormalPart" class="modal" title="일반부분설정">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>일반부분설정</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section>
+        <div class="caution">
+          <p>※ 입찰주기는 사용하신 등급에 따라 선택조건이 달라집니다.</p>
+          <p>※ 현재 회원님의 사용등급은 이므로 0분 이상 설정이 가능합니다.</p>
+          <p>※ 입찰은 PC 15위, 모바일 5위 이내로 설정이 가능합니다.</p>
+          <p>※ 광고센터에서 특정 지역을 광고 노출 제외 지역으로 설정할 경우 입찰이 원활하지 않을 수 있습니다. (예: 서울)</p>
+          <p>※ 요일/시간 노출 제외시 자동입찰 OFF 설정 필수(고급설정 활용)</p>
+        </div>
+      </section>
+      <section>
+        <div class="list list-form">
+          <ul class="row">
+            <li>
+              <div class="checkbox">
+                <input id="check-setting-normal-01" name="select-item" type="checkbox">
+                <label for="check-setting-normal-01">입찰주기</label>
+              </div>
+            </li>
+            <li>
+              <input type="text" />분
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              <div class="checkbox">
+                <input id="check-setting-normal-02" name="select-item" type="checkbox">
+                <label for="check-setting-normal-02">입찰대상</label>
+              </div>
+            </li>
+            <li>
+              <input id="pc-normal" type="radio" name="bidding-modal">
+              <label for="pc-normal">PC 일반</label>
+              <input id="pc-local" type="radio" name="bidding-modal">
+              <label for="pc-local">PC 지역</label>
+              <input id="mobile-normal" type="radio" name="bidding-modal">
+              <label for="mobile-normal">모바일 일반</label>
+              <input id="mobile-local" type="radio" name="bidding-modal">
+              <label for="mobile-local">모바일 지역</label>
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              <div class="checkbox">
+                <input id="check-setting-normal-03" name="select-item" type="checkbox">
+                <label for="check-setting-normal-03">희망순위</label>
+              </div>
+            </li>
+            <li>
+              <input type="number">위
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              <div class="checkbox">
+                <input id="check-setting-normal-04" name="select-item" type="checkbox">
+                <label for="check-setting-normal-04">
+                  입찰기본가              
+                  <article class="tooltip">
+                    <div class="tooltip-content">
+                      <dl>
+                        <dd>입찰가를 원하는 금액으로 빠르게 조정하기 위해 설정하는 금액입니다.</dd>
+                        <dd>필수 입력 항목이 아니므로, 미사용 시 입력하지 않으셔도 됩니다.</dd>
+                        <dd>순위 확인이 불가하고 현재 입찰가보다 클 때 적용됩니다.</dd>
+                        <dd>최대입찰가보다 클 수 없습니다.</dd>
+                      </dl>
+                    </div>
+                  </article></label>
+              </div>
+            </li>
+            <li>
+              <input type="number">원
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              <div class="checkbox">
+                <input id="check-setting-normal-05" name="select-item" type="checkbox">
+                <label for="check-setting-normal-05">최대입찰가</label>
+              </div>
+            </li>
+            <li>
+              <input type="number">원
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              <div class="checkbox">
+                <input id="check-setting-normal-06" name="select-item" type="checkbox">
+                <label for="check-setting-normal-06">
+                  입찰가감액
+                  <article class="tooltip">
+                    <div class="tooltip-content">
+                      <dl>
+                        <dd>입찰가감액은 필수 입력 항목으로, 미사용 시 '0'원을 입력합니다.</dd>
+                      </dl>
+                    </div>
+                  </article>
+                </label>
+              </div>
+            </li>
+            <li>
+              <div>가액</div>
+              <input type="number">원
+              <div>감액</div>
+              <input type="number">원
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              <div class="checkbox">
+                <input id="check-setting-normal-07" name="select-item" type="checkbox">
+                <label for="check-setting-normal-07">하향입찰</label>
+              </div>
+            </li>
+            <li>
+              <input id="check-bidding-down-on" type="radio" name="bidding-down-modal" />
+              <label for="check-bidding-down-on">ON</label>
+              <input id="check-bidding-down-off" type="radio" name="bidding-down-modal" />
+              <label for="check-bidding-down-off">OFF</label>
+              <input type="number">회
+            </li>
+          </ul>
+        </div>
+      </section> 
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" type="button" data-modal="">입찰적용</button>
     </div>
   </div>
 </div>
