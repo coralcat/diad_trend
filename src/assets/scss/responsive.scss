@@ -926,7 +926,7 @@
             background-color: transparent;
           }
         }
-        .col-important {
+        .col-title {
           justify-content: flex-start;
           padding: 0.75rem;
           min-width: auto !important;
@@ -975,7 +975,7 @@
             margin-bottom: 0;
           }
 
-          &:not(.col-check, .col-important) {
+          &:not(.col-check, .col-title) {
             justify-content: flex-end;
             gap: 0.5rem;
           }

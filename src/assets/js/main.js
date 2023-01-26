@@ -302,6 +302,14 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Checkbox: Check All
   ===================================================== */
+
+  document.querySelectorAll(".checkbox").forEach(checkbox => {
+    checkbox.innerHTML += `
+    <svg width="15px" height="10px">
+      <polyline points="1,5 6,9 14,1"></polyline>
+    </svg>
+    `
+  })
   const checkAll = document.querySelectorAll(".check-all");
   if (checkAll) {
     checkAll.forEach(all => {

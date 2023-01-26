@@ -1731,7 +1731,6 @@ section {
 
 .list {
   border-top: 1px solid #e3e6e9;
-  border-bottom: 1px solid #e3e6e9;
   overflow-x: auto;
   overflow-y: auto;
   background-color: rgba(0, 20, 40, 0);
@@ -1744,6 +1743,7 @@ section {
 
   &:empty {
     min-height: 200px;
+    border-bottom: 1px solid #e3e6e9;
   }
 
   &.sticky {
@@ -1751,14 +1751,14 @@ section {
 
     .col-check,
     .col-number,
-    .col-important,
+    .col-title,
     .col-keyword {
       position: sticky !important;
       left: 0;
       z-index: 3;
     }
 
-    .col-important {
+    .col-title {
       left: 32px;
     }
   }
@@ -1775,6 +1775,9 @@ section {
   }
 
   .tag:not(.list-product .tag) {
+    border-width: 1px;
+    border-style: solid;
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -1782,73 +1785,74 @@ section {
     gap: 3px;
     height: 20px;
     min-width: 40px;
-    font-size: 13px;
+    font-size: 12px;
+    line-height: normal;
     font-family: "RobotoMedium", "MinMedium";
+    white-space: nowrap;
+    color: $main-color;
 
     &::before {
-      font-size: 8px;
-      line-height: normal;
+      font-size: 10px;
+      line-height: 1;
+      font-family: "Poppins";
     }
 
-    &.type-border {
-      border-width: 1px;
-      border-style: solid;
-      background-color: transparent !important;
-      padding: 2px 4px;
-      min-width: auto;
-      height: auto;
-      color: lightseagreen;
-      white-space: nowrap;
-      font-size: 11px;
+    &.type-bg {
+      color: white !important;
+      border: 0;
 
-      &::before {
-        font-size: 13px !important;
-      }
-
-      &.failed {
-        border-style: hidden;
-      }
-    }
-
-    &.high {
-      border-color: rgba(255, 99, 71, 0.15);
-
-      &::before {
-        content: "높음";
-        color: rgb(255, 99, 71);
-      }
-    }
-
-    &.medium {
-      border-color: rgba(255, 165, 0, 0.15);
-
-      &::before {
-        content: "중간";
-        color: rgb(255, 165, 0);
-      }
-    }
-
-    &.low {
-      border-color: #eee;
-
-      &::before {
-        content: "낮음";
-        color: lightslategray;
-      }
-    }
-
-    &.up {
-      background-color: tomato;
-
-      &::before {
-        content: "\25B2";
-      }
-
-      &.current {
+      &.up {
         background-color: tomato;
       }
 
-      &.type-border {
+      &.down {
+        background-color: royalblue;
+      }
+
+      &.same {
+        display: flex;
+      }
+    }
+
+    &.type-text {
+      background-color: transparent !important;
+      border: 1px solid;
+      justify-content: center;
+      height: 22px;
+
+      &::before {
+        font-size: 13px !important;
+        font-family: "RobotoMedium", "MinRegular";
+      }
+
+      &.high {
+        border-color: rgba(255, 99, 71, 0.15);
+
+        &::before {
+          content: "높음";
+          color: rgb(255, 99, 71);
+        }
+      }
+
+      &.medium {
+        border-color: rgba(255, 165, 0, 0.15);
+
+        &::before {
+          content: "중간";
+          color: rgb(255, 165, 0);
+        }
+      }
+
+      &.low {
+        border-color: #eee;
+
+        &::before {
+          content: "낮음";
+          color: lightslategray;
+        }
+      }
+
+      &.up {
         border-color: rgba(255, 99, 71, 0.15);
 
         &::before {
@@ -1856,20 +1860,8 @@ section {
           color: tomato;
         }
       }
-    }
 
-    &.down {
-      background-color: royalblue;
-
-      &::before {
-        content: "\25BC";
-      }
-
-      &.current {
-        background-color: royalblue;
-      }
-
-      &.type-border {
+      &.down {
         border-color: rgba(65, 105, 225, 0.15);
 
         &::before {
@@ -1877,18 +1869,9 @@ section {
           color: royalblue;
         }
       }
-    }
 
-    &.same {
-      justify-content: center;
-      background-color: #e3e6e9;
-
-      &::before {
-        content: "-";
-        font-size: 15px;
-      }
-
-      &.type-border {
+      &.same {
+        display: flex;
         border-color: #eee;
 
         &::before {
@@ -1899,6 +1882,7 @@ section {
     }
 
     &.failed {
+      border: 0;
       justify-content: center;
       color: tomato;
       padding: 0 3px;
@@ -1907,6 +1891,36 @@ section {
       &::before {
         content: "확인불가";
         font-size: 11px;
+        font-family: "MinRegular";
+      }
+    }
+
+    &.up {
+      border-color: rgba(255, 99, 71, 0.15);
+      color: tomato;
+
+      &::before {
+        content: "\25B2";
+      }
+    }
+
+    &.down {
+      border-color: rgba(65, 105, 225, 0.15);
+      color: royalblue;
+
+      &::before {
+        content: "\25BC";
+      }
+    }
+
+    &.same {
+      display: none;
+      justify-content: center;
+      background-color: #e3e6e9;
+
+      &::before {
+        content: "-";
+        font-size: 15px;
       }
     }
   }
@@ -2012,8 +2026,8 @@ section {
     }
 
     &:not(.title) {
-      &.col-important {
-        justify-content: flex-start;
+      .col-title {
+        justify-content: flex-start !important;
       }
     }
 
@@ -2079,8 +2093,8 @@ section {
       }
 
       &.col-100 {
-        flex: 0 0 auto;
-        width: 100px;
+        flex: 0 0 auto !important;
+        width: 100px !important;
       }
 
       &.col-chart {
@@ -2089,12 +2103,12 @@ section {
 
       &.col-check {
         flex: 0 0 auto !important;
-        width: 32px !important;
+        width: 40px !important;
         border-right: 0 !important;
         padding-right: 0;
       }
 
-      &.col-important {
+      &.col-title:not(.list-product .col-title) {
         flex: 1 1 auto;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -2153,6 +2167,8 @@ section {
         display: flex;
         align-items: center;
         gap: 5px;
+        flex-wrap: wrap;
+        justify-self: center;
 
         &:empty:not(.ico-star, .image, .tag) {
           &::after {
@@ -2191,7 +2207,12 @@ section {
       gap: 0.75rem;
 
       .image {
-        flex: 0 0 80px;
+        flex: 0 0 auto;
+        background: repeating-linear-gradient(45deg, #f9f9f9, #f9f9f9 10px, #eee 10px, #eee 20px);
+        width: 80px;
+        height: 80px;
+        border-radius: 3px;
+        overflow: hidden;
 
         img {
           width: 100%;
@@ -3464,6 +3485,8 @@ section {
         li {
           height: auto;
           justify-content: center;
+          text-align: center;
+          word-break: keep-all;
 
           div {
             display: flex;
@@ -3541,14 +3564,8 @@ section {
   .list {
     .row {
       li {
-        &:nth-of-type(2) {
-          width: 80px;
-          flex: 0 0 auto;
-        }
-
-        &:nth-of-type(3) {
-          flex: 0 0 auto;
-          width: 150px;
+        &.col-title {
+          min-width: 360px;
         }
       }
     }
@@ -3559,23 +3576,6 @@ section {
   .list {
     .row {
       li {
-        &:nth-of-type(5),
-        &:nth-of-type(6),
-        &:nth-of-type(7),
-        &:nth-of-type(8) {
-          .tag {
-            &.up {
-              background-color: transparent;
-              color: tomato;
-            }
-
-            &.down {
-              background-color: transparent;
-              color: royalblue;
-            }
-          }
-        }
-
         &:nth-of-type(9) {
           width: 100px;
         }
@@ -3603,24 +3603,6 @@ section {
         }
       }
       li {
-        &:nth-of-type(9),
-        &:nth-of-type(10) {
-          .tag {
-            background-color: transparent;
-            font-size: 14px;
-            height: auto;
-            line-height: 1;
-
-            &.up {
-              color: tomato;
-            }
-
-            &.down {
-              color: royalblue;
-            }
-          }
-        }
-
         // 알림
         &:last-of-type {
           flex: 0 0 auto;
@@ -3782,7 +3764,6 @@ section {
           flex: 1 1 auto;
           display: flex;
           justify-content: end;
-          align-items: center;
           line-height: 1;
         }
       }
@@ -3947,6 +3928,7 @@ section {
         li {
           flex: 0 0 auto;
           width: 180px;
+          flex-direction: row;
           justify-content: space-between;
           gap: 0.5rem;
 
@@ -4034,6 +4016,7 @@ section {
         }
 
         li {
+          flex-direction: row;
           min-height: 48px;
           flex-wrap: wrap;
           gap: 0.5rem;
@@ -4206,7 +4189,6 @@ section {
           display: flex;
           align-items: center;
           gap: 3px;
-          font-size: 15px;
         }
 
         &:not(:last-child) {
@@ -4311,7 +4293,7 @@ section {
           width: 240px;
         }
 
-        &.col-important {
+        &.col-title {
           min-width: 300px !important;
 
           .information {
@@ -4340,7 +4322,6 @@ section {
 
 .content-keyword-trend {
   .section-main {
-    background-color: transparent;
     box-shadow: 0 0 0;
     display: flex;
     align-items: center;
@@ -4348,6 +4329,10 @@ section {
     min-height: 120px;
 
     .search {
+      background-color: transparent !important;
+      padding: 0.5rem !important;
+      flex: none !important;
+
       input {
         flex: 0 0 auto;
         width: 300px;
@@ -4398,6 +4383,7 @@ section {
 
   .list {
     max-height: none;
+    width: 100%;
 
     &:empty {
       height: 100%;
@@ -4406,22 +4392,6 @@ section {
     .row {
       &.title {
         z-index: 100;
-      }
-
-      &:not(.title) {
-        li {
-          &:nth-of-type(3),
-          &:nth-of-type(5) {
-            &::after {
-              content: "건";
-            }
-          }
-          &:nth-of-type(4) {
-            &::after {
-              content: "개";
-            }
-          }
-        }
       }
 
       li {

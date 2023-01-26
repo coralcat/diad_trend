@@ -8,7 +8,7 @@
     </svg>
   </button>
   <nav>
-    <div class="{% if currentPage == 'tracking' %}is-active{% endif %}">
+    <div class="{% if currentPage == 'tracking' %}is-active{% endif %} {% if currentPage == 'sales' %}is-active{% endif %} {% if currentPage == 'ranking' %}is-active{% endif %} {% if currentPage == 'lowestPrice' %}is-active{% endif %}">
       <menu>
         <i class="ico-ranking"></i>
         <span onclick="location.href='tracking.html'">스토어</span>
@@ -25,7 +25,7 @@
         </li>
       </ul>
     </div>
-    <div class="{% if currentPage == 'bidding' %}is-active{% endif %}">
+    <div class="{% if currentPage == 'bidding' %}is-active{% endif %} {% if currentPage == 'bidNaver' %}is-active{% endif %} {% if currentPage == 'bid11st' %}is-active{% endif %} {% if currentPage == 'bidGmarket' %}is-active{% endif %} {% if currentPage == 'bidGoogle' %}is-active{% endif %}">
       <menu>
         <i class="ico-price"></i>
         <span onclick="location.href='bidding.html'">자동입찰</span>
