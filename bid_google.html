@@ -163,13 +163,13 @@
   <div class="wrapper">
     <section class="section-account">
       <header class="section-header">
-        <h3>3scoltd</h3>
+        <h3>4506521631</h3>
       </header>
       <div class="sync">
         <div class="selectbox">
           <select name="sync-account" id="">
-            <option value="">3scoltd</option>
-            <option value="">cjlion2004</option>
+            <option value="">4063236327</option>
+            <option value="">4506521631</option>
           </select>
         </div>
         <button class="btn-main ico-sync"></button>
@@ -177,43 +177,53 @@
       <ul class="details-sync">
         <li class="center">
           <div>동기화 시간</div>
-          <div>2022-12-07 오전 10:06:38</div>
+          <div>2022-10-13 오전 11:14:39</div>
         </li>
         <li>
           <div>동기화 건수</div>
-          <div class="times">144</div>
-        </li>
-        <li>
-          <div>비즈머니</div>
-          <div class="price">3,529,904</div>
+          <div class="times">1,409</div>
         </li>
       </ul>
       <ul class="details-bidding">
         <li>
           <div>전체</div>
           <div class="times">
-            <strong>144</strong>
+            <strong>1,409</strong>
           </div>
         <li>
           <div>입찰실행</div>
           <div class="times"></div>
         </li>
         <li>
-          <div>입찰성공</div>
-          <div class="times">3</div>
-        </li>
-        <li>
-          <div>입찰실패</div>
-          <div class="times">4</div>
-        </li>
-        <li>
-          <div>최대입찰가도달</div>
+          <div>
+            입찰성공
+            <article class="tooltip">
+              <div class="tooltip-content">
+                최대 CPC가 최종 입찰목표 금액에 도달함
+              </div>
+            </article>
+          </div>
           <div class="times"></div>
         </li>
         <li>
-          <div>희망순위미도달</div>
+          <div>입찰실패
+            <article class="tooltip">
+              <div class="tooltip-content">
+                최대 CPC가 최종 입찰목표 금액에 도달하지 못함
+              </div>
+            </article>
+          </div>
           <div class="times"></div>
         </li>
+        <li>
+          <div>최대입찰가도달
+            <article class="tooltip">
+              <div class="tooltip-content">
+                최종 입찰목표 금액이 입찰한도를 초과한 경우
+              </div>
+            </article>
+          </div>
+          <div class="times"></div>
         </li>
       </ul>
       <small>※ 건수를 클릭하면 해당 리스트만 불러옵니다.</small>
@@ -240,11 +250,13 @@
     <section>
       <header class="section-header multi-line">
         <div class="title">
-          <button class="btn-advanced-search" type="button">상세검색</button>
+          <div>
+            <button class="ico-eye" title="사용자 지정 보기" data-modal="selectColumns"></button>
+            <button class="btn-advanced-search" type="button">상세검색</button>
+          </div>
           <div class="buttons">
             <button class="btn-sub" type="button" data-modal="">분류조회</button>
-            <button class="btn-sub" class="ico-download" type="button">엑셀다운</button>
-            <button class="btn-main" type="button" data-modal="createItem">뭘루할까?</button>
+            <button class="btn-main" class="ico-download" type="button">엑셀다운</button>
           </div>
         </div>
         <div class="advanced-search">
@@ -393,7 +405,6 @@
         </div>
         <div class="filters">
           <div>
-            <button class="ico-eye" title="사용자 지정 보기"></button>
             <div class="selectbox">
               <select name="" id="">
                 <option value="keyword">키워드</option>
@@ -440,8 +451,14 @@
               <label for="checkAll"></label>
             </div>
           </li>
-          <li class="col-title ico-sort">상품</li>
           <li class="col-keyword ico-sort">키워드</li>
+          <li class="ico-sort">
+            키워드상태
+            <div class="tooltip type2">
+              <div class="tooltip-content">
+              </div>
+            </div>
+          </li>
           <li class="ico-sort">
             입찰상태
             <div class="tooltip type2">
@@ -466,27 +483,45 @@
             </div>
           </li>
           <li class="ico-sort">
-            입찰대상
+            최대 CPC
             <div class="tooltip type2">
               <div class="tooltip-content">
               </div>
             </div>
           </li>
-          <li class="ico-sort">최대입찰가</li>
+          <li class="ico-sort">입찰목표</li>
+          <li class="ico-sort">입찰한도</li>
+          <li class="ico-sort">한도옵션</li>
           <li class="ico-sort">입찰가감액</li>
-          <li class="ico-sort">희망순위</li>
-          <li class="ico-sort">입찰가</li>
-          <li class="ico-sort">현재순위</li>
-          <li class="ico-sort">최대입찰가 도달여부</li>
-          <li class="ico-sort">희망순위 도달여부</li>
+          <li class="ico-sort">첫 페이지 예상 입찰가</li>
+          <li class="ico-sort">첫 게재위치 예상 입찰가</li>
+          <li class="ico-sort">페이지 상단 예상 입찰가</li>
+          <li class="ico-sort">클릭수</li>
+          <li class="ico-sort">노출수</li>
+          <li class="ico-sort">클릭률</li>
+          <li class="ico-sort">전환수</li>
+          <li class="ico-sort">전환율</li>
+          <li class="ico-sort">절대상단노출수 (%)</li>
+          <li class="ico-sort">상단노출수 (%)</li>
+          <li class="ico-sort">검색 노출 점유율</li>
+          <li class="ico-sort">검색 상단 노출 점유율</li>
+          <li class="ico-sort">검색 절대상단 노출 점유율</li>
+          <li class="ico-sort">품질평가점수</li>
+          <li class="ico-sort">예상 CTR</li>
+          <li class="ico-sort">방문페이지 만족도</li>
+          <li class="ico-sort">광고관련성</li>
+          <li class="ico-sort">검색유형</li>
+          <li class="ico-sort">평균비용</li>
+          <li class="ico-sort">비용</li>
           <li class="ico-sort">입찰결과</li>
-          <li class="ico-sort">키워드등록</li>
           <li class="ico-sort">분류명</li>
-          <li class="ico-sort">키워드상태</li>
-          <li class="ico-sort">광고그룹</li>
-          <li class="ico-sort">그룹상태</li>
           <li class="ico-sort">캠페인</li>
           <li class="ico-sort">캠페인상태</li>
+          <li class="ico-sort">캠페인예산</li>
+          <li class="ico-sort">광고그룹</li>
+          <li class="ico-sort">그룹상태</li>
+          <li class="col-url ico-sort">최종URL</li>
+          <li class="ico-sort">최근 입찰 시간</li>
           <li class="ico-sort">입찰등록일</li>
           <li class="ico-sort">입찰수정일</li>
         </ul>
@@ -498,86 +533,307 @@
                 <label for="check-01"></label>
               </div>
             </li>
-            <li title="상품" class="col-title item">
-              <div class="image" onclick="location.href='ranking_details.html'">
-                <img src="http://image.11st.co.kr/pd/v2/3/8/3/2/0/0/ukCEp/1392383200_L300.jpg" alt="" />
-              </div>
-              <div class="information">
-                <div class="title">킹썰 스포츠 등산 자전거 겨울 방한 장갑 휴대폰터치가능</div>
-              </div>
-            </li>
             <li title="키워드" class="col-keyword">
-              <div class="keyword">등산장갑</div>
+              <div class="keyword">검색 광고 마케터</div>
+            </li>
+            <li title="키워드상태">
+              <div class="tag type-text">운영가능</div>
+              ON
             </li>
             <li title="입찰상태">
               정지
             </li>
             <li title="입찰설정">
-              <button>고급설정</button>
+              <button disabled>미설정</button>
             </li>
-            <li title="입찰주기">
-              5
+            <li title="입찰주기"></li>
+            <li title="최대 CPC">
+              700
             </li>
-            <li title="입찰대상">
-              PC일반
+            <li title="입찰목표"></li>
+            <li title="입찰한도">
+                <div class="price"></div>
             </li>
-            <li title="최대입찰가">
-              <div class="price">
-                1,000
-              </div>
+            <li title="한도옵션">
+              OFF
             </li>
             <li title="입찰가감액">
               <div class="price"></div>
             </li>
-            <li title="희망순위">
-              3
-            </li>
-            <li title="입찰가">
+            <li title="첫 페이지 예상 입찰가">
               <div class="price"></div>
             </li>
-            <li title="현재순위"></li>
-            <li title="최대입찰가 도달여부">
-              미도달
+            <li title="첫 게재위치 예상 입찰가">
+              <div class="price"></div>
             </li>
-            <li title="희망순위 도달여부">
-              미도달
+            <li title="페이지 상단 예상 입찰가">
+              <div class="price"></div>
             </li>
-            <li title="입찰결과">
-              <div>
-                <span>실패</span>
-                <button>이력</button>
-              </div>
+            <li title="클릭수">
+              <div vlass="times"></div>
             </li>
-            <li title="키워드등록">직접</li>
+            <li title="노출수">
+              <div class="times"></div>
+            </li>
+            <li title="클릭률">
+              <div class="percent"></div>
+            </li>
+            <li title="전환수">
+              <div class="percent"></div>
+            </li>
+            <li title="전환율">
+              <div class="percent"></div>
+            </li>
+            <li title="절대상단노출수 (%)">
+              <div class="percent"></div>
+            </li>
+            <li title="상단노출수 (%)">
+              <div class="percent"></div>
+            </li>
+            <li title="검색 노출 점유율">
+              <div class="percent"></div>
+            </li>
+            <li title="검색 상단 노출 점유율">
+              <div class="percent"></div>
+            </li>
+            <li title="검색 절대상단 노출 점유율">
+              <div class="percent"></div>
+            </li>
+            <li title="품질평가점수">
+              1
+            </li>
+            <li title="예상 CTR">
+              평균이하
+            </li>
+            <li title="방문페이지 만족도">
+              평균이하
+            </li>
+            <li title="광고관련성">
+              평균이하
+            </li>
+            <li title="검색유형">
+              일치검색
+            </li>
+            <li title="평균비용">
+              <div class="price"></div>
+            </li>
+            <li title="비용">
+              <div class="price"></div>
+            </li>
+            <li title="입찰결과"></li>
             <li title="분류명"></li>
-            <li title="키워드상태">
-              <div class="tag type-border">노출가능</div>
-              <span>ON</span>
-            </li>
-            <li title="광고그룹">
-              #3s299...600
-            </li>
-            <li title="그룹상태">
-              <div class="tag type-border">노출가능</div>
-              <span>ON</span>
-            </li>
             <li title="캠페인">
-              수동입찰
+              다이애드
             </li>
             <li title="캠페인상태">
-              <div class="tag type-border">노출가능</div>
-              <span>ON</span>
+              ON
             </li>
+            <li title="캠페인예산">
+              <div class="price">20,000</div>
+            </li>
+            <li title="광고그룹">
+              네이버광고
+            </li>
+            <li title="그룹상태">
+              ON
+            </li>
+            <li class="col-url" title="최종URL">
+              <div>https://diad.co.kr/AdSolution/ProServiceIntroduction</div>
+            </li>
+            <li title="최근 입찰 시간"></li>
             <li title="입찰등록일">
-              2022-04-12
+              2022-05-17
             </li>
             <li title="입찰수정일">
-              2022-11-08
+              2022-10-13 11:13
             </li>
           </ul>
         </div>
       </div>
     </section>
+  </div>
+</div>
+<div id="selectColumns" class="modal" title="사용자지정보기">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>사용자 지정 보기</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section>
+        <div class="list list-checkbox">
+          <div class="checkbox">
+            <input id="select-column1" type="checkbox" name="selectColumn" checked />
+            <label for="select-column1">키워드</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column2" type="checkbox" name="selectColumn" checked />
+            <label for="select-column2">키워드상태</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column3" type="checkbox" name="selectColumn" checked />
+            <label for="select-column3">입찰상태</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column4" type="checkbox" name="selectColumn" checked />
+            <label for="select-column4">입찰설정</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column5" type="checkbox" name="selectColumn" checked />
+            <label for="select-column5">입찰주기</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column6" type="checkbox" name="selectColumn" checked />
+            <label for="select-column6">최대 CPC</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column7" type="checkbox" name="selectColumn" checked />
+            <label for="select-column7">입찰목표</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column8" type="checkbox" name="selectColumn" checked />
+            <label for="select-column8">입찰한도</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column9" type="checkbox" name="selectColumn" checked />
+            <label for="select-column9">한도옵션</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column10" type="checkbox" name="selectColumn" checked />
+            <label for="select-column10">입찰가감액</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column11" type="checkbox" name="selectColumn" checked />
+            <label for="select-column11">첫 페이지 예상 입찰가</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column12" type="checkbox" name="selectColumn" checked />
+            <label for="select-column12">첫 개제위치 예상 입찰가</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column13" type="checkbox" name="selectColumn" checked />
+            <label for="select-column13">페이지 상단 예상 입찰가</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column14" type="checkbox" name="selectColumn" checked />
+            <label for="select-column14">클릭수</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column15" type="checkbox" name="selectColumn" checked />
+            <label for="select-column15">노출수</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column16" type="checkbox" name="selectColumn" checked />
+            <label for="select-column16">클릭률</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column17" type="checkbox" name="selectColumn" checked />
+            <label for="select-column17">전환수</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column18" type="checkbox" name="selectColumn" checked />
+            <label for="select-column18">전환율</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column19" type="checkbox" name="selectColumn" checked />
+            <label for="select-column19">절대상단노출수 (%)</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column20" type="checkbox" name="selectColumn" checked />
+            <label for="select-column20">상단노출수 (%)</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column21" type="checkbox" name="selectColumn" checked />
+            <label for="select-column21">검색 노출 점유율</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column22" type="checkbox" name="selectColumn" checked />
+            <label for="select-column22">검색 상단 노출 점유율</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column23" type="checkbox" name="selectColumn" checked />
+            <label for="select-column23">검색 절대상단 노출 점유율</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column24" type="checkbox" name="selectColumn" checked />
+            <label for="select-column24">품질평가점수</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column25" type="checkbox" name="selectColumn" checked />
+            <label for="select-column25">예상 CTR</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column26" type="checkbox" name="selectColumn" checked />
+            <label for="select-column26">방문페이지 만족도</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column27" type="checkbox" name="selectColumn" checked />
+            <label for="select-column27">광고관련성</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column28" type="checkbox" name="selectColumn" checked />
+            <label for="select-column28">검색유형</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column29" type="checkbox" name="selectColumn" checked />
+            <label for="select-column29">평균비용</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column30" type="checkbox" name="selectColumn" checked />
+            <label for="select-column30">비용</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column31" type="checkbox" name="selectColumn" checked />
+            <label for="select-column31">입찰결과</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column32" type="checkbox" name="selectColumn" checked />
+            <label for="select-column32">분류명</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column33" type="checkbox" name="selectColumn" checked />
+            <label for="select-column33">캠페인</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column34" type="checkbox" name="selectColumn" checked />
+            <label for="select-column34">캠페인상태</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column35" type="checkbox" name="selectColumn" checked />
+            <label for="select-column35">캠페인예산</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column36" type="checkbox" name="selectColumn" checked />
+            <label for="select-column36">광고그룹</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column37" type="checkbox" name="selectColumn" checked />
+            <label for="select-column37">그룹상태</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column38" type="checkbox" name="selectColumn" checked />
+            <label for="select-column38">최종URL</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column39" type="checkbox" name="selectColumn" checked />
+            <label for="select-column39">최근 입찰 시간</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column40" type="checkbox" name="selectColumn" checked />
+            <label for="select-column40">입찰등록일</label>
+          </div>
+          <div class="checkbox">
+            <input id="select-column41" type="checkbox" name="selectColumn" checked />
+            <label for="select-column41">입찰수정일</label>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-sub" type="button" data-modal="apply">초기화</button>
+      <button class="btn-submit" type="button" data-modal="apply">적용</button>
+    </div>
   </div>
 </div>
 
