@@ -77,9 +77,11 @@ body {
     &::after {
       font-family: "MinLight";
       font-size: 90%;
+      line-height: normal;
     }
 
     &:empty {
+      text-decoration: none !important;
       &::before {
         content: none !important;
       }
@@ -376,13 +378,13 @@ button {
 .top-banner {
   user-select: none;
   opacity: 0;
-  padding: 1rem;
+  padding: 0.75rem;
   background: linear-gradient(270deg, #00daef, #bc67ff);
   background-size: 200% 200%;
   animation: MoveGrad 5s ease infinite, fadeIn 0.5s forwards 0.5s;
   text-align: center;
   color: white;
-  font-size: 16px;
+  font-size: 15px;
   display: flex;
   justify-content: center;
   gap: 5px;
@@ -598,6 +600,8 @@ header {
     }
 
     .settings {
+      background-position: center;
+      height: 50px;
       cursor: pointer;
 
       ul {
@@ -614,6 +618,7 @@ header {
         background-color: white;
         border: 1px solid #eee;
         transition: 0.25s;
+        z-index: 100;
 
         li {
           padding: 0 1rem;
@@ -632,7 +637,6 @@ header {
           opacity: 1;
           max-height: 999px;
           transform: translateY(0) translateX(-50%);
-          z-index: 100;
         }
       }
     }
@@ -1199,6 +1203,12 @@ section {
     gap: 0.5rem;
     position: relative;
 
+    .ico-eye {
+      border: 1px solid #d6d9fd;
+      background-color: transparent;
+      width: 36px
+    }
+
     .tabs {
       li {
         font-size: 20px;
@@ -1259,6 +1269,11 @@ section {
       justify-content: space-between;
       min-height: 36px;
       width: 100%;
+
+      > div {
+        display: flex;
+        gap: .5rem;
+      }
 
       .total {
         strong {
@@ -1373,13 +1388,13 @@ section {
     align-items: center;
     gap: 0.5rem;
     font-size: 12px;
-    margin-left: 0.5rem;
+    margin-left: 1.5rem;
 
     label {
       outline: 1px solid #ddd;
       border-radius: 3px;
       padding: 0 5px;
-      height: 28px;
+      height: 24px;
 
       &::before,
       &::after {
@@ -1572,14 +1587,14 @@ section {
 
 .item {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.75rem !important;
 
   .image {
     flex: 0 0 auto;
     background: repeating-linear-gradient(45deg, #f9f9f9, #f9f9f9 10px, #eee 10px, #eee 20px);
-    width: 64px;
-    height: 64px;
-    border-radius: 3px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
 
@@ -1731,6 +1746,7 @@ section {
 
 .list {
   border-top: 1px solid #e3e6e9;
+  border-bottom: 1px solid #e3e6e9;
   overflow-x: auto;
   overflow-y: auto;
   background-color: rgba(0, 20, 40, 0);
@@ -1759,13 +1775,13 @@ section {
     }
 
     .col-title {
-      left: 32px;
+      left: 40px;
     }
   }
 
   button {
     font-size: 13px;
-    padding: 0.35rem 0.75rem;
+    padding: 0.5rem 0.75rem;
   }
 
   .selectbox {
@@ -1958,8 +1974,18 @@ section {
       }
     }
 
+    &.checked {
+      li {
+        background-color: $secondary-color !important;
+      }
+    }
+
     &.title {
       user-select: none;
+
+      .tooltip {
+        margin-left: 0;
+      }
 
       .date {
         display: flex;
@@ -1971,6 +1997,7 @@ section {
       }
 
       .ico-sort {
+        padding-right: 0.75rem;
         transition: background-color 0.45s;
 
         &:hover {
@@ -2034,7 +2061,7 @@ section {
     &.row-no-keyword {
       li {
         &:nth-of-type(4) {
-          width: 750px !important;
+          width: 600px !important;
         }
 
         &:nth-of-type(5),
@@ -2055,6 +2082,7 @@ section {
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      text-align: center;
       gap: 3px;
       width: 20%;
       min-height: 36px;
@@ -2118,6 +2146,7 @@ section {
         .information {
           align-items: flex-start;
           flex-direction: column;
+          text-align: left;
         }
 
         [data-tooltip] {
@@ -2380,11 +2409,6 @@ section {
     gap: 0.5rem;
   }
 
-  .ico-eye {
-    border: 1px solid #d6d9fd;
-    background-color: transparent;
-  }
-
   .buttons {
     flex-wrap: nowrap;
     align-items: center;
@@ -2481,15 +2505,11 @@ section {
         border: 1px solid #eee;
         align-items: center;
         display: flex;
-        padding: 0 0.5rem;
+        gap: 3px;
+        padding: 0 0.5rem 0px 5px;
         border-radius: 3px;
         transition: 0.25s;
         cursor: pointer;
-
-        &::after {
-          top: 16px;
-          left: 12px;
-        }
       }
 
       input {
@@ -2500,17 +2520,13 @@ section {
           + label {
             color: $main-color;
             border-color: $primary-color;
-
-            &::before {
-              border-color: $primary-color;
-              background-color: transparent;
-            }
-
-            &::after {
-              border-color: $main-color;
-            }
           }
         }
+      }
+
+      svg {
+        left: 10px;
+        stroke: $main-color;
       }
     }
   }
@@ -3279,6 +3295,7 @@ section {
 
         &:not(.title) {
           :nth-child(1) {
+            align-items: flex-start;
             white-space: nowrap;
             text-overflow: ellipsis;
             line-height: 32px;
@@ -3290,13 +3307,10 @@ section {
           border-right: 0;
           padding: 0.5rem 1rem;
 
-          &:nth-of-type(1) {
-            justify-content: flex-start;
-          }
-
           &:nth-of-type(2) {
             flex: 0 0 100px;
-            justify-content: flex-end;
+            justify-content: center;
+            align-items: flex-end;
           }
         }
       }
@@ -3313,7 +3327,7 @@ section {
     border-bottom: 0;
   }
 
-  > div {
+  > div:not(.wrapper) {
     gap: 5px;
     flex: 1 1 auto;
     display: flex;
@@ -3423,12 +3437,11 @@ section {
 
     &.sticky {
       .col-keyword {
-        left: 572px;
+        left: 580px;
       }
     }
 
     .item-update-failed {
-      width: 140px;
       color: tomato;
       right: 0;
       gap: 3px;
@@ -3479,7 +3492,7 @@ section {
     .row {
       &.title {
         .date {
-          font: normal 13px/1 "Roboto";
+          font: normal 12px/1 "Roboto";
         }
 
         li {
@@ -3519,7 +3532,7 @@ section {
       li {
         position: relative;
         flex: 0 0 auto;
-        width: 150px;
+        width: 120px;
         border-bottom: 1px solid #eee;
 
         .tooltip-content {
@@ -3539,14 +3552,6 @@ section {
           font-size: 12px;
           width: 100%;
           justify-content: center;
-
-          &::before {
-            content: "(";
-          }
-
-          &::after {
-            content: ")";
-          }
         }
 
         &.multiple {
@@ -3764,7 +3769,6 @@ section {
           flex: 1 1 auto;
           display: flex;
           justify-content: end;
-          line-height: 1;
         }
       }
 
@@ -4129,6 +4133,7 @@ section {
     height: fit-content !important;
     max-height: 100%;
     width: 240px;
+    overflow: unset !important;
 
     small {
       word-break: keep-all;
@@ -4183,6 +4188,7 @@ section {
         > :first-child {
           font-size: 13px;
           color: lightslategray;
+          display: flex;
         }
 
         > :last-child {
@@ -4373,7 +4379,8 @@ section {
   }
 
   .section-header {
-    height: 60px;
+    height: 50px;
+    padding-bottom: 0 !important;
     justify-content: center !important;
 
     .tabs {
@@ -4382,6 +4389,7 @@ section {
   }
 
   .list {
+    gap: 0;
     max-height: none;
     width: 100%;
 
@@ -4797,9 +4805,9 @@ section {
 
       .image {
         flex: 0 0 auto;
-        width: 45px;
-        height: 45px;
-        border-radius: 3px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
         overflow: hidden;
 
         img {
@@ -4832,6 +4840,10 @@ section {
       &.type-list {
         position: relative;
 
+        .title {
+          text-align: left;
+        }
+
         .row {
           &:hover {
             li {
@@ -4844,10 +4856,6 @@ section {
               align-items: center !important;
               justify-content: center !important;
             }
-          }
-
-          .name {
-            font-size: 15px;
           }
 
           .categories {
@@ -4869,6 +4877,7 @@ section {
             }
 
             &.col-title {
+              flex-direction: row;
               justify-content: flex-start;
               flex-wrap: nowrap;
               width: 500px;
@@ -4934,9 +4943,9 @@ section {
             display: none;
           }
 
+          &:nth-of-type(1),
           &:nth-of-type(2),
-          &:nth-of-type(3),
-          &:nth-of-type(4) {
+          &:nth-of-type(3) {
             .col-ranking {
               background-color: #11b4d4;
             }
@@ -5099,6 +5108,7 @@ section {
 
   .content-related-keyword {
     .list {
+      flex: 1 1 auto;
       max-height: 80vh;
 
       &.naver {
@@ -5176,6 +5186,7 @@ section {
             li:nth-of-type(3),
             li:nth-of-type(4),
             li:nth-of-type(9),
+            li:nth-of-type(10),
             li:nth-of-type(11),
             li:nth-of-type(12),
             li:nth-of-type(13),
@@ -5329,6 +5340,7 @@ section {
           width: 22px;
           height: 22px;
           margin-left: 5px;
+          padding: 0;
 
           &::before {
             background-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724%27 viewBox=%270 0 24 24%27 width=%2724%27%3E%3Cpath d=%27M0 0h24v24H0z%27 fill=%27none%27/%3E%3Cpath fill='%235b54c6' d=%27M10 20h4V4h-4v16zm-6 0h4v-8H4v8zM16 9v11h4V9h-4z%27/%3E%3C/svg%3E") !important;

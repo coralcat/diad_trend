@@ -20,14 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentScrollTop = wrapper.scrollTop;
 
     if (currentScrollTop > 50) {
-      if (currentScrollTop > lastScrollTop) {
-        //Scroll down
-        scrollToTop.classList.remove("is-active");
-      } else {
-        //Scroll up
-        scrollToTop.classList.add("is-active");
-      }
-
+      currentScrollTop > lastScrollTop
+        ? scrollToTop.classList.remove("is-active")
+        : scrollToTop.classList.add("is-active");
       lastScrollTop = currentScrollTop;
     } else {
       scrollToTop.classList.remove("is-active");
@@ -39,14 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
       let currentScrollTop = content.scrollTop;
 
       if (currentScrollTop > 50) {
-        if (currentScrollTop > lastScrollTop) {
-          //Scroll down
-          scrollToTop.classList.remove("is-active");
-        } else {
-          //Scroll up
-          scrollToTop.classList.add("is-active");
-        }
-
+        currentScrollTop > lastScrollTop
+          ? scrollToTop.classList.remove("is-active")
+          : scrollToTop.classList.add("is-active");
         lastScrollTop = currentScrollTop;
       } else {
         scrollToTop.classList.remove("is-active");
@@ -65,27 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const progress = document.querySelectorAll("progress");
   if (progress[0]) {
     progress.forEach(bar => {
-      const max = bar.getAttribute("max");
-      const time = (1000 / max) * 5;
-      const value = bar.value;
-
-      const loading = () => {
-        value += 1;
-        const addValue = bar.value(value);
-        bar.querySelector(".progress-value").innerHTML(`${value}%`);
-
-        if (value === max) {
-          clearInterval(animate);
-        }
-
-        const animate = () => {
-          setInterval(() => {
-            loading();
-          }, time);
-        };
-
-        animate();
-      };
+      bar.setAttribute("value", "126");
     });
   }
 
@@ -308,8 +278,8 @@ document.addEventListener("DOMContentLoaded", () => {
     <svg width="15px" height="10px">
       <polyline points="1,5 6,9 14,1"></polyline>
     </svg>
-    `
-  })
+    `;
+  });
   const checkAll = document.querySelectorAll(".check-all");
   if (checkAll) {
     checkAll.forEach(all => {
@@ -594,7 +564,6 @@ document.addEventListener("DOMContentLoaded", () => {
   ===================================================== */
   const advancedSearch = document.querySelectorAll(".advanced-search");
   if (advancedSearch[0]) {
-
     advancedSearch.forEach(search => {
       const button = search.closest("section").querySelector(".btn-advanced-search");
       const inputs = search.querySelectorAll("input[type='text'], input[type='number'], textarea");
@@ -606,11 +575,11 @@ document.addEventListener("DOMContentLoaded", () => {
         inputs.forEach(input => {
           input.value = "";
         });
-  
+
         checkboxes.forEach(checkbox => {
           checkbox.checked = false;
         });
-  
+
         selections.forEach(select => {
           select.checked = true;
         });
@@ -619,26 +588,27 @@ document.addEventListener("DOMContentLoaded", () => {
       // 초기화
       const clear = search.querySelector(".clear");
       clear.addEventListener("click", initialize);
-  
+
       // 등록일 사용여부
       const itemCreated = search.querySelector(".item-created");
       const calendar = itemCreated && itemCreated.querySelector(".calendar");
       const options = itemCreated && itemCreated.querySelectorAll(".select input");
-  
-      options && options.forEach(option => {
-        const choose = event => {
-          event.target.dataset.select === "yes"
-            ? calendar.classList.add("is-active")
-            : calendar.classList.remove("is-active");
-        };
-        option.addEventListener("click", choose);
-      });
+
+      options &&
+        options.forEach(option => {
+          const choose = event => {
+            event.target.dataset.select === "yes"
+              ? calendar.classList.add("is-active")
+              : calendar.classList.remove("is-active");
+          };
+          option.addEventListener("click", choose);
+        });
 
       button.addEventListener("click", () => {
         initialize();
         search.classList.toggle("is-active");
       });
-    })
+    });
 
     // 키워드 효과
     // const keyword = advancedSearch.querySelector("textarea");
@@ -805,29 +775,25 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburgMenu.classList.toggle("is-active");
     aside.classList.toggle("is-active");
   });
-  
+
   const asideHandler = document.querySelector(".aside-handler");
   asideHandler.addEventListener("click", () => {
-    aside.classList.contains("icons-only") 
-    ? aside.classList.remove("icons-only") 
-    : aside.classList.add("icons-only");
-  })
+    aside.classList.contains("icons-only") ? aside.classList.remove("icons-only") : aside.classList.add("icons-only");
+  });
 
   matchMedia("screen and (max-width: 960px)").matches && aside.classList.add("icons-only");
   matchMedia("screen and (max-width: 640px)").matches && aside.classList.remove("icons-only");
 
-
-
   const menus = document.querySelectorAll("aside nav menu span");
   menus.forEach(menu => {
-    menu.closest("div").querySelector("ul") && menu.closest("menu").classList.add("more")
-    menu.addEventListener("click", (event) => {
+    menu.closest("div").querySelector("ul") && menu.closest("menu").classList.add("more");
+    menu.addEventListener("click", event => {
       event.stopPropagation();
-      if(!event.target.classList.contains("ico-link")) {
+      if (!event.target.classList.contains("ico-link")) {
         event.target.closest("div").classList.toggle("is-active");
       }
-    })
-  })
+    });
+  });
 
   /* =====================================================
        Accordion
@@ -914,25 +880,42 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 날짜 구하기  
+  // 날짜 구하기
   const date1 = document.querySelector(".list .date.d-1");
   const date7 = document.querySelector(".list .date.d-7");
   const date14 = document.querySelector(".list .date.d-14");
   const date30 = document.querySelector(".list .date.d-30");
 
-  const getDateAgo = (days) => {
+  const getDateAgo = days => {
     let dateCopy = new Date();
-    dateCopy.setDate(dateCopy.getDate() - days)
+    dateCopy.setDate(dateCopy.getDate() - days);
 
-    const year =  dateCopy.getFullYear();
+    const year = dateCopy.getFullYear();
     const month = dateCopy.getMonth() + 1;
-    const day = dateCopy.getDate()
+    const day = dateCopy.getDate();
 
-    return `${year}년 ${month}월 ${day}일`
-  }
+    return `${year}-${month}-${day}`;
+  };
 
-  date1 && (date1.textContent = getDateAgo(1))
-  date1 && (date7.textContent = getDateAgo(7))
-  date1 && (date14.textContent = getDateAgo(14))
-  date1 && (date30.textContent = getDateAgo(30))
+  date1 && (date1.textContent = getDateAgo(1));
+  date1 && (date7.textContent = getDateAgo(7));
+  date1 && (date14.textContent = getDateAgo(14));
+  date1 && (date30.textContent = getDateAgo(30));
+
+  // 목록 체크박스 효과
+  const listCheckboxes = document.querySelectorAll(".list input[type='checkbox']");
+  listCheckboxes.forEach(check => {
+    check.addEventListener("change", event => {
+      if (check.classList.contains("check-all")) {
+        const rows = event.target.closest(".list").querySelectorAll(".row:not(.title)");
+        rows.forEach(row => {
+          event.target.checked ? row.classList.add("checked") : row.classList.remove("checked");
+        });
+      } else {
+        event.target.checked
+          ? event.target.closest(".row").classList.add("checked")
+          : event.target.closest(".row").classList.remove("checked");
+      }
+    });
+  });
 });
