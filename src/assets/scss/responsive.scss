@@ -684,6 +684,7 @@
         background-color: transparent;
         flex-wrap: wrap;
         border: 0 !important;
+        padding: 0;
         justify-content: flex-end;
         position: relative;
         gap: 5px;
@@ -1052,7 +1053,6 @@
         }
 
         li {
-          padding: 0;
           width: 100% !important;
           background-color: transparent;
           left: auto !important;
@@ -1486,11 +1486,6 @@
       }
 
       .list {
-        .image {
-          border-radius: 0.5rem;
-          width: 70px;
-          height: 70px;
-        }
 
         li {
           &:nth-of-type(1),
