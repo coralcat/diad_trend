@@ -101,6 +101,7 @@
           </div>
           <div class="buttons">
             <button class="btn-sub" type="button" data-modal="">분류조회</button>
+            <button class="btn-sub" type="button" data-modal="">지역설정</button>
             <button class="btn-main" class="ico-download" type="button">엑셀다운</button>
           </div>
         </div>
@@ -250,14 +251,14 @@
         </div>
         <div class="filters">
           <div>
-            <div class="selectbox">
-              <select name="" id="">
-                <option value="keyword">키워드</option>
-                <option value="keyword">키워드</option>
-                <option value="keyword">키워드</option>
-              </select>
-            </div>
             <div class="search">
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="keyword">키워드</option>
+                  <option value="keyword">키워드</option>
+                  <option value="keyword">키워드</option>
+                </select>
+              </div>
               <div class="input">
                 <input type="search" />
                 <span class="x"></span>
@@ -274,8 +275,20 @@
             </ul>
           </div>
           <div class="buttons">
-            <button type="button" data-modal="">선택한 키워드 관리</button>
-            <button type="button" data-modal="">분류관리</button>
+            <div class="dropdown">
+              <button type="button">선택한 키워드 관리</button>
+              <ul>
+                <li data-modal="settingsNormal">일반설정</li>
+                <li data-modal="settingsNormalPart">일반부분설정</li>
+                <li data-modal="settingsAdvanced">고급설정</li>
+                <li data-modal="settingsAdvancedPart">고급부분설정</li>
+                <li>입찰실행</li>
+                <li>입찰정지</li>
+                <li>입찰삭제</li>
+              </ul>
+            </div>
+            <button type="button" data-modal="">분류해제</button>
+            <button type="button" data-modal="">분류지정</button>
             <button type="button" data-modal="">입찰이력</button>
             <div class="selectbox">
               <select name="" id="">
@@ -382,7 +395,7 @@
               <div class="keyword">검색 광고 마케터</div>
             </li>
             <li title="키워드상태">
-              <div class="tag type-text">운영가능</div>
+              <div class="tag">운영가능</div>
               ON
             </li>
             <li title="입찰상태">

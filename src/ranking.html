@@ -30,7 +30,8 @@
   <div class="top-banner">
     <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
       <path d="M0 0h24v24H0V0z" fill="none" />
-      <path fill='white' d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
+      <path fill='white'
+        d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
     </svg>
     예시 화면입니다. 서비스를 사용하려면 로그인해주세요.
   </div>
@@ -66,7 +67,7 @@
       </div>
     </section>
     <section class="section-main">
-      <div class="services">
+      <div class="services small">
         <header class="section-header">
           <h3>서비스 이용 현황</h3>
           <a class="right-arrow" href="">서비스 이용 내역 보기</a>
@@ -74,18 +75,18 @@
         <ul>
           <li>
             <div>제공량</div>
-            <strong>20</strong>
-            <span>100.00</span>
+            <strong class="times">20</strong>
+            <span class="percent">100.00</span>
           </li>
           <li>
             <div>이용량</div>
-            <strong>16</strong>
-            <span>80.00</span>
+            <strong class="times">16</strong>
+            <span class="percent">80.00</span>
           </li>
           <li>
             <div>잔여량</div>
-            <strong>4</strong>
-            <span>20.00</span>
+            <strong class="times">4</strong>
+            <span class="percent">20.00</span>
           </li>
         </ul>
       </div>
@@ -97,23 +98,23 @@
         <ul>
           <li>
             <div>전체</div>
-            <strong>16</strong>
-            <span>100.00</span>
+            <strong class="times">16</strong>
+            <span class="percent">100.00</span>
           </li>
           <li>
             <div>40위 안</div>
-            <strong>3</strong>
-            <span>18.75</span>
+            <strong class="times">3</strong>
+            <span class="percent">18.75</span>
           </li>
           <li>
             <div>41 ~ 400위</div>
-            <strong>12</strong>
-            <span>75.00</span>
+            <strong class="times">12</strong>
+            <span class="percent">75.00</span>
           </li>
           <li>
             <div>400위 밖</div>
-            <strong>1</strong>
-            <span>6.25</span>
+            <strong class="times">1</strong>
+            <span class="percent">6.25</span>
           </li>
         </ul>
       </div>
@@ -281,14 +282,14 @@
         </div>
         <div class="filters">
           <div>
-            <div class="selectbox">
-              <select name="" id="">
-                <option value="keyword">키워드</option>
-                <option value="keyword">키워드</option>
-                <option value="keyword">키워드</option>
-              </select>
-            </div>
             <div class="search">
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="keyword">키워드</option>
+                  <option value="keyword">키워드</option>
+                  <option value="keyword">키워드</option>
+                </select>
+              </div>
               <div class="input">
                 <input type="search" />
                 <span class="x"></span>
@@ -429,7 +430,7 @@
               <div class="keyword">원두커피</div>
             </li>
             <li title="현재 순위">
-              <div>400위 밖</div>
+              <div class="ranking">400위 밖</div>
               <div class="tooltip">
                 <div class="tooltip-content">
                   순위가 400위 밖인 경우 상품 정보가 갱신되지 않을 수 있습니다. 정보가 갱신되지 않은 경우 실제 정보와
@@ -438,22 +439,22 @@
               </div>
             </li>
             <li title="전일 순위">
-              <div>3위</div>
+              <div class="ranking">3위</div>
               <div class="page">3위/1페이지</div>
               <div class="tag failed"></div>
             </li>
             <li title="전주 순위">
-              <div>5위</div>
+              <div class="ranking">5위</div>
               <div class="page">5위/1페이지</div>
               <div class="tag failed"></div>
             </li>
             <li title="2주전 순위">
-              <div>5위</div>
+              <div class="ranking">5위</div>
               <div class="page">5위/1페이지</div>
               <div class="tag failed"></div>
             </li>
             <li title="전월 순위">
-              <div>2위</div>
+              <div class="ranking">2위</div>
               <div class="page">3위/1페이지</div>
               <div class="tag failed"></div>
             </li>
@@ -491,27 +492,27 @@
               <div class="keyword">커피원두</div>
             </li>
             <li title="현재 순위">
-              <div>1위</div>
+              <div class="ranking">1위</div>
               <div class="page">1위/1페이지</div>
               <div class="tag type-bg up">2</div>
             </li>
             <li title="전일 순위">
-              <div>3위</div>
+              <div class="ranking">3위</div>
               <div class="page">3위/1페이지</div>
               <div class="tag down">1</div>
             </li>
             <li title="전주 순위">
-              <div>5위</div>
+              <div class="ranking">5위</div>
               <div class="page">5위/1페이지</div>
               <div class="tag up">3</div>
             </li>
             <li title="2주전 순위">
-              <div>5위</div>
+              <div class="ranking">5위</div>
               <div class="page">5위/1페이지</div>
               <div class="tag up">3</div>
             </li>
             <li title="전월 순위">
-              <div>2위</div>
+              <div class="ranking">2위</div>
               <div class="page">3위/1페이지</div>
               <div class="tag same"></div>
             </li>
