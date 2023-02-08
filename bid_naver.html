@@ -294,10 +294,14 @@
       <section>
         <header class="section-header multi-line">
           <div class="title">
-            <button class="btn-advanced-search" type="button">상세검색</button>
+            <div>
+              <button class="ico-eye" title="사용자 지정 보기" data-modal="selectColumns"></button>
+              <button class="btn-advanced-search" type="button">상세검색</button>
+            </div>
             <div class="buttons">
               <button class="btn-sub" type="button" data-modal="searchGroup">분류조회</button>
               <button class="btn-sub" type="button" data-modal="editCategories">분류편집</button>
+              <button class="btn-sub" type="button" data-modal="">지역설정</button>
               <button class="btn-main" class="ico-download" type="button">엑셀다운</button>
             </div>
           </div>
@@ -629,15 +633,14 @@
           </div>
           <div class="filters">
             <div>
-              <button class="ico-eye" title="사용자 지정 보기" data-modal="selectColumns"></button>
-              <div class="selectbox">
-                <select name="" id="">
-                  <option value="keyword">키워드</option>
-                  <option value="keyword">키워드</option>
-                  <option value="keyword">키워드</option>
-                </select>
-              </div>
               <div class="search">
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="keyword">키워드</option>
+                    <option value="keyword">키워드</option>
+                    <option value="keyword">키워드</option>
+                  </select>
+                </div>
                 <div class="input">
                   <input type="search" />
                   <span class="x"></span>
@@ -669,7 +672,6 @@
               <button type="button" data-modal="">분류해제</button>
               <button type="button" data-modal="">분류지정</button>
               <button type="button" data-modal="">입찰이력</button>
-              <button type="button" data-modal="">지역설정</button>
               <div class="selectbox">
                 <select name="" id="">
                   <option value="filter-100">100개씩 보기</option>
@@ -972,9 +974,13 @@
       <section>
         <header class="section-header multi-line">
           <div class="title">
-            <button class="btn-advanced-search" type="button">상세검색</button>
+            <div>
+              <button class="ico-eye" title="사용자 지정 보기" data-modal="selectColumns"></button>
+              <button class="btn-advanced-search" type="button">상세검색</button>
+            </div>
             <div class="buttons">
               <button class="btn-sub" type="button" data-modal="">분류조회</button>
+              <button class="btn-sub" type="button" data-modal="">지역설정</button>
               <button class="btn-main" class="ico-download" type="button">엑셀다운</button>
             </div>
           </div>
@@ -1353,15 +1359,14 @@
           </div>
           <div class="filters">
             <div>
-              <button class="ico-eye" title="사용자 지정 보기"></button>
-              <div class="selectbox">
-                <select name="" id="">
-                  <option value="keyword">키워드</option>
-                  <option value="keyword">키워드</option>
-                  <option value="keyword">키워드</option>
-                </select>
-              </div>
               <div class="search">
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="keyword">키워드</option>
+                    <option value="keyword">키워드</option>
+                    <option value="keyword">키워드</option>
+                  </select>
+                </div>
                 <div class="input">
                   <input type="search" />
                   <span class="x"></span>
@@ -1378,10 +1383,21 @@
               </ul>
             </div>
             <div class="buttons">
-              <button type="button" data-modal="deleteItem">선택한 키워드 관리</button>
-              <button type="button" data-modal="createKeyword">분류관리</button>
+              <div class="dropdown">
+                <button type="button">선택한 키워드 관리</button>
+                <ul>
+                  <li data-modal="settingsNormal">일반설정</li>
+                  <li data-modal="settingsNormalPart">일반부분설정</li>
+                  <li data-modal="settingsAdvanced">고급설정</li>
+                  <li data-modal="settingsAdvancedPart">고급부분설정</li>
+                  <li>입찰실행</li>
+                  <li>입찰정지</li>
+                  <li>입찰삭제</li>
+                </ul>
+              </div>
+              <button type="button" data-modal="">분류해제</button>
+              <button type="button" data-modal="">분류지정</button>
               <button type="button" data-modal="">입찰이력</button>
-              <button type="button" data-modal="">지역설정</button>
               <div class="selectbox">
                 <select name="" id="">
                   <option value="filter-100">100개씩 보기</option>
@@ -1676,9 +1692,13 @@
       <section>
         <header class="section-header multi-line">
           <div class="title">
-            <button class="btn-advanced-search" type="button">상세검색</button>
+            <div>
+              <button class="ico-eye" title="사용자 지정 보기" data-modal="selectColumns"></button>
+              <button class="btn-advanced-search" type="button">상세검색</button>
+            </div>
             <div class="buttons">
               <button class="btn-sub" type="button" data-modal="">분류조회</button>
+              <button class="btn-sub" type="button" data-modal="">지역설정</button>
               <button class="btn-main" class="ico-download" type="button">엑셀다운</button>
             </div>
           </div>
@@ -2010,15 +2030,14 @@
           </div>
           <div class="filters">
             <div>
-              <button class="ico-eye" title="사용자 지정 보기"></button>
-              <div class="selectbox">
-                <select name="" id="">
-                  <option value="keyword">키워드</option>
-                  <option value="keyword">키워드</option>
-                  <option value="keyword">키워드</option>
-                </select>
-              </div>
               <div class="search">
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="keyword">키워드</option>
+                    <option value="keyword">키워드</option>
+                    <option value="keyword">키워드</option>
+                  </select>
+                </div>
                 <div class="input">
                   <input type="search" />
                   <span class="x"></span>
@@ -2035,10 +2054,21 @@
               </ul>
             </div>
             <div class="buttons">
-              <button type="button" data-modal="deleteItem">선택한 키워드 관리</button>
-              <button type="button" data-modal="createKeyword">분류관리</button>
+              <div class="dropdown">
+                <button type="button">선택한 키워드 관리</button>
+                <ul>
+                  <li data-modal="settingsNormal">일반설정</li>
+                  <li data-modal="settingsNormalPart">일반부분설정</li>
+                  <li data-modal="settingsAdvanced">고급설정</li>
+                  <li data-modal="settingsAdvancedPart">고급부분설정</li>
+                  <li>입찰실행</li>
+                  <li>입찰정지</li>
+                  <li>입찰삭제</li>
+                </ul>
+              </div>
+              <button type="button" data-modal="">분류해제</button>
+              <button type="button" data-modal="">분류지정</button>
               <button type="button" data-modal="">입찰이력</button>
-              <button type="button" data-modal="">지역설정</button>
               <div class="selectbox">
                 <select name="" id="">
                   <option value="filter-100">100개씩 보기</option>
