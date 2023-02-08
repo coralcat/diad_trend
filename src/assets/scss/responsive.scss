@@ -310,20 +310,23 @@
   }
 
   .modal {
+
     .modal-content {
-      padding: 0 1rem;
-    }
-
-    &.modal-edit {
-      .list-count {
-        display: flex !important;
-      }
-    }
-
-    .inputs,
-    .buttons {
       padding: 1rem;
     }
+
+    .buttons {
+      padding: 0 1rem 1rem;
+    }
+
+    .list-header {
+      padding: 0;
+    }
+    
+    .list-count {
+      display: flex !important;
+    }
+
     .list {
       flex-direction: column;
       flex-wrap: nowrap;
@@ -337,6 +340,11 @@
         &.title {
           display: flex;
         }
+
+        li {
+          width: auto !important;
+          justify-content: flex-start;
+        }
       }
     }
   }
@@ -347,7 +355,6 @@
       .list,
       .wrapper .list .row,
       .list li,
-      .item-update-failed,
       .progress,
       .col-chart,
       .report,
@@ -547,6 +554,7 @@
       gap: 0.5rem;
 
       .subline {
+        display: none;
         flex-wrap: wrap;
         gap: 0.5rem;
       }
@@ -637,7 +645,7 @@
     .rows {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: .5rem;
     }
 
     .row {
@@ -672,7 +680,6 @@
 
       li {
         flex-direction: row;
-        padding: 0;
         border-bottom: 0;
         background-color: transparent;
         flex-wrap: wrap;
@@ -680,6 +687,7 @@
         justify-content: flex-end;
         position: relative;
         gap: 5px;
+        min-width: auto !important;
         min-height: 32px;
 
         &::before {
@@ -978,11 +986,7 @@
 
         li {
           div {
-            font-size: 14px;
-          }
-          strong {
-            font-size: 17px;
-            right: 0.5rem;
+            font-size: 13px;
           }
         }
       }
@@ -1020,10 +1024,9 @@
         .col-title {
           justify-content: flex-start;
           padding: 0.75rem;
-          min-width: auto !important;
           border-radius: 3px;
           margin: 0.75rem 0;
-          background-color: #f7f8f9 !important;
+          background-color: rgba(180, 190, 200, .1) !important;
 
           .information {
             max-width: none;

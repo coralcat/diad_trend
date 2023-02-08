@@ -1636,6 +1636,8 @@ section {
     height: 60px;
     max-width: calc(100% - 80px - 0.5rem);
     display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
     justify-content: center;
     gap: 0 !important;
     position: relative;
@@ -2181,12 +2183,6 @@ section {
         flex-wrap: nowrap;
         min-width: 540px;
         z-index: 10;
-
-        .information {
-          align-items: flex-start;
-          flex-direction: column;
-          text-align: left;
-        }
 
         [data-tooltip] {
           &::before {
@@ -3404,8 +3400,8 @@ section {
         bottom: 0.75rem;
         top: 50%;
         transform: translateY(-50%);
-        right: 1rem;
-        font-size: 20px;
+        right: .5rem;
+        font-size: clamp(16px, 2.35vw, 20px);
         gap: 2px;
         color: #49536b;
       }
@@ -6134,7 +6130,7 @@ section {
         font-family: "Roboto";
         font-size: 12px;
         position: absolute;
-        right: 1.15rem;
+        right: 1rem;
         display: flex;
         gap: 3px;
         align-items: center;
