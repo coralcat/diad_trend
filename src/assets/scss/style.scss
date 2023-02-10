@@ -75,7 +75,6 @@ body {
 
     &::before,
     &::after {
-      font-family: "MinLight";
       font-size: 90%;
       line-height: normal;
     }
@@ -177,7 +176,7 @@ body {
     gap: 0.5rem;
 
     .input {
-      flex: 1 1 auto
+      flex: 1 1 auto;
     }
 
     input {
@@ -278,12 +277,12 @@ h3 {
 h5 {
   font-size: 14px;
   font-weight: normal;
-  font-family: "RobotoMedium", "MinRegular";
+  font-family: "RobotoMedium", "NanumSquareR";
 }
 
 strong {
   font-weight: normal;
-  font-family: "RobotoMedium", "MinMedium";
+  font-family: "RobotoMedium", "NanumSquareR";
 }
 
 .ico-close {
@@ -342,7 +341,7 @@ button {
     background-size: 18px;
     padding-right: 1.5rem;
     text-overflow: ellipsis;
-    font-family: "Roboto", "MinRegular";
+    font-family: "Roboto", "NanumSquareR";
   }
 }
 
@@ -360,7 +359,7 @@ button {
   white-space: normal;
   text-align: center;
   font-size: 13px;
-  font-family: "MinRegular";
+  font-family: "NanumSquareB";
   transition: 0.25s;
 
   &::before {
@@ -557,6 +556,7 @@ header {
     background: url(../images/logo_diad_trend.svg) no-repeat;
     background-size: 120px;
     width: fit-content;
+    height: 22px;
     padding-left: 3.5rem;
     font-family: "RobotoMedium";
 
@@ -570,6 +570,10 @@ header {
       padding: 0.35rem 0.5rem;
       border: 1px solid #ddd;
       line-height: normal;
+
+      &.btn-main {
+        padding: 0 1rem;
+      }
     }
 
     ul {
@@ -584,9 +588,10 @@ header {
     }
 
     .username {
+      display: flex;
+      align-items: center;
       text-align: center;
-      font-family: "Poppins", "MinRegular";
-      font-size: 13px;
+      cursor: pointer;
 
       &:empty {
         &::before {
@@ -605,24 +610,44 @@ header {
         background-size: 90%;
         border-radius: 20px;
       }
-    }
 
-    .settings {
-      background-position: center;
-      height: 50px;
-      cursor: pointer;
+      > a {
+
+        &::after {
+          content: "";
+          border: 1px solid #333;
+          border-left: 0;
+          border-bottom: 0;
+          transform: rotate(135deg);
+          display: inline-block;
+          width: 6px;
+          height: 6px;
+          margin-left: 0.65rem;
+          margin-top: -4px;
+        }
+      }
+
+      a {
+        transition: color 0.25s;
+      }
+
+      strong {
+        margin: 0 3px;
+        font-family: "Poppins";
+      }
 
       ul {
         flex-direction: column;
         gap: 0;
         opacity: 0;
+        visibility: hidden;
         max-height: 0;
         padding: 0;
-        transform: translateY(10px) translateX(-50%);
+        transform: translateY(10px);
         position: absolute;
         top: 100%;
-        width: 100px;
-        right: 1rem;
+        width: 140px;
+        right: 0;
         background-color: white;
         border: 1px solid #eee;
         transition: 0.25s;
@@ -630,9 +655,11 @@ header {
 
         li {
           padding: 0 1rem;
+          width: 100%;
           height: 40px;
           display: flex;
           align-items: center;
+          justify-content: center;
 
           &:not(:last-of-type) {
             border-bottom: 1px solid #eee;
@@ -643,10 +670,24 @@ header {
       &:hover {
         ul {
           opacity: 1;
+          visibility: visible;
           max-height: 999px;
-          transform: translateY(0) translateX(-50%);
+          transform: translateY(0);
+
+          li {
+            transition: color 0.25s;
+
+            &:hover {
+              color: $main-color;
+
+              a {
+                color: $main-color;
+              }
+            }
+          }
         }
       }
+
     }
   }
 }
@@ -692,6 +733,7 @@ aside {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  overflow-x: hidden;
   overflow-y: auto;
 
   .aside-handler {
@@ -716,7 +758,7 @@ aside {
         fill: none;
         transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
         stroke: white;
-        stroke-width: 5.5;
+        stroke-width: 4;
         stroke-linecap: round;
 
         &:first-of-type {
@@ -761,28 +803,43 @@ aside {
       padding: 0;
       gap: 0;
 
+      ul {
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        max-width: 0;
+        transition: 0s;
+      }
+
       menu {
+        justify-content: center;
+
         &::after {
           content: none !important;
         }
 
         span {
           opacity: 0;
-          display: none;
-          animation: fadeOut 0.25s forwards;
+          visibility: hidden;
+          max-height: 0;
+          max-width: 0;
+          margin-left: 0;
         }
       }
 
       a {
         padding: 0.75rem;
+        justify-content: center;
         &::after {
           border-radius: 0;
         }
 
         span {
           opacity: 0;
-          display: none;
-          animation: fadeOut 0.25s forwards;
+          max-height: 0;
+          max-width: 0;
+          margin-left: 0;
+          transition: 0s;
         }
       }
     }
@@ -869,7 +926,7 @@ aside {
           }
         }
 
-        ul {
+        ul:not(.icons-only ul) {
           max-height: 999px;
           opacity: 1;
           visibility: visible;
@@ -879,7 +936,6 @@ aside {
       menu {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
         padding: 0.35rem 0.75rem;
         background-size: 200% 200%;
         position: relative;
@@ -909,7 +965,7 @@ aside {
       padding: 0 0.5rem;
       display: flex;
       gap: 5px;
-      transition: 0.25s;
+      transition: 0.25s opacity 0.15s;
 
       li {
         padding: 0.5rem 0.75rem;
@@ -952,13 +1008,15 @@ aside {
     }
 
     span {
+      margin-left: 0.5rem;
+      max-height: 20px;
       flex: 1;
       display: flex;
       align-items: center;
       gap: 0.35rem;
       color: rgba(255, 255, 255, 0.75);
       z-index: 5;
-      transition: color 0.25s;
+      transition: 0.25s opacity 0.1s;
 
       &::before {
         border: 1px solid rgba(255, 255, 255, 0.25);
@@ -1024,8 +1082,9 @@ aside {
       li {
         opacity: 0.35;
         position: relative;
-        font-size: clamp(18px, 2vw, 24px);
         white-space: nowrap;
+        font-size: clamp(18px, 2vw, 24px);
+        font-family: "RobotoMedium", "NanumSquareB";
         transition: 0.25s;
 
         &:hover,
@@ -1052,7 +1111,7 @@ aside {
       padding: 0;
 
       h1 {
-        font-family: "MinMedium";
+        font-family: "NanumSquareB";
         font-size: 24px;
 
         .tooltip {
@@ -1073,7 +1132,7 @@ aside {
       display: flex;
       align-items: center;
       gap: 0.25rem;
-      font-family: "RobotoMedium", "MinRegular";
+      font-family: "RobotoMedium", "NanumSquareR";
 
       .date {
         font-size: 13px;
@@ -1145,7 +1204,7 @@ aside {
           }
 
           .count {
-            font-family: "RobotoMedium", "MinRegular";
+            font-family: "RobotoMedium", "NanumSquareR";
             font-size: 16px;
             color: $main-color;
 
@@ -1203,7 +1262,7 @@ section {
       }
 
       li {
-        width: min(45%, 180px);
+        width: min(45%, 100px);
       }
     }
 
@@ -1655,7 +1714,7 @@ section {
       white-space: nowrap;
       text-overflow: ellipsis;
       line-height: 1;
-      font-family: "RobotoMedium", "MinMedium";
+      font-family: "RobotoMedium", "NanumSquareR";
       overflow: hidden;
       cursor: pointer;
     }
@@ -1688,7 +1747,7 @@ section {
   li {
     display: flex;
     align-items: center;
-    font-family: "RobotoMedium", "MinLight";
+    font-family: "RobotoMedium", "NanumSquareR";
     font-size: 16px;
 
     &:not(:last-of-type) {
@@ -1746,7 +1805,7 @@ section {
   &.count-group {
     span {
       font-size: 16px;
-      font-family: "RobotoMedium", "MinLight";
+      font-family: "RobotoMedium", "NanumSquareR";
       display: flex;
       align-items: baseline;
       gap: 0.15rem;
@@ -1812,6 +1871,13 @@ section {
     .col-title {
       left: 40px;
     }
+
+    .row {
+
+      li {
+        flex: 0 0 auto
+      }
+    }
   }
 
   button {
@@ -1842,7 +1908,7 @@ section {
     min-width: 40px;
     font-size: 12px;
     line-height: normal;
-    font-family: "RobotoMedium", "MinMedium";
+    font-family: "RobotoMedium", "NanumSquareR";
     white-space: nowrap;
 
     &::before {
@@ -1876,7 +1942,7 @@ section {
 
       &::before {
         font-size: 13px !important;
-        font-family: "RobotoMedium", "MinRegular";
+        font-family: "RobotoMedium", "NanumSquareR";
       }
 
       &.high {
@@ -1945,7 +2011,7 @@ section {
       &::before {
         content: "확인불가";
         font-size: 11px;
-        font-family: "MinRegular";
+        font-family: "NanumSquareR";
       }
     }
 
@@ -2057,7 +2123,6 @@ section {
         padding: 0.5rem;
         background-color: #f7f8f9;
         color: #565e72;
-        font-family: "Roboto", "MinLight" !important;
         word-break: keep-all;
 
         &:not(:last-of-type) {
@@ -2135,7 +2200,7 @@ section {
       width: 20%;
       min-height: 36px;
       padding: 0.75rem 0.5rem;
-      font-family: "RobotoMedium", "MinRegular";
+      font-family: "RobotoMedium", "NanumSquareR";
       transition: background-color 0.25s;
 
       &:empty {
@@ -2170,7 +2235,7 @@ section {
 
       &.col-100 {
         flex: 0 0 auto;
-        width: 100px;
+        width: 100px !important;
       }
 
       &.col-chart {
@@ -2376,7 +2441,7 @@ section {
 
     .article-title {
       margin-bottom: 0.75rem;
-      font-family: "RobotoMedium", "MinMedium";
+      font-family: "RobotoMedium", "NanumSquareR";
       font-size: 16px;
 
       strong {
@@ -2712,7 +2777,7 @@ section {
       font-size: clamp(2rem, 2.15vw, 3rem);
       align-items: flex-start;
       margin-bottom: 3rem;
-      font-family: "MinMedium";
+      font-family: "NanumSquareR";
 
       p {
         font-size: clamp(2rem, 2.15vw, 3rem);
@@ -3407,8 +3472,8 @@ section {
         bottom: 0.75rem;
         top: 50%;
         transform: translateY(-50%);
-        right: .5rem;
-        font-size: clamp(16px, 2.35vw, 20px);
+        right: 0.5rem;
+        font-size: clamp(16px,1.5vw,20px);
         gap: 2px;
         color: #49536b;
       }
@@ -3440,7 +3505,7 @@ section {
           &.times {
             color: $main-color;
             font-size: 15px;
-            font-family: "RobotoMedium";
+            font-family: "RobotoMedium", "NanumSquareR";
           }
         }
       }
@@ -3560,10 +3625,7 @@ section {
       }
 
       li {
-        position: relative;
-        flex: 0 0 auto;
         width: 120px;
-        border-bottom: 1px solid #eee;
 
         .tooltip-content {
           left: 100%;
@@ -3731,8 +3793,10 @@ section {
         border-radius: 50%;
         width: 180px;
         height: 180px;
+        aspect-ratio: 1;
         background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='128' width='128'%3E%3Cg fill='none' stroke='%23e7e8e9' stroke-width='6'%3E%3Crect x='24' y='32' rx='2' ry='2' height='64' width='80'%3E%3C/rect%3E%3Cpath d='M24 84 L48 68 L64 80 L94 52 L104 60'%3E%3C/path%3E%3C/g%3E%3Ccircle cx='44' cy='50' r='8' fill='none' stroke='%23e7e8e9' stroke-width='3'%3E%3C/circle%3E%3C/svg%3E")
           center no-repeat;
+        background-size: 80%;
         box-shadow: inset 0px 0px 0px 2px #f1f2f3;
 
         img {
@@ -3785,7 +3849,7 @@ section {
       color: $main-color;
 
       li {
-        font-family: "RobotoMedium", "MinRegular";
+        font-family: "RobotoMedium", "NanumSquareR";
 
         > :first-of-type {
           font-size: 13px;
@@ -3899,7 +3963,7 @@ section {
         &.title {
           .date {
             font-weight: normal;
-            font-family: "RobotoMedium", "MinRegular";
+            font-family: "RobotoMedium", "NanumSquareR";
             color: #49536b;
           }
 
@@ -4175,7 +4239,7 @@ section {
         text-align: center;
         justify-content: center;
         margin: 0 auto;
-        font: bold 16px "Poppins", "MinMedium";
+        font: bold 16px "Poppins", "NanumSquareR";
       }
     }
 
@@ -4211,7 +4275,7 @@ section {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        font-family: "RobotoMedium", "MinRegular";
+        font-family: "RobotoMedium", "NanumSquareR";
         white-space: nowrap;
 
         > :first-child {
@@ -4304,7 +4368,6 @@ section {
       li {
         width: 100px;
         position: relative;
-        flex: 0 0 auto;
         border-bottom: 1px solid #eee;
 
         &.col-keyword {
@@ -4465,7 +4528,10 @@ section {
   .report {
     display: flex;
     gap: 1rem;
-    align-items: center;
+
+    .chart {
+      align-self: center;
+    }
   }
 
   .layout {
@@ -4611,7 +4677,7 @@ section {
           display: flex;
           align-items: center;
           color: slategray;
-          font-family: "RobotoMedium", "MinLight";
+          font-family: "RobotoMedium", "NanumSquareR";
           white-space: nowrap;
 
           strong {
@@ -4944,6 +5010,16 @@ section {
         gap: 1rem;
         flex-wrap: wrap;
 
+        .tag {
+          position: absolute;
+          top: .75rem;
+          right: .75rem;
+
+          &.naver {
+            right: 3.5rem
+          }
+        }
+
         .rows {
           display: flex;
           flex-direction: row;
@@ -4955,7 +5031,7 @@ section {
           border: 1px solid #f1f2f3;
           width: calc(20% - 0.8rem);
           border-radius: 0.5rem;
-          padding: 1.25rem;
+          padding: 3rem 1rem 1rem;
           gap: 0.25rem;
           justify-content: center;
           align-items: center;
@@ -4986,7 +5062,6 @@ section {
             padding: 0;
             white-space: normal;
             border: 0;
-            position: relative !important;
             background-color: transparent;
 
             &.col-ranking {
@@ -4999,7 +5074,7 @@ section {
               border-radius: 0 0 3px 3px;
               padding: 3px;
               color: white;
-              width: 1.75rem;
+              width: 1.75rem !important;
               height: 2.25rem;
               z-index: 1;
             }
@@ -5014,6 +5089,13 @@ section {
               .image {
                 width: 120px;
                 height: 120px;
+              }
+
+              .name {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;
+                overflow: hidden;
               }
 
               .title {
@@ -5446,7 +5528,7 @@ section {
               &.is-active {
                 color: white;
                 background-color: #333;
-                font-family: "MinLight";
+                font-family: "NanumSquareL";
               }
             }
           }
@@ -5554,7 +5636,6 @@ section {
             font-size: 13px;
             color: #939699;
             margin-bottom: 0.25rem;
-            font-family: "MinLight";
           }
         }
 
@@ -6010,7 +6091,6 @@ section {
   .caution {
     color: slategray;
     font-size: 13px;
-    font-family: "MinLight";
   }
 
   .right-arrow {
@@ -6051,7 +6131,7 @@ section {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font: 15px "RobotoMedium", "MinMedium";
+        font: 15px "RobotoMedium", "NanumSquareR";
       }
     }
 
@@ -6084,7 +6164,7 @@ section {
     text-align: center;
 
     .title {
-      font-family: "RobotoMedium", "MinRegular";
+      font-family: "RobotoMedium", "NanumSquareR";
       margin-bottom: 0.5rem;
     }
   }
@@ -6120,7 +6200,7 @@ section {
       border: 0;
       flex-direction: row;
       justify-content: flex-start;
-      padding: 0.25rem 0.5rem;
+      padding: 0.25rem 0.5rem !important;
       position: relative;
 
       &.keyword {
