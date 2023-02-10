@@ -49,6 +49,15 @@ document.addEventListener("DOMContentLoaded", () => {
     content.scrollTo({top: 0, behavior: "smooth"});
   });
 
+  const ro = new ResizeObserver(() => {
+    const aside = document.querySelector("aside");
+    matchMedia("screen and (max-width: 1280px)").matches && aside.classList.add("icons-only");
+    matchMedia("screen and (max-width: 640px)").matches && aside.classList.remove("icons-only");
+    matchMedia("screen and (min-width: 1281px)").matches && aside.classList.remove("icons-only");
+  });
+
+  ro.observe(document.querySelector("main"));
+
   /* =====================================================
        Progress Bar
   ===================================================== */
