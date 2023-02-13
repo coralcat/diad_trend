@@ -365,6 +365,8 @@ document.addEventListener("DOMContentLoaded", () => {
     selectGroup:
       "이미 그룹이 지정된 키워드가 있습니다. 그룹을 지정하실 경우 기존 그룹이 새로 지정된 그룹으로 대체됩니다. 그룹지정을 진행하시겠습니까?",
     selectGroupApply: "그룹지정이 완료되었습니다.",
+    deleteAccount: "계정을 삭제하시겠습니까?",
+    deleteAccountApply: "계정을 삭제하였습니다.",
   };
 
   const initialize = () => {
@@ -469,6 +471,11 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         openConfirmModal();
       }
+    }
+
+    // 계정관리: 계정삭제
+    if (modalData === "deleteAccount") {
+        openConfirmModal();
     }
 
     // 상품 순위 추적: 그룹편집팝업 - 그룹추가

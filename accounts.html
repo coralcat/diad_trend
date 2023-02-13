@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>다이애드 TREND</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+  <script src="assets/lib/amcharts/index.js"></script>
+  <script src="assets/lib/amcharts/responsive.js"></script>
+  <script src="assets/lib/amcharts/xy.js"></script>
+  <script src="assets/lib/amcharts/percent.js"></script>
+  <script src="assets/lib/amcharts/animated.js"></script>
+  <script src="assets/lib/jquery/jquery-3.6.0.js"></script>
+  <script src="assets/lib/jquery/jquery-ui-1.13.0.js"></script>
+  <script src="assets/js/main.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <a href="index.html" class="logo">trend</a>    
+    <nav>
+      <ul>
+        <li>
+          <div href="#" class="username" target="_blank">
+            <menu><strong>coralcat</strong></menu>
+            <ul>
+              <li onclick="location.href='accounts.html'">계정 설정</li>
+              <li onclick="location.href='settings.html'">알림 설정</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="hamburg-menu responsive">
+      <svg viewBox="0 0 100 100" width="80">
+        <path
+          d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
+        <path d="m 30,50 h 40" />
+        <path
+          d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
+      </svg>
+    </div>
+  </header>
+  <main>
+      
+<aside>
+  <button class="aside-handler">
+    <svg viewBox="0 0 100 100" width="80">
+      <path d="m 30,33 h 40 c 0,0 8.5,-0.68551 8.5,10.375 0,8.292653 -6.122707,9.002293 -8.5,6.625 l -11.071429,-11.071429" />
+      <path d="m 70,50 h -40" />
+      <path d="m 30,67 h 40 c 0,0 8.5,0.68551 8.5,-10.375 0,-8.292653 -6.122707,-9.002293 -8.5,-6.625 l -11.071429,11.071429" />
+    </svg>
+  </button>
+  <nav>
+    <div class="   ">
+      <menu>
+        <i class="ico-ranking"></i>
+        <span onclick="location.href='tracking.html'">스토어</span>
+      </menu>
+      <ul>
+        <li class="">
+          <span class="gmarket" onclick="location.href='track_gmarket.html'">지마켓 판매량 추적</span>
+        </li>
+        <li class="">
+          <span class="naver" onclick="location.href='ranking.html'">네이버 순위 추적</span>
+        </li>
+        <li class="">
+          <span class="naver" onclick="location.href='lowest_price.html'">네이버 최저가 추적</span>
+        </li>
+      </ul>
+    </div>
+    <div class="    ">
+      <menu>
+        <i class="ico-price"></i>
+        <span onclick="location.href='bidding.html'">자동입찰</span>
+      </menu>
+      <ul>
+        <li class="">
+          <span class="naver" onclick="location.href='bid_naver.html'">네이버</span>
+        </li>
+        <li class="">
+          <span class="eleventh" onclick="location.href='bid_11st.html'">11번가</span>
+        </li>
+        <li class="">
+          <span class="gmarket" onclick="location.href='bid_gmarket.html'">지마켓 파워클릭</span>
+        </li>
+        <li class="">
+          <span class="google" onclick="location.href='bid_google.html'">구글 검색광고</span>
+        </li>
+      </ul>
+    </div>
+    <div class="">
+      <menu>
+        <i class="ico-trend"></i>
+        <span onclick="location.href='keyword.html'">키워드 분석</span>
+      </menu>
+    </div>
+    <div>
+      <menu>
+        <i class="ico-calendar"></i>
+        <span onclick="location.href='calendar.html'">다이애드 캘린더</span>
+      </menu>
+    </div>
+    <div>
+      <menu>
+        <i class="ico-ranking"></i>
+        <span class="ico-link" onclick="window.open('https://blog.diad.co.kr/manual')">다이애드 매뉴얼</span>
+      </menu>
+    </div>
+    <div style="display: none;">
+      <menu>
+        <i class="ico-ranking"></i>
+        <span>다이애드 +</span>
+      </menu>
+      <ul>
+        <li>
+          <span>다이애드 캘린더</span>
+        </li>
+        <li>
+          <span onclick="window.open('https://blog.diad.co.kr/manual')">다이애드 매뉴얼</span>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <nav style="display: none;">
+    <a class="" href="ranking.html">
+      <i class="ico-ranking"></i>
+      <span>상품 순위 추적</span>
+    </a>
+    <a class="" href="lowest_price.html">
+      <i class="ico-price"></i>
+      <span>최저가 알림</span>
+    </a>
+    <a class="" href="keyword.html">
+      <i class="ico-trend"></i>
+      <span>키워드 트렌드</span>
+    </a>
+    <a class="" href="settings.html">
+      <i class="ico-alarm"></i>
+      <span>알림설정</span>
+    </a>
+  </nav>
+</aside>
+
+<div class="content content-accounts">
+  <header class="main-header">
+    <section class="title">
+      <h1>
+        <span>계정 관리</span>
+        <div class="tooltip">
+          <article class="tooltip-content">
+            <dl>
+              <dd></dd>
+            </dl>
+          </article>
+        </div>
+      </h1>
+    </section>
+  </header>
+  <div class="wrapper">
+    <section>
+      <header class="section-header">
+        <h3>계정 관리</h3>
+        <div class="buttons">
+          <div class="dropdown">
+            <button class="btn-main" type="button" data-modal="createItem">계정 추가</button>
+            <ul>
+              <li data-modal="accountNaver">네이버</li>
+              <li data-modal="accountEleventh">11번가</li>
+              <li data-modal="accountGmarket">지마켓</li>
+              <li data-modal="accountGoogle">구글</li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="list">
+        <ul class="row title">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
+              <label for="checkAll"></label>
+            </div>
+          </li>
+          <li class="ico-sort">매체</li>
+          <li class="ico-sort">광고상품</li>
+          <li class="ico-sort">계정 아이디</li>
+          <li class="ico-sort">상태</li>
+          <li class="ico-sort">상세내용</li>
+          <li class="ico-sort">
+            생성일
+          </li>
+          <li class="ico-sort">
+            수정일
+          </li>
+        </ul>
+        <div class="rows" data-empty="등록하신 계정이 없습니다.">
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-01" name="select-item" type="checkbox" />
+                <label for="check-01"></label>
+              </div>
+            </li>
+            <li title="매체">
+              11번가
+            </li>
+            <li title="광고상품">
+              포커스클릭
+            </li>
+            <li title="계정 아이디">
+              <button class="btn-sub" data-modal="editAccount">3scoltd (3scoltd)</button>
+            </li>
+            <li title="상태">
+              <div class="tag type-text">연결완료</div>
+            </li>
+            <li title="상세내용">
+              계정 연결이 완료되었습니다.
+            </li>
+            <li title="생성일">
+              2022-11-30 오후 2:51:20
+            </li>
+            <li title="수정일">
+              2020-07-28 오후 3:43:58
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-01" name="select-item" type="checkbox" />
+                <label for="check-01"></label>
+              </div>
+            </li>
+            <li title="매체">
+              11번가
+            </li>
+            <li title="광고상품">
+              포커스클릭
+            </li>
+            <li title="계정 아이디">
+              <button class="btn-sub" data-modal="editAccount">3scoltd (3scoltd)</button>
+            </li>
+            <li title="상태">
+              <div class="tag type-text">연결완료</div>
+            </li>
+            <li title="상세내용">
+              계정 연결이 완료되었습니다.
+            </li>
+            <li title="생성일">
+              2022-11-30 오후 2:51:20
+            </li>
+            <li title="수정일">
+              2020-07-28 오후 3:43:58
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-01" name="select-item" type="checkbox" />
+                <label for="check-01"></label>
+              </div>
+            </li>
+            <li title="매체">
+              11번가
+            </li>
+            <li title="광고상품">
+              포커스클릭
+            </li>
+            <li title="계정 아이디">
+              <button class="btn-sub" data-modal="editAccount">3scoltd (3scoltd)</button>
+            </li>
+            <li title="상태">
+              <div class="tag type-text">연결완료</div>
+            </li>
+            <li title="상세내용">
+              계정 연결이 완료되었습니다.
+            </li>
+            <li title="생성일">
+              2022-11-30 오후 2:51:20
+            </li>
+            <li title="수정일">
+              2020-07-28 오후 3:43:58
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-01" name="select-item" type="checkbox" />
+                <label for="check-01"></label>
+              </div>
+            </li>
+            <li title="매체">
+              11번가
+            </li>
+            <li title="광고상품">
+              포커스클릭
+            </li>
+            <li title="계정 아이디">
+              <button class="btn-sub" data-modal="editAccount">3scoltd (3scoltd)</button>
+            </li>
+            <li title="상태">
+              <div class="tag type-text">연결완료</div>
+            </li>
+            <li title="상세내용">
+              계정 연결이 완료되었습니다.
+            </li>
+            <li title="생성일">
+              2022-11-30 오후 2:51:20
+            </li>
+            <li title="수정일">
+              2020-07-28 오후 3:43:58
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-01" name="select-item" type="checkbox" />
+                <label for="check-01"></label>
+              </div>
+            </li>
+            <li title="매체">
+              11번가
+            </li>
+            <li title="광고상품">
+              포커스클릭
+            </li>
+            <li title="계정 아이디">
+              <button class="btn-sub" data-modal="editAccount">3scoltd (3scoltd)</button>
+            </li>
+            <li title="상태">
+              <div class="tag type-text">연결완료</div>
+            </li>
+            <li title="상세내용">
+              계정 연결이 완료되었습니다.
+            </li>
+            <li title="생성일">
+              2022-11-30 오후 2:51:20
+            </li>
+            <li title="수정일">
+              2020-07-28 오후 3:43:58
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-01" name="select-item" type="checkbox" />
+                <label for="check-01"></label>
+              </div>
+            </li>
+            <li title="매체">
+              11번가
+            </li>
+            <li title="광고상품">
+              포커스클릭
+            </li>
+            <li title="계정 아이디">
+              <button class="btn-sub" data-modal="editAccount">3scoltd (3scoltd)</button>
+            </li>
+            <li title="상태">
+              <div class="tag type-text">연결완료</div>
+            </li>
+            <li title="상세내용">
+              계정 연결이 완료되었습니다.
+            </li>
+            <li title="생성일">
+              2022-11-30 오후 2:51:20
+            </li>
+            <li title="수정일">
+              2020-07-28 오후 3:43:58
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-01" name="select-item" type="checkbox" />
+                <label for="check-01"></label>
+              </div>
+            </li>
+            <li title="매체">
+              11번가
+            </li>
+            <li title="광고상품">
+              포커스클릭
+            </li>
+            <li title="계정 아이디">
+              <button class="btn-sub" data-modal="editAccount">3scoltd (3scoltd)</button>
+            </li>
+            <li title="상태">
+              <div class="tag type-text">연결완료</div>
+            </li>
+            <li title="상세내용">
+              계정 연결이 완료되었습니다.
+            </li>
+            <li title="생성일">
+              2022-11-30 오후 2:51:20
+            </li>
+            <li title="수정일">
+              2020-07-28 오후 3:43:58
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-01" name="select-item" type="checkbox" />
+                <label for="check-01"></label>
+              </div>
+            </li>
+            <li title="매체">
+              11번가
+            </li>
+            <li title="광고상품">
+              포커스클릭
+            </li>
+            <li title="계정 아이디">
+              <button class="btn-sub" data-modal="editAccount">3scoltd (3scoltd)</button>
+            </li>
+            <li title="상태">
+              <div class="tag type-text">연결완료</div>
+            </li>
+            <li title="상세내용">
+              계정 연결이 완료되었습니다.
+            </li>
+            <li title="생성일">
+              2022-11-30 오후 2:51:20
+            </li>
+            <li title="수정일">
+              2020-07-28 오후 3:43:58
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-01" name="select-item" type="checkbox" />
+                <label for="check-01"></label>
+              </div>
+            </li>
+            <li title="매체">
+              11번가
+            </li>
+            <li title="광고상품">
+              포커스클릭
+            </li>
+            <li title="계정 아이디">
+              <button class="btn-sub" data-modal="editAccount">3scoltd (3scoltd)</button>
+            </li>
+            <li title="상태">
+              <div class="tag type-text">연결완료</div>
+            </li>
+            <li title="상세내용">
+              계정 연결이 완료되었습니다.
+            </li>
+            <li title="생성일">
+              2022-11-30 오후 2:51:20
+            </li>
+            <li title="수정일">
+              2020-07-28 오후 3:43:58
+            </li>
+          </ul>
+        </div>
+      </div>
+      <footer class="section-footer">
+        <div class="pagination">
+          <button onclick="" type="button">
+            <div class="arrow double left"></div>
+          </button>
+          <button onclick="" type="button">
+            <div class="arrow left"></div>
+          </button>
+          <div class="pages">
+            <button class="is-active" onclick="" type="button">1</button>
+            <button onclick="" type="button">2</button>
+            <button onclick="" type="button">3</button>
+            <button onclick="" type="button">4</button>
+            <button onclick="" type="button">5</button>
+          </div>
+          <button onclick="" type="button">
+            <div class="arrow right"></div>
+          </button>
+          <button onclick="" type="button">
+            <div class="arrow double right"></div>
+          </button>
+        </div>
+      </footer>
+    </section>
+  </div>
+</div>
+
+<div id="editAccount" class="modal modal-list">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>계정 상세</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <div class="list">
+        <header class="list-header">
+          <h3>3scoltd</h3>
+          <button class="btn-grayscale ico-delete" data-modal="deleteAccount"></button>
+        </header>
+        <ul class="row">
+          <li>매체</li>
+          <li>
+            11번가
+          </li>
+        </ul>
+        <ul class="row">
+          <li>광고상품</li>
+          <li>포커스클릭</li>
+        </ul>
+        <ul class="row">
+          <li>비밀번호</li>
+          <li>
+            <input type="password" value="12345">
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" data-modal="editAccount" type="button">수정</button>
+    </div>
+  </div>
+</div>
+
+<div id="accountNaver" class="modal modal-list">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>계정 추가</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <div class="list">
+        <ul class="row">
+          <li>매체</li>
+          <li>
+            네이버
+          </li>
+        </ul>
+        <ul class="row">
+          <li>광고상품</li>
+          <li>
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="">검색광고</option>
+                <option value="">쇼핑검색광고</option>
+                <option value="">파워콘텐츠</option>
+              </select>
+            </div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>계정 이름</li>
+          <li>
+            <input type="text" value="">
+          </li>
+        </ul>
+        <ul class="row">
+          <li>CUSTOMER_ID</li>
+          <li>
+            <input type="text" />
+          </li>
+        </ul>
+        <ul class="row">
+          <li>액세스 라이센스</li>
+          <li>
+            <input type="text">
+          </li>
+        </ul>
+        <ul class="row">
+          <li>비밀키</li>
+          <li>
+            <input type="password" value="">
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" data-modal="apply" type="button">추가</button>
+    </div>
+  </div>
+</div>
+
+<div id="accountEleventh" class="modal modal-list">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>계정 추가</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <div class="list">
+        <ul class="row">
+          <li>매체</li>
+          <li>
+            11번가
+          </li>
+        </ul>
+        <ul class="row">
+          <li>광고상품</li>
+          <li>
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="">포커스클릭</option>
+                <option value="">브랜드검색</option>
+              </select>
+            </div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>계정 아이디</li>
+          <li>
+            <input type="text" value="">
+          </li>
+        </ul>
+        <ul class="row">
+          <li>비밀번호</li>
+          <li>
+            <input type="password" value="">
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" data-modal="apply" type="button">추가</button>
+    </div>
+  </div>
+</div>
+
+<div id="accountGmarket" class="modal modal-list">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>계정 추가</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <div class="list">
+        <ul class="row">
+          <li>매체</li>
+          <li>
+            지마켓
+          </li>
+        </ul>
+        <ul class="row">
+          <li>광고상품</li>
+          <li>
+            파워클릭
+          </li>
+        </ul>
+        <ul class="row">
+          <li>계정 아이디</li>
+          <li>
+            <input type="text" value="">
+          </li>
+        </ul>
+        <ul class="row">
+          <li>비밀번호</li>
+          <li>
+            <input type="password" value="">
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" data-modal="apply" type="button">추가</button>
+    </div>
+  </div>
+</div>
+
+<div id="accountGoogle" class="modal modal-list">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>계정 추가</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section>
+        <div class="caution">
+          <p>※ 구글 검색광고는 계정 추가 후 관리자 계정과 사용자 계정을 연결하는 과정을 거친 후 사용 가능하므로, 실제 사용하기까지 일부 시간이 소요됩니다.</p>
+          <p>※ 계정 추가 후 구글 애즈 > 도구 및 설정 > 액세스 및 보안에서 관리자 계정의 초대를 수락하셔야 계정 연결이 완료됩니다.</p>
+        </div>
+      </section>
+      <section>
+        <div class="list">
+          <ul class="row">
+            <li>매체</li>
+            <li>
+              구글
+            </li>
+          </ul>
+          <ul class="row">
+            <li>광고상품</li>
+            <li>
+              검색광고
+            </li>
+          </ul>
+          <ul class="row">
+            <li>고객ID</li>
+            <li>
+              <input type="text" value="" placeholder="'-'없이 입력해주세요.">
+            </li>
+          </ul>
+          <ul class="row">
+            <li>메모</li>
+            <li>
+              <input type="password" value="" placeholder="(선택입력) 계정 메모를 입력해주세요.">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" data-modal="apply" type="button">추가</button>
+    </div>
+  </div>
+</div>
+
+  </main>
+</body>
+
+</html>
