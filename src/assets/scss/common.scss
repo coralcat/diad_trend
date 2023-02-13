@@ -12,7 +12,7 @@
 
 @font-face {
   font-family: "Poppins";
-  src: url("../fonts/Poppins-Regular.ttf") format("truetype");
+  src: url("../fonts/Poppins-Medium.ttf") format("truetype");
 }
 
 @font-face {
@@ -181,11 +181,7 @@ input {
     border-radius: 3px;
     padding: 0.5rem;
     position: relative;
-    font: 14px/1 "NanumSquareR";
-  }
-
-  &[type="password"] {
-    font-family: initial;
+    font: 14px/1 "Roboto", "NanumSquareR";
   }
 }
 
@@ -1105,7 +1101,7 @@ input[type="radio"] {
 
 .tab-content {
   display: none;
-  gap: 1rem;
+  gap: .75rem;
   width: 100%;
 
   &.active {
