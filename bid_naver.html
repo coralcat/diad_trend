@@ -25,7 +25,7 @@
       <ul>
         <li>
           <div href="#" class="username" target="_blank">
-            <menu><strong>coralcat</strong></menu>
+            <menu>coralcat</menu>
             <ul>
               <li onclick="location.href='accounts.html'">계정 설정</li>
               <li onclick="location.href='settings.html'">알림 설정</li>
@@ -757,8 +757,7 @@
                 정지
               </li>
               <li title="입찰설정">
-                <button class="btn-sub
-                ">고급설정</button>
+                <button class="btn-sub" data-modal="settingsAdvanced">고급설정</button>
               </li>
               <li title="입찰주기">
                 5
@@ -1488,7 +1487,7 @@
                 정지
               </li>
               <li title="입찰설정">
-                <button class="btn-sub">고급설정</button>
+                <button class="btn-sub" data-modal="settingsAdvanced">고급설정</button>
               </li>
               <li title="입찰주기">
                 5
@@ -2154,7 +2153,7 @@
                 정지
               </li>
               <li title="입찰설정">
-                <button class="btn-sub">고급설정</button>
+                <button class="btn-sub" data-modal="settingsAdvanced">고급설정</button>
               </li>
               <li title="입찰주기">
                 5
@@ -2733,6 +2732,7 @@
     </div>
   </div>
 </div>
+
 <div id="settingsNormalPart" class="modal" title="일반부분설정">
   <div class="dialog">
     <header class="modal-header">
@@ -2872,6 +2872,771 @@
     </div>
   </div>
 </div>
+
+<div id="settingsAdvanced" class="modal" title="고급설정">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>고급설정</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section>
+        <div class="caution">
+          <p>※ 입찰주기는 사용하신 등급에 따라 선택조건이 달라집니다.</p>
+          <p>※ 현재 회원님의 사용등급은 이므로 0분 이상 설정이 가능합니다.</p>
+          <p>※ 입찰은 PC 15위, 모바일 5위 이내로 설정이 가능합니다.</p>
+          <p>※ 광고센터에서 특정 지역을 광고 노출 제외 지역으로 설정할 경우 입찰이 원활하지 않을 수 있습니다. (예: 서울)</p>
+          <p>※ 고급설정: 요일/시간대별 입찰 설정을 다르게 할 수 있습니다.</p>
+          <p>※ 템플릿 불러오기/저장하기: 설정한 입찰정보를 저장하여 추후 다른 키워드 입찰 시 보다 편리하게 입찰이 가능합니다.</p>
+          <p>※ 요일/시간 노출 제외시 자동입찰 OFF 설정 필수</p>
+        </div>
+      </section>
+      <section>
+        <div class="list list-advanced-settings">
+          <ul class="row title">
+            <li>월</li>
+            <li>화</li>
+            <li>수</li>
+            <li>목</li>
+            <li>금</li>
+            <li>토</li>
+            <li>일</li>
+          </ul>
+          <div class="row">
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tag">ON</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tag">ON</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tag">ON</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tag">ON</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tag">ON</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tag">ON</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tag">ON</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+          </div>
+          <div class="row">
+            <ol class="inactive">
+              <li title="입찰상태">
+                <div class="tag">OFF</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위"></li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price"></div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰"></li>
+            </ol>
+            <ol></ol>
+            <ol class="">
+              <li title="입찰상태">
+                <div class="tag">OFF</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위"></li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price"></div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰"></li>
+            </ol>
+            <ol></ol>
+            <ol class="">
+              <li title="입찰상태">
+                <div class="tag">OFF</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위"></li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price"></div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰"></li>
+            </ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol class="inactive">
+              <li title="입찰상태">
+                <div class="tag">ON</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="inactive">
+              <li title="입찰상태">
+                <div class="tag">ON</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="inactive">
+              <li title="입찰상태">
+                <div class="tag">ON</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="inactive">
+              <li title="입찰상태">
+                <div class="tag">ON</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="inactive">
+              <li title="입찰상태">
+                <div class="tag">ON</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="inactive">
+              <li title="입찰상태">
+                <div class="tag">ON</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="inactive">
+              <li title="입찰상태">
+                <div class="tag">ON</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tag">ON</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="inactive"></ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tag">ON</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="inactive"></ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tag">ON</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="inactive"></ol>
+            <ol class="inactive"></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tag">ON</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tag">ON</div>
+              </li>
+              <li title="입찰대상">
+                <div class="tag">PC일반</div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" type="button" data-modal="">입찰적용</button>
+    </div>
+  </div>
+</div>
+
 
   </main>
 </body>
