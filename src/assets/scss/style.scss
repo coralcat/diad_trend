@@ -167,7 +167,7 @@ body {
     font-family: "Poppins", "NanumSquareR";
   }
 
-  :is(.price, .percent, .times) {
+  :is(.price, .percent, .times, .rank) {
     display: flex;
     line-height: normal;
     gap: 2px !important;
@@ -187,6 +187,36 @@ body {
       &::after {
         content: "-" !important;
       }
+    }
+
+    &.inputs {
+      gap: .5rem !important
+    }
+  }
+
+  .price {
+    flex-direction: row-reverse;
+    &::after {
+      content: "\20A9";
+    }
+  }
+
+  .percent {
+    &::after {
+      content: "%";
+    }
+  }
+
+  .times {
+    &::after {
+      content: "건";
+      color: #333;
+    }
+  }
+
+  .rank {
+    &::after {
+      content: "위";
     }
   }
 
@@ -245,26 +275,6 @@ body {
         cursor: pointer;
         box-shadow: 0px 3px 12px 0px rgba(91, 84, 198, 0.3);
       }
-    }
-  }
-
-  .price {
-    flex-direction: row-reverse;
-    &::after {
-      content: "\20A9";
-    }
-  }
-
-  .percent {
-    &::after {
-      content: "%";
-    }
-  }
-
-  .times {
-    &::after {
-      content: "건";
-      color: #333;
     }
   }
 
@@ -1223,12 +1233,15 @@ aside {
 .content {
   background-color: #eff3f7;
 
-  section {
-    flex: 1 1 auto;
-    background-color: white;
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 6px 12px -4px #e3e6e9;
+  .wrapper {
+
+    section {
+      flex: 1 1 auto;
+      background-color: white;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 6px 12px -4px #e3e6e9;
+    }
   }
   
   .section-main {
@@ -1317,6 +1330,7 @@ aside {
     .title {
       min-height: 42px;
       display: flex;
+      flex-direction: row;
       justify-content: space-between;
       align-items: center;
       padding: 0;
@@ -1445,13 +1459,17 @@ aside {
   opacity: 0;
   max-height: 0;
   visibility: hidden;
-  position: absolute;
-  top: 50%;
   display: flex;
   flex-wrap: wrap;
   border-radius: 0.5rem;
-  background-color: #e6ebf0;
+  background-color: #f2f4f6;
   transition: 0.4s;
+
+  &.is-active {
+    max-height: 450px;
+    padding: 1rem 0;
+    z-index: 52 !important;
+  }
 
   button {
     padding: .5rem 1rem !important;
@@ -1460,13 +1478,7 @@ aside {
   :is(input, select, textarea) {
     border: 0 !important;
     background-color: rgba(255, 255, 255, 0.5) !important;
-    height: 32px !important;
-  }
-
-  &.is-active {
-    max-height: 450px;
-    padding: 1rem 0;
-    z-index: 52 !important;
+    height: 30px !important;
   }
 
   ul {
@@ -1479,12 +1491,6 @@ aside {
 
     &:is(.advanced-search > ul) {
       padding: 0 1.5rem;
-
-      > li:not(:last-of-type) {
-        border-bottom: 1px solid #eee;
-        margin-bottom: 0.5rem;
-        padding-bottom: 1rem;
-      }
 
       &:last-of-type {
         padding-bottom: 3rem;
@@ -1502,7 +1508,8 @@ aside {
       &.columns {
         gap: 0.5rem;
 
-        div {
+        > div {
+          flex: 1 1 auto;
           display: flex;
         }
 
@@ -1513,7 +1520,7 @@ aside {
 
       h5 {
         flex: 0 0 auto;
-        width: 80px;
+        width: 86px;
         padding-right: 0.5rem;
         display: flex;
         align-items: center;
@@ -1597,16 +1604,36 @@ aside {
 
   .inputs {
     flex: 1 1 auto;
-    min-height: 36px;
+    min-height: 30px;
+
+    &.price {
+
+      &::after {
+        order: 2
+      }
+      
+      input {
+        order: 1
+      }
+
+      .selectbox {
+        order: 0;
+      }
+    }
 
     textarea {
       width: 100%;
+
+      &:focus {
+        outline: 1px solid $main-color;
+      }
     }
 
     input[type="text"],
     input[type="number"] {
       width: 100%;
       flex-basis: 30px;
+      justify-self: flex-end;
 
       &:focus {
         outline: 1px solid $main-color;
@@ -2383,10 +2410,10 @@ aside {
   max-height: none !important;
 
   .row {
-    padding-left: 2rem;
 
     &.title {
-      background-color: white;
+      margin-bottom: .5rem;
+      padding-left: 2rem;
 
       li {
         width: 250px;
@@ -2395,17 +2422,20 @@ aside {
     }
 
     &:not(.title) {
+      margin-left: 2rem;
       position: relative;
       border-bottom: 1px solid #eee;
       gap: 2px;
 
       &::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        counter-increment: row;
         content: counter(row) "시";
-        font-size: 13px;
+        counter-increment: row;
+        position: absolute;
+        top: 50%;
+        left: -2rem;
+        transform: translateY(-50%);
+        font-size: 12px;
+        color: slategray;
       }
 
       &:nth-of-type(12) {
@@ -6282,9 +6312,45 @@ aside {
   }
 
   &.modal-advanced {
+
     section {
       &:first-of-type {
         flex-direction: row;
+      }
+    }
+
+    .legend {
+      padding-top: .5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        &::before {
+          content: "";
+          width: 18px;
+          height: 12px;
+          display: inline-block;
+          outline: 1px solid #eee;
+        }
+
+        &:first-of-type {
+          &::before {
+            outline: 0;
+            border-top: 2px solid $main-color;
+            background-color: $secondary-color;
+          }
+        }
+
+        &:last-of-type {
+          &::before {
+            content: none;
+          }
+        }
       }
     }
 
@@ -6296,6 +6362,10 @@ aside {
       visibility: visible;
       position: relative;
       top: auto;
+
+      input[type="number"] {
+        max-width: 100px;
+      }
 
       ul {
         &:first-of-type {
@@ -6331,39 +6401,6 @@ aside {
     .section-advanced-settings {
       flex: 1;
       height: 450px;
-
-      .legend {
-        display: flex;
-        gap: 1rem;
-
-        li {
-          display: flex;
-          align-items: center;
-          gap: 5px;
-
-          &::before {
-            content: "";
-            width: 18px;
-            height: 12px;
-            display: inline-block;
-            outline: 1px solid #eee;
-          }
-
-          &:first-of-type {
-            &::before {
-              outline: 0;
-              border-top: 2px solid $main-color;
-              background-color: $secondary-color;
-            }
-          }
-
-          &:last-of-type {
-            &::before {
-              content: none;
-            }
-          }
-        }
-      }
     }
   }
 
