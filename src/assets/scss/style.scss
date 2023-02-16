@@ -190,7 +190,7 @@ body {
     }
 
     &.inputs {
-      gap: .5rem !important
+      gap: 0.5rem !important;
     }
   }
 
@@ -735,10 +735,18 @@ main {
     flex-direction: column;
 
     .section-header {
-      display: flex;
       width: 100%;
-      gap: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
       position: relative;
+
+      > div {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
 
       button {
         height: 36px;
@@ -794,27 +802,6 @@ main {
         }
       }
 
-      &:not(.multi-line) {
-        align-items: center;
-        justify-content: space-between;
-
-        > div {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-        }
-      }
-
-      &.multi-line {
-        flex-direction: column;
-
-        > :last-child,
-        .filters {
-          border-top: 1px solid #eee;
-          padding-top: 0.5rem;
-        }
-      }
-
       .title {
         display: flex;
         align-items: center;
@@ -833,10 +820,18 @@ main {
             font-size: 15px;
           }
         }
+
+        ~ .filters {
+          width: 100%;
+          border-top: 1px solid #eee;
+          margin-top: 0.5rem;
+          padding-top: 0.5rem;
+        }
       }
 
       .dropdown {
         user-select: none;
+        z-index: 100;
 
         ul {
           position: absolute;
@@ -845,38 +840,40 @@ main {
           visibility: hidden;
           max-height: 0;
           transform: translateY(7px);
-          transition: opacity 0.35s, transform 0.25s;
+          transition: .25s;
           min-width: 120px;
+          z-index: 100;
+
+          li {
+            min-height: 40px;
+            padding: 0.5rem 0.75rem;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.75);
+            transition: color 0.25s;
+            cursor: pointer;
+
+            &:not(:last-of-type) {
+              border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            &:hover {
+              color: white;
+            }
+          }
         }
 
         &:hover {
-          z-index: 100;
 
           ul {
             opacity: 1;
             visibility: visible;
             max-height: 999px;
-            background-color: white;
-            border: 1px solid #eee;
+            background-color: $main-color;
+            border-radius: 0.5rem;
             transform: translateY(0);
-
-            li {
-              min-height: 36px;
-              padding: 0.5rem 0.75rem;
-              display: flex;
-              align-items: center;
-              white-space: nowrap;
-              transition: color 0.25s;
-              cursor: pointer;
-
-              &:not(:last-of-type) {
-                border-bottom: 1px solid #f3f6f9;
-              }
-
-              &:hover {
-                color: $main-color;
-              }
-            }
           }
         }
       }
@@ -1234,7 +1231,6 @@ aside {
   background-color: #eff3f7;
 
   .wrapper {
-
     section {
       flex: 1 1 auto;
       background-color: white;
@@ -1243,7 +1239,7 @@ aside {
       box-shadow: 0 6px 12px -4px #e3e6e9;
     }
   }
-  
+
   .section-main {
     flex-direction: row;
     flex-wrap: wrap;
@@ -1475,7 +1471,7 @@ aside {
   }
 
   button {
-    padding: .5rem 1rem !important;
+    padding: 0.5rem 1rem !important;
   }
 
   :is(input, select, textarea) {
@@ -1610,13 +1606,12 @@ aside {
     min-height: 30px;
 
     &.price {
-
       &::after {
-        order: 2
+        order: 2;
       }
-      
+
       input {
-        order: 1
+        order: 1;
       }
 
       .selectbox {
@@ -2413,9 +2408,8 @@ aside {
   max-height: none !important;
 
   .row {
-
     &.title {
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
       padding-left: 2rem;
 
       li {
@@ -2827,6 +2821,7 @@ aside {
       display: flex;
 
       label {
+        height: 36px;
         border: 1px solid #eee;
         align-items: center;
         display: flex;
@@ -5654,7 +5649,6 @@ aside {
         flex: 1 1 auto;
         display: flex;
         gap: 0.5rem;
-        padding-top: 0.5rem;
         overflow: hidden;
       }
 
@@ -5740,6 +5734,10 @@ aside {
               padding-right: 1.35rem;
               background-position: right 5px center;
               background-size: 14px;
+
+              &::after {
+                content: none;
+              }
             }
           }
         }
@@ -6315,7 +6313,6 @@ aside {
   }
 
   &.modal-advanced {
-
     section {
       &:first-of-type {
         flex-direction: row;
@@ -6323,7 +6320,7 @@ aside {
     }
 
     .legend {
-      padding-top: .5rem;
+      padding-top: 0.5rem;
       display: flex;
       justify-content: center;
       gap: 1rem;

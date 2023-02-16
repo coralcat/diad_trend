@@ -353,45 +353,6 @@
           display: none;
         }
       }
-
-      &.multi-line {
-        div:last-child {
-          padding-top: 0;
-          border-top: 0;
-        }
-
-        .title {
-          flex: 1 1 auto;
-
-          h3 + .buttons {
-            width: auto;
-          }
-
-          .btn-advanced-search {
-            + .buttons {
-              button {
-                flex: 1 1 25%;
-                padding: 0.5rem;
-                justify-content: center;
-                z-index: 101;
-              }
-            }
-          }
-        }
-
-        .buttons {
-          flex-wrap: nowrap;
-          width: 100%;
-
-          button {
-            justify-content: center;
-          }
-
-          + .selectbox {
-            display: none;
-          }
-        }
-      }
     }
 
     .wrapper {
