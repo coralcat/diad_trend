@@ -713,7 +713,7 @@
                 정지
               </li>
               <li title="입찰설정">
-                <button class="btn-sub" data-modal="settingsAdvanced">고급설정</button>
+                <button data-modal="settingsAdvanced">고급설정</button>
               </li>
               <li title="입찰주기">
                 5
@@ -1403,7 +1403,7 @@
                 정지
               </li>
               <li title="입찰설정">
-                <button class="btn-sub" data-modal="settingsAdvanced">고급설정</button>
+                <button data-modal="settingsAdvanced">고급설정</button>
               </li>
               <li title="입찰주기">
                 5
@@ -1785,13 +1785,9 @@
               <li>
                 <h5>하향입찰</h5>
                 <div class="inputs">
-                  <div class="checkbox">
-                    <input id="bidding-down-on-3" type="checkbox" name="bidding-down-3" />
-                    <label for="bidding-down-on-3">사용</label>
-                  </div>
-                  <div class="checkbox">
-                    <input id="bidding-down-off-3" type="checkbox" name="bidding-down-3" />
-                    <label for="bidding-down-off-3">미사용</label>
+                  <div class="toggle-switch">
+                    <input id="toggle-bidding-down-3" type="checkbox">
+                    <label for="toggle-bidding-down-3"></label>
                   </div>
                 </div>
               </li>
@@ -1848,63 +1844,41 @@
             </ul>
             <ul>
               <li>
-                <div>캠페인</div>
+                <h5>캠페인</h5>
                 <div class="inputs">
                   <input type="text">
                 </div>
               </li>
               <li>
-                <div>그룹</div>
+                <h5>그룹</h5>
                 <div class="inputs">
                   <input type="text">
                 </div>
               </li>
-            </ul>
-            <ul>
               <li>
                 <h5>키워드</h5>
                 <div class="inputs">
-                  <div class="checkbox">
-                    <input id="keyword-on-2" type="checkbox">
-                    <label for="keyword-on-2">on</label>
-                  </div>
-                  <div class="checkbox">
-                    <input id="keyword-off-2" type="checkbox">
-                    <label for="keyword-off-2">off</label>
+                  <div class="toggle-switch">
+                    <input id="toggle-keyword-3" type="checkbox">
+                    <label for="toggle-keyword-3"></label>
                   </div>
                 </div>
               </li>
               <li>
                 <h5>그룹</h5>
                 <div class="inputs">
-                  <div class="checkbox">
-                    <input
-                      id="group-on-2"
-                      type="checkbox">
-                    <label for="group-on-2">on</label>
-                  </div>
-                  <div class="checkbox">
-                    <input
-                      id="group-off-2"
-                      type="checkbox">
-                    <label for="group-off-2">off</label>
+                  <div class="toggle-switch">
+                    <input id="toggle-group-3" type="checkbox">
+                    <label for="toggle-group-3"></label>
                   </div>
                 </div>
               </li>
               <li>
                 <h5>캠페인</h5>
                 <div class="inputs">
-                  <div class="checkbox">
-                    <input
-                      id="campaign-on-2"
-                      type="checkbox">
-                    <label for="campaign-on-2">on</label>
-                  </div>
-                  <div class="checkbox">
-                    <input
-                      id="campaign-off-2"
-                      type="checkbox">
-                    <label for="campaign-off-2">off</label>
+                  <div class="toggle-switch">
+                    <input id="toggle-campaign-3" type="checkbox">
+                    <label for="toggle-campaign-3"></label>
                   </div>
                 </div>
               </li>
@@ -2055,7 +2029,7 @@
                 정지
               </li>
               <li title="입찰설정">
-                <button class="btn-sub" data-modal="settingsAdvanced">고급설정</button>
+                <button data-modal="settingsAdvanced">고급설정</button>
               </li>
               <li title="입찰주기">
                 5
@@ -2100,7 +2074,7 @@
               <li title="입찰결과">
                 <div>
                   <span>실패</span>
-                  <button class="btn-sub">이력</button>
+                  <button>이력</button>
                 </div>
               </li>
               <li title="분류명"></li>
