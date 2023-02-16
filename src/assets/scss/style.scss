@@ -1245,6 +1245,9 @@ aside {
   }
   
   .section-main {
+    flex-direction: row;
+    flex-wrap: wrap;
+
     .services {
       li {
         width: min(100%, 280px);
