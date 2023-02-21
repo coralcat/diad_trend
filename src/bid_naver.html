@@ -1,6 +1,7 @@
-{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('bidNaver')}}
-<div class="content content-bidding">
-  <header class="main-header">
+{% extends "base.html" %} {% block content %}
+{% import 'aside.html' as menu %} {{menu.active('bidNaver')}}
+<main class="content content-bidding">
+  <header class="content-header">
     <div class="title">
       <ul class="tabs">
         <li data-tab="naver">
@@ -13,6 +14,7 @@
           네이버 파워콘텐츠
         </li>
       </ul>
+      {% include 'account.html' %}
     </div>
   </header>
   <div class="wrapper">
@@ -32,7 +34,6 @@
               <option value="">plays_U</option>
             </select>
           </div>
-          <button class="btn-main ico-sync"></button>
         </div>
         <ul class="details-sync">
           <li class="center">
@@ -666,7 +667,6 @@
               <option value="">plays_U</option>
             </select>
           </div>
-          <button class="btn-main ico-sync"></button>
         </div>
         <ul class="details-sync">
           <li class="center">
@@ -1358,7 +1358,6 @@
               <option value="">sleepspa_O</option>
             </select>
           </div>
-          <button class="btn-main ico-sync"></button>
         </div>
         <ul class="details-sync">
           <li class="center">
@@ -1967,7 +1966,7 @@
       </section>
     </div>
   </div>
-</div>
+</main>
 
 <div id="selectColumns" class="modal" title="사용자지정보기">
   <div class="dialog">

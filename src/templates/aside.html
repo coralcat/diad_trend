@@ -1,12 +1,15 @@
 {% macro active(currentPage = 'index') %}
-<aside>
-  <button class="aside-handler">
-    <svg viewBox="0 0 100 100" width="80">
-      <path d="m 30,33 h 40 c 0,0 8.5,-0.68551 8.5,10.375 0,8.292653 -6.122707,9.002293 -8.5,6.625 l -11.071429,-11.071429" />
-      <path d="m 70,50 h -40" />
-      <path d="m 30,67 h 40 c 0,0 8.5,0.68551 8.5,-10.375 0,-8.292653 -6.122707,-9.002293 -8.5,-6.625 l -11.071429,11.071429" />
-    </svg>
-  </button>
+<aside class="aside">
+  <div class="buttons">
+    <a href="index.html" class="logo"></a>
+    <button class="aside-handler">
+      <svg viewBox="0 0 100 100" width="80">
+        <path d="m 30,33 h 40 c 0,0 8.5,-0.68551 8.5,10.375 0,8.292653 -6.122707,9.002293 -8.5,6.625 l -11.071429,-11.071429" />
+        <path d="m 70,50 h -40" />
+        <path d="m 30,67 h 40 c 0,0 8.5,0.68551 8.5,-10.375 0,-8.292653 -6.122707,-9.002293 -8.5,-6.625 l -11.071429,11.071429" />
+      </svg>
+    </button>
+  </div>
   <nav>
     <div class="{% if currentPage == 'tracking' %}is-active{% endif %} {% if currentPage == 'sales' %}is-active{% endif %} {% if currentPage == 'ranking' %}is-active{% endif %} {% if currentPage == 'lowestPrice' %}is-active{% endif %}">
       <menu>

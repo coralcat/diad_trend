@@ -1,8 +1,9 @@
 {% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('bidGoogle')}}
-<div class="content content-bidding">
-  <header class="main-header">
+<main class="content content-bidding google">
+  <header class="content-header">
     <div class="title">
       <h1>구글 검색광고</h1>
+      {% include 'account.html' %}
     </div>
   </header>
   <div class="wrapper">
@@ -17,7 +18,6 @@
             <option value="">4506521631</option>
           </select>
         </div>
-        <button class="btn-main ico-sync"></button>
       </div>
       <ul class="details-sync">
         <li class="center">
@@ -410,7 +410,7 @@
             </li>
             <li title="입찰목표"></li>
             <li title="입찰한도">
-                <div class="price"></div>
+              <div class="price"></div>
             </li>
             <li title="한도옵션">
               OFF
@@ -510,7 +510,7 @@
       </div>
     </section>
   </div>
-</div>
+</main>
 <div id="selectColumns" class="modal" title="사용자지정보기">
   <div class="dialog">
     <header class="modal-header">

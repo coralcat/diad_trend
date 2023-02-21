@@ -47,12 +47,12 @@
       let dateCopy = new Date();
       dateCopy.setDate(dateCopy.getDate() - days)
 
-      const year =  dateCopy.getFullYear();
+      const year = dateCopy.getFullYear();
       const month = dateCopy.getMonth() + 1;
       const day = dateCopy.getDate()
 
     }
-    
+
     var data = [
       {
         date: new Date(2021, 2, 1).getTime(),
@@ -370,10 +370,12 @@
       series.appear(1000, 100);
     }
 
-    createSeries("데브테스트", "groupA", am5.color(0x5B54C6));
-    createSeries("실운영데이터", "groupB", am5.color(0xa298f2));
-    createSeries("대신_G_스타킹", "groupC", am5.color(0x3f8cff));
-    createSeries(groupD);
+
+    createSeries("그룹_A", "groupA", am5.color(0x5B54C6));
+    createSeries("그룹_B", "groupB", am5.color(0xa298f2));
+    createSeries("그룹_C", "groupC", am5.color(0x3f8cff));
+    createSeries("그룹_D", "groupD", am5.color(0xffa1bf));
+    createSeries("그룹_E", "groupE", am5.color(0x5B54C6));
 
     var cursor = chart.set(
       "cursor",
@@ -436,10 +438,9 @@
     chart.appear(1000, 100);
   }); // end am5.ready()
 </script>
-
-<div class="content content-tracking gmarket">
-  <header class="main-header">
-    <section class="title">
+<main class="content-tracking gmarket">
+  <header class="content-header">
+    <div class="title">
       <h1>
         <span>지마켓 판매량 추적</span>
         <div class="tooltip">
@@ -466,14 +467,14 @@
           </li>
         </ul>
       </div>
-    </section>
+    </div>
   </header>
   <div class="wrapper">
     <section>
       <header class="section-header">
         <div class="title">
           <div></div>
-          
+
           <div class="buttons">
             <button class="btn-sub" type="button" data-modal="editGroup">그룹편집</button>
             <button class="btn-sub" class="ico-download" type="button">엑셀다운</button>
@@ -871,7 +872,7 @@
       </div>
     </section>
   </div>
-</div>
+</main>
 
 <div id="createItem" class="modal create-item">
   <div class="dialog">

@@ -25,8 +25,7 @@
     }
   });
 </script>
-
-<div class="content content-ranking">
+<main class="content-ranking">
   <div class="top-banner">
     <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
       <path d="M0 0h24v24H0V0z" fill="none" />
@@ -35,8 +34,8 @@
     </svg>
     예시 화면입니다. 서비스를 사용하려면 로그인해주세요.
   </div>
-  <header class="main-header">
-    <section class="title">
+  <header class="content-header">
+    <div class="title">
       <h1>
         <span>상품 순위 추적</span>
         <div class="tooltip">
@@ -50,7 +49,7 @@
         </div>
       </h1>
 
-      <div class="subline status">
+      <span class="subline status">
         <ul class="services">
           <li>서비스 제공량</li>
           <li>
@@ -64,8 +63,10 @@
             <span class="tag d-day">310</span>
           </li>
         </ul>
-      </div>
-    </section>
+      </span>
+    </div>
+  </header>
+  <div class="wrapper">
     <section class="section-main">
       <div class="services small">
         <header class="section-header">
@@ -119,8 +120,6 @@
         </ul>
       </div>
     </section>
-  </header>
-  <div class="wrapper">
     <section>
       <header class="section-header">
         <div class="title">
@@ -592,7 +591,7 @@
       </footer>
     </section>
   </div>
-</div>
+</main>
 
 <div id="createItem" class="modal create-item">
   <div class="dialog">

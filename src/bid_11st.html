@@ -25,8 +25,8 @@
     }
   });
 </script>
-<div class="content content-bidding">
-  <header class="main-header">
+<main class="content content-bidding">
+  <header class="content-header">
     <div class="title">
       <ul class="tabs">
         <li data-tab="eleventh">
@@ -36,6 +36,7 @@
           11번가 브랜드검색
         </li>
       </ul>
+      {% include 'account.html' %}
     </div>
   </header>
   <div class="wrapper">
@@ -51,7 +52,6 @@
               <option value="">cjlion2004</option>
             </select>
           </div>
-          <button class="btn-main ico-sync"></button>
         </div>
         <ul class="details-sync">
           <li class="center">
@@ -483,7 +483,6 @@
               <option value="">bokdanji</option>
             </select>
           </div>
-          <button class="btn-main ico-sync"></button>
         </div>
         <ul class="details-sync">
           <li class="center">
@@ -905,7 +904,7 @@
       </section>
     </div>
   </div>
-</div>
+</main>
 
 <div id="selectColumns" class="modal" title="사용자지정보기">
   <div class="dialog">
