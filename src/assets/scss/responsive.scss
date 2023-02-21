@@ -121,7 +121,7 @@
     body {
       display: flex;
       flex-direction: column;
-      font: 15px "Roboto","NanumSquareR";
+      font: 15px "Roboto", "NanumSquareR";
       overflow: hidden !important;
 
       .responsive {
@@ -357,7 +357,6 @@
     max-width: 100%;
 
     .section-header {
-      padding: 0 1rem;
 
       button {
         min-width: 40px;
@@ -374,13 +373,12 @@
     &.section-main {
       padding: 1rem;
       background-color: white;
-      border-radius: .5rem;
-      
+      border-radius: 0.5rem;
+
       .services {
         li {
-          width: 100%
+          width: 100%;
         }
-
       }
 
       .section-header {
@@ -393,7 +391,7 @@
     }
 
     &.section-chart {
-      padding-top: 0.5rem;
+      border-radius: 0.5rem;
       background-color: white;
     }
 
@@ -416,6 +414,11 @@
 
     .logo {
       font-size: 18px;
+      text-align: center;
+      width: 54px;
+      height: 22px;
+      background: url(../images/logo_diad_trend.svg) no-repeat left center;
+      background-size: 120px;
 
       a {
         font-size: 22px;
@@ -431,12 +434,12 @@
     > .wrapper {
       flex-direction: column;
       overflow: unset;
-      padding: 0 0 1.5rem;
-      gap: 2rem;
+      padding-top: 0 !important;
+      gap: 1rem;
     }
 
     .content-header {
-      padding: 1rem;
+      padding: 1rem 1rem 0;
       gap: 0.5rem;
 
       .subline {
@@ -462,8 +465,7 @@
     }
 
     .selector {
-      background-color: #e4e9ed;
-      justify-content: center;
+      justify-content: flex-start !important;
       font-size: 13px;
 
       label {
@@ -511,7 +513,7 @@
     border: 0;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 0.5rem !important;
+    gap: 0.75rem !important;
     overflow-x: hidden !important;
 
     .tag {
@@ -1122,6 +1124,18 @@
   }
 
   .content-keyword-trend-details {
+
+    .content-header {
+      gap: 0
+    }
+
+    .list {
+
+      .row {
+        background-color: #f7f8f9;
+      }
+    }
+
     .layout {
       display: none !important;
     }
@@ -1139,7 +1153,7 @@
       }
     }
 
-    > .wrapper {
+    .wrapper {
       gap: 1rem;
 
       > .tabs {
@@ -1161,26 +1175,6 @@
         section {
           background-color: white;
           padding: 1rem;
-          border-radius: 0;
-        }
-
-        &.content-related-keyword,
-        &.content-shopping {
-          section {
-            background-color: transparent;
-            border-radius: 0;
-            padding: 0;
-          }
-
-          .section-header {
-            padding: 0 1rem !important;
-          }
-
-          .filters {
-            flex-direction: column;
-            gap: 0.5rem;
-            align-items: center;
-          }
         }
       }
     }
@@ -1368,8 +1362,6 @@
 
     .content-shopping {
       .report {
-        background-color: white;
-        padding: 1rem;
 
         .summary {
           order: 1;

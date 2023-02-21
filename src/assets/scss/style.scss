@@ -563,7 +563,6 @@ body {
   }
 }
 
-
 section {
   flex: 1 1 auto;
   display: flex;
@@ -731,7 +730,6 @@ section {
       }
     }
   }
-  
 
   &.section-main {
     flex: 0 0 auto !important;
@@ -3630,8 +3628,8 @@ main {
 
         li {
           border-right: 0;
-          padding: 0.5rem 1rem;           
-        
+          padding: 0.5rem 1rem;
+
           &:first-of-type {
             align-items: flex-start;
           }
@@ -3741,7 +3739,6 @@ main {
   }
 
   .wrapper {
-
     .btn-advanced-search {
       background-color: $secondary-color;
 
@@ -4634,7 +4631,6 @@ main {
 }
 
 .content-keyword-trend {
-
   section {
     gap: 0 !important;
   }
@@ -4733,13 +4729,13 @@ main {
 }
 
 .content-keyword-trend-details {
-
   .wrapper {
-    padding-top: 0rem
+    padding-top: 0rem;
   }
 
   .content-header {
-    gap: 1.45rem;
+    padding: 1rem !important;
+    gap: 1.2rem;
   }
 
   .chart {
@@ -5011,13 +5007,9 @@ main {
     }
 
     .chart-container {
-      border-radius: 0.5rem;
-      border: 1px solid #eee;
-      padding: 1rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
+      border-top: 1px solid #eee;
+      padding-top: 1rem;
+      margin-top: 1rem;
     }
   }
 
@@ -5040,7 +5032,6 @@ main {
   }
 
   .content-keyword {
-
     .searched {
       .chart {
         height: 280px;
@@ -5066,6 +5057,7 @@ main {
 
       .section-content {
         display: flex;
+        flex-direction: column;
         gap: 1rem;
 
         .wrapper {
@@ -5440,7 +5432,7 @@ main {
     }
   }
 
-  .content-related-keyword {
+  .content-search {
     .list {
       flex: 1 1 auto;
       max-height: 80vh;
@@ -5687,10 +5679,8 @@ main {
   }
 
   .content-articles {
-    overflow: hidden;
-
     .section-article {
-      overflow: hidden;
+      overflow-y: auto;
 
       .filters {
         gap: 1rem;
