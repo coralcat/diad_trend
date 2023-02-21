@@ -21,7 +21,7 @@
 <body>
   <div class="container">
     <header class="header responsive">
-      <a href="index.html" class="logo">trend</a>    
+      <a href="index.html" class="logo"></a>    
       <nav>
         <ul>
           <li>
@@ -1067,354 +1067,352 @@
       <section class="section-main">
         <h3>키워드 한눈에 보기</h3>
         <div class="section-content">
-          <div class="wrapper">
-            <fieldset>
-              <legend>
-                검색
-                <article class="tooltip">
-                  <div class="tooltip-content">
-                    <dl>
-                      <dd>
-                        네이버와 구글 매체의 검색 데이터를 제공합니다.
-                      </dd>
-                      <dd>
-                        월간 데이터의 기준은 네이버는 최근 30일, 구글은 전월 또는 전전월의 데이터입니다.
-                      </dd>
-                    </dl>
-                  </div>
-                </article>
-              </legend>
-              <div class="report">
-                <div id="searchChart" class="chart"></div>
-                <fieldset>
-                  <legend>네이버</legend>
-                  <div class="summary">
-                    <ul>
-                      <li>
-                        <div class="title">
-                          PC
-                        </div>
-                        <ul>
-                          <li>
-                            <div>
-                              월간 검색수
-                              <article class="tooltip">
-                                <div class="tooltip-content">
-                                  <dl>
-                                    <dd>최근 한 달간 네이버를 이용한 사용자가 PC에서 해당 키워드를 검색한 횟수입니다.
-                                    </dd>
-                                  </dl>
-                                </div>
-                              </article>
-                            </div>
-                            <strong class="times">7,320</strong>
-                          </li>
-                          <li>
-                            <div>월 평균 클릭수</div>
-                            <strong class="times">39.5</strong>
-                          </li>
-                          <li>
-                            <div>월 평균 클릭률</div>
-                            <strong class="percent">0.56</strong>
-                          </li>
-                          <li>
-                            <div>경쟁정도</div>
-                            <strong>높음</strong>
-                          </li>
-                          <li>
-                            <div>월 평균 광고노출 (PC)</div>
-                            <strong class="times">15</strong>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <div class="title">
-                          모바일
-                        </div>
-                        <ul>
-                          <li>
-                            <div>
-                              월간 검색수
-                              <article class="tooltip">
-                                <div class="tooltip-content">
-                                  <dl>
-                                    <dd>최근 한 달간 네이버를 이용한 사용자가 모바일에서 해당 키워드를 검색한 횟수입니다.
-                                    </dd>
-                                  </dl>
-                                </div>
-                              </article>
-                            </div>
-                            <strong class="times">32,300</strong>
-                          </li>
-                          <li>
-                            <div>월 평균 클릭수</div>
-                            <strong class="times">353.6</strong>
-                          </li>
-                          <li>
-                            <div>월 평균 클릭률</div>
-                            <strong class="percent">1.17</strong>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </fieldset>
-                <fieldset>
-                  <legend>구글</legend>
-                  <div class="summary">
-                    <ul>
-                      <li>
-                        <div>
-                          월간 검색수
-                          <article class="tooltip">
-                            <div class="tooltip-content">
-                              <dl>
-                                <dd>
-                                  최근 한 달간 구글을 이용한 사용자가 해당 키워드를 검색한 대략적인 횟수입니다.
-                                </dd>
-                              </dl>
-                            </div>
-                          </article>
-                        </div>
-                        <strong class="times">1,900</strong>
-                      </li>
-                      <li>
-                        <div>
-                          월간 평균 검색량
-                          <article class="tooltip">
-                            <div class="tooltip-content">
-                              <dl>
-                                <dd>
-                                  월간 평균 검색량은 지난 12개월 동안 Google을 기준으로, 조회한 키워드와 유사 검색어를 검색한 평균 횟수입니다.
-                                </dd>
-                                <dd>
-                                  이 정보를 이용해 해당 키워드가 연중 시기별로 얼마나 자주 검색되는지 알아볼 수 있습니다.
-                                </dd>
-                              </dl>
-                            </div>
-                          </article>
-                        </div>
-                        <strong class="times">1,900</strong>
-                        <div id="searchChart2" class="chart" style="display: block; height: 150px; min-height: auto">
-                        </div>
-                      </li>
-                      <li>
-                        <div>
-                          경쟁정도
-                          <article class="tooltip">
-                            <div class="tooltip-content">
-                              <dl>
-                                <dd>특정 키워드의 광고 게재 위치가 얼마나 경쟁이 치열한지를 보여 줍니다.</dd>
-                                <dd>
-                                  경쟁 수준은 Google에서 검색되는 전체 키워드에 입찰하는 광고주 수에 따라 결정됩니다.
-                                </dd>
-                                <dd>데이터가 충분하지 않으면 대시(-)가 표시됩니다.</dd>
-                              </dl>
-                            </div>
-                          </article>
-                        </div>
-                        <strong>높음</strong>
-                      </li>
-                      <li>
-                        <div>
-                          페이지 상단 입찰가<br>
-                          하위 (20 백분위수)
-                          <article class="tooltip">
-                            <div class="tooltip-content">
-                              <dl>
-                                <dd>
-                                  광고주가 키워드에 대해 지불했던 페이지 상단 입찰가 중에서 낮은 범위(20 백분위수)에 해당하는 입찰가를 나타냅니다.
-                                </dd>
-                                <dd>키워드의 평균 CPC는 다를 수 있습니다.</dd>
-                              </dl>
-                            </div>
-                          </article>
-                        </div>
-                        <strong class="price">517</strong>
-                      </li>
-                      <li>
-                        <div>
-                          페이지 상단 입찰가<br>
-                          상위 (80 백분위수)
-                          <article class="tooltip">
-                            <div class="tooltip-content">
-                              <dl>
-                                <dd>
-                                  광고주가 키워드에 대해 지불했던 페이지 상단 입찰가 중에서 높은 범위(80 백분위수)에 해당하는 입찰가를 나타냅니다.
-                                </dd>
-                                <dd>키워드의 평균 CPC는 다를 수 있습니다.</dd>
-                              </dl>
-                            </div>
-                          </article>
-                        </div>
-                        <strong class="price">1,259</strong>
-                      </li>
-                    </ul>
-                  </div>
-                </fieldset>
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend>
-                콘텐츠
-                <article class="tooltip">
-                  <div class="tooltip-content">
-                    블로그(네이버, 다음), 카페(네이버, 다음), 뉴스(네이버), 동영상(유튜브) 총 6가지 매체의 콘텐츠 데이터를 제공합니다.
-                  </div>
-                </article>
-              </legend>
-              <div class="report">
-                <div id="contentsChart" class="chart"></div>
-                <fieldset>
-                  <legend>발행량</legend>
-                  <div class="summary">
-                    <ul>
-                      <li>
-                        <ul>
-                          <li>
-                            <div>네이버 블로그</div>
-                            <strong class="times">1,545,684</strong>
-                          </li>
-                          <li>
-                            <div>다음 블로그</div>
-                            <strong class="times">891,523</strong>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <ul>
-                          <li>
-                            <div>네이버 카페</div>
-                            <strong class="times">91,293</strong>
-                          </li>
-                          <li>
-                            <div>다음 카페</div>
-                            <strong class="times">21,563</strong>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <div>네이버 뉴스</div>
-                        <strong class="times">549,032</strong>
-                      </li>
-                      <li>
-                        <div>유튜브 동영상</div>
-                        <strong class="times">194,654</strong>
-                      </li>
-                    </ul>
-                  </div>
-                </fieldset>
-                <fieldset>
-                  <legend>
-                    경쟁률
-                    <div class="tooltip">
-                      <div class="tooltip-content">
-                        콘텐츠의 경쟁률은 매체 중 월간 검색수 데이터가 있는 네이버만 제공합니다.
+          <fieldset>
+            <legend>
+              검색
+              <article class="tooltip">
+                <div class="tooltip-content">
+                  <dl>
+                    <dd>
+                      네이버와 구글 매체의 검색 데이터를 제공합니다.
+                    </dd>
+                    <dd>
+                      월간 데이터의 기준은 네이버는 최근 30일, 구글은 전월 또는 전전월의 데이터입니다.
+                    </dd>
+                  </dl>
+                </div>
+              </article>
+            </legend>
+            <div class="report">
+              <div id="searchChart" class="chart"></div>
+              <fieldset>
+                <legend>네이버</legend>
+                <div class="summary">
+                  <ul>
+                    <li>
+                      <div class="title">
+                        PC
                       </div>
+                      <ul>
+                        <li>
+                          <div>
+                            월간 검색수
+                            <article class="tooltip">
+                              <div class="tooltip-content">
+                                <dl>
+                                  <dd>최근 한 달간 네이버를 이용한 사용자가 PC에서 해당 키워드를 검색한 횟수입니다.
+                                  </dd>
+                                </dl>
+                              </div>
+                            </article>
+                          </div>
+                          <strong class="times">7,320</strong>
+                        </li>
+                        <li>
+                          <div>월 평균 클릭수</div>
+                          <strong class="times">39.5</strong>
+                        </li>
+                        <li>
+                          <div>월 평균 클릭률</div>
+                          <strong class="percent">0.56</strong>
+                        </li>
+                        <li>
+                          <div>경쟁정도</div>
+                          <strong>높음</strong>
+                        </li>
+                        <li>
+                          <div>월 평균 광고노출 (PC)</div>
+                          <strong class="times">15</strong>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <div class="title">
+                        모바일
+                      </div>
+                      <ul>
+                        <li>
+                          <div>
+                            월간 검색수
+                            <article class="tooltip">
+                              <div class="tooltip-content">
+                                <dl>
+                                  <dd>최근 한 달간 네이버를 이용한 사용자가 모바일에서 해당 키워드를 검색한 횟수입니다.
+                                  </dd>
+                                </dl>
+                              </div>
+                            </article>
+                          </div>
+                          <strong class="times">32,300</strong>
+                        </li>
+                        <li>
+                          <div>월 평균 클릭수</div>
+                          <strong class="times">353.6</strong>
+                        </li>
+                        <li>
+                          <div>월 평균 클릭률</div>
+                          <strong class="percent">1.17</strong>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>구글</legend>
+                <div class="summary">
+                  <ul>
+                    <li>
+                      <div>
+                        월간 검색수
+                        <article class="tooltip">
+                          <div class="tooltip-content">
+                            <dl>
+                              <dd>
+                                최근 한 달간 구글을 이용한 사용자가 해당 키워드를 검색한 대략적인 횟수입니다.
+                              </dd>
+                            </dl>
+                          </div>
+                        </article>
+                      </div>
+                      <strong class="times">1,900</strong>
+                    </li>
+                    <li>
+                      <div>
+                        월간 평균 검색량
+                        <article class="tooltip">
+                          <div class="tooltip-content">
+                            <dl>
+                              <dd>
+                                월간 평균 검색량은 지난 12개월 동안 Google을 기준으로, 조회한 키워드와 유사 검색어를 검색한 평균 횟수입니다.
+                              </dd>
+                              <dd>
+                                이 정보를 이용해 해당 키워드가 연중 시기별로 얼마나 자주 검색되는지 알아볼 수 있습니다.
+                              </dd>
+                            </dl>
+                          </div>
+                        </article>
+                      </div>
+                      <strong class="times">1,900</strong>
+                      <div id="searchChart2" class="chart" style="display: block; height: 150px; min-height: auto">
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        경쟁정도
+                        <article class="tooltip">
+                          <div class="tooltip-content">
+                            <dl>
+                              <dd>특정 키워드의 광고 게재 위치가 얼마나 경쟁이 치열한지를 보여 줍니다.</dd>
+                              <dd>
+                                경쟁 수준은 Google에서 검색되는 전체 키워드에 입찰하는 광고주 수에 따라 결정됩니다.
+                              </dd>
+                              <dd>데이터가 충분하지 않으면 대시(-)가 표시됩니다.</dd>
+                            </dl>
+                          </div>
+                        </article>
+                      </div>
+                      <strong>높음</strong>
+                    </li>
+                    <li>
+                      <div>
+                        페이지 상단 입찰가<br>
+                        하위 (20 백분위수)
+                        <article class="tooltip">
+                          <div class="tooltip-content">
+                            <dl>
+                              <dd>
+                                광고주가 키워드에 대해 지불했던 페이지 상단 입찰가 중에서 낮은 범위(20 백분위수)에 해당하는 입찰가를 나타냅니다.
+                              </dd>
+                              <dd>키워드의 평균 CPC는 다를 수 있습니다.</dd>
+                            </dl>
+                          </div>
+                        </article>
+                      </div>
+                      <strong class="price">517</strong>
+                    </li>
+                    <li>
+                      <div>
+                        페이지 상단 입찰가<br>
+                        상위 (80 백분위수)
+                        <article class="tooltip">
+                          <div class="tooltip-content">
+                            <dl>
+                              <dd>
+                                광고주가 키워드에 대해 지불했던 페이지 상단 입찰가 중에서 높은 범위(80 백분위수)에 해당하는 입찰가를 나타냅니다.
+                              </dd>
+                              <dd>키워드의 평균 CPC는 다를 수 있습니다.</dd>
+                            </dl>
+                          </div>
+                        </article>
+                      </div>
+                      <strong class="price">1,259</strong>
+                    </li>
+                  </ul>
+                </div>
+              </fieldset>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>
+              콘텐츠
+              <article class="tooltip">
+                <div class="tooltip-content">
+                  블로그(네이버, 다음), 카페(네이버, 다음), 뉴스(네이버), 동영상(유튜브) 총 6가지 매체의 콘텐츠 데이터를 제공합니다.
+                </div>
+              </article>
+            </legend>
+            <div class="report">
+              <div id="contentsChart" class="chart"></div>
+              <fieldset>
+                <legend>발행량</legend>
+                <div class="summary">
+                  <ul>
+                    <li>
+                      <ul>
+                        <li>
+                          <div>네이버 블로그</div>
+                          <strong class="times">1,545,684</strong>
+                        </li>
+                        <li>
+                          <div>다음 블로그</div>
+                          <strong class="times">891,523</strong>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul>
+                        <li>
+                          <div>네이버 카페</div>
+                          <strong class="times">91,293</strong>
+                        </li>
+                        <li>
+                          <div>다음 카페</div>
+                          <strong class="times">21,563</strong>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <div>네이버 뉴스</div>
+                      <strong class="times">549,032</strong>
+                    </li>
+                    <li>
+                      <div>유튜브 동영상</div>
+                      <strong class="times">194,654</strong>
+                    </li>
+                  </ul>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>
+                  경쟁률
+                  <div class="tooltip">
+                    <div class="tooltip-content">
+                      콘텐츠의 경쟁률은 매체 중 월간 검색수 데이터가 있는 네이버만 제공합니다.
                     </div>
-                  </legend>
-                  <div class="summary">
-                    <ul>
-                      <li>
-                        <div>
-                          네이버 블로그 경쟁률
-                          <article class="tooltip">
-                            <div class="tooltip-content">
-                              <dl>
-                                <dd>네이버 블로그 발행량 ÷ 네이버 월간 검색수입니다.</dd>
-                                <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
-                              </dl>
-                            </div>
-                          </article>
-                        </div>
-                        <strong>39.29:1</strong>
-                      </li>
-                      <li>
-                        <div>
-                          네이버 카페 경쟁률
-                          <article class="tooltip">
-                            <div class="tooltip-content">
-                              <dl>
-                                <dd>네이버 카페 발행량 ÷ 네이버 월간 검색수입니다.</dd>
-                                <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
-                              </dl>
-                            </div>
-                          </article>
-                        </div>
-                        <strong>2.32:1</strong>
-                      </li>
-                      <li>
-                        <div>
-                          네이버 뉴스 경쟁률
-                          <article class="tooltip">
-                            <div class="tooltip-content">
-                              <dl>
-                                <dd>네이버 뉴스 발행량 ÷ 네이버 월간 검색수입니다.</dd>
-                                <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
-                              </dl>
-                            </div>
-                          </article>
-                        </div>
-                        <strong>0.06:1</strong>
-                      </li>
-                    </ul>
                   </div>
-                </fieldset>
-              </div>
-            </fieldset>
-            <fieldset class="items">
-              <legend>
-                상품
-                <article class="tooltip">
-                  <div class="tooltip-content">
-                    네이버 쇼핑 키워드 검색 시 노출되는 상품 데이터를 제공합니다.
+                </legend>
+                <div class="summary">
+                  <ul>
+                    <li>
+                      <div>
+                        네이버 블로그 경쟁률
+                        <article class="tooltip">
+                          <div class="tooltip-content">
+                            <dl>
+                              <dd>네이버 블로그 발행량 ÷ 네이버 월간 검색수입니다.</dd>
+                              <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                            </dl>
+                          </div>
+                        </article>
+                      </div>
+                      <strong>39.29:1</strong>
+                    </li>
+                    <li>
+                      <div>
+                        네이버 카페 경쟁률
+                        <article class="tooltip">
+                          <div class="tooltip-content">
+                            <dl>
+                              <dd>네이버 카페 발행량 ÷ 네이버 월간 검색수입니다.</dd>
+                              <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                            </dl>
+                          </div>
+                        </article>
+                      </div>
+                      <strong>2.32:1</strong>
+                    </li>
+                    <li>
+                      <div>
+                        네이버 뉴스 경쟁률
+                        <article class="tooltip">
+                          <div class="tooltip-content">
+                            <dl>
+                              <dd>네이버 뉴스 발행량 ÷ 네이버 월간 검색수입니다.</dd>
+                              <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                            </dl>
+                          </div>
+                        </article>
+                      </div>
+                      <strong>0.06:1</strong>
+                    </li>
+                  </ul>
+                </div>
+              </fieldset>
+            </div>
+          </fieldset>
+          <fieldset class="items">
+            <legend>
+              상품
+              <article class="tooltip">
+                <div class="tooltip-content">
+                  네이버 쇼핑 키워드 검색 시 노출되는 상품 데이터를 제공합니다.
+                </div>
+              </article>
+            </legend>
+            <div class="summary horizontal">
+              <ul>
+                <li>
+                  <div>총 등록 상품수</div>
+                  <strong>1,268,561</strong>
+                </li>
+                <li>
+                  <div>
+                    상품경쟁률
+                    <article class="tooltip">
+                      <div class="tooltip-content">
+                        <dl>
+                          <dd>상품수 ÷ 네이버 월간 검색수입니다.</dd>
+                          <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                        </dl>
+                      </div>
+                    </article>
                   </div>
-                </article>
-              </legend>
-              <div class="summary horizontal">
-                <ul>
-                  <li>
-                    <div>총 등록 상품수</div>
-                    <strong>1,268,561</strong>
-                  </li>
-                  <li>
-                    <div>
-                      상품경쟁률
-                      <article class="tooltip">
-                        <div class="tooltip-content">
-                          <dl>
-                            <dd>상품수 ÷ 네이버 월간 검색수입니다.</dd>
-                            <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
-                          </dl>
-                        </div>
-                      </article>
-                    </div>
-                    <strong>35.28:1</strong>
-                  </li>
-                  <li>
-                    <div>1페이지 최다 키워드</div>
-                    <strong>원두</strong>
-                  </li>
-                  <li>
-                    <div>1페이지 평균가격</div>
-                    <strong class="price">20,352.5</strong>
-                  </li>
-                  <li>
-                    <div>1페이지 가격비교상품</div>
-                    <strong>32.50%</strong>
-                  </li>
-                  <li>
-                    <div>1페이지 브랜드 점유율</div>
-                    <strong>70.00%</strong>
-                  </li>
-                </ul>
-              </div>
-            </fieldset>
-          </div>
+                  <strong>35.28:1</strong>
+                </li>
+                <li>
+                  <div>1페이지 최다 키워드</div>
+                  <strong>원두</strong>
+                </li>
+                <li>
+                  <div>1페이지 평균가격</div>
+                  <strong class="price">20,352.5</strong>
+                </li>
+                <li>
+                  <div>1페이지 가격비교상품</div>
+                  <strong>32.50%</strong>
+                </li>
+                <li>
+                  <div>1페이지 브랜드 점유율</div>
+                  <strong>70.00%</strong>
+                </li>
+              </ul>
+            </div>
+          </fieldset>
         </div>
       </section>
     </div>
-    <div class="tab-content content-keyword content-related-keyword" data-tab="sub-menu">
+    <div class="tab-content content-search" data-tab="sub-menu">
       <section class="section-chart" title="키워드 검색 차트">
         <header class="section-header">
           <div class="title">
@@ -1577,7 +1575,7 @@
             </ul>
           </div>
         </header>
-        <div class="list">
+        <div class="list all">
           <ul class="row title">
             <li class="col-number">NO</li>
             <li class="col-keyword ico-sort">연관 키워드</li>
