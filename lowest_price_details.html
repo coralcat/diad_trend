@@ -19,41 +19,42 @@
 </head>
 
 <body>
-  <header class="header">
-    <a href="index.html" class="logo">trend</a>    
-    <nav>
-      <ul>
-        <li>
-          <div href="#" class="username" target="_blank">
-            <menu>coralcat</menu>
-            <ul>
-              <li onclick="location.href='accounts.html'">계정 설정</li>
-              <li onclick="location.href='settings.html'">알림 설정</li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </nav>
-    <div class="hamburg-menu responsive">
-      <svg viewBox="0 0 100 100" width="80">
-        <path
-          d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
-        <path d="m 30,50 h 40" />
-        <path
-          d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
-      </svg>
-    </div>
-  </header>
-  <main>
+  <div class="container">
+    <header class="header responsive">
+      <a href="index.html" class="logo">trend</a>    
+      <nav>
+        <ul>
+          <li>
+            <div href="#" class="username" target="_blank">
+              <menu>coralcat</menu>
+              <ul>
+                <li onclick="location.href='accounts.html'">계정 설정</li>
+                <li onclick="location.href='settings.html'">알림 설정</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="hamburg-menu">
+        <svg viewBox="0 0 100 100" width="80">
+          <path d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40"></path>
+          <path d="m 30,50 h 40"></path>
+          <path d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40"></path>
+        </svg>
+      </div>
+    </header>
       
-<aside>
-  <button class="aside-handler">
-    <svg viewBox="0 0 100 100" width="80">
-      <path d="m 30,33 h 40 c 0,0 8.5,-0.68551 8.5,10.375 0,8.292653 -6.122707,9.002293 -8.5,6.625 l -11.071429,-11.071429" />
-      <path d="m 70,50 h -40" />
-      <path d="m 30,67 h 40 c 0,0 8.5,0.68551 8.5,-10.375 0,-8.292653 -6.122707,-9.002293 -8.5,-6.625 l -11.071429,11.071429" />
-    </svg>
-  </button>
+<aside class="aside">
+  <div class="buttons">
+    <a href="index.html" class="logo"></a>
+    <button class="aside-handler">
+      <svg viewBox="0 0 100 100" width="80">
+        <path d="m 30,33 h 40 c 0,0 8.5,-0.68551 8.5,10.375 0,8.292653 -6.122707,9.002293 -8.5,6.625 l -11.071429,-11.071429" />
+        <path d="m 70,50 h -40" />
+        <path d="m 30,67 h 40 c 0,0 8.5,0.68551 8.5,-10.375 0,-8.292653 -6.122707,-9.002293 -8.5,-6.625 l -11.071429,11.071429" />
+      </svg>
+    </button>
+  </div>
   <nav>
     <div class="   is-active">
       <menu>
@@ -992,13 +993,13 @@
     chart.appear(1000, 100);
   }); // end am5.ready()
 </script>
-<div class="content content-lowest-price-details">
-  <header class="main-header">
-    <section class="title">
+<main class="content content-lowest-price-details">
+  <header class="content-header">
+    <div class="title">
       <h1>
         <span>상품 최저가 리포트</span>
       </h1>
-    </section>
+    </div>
     <section class="section-main">
       <div class="information">
         <div class="image">
@@ -1229,9 +1230,10 @@
       </div>
     </section>
   </div>
-</div>
 
-  </main>
+</main>
+
+  </div>
 </body>
 
 </html>

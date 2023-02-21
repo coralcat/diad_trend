@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   });
 
+  const container = document.querySelector(".container");
   const main = document.querySelector("main");
   const content = document.querySelector(".content");
   const wrapper = document.querySelector(".content > .wrapper");
@@ -56,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     matchMedia("screen and (min-width: 1281px)").matches && aside.classList.remove("icons-only");
   });
 
-  ro.observe(document.querySelector("main"));
+  ro.observe(container);
 
   /* =====================================================
        Progress Bar
@@ -339,8 +340,8 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   `;
 
-  main.appendChild(confirmModal);
-  main.appendChild(alertModal);
+  container.appendChild(confirmModal);
+  container.appendChild(alertModal);
 
   const alertModalContent = alertModal.querySelector(".modal-content");
   const confirmModalContent = confirmModal.querySelector(".modal-content");
@@ -620,7 +621,7 @@ document.addEventListener("DOMContentLoaded", () => {
           option.addEventListener("click", choose);
         });
 
-      button.addEventListener("click", () => {
+      button && button.addEventListener("click", () => {
         initialize();
         search.classList.toggle("is-active");
       });
@@ -787,7 +788,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 메뉴
   const hamburgMenu = document.querySelector(".hamburg-menu");
   const aside = document.querySelector("aside");
-  hamburgMenu.addEventListener("click", () => {
+  hamburgMenu && hamburgMenu.addEventListener("click", () => {
     hamburgMenu.classList.toggle("is-active");
     aside.classList.toggle("is-active");
   });

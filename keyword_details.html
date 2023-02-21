@@ -19,41 +19,42 @@
 </head>
 
 <body>
-  <header class="header">
-    <a href="index.html" class="logo">trend</a>    
-    <nav>
-      <ul>
-        <li>
-          <div href="#" class="username" target="_blank">
-            <menu>coralcat</menu>
-            <ul>
-              <li onclick="location.href='accounts.html'">계정 설정</li>
-              <li onclick="location.href='settings.html'">알림 설정</li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </nav>
-    <div class="hamburg-menu responsive">
-      <svg viewBox="0 0 100 100" width="80">
-        <path
-          d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
-        <path d="m 30,50 h 40" />
-        <path
-          d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
-      </svg>
-    </div>
-  </header>
-  <main>
+  <div class="container">
+    <header class="header responsive">
+      <a href="index.html" class="logo">trend</a>    
+      <nav>
+        <ul>
+          <li>
+            <div href="#" class="username" target="_blank">
+              <menu>coralcat</menu>
+              <ul>
+                <li onclick="location.href='accounts.html'">계정 설정</li>
+                <li onclick="location.href='settings.html'">알림 설정</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="hamburg-menu">
+        <svg viewBox="0 0 100 100" width="80">
+          <path d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40"></path>
+          <path d="m 30,50 h 40"></path>
+          <path d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40"></path>
+        </svg>
+      </div>
+    </header>
       
-<aside>
-  <button class="aside-handler">
-    <svg viewBox="0 0 100 100" width="80">
-      <path d="m 30,33 h 40 c 0,0 8.5,-0.68551 8.5,10.375 0,8.292653 -6.122707,9.002293 -8.5,6.625 l -11.071429,-11.071429" />
-      <path d="m 70,50 h -40" />
-      <path d="m 30,67 h 40 c 0,0 8.5,0.68551 8.5,-10.375 0,-8.292653 -6.122707,-9.002293 -8.5,-6.625 l -11.071429,11.071429" />
-    </svg>
-  </button>
+<aside class="aside">
+  <div class="buttons">
+    <a href="index.html" class="logo"></a>
+    <button class="aside-handler">
+      <svg viewBox="0 0 100 100" width="80">
+        <path d="m 30,33 h 40 c 0,0 8.5,-0.68551 8.5,10.375 0,8.292653 -6.122707,9.002293 -8.5,6.625 l -11.071429,-11.071429" />
+        <path d="m 70,50 h -40" />
+        <path d="m 30,67 h 40 c 0,0 8.5,0.68551 8.5,-10.375 0,-8.292653 -6.122707,-9.002293 -8.5,-6.625 l -11.071429,11.071429" />
+      </svg>
+    </button>
+  </div>
   <nav>
     <div class="   ">
       <menu>
@@ -773,7 +774,6 @@
     chart.appear(1000, 100);
   }); // end am5.ready()
 </script>
-
 <!-- 상품명 분석차트 -->
 <script>
   am5.ready(function () {
@@ -989,13 +989,13 @@
     series.appear(1000, 100);
   });
 </script>
-<div class="content content-keyword-trend-details">
-  <header class="main-header">
-    <section class="title">
+<main class="content content-keyword-trend-details">
+  <header class="content-header">
+    <div class="title">
       <h1>
         <span>키워드 트렌드 리포트</span>
       </h1>
-    </section>
+    </div>
     <section class="section-main">
       <div class="information">
         <i class="ico-star toggle is-active"></i>
@@ -1052,7 +1052,6 @@
           <li class="keyword">커피종류</li>
           <li class="keyword">커피자판기무상임대</li>
           <li class="keyword">커피자판기</li>
-
         </ul>
       </div>
     </section>
@@ -1412,8 +1411,6 @@
               </div>
             </fieldset>
           </div>
-        </div>
-        <div class="wrapper">
         </div>
       </section>
     </div>
@@ -2046,8 +2043,8 @@
               <span>~</span>
               <input id="contentsTo" type="text" name="" readonly=""
                 class="hasDatepicker">
-                <button class="btn-main ico-search" type="button"></button>
-                <button class="ico-refresh"> 초기화 </button>
+              <button class="btn-main ico-search" type="button"></button>
+              <button class="ico-refresh"> 초기화 </button>
             </div>
           </div>
         </header>
@@ -2087,7 +2084,7 @@
               </div>
             </header>
             <div class="list list-article" data-empty="조건에 맞는 콘텐츠가 없습니다.
-            ">
+              ">
               <article>
                 <div class="article-title">가정용 원두커피머신 간편한 오스너 예가클래식</div>
                 <div class="article-content">
@@ -2212,7 +2209,7 @@
               </div>
             </header>
             <div class="list list-article" data-empty="조건에 맞는 콘텐츠가 없습니다.
-            ">
+              ">
               <article>
                 <div class="article-title">디카페인 커피 : 향긋하고 산미있는 원두 #브라운체리 콜롬비아</div>
                 <div class="article-content">
@@ -2271,7 +2268,7 @@
               </div>
             </header>
             <div class="list list-article" data-empty="조건에 맞는 콘텐츠가 없습니다.
-            ">
+              ">
               <article>
                 <div class="article-title">홈카페 원두 추천 송천커피상회</div>
                 <div class="article-content">
@@ -2483,7 +2480,7 @@
               </div>
             </header>
             <div class="list list-article list-thumbnail" data-empty="조건에 맞는 콘텐츠가 없습니다.
-            ">
+              ">
               <article>
                 <div class="image">
                   <img src="https://source.unsplash.com/random/100x100/?coffee/1" alt="">
@@ -2576,7 +2573,7 @@
               </div>
             </header>
             <div class="list list-article list-thumbnail youtube" data-empty="조건에 맞는 콘텐츠가 없습니다.
-            ">
+              ">
               <article>
                 <div class="image">
                   <img
@@ -3114,7 +3111,7 @@
           </ul>
         </div>
         <div class="chart-container" title="쇼핑 카테고리 트렌드 차트">
-          <header class="section-header">
+          <header class="section-header multi-line">
             <div class="title">
               <h3>
                 쇼핑 카테고리 트렌드 차트
@@ -3502,9 +3499,9 @@
       </section>
     </div>
   </div>
-</div>
+</main>
 
-  </main>
+  </div>
 </body>
 
 </html>
