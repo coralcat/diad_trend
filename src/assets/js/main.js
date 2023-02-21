@@ -51,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const ro = new ResizeObserver(() => {
-    const aside = document.querySelector("aside");
     matchMedia("screen and (max-width: 1280px)").matches && aside.classList.add("icons-only");
     matchMedia("screen and (max-width: 640px)").matches && aside.classList.remove("icons-only");
     matchMedia("screen and (min-width: 1281px)").matches && aside.classList.remove("icons-only");
@@ -787,7 +786,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 메뉴
   const hamburgMenu = document.querySelector(".hamburg-menu");
-  const aside = document.querySelector("aside");
+  const aside = document.querySelector(".aside");
   hamburgMenu && hamburgMenu.addEventListener("click", () => {
     hamburgMenu.classList.toggle("is-active");
     aside.classList.toggle("is-active");
@@ -795,13 +794,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const asideHandler = document.querySelector(".aside-handler");
   asideHandler.addEventListener("click", () => {
-    aside.classList.contains("icons-only") ? aside.classList.remove("icons-only") : aside.classList.add("icons-only");
+    if(matchMedia("screen and (max-width: 640px)").matches) {
+      aside.classList.remove("is-active")
+      hamburgMenu.classList.remove("is-active");
+    } else {
+      aside.classList.contains("icons-only") ? aside.classList.remove("icons-only") : aside.classList.add("icons-only");
+    }
   });
 
   matchMedia("screen and (max-width: 960px)").matches && aside.classList.add("icons-only");
   matchMedia("screen and (max-width: 640px)").matches && aside.classList.remove("icons-only");
 
-  const menus = document.querySelectorAll("aside nav menu span");
+  const menus = document.querySelectorAll(".aside nav menu span");
   menus.forEach(menu => {
     menu.closest("div").querySelector("ul") && menu.closest("menu").classList.add("more");
     menu.addEventListener("click", event => {

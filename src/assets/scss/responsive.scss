@@ -307,6 +307,12 @@
     transition: 0.4s;
     z-index: 10;
 
+    .aside-handler {
+      svg {
+        transform: unset;
+      }
+    }
+
     .logo {
       span:not(.responsive) {
         display: flex;
