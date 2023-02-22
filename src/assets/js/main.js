@@ -9,15 +9,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const container = document.querySelector(".container");
   const main = document.querySelector("main");
-  const content = document.querySelector(".content");
   const wrapper = document.querySelector(".content > .wrapper");
   const scrollToTop = document.createElement("div");
   scrollToTop.classList.add("scroll-to-top");
-  wrapper.appendChild(scrollToTop);
+  wrapper && wrapper.appendChild(scrollToTop);
 
   let lastScrollTop = 0;
 
-  wrapper.addEventListener("scroll", () => {
+  wrapper && wrapper.addEventListener("scroll", () => {
     let currentScrollTop = wrapper.scrollTop;
 
     if (currentScrollTop > 50) {
@@ -31,8 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   if (matchMedia("screen and (max-width: 640px)").matches) {
-    content.addEventListener("scroll", () => {
-      let currentScrollTop = content.scrollTop;
+    main.addEventListener("scroll", () => {
+      let currentScrollTop = main.scrollTop;
 
       if (currentScrollTop > 50) {
         currentScrollTop > lastScrollTop

@@ -581,7 +581,7 @@ section {
     align-items: center;
     justify-content: space-between;
     position: relative;
-    gap: .5rem;
+    gap: 0.5rem;
 
     > div {
       display: flex;
@@ -590,7 +590,6 @@ section {
     }
 
     .title {
-
       button {
         justify-content: center;
         height: 36px;
@@ -742,11 +741,12 @@ section {
 
     .services {
       li {
-        width: min(100%, 280px);
+        min-width: 280px;
       }
 
       &.small {
         li {
+          min-width: 120px;
           width: min(30%, 280px);
         }
       }
@@ -759,7 +759,7 @@ section {
       }
 
       li {
-        width: min(45%, 110px);
+        width: min(45%, 120px);
       }
     }
 
@@ -1383,7 +1383,7 @@ main {
 
       h1 {
         font-family: "NanumSquareB";
-        font-size: 24px;
+        font-size: clamp(20px, 2.15vw, 24px);
 
         .tooltip {
           &::before {
@@ -2403,50 +2403,49 @@ main {
         }
       }
     }
-    
-    .col {
 
+    .col {
       &-100 {
         flex: 0 0 auto;
         width: 100px !important;
       }
-  
+
       &-chart {
         width: 40% !important;
       }
-  
+
       &-check {
         flex: 0 0 auto !important;
         width: 40px !important;
         border-right: 0 !important;
         padding-right: 0;
       }
-  
+
       &-title:not(.list-product .col-title) {
         flex: 1 1 auto;
         flex-direction: row;
         flex-wrap: nowrap;
         min-width: 540px;
         z-index: 10;
-  
+
         [data-tooltip] {
           &::before {
             left: -305px;
             transform: translate(-1rem, -50%);
             top: 50%;
           }
-  
+
           &::after {
             left: -10px;
             transform: translate(-1rem, -50%) rotate(90deg);
             top: 50%;
           }
-  
+
           &:hover {
             &::before {
               left: -300px;
             }
-  
+
             &::after {
               left: -5px;
             }
@@ -3669,7 +3668,6 @@ main {
 
   ul {
     display: flex;
-    flex-wrap: wrap;
     gap: 0.75rem;
 
     li {
@@ -3709,7 +3707,6 @@ main {
       }
 
       dl {
-        width: 100%;
         display: flex;
         align-items: center;
         gap: 5px;
@@ -3929,21 +3926,12 @@ main {
 :is([class$="details"]) {
   flex-direction: row;
 
-  section {
-    background-color: white;
-    border-radius: .5rem;
-    padding: 1rem
-  }
-
   .wrapper {
-    width: 860px;
     height: 100%;
     padding: 3.85rem 1rem 1rem 0;
   }
 
-  .section-main {
-    overflow-x: hidden;
-    overflow-y: auto;
+  section {
     background-color: white;
     border-radius: 0.5rem;
     display: flex;
@@ -3960,7 +3948,7 @@ main {
         display: flex;
       }
     }
-  
+
     .categories {
       justify-content: center !important;
     }
@@ -4107,11 +4095,11 @@ main {
 
       ul {
         display: flex;
-        border-radius: 0.5rem;
         flex-wrap: wrap;
         gap: 0.25rem;
 
         .keyword {
+          white-space: nowrap;
           cursor: pointer;
 
           &:hover {
@@ -4804,26 +4792,24 @@ main {
     width: 360px;
   }
 
-  > .wrapper {
-    > .tab-content {
-      flex: 1 1 auto;
-      flex-direction: column;
-      padding: 0;
-      width: 100%;
-      gap: 1rem;
-      height: fit-content;
+  .tab-content {
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 0;
+    width: 100%;
+    gap: 1rem;
+    height: fit-content;
+  }
 
-      > section {
-        flex: 1 1 auto;
-        background-color: white;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        box-shadow: 0 6px 12px -4px #e3e6e9;
-      }
-    }
+  section {
+    flex: 1 1 auto;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0 6px 12px -4px #e3e6e9;
   }
 
   .summary {

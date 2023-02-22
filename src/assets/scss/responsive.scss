@@ -6,8 +6,6 @@
   }
 
   .wrapper {
-    width: 100% !important;
-    padding: 1rem !important;
   }
 
   :is(.content-ranking, .content-lowest-price) {
@@ -115,6 +113,12 @@
 }
 
 @media screen and (max-width: 640px) {
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent; /* make scrollbar transparent */
+  }
+
   html {
     overflow: hidden;
 
@@ -254,7 +258,7 @@
         width: 100%;
         flex-direction: row;
         padding: 0;
-        box-shadow: 0 0 0 ;
+        box-shadow: 0 0 0;
 
         &.title {
           display: flex;
@@ -299,8 +303,8 @@
 
   section {
     background-color: transparent;
+    padding: 0 1rem 1rem;
     gap: 0.5rem;
-    padding: 0;
     box-shadow: 0 0 0;
     border-radius: 0;
     flex-wrap: wrap;
@@ -308,6 +312,10 @@
     max-width: 100%;
 
     .section-header {
+      background: rgb(255 255 255 / 50%);
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+
       button {
         min-width: 40px;
         height: 40px;
@@ -318,31 +326,56 @@
         :empty {
           display: none;
         }
-      }
-    }
-    &.section-main {
-      padding: 1rem;
-      background-color: white;
-      border-radius: 0.5rem;
 
-      .services {
-        li {
-          width: 100%;
+        .buttons {
         }
       }
+    }
+
+    &.section-main {
+      padding: 0.75rem 0;
+      background-color: white;
 
       .section-header {
-        padding: 0 !important;
+        padding: 0 1rem !important;
       }
 
-      ul {
-        flex-direction: column;
+      > div {
+        width: 100%;
+
+        + div {
+          padding-top: 1rem;
+          border-top: 1px solid #eee;
+        }
+
+        ul:not(.details) {
+          overflow-x: auto;
+
+          li {
+            &:first-of-type:not(.keyword) {
+              margin-left: 1rem;
+            }
+
+            &:last-of-type:not(.keyword) {
+              margin-right: 1rem;
+            }
+          }
+
+          dl {
+            flex-direction: column;
+            align-items: flex-start !important;
+          }
+        }
       }
     }
 
     &.section-chart {
-      border-radius: 0.5rem;
-      background-color: white;
+      border-radius: 0;
+      background-color: white !important;
+
+      &:not(:last-of-type) {
+        margin-bottom: 0.5rem;
+      }
     }
 
     .wrapper {
@@ -417,12 +450,11 @@
     }
 
     .logo {
-      font-size: 18px;
       text-align: center;
-      width: 54px;
-      height: 22px;
+      width: 33px;
+      height: 18px;
       background: url(../images/logo_diad_trend.svg) no-repeat left center;
-      background-size: 120px;
+      background-size: 96px;
 
       a {
         font-size: 22px;
@@ -438,12 +470,15 @@
 
     > .wrapper {
       flex-direction: column !important;
-      padding-top: 0 !important;
-      gap: 1rem;
+      padding: 0 !important;
+    }
+
+    .tab-content {
+      gap: 0 !important;
     }
 
     .content-header {
-      padding: 1rem 1rem 0;
+      padding: 0.5rem 1rem 0;
       gap: 0.5rem;
 
       .username {
@@ -606,6 +641,7 @@
           order: -1;
           justify-content: center;
           transform: scale(1.25);
+          margin-top: -1rem;
           margin-bottom: 1rem;
 
           &::before {
@@ -654,31 +690,6 @@
           }
         }
       }
-    }
-  }
-
-  :is([class$="details"]) {
-    display: block;
-    overflow-y: auto;
-
-    .list {
-      .row {
-        padding: 0;
-        border-radius: 0;
-        background-color: transparent;
-        box-shadow: 0 0 0;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 1rem;
-      }
-    }
-
-    .content-header {
-      padding: 1rem;
-      gap: 0;
-    }
-
-    > .wrapper {
-      height: fit-content;
     }
   }
 
@@ -851,6 +862,9 @@
     .section-main {
       .services {
         ul {
+          li {
+            min-width: 240px;
+          }
         }
       }
     }
@@ -859,14 +873,10 @@
   .content-bidding {
     .tab-content {
       flex-direction: column;
-    } 
+    }
 
     .section-account {
       width: 100%;
-      padding: 1rem !important;
-      background-color: white;
-      border-radius: .5rem;
-      margin: .5rem 0;
 
       + section {
         overflow-x: hidden;
@@ -917,10 +927,6 @@
 
     .section-main {
       ul {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-
         li {
           div {
             font-size: 13px;
@@ -1007,6 +1013,18 @@
   }
 
   :is([class$="details"]) {
+    display: block;
+    overflow-y: auto;
+
+    .content-header {
+      padding: 1rem;
+      gap: 0;
+    }
+
+    > .wrapper {
+      height: fit-content;
+    }
+
     .buttons {
       :not(.ico-download) {
         display: none;
@@ -1028,11 +1046,10 @@
       }
 
       .related {
-        padding: 0.75rem;
         width: 100%;
 
         ul {
-          flex-direction: row;
+          flex-wrap: nowrap;
         }
       }
     }
@@ -1067,6 +1084,7 @@
             }
 
             &.col-keyword {
+              left: 0 !important;
               width: 120px !important;
               height: fit-content !important;
               border: 0;
@@ -1105,24 +1123,18 @@
     }
 
     .section-weekly-top {
+      background-color: transparent;
+      box-shadow: 0 0 0;
+
       .section-header {
         flex-wrap: wrap;
       }
 
       .ranking-fluctuations {
         gap: 0.5rem;
-
-        .ranking-chart {
-          padding: 1rem;
-          background-color: white;
-        }
       }
       .list {
-        gap: 0 !important;
-
         .row {
-          flex-direction: row;
-          padding: 0.5rem 0;
           gap: 1rem;
 
           &:not(:last-of-type) {
@@ -1166,12 +1178,25 @@
   }
 
   .content-keyword-trend-details {
+    padding-top: 30px;
+
     .content-header {
       gap: 0;
     }
 
     .layout {
       display: none !important;
+    }
+
+    section:not(.section-main) {
+      background-color: transparent;
+      border-radius: 0 !important;
+      box-shadow: 0 0 0;
+
+      &.section-article {
+        background-color: white;
+        border-radius: 0;
+      }
     }
 
     .section-main {
@@ -1185,15 +1210,23 @@
           }
         }
       }
+
+      .details {
+        flex-direction: row;
+      }
     }
 
     .wrapper {
       gap: 1rem;
 
       > .tabs {
-        padding: 0;
-        margin: 0 auto;
-        width: calc(100% - 2rem);
+        margin: 0;
+        position: fixed;
+        top: 50px;
+        width: 100%;
+        border-radius: 0;
+        height: 40px;
+        background: white;
 
         li {
           display: flex;
@@ -1201,14 +1234,6 @@
           padding: 0.35rem 0.5rem;
           word-break: keep-all;
           font-size: 14px;
-        }
-      }
-      > .tab-content {
-        padding: 0;
-
-        section {
-          background-color: white;
-          padding: 1rem;
         }
       }
     }
@@ -1272,13 +1297,6 @@
     }
 
     .content-keyword {
-      .section-chart {
-        .summary:not(.horizontal) {
-          li {
-            flex-direction: column !important;
-          }
-        }
-      }
       .section-article {
         .tabs {
           flex-direction: row;
@@ -1441,6 +1459,12 @@
           }
         }
       }
+    }
+
+    .section-header {
+      background-color: transparent;
+      padding: 0;
+      border-radius: 0;
     }
 
     .tabs {
