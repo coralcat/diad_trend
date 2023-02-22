@@ -310,11 +310,15 @@
       }
 
       .title {
-        :empty {
+        :empty:not(button) {
           display: none;
         }
 
         .buttons {
+
+          button {
+            padding: .5rem;
+          }
         }
       }
     }
