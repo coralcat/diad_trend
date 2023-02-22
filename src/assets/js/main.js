@@ -821,11 +821,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const accordion = document.querySelector(".accordion");
   if (accordion) {
     accordion.addEventListener("click", event => {
-      const lists = accordion.querySelectorAll("li");
-      lists.forEach(list => {
-        list.classList.remove("is-active");
-      });
-      event.target.closest("li").classList.toggle("is-active");
+      // const lists = accordion.querySelectorAll("li");
+      // lists.forEach(list => {
+      //   list.classList.contains("is-active") && list.classList.remove("is-active")
+      // });
+      
+      event.target.closest("li").classList.contains("is-active")
+      ? event.target.closest("li").classList.remove("is-active")
+      : event.target.closest("li").classList.add("is-active");
     });
   }
 
