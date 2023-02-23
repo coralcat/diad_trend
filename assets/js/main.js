@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   scrollToTop.addEventListener("click", () => {
     wrapper.scrollTo({top: 0, behavior: "smooth"});
-    content.scrollTo({top: 0, behavior: "smooth"});
+    main.scrollTo({top: 0, behavior: "smooth"});
   });
 
   const ro = new ResizeObserver(() => {
@@ -855,11 +855,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 키워드 트랜드 - 연관 키워드 목록
-  const relatedKeywordContent = document.querySelector(".content-related-keyword");
-  if (relatedKeywordContent) {
+  const relatedKeywordSection = document.querySelector(".section-related-keyword");
+  if (relatedKeywordSection) {
     const checkNaver = document.getElementById("checkNaverList");
     const checkGoogle = document.getElementById("checkGoogleList");
-    const list = relatedKeywordContent.querySelector(".list");
+    const list = relatedKeywordSection.querySelector(".list");
     list.classList.add("all");
 
     const initialize = () => {
@@ -897,7 +897,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
 
-    const checkboxes = relatedKeywordContent.querySelectorAll(".filters .checkboxes input");
+    const checkboxes = relatedKeywordSection.querySelectorAll(".filters .checkboxes input");
     checkboxes.forEach(check => {
       check.addEventListener("click", changeFilters);
     });
