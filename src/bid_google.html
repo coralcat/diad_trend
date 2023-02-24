@@ -1,8 +1,9 @@
 {% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('bidGoogle')}}
-<main class="content content-bidding google">
+<main class="content-bidding google">
   <header class="content-header">
     <div class="title">
       <h1>구글 검색광고</h1>
+      {% include "account.html" %}
     </div>
   </header>
   <div class="wrapper">

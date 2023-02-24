@@ -1,5 +1,19 @@
 {% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('index')}}
-<main class="content content-logout">
+<main class="content-logout">
+  <header class="content-header">
+    <div class="title">
+      <h1>
+      </h1>
+      <div class="subline">
+        <button
+          class="btn-sub"
+          type="button">회원가입</button>
+        <button
+          class="btn-main"
+          type="button">로그인</button>
+      </div>
+    </div>
+  </header>
   <div class="wrapper">
     <section class="section-main">
       <div class="wrapper">
