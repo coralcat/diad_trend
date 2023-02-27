@@ -565,14 +565,11 @@ section {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  
-  &:not(.modal section) {
-    gap: 0.5rem;
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    background-color: white;
-    box-shadow: 0 6px 12px -4px #e3e6e9;
-  }
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  box-shadow: 0 6px 12px -4px #e3e6e9;
 
   &.section-list {
     height: 100%;
@@ -596,12 +593,13 @@ section {
     .services {
       li {
         min-width: 280px;
+        width: min(100%, 280px);
       }
 
       &.small {
         li {
           min-width: 100px;
-          width: min(30%, 280px);
+          width: min(30%, 100px);
         }
       }
     }
@@ -1478,7 +1476,7 @@ main {
         }
       }
 
-      ul {
+      > ul {
         gap: 0.5rem;
 
         li {
@@ -6440,7 +6438,11 @@ main {
   }
 
   section {
-    max-height: 100%;
+    max-height: 100%;    
+    padding: 0;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: 0 0 0;
   }
 
   .caution {
@@ -6635,10 +6637,6 @@ main {
     padding: 0.75rem;
     border-radius: 0.25rem;
     background-color: #f3f6f9;
-  }
-
-  .list-header {
-    margin-bottom: 0.5rem;
   }
 
   .list {
