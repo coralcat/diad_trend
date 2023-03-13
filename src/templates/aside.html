@@ -17,13 +17,13 @@
         <span onclick="location.href='tracking.html'">스토어</span>
       </menu>
       <ul>
-        <li class="{% if currentPage == 'sales' %}is-active{% endif %}">
+        <li class="gmarket {% if currentPage == 'sales' %}is-active{% endif %}">
           <span class="gmarket" onclick="location.href='track_gmarket.html'">지마켓 판매량 추적</span>
         </li>
-        <li class="{% if currentPage == 'ranking' %}is-active{% endif %}">
+        <li class="naver {% if currentPage == 'ranking' %}is-active{% endif %}">
           <span class="naver" onclick="location.href='ranking.html'">네이버 순위 추적</span>
         </li>
-        <li class="{% if currentPage == 'lowestPrice' %}is-active{% endif %}">
+        <li class="naver {% if currentPage == 'lowestPrice' %}is-active{% endif %}">
           <span class="naver" onclick="location.href='lowest_price.html'">네이버 최저가 추적</span>
         </li>
       </ul>
@@ -34,16 +34,16 @@
         <span onclick="location.href='bidding.html'">자동입찰</span>
       </menu>
       <ul>
-        <li class="{% if currentPage == 'bidNaver' %}is-active{% endif %}">
+        <li class="naver {% if currentPage == 'bidNaver' %}is-active{% endif %}">
           <span class="naver" onclick="location.href='bid_naver.html'">네이버</span>
         </li>
-        <li class="{% if currentPage == 'bid11st' %}is-active{% endif %}">
+        <li class="eleventh {% if currentPage == 'bid11st' %}is-active{% endif %}">
           <span class="eleventh" onclick="location.href='bid_11st.html'">11번가</span>
         </li>
-        <li class="{% if currentPage == 'bidGmarket' %}is-active{% endif %}">
+        <li class="gmarket {% if currentPage == 'bidGmarket' %}is-active{% endif %}">
           <span class="gmarket" onclick="location.href='bid_gmarket.html'">지마켓 파워클릭</span>
         </li>
-        <li class="{% if currentPage == 'bidGoogle' %}is-active{% endif %}">
+        <li class="google {% if currentPage == 'bidGoogle' %}is-active{% endif %}">
           <span class="google" onclick="location.href='bid_google.html'">구글 검색광고</span>
         </li>
       </ul>

@@ -926,7 +926,7 @@ document.addEventListener("DOMContentLoaded", () => {
   date1 && (date30.textContent = getDateAgo(30));
 
   // 목록 체크박스 효과
-  const listCheckboxes = document.querySelectorAll(".list input[type='checkbox']");
+  const listCheckboxes = document.querySelectorAll(".list .col-check input[type='checkbox']");
   listCheckboxes.forEach(check => {
     check.addEventListener("change", event => {
       if (check.classList.contains("check-all")) {
