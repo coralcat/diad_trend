@@ -63,13 +63,13 @@
         <span onclick="location.href='tracking.html'">스토어</span>
       </menu>
       <ul>
-        <li class="">
+        <li class="gmarket ">
           <span class="gmarket" onclick="location.href='track_gmarket.html'">지마켓 판매량 추적</span>
         </li>
-        <li class="">
+        <li class="naver ">
           <span class="naver" onclick="location.href='ranking.html'">네이버 순위 추적</span>
         </li>
-        <li class="">
+        <li class="naver ">
           <span class="naver" onclick="location.href='lowest_price.html'">네이버 최저가 추적</span>
         </li>
       </ul>
@@ -80,16 +80,16 @@
         <span onclick="location.href='bidding.html'">자동입찰</span>
       </menu>
       <ul>
-        <li class="is-active">
+        <li class="naver is-active">
           <span class="naver" onclick="location.href='bid_naver.html'">네이버</span>
         </li>
-        <li class="">
+        <li class="eleventh ">
           <span class="eleventh" onclick="location.href='bid_11st.html'">11번가</span>
         </li>
-        <li class="">
+        <li class="gmarket ">
           <span class="gmarket" onclick="location.href='bid_gmarket.html'">지마켓 파워클릭</span>
         </li>
-        <li class="">
+        <li class="google ">
           <span class="google" onclick="location.href='bid_google.html'">구글 검색광고</span>
         </li>
       </ul>
@@ -527,7 +527,7 @@
                       </div>
                     </div>
                     <div class="options">
-                      <span>입찰결과: </span>
+                      <span>입찰: </span>
                       <div class="checkbox">
                         <input id="bidding-results-succeded" type="checkbox" name="bidding-results" />
                         <label for="bidding-results-succeded">성공</label>
@@ -704,9 +704,19 @@
             <li class="ico-sort">하향입찰</li>
             <li class="ico-sort">입찰가</li>
             <li class="ico-sort">현재순위</li>
-            <li class="ico-sort">최대입찰가 도달여부</li>
-            <li class="ico-sort">희망순위 도달여부</li>
-            <li class="ico-sort">입찰결과</li>
+            <li class="ico-sort">
+              입찰
+              <div class="tooltip type2">
+                <article class="tooltip-content">
+                  <dl>
+                    <dt>입찰은 입찰 프로세스 진행 상황에 따라 대기, 성공, 실패가 있습니다.</dt>
+                    <dd>대기는 입찰이 한 번도 실행되지 않은 초기 상태입니다.</dd>
+                    <dd>성공은 희망 순위에 도달하였거나, 설정한 값을 기준으로 입찰 프로세스가 진행되어 정상적으로 종료된 상태입니다.</dd>
+                    <dd>실패는 입찰 프로세스가 진행되었으나, 여러 요인에 의해 정상적으로 종료되지 못한 상태입니다.</dd>
+                  </dl>
+                </article>
+              </div>
+            </li>
             <li class="ico-sort">분류명</li>
             <li class="ico-sort">키워드상태</li>
             <li class="ico-sort">광고그룹</li>
@@ -729,7 +739,10 @@
                 <div class="keyword">제주산조릿대차</div>
               </li>
               <li title="입찰상태">
-                정지
+                <div class="toggle-switch">
+                  <input id="toggle-bidding" type="checkbox">
+                  <label for="toggle-bidding"></label>
+                </div>
               </li>
               <li title="입찰설정">
                 <button data-modal="settingsAdvanced">고급설정</button>
@@ -768,13 +781,7 @@
                 <div class="price"></div>
               </li>
               <li title="현재순위"></li>
-              <li title="최대입찰가 도달여부">
-                미도달
-              </li>
-              <li title="희망순위 도달여부">
-                미도달
-              </li>
-              <li title="입찰결과">
+              <li title="입찰">
                 <div>
                   <span>실패</span>
                   <button>이력</button>
@@ -1207,7 +1214,7 @@
                       </div>
                     </div>
                     <div class="options">
-                      <span>입찰결과: </span>
+                      <span>입찰: </span>
                       <div class="checkbox">
                         <input id="bidding-results-succeded-2" type="checkbox" name="bidding-results-2" />
                         <label for="bidding-results-succeded-2">성공</label>
@@ -1381,9 +1388,7 @@
             <li class="ico-sort">하향입찰</li>
             <li class="ico-sort">입찰가</li>
             <li class="ico-sort">현재순위</li>
-            <li class="ico-sort">최대입찰가 도달여부</li>
-            <li class="ico-sort">희망순위 도달여부</li>
-            <li class="ico-sort">입찰결과</li>
+            <li class="ico-sort">입찰</li>
             <li class="ico-sort">분류명</li>
             <li class="ico-sort">키워드상태</li>
             <li class="ico-sort">광고그룹</li>
@@ -1453,13 +1458,7 @@
                 <div class="price"></div>
               </li>
               <li title="현재순위"></li>
-              <li title="최대입찰가 도달여부">
-                미도달
-              </li>
-              <li title="희망순위 도달여부">
-                미도달
-              </li>
-              <li title="입찰결과">
+              <li title="입찰">
                 <div>
                   <span>실패</span>
                   <button>이력</button>
@@ -1837,7 +1836,7 @@
                       </div>
                     </div>
                     <div class="options">
-                      <span>입찰결과: </span>
+                      <span>입찰: </span>
                       <div class="checkbox">
                         <input id="bidding-results-succeded-3" type="checkbox" name="bidding-results-3" />
                         <label for="bidding-results-succeded-3">성공</label>
@@ -2018,9 +2017,7 @@
             <li class="ico-sort">하향입찰</li>
             <li class="ico-sort">입찰가</li>
             <li class="ico-sort">현재순위</li>
-            <li class="ico-sort">최대입찰가 도달여부</li>
-            <li class="ico-sort">희망순위 도달여부</li>
-            <li class="ico-sort">입찰결과</li>
+            <li class="ico-sort">입찰</li>
             <li class="ico-sort">분류명</li>
             <li class="ico-sort">키워드상태</li>
             <li class="ico-sort">광고그룹</li>
@@ -2082,13 +2079,7 @@
                 <div class="price">1,120</div>
               </li>
               <li title="현재순위"></li>
-              <li title="최대입찰가 도달여부">
-                미도달
-              </li>
-              <li title="희망순위 도달여부">
-                미도달
-              </li>
-              <li title="입찰결과">
+              <li title="입찰">
                 <div>
                   <span>실패</span>
                   <button>이력</button>
@@ -2202,16 +2193,8 @@
             <label for="select-column15">현재순위</label>
           </div>
           <div class="checkbox">
-            <input id="select-column16" type="checkbox" name="selectColumn" checked />
-            <label for="select-column16">최대입찰가 도달여부</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column17" type="checkbox" name="selectColumn" checked />
-            <label for="select-column17">희망순위 도달여부</label>
-          </div>
-          <div class="checkbox">
             <input id="select-column18" type="checkbox" name="selectColumn" checked />
-            <label for="select-column18">입찰결과</label>
+            <label for="select-column18">입찰</label>
           </div>
           <div class="checkbox">
             <input id="select-column19" type="checkbox" name="selectColumn" checked />
