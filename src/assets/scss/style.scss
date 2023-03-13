@@ -1012,24 +1012,25 @@ header {
         z-index: 10;
         cursor: pointer;
 
-        &::after {
+        &::before {
           content: "";
           position: absolute;
           top: 0;
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(130deg, #5048d7 60%, #a33de6);
+          background-image: linear-gradient(130deg, $main-color 60%, #686ade);;
           border-radius: 5px;
           opacity: 0;
-          transition: opacity 0.25s;
+          transition: opacity 0.25s, background-image .25s;
+          transition-delay: 0s, 1s
         }
 
         &.is-active,
         &:hover {
           color: white;
 
-          &::after {
+          &::before {
             opacity: 1;
           }
 
@@ -1042,7 +1043,10 @@ header {
 
     .naver {
 
-      &::after {
+      &.is-active {
+        &::before {
+          background-image: linear-gradient(130deg, #5048d7 60%, #19ce60);
+        }
       }
 
       span {
@@ -1054,7 +1058,10 @@ header {
 
     .eleventh {
 
-      &::after {
+      &.is-active {
+        &::before {
+          background-image: linear-gradient(130deg, #5048d7 60%, #ff547a);
+        }
       }
 
       span {
@@ -1075,6 +1082,12 @@ header {
 
     .gmarket {
 
+      &.is-active {
+        &::before {
+          background-image: linear-gradient(130deg, #5048d7 60%, #10af29);
+        }
+      }
+
       span {
         &::before {
           content: "g.";
@@ -1083,6 +1096,12 @@ header {
     }
 
     .google {
+
+      &.is-active {
+        &::before {
+          background-image: linear-gradient(130deg, #5048d7 60%, #4285f4);
+        }
+      }
 
       span {
         &::before {
@@ -1560,14 +1579,14 @@ main {
     z-index: 52 !important;
   }
 
-  button {
-    padding: 0.5rem 1rem !important;
-  }
-
   :is(input, select, textarea) {
     border: 0 !important;
     background-color: rgba(255, 255, 255, 0.5) !important;
     height: 30px !important;
+  }
+
+  button {
+    padding: 0.5rem 1rem !important;
   }
 
   ul {
@@ -1575,7 +1594,7 @@ main {
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.5rem !important;
     position: relative;
 
     &:is(.advanced-search > ul) {
@@ -1628,9 +1647,14 @@ main {
     white-space: nowrap;
     flex-wrap: wrap;
     gap: 5px;
+
+    > .checkbox {
+      margin-left: 1.5rem;
+    }
   }
 
   .options {
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -1656,7 +1680,6 @@ main {
   }
 
   .buttons {
-    width: 100%;
     justify-content: flex-end;
     position: absolute;
     bottom: 0;
@@ -1664,16 +1687,16 @@ main {
   }
 
   .tooltip {
-    &::after {
-      top: 6px;
-      transform: translate(calc(22px), 0) rotate(270deg);
-      bottom: auto;
-    }
+    
+    .tooltip-content {
 
-    &:hover {
-      &::after {
-        transform: translate(17px, 0) rotate(270deg);
+      &::before {
+        top: 50%;
+        left: -9px;
+        transform: translateY(-50%) rotate(270deg);
       }
+    }
+    &:hover {
 
       .tooltip-content {
         left: 40px;
@@ -1801,10 +1824,9 @@ main {
 }
 
 .tooltip-content {
-  dl {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 
     dd {
       position: relative;
@@ -1813,11 +1835,11 @@ main {
       &::before {
         content: "\00B7";
         position: absolute;
-        top: 2px;
+        top: 50%;
         left: 0;
+        transform: translateY(-50%);
       }
     }
-  }
 }
 
 .categories {
@@ -3873,7 +3895,7 @@ main {
             }
 
             .tooltip-content {
-              width: 360px;
+              width: 450px;
               top: calc(100% + 12px);
               transform: none;
               left: -5rem;
@@ -4545,9 +4567,17 @@ main {
     }
 
     .details-bidding {
+      .tooltip-content {
+        white-space: nowrap;
+        width: fit-content;
+        left: -2rem;
+      }
       strong {
-        text-decoration: underline;
-        cursor: pointer;
+
+        &:first-child {
+          text-decoration: underline;
+          cursor: pointer;
+        }
       }
     }
 
@@ -4661,7 +4691,13 @@ main {
     }
   }
 
-  .content-naver-searchad-shopping {
+  .content-naver-searchad {
+
+    &-shopping {
+      .col-keyword {
+        left: 340px !important;
+      }
+    }
   }
 }
 
