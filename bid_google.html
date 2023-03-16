@@ -686,6 +686,7 @@
           <li class="ico-sort">검색유형</li>
           <li class="ico-sort">평균비용</li>
           <li class="ico-sort">비용</li>
+          <li class="ico-sort">입찰</li>
           <li class="ico-sort">입찰결과</li>
           <li class="ico-sort">분류명</li>
           <li class="ico-sort">캠페인</li>
@@ -714,7 +715,10 @@
               ON
             </li>
             <li title="입찰상태">
-              정지
+              <div class="toggle-switch">
+                <input id="toggle-bidding" type="checkbox">
+                <label for="toggle-bidding"></label>
+              </div>
             </li>
             <li title="입찰설정">
               <button disabled>미설정</button>
@@ -793,7 +797,13 @@
             <li title="비용">
               <div class="price"></div>
             </li>
-            <li title="입찰결과"></li>
+            <li title="입찰">
+              <div>
+                <span>실패</span>
+                <button data-modal="biddingHistory">이력</button>
+              </div>
+            </li>
+            <li title="입찰결과">최대도달</li>
             <li title="분류명"></li>
             <li title="캠페인">
               다이애드
@@ -823,6 +833,29 @@
           </ul>
         </div>
       </div>
+      <footer class="section-footer">
+        <div class="pagination">
+          <button onclick="" type="button">
+            <div class="arrow double left"></div>
+          </button>
+          <button onclick="" type="button">
+            <div class="arrow left"></div>
+          </button>
+          <div class="pages">
+            <button class="is-active" onclick="" type="button">1</button>
+            <button onclick="" type="button">2</button>
+            <button onclick="" type="button">3</button>
+            <button onclick="" type="button">4</button>
+            <button onclick="" type="button">5</button>
+          </div>
+          <button onclick="" type="button">
+            <div class="arrow right"></div>
+          </button>
+          <button onclick="" type="button">
+            <div class="arrow double right"></div>
+          </button>
+        </div>
+      </footer>
     </section>
   </div>
 </main>
@@ -956,6 +989,10 @@
             <label for="select-column30">비용</label>
           </div>
           <div class="checkbox">
+            <input id="select-bidding" type="checkbox" name="selectColumn" checked />
+            <label for="select-bidding">입찰</label>
+          </div>
+          <div class="checkbox">
             <input id="select-column31" type="checkbox" name="selectColumn" checked />
             <label for="select-column31">입찰결과</label>
           </div>
@@ -1006,6 +1043,120 @@
       <button class="btn-cancel close" type="button">취소</button>
       <button class="btn-sub" type="button" data-modal="apply">초기화</button>
       <button class="btn-submit" type="button" data-modal="apply">적용</button>
+    </div>
+  </div>
+</div>
+<div id="biddingHistory" class="modal modal-history" title="입찰 이력">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>입찰 이력</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <ul class="tabs">
+        <li class="is-active" data-tab="biddingHistory">성공이력</li>
+        <li data-tab="biddingHistory">실패이력</li>
+      </ul>
+      <div class="tab-content is-active" data-tab="biddingHistory">
+        <div class="list">
+          <ul class="row title">
+            <li class="col-keyword">키워드</li>
+            <li>입찰대상</li>
+            <li>현재순위</li>
+            <li>현재입찰가</li>
+            <li>증감액</li>
+            <li>이전순위</li>
+            <li>이전입찰가</li>
+            <li class="col-date">입찰시각</li>
+          </ul>
+          <div class="rows" data-empty="성공이력 데이터가 존재하지 않습니다.">
+            <ul class="row">
+              <li class="col-keyword">
+                <div class="keyword">레드울프</div>
+              </li>
+              <li>PC일반</li>
+              <li>2</li>
+              <li>
+                <div class="price">500</div>
+              </li>
+              <li>
+                <div class="tag up">10</div>
+              </li>
+              <li>2</li>
+              <li>
+                <div class="price">480</div>
+              </li>
+              <li class="col-date">20223-03-03 오전 8:10:15</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pagination">
+          <button onclick="" type="button">
+            <div class="arrow double left"></div>
+          </button>
+          <button onclick="" type="button">
+            <div class="arrow left"></div>
+          </button>
+          <div class="pages">
+            <button class="is-active" onclick="" type="button">1</button>
+            <button onclick="" type="button">2</button>
+            <button onclick="" type="button">3</button>
+            <button onclick="" type="button">4</button>
+            <button onclick="" type="button">5</button>
+          </div>
+          <button onclick="" type="button">
+            <div class="arrow right"></div>
+          </button>
+          <button onclick="" type="button">
+            <div class="arrow double right"></div>
+          </button>
+        </div>
+      </div>
+      <div class="tab-content" data-tab="biddingHistory">
+        <div class="list">
+          <ul class="row title">
+            <li class="col-keyword">키워드</li>
+            <li>타이틀</li>
+            <li class="col-content">내용</li>
+            <li>현재순위</li>
+            <li>이전순위</li>
+            <li class="col-date">입찰시각</li>
+          </ul>
+          <div class="rows" data-empty="실패이력 데이터가 존재하지 않습니다.">
+            <ul class="row">
+              <li class="col-keyword">
+                <div class="keyword">레드울프</div>
+              </li>
+              <li>입찰가 변경</li>
+              <li class="col-content">최대입찰금액 500원에 도달하였습니다</li>
+              <li>2</li>
+              <li>2</li>
+              <li class="col-date">20223-03-03 오전 8:10:15</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pagination">
+          <button onclick="" type="button">
+            <div class="arrow double left"></div>
+          </button>
+          <button onclick="" type="button">
+            <div class="arrow left"></div>
+          </button>
+          <div class="pages">
+            <button class="is-active" onclick="" type="button">1</button>
+            <button onclick="" type="button">2</button>
+            <button onclick="" type="button">3</button>
+            <button onclick="" type="button">4</button>
+            <button onclick="" type="button">5</button>
+          </div>
+          <button onclick="" type="button">
+            <div class="arrow right"></div>
+          </button>
+          <button onclick="" type="button">
+            <div class="arrow double right"></div>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
