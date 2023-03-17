@@ -55,8 +55,9 @@ $farrownball-drawing-room-blue: #2e3548;
 // Blue tone
 $clark-kensington-stowe-mountain: #717593;
 
+$main-color: #5048d7;
+$trend-color: #5b54c6;
 $primary-color: #7682f8;
-$main-color: #5b54c6;
 $secondary-color: #f2f1ff;
 $dark-primary-color: #27292d;
 $dark-tertiary-color: #85899a;
@@ -437,7 +438,7 @@ ul {
 
 .ico-refresh {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='rgb(91, 84, 198)' d='M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z'/%3E%3C/svg%3E");
-  background-size: 14px 14px;
+  background-size: 18px 18px;
   background-position: center left 0.65rem;
   padding-left: 1.75rem !important;
 }

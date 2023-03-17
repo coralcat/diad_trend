@@ -340,6 +340,40 @@ body {
       text-decoration: underline;
     }
   }
+  
+  .tabs {
+    gap: .75rem;
+
+    li {
+      font-size: 20px;
+      color: #b3b6b9;
+      padding: 0 5px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -0.5rem;
+        width: 0;
+        height: 2px;
+        background-color: $main-color;
+        display: block;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: width 0.25s;
+      }
+
+      &:hover,
+      &.is-active {
+        color: $main-color;
+        position: relative;
+        font-family: "Roboto", "NanumSquareB";
+
+        &::before {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
 
 .ico-close {
@@ -674,37 +708,6 @@ section {
       aspect-ratio: 1;
     }
 
-    .tabs {
-      li {
-        font-size: 20px;
-        color: lightgray;
-        padding: 0 1rem;
-
-        &::before {
-          content: "";
-          position: absolute;
-          bottom: -14px;
-          width: 0;
-          height: 2px;
-          background-color: $main-color;
-          display: block;
-          left: 50%;
-          transform: translateX(-50%);
-          transition: width 0.25s;
-        }
-
-        &:hover,
-        &.is-active {
-          color: $main-color;
-          position: relative;
-
-          &::before {
-            width: 100%;
-          }
-        }
-      }
-    }
-
     .title {
       display: flex;
       align-items: center;
@@ -1031,10 +1034,9 @@ header {
         }
 
         &.is-active {
-
           &::after {
             opacity: 0;
-            animation: fadeIn 1s forwards .5s;
+            animation: fadeIn 1s forwards 0.5s;
           }
         }
       }
@@ -1394,38 +1396,6 @@ main {
       }
     }
 
-    .tabs {
-      display: flex;
-      gap: 1.5rem;
-      align-items: baseline;
-      overflow-x: auto;
-      overflow-y: hidden;
-
-      li {
-        opacity: 0.35;
-        position: relative;
-        white-space: nowrap;
-        font-size: clamp(18px, 2vw, 20px);
-        font-family: "RobotoMedium", "NanumSquareR";
-        transition: 0.25s;
-
-        &:hover,
-        &.is-active {
-          opacity: 1;
-          font-family: "RobotoMedium", "NanumSquareB";
-
-          &::before {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            height: 2px;
-            width: 100%;
-            background-color: $main-color;
-          }
-        }
-      }
-    }
-
     .title {
       min-height: 36px;
       display: flex;
@@ -1581,7 +1551,7 @@ main {
   }
 
   button {
-    padding: 0.5rem 1rem !important;
+    height: 36px;
   }
 
   ul {
@@ -1623,7 +1593,7 @@ main {
 
       h5 {
         flex: 0 0 auto;
-        width: 100px;
+        width: 90px;
         padding-right: 0.5rem;
         display: flex;
         align-items: center;
@@ -1634,6 +1604,21 @@ main {
         line-height: 2;
         color: slategray;
       }
+    }
+  }
+
+  .checkboxes {
+    padding-left: 3.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    width: 100%;
+    position: relative;
+
+    strong {
+      position: absolute;
+      left: 1.4rem;
     }
   }
 
@@ -1649,12 +1634,11 @@ main {
   }
 
   .options {
-    width: 100%;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     font-size: 12px;
-    margin-left: 1.5rem;
+    margin-left: 0.5rem;
 
     label {
       outline: 1px solid #ddd;
@@ -1671,6 +1655,10 @@ main {
         outline: 1px solid $main-color;
         color: $main-color;
       }
+    }
+
+    svg {
+      display: none;
     }
   }
 
@@ -2259,7 +2247,7 @@ main {
     left: -2rem;
 
     &::before {
-      left: 36px;
+      left: 34px;
       transform: none;
     }
   }
@@ -2522,7 +2510,7 @@ main {
         flex-direction: row;
         flex-wrap: nowrap;
         min-width: 540px;
-        z-index: 10;
+        z-index: 77;
 
         [data-tooltip] {
           &::before {
@@ -2853,7 +2841,7 @@ main {
   padding: 1rem;
 
   .checkbox {
-    flex: 0 0 calc(20% - 0.4rem);
+    flex: 0 0 109px;
 
     label {
       border: 1px solid #eee;
@@ -2861,7 +2849,7 @@ main {
       border-radius: 3px;
 
       &:is(input:checked + label) {
-        border-color: $main-color;
+        border-color: rgba(80, 72, 215, 0.5);
       }
     }
 
@@ -4489,6 +4477,19 @@ main {
     }
   }
 
+  &.naver,
+  &.google {
+
+    .list {
+
+      &.sticky {
+        .col-keyword {
+          left: 40px
+        }
+      }
+    }
+  }
+
   .section-account {
     flex: 0 0 auto !important;
     height: fit-content !important;
@@ -4639,7 +4640,7 @@ main {
 
     &.sticky {
       .col-keyword {
-        left: 40px;
+        left: 340px;
       }
     }
 
@@ -6527,36 +6528,9 @@ main {
   }
 
   .tabs {
-    gap: 1rem;
 
     li {
-      color: slategray;
       font-size: 15px;
-
-      &::before {
-        content: "";
-        position: absolute;
-        display: block;
-        width: 0;
-        height: 2px;
-        bottom: -.5rem;
-        left: 50%;
-        right: 50%;;
-        background-color: $main-color;
-        transition: .25s;
-      }
-
-      &:hover,
-      &.is-active {
-        font-family: "Roboto", "NanumSquareB";
-        color: $main-color;
-
-        &::before {
-          left: 0;
-          right: 0;
-          width: 100%;
-        }
-      }
     }
   }
 
@@ -6584,7 +6558,6 @@ main {
       }
     }
   }
-
 
   &.modal-chart {
     .tooltip-content {

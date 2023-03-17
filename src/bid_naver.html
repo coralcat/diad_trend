@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block content %}
 {% import 'aside.html' as menu %} {{menu.active('bidNaver')}}
-<main class="content-bidding">
+<main class="content-bidding naver">
   <header class="content-header">
     <div class="title">
       <ul class="tabs">
@@ -388,12 +388,12 @@
               <li title="현재순위"></li>
               <li title="입찰">
                 <div>
-                  <span>실패</span>
+                  <span>성공</span>
                   <button data-modal="biddingHistory">이력</button>
                 </div>
               </li>
               <li title="입찰결과">
-                입찰대기
+                입찰진행
               </li>
               <li title="분류명"></li>
               <li title="키워드상태">
