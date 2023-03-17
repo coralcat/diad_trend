@@ -473,6 +473,9 @@
         <div class="checkbox">
           <input id="bidding-status-on" type="checkbox" name="bidding-status" />
           <label for="bidding-status-on">입찰실행</label>
+        </div>
+        <div class="checkboxes">
+          <strong>입찰: </strong>
           <div class="checkbox">
             <input id="bidding-wait" type="checkbox" name="bidding-wait" />
             <label for="bidding-wait">대기</label>
@@ -483,6 +486,8 @@
               <label for="bidding-wait-2">입찰대기</label>
             </div>
           </div>
+        </div>
+        <div class="checkboxes">
           <div class="checkbox">
             <input id="bidding-succed" type="checkbox" name="bidding-succed" />
             <label for="bidding-succed">성공</label>
@@ -501,6 +506,8 @@
               <label for="bidding-down">하향입찰</label>
             </div>
           </div>
+        </div>
+        <div class="checkboxes">
           <div class="checkbox">
             <input id="bidding-failed" type="checkbox" name="bidding-failed" />
             <label for="bidding-failed">실패</label>
@@ -568,8 +575,7 @@
       </div>
     </li>
     <li class="buttons">
-      <button class="btn-sub clear">
-        초기화
+      <button class="btn-sub ico-refresh clear">
       </button>
       <button
         class="btn-main"
@@ -641,36 +647,10 @@
           </li>
           <li class="col-title ico-sort">상품</li>
           <li class="col-keyword ico-sort">키워드</li>
-          <li class="ico-sort">
-            입찰상태
-            <div class="tooltip type2">
-              <div class="tooltip-content">
-              </div>
-            </div>
-          </li>
-          <li>
-            <span>
-              입찰설정
-            </span>
-            <div class="tooltip type2">
-              <div class="tooltip-content">
-              </div>
-            </div>
-          </li>
-          <li>
-            입찰주기
-            <div class="tooltip type2">
-              <div class="tooltip-content">
-              </div>
-            </div>
-          </li>
-          <li class="ico-sort">
-            입찰대상
-            <div class="tooltip type2">
-              <div class="tooltip-content">
-              </div>
-            </div>
-          </li>
+          <li class="ico-sort">입찰상태</li>
+          <li>입찰설정</li>
+          <li>입찰주기</li>
+          <li class="ico-sort">입찰대상</li>
           <li class="ico-sort">최대입찰가</li>
           <li class="ico-sort">입찰가감액</li>
           <li class="ico-sort">희망순위</li>
@@ -678,7 +658,17 @@
           <li class="ico-sort">현재순위</li>
           <li class="ico-sort">최대입찰가 도달여부</li>
           <li class="ico-sort">희망순위 도달여부</li>
-          <li class="ico-sort">입찰</li>
+          <li class="ico-sort">
+            입찰
+            <article class="tooltip type2">
+              <dl class="tooltip-content">
+                <dt>입찰은 입찰 프로세스 진행 상황에 따라 대기, 성공, 실패가 있습니다.</dt>
+                <dd>대기는 입찰이 한 번도 실행되지 않은 초기 상태입니다.</dd>
+                <dd>성공은 희망 순위에 도달하였거나, 설정한 값을 기준으로 입찰 프로세스가 진행되어 정상적으로 종료된 상태입니다.</dd>
+                <dd>실패는 입찰 프로세스가 진행되었으나, 여러 요인에 의해 정상적으로 종료되지 못한 상태입니다.</dd>
+              </dl>
+            </article>
+          </li>
           <li class="ico-sort">입찰결과</li>
           <li class="ico-sort">키워드등록</li>
           <li class="ico-sort">분류명</li>
