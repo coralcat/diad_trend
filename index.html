@@ -155,222 +155,436 @@
   </ul>
 </aside>
 
-<style>
-  .chart canvas {
-    width: auto !important;
-  }
-</style>
-<script>
+<script type="text/javascript">
   am5.ready(function () {
-    var root = am5.Root.new("mainRankingChart");
-    root.setThemes([am5themes_Animated.new(root)]);
-
-    var chart = root.container.children.push(
-      am5percent.PieChart.new(root, {
-        startAngle: 180,
-        endAngle: 360,
-        innerRadius: am5.percent(85),
-        layout: root.verticalLayout,
-      })
-    );
-
-    var series = chart.series.push(
-      am5percent.PieSeries.new(root, {
-        startAngle: 180,
-        endAngle: 360,
-        valueField: "value",
-        categoryField: "category",
-        legendValueText: "{value}개"
-      })
-    );
-
-
-    series.slices.template.setAll({
-      stroke: root.interfaceColors.get("background"),
-      strokeWidth: 2,
-      cornerRadius: 5,
-      tooltipText:
-        "{value}건 ({valuePercentTotal.formatNumber('0.00')}%)"
-    });
-    series.get("colors").set("colors", [
-      am5.color(0x5B54C6),
-      am5.color(0xeeeeee),
+    var root = am5.Root.new("chartdiv");
+    root.setThemes([
+      am5themes_Animated.new(root)
     ]);
+    var chart = root.container.children.push(am5xy.XYChart.new(root, {
+      panX: false,
+      panY: false,
+      wheelX: "panX",
+      wheelY: "zoomX",
+      layout: root.verticalLayout
+    }));
 
-    series.states.create("hidden", {
-      startAngle: 180,
-      endAngle: 180
-    });
-
-    series.ticks.template.setAll({
-      forceHidden: true
-    });
-
-    series.data.setAll([
-      {
-        category: "이용량",
-        value: 16,
-      },
-      {
-        category: "잔여량",
-        value: 4,
-      },
-    ]);
     var legend = chart.children.push(
       am5.Legend.new(root, {
-        centerX: am5.percent(50),
-        x: am5.percent(50),
-      })
-    );
-    legend.data.setAll(series.dataItems);
-
-
-    var label = chart.seriesContainer.children.push(
-      am5.Label.new(root, {
-        textAlign: "center",
-        centerY: am5.p100,
         centerX: am5.p50,
-        text: "[fontSize:15px]잔여[/]:\n[#49536b bold fontSize:30px]4[/]개"
+        x: am5.p50
       })
     );
 
-    series.appear(1000, 100);
-  });
-</script>
-<script>
-  am5.ready(function () {
-    var root = am5.Root.new("mainLowestPriceChart");
-    root.setThemes([am5themes_Animated.new(root)]);
+    var data = [{
+      "year": "2021",
+      "europe": 2.5,
+      "namerica": 2.5,
+      "asia": 2.1,
+      "lamerica": 1,
+      "meast": 0.8,
+      "africa": 0.4
+    }, {
+      "year": "2022",
+      "europe": 2.6,
+      "namerica": 2.7,
+      "asia": 2.2,
+      "lamerica": 0.5,
+      "meast": 0.4,
+      "africa": 0.3
+    }, {
+      "year": "2023",
+      "europe": 2.8,
+      "namerica": 2.9,
+      "asia": 2.4,
+      "lamerica": 0.3,
+      "meast": 0.9,
+      "africa": 0.5
+    }]
 
-    var chart = root.container.children.push(
-      am5percent.PieChart.new(root, {
-        startAngle: 180,
-        endAngle: 360,
-        innerRadius: am5.percent(85),
-        layout: root.verticalLayout,
+    var xRenderer = am5xy.AxisRendererX.new(root, {
+      cellStartLocation: 0.1,
+      cellEndLocation: 0.9
+    })
+
+    var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+      categoryField: "year",
+      renderer: xRenderer,
+      tooltip: am5.Tooltip.new(root, {})
+    }));
+
+    xRenderer.grid.template.setAll({
+      location: 1
+    })
+
+    xAxis.data.setAll(data);
+
+    var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+      renderer: am5xy.AxisRendererY.new(root, {
+        strokeOpacity: 0.1
       })
-    );
+    }));
 
-    var series = chart.series.push(
-      am5percent.PieSeries.new(root, {
-        startAngle: 180,
-        endAngle: 360,
-        valueField: "value",
-        categoryField: "category",
-        legendValueText: "{value}개"
-      })
-    );
 
-    series.get("colors").set("colors", [
-      am5.color(0x5B54C6),
-      am5.color(0xeeeeee),
-    ]);
+    // Add series
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+    function makeSeries(name, fieldName) {
+      var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+        name: name,
+        xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: fieldName,
+        categoryXField: "year"
+      }));
 
-    series.slices.template.setAll({
-      stroke: root.interfaceColors.get("background"),
-      strokeWidth: 2,
-      cornerRadius: 5,
-      tooltipText:
-        "{value}건 ({valuePercentTotal.formatNumber('0.00')}%)"
-    });
+      series.columns.template.setAll({
+        tooltipText: "{name}, {categoryX}:{valueY}",
+        width: am5.percent(90),
+        tooltipY: 0,
+        strokeOpacity: 0
+      });
 
-    series.states.create("hidden", {
-      startAngle: 180,
-      endAngle: 180
-    });
+      series.data.setAll(data);
 
-    series.ticks.template.setAll({
-      forceHidden: true
-    });
+      series.appear();
 
-    series.data.setAll([
-      {
-        category: "이용량",
-        value: 16,
-      },
-      {
-        category: "잔여량",
-        value: 4,
-      },
-    ]);
-    var legend = chart.children.push(
-      am5.Legend.new(root, {
-        centerX: am5.percent(50),
-        nameField: "name",
-        fillField: "color",
-        strokeField: "color",
-        x: am5.percent(50),
-      })
-    );
-    legend.data.setAll(series.dataItems);
+      series.bullets.push(function () {
+        return am5.Bullet.new(root, {
+          locationY: 0,
+          sprite: am5.Label.new(root, {
+            text: "{valueY}",
+            fill: root.interfaceColors.get("alternativeText"),
+            centerY: 0,
+            centerX: am5.p50,
+            populateText: true
+          })
+        });
+      });
 
-    var label = chart.seriesContainer.children.push(
-      am5.Label.new(root, {
-        textAlign: "center",
-        centerY: am5.p100,
-        centerX: am5.p50,
-        text: "[fontSize:15px]잔여[/]:\n[#49536b bold fontSize:30px]4[/]개"
-      })
-    );
+      legend.data.push(series);
+    }
 
-    series.appear(1000, 100);
-  });
+    makeSeries("Europe", "europe");
+    makeSeries("North America", "namerica");
+    makeSeries("Asia", "asia");
+    makeSeries("Latin America", "lamerica");
+    makeSeries("Middle East", "meast");
+    makeSeries("Africa", "africa");
+
+    chart.appear(1000, 100);
+
+  }); // end am5.ready()
 </script>
 <script>
   am5.ready(function () {
     var root = am5.Root.new("rankingChart");
-    root.setThemes([am5themes_Animated.new(root)]);
+
+    root.setThemes([
+      am5themes_Animated.new(root)
+    ]);
 
     var chart = root.container.children.push(
-      am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(80),
-        layout: root.verticalLayout,
+      am5xy.XYChart.new(root, {
+        wheelY: "zoomX"
       })
     );
 
-    var series = chart.series.push(
-      am5percent.PieSeries.new(root, {
-        valueField: "value",
-        categoryField: "category",
+    // Define data
+    var data = [{
+      date: new Date(2021, 0, 1).getTime(),
+      value: 100
+    }, {
+      date: new Date(2021, 0, 2).getTime(),
+      value: 320
+    }, {
+      date: new Date(2021, 0, 3).getTime(),
+      value: 216
+    }, {
+      date: new Date(2021, 0, 4).getTime(),
+      value: 150
+    }, {
+      date: new Date(2021, 0, 5).getTime(),
+      value: 156
+    }, {
+      date: new Date(2021, 0, 6).getTime(),
+      value: 199
+    }, {
+      date: new Date(2021, 0, 7).getTime(),
+      value: 114
+    }, {
+      date: new Date(2021, 0, 8).getTime(),
+      value: 269
+    }, {
+      date: new Date(2021, 0, 9).getTime(),
+      value: 190
+    }, {
+      date: new Date(2021, 0, 10).getTime(),
+      value: 380
+    }, {
+      date: new Date(2021, 0, 11).getTime(),
+      value: 250
+    }, {
+      date: new Date(2021, 0, 12).getTime(),
+      value: 110
+    }, {
+      date: new Date(2021, 0, 13).getTime(),
+      value: 185
+    }, {
+      date: new Date(2021, 0, 14).getTime(),
+      value: 105
+    }];
+
+    // Create Y-axis
+    var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+      extraTooltipPrecision: 1,
+      renderer: am5xy.AxisRendererY.new(root, {
+        minGridDistance: 30
+      })
+    }));
+
+    // Create X-Axis
+    var xAxis = chart.xAxes.push(am5xy.DateAxis.new(root, {
+      baseInterval: { timeUnit: "day", count: 1 },
+      renderer: am5xy.AxisRendererX.new(root, {
+        minGridDistance: 20,
+        cellStartLocation: 0.2,
+        cellEndLocation: 0.8
+      })
+    }));
+
+    // Create series
+    function createSeries(name, field) {
+      var series = chart.series.push(am5xy.SmoothedXLineSeries.new(root, {
+        name: name,
+        xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: field,
+        valueXField: "date",
+        tooltip: am5.Tooltip.new(root, {}),
+        clustered: true
+      }));
+
+      series.strokes.template.setAll({
+        strokeWidth: 3
+      });
+
+      series.fills.template.setAll({
+        fillOpacity: 0.5,
+        visible: true
+      });
+
+      series.get("tooltip").label.set("text", "[bold]{name}[/]\n{valueX.formatDate()}: {valueY}")
+      series.data.setAll(data);
+
+      return series;
+    }
+
+    var series1 = createSeries("Series #1", "value");
+
+    // Create axis ranges
+    function createRange(series, value, endValue, color) {
+      var rangeDataItem = xAxis.makeDataItem({
+        value: new Date(2021, 0, 4).getTime(),
+        endValue: new Date(2021, 0, 10).getTime()
+      });
+
+      var range = series.createAxisRange(rangeDataItem);
+
+      range.strokes.template.setAll({
+        stroke: color,
+        strokeWidth: 3
+      });
+
+      range.fills.template.setAll({
+        fill: color,
+        fillOpacity: 0.8,
+        visible: true
+      });
+
+      rangeDataItem.get("axisFill").setAll({
+        fill: color,
+        fillOpacity: 0.05,
+        visible: true
+      });
+
+    }
+
+    createRange(series1, 125, 275, am5.color(0xff621f));
+
+    // Add cursor
+    chart.set("cursor", am5xy.XYCursor.new(root, {
+      behavior: "zoomX",
+      xAxis: xAxis
+    }));
+
+    xAxis.set("tooltip", am5.Tooltip.new(root, {
+      themeTags: ["axis"]
+    }));
+
+    yAxis.set("tooltip", am5.Tooltip.new(root, {
+      themeTags: ["axis"]
+    }));
+  })
+</script>
+<script>
+  am5.ready(function () {
+    var root = am5.Root.new("lowestPriceChart");
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    var chart = root.container.children.push(am5xy.XYChart.new(root, { layout: root.verticalLayout }));
+
+    // Generate random data
+    var date = new Date();
+    date.setHours(0, 0, 0, 0);
+    var value = 100;
+
+    var data = [
+      {
+        date: new Date(2021, 2, 1).getTime(),
+        groupA: 1,
+        groupB: 5,
+        groupC: 3,
+        groupD: 24,
+      },
+      {
+        date: new Date(2021, 2, 2).getTime(),
+        groupA: 1,
+        groupB: 2,
+        groupC: 6,
+        groupD: 25
+      },
+      {
+        date: new Date(2021, 2, 3).getTime(),
+        groupA: 2,
+        groupB: 3,
+        groupC: 1,
+        groupD: 28
+      },
+      {
+        date: new Date(2021, 2, 4).getTime(),
+        groupA: 3,
+        groupB: 4,
+        groupC: 1,
+        groupD: 26
+      },
+      {
+        date: new Date(2021, 2, 5).getTime(),
+        groupA: 5,
+        groupB: 1,
+        groupC: 2,
+        groupD: 20
+      },
+      {
+        date: new Date(2021, 2, 6).getTime(),
+        groupA: 3,
+        groupB: 2,
+        groupC: 1,
+        groupD: 7
+      },
+      {
+        date: new Date(2021, 2, 7).getTime(),
+        groupA: 1,
+        groupB: 2,
+        groupC: 3,
+        groupD: 2
+      },
+      {
+        date: new Date(2021, 2, 8).getTime(),
+        groupA: 2,
+        groupB: 1,
+        groupC: 5,
+        groupD: 9
+      },
+      {
+        date: new Date(2021, 2, 9).getTime(),
+        groupA: 3,
+        groupB: 5,
+        groupC: 2,
+        groupD: 6
+      },
+    ];
+
+
+    var xRenderer = am5xy.AxisRendererX.new(root, {});
+    xRenderer.grid.template.set("location", 0.5);
+    xRenderer.labels.template.setAll({
+      location: 0.5,
+      multiLocation: 0.5,
+    });
+
+    var xAxis = chart.xAxes.push(
+      am5xy.DateAxis.new(root, {
+        baseInterval: { timeUnit: "day", count: 1 },
+        renderer: xRenderer,
+        tooltip: am5.Tooltip.new(root, {}),
+      })
+    );
+    xAxis.get("dateFormats")["day"] = "yyyy MM.dd";
+
+    var yAxis = chart.yAxes.push(
+      am5xy.ValueAxis.new(root, {
+        min: 1,
+        max: 40,
+        renderer: am5xy.AxisRendererY.new(root, {
+          inversed: true,
+        }),
       })
     );
 
+    function createSeries(name, field, color) {
+      var series = chart.series.push(
+        am5xy.LineSeries.new(root, {
+          name: name,
+          xAxis: xAxis,
+          yAxis: yAxis,
+          valueYField: field,
+          valueXField: "date",
+          stroke: color,
+          fill: color,
+          tooltip: am5.Tooltip.new(root, {
+            pointerOrientation: "horizontal",
+            labelText: "[bold]{name} {valueY}[/]위",
+          }),
+        })
+      );
 
-    series.slices.template.setAll({
-      stroke: root.interfaceColors.get("background"),
-      strokeWidth: 2,
-      cornerRadius: 5,
-      tooltipText:
-        "{value}건 ({valuePercentTotal.formatNumber('0.00')}%)"
-    });
+      series.bullets.push(function () {
+        return am5.Bullet.new(root, {
+          sprite: am5.Circle.new(root, {
+            radius: 3,
+            fill: color,
+          }),
+        });
+      });
+      series.set("setStateOnChildren", true);
+      series.states.create("hover", {});
 
-    series.states.create("hidden", {
-      endAngle: -90,
-    });
+      series.mainContainer.set("setStateOnChildren", true);
+      series.mainContainer.states.create("hover", {});
 
-    series.get("colors").set("colors", [
-      am5.color(0x5B54C6),
-      am5.color(0x11b4d4),
-      am5.color(0xffb83f),
-      am5.color(0xff6347),
-      am5.color(0x4169e1),
-      am5.color(0xffce73),
-    ]);
+      series.strokes.template.states.create("hover", {
+        strokeWidth: 4,
+      });
 
-    series.data.setAll([
-      {
-        category: "40위 안",
-        value: 5,
-      },
-      {
-        category: "41~400위",
-        value: 5,
-      },
-      {
-        category: "400위 밖",
-        value: 6,
-      },
-    ]);
+      series.data.setAll(data);
+      series.appear(1000, 100);
+    }
+
+
+    createSeries("그룹_A", "groupA", am5.color(0x5B54C6));
+    createSeries("그룹_B", "groupB", am5.color(0xa298f2));
+    createSeries("그룹_C", "groupC", am5.color(0x3f8cff));
+    createSeries("그룹_D", "groupD", am5.color(0xffa1bf));
+    createSeries("그룹_E", "groupE", am5.color(0x5B54C6));
+
+    var cursor = chart.set(
+      "cursor",
+      am5xy.XYCursor.new(root, {
+        behavior: "none",
+      })
+    );
+    cursor.lineY.set("visible", false);
+
     var legend = chart.children.push(
       am5.Legend.new(root, {
         centerX: am5.percent(50),
@@ -378,101 +592,225 @@
         marginBottom: 15,
       })
     );
-    legend.data.setAll(series.dataItems);
 
-    var label = chart.seriesContainer.children.push(
-      am5.Label.new(root, {
-        textAlign: "center",
-        centerY: am5.p50,
-        centerX: am5.p50,
-        text: "[fontSize:13px]1페이지[/]:\n[#49536b bold fontSize:24px]31.25%[/]"
-      })
-    );
 
-    series.appear(1000, 100);
-  });
+    legend.data.setAll(chart.series.values);
+    chart.appear(1000, 100);
+  }); // end am5.ready()
 </script>
 <script>
   am5.ready(function () {
-    var root = am5.Root.new("lowestPriceChart");
+
+    var root = am5.Root.new("naverPieChart");
     root.setThemes([am5themes_Animated.new(root)]);
 
-    var chart = root.container.children.push(
-      am5percent.PieChart.new(root, {
-        innerRadius: am5.percent(80),
-        layout: root.verticalLayout,
+    var container = root.container.children.push(
+      am5.Container.new(root, {
+        width: am5.p100,
+        height: am5.p100,
+        layout: root.horizontalLayout
       })
     );
 
+    var chart = container.children.push(
+      am5percent.PieChart.new(root, {
+        tooltip: am5.Tooltip.new(root, {})
+      })
+    );
+
+    // Create seriesuuuuuuuuuuuu
+    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
     var series = chart.series.push(
       am5percent.PieSeries.new(root, {
         valueField: "value",
         categoryField: "category",
-        endAngle: 270,
+        alignLabels: false
       })
     );
 
+    series.labels.template.setAll({
+      textType: "circular",
+      radius: 4
+    });
+    series.ticks.template.set("visible", false);
+    series.slices.template.set("toggleKey", "none");
 
-    series.slices.template.setAll({
-      stroke: root.interfaceColors.get("background"),
-      strokeWidth: 2,
-      cornerRadius: 5,
-      tooltipText:
-        "{value}건 ({valuePercentTotal.formatNumber('0.00')}%)"
+    // add events
+    series.slices.template.events.on("click", function (e) {
+      selectSlice(e.target);
     });
 
-    series.get("colors").set("colors", [
-      am5.color(0x5B54C6),
-      am5.color(0x11b4d4),
-      am5.color(0xffb83f),
-      am5.color(0xff6347),
-      am5.color(0x4169e1),
-      am5.color(0xffce73),
+    // Create sub chart
+    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+    var subChart = container.children.push(
+      am5percent.PieChart.new(root, {
+        radius: am5.percent(50),
+        tooltip: am5.Tooltip.new(root, {})
+      })
+    );
+
+    // Create sub series
+    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+    var subSeries = subChart.series.push(
+      am5percent.PieSeries.new(root, {
+        valueField: "value",
+        categoryField: "category"
+      })
+    );
+
+    subSeries.data.setAll([
+      { category: "a", value: 0 },
+      { category: "b", value: 0 },
+      { category: "c", value: 0 },
+      { category: "d", value: 0 },
+      { category: "e", value: 0 },
+      { category: "f", value: 0 },
     ]);
+    subSeries.slices.template.set("toggleKey", "none");
 
-    series.states.create("hidden", {
-      endAngle: -90,
+    var selectedSlice;
+
+    series.on("startAngle", function () {
+      updateLines();
     });
 
+    container.events.on("boundschanged", function () {
+      root.events.on("frameended", function () {
+        updateLines();
+      })
+    })
+
+    function updateLines() {
+      if (selectedSlice) {
+        var startAngle = selectedSlice.get("startAngle");
+        var arc = selectedSlice.get("arc");
+        var radius = selectedSlice.get("radius");
+
+        var x00 = radius * am5.math.cos(startAngle);
+        var y00 = radius * am5.math.sin(startAngle);
+
+        var x10 = radius * am5.math.cos(startAngle + arc);
+        var y10 = radius * am5.math.sin(startAngle + arc);
+
+        var subRadius = subSeries.slices.getIndex(0).get("radius");
+        var x01 = 0;
+        var y01 = -subRadius;
+
+        var x11 = 0;
+        var y11 = subRadius;
+
+        var point00 = series.toGlobal({ x: x00, y: y00 });
+        var point10 = series.toGlobal({ x: x10, y: y10 });
+
+        var point01 = subSeries.toGlobal({ x: x01, y: y01 });
+        var point11 = subSeries.toGlobal({ x: x11, y: y11 });
+
+        line0.set("points", [point00, point01]);
+        line1.set("points", [point10, point11]);
+      }
+    }
+
+    // lines
+    var line0 = container.children.push(
+      am5.Line.new(root, {
+        position: "absolute",
+        stroke: root.interfaceColors.get("text"),
+        strokeDasharray: [2, 2]
+      })
+    );
+    var line1 = container.children.push(
+      am5.Line.new(root, {
+        position: "absolute",
+        stroke: root.interfaceColors.get("text"),
+        strokeDasharray: [2, 2]
+      })
+    );
+
+    // Set data
+    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
     series.data.setAll([
       {
-        category: "상승",
-        value: 5,
+        category: "succeed",
+        value: 56,
+        subData: [
+          { category: "A", value: 48 },
+          { category: "b", value: 43 },
+          { category: "c", value: 9 }
+        ]
       },
       {
-        category: "유지",
-        value: 6,
-      },
-      {
-        category: "하락",
-        value: 5,
-      },
+        category: "failed",
+        value: 44,
+        subData: [
+          { category: "d", value: 39 },
+          { category: "e", value: 32 },
+          { category: "f", value: 29 }
+        ]
+      }
     ]);
 
-    var legend = chart.children.push(
-      am5.Legend.new(root, {
-        centerX: am5.percent(50),
-        x: am5.percent(50),
-        marginBottom: 15
-      })
-    );
-    legend.data.setAll(series.dataItems);
+    function selectSlice(slice) {
+      selectedSlice = slice;
+      var dataItem = slice.dataItem;
+      var dataContext = dataItem.dataContext;
 
-    var label = chart.seriesContainer.children.push(
-      am5.Label.new(root, {
-        textAlign: "center",
-        centerY: am5.p50,
-        centerX: am5.p50,
-        text: "[fontSize:13px]변동[/]:\n[#49536b bold fontSize:24px]62.50%[/]"
-      })
-    );
-    series.appear(1000, 100);
-  });
+      if (dataContext) {
+        var i = 0;
+        subSeries.data.each(function (dataObject) {
+          var dataObj = dataContext.subData[i];
+          if (dataObj) {
+            subSeries.data.setIndex(i, dataObj);
+            if (!subSeries.dataItems[i].get("visible")) {
+              subSeries.dataItems[i].show();
+            }
+          }
+          else {
+            subSeries.dataItems[i].hide();
+          }
+
+          i++;
+        });
+      }
+
+      var middleAngle = slice.get("startAngle") + slice.get("arc") / 2;
+      var firstAngle = series.dataItems[0].get("slice").get("startAngle");
+
+      series.animate({
+        key: "startAngle",
+        to: firstAngle - middleAngle,
+        duration: 1000,
+        easing: am5.ease.out(am5.ease.cubic)
+      });
+      series.animate({
+        key: "endAngle",
+        to: firstAngle - middleAngle + 360,
+        duration: 1000,
+        easing: am5.ease.out(am5.ease.cubic)
+      });
+    }
+
+    container.appear(1000, 10);
+
+    series.events.on("datavalidated", function () {
+      selectSlice(series.slices.getIndex(0));
+    });
+
+  }); // end am5.ready()
 </script>
-<main class="content-main">
+<main class="content-dashboard">
   <header class="content-header">
     <div class="title">
-      <h1></h1>
+      <ul class="tabs">
+        <li data-tab="dashboard" class="is-active">
+          나의 다이애드
+        </li>
+        <li data-tab="dashboard">
+          나의 다이애드2
+        </li>
+        <li data-tab="dashboard">
+          나의 다이애드3
+        </li>
+      </ul>
       <div href="#" class="username" target="_blank">
   <menu>coralcat</menu>
   <nav>
@@ -485,148 +823,620 @@
     </div>
   </header>
   <div class="wrapper">
-    <section class="section-chart">
-      <header class="section-header">
-        <h3>서비스 이용 현황</h3>
-      </header>
-      <div class="wrapper">
-        <fieldset>
-          <legend>상품 순위 추적</legend>
-          <ul class="information">
-            <li class="service-type">
-              <span>서비스 타입</span>
-              <strong>F</strong>
-            </li>
-            <li>
-              <span>제공량</span>
-              <span>
-                <strong>100</strong>
-                건
-              </span>
-            </li>
-          </ul>
-          <div id="mainRankingChart" class="chart rank-service-chart"></div>
-          <div class="progress">
-            <h3>서비스 기간</h3>
-            <progress value="0" max="365"></progress>
-            <div class="details">
-              <div>2022-03-01 ~ 2023-02-28</div>
-              <div class="remaining-days">239</div>
-            </div>
+    <div class="tab-content" data-tab="dashboard">
+      <div class="sections">
+        <section class="section-monitoring">
+          <header class="section-header">
+            <h3 data-brand="gmarket">
+              판매량 추적 모니터링
+            </h3>
+            <div class="date">최근 업데이트 2023.04.01</div>
+          </header>
+          <div class="articles">
+            <article>
+              <h4>
+                최근 업데이트 시
+                <strong>일간 판매량 0인 상품</strong>
+              </h4>
+              <div class="progress">
+                <div class="title">
+                  <span class="percent">
+                    보통
+                    <strong>33</strong>
+                  </span>
+                  <ul>
+                    <li>
+                      판매량 없음
+                      <strong class="times">160</strong>
+                    </li>
+                    <li>
+                      전체
+                      <strong class="times">480</strong>
+                    </li>
+                  </ul>
+                </div>
+                <progress value="33" max="100"></progress>
+              </div>
+            </article>
+            <article>
+              <h4>
+                전주 같은 요일 대비
+                <strong>일간 판매량 감소 상품</strong>
+              </h4>
+              <div class="progress">
+                <div class="title">
+                  <span class="percent">
+                    보통
+                    <strong>33</strong>
+                  </span>
+                  <ul>
+                    <li>
+                      감소
+                      <strong class="times">160</strong>
+                    </li>
+                    <li>
+                      전체
+                      <strong class="times">480</strong>
+                    </li>
+                  </ul>
+                </div>
+                <progress value="33" max="100"></progress>
+              </div>
+            </article>
           </div>
-        </fieldset>
-        <fieldset>
-          <legend>최저가 알림</legend>
-          <ul class="information">
-            <li class="service-type">
-              <span>서비스 타입</span>
-              <strong>F</strong>
-            </li>
-            <li>
-              <span>제공량</span>
-              <span>
-                <strong>100</strong>
-                건
-              </span>
-            </li>
-          </ul>
-          <div id="mainLowestPriceChart" class="chart lowest-service-chart"></div>
-          <div class="progress">
-            <h3>서비스 기간</h3>
-            <progress value="0" max="365"></progress>
-            <div class="details">
-              <div>2022-03-01 ~ 2023-02-28</div>
-              <div class="remaining-days">239</div>
+        </section>
+        <section class="section-chart">
+          <header class="section-header">
+            <h3>그룹별 주간 판매량</h3>
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="">전체</option>
+              </select>
             </div>
+          </header>
+          <div class="chart-container">
+            <div id="chartdiv" class="chart"></div>
           </div>
-        </fieldset>
+        </section>
+        <section class="section-article">
+          <header class="section-header">
+            <h3>주간 판매 상위 상품</h3>
+            <div class="inputs">
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">그룹: 전체</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">마켓: 전체</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">기준: 판매량</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">2023.04.01 ~ 2023.04.31</option>
+                </select>
+              </div>
+            </div>
+          </header>
+          <div class="list">
+            <ul class="row title">
+              <li>그룹</li>
+              <li>코드</li>
+              <li class="col-title">상품명</li>
+              <li>마켓</li>
+              <li>판매량</li>
+              <li>판매액(추정)</li>
+            </ul>
+            <ul class="row">
+              <li>그룹A</li>
+              <li>0000000000</li>
+              <li class="col-title">갤럭시 S22 울트라 노트20/노∙∙∙</li>
+              <li>G</li>
+              <li>196</li>
+              <li>
+                <div class="price">3,900,400</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>그룹A</li>
+              <li>0000000000</li>
+              <li class="col-title">S22 노트20/노트10/S21/S20/∙∙∙</li>
+              <li>G</li>
+              <li>157</li>
+              <li>
+                <div class="price">3,124,300</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>그룹B</li>
+              <li>0000000000</li>
+              <li class="col-title">핸드폰 갤럭시S22울트라 S21∙∙∙</li>
+              <li>G</li>
+              <li>140</li>
+              <li>
+                <div class="price">1,386,000</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>그룹C</li>
+              <li>A000000000</li>
+              <li class="col-title">[까미또] 갤럭시S22 S21 S20 ∙∙∙</li>
+              <li>A</li>
+              <li>130</li>
+              <li>
+                <div class="price">743,600</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>그룹C</li>
+              <li>A000000000</li>
+              <li class="col-title">[레드울프] S22 노트20 S20S1∙∙∙</li>
+              <li>A</li>
+              <li>110</li>
+              <li>
+                <div class="price">2,189,000</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>그룹C</li>
+              <li>A000000000</li>
+              <li class="col-title">갤럭시 S22 울트라 노트20 노∙∙∙</li>
+              <li>A</li>
+              <li>90</li>
+              <li>
+                <div class="price">1,791,400</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>그룹E</li>
+              <li>0000000000</li>
+              <li class="col-title">휴대폰케이스 전문샵 / 우체국∙∙∙</li>
+              <li>G</li>
+              <li>52</li>
+              <li>
+                <div class="price">514,800</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>그룹D</li>
+              <li>0000000000</li>
+              <li class="col-title">42까지 가죽 남성벨트 정장 남∙∙∙</li>
+              <li>G</li>
+              <li>30</li>
+              <li>
+                <div class="price">285,000</div>
+              </li>
+            </ul>
+          </div>
+        </section>
       </div>
-    </section>
-    <section class="section-chart">
-      <header class="section-header">
-        <h3>서비스별 현황</h3>
-      </header>
-      <div class="wrapper">
-        <fieldset>
-          <legend>상품 순위 추적</legend>
-          <ul class="information">
-            <li class="date">
-              <span>최근 갱신시간</span>
-              <strong>2022-03-01 12:00</strong>
-            </li>
-          </ul>
-          <div id="rankingChart" class="chart detail-chart"></div>
-        </fieldset>
-        <fieldset>
-          <legend>최저가 알림</legend>
-          <ul class="information">
-            <li class="date">
-              <span>최근 갱신시간</span>
-              <strong>2022-03-01 12:00</strong>
-            </li>
-          </ul>
-          <div id="lowestPriceChart" class="chart detail-chart-lowest"></div>
-          <!-- </fieldset> -->
+      <div class="sections">
+        <section class="section-article">
+          <header class="section-header">
+            <h3>자동입찰 비즈머니</h3>
+            <div class="date">최근 업데이트 2023.04.01 07:00</div>
+          </header>
+          <div class="list">
+            <ul class="row title">
+              <li>매체</li>
+              <li>계정</li>
+              <li>비즈머니 잔액</li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="naver">검색광고</div>
+              </li>
+              <li>gabiacns_E</li>
+              <li>
+                <div class="price">310,718</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="naver">쇼핑검색광고</div>
+              </li>
+              <li>gabiacns_T</li>
+              <li>
+                <div class="price">2,214,842</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="naver">파워컨텐츠</div>
+              </li>
+              <li>gabiacns_X</li>
+              <li>
+                <div class="price">4,332</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="eleventh">포커스클릭</div>
+              </li>
+              <li>gabiacns_A</li>
+              <li>
+                <div class="price">3,582,263</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="eleventh">포커스클릭</div>
+              </li>
+              <li>cnsdiad_01</li>
+              <li>
+                <div class="price">2,770,384</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="gmarket">G마켓 파워클릭</div>
+              </li>
+              <li>gabiacns_G</li>
+              <li>
+                <div class="price">59,284</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="auction">옥션 파워클릭</div>
+              </li>
+              <li>gabiacns_A</li>
+              <li>
+                <div class="price">21,877</div>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="section-monitoring">
+          <header class="section-header">
+            <div class="title">
+              <div>
+                <h3>
+                  자동입찰 모니터링
+                </h3>
+                <a href="" class="right-arrow">자동입찰 바로가기</a>
+              </div>
+              <div class="filters">
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="">매체: 전체</option>
+                  </select>
+                </div>
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="">계정: 전체</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </header>
+          <div class="articles">
+            <article>
+              <h5>
+                입찰실행 중
+                <strong>목표도달</strong>
+              </h5>
+              <div class="progress">
+                <div class="title">
+                  <span class="percent">
+                    보통
+                    <strong>54</strong>
+                  </span>
+                  <ul>
+                    <li>
+                      목표도달
+                      <strong class="times">37</strong>
+                    </li>
+                    <li>
+                      입찰실행
+                      <strong class="times">69</strong>
+                    </li>
+                  </ul>
+                </div>
+                <progress value="54" max="100"></progress>
+              </div>
+            </article>
+            <article>
+              <h5>
+                입찰: 실패 중
+                <strong>최대 입찰가 도달</strong>
+              </h5>
+
+              <div class="progress">
+                <div class="title">
+                  <span class="percent">
+                    높음
+                    <strong>85</strong>
+                  </span>
+                  <ul>
+                    <li>
+                      최대 입찰가 도달
+                      <strong class="times">28</strong>
+                    </li>
+                    <li>
+                      입찰: 실패
+                      <strong class="times">33</strong>
+                    </li>
+                  </ul>
+                </div>
+                <progress value="85" max="100"></progress>
+              </div>
+            </article>
+            <article>
+              <h5>
+                입찰: 실패 중
+                <strong>입찰실패</strong>
+              </h5>
+              <div class="progress">
+                <div class="title">
+                  <span class="percent">
+                    높음
+                    <strong>85</strong>
+                  </span>
+                  <ul>
+                    <li>
+                      입찰실패
+                      <strong class="times">28</strong>
+                    </li>
+                    <li>
+                      입찰: 실패
+                      <strong class="times">33</strong>
+                    </li>
+                  </ul>
+                </div>
+                <progress value="85" max="100"></progress>
+              </div>
+            </article>
+          </div>
+        </section>
       </div>
-    </section>
-    <section class="section-article">
-      <header class="section-header">
-        <h3>고객센터</h3>
-      </header>
-      <div class="wrapper">
-        <div class="list notification">
-          <ul class="row title">
-            <li>공지사항</li>
-            <li>
-              <a class="more" href="https://diad.co.kr/Customer/NoticeList?Category=Normal" target="_blank">더보기</a>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>[일반] 다이애드 TREND 변경사항 안내</li>
-            <li class="date">2021-10-06</li>
-          </ul>
-          <ul class="row">
-            <li>[일반] 다이애드 TREND 변경사항 안내</li>
-            <li class="date">2021-09-06</li>
-          </ul>
-          <ul class="row">
-            <li>[일반] 다이애드 TREND 서버 긴급 점검 안내</li>
-            <li class="date">2021-09-03</li>
-          </ul>
-          <ul class="row">
-            <li>[일반] 다이애드 TREND 서버 긴급 점검 안내</li>
-            <li class="date">2021-09-02</li>
-          </ul>
-          <ul class="row">
-            <li>[일반] 다이애드 TREND 서버 긴급 점검 안내</li>
-            <li class="date">2021-09-01</li>
-          </ul>
-        </div>
-        <div class="list">
-          <ul class="row title">
-            <li>매뉴얼</li>
-            <li>
-              <a class="more" href="">더보기</a>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>입찰실행 중이던 11번가 계정이 정지되어버린 후, 재 실행되지…</li>
-          </ul>
-          <ul class="row">
-            <li>사용자 지정보기 사용은 어떻게 하나요?</li>
-          </ul>
-          <ul class="row">
-            <li>입찰목록 정렬기능은 무엇인가요?</li>
-          </ul>
-          <ul class="row">
-            <li>복수검색은 어떻게 활용하나요?</li>
-          </ul>
-          <ul class="row">
-            <li>분류 기능은 어떻게 활용하나요?</li>
-          </ul>
-        </div>
+    </div>
+    <div class="tab-content" data-tab="dashboard">
+      <div class="sections">
+        <section>
+          <header class="section-header">
+            <h3 data-brand="naver">
+              순위 추적
+            </h3>
+            <div class="date">최근 업데이트 2023.04.01</div>
+          </header>
+          <div class="articles">
+            <article>
+              <h4>
+                최근 24시간
+                <strong>순위 변동</strong> 소재
+              </h4>
+              <div class="progress">
+                <div class="title">
+                  <span class="percent">
+                    높음
+                    <strong>86</strong>
+                  </span>
+                  <ul>
+                    <li>
+                      변동
+                      <strong class="times">59</strong>
+                      (상승
+                      <strong>39</strong> |
+                      하락
+                      <strong>20</strong>)
+                    </li>
+                    <li>
+                      전체
+                      <strong class="times">69</strong>
+                    </li>
+                  </ul>
+                </div>
+                <progress value="86" max="100"></progress>
+              </div>
+            </article>
+            <article>
+              <h4>
+                최근 7일 간
+                <strong>순위 40위 안 유지</strong>소재
+              </h4>
+              <div class="progress">
+                <div class="title">
+                  <span class="percent">
+                    낮음
+                    <strong>14</strong>
+                  </span>
+                  <ul>
+                    <li>
+                      40위 안
+                      <strong class="times">10</strong>
+                    </li>
+                    <li>
+                      전체
+                      <strong class="times">69</strong>
+                    </li>
+                  </ul>
+                </div>
+                <progress value="14" max="100"></progress>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="section-chart">
+          <header class="section-header">
+            <h3>순위 분포</h3>
+            <div class="selectbox">
+              전체: 98건
+              <select name="" id="">
+                <option value="">업데이트: 2023.04.01 09:00</option>
+              </select>
+            </div>
+          </header>
+          <div class="chart-container">
+            <div id="rankingChart" class="chart"></div>
+          </div>
+        </section>
       </div>
-    </section>
+      <div class="sections">
+        <section>
+          <header class="section-header">
+            <h3 data-brand="naver">최저가 추적</h3>
+            <div class="date">2023.04.01 09:00</div>
+          </header>
+          <div class="articles">
+            <article>
+              <h4>
+                최근 24시간
+                <strong>최저가 변동</strong> 소재
+              </h4>
+              <div class="progress">
+                <div class="title">
+                  <span class="percent">
+                    높음
+                    <strong>86</strong>
+                  </span>
+                  <ul>
+                    <li>
+                      변동
+                      <strong class="times">59</strong>
+                      (상승
+                      <strong>39</strong> |
+                      하락
+                      <strong>20</strong>)
+                    </li>
+                    <li>
+                      전체
+                      <strong class="times">69</strong>
+                    </li>
+                  </ul>
+                </div>
+                <progress value="86" max="100"></progress>
+              </div>
+            </article>
+            <article>
+              <h4>
+                최근 7일 간
+                <strong>최저가 변동</strong>소재
+              </h4>
+              <div class="progress">
+                <div class="title">
+                  <span class="percent">
+                    높음
+                    <strong>86</strong>
+                  </span>
+                  <ul>
+                    <li>
+                      변동
+                      <strong class="times">59</strong>
+                    </li>
+                    <li>
+                      전체
+                      <strong class="times">69</strong>
+                    </li>
+                  </ul>
+                </div>
+                <progress value="14" max="100"></progress>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="section-chart">
+          <header class="section-header">
+            <h3>
+              최근 7일 간 그룹별 같은 업데이트 시간 대비 최저가 변동률
+              <article class="tooltip">
+                <div class="tooltip-content"></div>
+              </article>
+            </h3>
+          </header>
+          <div class="chart-container">
+            <div id="lowestPriceChart" class="chart"></div>
+          </div>
+        </section>
+      </div>
+      <div class="sections">
+        <section class="section-article">
+          <header class="section-header">
+            <h3>네이버 검색광고</h3>
+          </header>
+          <div class="wrapper">
+            <div id="naverPieChart" class="chart"></div>
+          </div>
+        </section>
+        <section class="section-issues">
+          <header class="list-header">
+            <h3>입찰 이슈관리</h3>
+            <div class="inputs">
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">매체: 전체</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">계정: 전체</option>
+                </select>
+              </div>
+            </div>
+          </header>
+          <div class="articles">
+            <article data-brand="naver">
+              <div class="title">
+                <h5>2023.04.01 07:00:00</h5>
+                <a href="" class="right-arrow">확인하기</a>
+              </div>
+              <div class="texts">
+                <p>
+                  검색광고 계정 gabiacns_01
+                  <strong>비즈머니 잔액 5,000원 미만</strong>
+                  입니다.
+                </p>
+                <p>충전이 필요합니다.</p>
+              </div>
+            </article>
+            <article data-brand="naver">
+              <div class="title">
+                <h5>2023.04.01 07:00:00</h5>
+                <a href="" class="right-arrow">확인하기</a>
+              </div>
+              <div class="texts">
+                <p>
+                  PC_파워링크 〉 케이스_갤럭시 〉 <strong>#갤럭시노트9케이스 (PC일반) 최대 입찰가(입찰한도)</strong> 에 도달했습니다.
+                </p>
+                <p>확인이 필요합니다.</p>
+              </div>
+            </article>
+            <article data-brand="gmarket">
+              <div class="title">
+                <h5>2023.04.01 07:00:00</h5>
+                <a href="" class="right-arrow">확인하기</a>
+              </div>
+              <div class="texts">
+                <p>
+                  <strong>G마켓 비즈머니 잔액 5,000원 미만</strong>입니다.
+                </p>
+                <p>충전이 필요합니다.</p>
+              </div>
+            </article>
+            <article data-brand="eleventh">
+              <div class="title">
+                <h5>2023.04.01 07:00:00</h5>
+                <a href="" class="right-arrow">확인하기</a>
+              </div>
+              <div class="texts">
+                <p>
+                  <strong>비즈머니 잔액 5,000원 미만</strong>입니다
+                </p>
+                <p>충전이 필요합니다.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="tab-content" data-tab="dashboard">3
+    </div>
   </div>
 </main>
 

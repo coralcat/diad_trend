@@ -167,7 +167,7 @@
           네이버 쇼핑검색광고
         </li>
         <li data-tab="naver">
-          네이버 파워콘텐츠
+          네이버 파워컨텐츠
         </li>
       </ul>
       <div href="#" class="username" target="_blank">
@@ -384,7 +384,7 @@
             <div class="buttons">
               <button class="btn-sub" type="button" data-modal="searchGroup">분류조회</button>
               <button class="btn-sub" type="button" data-modal="editCategories">분류편집</button>
-              <button class="btn-sub" type="button" data-modal="">지역설정</button>
+              <button class="btn-sub" type="button" data-modal="setLocation">지역설정</button>
               <button class="btn-main" class="ico-download" type="button">엑셀다운</button>
             </div>
           </div>
@@ -593,20 +593,20 @@
         </div>
         <div class="checkboxes">
           <div class="checkbox">
-            <input id="bidding-succed" type="checkbox" name="bidding-succed" />
-            <label for="bidding-succed">성공</label>
+            <input id="bidding-succeed" type="checkbox" name="bidding-succeed" />
+            <label for="bidding-succeed">성공</label>
           </div>
           <div class="options">
             <div class="checkbox">
-              <input id="bidding-proceed" type="checkbox" name="bidding-succed" />
+              <input id="bidding-proceed" type="checkbox" name="bidding-succeed" />
               <label for="bidding-proceed">입찰진행</label>
             </div>
             <div class="checkbox">
-              <input id="bidding-goal" type="checkbox" name="bidding-succed" />
+              <input id="bidding-goal" type="checkbox" name="bidding-succeed" />
               <label for="bidding-goal">목표달성</label>
             </div>
             <div class="checkbox">
-              <input id="bidding-down" type="checkbox" name="bidding-succed" />
+              <input id="bidding-down" type="checkbox" name="bidding-succeed" />
               <label for="bidding-down">하향입찰</label>
             </div>
           </div>
@@ -1327,20 +1327,20 @@
         </div>
         <div class="checkboxes">
           <div class="checkbox">
-            <input id="bidding-succed" type="checkbox" name="bidding-succed" />
-            <label for="bidding-succed">성공</label>
+            <input id="bidding-succeed" type="checkbox" name="bidding-succeed" />
+            <label for="bidding-succeed">성공</label>
           </div>
           <div class="options">
             <div class="checkbox">
-              <input id="bidding-proceed" type="checkbox" name="bidding-succed" />
+              <input id="bidding-proceed" type="checkbox" name="bidding-succeed" />
               <label for="bidding-proceed">입찰진행</label>
             </div>
             <div class="checkbox">
-              <input id="bidding-goal" type="checkbox" name="bidding-succed" />
+              <input id="bidding-goal" type="checkbox" name="bidding-succeed" />
               <label for="bidding-goal">목표달성</label>
             </div>
             <div class="checkbox">
-              <input id="bidding-down" type="checkbox" name="bidding-succed" />
+              <input id="bidding-down" type="checkbox" name="bidding-succeed" />
               <label for="bidding-down">하향입찰</label>
             </div>
           </div>
@@ -2070,20 +2070,20 @@
         </div>
         <div class="checkboxes">
           <div class="checkbox">
-            <input id="bidding-succed" type="checkbox" name="bidding-succed" />
-            <label for="bidding-succed">성공</label>
+            <input id="bidding-succeed" type="checkbox" name="bidding-succeed" />
+            <label for="bidding-succeed">성공</label>
           </div>
           <div class="options">
             <div class="checkbox">
-              <input id="bidding-proceed" type="checkbox" name="bidding-succed" />
+              <input id="bidding-proceed" type="checkbox" name="bidding-succeed" />
               <label for="bidding-proceed">입찰진행</label>
             </div>
             <div class="checkbox">
-              <input id="bidding-goal" type="checkbox" name="bidding-succed" />
+              <input id="bidding-goal" type="checkbox" name="bidding-succeed" />
               <label for="bidding-goal">목표달성</label>
             </div>
             <div class="checkbox">
-              <input id="bidding-down" type="checkbox" name="bidding-succed" />
+              <input id="bidding-down" type="checkbox" name="bidding-succeed" />
               <label for="bidding-down">하향입찰</label>
             </div>
           </div>
@@ -5247,6 +5247,495 @@
           </button>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div id="setLocation" class="modal modal-location" title="지역 설정">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>지역그룹설정</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <small>※ 광고센터에서 지역 타겟팅 시 광고 노출 제외 지역으로 설정한 지역을 PRO에서 노출 지역으로 설정할 경우 입찰이 원활하지 않을 수 있습니다.</small>
+      <div class="list-header">
+        <div class="inputs">
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">시/도</option>
+            </select>
+          </div>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">시/군/구</option>
+            </select>
+          </div>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">동/읍/면</option>
+            </select>
+          </div>
+        </div>
+        <ul class="list-count">
+          <li>
+            <span class="selected">0</span>
+          </li>
+          <li>
+            <span class="total">0</span>
+          </li>
+        </ul>
+      </div>
+      <div class="lists">
+        <div class="list">
+          <ul class="row title">
+            <li>
+              <div class="checkbox">
+                <input id="createKeywordCheckAll" type="checkbox" name="createKeywordCheck" class="check-all" />
+                <label for="createKeywordCheckAll">모바일(일부)</label>
+              </div>
+            </li>
+          </ul>
+          <div class="rows" data-empty="그룹을 추가해주세요.">
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check0" type="checkbox" name="createKeywordCheck" />
+                  <label for="check0">08 귤통합 (M)</label>
+                </div>
+              </li>
+              <li>
+                <span class="located">강원도 | 춘천시 | 봉의동</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check1" type="checkbox" name="createKeywordCheck" />
+                  <label for="check1">08 노지귤 (M)</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check2" type="checkbox" name="createKeywordCheck" />
+                  <label for="check2">09 한라봉 (M)</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check3" type="checkbox" name="createKeywordCheck" />
+                  <label for="check3">10 천혜향 (M)</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check4" type="checkbox" name="createKeywordCheck" />
+                  <label for="check4">12 레드향 (M)</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check5" type="checkbox" name="createKeywordCheck" />
+                  <label for="check5">02 옥돔 (M)</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check6" type="checkbox" name="createKeywordCheck" />
+                  <label for="check6">03 갈치 (M)</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check7" type="checkbox" name="createKeywordCheck" />
+                  <label for="check7">04 고등어 (M)</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="list">
+          <ul class="row title">
+            <li>
+              <div class="checkbox">
+                <input id="createKeywordCheckAll" type="checkbox" name="createKeywordCheck" class="check-all" />
+                <label for="createKeywordCheckAll">파워링크_컨텐츠지면</label>
+              </div>
+            </li>
+          </ul>
+          <div class="rows" data-empty="그룹을 추가해주세요.">
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check0" type="checkbox" name="createKeywordCheck" />
+                  <label for="check0">한라봉(PC/M)</label>
+                </div>
+              </li>
+              <li>
+                <span class="located">제주 | 서귀포시 | 법환동</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check1" type="checkbox" name="createKeywordCheck" />
+                  <label for="check1">카라향(PC/M)</label>
+                </div>
+              </li>
+              <li>
+                <span class="located">제주 | 서귀포시 | 법환동</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check2" type="checkbox" name="createKeywordCheck" />
+                  <label for="check2">갈치(PC/M)</label>
+                </div>
+              </li>
+              <li>
+                <span class="located">제주 | 서귀포시 | 법환동</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check3" type="checkbox" name="createKeywordCheck" />
+                  <label for="check3">옥돔(PC/M)</label>
+                </div>
+              </li>
+              <li>
+                <span class="located">제주 | 서귀포시 | 법환동</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check4" type="checkbox" name="createKeywordCheck" />
+                  <label for="check4">오메기떡(PC/M)</label>
+                </div>
+              </li>
+              <li>
+                <span class="located">제주 | 서귀포시 | 법환동</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check5" type="checkbox" name="createKeywordCheck" />
+                  <label for="check5">흑돼지(PC/M)</label>
+                </div>
+              </li>
+              <li>
+                <span class="located">제주 | 서귀포시 | 법환동</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check6" type="checkbox" name="createKeywordCheck" />
+                  <label for="check6">고등어(PC/M)</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check7" type="checkbox" name="createKeywordCheck" />
+                  <label for="check7">하우스귤(PC/M)</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="list">
+          <ul class="row title">
+            <li>
+              <div class="checkbox">
+                <input id="createKeywordCheckAll" type="checkbox" name="createKeywordCheck" class="check-all" />
+                <label for="createKeywordCheckAll">파워링크_스마트스토어</label>
+              </div>
+            </li>
+          </ul>
+          <div class="rows" data-empty="그룹을 추가해주세요.">
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check0" type="checkbox" name="createKeywordCheck" />
+                  <label for="check0">PC_귤통합</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check1" type="checkbox" name="createKeywordCheck" />
+                  <label for="check1">M_귤통합</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check2" type="checkbox" name="createKeywordCheck" />
+                  <label for="check2">M_노지감귤</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check3" type="checkbox" name="createKeywordCheck" />
+                  <label for="check3">PC_노지감귤</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check4" type="checkbox" name="createKeywordCheck" />
+                  <label for="check4">M_황금향</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check5" type="checkbox" name="createKeywordCheck" />
+                  <label for="check5">PC_황금향</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check6" type="checkbox" name="createKeywordCheck" />
+                  <label for="check6">01 PC M 흑돼지</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check7" type="checkbox" name="createKeywordCheck" />
+                  <label for="check7">PC 한라봉</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="list">
+          <ul class="row title">
+            <li>
+              <div class="checkbox">
+                <input id="createKeywordCheckAll" type="checkbox" name="createKeywordCheck" class="check-all" />
+                <label for="createKeywordCheckAll">PC</label>
+              </div>
+            </li>
+          </ul>
+          <div class="rows" data-empty="그룹을 추가해주세요.">
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check0" type="checkbox" name="createKeywordCheck" />
+                  <label for="check0">15 흑돼지(PC)</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check1" type="checkbox" name="createKeywordCheck" />
+                  <label for="check1">12 카라향(PC)</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check2" type="checkbox" name="createKeywordCheck" />
+                  <label for="check2">27 올레꿀빵</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check3" type="checkbox" name="createKeywordCheck" />
+                  <label for="check3">28 장류</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check4" type="checkbox" name="createKeywordCheck" />
+                  <label for="check4">29 삼치</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check5" type="checkbox" name="createKeywordCheck" />
+                  <label for="check5">30 초당옥수수 (PC)</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check6" type="checkbox" name="createKeywordCheck" />
+                  <label for="check6">31 미니단호박 (PC)</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check7" type="checkbox" name="createKeywordCheck" />
+                  <label for="check7">32 오색찰옥수수 (PC)</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check7" type="checkbox" name="createKeywordCheck" />
+                  <label for="check7">31-1 땅콩호박</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check7" type="checkbox" name="createKeywordCheck" />
+                  <label for="check7">06 -1 하루미젓갈</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check7" type="checkbox" name="createKeywordCheck" />
+                  <label for="check7">33 쫀득이</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check7" type="checkbox" name="createKeywordCheck" />
+                  <label for="check7">08 귤통합(PC)</label>
+                </div>
+              </li>
+              <li>
+                <span>미설정</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" type="button">적용</button>
     </div>
   </div>
 </div>

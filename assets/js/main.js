@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const progress = document.querySelectorAll("progress");
   if (progress[0]) {
     progress.forEach(bar => {
-      bar.setAttribute("value", "126");
+      // bar.setAttribute("value", "126");
     });
   }
 
@@ -832,7 +832,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 키워드 콘텐츠에서 키워드 bold 처리
+  // 키워드 컨텐츠에서 키워드 bold 처리
   const sectionArticle = document.querySelector(".content-keyword-trend-details .section-article");
   if (sectionArticle) {
     const articleLists = sectionArticle.querySelectorAll(".list-article");
