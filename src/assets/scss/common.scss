@@ -92,7 +92,7 @@ body {
 
   small {
     display: inline-flex;
-    font-family: "RobotoMedium", "NanumSquareR", sans-serif;
+    font-family: "NanumSquareR";
   }
 
   address {
@@ -235,7 +235,7 @@ ul {
   list-style: none;
 }
 
-:not(.ui-datepicker, img, button):empty {
+:not(.ui-datepicker, img, button, .chart, .chart div, canvas):empty {
   display: flex;
   align-items: center;
   justify-content: center;

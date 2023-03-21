@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('settings')}}
-<div class="content-settings">
+<main class="content-settings">
   <header class="content-header">
     <div class="title">
       <h1>알림설정</h1>
@@ -144,7 +144,18 @@
         </div>
       </div>
     </section>
+    <section class="section-alarm-services">
+      <header class="section-header">
+        <h3>알림 시간대 설정</h3>
+      </header>
+      <div class="list">
+        <div class="row">
+          <div>심야 시간에도(21시 ~ 8시) 알림을 받겠습니다.</div>
+          <div class="toggle toggle-switch" data-toggle="alarm-services"><input id="toggle-midnight"
+              type="checkbox"><label for="toggle-midnight"></label></div>
+        </div>
+      </div>
+    </section>
   </div>
-</div>
+</main>
 {% endblock %}
-</style>
