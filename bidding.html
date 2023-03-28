@@ -155,11 +155,6 @@
   </ul>
 </aside>
 
-<style>
-  .chart canvas {
-    max-height: none !important;
-  }
-</style>
 <main class="content-bidding">
   <header class="content-header">
     <div class="title">
@@ -183,104 +178,91 @@
   </nav>
 </div>
     </div>
-    <section class="section-main">
-      <div class="services">
+    <div class="sections">
+      <section class="section-main">
         <header>
           <h3>자동입찰 이용 현황</h3>
           <a class="right-arrow" href="">서비스 이용 내역 보기</a>
         </header>
-        <ul>
-          <li>
-            <div class="service-type">
-              <strong>C</strong>
-            </div>
-            <div>
+        <div class="articles">
+          <article data-brand="naver">
+            <div class="title">
               네이버
+              <span class="service-type">C</span>
+            </div>
+            <small>
+              2022-12-22 ~ 2023-06-30
               <span class="tag d-day">183</span>
+            </small>
+            <div class="progress">
+              <ul>
+                <li title="제공량">
+                  <strong class="times">100</strong>
+                </li>
+                <li title="잔여량">
+                  <strong class="times">14</strong>
+                </li>
+              </ul>
+              <progress value="14" max="100"></progress>
             </div>
-            <small>2022-12-22 ~ 2023-06-30</small>
-            <div class="wrapper">
-              <dl>
-                <dt>
-                  <div class="grade black">K</div>
-                </dt>
-                <dd>제한없음</dd>
-              </dl>
-              <dl>
-                <dt>제공량</dt>
-                <dd class="times">100</dd>
-              </dl>
-              <dl>
-                <dt>잔여량</dt>
-                <dd class="times">14</dd>
-              </dl>
-            </div>
-          </li>
-          <li>
-            <div class="service-type">
-              <strong>A</strong>
-            </div>
-            <div>
+          </article>
+          <article data-brand="eleventh">
+            <div class="title">
               11번가
+              <span class="service-type">C</span>
+            </div>
+            <small>
+              2022-10-29 ~ 2023-01-26
               <span class="tag d-day">28</span>
+            </small>
+            <div class="progress">
+              <ul>
+                <li title="제공량">
+                  <strong class="times">30</strong>
+                </li>
+                <li title="잔여량">
+                  <strong class="times">27</strong>
+                </li>
+              </ul>
+              <progress value="27" max="30"></progress>
             </div>
-            <small>2022-10-29 ~ 2023-01-26</small>
-            <div class="wrapper">
-              <dl>
-                <dt>
-                  <div class="grade blue">B</div>
-                </dt>
-                <dd>30분</dd>
-              </dl>
-              <dl>
-                <dt>제공량</dt>
-                <dd class="times">30</dd>
-              </dl>
-              <dl>
-                <dt>잔여량</dt>
-                <dd class="times">27</dd>
-              </dl>
-            </div>
-          </li>
-          <li>
-            <div class="service-type">
-              <strong>D</strong>
-            </div>
-            <div>
+          </article>
+          <article data-brand="gmarket">
+            <div class="title">
               지마켓
+              <span class="service-type">D</span>
+            </div>
+            <small>
+              2022-12-13 ~ 2023-01-11
               <span class="tag d-day">13</span>
+            </small>
+            <div class="progress">
+              <ul>
+                <li title="제공량">
+                  <strong class="times">300</strong>
+                </li>
+                <li title="잔여량">
+                  <strong class="times">20</strong>
+                </li>
+              </ul>
+              <progress value="20" max="300"></progress>
             </div>
-            <small>2022-12-13 ~ 2023-01-11</small>
-            <div class="wrapper">
-              <dl>
-                <dt>
-                  <div class="grade purple">P</div>
-                </dt>
-                <dd>제한없음</dd>
-              </dl>
-              <dl>
-                <dt>제공량</dt>
-                <dd class="times">300</dd>
-              </dl>
-              <dl>
-                <dt>잔여량</dt>
-                <dd class="times">20</dd>
-              </dl>
-            </div>
-          </li>
-          <li>
-            <div class="service-type button">
-              <strong onclick="window.open('https://diad.co.kr/Mypage/PaymentView')">신청</strong>
-            </div>
-            <div>
+          </article>
+          <article data-brand="google">
+            <div class="title">
               구글
             </div>
-            <small>서비스 기간이 만료되었거나 서비스 정보가 존재하지 않습니다. 신청 후 사용 해 주세요
+            <small>
+              서비스 기간이 만료되었거나 서비스 정보가 존재하지 않습니다. 신청 후 사용 해 주세요
             </small>
-          </li>
-        </ul>
-      </div>
-    </section>
+            <div>
+              <button class="btn-main">신청</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+    </div>
   </header>
   <div class="wrapper">
     <section>
