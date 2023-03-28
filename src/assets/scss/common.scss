@@ -656,7 +656,7 @@ aside {
 /* Progress */
 
 progress {
-  height: 10px;
+  height: 6px;
   width: 100%;
   border-radius: 0.5rem;
   border: 0;
@@ -1100,7 +1100,7 @@ input[type="radio"] {
   .row.title {
     position: sticky;
     top: 0;
-    z-index: 70;
+    z-index: 80;
   }
 }
 

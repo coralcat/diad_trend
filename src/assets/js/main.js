@@ -9,25 +9,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const container = document.querySelector(".container");
   const main = document.querySelector("main");
-  const wrapper = document.querySelector(".content > .wrapper");
+  const wrapper = document.querySelector("main > .wrapper");
   const scrollToTop = document.createElement("div");
   scrollToTop.classList.add("scroll-to-top");
-  wrapper && wrapper.appendChild(scrollToTop);
+  main && main.appendChild(scrollToTop);
 
   let lastScrollTop = 0;
 
-  wrapper && wrapper.addEventListener("scroll", () => {
-    let currentScrollTop = wrapper.scrollTop;
+  wrapper &&
+    wrapper.addEventListener("scroll", () => {
+      let currentScrollTop = wrapper.scrollTop;
 
-    if (currentScrollTop > 50) {
-      currentScrollTop > lastScrollTop
-        ? scrollToTop.classList.remove("is-active")
-        : scrollToTop.classList.add("is-active");
-      lastScrollTop = currentScrollTop;
-    } else {
-      scrollToTop.classList.remove("is-active");
-    }
-  });
+      if (currentScrollTop > 50) {
+        currentScrollTop > lastScrollTop
+          ? scrollToTop.classList.remove("is-active")
+          : scrollToTop.classList.add("is-active");
+        lastScrollTop = currentScrollTop;
+      } else {
+        scrollToTop.classList.remove("is-active");
+      }
+    });
 
   if (matchMedia("screen and (max-width: 640px)").matches) {
     main.addEventListener("scroll", () => {
@@ -474,7 +475,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 계정관리: 계정삭제
     if (modalData === "deleteAccount") {
-        openConfirmModal();
+      openConfirmModal();
     }
 
     // 상품 순위 추적: 그룹편집팝업 - 그룹추가
@@ -619,10 +620,11 @@ document.addEventListener("DOMContentLoaded", () => {
           option.addEventListener("click", choose);
         });
 
-      button && button.addEventListener("click", () => {
-        initialize();
-        search.classList.toggle("is-active");
-      });
+      button &&
+        button.addEventListener("click", () => {
+          initialize();
+          search.classList.toggle("is-active");
+        });
     });
 
     // 키워드 효과
@@ -786,15 +788,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // 메뉴
   const hamburgMenu = document.querySelector(".hamburg-menu");
   const aside = document.querySelector(".aside");
-  hamburgMenu && hamburgMenu.addEventListener("click", () => {
-    hamburgMenu.classList.toggle("is-active");
-    aside.classList.toggle("is-active");
-  });
+  hamburgMenu &&
+    hamburgMenu.addEventListener("click", () => {
+      hamburgMenu.classList.toggle("is-active");
+      aside.classList.toggle("is-active");
+    });
 
   const asideHandler = document.querySelector(".aside-handler");
   asideHandler.addEventListener("click", () => {
-    if(matchMedia("screen and (max-width: 640px)").matches) {
-      aside.classList.remove("is-active")
+    if (matchMedia("screen and (max-width: 640px)").matches) {
+      aside.classList.remove("is-active");
       hamburgMenu.classList.remove("is-active");
     } else {
       aside.classList.contains("icons-only") ? aside.classList.remove("icons-only") : aside.classList.add("icons-only");
@@ -825,10 +828,10 @@ document.addEventListener("DOMContentLoaded", () => {
       // lists.forEach(list => {
       //   list.classList.contains("is-active") && list.classList.remove("is-active")
       // });
-      
+
       event.target.closest("li").classList.contains("is-active")
-      ? event.target.closest("li").classList.remove("is-active")
-      : event.target.closest("li").classList.add("is-active");
+        ? event.target.closest("li").classList.remove("is-active")
+        : event.target.closest("li").classList.add("is-active");
     });
   }
 
@@ -941,4 +944,38 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // 대시보드 스크롤 효과
+  if (main.classList.contains("content-dashboard")) {
+    const sections = [...document.querySelectorAll(".tab-content")];
+
+    let options = {
+      rootMargin: "0px",
+      threshold: 0.75,
+    };
+
+    const callback = (entries, observer) => {
+      entries.forEach(entry => {
+        const {target} = entry;
+
+        if (entry.intersectionRatio >= 0.75) {
+          target.classList.add("is-active");
+        } else {
+          target.classList.remove("is-active");
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(callback, options);
+
+    sections.forEach((section, index) => {
+      const sectionChildren = [...section.querySelector("[data-content]").children];
+
+      sectionChildren.forEach((el, index) => {
+        el.style.setProperty("--delay", `${index * 250}ms`);
+      });
+
+      observer.observe(section);
+    });
+  }
 });

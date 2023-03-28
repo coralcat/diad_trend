@@ -173,101 +173,103 @@
       {% include "account.html" %}
     </div>
     <section class="section-main">
-      <div class="services">
-        <header>
-          <h3>스토어 이용 현황</h3>
-          <a class="right-arrow" href="">서비스 이용 내역 보기</a>
-        </header>
-        <ul>
-          <li>
-            <div class="service-type">
-              <strong>G</strong>
-            </div>
-            <div>
-              지마켓 판매량 추적
-              <span class="tag d-day">183</span>
-            </div>
-            <small>2022-12-22 ~ 2023-06-30</small>
-            <div class="wrapper">
-              <dl>
-                <dt>제공량</dt>
-                <dd class="times">100</dd>
-              </dl>
-              <dl>
-                <dt>잔여량</dt>
-                <dd class="times">75</dd>
-              </dl>
-            </div>
-          </li>
-          <li>
-            <div class="service-type">
-              <strong>G</strong>
-            </div>
-            <div>
-              네이버 순위 추적
-              <span class="tag d-day">640</span>
-            </div>
-            <small>2022-07-30 ~ 2024-09-29</small>
-            <div class="wrapper">
-              <dl>
-                <dt>제공량</dt>
-                <dd class="times">100</dd>
-              </dl>
-              <dl>
-                <dt>잔여량</dt>
-                <dd class="times">71</dd>
-              </dl>
-            </div>
-          </li>
-          <li>
-            <div class="service-type">
-              <strong>F</strong>
-            </div>
-            <div>
-              네이버 최저가 추적
-              <span class="tag d-day">638</span>
-            </div>
-            <small>2022-07-23 ~ 2024-09-27</small>
-            <div class="wrapper">
-              <dl>
-                <dt>제공량</dt>
-                <dd class="times">90</dd>
-              </dl>
-              <dl>
-                <dt>잔여량</dt>
-                <dd class="times">58</dd>
-              </dl>
-            </div>
-          </li>
-          <li>
-            <div class="service-type">
-              <strong></strong>
-            </div>
-            <div>
-              네이버 순위 추적 M
-              <span class="tag d-day">640</span>
-            </div>
-            <small>2022-07-30 ~ 2024-09-29</small>
-            <div class="wrapper">
-              <dl>
-                <dt>제공량</dt>
-                <dd class="times"></dd>
-              </dl>
-              <dl>
-                <dt>잔여량</dt>
-                <dd class="times"></dd>
-              </dl>
-            </div>
-          </li>
-          <li>
-            <div class="service-type button">
-              <strong onclick="window.open('https://diad.co.kr/Mypage/PaymentView')">신청</strong>
-            </div>
-            <div>네이버 최저가 추적 M</div>
-            <small>서비스 기간이 만료되었거나 서비스 정보가 존재하지 않습니다. 신청 후 사용 해 주세요
-            </small>
-          </li>
-        </ul>
+      <header>
+        <h3>스토어 이용 현황</h3>
+        <a class="right-arrow" href="">서비스 이용 내역 보기</a>
+      </header>
+      <div class="articles">
+        <article data-brand="gmarket">
+          <div>
+            지마켓 판매량 추적
+            <span class="service-type">G</span>
+          </div>
+          <small>
+            2022-12-22 ~ 2023-06-30
+            <span class="tag d-day">183</span>
+          </small>
+          <div class="progress">
+            <ul>
+              <li title="제공량">
+                <strong class="times">100</strong>
+              </li>
+              <li title="잔여량">
+                <strong class="times">75</strong>
+              </li>
+            </ul>
+            <progress value="75" max="100"></progress>
+          </div>
+        </article>
+        <article data-brand="naver">
+          <div>
+            네이버 순위 추적
+            <div class="service-type">G</div>
+          </div>
+          <small>
+            2022-12-22 ~ 2023-06-30
+            <span class="tag d-day">640</span>
+          </small>
+          <div class="progress">
+            <ul>
+              <li title="제공량">
+                <strong class="times">100</strong>
+              </li>
+              <li title="잔여량">
+                <strong class="times">71</strong>
+              </li>
+            </ul>
+            <progress value="71" max="100"></progress>
+          </div>
+        </article>
+        <article data-brand="naver">
+          <div>
+            네이버 최저가 추적
+            <div class="service-type">F</div>
+          </div>
+          <small>
+            2022-12-22 ~ 2023-06-30
+            <span class="tag d-day">638</span>
+          </small>
+          <div class="progress">
+            <ul>
+              <li title="제공량">
+                <strong class="times">90</strong>
+              </li>
+              <li title="잔여량">
+                <strong class="times">58</strong>
+              </li>
+            </ul>
+            <progress value="58" max="90"></progress>
+          </div>
+        </article>
+        <article data-brand="naver">
+          <div>
+            네이버 순위 추적 M
+          </div>
+          <small>
+            2022-07-30 ~ 2024-09-29
+            <span class="tag d-day">640</span>
+          </small>
+          <div class="progress">
+            <ul>
+              <li title="제공량">
+                <strong class="times"></strong>
+              </li>
+              <li title="잔여량">
+                <strong class="times"></strong>
+              </li>
+            </ul>
+            <progress value="0" max="0"></progress>
+          </div>
+        </article>
+        <article data-brand="naver">
+          <div>
+            네이버 최저가 추적 M
+          </div>
+          <small>서비스 기간이 만료되었거나 서비스 정보가 존재하지 않습니다. 신청 후 사용 해 주세요</small>
+          <div>
+            <button class="btn-main">신청</button>
+          </div>
+        </article>
       </div>
     </section>
   </header>
