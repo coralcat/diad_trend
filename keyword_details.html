@@ -63,13 +63,13 @@
       </menu>
       <ul>
         <li class="gmarket ">
-          <span class="gmarket" onclick="location.href='track_gmarket.html'">지마켓 판매량 추적</span>
+          <span onclick="location.href='track_gmarket.html'">지마켓 판매량 추적</span>
         </li>
         <li class="naver ">
-          <span class="naver" onclick="location.href='ranking.html'">네이버 순위 추적</span>
+          <span onclick="location.href='ranking.html'">네이버 순위 추적</span>
         </li>
         <li class="naver ">
-          <span class="naver" onclick="location.href='lowest_price.html'">네이버 최저가 추적</span>
+          <span onclick="location.href='lowest_price.html'">네이버 최저가 추적</span>
         </li>
       </ul>
     </div>
@@ -80,16 +80,16 @@
       </menu>
       <ul>
         <li class="naver ">
-          <span class="naver" onclick="location.href='bid_naver.html'">네이버</span>
+          <span onclick="location.href='bid_naver.html'">네이버</span>
         </li>
         <li class="eleventh ">
-          <span class="eleventh" onclick="location.href='bid_11st.html'">11번가</span>
+          <span onclick="location.href='bid_11st.html'">11번가</span>
         </li>
         <li class="gmarket ">
-          <span class="gmarket" onclick="location.href='bid_gmarket.html'">지마켓 파워클릭</span>
+          <span onclick="location.href='bid_gmarket.html'">지마켓 파워클릭</span>
         </li>
         <li class="google ">
-          <span class="google" onclick="location.href='bid_google.html'">구글 검색광고</span>
+          <span onclick="location.href='bid_google.html'">구글 검색광고</span>
         </li>
       </ul>
     </div>
@@ -1075,7 +1075,7 @@
           <fieldset>
             <legend>
               검색
-              <article class="tooltip">
+              <div class="tooltip">
                 <div class="tooltip-content">
                   <dl>
                     <dd>
@@ -1086,7 +1086,7 @@
                     </dd>
                   </dl>
                 </div>
-              </article>
+              </div>
             </legend>
             <div class="report">
               <div id="searchChart" class="chart"></div>
@@ -1102,14 +1102,14 @@
                         <li>
                           <div>
                             월간 검색수
-                            <article class="tooltip">
+                            <div class="tooltip">
                               <div class="tooltip-content">
                                 <dl>
                                   <dd>최근 한 달간 네이버를 이용한 사용자가 PC에서 해당 키워드를 검색한 횟수입니다.
                                   </dd>
                                 </dl>
                               </div>
-                            </article>
+                            </div>
                           </div>
                           <strong class="times">7,320</strong>
                         </li>
@@ -1139,14 +1139,14 @@
                         <li>
                           <div>
                             월간 검색수
-                            <article class="tooltip">
+                            <div class="tooltip">
                               <div class="tooltip-content">
                                 <dl>
                                   <dd>최근 한 달간 네이버를 이용한 사용자가 모바일에서 해당 키워드를 검색한 횟수입니다.
                                   </dd>
                                 </dl>
                               </div>
-                            </article>
+                            </div>
                           </div>
                           <strong class="times">32,300</strong>
                         </li>
@@ -1170,7 +1170,7 @@
                     <li>
                       <div>
                         월간 검색수
-                        <article class="tooltip">
+                        <div class="tooltip">
                           <div class="tooltip-content">
                             <dl>
                               <dd>
@@ -1178,14 +1178,14 @@
                               </dd>
                             </dl>
                           </div>
-                        </article>
+                        </div>
                       </div>
                       <strong class="times">1,900</strong>
                     </li>
                     <li>
                       <div>
                         월간 평균 검색량
-                        <article class="tooltip">
+                        <div class="tooltip">
                           <div class="tooltip-content">
                             <dl>
                               <dd>
@@ -1196,7 +1196,7 @@
                               </dd>
                             </dl>
                           </div>
-                        </article>
+                        </div>
                       </div>
                       <strong class="times">1,900</strong>
                       <div id="searchChart2" class="chart" style="display: block; height: 150px; min-height: auto">
@@ -1205,7 +1205,7 @@
                     <li>
                       <div>
                         경쟁정도
-                        <article class="tooltip">
+                        <div class="tooltip">
                           <div class="tooltip-content">
                             <dl>
                               <dd>특정 키워드의 광고 게재 위치가 얼마나 경쟁이 치열한지를 보여 줍니다.</dd>
@@ -1215,7 +1215,7 @@
                               <dd>데이터가 충분하지 않으면 대시(-)가 표시됩니다.</dd>
                             </dl>
                           </div>
-                        </article>
+                        </div>
                       </div>
                       <strong>높음</strong>
                     </li>
@@ -1223,7 +1223,7 @@
                       <div>
                         페이지 상단 입찰가<br>
                         하위 (20 백분위수)
-                        <article class="tooltip">
+                        <div class="tooltip">
                           <div class="tooltip-content">
                             <dl>
                               <dd>
@@ -1232,7 +1232,7 @@
                               <dd>키워드의 평균 CPC는 다를 수 있습니다.</dd>
                             </dl>
                           </div>
-                        </article>
+                        </div>
                       </div>
                       <strong class="price">517</strong>
                     </li>
@@ -1240,7 +1240,7 @@
                       <div>
                         페이지 상단 입찰가<br>
                         상위 (80 백분위수)
-                        <article class="tooltip">
+                        <div class="tooltip">
                           <div class="tooltip-content">
                             <dl>
                               <dd>
@@ -1249,7 +1249,7 @@
                               <dd>키워드의 평균 CPC는 다를 수 있습니다.</dd>
                             </dl>
                           </div>
-                        </article>
+                        </div>
                       </div>
                       <strong class="price">1,259</strong>
                     </li>
@@ -1261,11 +1261,11 @@
           <fieldset>
             <legend>
               컨텐츠
-              <article class="tooltip">
+              <div class="tooltip">
                 <div class="tooltip-content">
                   블로그(네이버, 다음), 카페(네이버, 다음), 뉴스(네이버), 동영상(유튜브) 총 6가지 매체의 컨텐츠 데이터를 제공합니다.
                 </div>
-              </article>
+              </div>
             </legend>
             <div class="report">
               <div id="contentsChart" class="chart"></div>
@@ -1322,42 +1322,42 @@
                     <li>
                       <div>
                         네이버 블로그 경쟁률
-                        <article class="tooltip">
+                        <div class="tooltip">
                           <div class="tooltip-content">
                             <dl>
                               <dd>네이버 블로그 발행량 ÷ 네이버 월간 검색수입니다.</dd>
                               <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
                             </dl>
                           </div>
-                        </article>
+                        </div>
                       </div>
                       <strong>39.29:1</strong>
                     </li>
                     <li>
                       <div>
                         네이버 카페 경쟁률
-                        <article class="tooltip">
+                        <div class="tooltip">
                           <div class="tooltip-content">
                             <dl>
                               <dd>네이버 카페 발행량 ÷ 네이버 월간 검색수입니다.</dd>
                               <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
                             </dl>
                           </div>
-                        </article>
+                        </div>
                       </div>
                       <strong>2.32:1</strong>
                     </li>
                     <li>
                       <div>
                         네이버 뉴스 경쟁률
-                        <article class="tooltip">
+                        <div class="tooltip">
                           <div class="tooltip-content">
                             <dl>
                               <dd>네이버 뉴스 발행량 ÷ 네이버 월간 검색수입니다.</dd>
                               <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
                             </dl>
                           </div>
-                        </article>
+                        </div>
                       </div>
                       <strong>0.06:1</strong>
                     </li>
@@ -1369,11 +1369,11 @@
           <fieldset class="items">
             <legend>
               상품
-              <article class="tooltip">
+              <div class="tooltip">
                 <div class="tooltip-content">
                   네이버 쇼핑 키워드 검색 시 노출되는 상품 데이터를 제공합니다.
                 </div>
-              </article>
+              </div>
             </legend>
             <div class="summary horizontal">
               <ul>
@@ -1384,14 +1384,14 @@
                 <li>
                   <div>
                     상품경쟁률
-                    <article class="tooltip">
+                    <div class="tooltip">
                       <div class="tooltip-content">
                         <dl>
                           <dd>상품수 ÷ 네이버 월간 검색수입니다.</dd>
                           <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
                         </dl>
                       </div>
-                    </article>
+                    </div>
                   </div>
                   <strong>35.28:1</strong>
                 </li>
@@ -1419,12 +1419,12 @@
     </div>
     <div class="tab-content content-search" data-tab="sub-menu">
       <section class="section-chart" title="키워드 검색 차트">
-        <header class="section-header">
+        <header>
           <div class="title">
             <h3>
               <span>키워드 검색 차트</span>
-              <article class="tooltip">
-                <article class="tooltip-content">
+              <div class="tooltip">
+                <div class="tooltip-content">
                   <dl>
                     <dd>지난 12개월간의 네이버 검색 트렌드와 구글 검색량의 월간 추이를 한눈에 확인할 수 있는 차트입니다.
                     </dd>
@@ -1432,8 +1432,8 @@
                     <dd>그래프 상에서 조회할 기간을 드래그하면 현재 상위 노출되는 컨텐츠(네이버 블로그와 뉴스, 다음 블로그와 카페, 유튜브 동영상) 중 해당 기간 동안 작성 또는 업로드된 건을
                       확인할 수 있습니다.</dd>
                   </dl>
-                </article>
-              </article>
+                </div>
+              </div>
             </h3>
             <div class="buttons">
               <button class="ico-download" type="button">엑셀다운</button>
@@ -1465,11 +1465,11 @@
         </div>
       </section>
       <section class="section-related-keyword" title="연관 키워드">
-        <header class="section-header">
+        <header>
           <div class="title">
             <h3>
               연관 키워드
-              <article class="tooltip">
+              <div class="tooltip">
                 <div class="tooltip-content">
                   <dl>
                     <dd>검색한 키워드와 연관도가 높은 키워드 목록을 제공합니다.</dd>
@@ -1479,7 +1479,7 @@
                     <dd>네이버와 중복되지 않은 구글 키워드는 네이버 연관 키워드 아래 표시됩니다.</dd>
                   </dl>
                 </div>
-              </article>
+              </div>
             </h3>
             <div class="buttons">
               <button class="ico-refresh">정렬초기화</button>
@@ -1586,7 +1586,7 @@
             <li class="col-keyword ico-sort">연관 키워드</li>
             <li>
               월간 검색수
-              <article class="tooltip">
+              <div class="tooltip">
                 <div class="tooltip-content">
                   <dl>
                     <dd>
@@ -1597,11 +1597,11 @@
                     </dd>
                   </dl>
                 </div>
-              </article>
+              </div>
             </li>
             <li>
               3개월간 변동
-              <article class="tooltip">
+              <div class="tooltip">
                 <div class="tooltip-content">
                   <dl>
                     <dd>
@@ -1612,11 +1612,11 @@
                     </dd>
                   </dl>
                 </div>
-              </article>
+              </div>
             </li>
             <li>
               6개월간 변동
-              <article class="tooltip">
+              <div class="tooltip">
                 <div class="tooltip-content">
                   <dl>
                     <dd>
@@ -1627,19 +1627,19 @@
                     </dd>
                   </dl>
                 </div>
-              </article>
+              </div>
             </li>
             <li>
               월 평균 클릭수
-              <article class="tooltip">
+              <div class="tooltip">
                 <div class="tooltip-content">
                   최근 한 달간 사용자가 네이버에서 해당 키워드를 검색했을 때, 통합검색 영역에 노출된 광고가 받은 평균 클릭수입니다.
                 </div>
-              </article>
+              </div>
             </li>
             <li>
               월 평균 클릭률
-              <article class="tooltip">
+              <div class="tooltip">
                 <div class="tooltip-content">
                   <dl>
                     <dd>
@@ -1650,11 +1650,11 @@
                     </dd>
                   </dl>
                 </div>
-              </article>
+              </div>
             </li>
             <li>
               경쟁정도
-              <article class="tooltip">
+              <div class="tooltip">
                 <div class="tooltip-content">
                   <dl>
                     <dd>
@@ -1666,11 +1666,11 @@
                     </dd>
                   </dl>
                 </div>
-              </article>
+              </div>
             </li>
             <li>
               월 평균 노출 광고수
-              <article class="tooltip">
+              <div class="tooltip">
                 <div class="tooltip-content">
                   <dl>
                     <dd>
@@ -1681,11 +1681,11 @@
                     </dd>
                   </dl>
                 </div>
-              </article>
+              </div>
             </li>
             <li>
               페이지 상단 입찰가
-              <article class="tooltip">
+              <div class="tooltip">
                 <div class="tooltip-content">
                   <dl>
                     <dd>
@@ -1698,7 +1698,7 @@
                     </dd>
                   </dl>
                 </div>
-              </article>
+              </div>
             </li>
             <li class="ico-sort">네이버 PC</li>
             <li class="ico-sort">네이버 MO</li>
@@ -2027,10 +2027,10 @@
     </div>
     <div class="tab-content content-articles" data-tab="sub-menu">
       <section class="section-article" title="키워드 컨텐츠">
-        <header class="section-header">
+        <header>
           <div class="title">
             <h3> 키워드 컨텐츠
-              <article class="tooltip">
+              <div class="tooltip">
                 <div class="tooltip-content">
                   <dl>
                     <dd>블로그(네이버, 다음), 카페(네이버, 다음), 뉴스(네이버), 동영상(유튜브) 총 6가지 매체의 컨텐츠를 제공합니다.</dd>
@@ -2038,7 +2038,7 @@
                     <dd>네이버와 다음은 정확도 순, 유튜브는 조회수 순입니다.</dd>
                   </dl>
                 </div>
-              </article>
+              </div>
             </h3>
             <div class="calendar">
               <input id="contentsFrom" type="text" name="" readonly=""
@@ -2076,7 +2076,7 @@
             </li>
           </ul>
           <div title="네이버 블로그" class="tab-content is-active" data-tab="article">
-            <header class="section-header">
+            <header>
               <div class="title">
                 <strong>
                   네이버 블로그
@@ -2190,7 +2190,7 @@
             </footer>
           </div>
           <div title="네이버 카페" class="tab-content" data-tab="article">
-            <header class="section-header">
+            <header>
               <div class="title">
                 <strong>
                   네이버 카페
@@ -2250,7 +2250,7 @@
             </footer>
           </div>
           <div title="네이버 뉴스" class="tab-content" data-tab="article">
-            <header class="section-header">
+            <header>
               <div class="title">
                 <strong>
                   네이버 뉴스
@@ -2309,7 +2309,7 @@
             </footer>
           </div>
           <div title="다음 블로그" class="tab-content" data-tab="article">
-            <header class="section-header">
+            <header>
               <div class="title">
                 <strong>
                   다음 블로그
@@ -2462,7 +2462,7 @@
             </footer>
           </div>
           <div title="다음 카페" class="tab-content" data-tab="article">
-            <header class="section-header">
+            <header>
               <div class="title">
                 <strong>
                   다음 카페
@@ -2555,7 +2555,7 @@
             </footer>
           </div>
           <div title="유튜브 동영상" class="tab-content" data-tab="article">
-            <header class="section-header">
+            <header>
               <div class="title">
                 <strong>
                   유튜브 동영상
@@ -2665,11 +2665,11 @@
     </div>
     <div class="tab-content content-shopping" data-tab="sub-menu">
       <section class="section-items">
-        <header class="section-header">
+        <header>
           <div class="title">
             <h3>
               <span>Top 40</span>
-              <article class="tooltip">
+              <div class="tooltip">
                 <div class="tooltip-content">
                   <dl>
                     <dd>네이버 쇼핑 키워드 검색 시 노출되는 상위 40개의 상품 정보를 제공합니다.</dd>
@@ -2677,7 +2677,7 @@
                     <dd>필터를 통해 조건에 맞는 상품 조회가 가능합니다.</dd>
                   </dl>
                 </div>
-              </article>
+              </div>
             </h3>
           </div>
           <div class="filters">
@@ -2941,17 +2941,17 @@
         </div>
       </section>
       <section title="Top 40 카테고리 분석" class="section-chart">
-        <header class="section-header">
+        <header>
           <h3>
             Top 40 카테고리 분석
-            <article class="tooltip">
+            <div class="tooltip">
               <div class="tooltip-content">
                 <dl>
                   <dd>네이버 쇼핑 키워드 검색 시 노출되는 상위 40개 상품의 카테고리 분석 결과를 제공합니다.</dd>
                   <dd>광고 상품은 제외됩니다.</dd>
                 </dl>
               </div>
-            </article>
+            </div>
           </h3>
           <div class="layout layout-chart">
             <button class="ico-chart type-chart is-active" type="button"></button>
@@ -3118,7 +3118,7 @@
             <div class="title">
               <h3>
                 쇼핑 카테고리 트렌드 차트
-                <article class="tooltip">
+                <div class="tooltip">
                   <div class="tooltip-content">
                     <dl>
                       <dd>Top 40 카테고리 분석 상위 3개 카테고리의 검색 클릭 추이를 알 수 있는 쇼핑 트렌드 차트입니다.</dd>
@@ -3126,7 +3126,7 @@
                       <dd>트렌드는 조회하신 기간 중 검색 횟수가 가장 높은 시점을 100으로 둔 상대적 값으로 표현됩니다.</dd>
                     </dl>
                   </div>
-                </article>
+                </div>
               </h3>
               <div class="buttons">
                 <button class="ico-download" type="button">엑셀다운</button>
@@ -3157,10 +3157,10 @@
         </div>
       </section>
       <section title="Top 40 상품명 분석" class="section-chart">
-        <header class="section-header">
+        <header>
           <h3>
             Top 40 상품명 분석
-            <article class="tooltip">
+            <div class="tooltip">
               <div class="tooltip-content">
                 <dl>
                   <dd>
@@ -3177,7 +3177,7 @@
                   </dd>
                 </dl>
               </div>
-            </article>
+            </div>
           </h3>
           <div class="layout layout-chart">
             <button class="ico-chart type-chart is-active" type="button"></button>
@@ -3311,10 +3311,10 @@
         </div>
       </section>
       <section class="section-chart section-price-analysis">
-        <header class="section-header">
+        <header>
           <h3>
             Top 40 판매가 분석
-            <article class="tooltip">
+            <div class="tooltip">
               <div class="tooltip-content">
                 <dl>
                   <dd>네이버 쇼핑 키워드 검색 시 노출되는 상위 40개 상품의 판매가 분석 결과를 제공합니다.</dd>
@@ -3323,7 +3323,7 @@
                   <dd>원하는 구간의 그래프를 더블 클릭하시면 해당 구간의 상품목록을 확인하실 수 있습니다.</dd>
                 </dl>
               </div>
-            </article>
+            </div>
           </h3>
         </header>
         <div class="report">
@@ -3357,10 +3357,10 @@
         </div>
       </section>
       <section class="section-chart">
-        <header class="section-header">
+        <header>
           <h3>
             Top 40 브랜드 분석
-            <article class="tooltip">
+            <div class="tooltip">
               <div class="tooltip-content">
                 <dl>
                   <dd>네이버 쇼핑 키워드 검색 시 노출되는 상위 40개 상품의 브랜드 분석 결과를 제공합니다.
@@ -3369,7 +3369,7 @@
                   </dd>
                 </dl>
               </div>
-            </article>
+            </div>
           </h3>
           <div class="layout layout-chart">
             <button class="ico-chart type-chart is-active" type="button"></button>

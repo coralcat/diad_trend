@@ -63,13 +63,13 @@
       </menu>
       <ul>
         <li class="gmarket ">
-          <span class="gmarket" onclick="location.href='track_gmarket.html'">지마켓 판매량 추적</span>
+          <span onclick="location.href='track_gmarket.html'">지마켓 판매량 추적</span>
         </li>
         <li class="naver ">
-          <span class="naver" onclick="location.href='ranking.html'">네이버 순위 추적</span>
+          <span onclick="location.href='ranking.html'">네이버 순위 추적</span>
         </li>
         <li class="naver ">
-          <span class="naver" onclick="location.href='lowest_price.html'">네이버 최저가 추적</span>
+          <span onclick="location.href='lowest_price.html'">네이버 최저가 추적</span>
         </li>
       </ul>
     </div>
@@ -80,16 +80,16 @@
       </menu>
       <ul>
         <li class="naver ">
-          <span class="naver" onclick="location.href='bid_naver.html'">네이버</span>
+          <span onclick="location.href='bid_naver.html'">네이버</span>
         </li>
         <li class="eleventh ">
-          <span class="eleventh" onclick="location.href='bid_11st.html'">11번가</span>
+          <span onclick="location.href='bid_11st.html'">11번가</span>
         </li>
         <li class="gmarket ">
-          <span class="gmarket" onclick="location.href='bid_gmarket.html'">지마켓 파워클릭</span>
+          <span onclick="location.href='bid_gmarket.html'">지마켓 파워클릭</span>
         </li>
         <li class="google ">
-          <span class="google" onclick="location.href='bid_google.html'">구글 검색광고</span>
+          <span onclick="location.href='bid_google.html'">구글 검색광고</span>
         </li>
       </ul>
     </div>
@@ -319,11 +319,11 @@
       <h1>
         <span>스토어</span>
         <div class="tooltip">
-          <article class="tooltip-content">
+          <div class="tooltip-content">
             <dl>
               <dd></dd>
             </dl>
-          </article>
+          </div>
         </div>
       </h1>
       <div href="#" class="username" target="_blank">
@@ -339,11 +339,11 @@
     <section class="section-main">
       <header>
         <h3>스토어 이용 현황</h3>
-        <a class="right-arrow" href="">서비스 이용 내역 보기</a>
+        <a href="">서비스 이용 내역 보기</a>
       </header>
       <div class="articles">
         <article data-brand="gmarket">
-          <div>
+          <div class="title">
             지마켓 판매량 추적
             <span class="service-type">G</span>
           </div>
@@ -353,10 +353,10 @@
           </small>
           <div class="progress">
             <ul>
-              <li title="제공량">
+              <li data-title="제공량">
                 <strong class="times">100</strong>
               </li>
-              <li title="잔여량">
+              <li data-title="잔여량">
                 <strong class="times">75</strong>
               </li>
             </ul>
@@ -364,7 +364,7 @@
           </div>
         </article>
         <article data-brand="naver">
-          <div>
+          <div class="title">
             네이버 순위 추적
             <div class="service-type">G</div>
           </div>
@@ -374,10 +374,10 @@
           </small>
           <div class="progress">
             <ul>
-              <li title="제공량">
+              <li data-title="제공량">
                 <strong class="times">100</strong>
               </li>
-              <li title="잔여량">
+              <li data-title="잔여량">
                 <strong class="times">71</strong>
               </li>
             </ul>
@@ -385,7 +385,7 @@
           </div>
         </article>
         <article data-brand="naver">
-          <div>
+          <div class="title">
             네이버 최저가 추적
             <div class="service-type">F</div>
           </div>
@@ -395,10 +395,10 @@
           </small>
           <div class="progress">
             <ul>
-              <li title="제공량">
+              <li data-title="제공량">
                 <strong class="times">90</strong>
               </li>
-              <li title="잔여량">
+              <li data-title="잔여량">
                 <strong class="times">58</strong>
               </li>
             </ul>
@@ -406,7 +406,7 @@
           </div>
         </article>
         <article data-brand="naver">
-          <div>
+          <div class="title">
             네이버 순위 추적 M
           </div>
           <small>
@@ -415,10 +415,10 @@
           </small>
           <div class="progress">
             <ul>
-              <li title="제공량">
+              <li data-title="제공량">
                 <strong class="times"></strong>
               </li>
-              <li title="잔여량">
+              <li data-title="잔여량">
                 <strong class="times"></strong>
               </li>
             </ul>
@@ -426,7 +426,7 @@
           </div>
         </article>
         <article data-brand="naver">
-          <div>
+          <div class="title">
             네이버 최저가 추적 M
           </div>
           <small>서비스 기간이 만료되었거나 서비스 정보가 존재하지 않습니다. 신청 후 사용 해 주세요</small>
@@ -439,14 +439,12 @@
   </header>
   <div class="wrapper">
     <section>
-      <div class="list-header">
+      <header>
         <h3>지마켓 판매량 추적</h3>
-        <ul class="list-count">
-          <li>
-            <span class="total">0</span>
-          </li>
-        </ul>
-      </div>
+        <div>
+          <div class="times use-title" data-title="총">0</div>
+        </div>
+      </header>
       <div class="list">
         <ul class="row title">
           <li class="col-check">
@@ -500,7 +498,7 @@
             </li>
             <li title="비교일 판매량">
               <div class="times">76,421</div>
-              <div>(0)</div>
+              <div></div>
             </li>
             <li title="기준일 판매량">
               <div class="times">76,421</div>
@@ -767,10 +765,12 @@
         </div>
       </footer>
     </section>
-    <section class="section-chart">
-      <div class="wrapper">
-        <fieldset>
-          <legend>네이버 순위 추적</legend>
+    <div class="sections">
+      <section class="section-chart">
+        <header>
+          <h3>네이버 순위 추적</h3>
+        </header>
+        <div class="chart-container">
           <ul class="information">
             <li class="date">
               <span>최근 갱신시간</span>
@@ -778,9 +778,13 @@
             </li>
           </ul>
           <div id="rankingChart" class="chart detail-chart"></div>
-        </fieldset>
-        <fieldset>
-          <legend>네이버 최저가 추적</legend>
+        </div>
+      </section>
+      <section class="section-chart">
+        <header>
+          <h3>네이버 최저가 추적</h3>
+        </header>
+        <div class="chart-container">
           <ul class="information">
             <li class="date">
               <span>최근 갱신시간</span>
@@ -788,9 +792,9 @@
             </li>
           </ul>
           <div id="lowestPriceChart" class="chart detail-chart-lowest"></div>
-          <!-- </fieldset> -->
-      </div>
-    </section>
+        </div>
+      </section>
+    </div>
   </div>
 </main>
 

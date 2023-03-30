@@ -63,13 +63,13 @@
       </menu>
       <ul>
         <li class="gmarket is-active">
-          <span class="gmarket" onclick="location.href='track_gmarket.html'">지마켓 판매량 추적</span>
+          <span onclick="location.href='track_gmarket.html'">지마켓 판매량 추적</span>
         </li>
         <li class="naver ">
-          <span class="naver" onclick="location.href='ranking.html'">네이버 순위 추적</span>
+          <span onclick="location.href='ranking.html'">네이버 순위 추적</span>
         </li>
         <li class="naver ">
-          <span class="naver" onclick="location.href='lowest_price.html'">네이버 최저가 추적</span>
+          <span onclick="location.href='lowest_price.html'">네이버 최저가 추적</span>
         </li>
       </ul>
     </div>
@@ -80,16 +80,16 @@
       </menu>
       <ul>
         <li class="naver ">
-          <span class="naver" onclick="location.href='bid_naver.html'">네이버</span>
+          <span onclick="location.href='bid_naver.html'">네이버</span>
         </li>
         <li class="eleventh ">
-          <span class="eleventh" onclick="location.href='bid_11st.html'">11번가</span>
+          <span onclick="location.href='bid_11st.html'">11번가</span>
         </li>
         <li class="gmarket ">
-          <span class="gmarket" onclick="location.href='bid_gmarket.html'">지마켓 파워클릭</span>
+          <span onclick="location.href='bid_gmarket.html'">지마켓 파워클릭</span>
         </li>
         <li class="google ">
-          <span class="google" onclick="location.href='bid_google.html'">구글 검색광고</span>
+          <span onclick="location.href='bid_google.html'">구글 검색광고</span>
         </li>
       </ul>
     </div>
@@ -613,11 +613,11 @@
       <h1>
         <span>지마켓 판매량 추적</span>
         <div class="tooltip">
-          <article class="tooltip-content">
+          <div class="tooltip-content">
             <dl>
               <dd></dd>
             </dl>
-          </article>
+          </div>
         </div>
       </h1>
 
@@ -640,7 +640,7 @@
   </header>
   <div class="wrapper">
     <section>
-      <header class="section-header">
+      <header>
         <div class="title">
           <h3>데브테스트</h3>
           <div class="buttons">
@@ -926,34 +926,36 @@
         </div>
       </footer>
     </section>
-    <section>
-      <header class="section-header">
-        <div class="title">
-          <h3>
-            <span>데브테스트 판매량 변동</span>
-          </h3>
+    <div class="sections">
+      <section>
+        <header>
+          <div class="title">
+            <h3>
+              <span>데브테스트 판매량 변동</span>
+            </h3>
+          </div>
+        </header>
+        <div class="keyword-chart">
+          <div class="chart-container" data-empty="데이터 갱신 전입니다.">
+            <div id="gmarketChart" class="chart"></div>
+          </div>
         </div>
-      </header>
-      <div class="keyword-chart">
-        <div class="chart-container" data-empty="데이터 갱신 전입니다.">
-          <div id="gmarketChart" class="chart"></div>
+      </section>
+      <section>
+        <header>
+          <div class="title">
+            <h3>
+              <span>데브테스트 누적 판매량</span>
+            </h3>
+          </div>
+        </header>
+        <div class="keyword-chart">
+          <div class="chart-container" data-empty="데이터 갱신 전입니다.">
+            <div id="gmarketChart2" class="chart"></div>
+          </div>
         </div>
-      </div>
-    </section>
-    <section>
-      <header class="section-header">
-        <div class="title">
-          <h3>
-            <span>데브테스트 누적 판매량</span>
-          </h3>
-        </div>
-      </header>
-      <div class="keyword-chart">
-        <div class="chart-container" data-empty="데이터 갱신 전입니다.">
-          <div id="gmarketChart2" class="chart"></div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
 </main>
 
