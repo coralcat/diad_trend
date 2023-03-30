@@ -1,9 +1,8 @@
 @font-face {
-  font-family: 'NanumSquareNeo-Variable';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
+  font-family: "Outfit";
+  src: url("../fonts/Outfit.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "Roboto";
   src: url("../fonts/Roboto-Regular.ttf") format("truetype");
@@ -83,7 +82,7 @@ body {
   background-color: #eff3f7;
   color: #333;
   width: 100%;
-  font: 14px "Roboto", "NanumSquareR";
+  font: 14px/1 "Outfit", "NanumSquareR";
 
   svg {
     display: flex;
@@ -91,6 +90,7 @@ body {
   }
 
   small {
+    line-height: 1.25;
     display: inline-flex;
     font-family: "NanumSquareR";
   }
@@ -101,7 +101,6 @@ body {
 
   :is(h1, h2, h3, h4, h5, p) {
     margin: 0;
-    line-height: 1.25;
   }
 
   a {
@@ -534,6 +533,7 @@ ul {
 header {
   flex: 0 0 auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   box-sizing: border-box;
 
@@ -550,6 +550,14 @@ header {
     display: flex;
     align-items: center;
     cursor: pointer;
+  }
+
+  .title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 36px;
   }
 }
 
@@ -656,6 +664,8 @@ aside {
 /* Progress */
 
 progress {
+  -webkit-appearance: none;
+  appearance: none;
   height: 6px;
   width: 100%;
   border-radius: 0.5rem;
@@ -1264,11 +1274,11 @@ input[type="radio"] {
       align-items: center;
       font-size: 16px;
       white-space: pre-wrap;
-    }
 
-    .buttons {
-      margin-top: 0;
-      justify-content: center !important;
+      + .buttons {
+        margin-top: 0;
+        justify-content: center !important;
+      }
     }
   }
 
@@ -1533,10 +1543,10 @@ input[type="radio"] {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background: $main-color
+  background: #434649
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath fill='white' d='M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z'/%3E%3C/svg%3E")
     no-repeat center;
-  box-shadow: 0 3px 9px -4px $primary-color;
+  box-shadow: 0 3px 9px -4px #434649;
   cursor: pointer;
   z-index: 100 !important;
 

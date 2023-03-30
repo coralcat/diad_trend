@@ -1,17 +1,15 @@
 {% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('settings')}}
 <main class="content-settings">
   <header class="content-header">
-    <div class="title">
-      <h1>알림설정</h1>
-      <div class="subline">
-        <button class="btn-sub" type="button">초기화</button>
-        <button class="btn-main" type="button">적용</button>
-      </div>
+    <h1>알림설정</h1>
+    <div class="buttons">
+      <button class="btn-sub" type="button">초기화</button>
+      <button class="btn-main" type="button">적용</button>
     </div>
   </header>
-  <div class="wrapper">
+  <div class="sections">
     <section class="section-my-alarm">
-      <header class="section-header">
+      <header>
         <h3>나의 알림 서비스 현황</h3>
         <a class="right-arrow" href="https://diad.co.kr/Mypage/PaymentHistoryView" target="_blank">서비스 이용 내역 보기</a>
       </header>
@@ -44,7 +42,7 @@
       </div>
     </section>
     <section class="section-alarm-services">
-      <header class="section-header">
+      <header>
         <h3>알림 서비스 설정</h3>
         <div class="toggle toggle-switch toggle-controller is-active" data-toggle="alarm-services">
           <input id="toggle1" type="checkbox" checked />
@@ -68,8 +66,10 @@
         </div>
       </div>
     </section>
+  </div>
+  <div class="sections">
     <section class="section-alarm-type">
-      <header class="section-header">
+      <header>
         <h3>알림 매체 설정</h3>
       </header>
       <div class="select-alarm-type">
@@ -145,7 +145,7 @@
       </div>
     </section>
     <section class="section-alarm-services">
-      <header class="section-header">
+      <header>
         <h3>알림 시간대 설정</h3>
       </header>
       <div class="list">

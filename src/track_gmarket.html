@@ -444,11 +444,9 @@
       <h1>
         <span>지마켓 판매량 추적</span>
         <div class="tooltip">
-          <article class="tooltip-content">
-            <dl>
-              <dd></dd>
-            </dl>
-          </article>
+          <div class="tooltip-content">
+
+          </div>
         </div>
       </h1>
 
@@ -471,7 +469,7 @@
   </header>
   <div class="wrapper">
     <section>
-      <header class="section-header">
+      <header>
         <div class="title">
           <div></div>
 
@@ -501,14 +499,10 @@
             <div class="search">
               <button class="btn-main ico-search" type="button"></button>
             </div>
-            <ul class="list-count">
-              <li>
-                <span class="selected">0</span>
-              </li>
-              <li>
-                <span class="total">0</span>
-              </li>
-            </ul>
+            <div class="filters">
+              <strong class="times" data-title="선택">0</strong>
+              <strong class="times" data-title="전체">0</strong>
+            </div>
           </div>
           <div class="buttons">
             <button type="button" data-modal="deleteItem">선택삭제</button>
@@ -843,34 +837,28 @@
         </div>
       </footer>
     </section>
-    <section class="section-chart">
-      <header class="section-header">
-        <div class="title">
-          <h3>
-            <span>그룹별 판매량 변동</span>
-          </h3>
+    <div class="sections">
+      <section class="section-chart">
+        <header>
+          <h3>그룹별 판매량 변동</h3>
+        </header>
+        <div class="keyword-chart">
+          <div class="chart-container" data-empty="데이터 갱신 전입니다.">
+            <div id="gmarketChart" class="chart"></div>
+          </div>
         </div>
-      </header>
-      <div class="keyword-chart">
-        <div class="chart-container" data-empty="데이터 갱신 전입니다.">
-          <div id="gmarketChart" class="chart"></div>
+      </section>
+      <section class="section-chart">
+        <header>
+          <h3>그룹별 누적 판매량</h3>
+        </header>
+        <div class="keyword-chart">
+          <div class="chart-container" data-empty="데이터 갱신 전입니다.">
+            <div id="gmarketChart2" class="chart"></div>
+          </div>
         </div>
-      </div>
-    </section>
-    <section class="section-chart">
-      <header class="section-header">
-        <div class="title">
-          <h3>
-            <span>그룹별 누적 판매량</span>
-          </h3>
-        </div>
-      </header>
-      <div class="keyword-chart">
-        <div class="chart-container" data-empty="데이터 갱신 전입니다.">
-          <div id="gmarketChart2" class="chart"></div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
 </main>
 
@@ -887,10 +875,10 @@
       </section>
       <section>
         <div class="search inputs">
-          <div class="title">
+          <header>
             <div>등록하실 상품의 URL을 입력해주세요.</div>
-            <a href="#" class="right-arrow">URL 확인방법</a>
-          </div>
+            <a href="#">URL 확인방법</a>
+          </header>
           <div class="input">
             <input type="url" placeholder="URL을 입력해주세요" required />
             <span class="x"></span>
@@ -949,17 +937,13 @@
         </div>
       </section>
       <section>
-        <div class="list-header">
-          <ul class="list-count">
-            <li>
-              <span class="selected">0</span>
-            </li>
-            <li>
-              <span class="total">0</span>
-            </li>
-          </ul>
+        <header>
+          <div class="filters">
+            <strong class="times" data-title="선택">0</strong>
+            <strong class="times" data-title="총">0</strong>
+          </div>
           <button class="btn-grayscale" type="button" data-modal="deleteGroup">선택삭제</button>
-        </div>
+        </header>
         <div class="list" data-empty="그룹을 추가해주세요.">
           <ul class="row title">
             <li class="col-check">
@@ -1023,136 +1007,6 @@
     </div>
     <div class="buttons">
       <button class="btn-main close" type="button">닫기</button>
-    </div>
-  </div>
-</div>
-
-<div id="searchGroup" class="modal modal-lookup">
-  <div class="dialog">
-    <header class="modal-header">
-      <h3>그룹조회</h3>
-      <div class="close"></div>
-    </header>
-    <div class="modal-content">
-      <section>
-        <div class="list-header count-group">
-          <span class="selected">0</span>
-          <span class="total">0</span>
-        </div>
-        <div class="list list-group">
-          <ul class="row title">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="createKeywordCheckAll" type="checkbox" name="createKeywordCheck" class="check-all" />
-                <label for="createKeywordCheckAll"></label>
-              </div>
-            </li>
-            <li>전체</li>
-          </ul>
-          <div class="rows" data-empty="그룹을 추가해주세요.">
-            <ul class="row">
-              <li class="col-check">
-                <div class="checkbox">
-                  <input id="check0" type="checkbox" name="createKeywordCheck" />
-                  <label for="check0"></label>
-                </div>
-              </li>
-              <li>
-                그룹없음
-                <span class="count">10</span>
-              </li>
-            </ul>
-            <ul class="row">
-              <li class="col-check">
-                <div class="checkbox">
-                  <input id="check1" type="checkbox" name="createKeywordCheck" />
-                  <label for="check1"></label>
-                </div>
-              </li>
-              <li>
-                커피 원두
-                <span class="count">5</span>
-              </li>
-            </ul>
-            <ul class="row">
-              <li class="col-check">
-                <div class="checkbox">
-                  <input id="check2" type="checkbox" name="createKeywordCheck" />
-                  <label for="check2"></label>
-                </div>
-              </li>
-              <li>
-                커피 캡슐
-                <span class="count">3</span>
-              </li>
-            </ul>
-            <ul class="row">
-              <li class="col-check">
-                <div class="checkbox">
-                  <input id="check3" type="checkbox" name="createKeywordCheck" />
-                  <label for="check3"></label>
-                </div>
-              </li>
-              <li>
-                커피 그라인더
-                <span class="count">2</span>
-              </li>
-            </ul>
-            <ul class="row">
-              <li class="col-check">
-                <div class="checkbox">
-                  <input id="check4" type="checkbox" name="createKeywordCheck" />
-                  <label for="check4"></label>
-                </div>
-              </li>
-              <li>
-                커피 원두
-                <span class="count">5</span>
-              </li>
-            </ul>
-            <ul class="row">
-              <li class="col-check">
-                <div class="checkbox">
-                  <input id="check5" type="checkbox" name="createKeywordCheck" />
-                  <label for="check5"></label>
-                </div>
-              </li>
-              <li>
-                커피 캡슐
-                <span class="count">3</span>
-              </li>
-            </ul>
-            <ul class="row">
-              <li class="col-check">
-                <div class="checkbox">
-                  <input id="check6" type="checkbox" name="createKeywordCheck" />
-                  <label for="check6"></label>
-                </div>
-              </li>
-              <li>
-                커피 그라인더
-                <span class="count">2</span>
-              </li>
-            </ul>
-            <ul class="row">
-              <li class="col-check">
-                <div class="checkbox">
-                  <input id="check7" type="checkbox" name="createKeywordCheck" />
-                  <label for="check7"></label>
-                </div>
-              </li>
-              <li>
-                커피 원두
-                <span class="count">5</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-    </div>
-    <div class="buttons">
-      <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" type="button" data-modal="searchGroup">적용</button>
     </div>
   </div>
 </div>
@@ -1240,17 +1094,13 @@
         <button class="btn-sub" type="button" data-modal="createKeyword">키워드추가</button>
       </section>
       <section>
-        <div class="list-header">
-          <ul class="list-count">
-            <li>
-              <span class="selected">0</span>
-            </li>
-            <li>
-              <span class="total">9</span>
-            </li>
-          </ul>
+        <header>
+          <div class="filters">
+            <strong class="times" data-title="선택">0</strong>
+            <strong class="times" data-title="전체">9</strong>
+          </div>
           <button class="btn-grayscale" type="button" data-modal="deleteKeyword">선택삭제</button>
-        </div>
+        </header>
         <div class="list list-keyword">
           <ul class="row title">
             <li class="col-check">

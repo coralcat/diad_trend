@@ -10,16 +10,13 @@ $secondary-color: rgba(118, 130, 248, 0.1);
   }
 
   .filters {
-    flex-direction: column;
-    gap: 0.5rem;
+    flex-wrap: wrap;
   }
 
   .section-main {
     article[data-brand] {
       &::before {
-        position: relative;
-        top: auto;
-        left: auto;
+        content: none
       }
 
       > * {
@@ -211,10 +208,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
   .container {
     flex-direction: column;
-
-    > .username {
-      display: none !important;
-    }
   }
 
   .modal {
@@ -258,7 +251,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
   }
 
   :is(
-      .filters,
       .selector,
       .list,
       .wrapper .list .row,
@@ -315,42 +307,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
         .buttons {
           button {
             padding: 0.5rem;
-          }
-        }
-      }
-    }
-
-    &.section-main {
-
-      article {
-        flex: 0 0 280px;
-        background-color: white !important;
-      }
-
-      .section-header {
-        padding: 0 1rem !important;
-      }
-
-      .articles {
-        width: 100%;
-        flex-wrap: nowrap;
-
-        ul:not(.details) {
-          overflow-x: auto;
-
-          li {
-            &:first-of-type {
-              margin-left: 1rem;
-            }
-
-            &:last-of-type {
-              margin-right: 1rem;
-            }
-          }
-
-          dl {
-            flex-direction: column;
-            align-items: flex-start !important;
           }
         }
       }
@@ -499,13 +455,11 @@ $secondary-color: rgba(118, 130, 248, 0.1);
   }
 
   main {
-    display: block;
     overflow-y: auto !important;
 
     > .wrapper {
       flex-direction: column !important;
       padding: 0 !important;
-      gap: 0;
     }
 
     .tab-content {
@@ -513,21 +467,56 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     }
 
     .content-header {
-      padding: 0;
+      min-height: 3rem;
       gap: 0;
+
+      header {
+        padding: 0 1rem
+      }
+
+      section {
+        padding: 0
+      }
+
+      article {
+        flex: 0 0 280px;
+        background-color: white !important;
+      }
 
       .sections {
         flex-wrap: wrap;
       }
+      .articles {
+        width: 100%;
+        flex-wrap: nowrap;
+        padding-left: 1rem;
+      }
+
+      .username {
+        display: none !important;
+      }
 
       .title {
-        padding: 1rem;
+        min-height: 3rem;
+        padding: .75rem;
       }
 
       .subline {
         display: none;
         flex-wrap: wrap;
         gap: 0.5rem;
+      }
+
+      .tabs {
+        padding: 0 1rem;
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+        overflow-x: auto;
+
+        li {
+          white-space: nowrap;
+          line-height: 45px;
+        }
       }
     }
   }
@@ -630,6 +619,11 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       box-shadow: 0 6px 12px -4px #e3e6e9;
       position: relative;
 
+      & .checked {
+        background-color: #f1f2fe;
+
+      }
+
       &:hover {
         li {
           background-color: transparent;
@@ -713,7 +707,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
         }
 
         &-title {
-          justify-content: flex-end !important;
+          flex-direction: column;
 
           &::before {
             content: none;
@@ -724,6 +718,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
           left: auto !important;
           justify-content: center !important;
           transform: scale(1.15);
+          margin-top: 1rem;
         }
 
         &-url {
@@ -906,11 +901,13 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
   .content-bidding {
     .tab-content {
+      height: fit-content;
       flex-direction: column;
     }
 
     .section-account {
       width: 100%;
+      max-height: none;
 
       + section {
         overflow-x: hidden;

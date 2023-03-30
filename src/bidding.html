@@ -5,510 +5,515 @@
       <h1>
         <span>자동입찰</span>
         <div class="tooltip">
-          <article class="tooltip-content">
+          <div class="tooltip-content">
             <dl>
               <dd></dd>
             </dl>
-          </article>
+          </div>
         </div>
       </h1>
       {% include "account.html" %}
     </div>
-    <div class="sections">
-      <section class="section-main">
-        <header>
-          <h3>자동입찰 이용 현황</h3>
-          <a class="right-arrow" href="">서비스 이용 내역 보기</a>
-        </header>
-        <div class="articles">
-          <article data-brand="naver">
-            <div class="title">
+    <section>
+      <header>
+        <h2>자동입찰 이용 현황</h2>
+        <a href="">서비스 이용 내역 보기</a>
+      </header>
+      <div class="articles">
+        <article data-brand="naver">
+          <header>
+            <h3>
               네이버
               <span class="service-type">C</span>
-            </div>
-            <small>
-              2022-12-22 ~ 2023-06-30
-              <span class="tag d-day">183</span>
-            </small>
-            <div class="progress">
+            </h3>
+            <span class="tag d-day">183</span>
+          </header>
+          <div class="progress">
+            <div class="title">
+              <small class="date">
+                2022-12-22 ~ 2023-06-30
+              </small>
               <ul>
-                <li title="제공량">
+                <li data-title="제공량">
                   <strong class="times">100</strong>
                 </li>
-                <li title="잔여량">
+                <li data-title="잔여량">
                   <strong class="times">14</strong>
                 </li>
               </ul>
-              <progress value="14" max="100"></progress>
             </div>
-          </article>
-          <article data-brand="eleventh">
-            <div class="title">
+            <progress value="14" max="100"></progress>
+          </div>
+        </article>
+        <article data-brand="eleventh">
+          <header>
+            <h3>
               11번가
               <span class="service-type">C</span>
-            </div>
-            <small>
-              2022-10-29 ~ 2023-01-26
-              <span class="tag d-day">28</span>
-            </small>
-            <div class="progress">
+            </h3>
+            <span class="tag d-day">28</span>
+          </header>
+          <div class="progress">
+            <div class="title">
+              <small class="date">
+                2022-10-29 ~ 2023-01-26
+              </small>
               <ul>
-                <li title="제공량">
+                <li data-title="제공량">
                   <strong class="times">30</strong>
                 </li>
-                <li title="잔여량">
+                <li data-title="잔여량">
                   <strong class="times">27</strong>
                 </li>
               </ul>
-              <progress value="27" max="30"></progress>
             </div>
-          </article>
-          <article data-brand="gmarket">
-            <div class="title">
+            <progress value="27" max="30"></progress>
+          </div>
+        </article>
+        <article data-brand="gmarket">
+          <header>
+            <h3>
               지마켓
               <span class="service-type">D</span>
-            </div>
-            <small>
-              2022-12-13 ~ 2023-01-11
-              <span class="tag d-day">13</span>
-            </small>
-            <div class="progress">
+            </h3>
+            <span class="tag d-day">13</span>
+          </header>
+          <div class="progress">
+            <div class="title">
+              <small class="date">
+                2022-12-13 ~ 2023-01-11
+              </small>
               <ul>
-                <li title="제공량">
+                <li data-title="제공량">
                   <strong class="times">300</strong>
                 </li>
-                <li title="잔여량">
+                <li data-title="잔여량">
                   <strong class="times">20</strong>
                 </li>
               </ul>
-              <progress value="20" max="300"></progress>
             </div>
-          </article>
-          <article data-brand="google">
-            <div class="title">
+            <progress value="20" max="300"></progress>
+          </div>
+        </article>
+        <article data-brand="google">
+          <header>
+            <h3>
               구글
-            </div>
-            <small>
-              서비스 기간이 만료되었거나 서비스 정보가 존재하지 않습니다. 신청 후 사용 해 주세요
-            </small>
-            <div>
-              <button class="btn-main">신청</button>
-            </div>
-          </article>
-        </div>
-      </section>
-
-    </div>
-  </header>
-  <div class="wrapper">
-    <section>
-      <div class="list-header">
-        <h3>매체별 현황</h3>
-        <ul class="list-count">
-          <li>
-            <span class="total">0</span>
-          </li>
-        </ul>
+            </h3>
+            <a href="">신청하기</a>
+          </header>
+          <small>
+            서비스 기간이 만료되었거나 서비스 정보가 존재하지 않습니다. 신청 후 사용 해 주세요
+          </small>
+        </article>
       </div>
-      <div class="list">
-        <ul class="row title">
+    </section>
+  </header>
+  <section>
+    <header>
+      <h2>매체별 현황</h2>
+      <div class="filters">
+        <strong class="times" data-title="전체">0</strong>
+      </div>
+    </header>
+    <div class="list">
+      <ul class="row title">
+        <li class="col-check">
+          <div class="checkbox">
+            <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
+            <label for="checkAll"></label>
+          </div>
+        </li>
+        <li class="ico-sort">매체</li>
+        <li class="ico-sort">광고상품</li>
+        <li class="ico-sort">계정선택</li>
+        <li class="ico-sort">키워드개수</li>
+        <li class="ico-sort">비율</li>
+        <li class="ico-sort">전체</li>
+        <li class="ico-sort">입찰실행</li>
+        <li class="ico-sort">입찰성공</li>
+        <li class="ico-sort">입찰실패</li>
+        <li class="ico-sort">최대입찰가도달</li>
+        <li class="ico-sort">희망순위미도달</li>
+      </ul>
+      <div class="rows" data-empty="상품을 등록해주세요">
+        <ul class="row">
           <li class="col-check">
             <div class="checkbox">
-              <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
-              <label for="checkAll"></label>
+              <input id="check-01" name="select-item" type="checkbox" />
+              <label for="check-01"></label>
             </div>
           </li>
-          <li class="ico-sort">매체</li>
-          <li class="ico-sort">광고상품</li>
-          <li class="ico-sort">계정선택</li>
-          <li class="ico-sort">키워드개수</li>
-          <li class="ico-sort">비율</li>
-          <li class="ico-sort">전체</li>
-          <li class="ico-sort">입찰실행</li>
-          <li class="ico-sort">입찰성공</li>
-          <li class="ico-sort">입찰실패</li>
-          <li class="ico-sort">최대입찰가도달</li>
-          <li class="ico-sort">희망순위미도달</li>
+          <li title="매체">네이버</li>
+          <li title="광고상품">검색광고</li>
+          <li title="계정선택">
+            <div class="accounts">
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">전체</option>
+                </select>
+              </div>
+              <button class="btn-sub">선택</button>
+            </div>
+          </li>
+          <li title="키워드개수">
+            <div class="times">69</div>
+          </li>
+          <li title="비율">
+            <div class="percent">23</div>
+          </li>
+          <li title="전체">
+            <div class="times">1,885</div>
+          </li>
+          <li title="입찰실행">
+            <div class="times">69</div>
+          </li>
+          <li title="입찰성공">
+            <div class="times">16</div>
+          </li>
+          <li title="입찰실패">
+            <div class="times">53</div>
+          </li>
+          <li title="최대입찰가도달">
+            <div class="times">33</div>
+          </li>
+          <li title="희망순위미도달">
+            <div class="times">38</div>
+          </li>
         </ul>
-        <div class="rows" data-empty="상품을 등록해주세요">
-          <ul class="row">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="check-01" name="select-item" type="checkbox" />
-                <label for="check-01"></label>
+        <ul class="row">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="check-02" name="select-item" type="checkbox" />
+              <label for="check-02"></label>
+            </div>
+          </li>
+          <li title="매체" data-brand="naver">네이버</li>
+          <li title="광고상품">쇼핑검색광고</li>
+          <li title="계정선택">
+            <div class="accounts">
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">전체</option>
+                </select>
               </div>
-            </li>
-            <li title="매체">네이버</li>
-            <li title="광고상품">검색광고</li>
-            <li title="계정선택">
-              <div class="accounts">
-                <div class="selectbox">
-                  <select name="" id="">
-                    <option value="">전체</option>
-                  </select>
-                </div>
-                <button class="btn-sub">선택</button>
+              <button class="btn-sub">선택</button>
+            </div>
+          </li>
+          <li title="키워드개수">
+            <div class="times">33</div>
+          </li>
+          <li title="비율">
+            <div class="percent">11</div>
+          </li>
+          <li title="전체">
+            <div class="times">453</div>
+          </li>
+          <li title="입찰실행">
+            <div class="times">33</div>
+          </li>
+          <li title="입찰성공">
+            <div class="times">6</div>
+          </li>
+          <li title="입찰실패">
+            <div class="times">27</div>
+          </li>
+          <li title="최대입찰가도달">
+            <div class="times">5</div>
+          </li>
+          <li title="희망순위미도달">
+            <div class="times">10</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="check-03" name="select-item" type="checkbox" />
+              <label for="check-03"></label>
+            </div>
+          </li>
+          <li title="매체">네이버</li>
+          <li title="광고상품">파워컨텐츠</li>
+          <li title="계정선택">
+            <div class="accounts">
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">전체</option>
+                </select>
               </div>
-            </li>
-            <li title="키워드개수">
-              <div class="times">69</div>
-            </li>
-            <li title="비율">
-              <div class="percent">23</div>
-            </li>
-            <li title="전체">
-              <div class="times">1,885</div>
-            </li>
-            <li title="입찰실행">
-              <div class="times">69</div>
-            </li>
-            <li title="입찰성공">
-              <div class="times">16</div>
-            </li>
-            <li title="입찰실패">
-              <div class="times">53</div>
-            </li>
-            <li title="최대입찰가도달">
-              <div class="times">33</div>
-            </li>
-            <li title="희망순위미도달">
-              <div class="times">38</div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="check-02" name="select-item" type="checkbox" />
-                <label for="check-02"></label>
+              <button class="btn-sub">선택</button>
+            </div>
+          </li>
+          <li title="키워드개수">
+            <div class="times"></div>
+          </li>
+          <li title="비율">
+            <div class="percent"></div>
+          </li>
+          <li title="전체">
+            <div class="times"></div>
+          </li>
+          <li title="입찰실행">
+            <div class="times"></div>
+          </li>
+          <li title="입찰성공">
+            <div class="times"></div>
+          </li>
+          <li title="입찰실패">
+            <div class="times"></div>
+          </li>
+          <li title="최대입찰가도달">
+            <div class="times"></div>
+          </li>
+          <li title="희망순위미도달">
+            <div class="times"></div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="check-04" name="select-item" type="checkbox" />
+              <label for="check-04"></label>
+            </div>
+          </li>
+          <li title="매체">11번가</li>
+          <li title="광고상품">포커스클릭</li>
+          <li title="계정선택">
+            <div class="accounts">
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">전체</option>
+                </select>
               </div>
-            </li>
-            <li title="매체">네이버</li>
-            <li title="광고상품">쇼핑검색광고</li>
-            <li title="계정선택">
-              <div class="accounts">
-                <div class="selectbox">
-                  <select name="" id="">
-                    <option value="">전체</option>
-                  </select>
-                </div>
-                <button class="btn-sub">선택</button>
+              <button class="btn-sub">선택</button>
+            </div>
+          </li>
+          <li title="키워드개수">
+            <div class="times">811</div>
+          </li>
+          <li title="비율">
+            <div class="percent">81</div>
+          </li>
+          <li title="전체">
+            <div class="times">980</div>
+          </li>
+          <li title="입찰실행">
+            <div class="times">811</div>
+          </li>
+          <li title="입찰성공">
+            <div class="times">496</div>
+          </li>
+          <li title="입찰실패">
+            <div class="times">315</div>
+          </li>
+          <li title="최대입찰가도달">
+            <div class="times">188</div>
+          </li>
+          <li title="희망순위미도달">
+            <div class="times">6</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="check-05" name="select-item" type="checkbox" />
+              <label for="check-05"></label>
+            </div>
+          </li>
+          <li title="매체">11번가</li>
+          <li title="광고상품">브랜드검색</li>
+          <li title="계정선택">
+            <div class="accounts">
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">전체</option>
+                </select>
               </div>
-            </li>
-            <li title="키워드개수">
-              <div class="times">33</div>
-            </li>
-            <li title="비율">
-              <div class="percent">11</div>
-            </li>
-            <li title="전체">
-              <div class="times">453</div>
-            </li>
-            <li title="입찰실행">
-              <div class="times">33</div>
-            </li>
-            <li title="입찰성공">
-              <div class="times">6</div>
-            </li>
-            <li title="입찰실패">
-              <div class="times">27</div>
-            </li>
-            <li title="최대입찰가도달">
-              <div class="times">5</div>
-            </li>
-            <li title="희망순위미도달">
-              <div class="times">10</div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="check-03" name="select-item" type="checkbox" />
-                <label for="check-03"></label>
+              <button class="btn-sub">선택</button>
+            </div>
+          </li>
+          <li title="키워드개수">
+            <div class="times"></div>
+          </li>
+          <li title="비율">
+            <div class="percent"></div>
+          </li>
+          <li title="전체">
+            <div class="times"></div>
+          </li>
+          <li title="입찰실행">
+            <div class="times"></div>
+          </li>
+          <li title="입찰성공">
+            <div class="times"></div>
+          </li>
+          <li title="입찰실패">
+            <div class="times"></div>
+          </li>
+          <li title="최대입찰가도달">
+            <div class="times"></div>
+          </li>
+          <li title="희망순위미도달">
+            <div class="times"></div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="check-06" name="select-item" type="checkbox" />
+              <label for="check-06"></label>
+            </div>
+          </li>
+          <li title="매체">위메프</li>
+          <li title="광고상품">타겟클릭</li>
+          <li title="계정선택">
+            <div class="accounts">
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">전체</option>
+                </select>
               </div>
-            </li>
-            <li title="매체">네이버</li>
-            <li title="광고상품">파워컨텐츠</li>
-            <li title="계정선택">
-              <div class="accounts">
-                <div class="selectbox">
-                  <select name="" id="">
-                    <option value="">전체</option>
-                  </select>
-                </div>
-                <button class="btn-sub">선택</button>
+              <button class="btn-sub">선택</button>
+            </div>
+          </li>
+          <li title="키워드개수">
+            <div class="times"></div>
+          </li>
+          <li title="비율">
+            <div class="percent"></div>
+          </li>
+          <li title="전체">
+            <div class="times">500</div>
+          </li>
+          <li title="입찰실행">
+            <div class="times"></div>
+          </li>
+          <li title="입찰성공">
+            <div class="times"></div>
+          </li>
+          <li title="입찰실패">
+            <div class="times"></div>
+          </li>
+          <li title="최대입찰가도달">
+            <div class="times"></div>
+          </li>
+          <li title="희망순위미도달">
+            <div class="times"></div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="check-07" name="select-item" type="checkbox" />
+              <label for="check-07"></label>
+            </div>
+          </li>
+          <li title="매체">이베이</li>
+          <li title="광고상품">파워클릭</li>
+          <li title="계정선택">
+            <div class="accounts">
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">전체</option>
+                </select>
               </div>
-            </li>
-            <li title="키워드개수">
-              <div class="times"></div>
-            </li>
-            <li title="비율">
-              <div class="percent"></div>
-            </li>
-            <li title="전체">
-              <div class="times"></div>
-            </li>
-            <li title="입찰실행">
-              <div class="times"></div>
-            </li>
-            <li title="입찰성공">
-              <div class="times"></div>
-            </li>
-            <li title="입찰실패">
-              <div class="times"></div>
-            </li>
-            <li title="최대입찰가도달">
-              <div class="times"></div>
-            </li>
-            <li title="희망순위미도달">
-              <div class="times"></div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="check-04" name="select-item" type="checkbox" />
-                <label for="check-04"></label>
+              <button class="btn-sub">선택</button>
+            </div>
+          </li>
+          <li title="키워드개수">
+            <div class="times">1322</div>
+          </li>
+          <li title="비율">
+            <div class="percent">88</div>
+          </li>
+          <li title="전체">
+            <div class="times">3,264</div>
+          </li>
+          <li title="입찰실행">
+            <div class="times">1,322</div>
+          </li>
+          <li title="입찰성공">
+            <div class="times">1,034</div>
+          </li>
+          <li title="입찰실패">
+            <div class="times">288</div>
+          </li>
+          <li title="최대입찰가도달">
+            <div class="times">246</div>
+          </li>
+          <li title="희망순위미도달">
+            <div class="times">243</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="check-08" name="select-item" type="checkbox" />
+              <label for="check-08"></label>
+            </div>
+          </li>
+          <li title="매체">구글</li>
+          <li title="광고상품">검색광고</li>
+          <li title="계정선택">
+            <div class="accounts">
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">전체</option>
+                </select>
               </div>
-            </li>
-            <li title="매체">11번가</li>
-            <li title="광고상품">포커스클릭</li>
-            <li title="계정선택">
-              <div class="accounts">
-                <div class="selectbox">
-                  <select name="" id="">
-                    <option value="">전체</option>
-                  </select>
-                </div>
-                <button class="btn-sub">선택</button>
-              </div>
-            </li>
-            <li title="키워드개수">
-              <div class="times">811</div>
-            </li>
-            <li title="비율">
-              <div class="percent">81</div>
-            </li>
-            <li title="전체">
-              <div class="times">980</div>
-            </li>
-            <li title="입찰실행">
-              <div class="times">811</div>
-            </li>
-            <li title="입찰성공">
-              <div class="times">496</div>
-            </li>
-            <li title="입찰실패">
-              <div class="times">315</div>
-            </li>
-            <li title="최대입찰가도달">
-              <div class="times">188</div>
-            </li>
-            <li title="희망순위미도달">
-              <div class="times">6</div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="check-05" name="select-item" type="checkbox" />
-                <label for="check-05"></label>
-              </div>
-            </li>
-            <li title="매체">11번가</li>
-            <li title="광고상품">브랜드검색</li>
-            <li title="계정선택">
-              <div class="accounts">
-                <div class="selectbox">
-                  <select name="" id="">
-                    <option value="">전체</option>
-                  </select>
-                </div>
-                <button class="btn-sub">선택</button>
-              </div>
-            </li>
-            <li title="키워드개수">
-              <div class="times"></div>
-            </li>
-            <li title="비율">
-              <div class="percent"></div>
-            </li>
-            <li title="전체">
-              <div class="times"></div>
-            </li>
-            <li title="입찰실행">
-              <div class="times"></div>
-            </li>
-            <li title="입찰성공">
-              <div class="times"></div>
-            </li>
-            <li title="입찰실패">
-              <div class="times"></div>
-            </li>
-            <li title="최대입찰가도달">
-              <div class="times"></div>
-            </li>
-            <li title="희망순위미도달">
-              <div class="times"></div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="check-06" name="select-item" type="checkbox" />
-                <label for="check-06"></label>
-              </div>
-            </li>
-            <li title="매체">위메프</li>
-            <li title="광고상품">타겟클릭</li>
-            <li title="계정선택">
-              <div class="accounts">
-                <div class="selectbox">
-                  <select name="" id="">
-                    <option value="">전체</option>
-                  </select>
-                </div>
-                <button class="btn-sub">선택</button>
-              </div>
-            </li>
-            <li title="키워드개수">
-              <div class="times"></div>
-            </li>
-            <li title="비율">
-              <div class="percent"></div>
-            </li>
-            <li title="전체">
-              <div class="times">500</div>
-            </li>
-            <li title="입찰실행">
-              <div class="times"></div>
-            </li>
-            <li title="입찰성공">
-              <div class="times"></div>
-            </li>
-            <li title="입찰실패">
-              <div class="times"></div>
-            </li>
-            <li title="최대입찰가도달">
-              <div class="times"></div>
-            </li>
-            <li title="희망순위미도달">
-              <div class="times"></div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="check-07" name="select-item" type="checkbox" />
-                <label for="check-07"></label>
-              </div>
-            </li>
-            <li title="매체">이베이</li>
-            <li title="광고상품">파워클릭</li>
-            <li title="계정선택">
-              <div class="accounts">
-                <div class="selectbox">
-                  <select name="" id="">
-                    <option value="">전체</option>
-                  </select>
-                </div>
-                <button class="btn-sub">선택</button>
-              </div>
-            </li>
-            <li title="키워드개수">
-              <div class="times">1322</div>
-            </li>
-            <li title="비율">
-              <div class="percent">88</div>
-            </li>
-            <li title="전체">
-              <div class="times">3,264</div>
-            </li>
-            <li title="입찰실행">
-              <div class="times">1,322</div>
-            </li>
-            <li title="입찰성공">
-              <div class="times">1,034</div>
-            </li>
-            <li title="입찰실패">
-              <div class="times">288</div>
-            </li>
-            <li title="최대입찰가도달">
-              <div class="times">246</div>
-            </li>
-            <li title="희망순위미도달">
-              <div class="times">243</div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="check-08" name="select-item" type="checkbox" />
-                <label for="check-08"></label>
-              </div>
-            </li>
-            <li title="매체">구글</li>
-            <li title="광고상품">검색광고</li>
-            <li title="계정선택">
-              <div class="accounts">
-                <div class="selectbox">
-                  <select name="" id="">
-                    <option value="">전체</option>
-                  </select>
-                </div>
-                <button class="btn-sub">선택</button>
-              </div>
-            </li>
-            <li title="키워드개수">
-              <div class="times"></div>
-            </li>
-            <li title="비율">
-              <div class="percent"></div>
-            </li>
-            <li title="전체">
-              <div class="times"></div>
-            </li>
-            <li title="입찰실행">
-              <div class="times"></div>
-            </li>
-            <li title="입찰성공">
-              <div class="times"></div>
-            </li>
-            <li title="입찰실패">
-              <div class="times"></div>
-            </li>
-            <li title="최대입찰가도달">
-              <div class="times"></div>
-            </li>
-            <li title="희망순위미도달">
-              <div class="times"></div>
-            </li>
-          </ul>
-        </div>
+              <button class="btn-sub">선택</button>
+            </div>
+          </li>
+          <li title="키워드개수">
+            <div class="times"></div>
+          </li>
+          <li title="비율">
+            <div class="percent"></div>
+          </li>
+          <li title="전체">
+            <div class="times"></div>
+          </li>
+          <li title="입찰실행">
+            <div class="times"></div>
+          </li>
+          <li title="입찰성공">
+            <div class="times"></div>
+          </li>
+          <li title="입찰실패">
+            <div class="times"></div>
+          </li>
+          <li title="최대입찰가도달">
+            <div class="times"></div>
+          </li>
+          <li title="희망순위미도달">
+            <div class="times"></div>
+          </li>
+        </ul>
       </div>
-      <footer class="section-footer">
-        <div class="pagination">
-          <button onclick="" type="button">
-            <div class="arrow double left"></div>
-          </button>
-          <button onclick="" type="button">
-            <div class="arrow left"></div>
-          </button>
-          <div class="pages">
-            <button class="is-active" onclick="" type="button">1</button>
-            <button onclick="" type="button">2</button>
-            <button onclick="" type="button">3</button>
-            <button onclick="" type="button">4</button>
-            <button onclick="" type="button">5</button>
-          </div>
-          <button onclick="" type="button">
-            <div class="arrow right"></div>
-          </button>
-          <button onclick="" type="button">
-            <div class="arrow double right"></div>
-          </button>
+    </div>
+    <footer class="section-footer">
+      <div class="pagination">
+        <button onclick="" type="button">
+          <div class="arrow double left"></div>
+        </button>
+        <button onclick="" type="button">
+          <div class="arrow left"></div>
+        </button>
+        <div class="pages">
+          <button class="is-active" onclick="" type="button">1</button>
+          <button onclick="" type="button">2</button>
+          <button onclick="" type="button">3</button>
+          <button onclick="" type="button">4</button>
+          <button onclick="" type="button">5</button>
         </div>
-      </footer>
-    </section>
-  </div>
+        <button onclick="" type="button">
+          <div class="arrow right"></div>
+        </button>
+        <button onclick="" type="button">
+          <div class="arrow double right"></div>
+        </button>
+      </div>
+    </footer>
+  </section>
 </main>
 {% endblock %}

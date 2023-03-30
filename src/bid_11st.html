@@ -27,993 +27,739 @@
 </script>
 <main class="content-bidding eleventh">
   <header class="content-header">
-    <div class="title">
-      <ul class="tabs">
-        <li data-tab="eleventh">
-          11번가 포커스클릭
+    <ul class="tabs">
+      <li data-tab="eleventh">
+        11번가 포커스클릭
+      </li>
+      <li data-tab="eleventh">
+        11번가 브랜드검색
+      </li>
+    </ul>
+    {% include "account.html" %}
+  </header>
+  <div class="tab-content content-11st-focus-click" data-tab="eleventh">
+    <section class="section-account">
+      <header>
+        <h2>3scoltd</h2>
+      </header>
+      <div class="sync">
+        <div class="selectbox">
+          <select name="sync-account" id="">
+            <option value="">3scoltd</option>
+            <option value="">cjlion2004</option>
+          </select>
+        </div>
+      </div>
+      <ul class="details-sync">
+        <li class="center">
+          <div>동기화 시간</div>
+          <div>2022-12-07 오전 10:06:38</div>
         </li>
-        <li data-tab="eleventh">
-          11번가 브랜드검색
+        <li>
+          <div>동기화 건수</div>
+          <div class="times">144</div>
+        </li>
+        <li>
+          <div>비즈머니</div>
+          <div class="price">3,529,904</div>
         </li>
       </ul>
-      {% include "account.html" %}
-    </div>
-  </header>
-  <div class="wrapper">
-    <div class="tab-content content-11st-focus-click" data-tab="eleventh">
-      <section class="section-account">
-        <header class="section-header">
-          <h3>3scoltd</h3>
-        </header>
-        <div class="sync">
-          <div class="selectbox">
-            <select name="sync-account" id="">
-              <option value="">3scoltd</option>
-              <option value="">cjlion2004</option>
-            </select>
+      <ul class="details-bidding">
+        <li>
+          <div>전체</div>
+          <strong class="times">1,885</strong>
+        </li>
+        <li>
+          <div>
+            입찰실행
+            <div class="tooltip">
+              <div class="tooltip-content">
+                입찰상태가 ON인 상태입니다.
+              </div>
+            </div>
           </div>
-        </div>
-        <ul class="details-sync">
-          <li class="center">
-            <div>동기화 시간</div>
-            <div>2022-12-07 오전 10:06:38</div>
-          </li>
-          <li>
-            <div>동기화 건수</div>
-            <div class="times">144</div>
-          </li>
-          <li>
-            <div>비즈머니</div>
-            <div class="price">3,529,904</div>
-          </li>
-        </ul>
-        <ul class="details-bidding">
-          <li>
-            <div>전체</div>
-            <strong class="times">1,885</strong>
-          </li>
-          <li>
-            <div>
-              입찰실행
-              <article class="tooltip">
-                <div class="tooltip-content">
-                  입찰상태가 ON인 상태입니다.
-                </div>
-              </article>
+          <strong class="times">189</strong>
+        </li>
+        <li>
+          <div>
+            입찰대기
+            <div class="tooltip">
+              <div class="tooltip-content">
+                입찰이 한 번도 실행되지 않은 초기 상태입니다.
+              </div>
             </div>
-            <strong class="times">189</strong>
-          </li>
-          <li>
-            <div>
-              입찰대기
-              <article class="tooltip">
-                <div class="tooltip-content">
-                  입찰이 한 번도 실행되지 않은 초기 상태입니다.
-                </div>
-              </article>
+          </div>
+          <strong class="times">385</strong>
+        </li>
+        <li>
+          <div>
+            입찰진행
+            <div class="tooltip">
+              <div class="tooltip-content">
+                입찰이 진행되고 있는 상태로, 입찰가가 상승 중인 상태입니다.
+              </div>
             </div>
-            <strong class="times">385</strong>
-          </li>
-          <li>
-            <div>
-              입찰진행
-              <article class="tooltip">
-                <div class="tooltip-content">
-                  입찰이 진행되고 있는 상태로, 입찰가가 상승 중인 상태입니다.
-                </div>
-              </article>
+          </div>
+          <strong class="times">45</strong>
+        </li>
+        <li>
+          <div>
+            목표달성
+            <div class="tooltip">
+              <div class="tooltip-content">
+                목표달성은 희망한 순위에 도달한 상태입니다.
+              </div>
             </div>
-            <strong class="times">45</strong>
-          </li>
-          <li>
-            <div>
-              목표달성
-              <article class="tooltip">
-                <div class="tooltip-content">
-                  목표달성은 희망한 순위에 도달한 상태입니다.
-                </div>
-              </article>
+          </div>
+          <strong class="times">51</strong>
+        </li>
+        <li>
+          <div>
+            최대입찰가도달
+            <div class="tooltip">
+              <dl class="tooltip-content">
+                <dd>입찰가가 사용자가 설정한 최대 입찰가에 도달한 상태입니다.</dd>
+                <dd>최대 입찰가에 도달하면 입찰 프로세스를 완료하지 않고 중단합니다.</dd>
+              </dl>
             </div>
-            <strong class="times">51</strong>
-          </li>
-          <li>
-            <div>
-              최대입찰가도달
-              <article class="tooltip">
-                <dl class="tooltip-content">
-                  <dd>입찰가가 사용자가 설정한 최대 입찰가에 도달한 상태입니다.</dd>
-                  <dd>최대 입찰가에 도달하면 입찰 프로세스를 완료하지 않고 중단합니다.</dd>
-                </dl>
-              </article>
+          </div>
+          <strong class="times">33</strong>
+        </li>
+        <li>
+          <div>
+            입찰불가
+            <div class="tooltip">
+              <div class="tooltip-content">
+                광고센터에서 캠페인, 그룹, 소재, 키워드 등이 OFF 상태이거나 <br />조회되지 않는 경우 또는 비즈머니가 부족한 상황 등 광고센터 이슈로<br />입찰 프로세스를 정상적으로
+                종료하지 못한 상태입니다.
+              </div>
             </div>
-            <strong class="times">33</strong>
-          </li>
-          <li>
-            <div>
-              입찰불가
-              <article class="tooltip">
-                <div class="tooltip-content">
-                  광고센터에서 캠페인, 그룹, 소재, 키워드 등이 OFF 상태이거나 <br />조회되지 않는 경우 또는 비즈머니가 부족한 상황 등 광고센터 이슈로<br />입찰 프로세스를 정상적으로
-                  종료하지 못한 상태입니다.
-                </div>
-              </article>
-            </div>
-            <strong class="times">27</strong>
-          </li>
+          </div>
+          <strong class="times">27</strong>
+        </li>
 
-          <li>
-            <div>
-              입찰실패
-              <article class="tooltip">
-                <div class="tooltip-content">
-                  서버, 네트워크 등의 오류로 입찰 프로세스를<br />정상적으로 종료하지 못한 상태입니다.
-                </div>
-              </article>
-            </div>
-            <strong class="times">24</strong>
-          </li>
-        </ul>
-        <small>※ 건수를 클릭하면 해당 리스트만 불러옵니다.</small>
-        <div class="accounts">
-          <h3>계정별 입찰 현황</h3>
-          <ul class="details-accounts">
-            <li>
-              <div>3scoltd</div>
-              <div>
-                <strong class="times"></strong>
-                <small class="percent"></small>
+        <li>
+          <div>
+            입찰실패
+            <div class="tooltip">
+              <div class="tooltip-content">
+                서버, 네트워크 등의 오류로 입찰 프로세스를<br />정상적으로 종료하지 못한 상태입니다.
               </div>
-            </li>
-            <li>
-              <div>cjlion2004</div>
-              <div>
-                <strong class="times"></strong>
-                <small class="percent"></small>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section>
-        <header class="section-header">
-          <div class="title">
-            <div>
-              <button class="ico-eye" title="사용자 지정 보기" data-modal="selectColumns"></button>
-              <button class="btn-advanced-search" type="button">상세검색</button>
-            </div>
-            <div class="buttons">
-              <button class="btn-sub" type="button" data-modal="">분류조회</button>
-              <button class="btn-sub" type="button" data-modal="">지역설정</button>
-              <button class="btn-main" class="ico-download" type="button">엑셀다운</button>
             </div>
           </div>
-          {% include "advanced_search_bidding.html" %}
-          <div class="filters">
+          <strong class="times">24</strong>
+        </li>
+      </ul>
+      <small>※ 건수를 클릭하면 해당 리스트만 불러옵니다.</small>
+      <div class="accounts">
+        <h3>계정별 입찰 현황</h3>
+        <ul class="details-accounts">
+          <li>
+            <div>3scoltd</div>
             <div>
-              <div class="search">
-                <div class="selectbox">
-                  <select name="" id="">
-                    <option value="keyword">키워드</option>
-                    <option value="keyword">키워드</option>
-                    <option value="keyword">키워드</option>
-                  </select>
-                </div>
-                <div class="input">
-                  <input type="search" />
-                  <span class="x"></span>
-                </div>
-                <button class="btn-main ico-search" type="button"></button>
-              </div>
-              <ul class="list-count">
-                <li>
-                  <span class="selected times">0</span>
-                </li>
-                <li>
-                  <span class="total times">9,206</span>
-                </li>
-              </ul>
+              <strong class="times"></strong>
+              <small class="percent"></small>
             </div>
-            <div class="buttons">
-              <div class="dropdown">
-                <button type="button">선택한 키워드 관리</button>
-                <ul>
-                  <li data-modal="settingsNormal">일반설정</li>
-                  <li data-modal="settingsNormalPart">일반부분설정</li>
-                  <li data-modal="settingsAdvanced">고급설정</li>
-                  <li data-modal="settingsAdvancedPart">고급부분설정</li>
-                  <li>입찰실행</li>
-                  <li>입찰정지</li>
-                  <li>입찰삭제</li>
-                </ul>
-              </div>
-              <button type="button" data-modal="">분류해제</button>
-              <button type="button" data-modal="">분류지정</button>
-              <button type="button" data-modal="">입찰이력</button>
+          </li>
+          <li>
+            <div>cjlion2004</div>
+            <div>
+              <strong class="times"></strong>
+              <small class="percent"></small>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <header>
+        <div class="title">
+          <div>
+            <button class="ico-eye" title="사용자 지정 보기" data-modal="selectColumns"></button>
+            <button class="btn-advanced-search" type="button">상세검색</button>
+          </div>
+          <div class="buttons">
+            <button class="btn-sub" type="button" data-modal="searchGroup">분류조회</button>
+            <button class="btn-sub" type="button" data-modal="setLocation">지역설정</button>
+            <button class="btn-main" class="ico-download" type="button">엑셀다운</button>
+          </div>
+        </div>
+        {% include "advanced_search_bidding.html" %}
+        <div class="filters">
+          <div>
+            <div class="search">
               <div class="selectbox">
                 <select name="" id="">
-                  <option value="filter-100">100개씩 보기</option>
-                  <option value="filter-50">50개씩 보기</option>
-                  <option value="filter-20">20개씩 보기</option>
-                  <option value="filter-10">10개씩 보기</option>
+                  <option value="keyword">키워드</option>
+                  <option value="keyword">키워드</option>
+                  <option value="keyword">키워드</option>
                 </select>
               </div>
-            </div>
-          </div>
-        </header>
-        <div class="list sticky">
-          <ul class="row title">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
-                <label for="checkAll"></label>
+              <div class="input">
+                <input type="search" />
+                <span class="x"></span>
               </div>
-            </li>
-            <li class="col-title ico-sort">상품</li>
-            <li class="col-keyword ico-sort">키워드</li>
-            <li class="ico-sort">
-              입찰상태
-            </li>
-            <li>
-              입찰설정
-            </li>
-            <li>
-              입찰주기
-            </li>
-            <li class="ico-sort">
-              입찰대상
-            </li>
-            <li class="ico-sort">최대입찰가</li>
-            <li class="ico-sort">입찰가감액</li>
-            <li class="ico-sort">희망순위</li>
-            <li class="ico-sort">입찰가</li>
-            <li class="ico-sort">현재순위</li>
-            <li class="ico-sort">최대입찰가 도달여부</li>
-            <li class="ico-sort">희망순위 도달여부</li>
-            <li class="ico-sort">
-              입찰
-              <article class="tooltip type2">
-                <dl class="tooltip-content">
-                  <dt>입찰은 입찰 프로세스 진행 상황에 따라 대기, 성공, 실패가 있습니다.</dt>
-                  <dd>대기는 입찰이 한 번도 실행되지 않은 초기 상태입니다.</dd>
-                  <dd>성공은 희망 순위에 도달하였거나, 설정한 값을 기준으로 입찰 프로세스가 진행되어 정상적으로 종료된 상태입니다.</dd>
-                  <dd>실패는 입찰 프로세스가 진행되었으나, 여러 요인에 의해 정상적으로 종료되지 못한 상태입니다.</dd>
-                </dl>
-              </article>
-            </li>
-            <li class="ico-sort">입찰결과</li>
-            <li class="ico-sort">키워드등록</li>
-            <li class="ico-sort">분류명</li>
-            <li class="ico-sort">키워드상태</li>
-            <li class="ico-sort">광고그룹</li>
-            <li class="ico-sort">그룹상태</li>
-            <li class="ico-sort">캠페인</li>
-            <li class="ico-sort">캠페인상태</li>
-            <li class="ico-sort">입찰등록일</li>
-            <li class="ico-sort">입찰수정일</li>
-          </ul>
-          <div class="rows" data-empty="상품을 등록해주세요">
-            <ul class="row">
-              <li class="col-check">
-                <div class="checkbox">
-                  <input id="check-01" name="select-item" type="checkbox" />
-                  <label for="check-01"></label>
-                </div>
-              </li>
-              <li title="상품" class="col-title item">
-                <div class="image" onclick="location.href='ranking_details.html'">
-                  <img src="http://image.11st.co.kr/pd/v2/3/8/3/2/0/0/ukCEp/1392383200_L300.jpg" alt="" />
-                </div>
-                <div class="information">
-                  <div class="title">킹썰 스포츠 등산 자전거 겨울 방한 장갑 휴대폰터치가능</div>
-                </div>
-              </li>
-              <li title="키워드" class="col-keyword">
-                <div class="keyword">등산장갑</div>
-              </li>
-              <li title="입찰상태">
-                <div class="toggle-switch">
-                  <input id="toggle-bidding" type="checkbox">
-                  <label for="toggle-bidding"></label>
-                </div>
-              </li>
-              <li title="입찰설정">
-                <button>고급설정</button>
-              </li>
-              <li title="입찰주기">
-                5
-              </li>
-              <li title="입찰대상">
-                PC일반
-              </li>
-              <li title="최대입찰가">
-                <div class="price">
-                  1,000
-                </div>
-              </li>
-              <li title="입찰가감액">
-                <div class="price"></div>
-              </li>
-              <li title="희망순위">
-                3
-              </li>
-              <li title="입찰가">
-                <div class="price"></div>
-              </li>
-              <li title="현재순위"></li>
-              <li title="최대입찰가 도달여부">
-                미도달
-              </li>
-              <li title="희망순위 도달여부">
-                미도달
-              </li>
-              <li title="입찰">
-                대기
-              </li>
-              <li title="입찰결과">입찰대기</li>
-              <li title="키워드등록">직접</li>
-              <li title="분류명"></li>
-              <li title="키워드상태">
-                <div class="tag type-text">노출가능</div>
-                <span>ON</span>
-              </li>
-              <li title="광고그룹">
-                #3s299...600
-              </li>
-              <li title="그룹상태">
-                <div class="tag type-text">노출가능</div>
-                <span>ON</span>
-              </li>
-              <li title="캠페인">
-                수동입찰
-              </li>
-              <li title="캠페인상태">
-                <div class="tag type-text">노출가능</div>
-                <span>ON</span>
-              </li>
-              <li title="입찰등록일">
-                2022-04-12
-              </li>
-              <li title="입찰수정일">
-                2022-11-08
-              </li>
-            </ul>
-          </div>
-        </div>
-        <footer class="section-footer">
-          <div class="pagination">
-            <button onclick="" type="button">
-              <div class="arrow double left"></div>
-            </button>
-            <button onclick="" type="button">
-              <div class="arrow left"></div>
-            </button>
-            <div class="pages">
-              <button class="is-active" onclick="" type="button">1</button>
-              <button onclick="" type="button">2</button>
-              <button onclick="" type="button">3</button>
-              <button onclick="" type="button">4</button>
-              <button onclick="" type="button">5</button>
+              <button class="btn-main ico-search" type="button"></button>
             </div>
-            <button onclick="" type="button">
-              <div class="arrow right"></div>
-            </button>
-            <button onclick="" type="button">
-              <div class="arrow double right"></div>
-            </button>
-          </div>
-        </footer>
-      </section>
-    </div>
-    <div class="tab-content content-11st-brand-search" data-tab="eleventh">
-      <section class="section-account">
-        <header class="section-header">
-          <h3>bokdanji</h3>
-        </header>
-        <div class="sync">
-          <div class="selectbox">
-            <select name="sync-account" id="">
-              <option value="">bokdanji</option>
-            </select>
-          </div>
-        </div>
-        <ul class="details-sync">
-          <li class="center">
-            <div>동기화 시간</div>
-            <div>2021-08-20 오전 9:36:43</div>
-          </li>
-          <li>
-            <div>동기화 건수</div>
-            <div class="times">50</div>
-          </li>
-          <li>
-            <div>비즈머니</div>
-            <div class="price">1,894,071</div>
-          </li>
-        </ul>
-        <ul class="details-bidding">
-          <li>
-            <div>전체</div>
-            <strong class="times">1,885</strong>
-          </li>
-          <li>
-            <div>
-              입찰실행
-              <article class="tooltip">
-                <div class="tooltip-content">
-                  입찰상태가 ON인 상태입니다.
-                </div>
-              </article>
-            </div>
-            <strong class="times">189</strong>
-          </li>
-          <li>
-            <div>
-              입찰대기
-              <article class="tooltip">
-                <div class="tooltip-content">
-                  입찰이 한 번도 실행되지 않은 초기 상태입니다.
-                </div>
-              </article>
-            </div>
-            <strong class="times">385</strong>
-          </li>
-          <li>
-            <div>
-              입찰진행
-              <article class="tooltip">
-                <div class="tooltip-content">
-                  입찰이 진행되고 있는 상태로, 입찰가가 상승 중인 상태입니다.
-                </div>
-              </article>
-            </div>
-            <strong class="times">45</strong>
-          </li>
-          <li>
-            <div>
-              목표달성
-              <article class="tooltip">
-                <div class="tooltip-content">
-                  목표달성은 희망한 순위에 도달한 상태입니다.
-                </div>
-              </article>
-            </div>
-            <strong class="times">51</strong>
-          </li>
-          <li>
-            <div>
-              최대입찰가도달
-              <article class="tooltip">
-                <dl class="tooltip-content">
-                  <dd>입찰가가 사용자가 설정한 최대 입찰가에 도달한 상태입니다.</dd>
-                  <dd>최대 입찰가에 도달하면 입찰 프로세스를 완료하지 않고 중단합니다.</dd>
-                </dl>
-              </article>
-            </div>
-            <strong class="times">33</strong>
-          </li>
-          <li>
-            <div>
-              입찰불가
-              <article class="tooltip">
-                <div class="tooltip-content">
-                  광고센터에서 캠페인, 그룹, 소재, 키워드 등이 OFF 상태이거나 <br />조회되지 않는 경우 또는 비즈머니가 부족한 상황 등 광고센터 이슈로<br />입찰 프로세스를 정상적으로
-                  종료하지 못한 상태입니다.
-                </div>
-              </article>
-            </div>
-            <strong class="times">27</strong>
-          </li>
-
-          <li>
-            <div>
-              입찰실패
-              <article class="tooltip">
-                <div class="tooltip-content">
-                  서버, 네트워크 등의 오류로 입찰 프로세스를<br />정상적으로 종료하지 못한 상태입니다.
-                </div>
-              </article>
-            </div>
-            <strong class="times">24</strong>
-          </li>
-        </ul>
-        <small>※ 건수를 클릭하면 해당 리스트만 불러옵니다.</small>
-        <div class="accounts">
-          <h3>계정별 입찰 현황</h3>
-          <ul class="details-accounts">
-            <li>
-              <div>bokdanji</div>
-              <div>
-                <strong class="times"></strong>
-                <small class="percent"></small>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section>
-        <header class="section-header">
-          <div class="title">
-            <div>
-              <button class="ico-eye" title="사용자 지정 보기" data-modal="selectColumns"></button>
-              <button class="btn-advanced-search" type="button">상세검색</button>
-            </div>
-            <div class="buttons">
-              <button class="btn-sub" type="button" data-modal="">분류조회</button>
-              <button class="btn-sub" type="button" data-modal="">지역설정</button>
-              <button class="btn-main" class="ico-download" type="button">엑셀다운</button>
+            <div class="filters">
+              <strong data-title="선택" class="times">0</strong>
+              <strong data-title="전체" class="times">9,206</strong>
             </div>
           </div>
-          {% include "advanced_search_bidding.html" %}
-          <div class="filters">
-            <div>
-              <div class="search">
-                <div class="selectbox">
-                  <select name="" id="">
-                    <option value="keyword">키워드</option>
-                    <option value="keyword">키워드</option>
-                    <option value="keyword">키워드</option>
-                  </select>
-                </div>
-                <div class="input">
-                  <input type="search" />
-                  <span class="x"></span>
-                </div>
-                <button class="btn-main ico-search" type="button"></button>
-              </div>
-              <ul class="list-count">
-                <li>
-                  <span class="selected times">0</span>
-                </li>
-                <li>
-                  <span class="total times">50</span>
-                </li>
+          <div class="buttons">
+            <div class="dropdown">
+              <button type="button">선택한 키워드 관리</button>
+              <ul>
+                <li data-modal="settingsNormal">일반설정</li>
+                <li data-modal="settingsNormalPart">일반부분설정</li>
+                <li data-modal="settingsAdvanced">고급설정</li>
+                <li data-modal="settingsAdvancedPart">고급부분설정</li>
+                <li>입찰실행</li>
+                <li>입찰정지</li>
+                <li>입찰삭제</li>
               </ul>
             </div>
-            <div class="buttons">
-              <div class="dropdown">
-                <button type="button">선택한 키워드 관리</button>
-                <ul>
-                  <li data-modal="settingsNormal">일반설정</li>
-                  <li data-modal="settingsNormalPart">일반부분설정</li>
-                  <li data-modal="settingsAdvanced">고급설정</li>
-                  <li data-modal="settingsAdvancedPart">고급부분설정</li>
-                  <li>입찰실행</li>
-                  <li>입찰정지</li>
-                  <li>입찰삭제</li>
-                </ul>
-              </div>
-              <button type="button" data-modal="">분류해제</button>
-              <button type="button" data-modal="">분류지정</button>
-              <button type="button" data-modal="">입찰이력</button>
-              <div class="selectbox">
-                <select name="" id="">
-                  <option value="filter-100">100개씩 보기</option>
-                  <option value="filter-50">50개씩 보기</option>
-                  <option value="filter-20">20개씩 보기</option>
-                  <option value="filter-10">10개씩 보기</option>
-                </select>
-              </div>
+            <button type="button" data-modal="">분류해제</button>
+            <button type="button" data-modal="">분류지정</button>
+            <button type="button" data-modal="biddingHistory">입찰이력</button>
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="filter-100">100개씩 보기</option>
+                <option value="filter-50">50개씩 보기</option>
+                <option value="filter-20">20개씩 보기</option>
+                <option value="filter-10">10개씩 보기</option>
+              </select>
             </div>
-          </div>
-        </header>
-        <div class="list sticky">
-          <ul class="row title">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
-                <label for="checkAll"></label>
-              </div>
-            </li>
-            <li class="col-keyword ico-sort">키워드</li>
-            <li class="ico-sort">
-              입찰상태
-            </li>
-            <li>
-                입찰설정
-            </li>
-            <li>
-              입찰주기
-            </li>
-            <li class="ico-sort">
-              입찰대상
-            </li>
-            <li class="ico-sort">입찰기본가</li>
-            <li class="ico-sort">최대입찰가</li>
-            <li class="ico-sort">입찰가감액</li>
-            <li class="ico-sort">하향입찰</li>
-            <li class="ico-sort">입찰가</li>
-            <li class="ico-sort">최대입찰가 도달여부</li>
-            <li class="ico-sort">
-              입찰
-              <article class="tooltip type2">
-                <dl class="tooltip-content">
-                  <dt>입찰은 입찰 프로세스 진행 상황에 따라 대기, 성공, 실패가 있습니다.</dt>
-                  <dd>대기는 입찰이 한 번도 실행되지 않은 초기 상태입니다.</dd>
-                  <dd>성공은 희망 순위에 도달하였거나, 설정한 값을 기준으로 입찰 프로세스가 진행되어 정상적으로 종료된 상태입니다.</dd>
-                  <dd>실패는 입찰 프로세스가 진행되었으나, 여러 요인에 의해 정상적으로 종료되지 못한 상태입니다.</dd>
-                </dl>
-              </article>
-            </li>
-            <li class="ico-sort">입찰결과</li>
-            <li class="ico-sort">광고대상</li>
-            <li class="ico-sort col-url">대상 URL</li>
-            <li class="ico-sort">분류명</li>
-            <li class="ico-sort">키워드상태</li>
-            <li class="ico-sort">소재명</li>
-            <li class="ico-sort">소재상태</li>
-            <li class="ico-sort">광고그룹</li>
-            <li class="ico-sort">그룹상태</li>
-            <li class="ico-sort">캠페인</li>
-            <li class="ico-sort">캠페인상태</li>
-            <li class="ico-sort">입찰등록일</li>
-            <li class="ico-sort">입찰수정일</li>
-          </ul>
-          <div class="rows" data-empty="상품을 등록해주세요">
-            <ul class="row">
-              <li class="col-check">
-                <div class="checkbox">
-                  <input id="check-01" name="select-item" type="checkbox" />
-                  <label for="check-01"></label>
-                </div>
-              </li>
-              <li title="키워드" class="col-keyword">
-                <div class="keyword">제주산조릿대차</div>
-              </li>
-              <li title="입찰상태">
-                <div class="toggle-switch">
-                  <input id="toggle-bidding" type="checkbox">
-                  <label for="toggle-bidding"></label>
-                </div>
-              </li>
-              <li title="입찰설정">
-                <button>고급설정</button>
-              </li>
-              <li title="입찰주기">
-                5
-              </li>
-              <li title="입찰대상">
-                PC일반
-              </li>
-              <li title="입찰기본가"></li>
-              <li title="최대입찰가">
-                <div class="price">
-                  1,000
-                </div>
-              </li>
-              <li title="입찰가감액">
-                <div class="price"></div>
-              </li>
-              <li title="하향입찰">
-                OFF
-              </li>
-              <li title="입찰가">
-                <div class="price"></div>
-              </li>
-              <li title="최대입찰가 도달여부">
-                미도달
-              </li>
-              <li title="입찰">
-                <div>
-                  <span>실패</span>
-                  <button data-modal="biddingHistory">이력</button>
-                </div>
-              </li>
-              <li title="입찰결과">입찰불가</li>
-              <li title="광고대상"></li>
-              <li class="col-url" title="대상 URL"></li>
-              <li title="분류명">
-                브랜딩검색1
-              </li>
-              <li title="키워드상태">
-                <div>
-                  <div class="tag type-text">노출가능</div>
-                  <span>ON</span>
-                </div>
-              </li>
-              <li title="소재명">
-                01_브랜딩소재
-              </li>
-              <li title="소재상태">
-                <div>
-                  <div class="tag type-text">노출가능</div>
-                  <span>ON</span>
-                </div>
-              </li>
-              <li title="광고그룹">
-                01_브랜딩그룹
-              </li>
-              <li title="그룹상태">
-                <div>
-                  <div class="tag type-text">노출가능</div>
-                  <span>ON</span>
-                </div>
-              </li>
-              <li title="캠페인">
-                PC
-              </li>
-              <li title="캠페인상태">
-                <div>
-                  <div class="tag type-text">노출가능</div>
-                  <span>ON</span>
-                </div>
-              </li>
-              <li title="입찰등록일">
-                2022-04-12
-              </li>
-              <li title="입찰수정일">
-                2022-11-08
-              </li>
-            </ul>
           </div>
         </div>
-        <footer class="section-footer">
-          <div class="pagination">
-            <button onclick="" type="button">
-              <div class="arrow double left"></div>
-            </button>
-            <button onclick="" type="button">
-              <div class="arrow left"></div>
-            </button>
-            <div class="pages">
-              <button class="is-active" onclick="" type="button">1</button>
-              <button onclick="" type="button">2</button>
-              <button onclick="" type="button">3</button>
-              <button onclick="" type="button">4</button>
-              <button onclick="" type="button">5</button>
+      </header>
+      <div class="list sticky">
+        <ul class="row title">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
+              <label for="checkAll"></label>
             </div>
-            <button onclick="" type="button">
-              <div class="arrow right"></div>
-            </button>
-            <button onclick="" type="button">
-              <div class="arrow double right"></div>
-            </button>
+          </li>
+          <li class="col-title ico-sort">상품</li>
+          <li class="col-keyword ico-sort">키워드</li>
+          <li class="ico-sort">
+            입찰상태
+          </li>
+          <li>
+            입찰설정
+          </li>
+          <li>
+            입찰주기
+          </li>
+          <li class="ico-sort">
+            입찰대상
+          </li>
+          <li class="ico-sort">최대입찰가</li>
+          <li class="ico-sort">입찰가감액</li>
+          <li class="ico-sort">희망순위</li>
+          <li class="ico-sort">입찰가</li>
+          <li class="ico-sort">현재순위</li>
+          <li class="ico-sort">최대입찰가 도달여부</li>
+          <li class="ico-sort">희망순위 도달여부</li>
+          <li class="ico-sort">
+            입찰
+            <div class="tooltip type2">
+              <dl class="tooltip-content">
+                <dt>입찰은 입찰 프로세스 진행 상황에 따라 대기, 성공, 실패가 있습니다.</dt>
+                <dd>대기는 입찰이 한 번도 실행되지 않은 초기 상태입니다.</dd>
+                <dd>성공은 희망 순위에 도달하였거나, 설정한 값을 기준으로 입찰 프로세스가 진행되어 정상적으로 종료된 상태입니다.</dd>
+                <dd>실패는 입찰 프로세스가 진행되었으나, 여러 요인에 의해 정상적으로 종료되지 못한 상태입니다.</dd>
+              </dl>
+            </div>
+          </li>
+          <li class="ico-sort">입찰결과</li>
+          <li class="ico-sort">키워드등록</li>
+          <li class="ico-sort">분류명</li>
+          <li class="ico-sort">키워드상태</li>
+          <li class="ico-sort">광고그룹</li>
+          <li class="ico-sort">그룹상태</li>
+          <li class="ico-sort">캠페인</li>
+          <li class="ico-sort">캠페인상태</li>
+          <li class="ico-sort">입찰등록일</li>
+          <li class="ico-sort">입찰수정일</li>
+        </ul>
+        <div class="rows" data-empty="상품을 등록해주세요">
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-01" name="select-item" type="checkbox" />
+                <label for="check-01"></label>
+              </div>
+            </li>
+            <li title="상품" class="col-title item">
+              <div class="image" onclick="location.href='ranking_details.html'">
+                <img src="http://image.11st.co.kr/pd/v2/3/8/3/2/0/0/ukCEp/1392383200_L300.jpg" alt="" />
+              </div>
+              <div class="information">
+                <div class="title">킹썰 스포츠 등산 자전거 겨울 방한 장갑 휴대폰터치가능</div>
+              </div>
+            </li>
+            <li title="키워드" class="col-keyword">
+              <div class="keyword">등산장갑</div>
+            </li>
+            <li title="입찰상태">
+              <div class="toggle-switch">
+                <input id="toggle-bidding" type="checkbox">
+                <label for="toggle-bidding"></label>
+              </div>
+            </li>
+            <li title="입찰설정">
+              <button>고급설정</button>
+            </li>
+            <li title="입찰주기">
+              5
+            </li>
+            <li title="입찰대상">
+              PC일반
+            </li>
+            <li title="최대입찰가">
+              <div class="price">
+                1,000
+              </div>
+            </li>
+            <li title="입찰가감액">
+              <div class="price"></div>
+            </li>
+            <li title="희망순위">
+              3
+            </li>
+            <li title="입찰가">
+              <div class="price"></div>
+            </li>
+            <li title="현재순위"></li>
+            <li title="최대입찰가 도달여부">
+              미도달
+            </li>
+            <li title="희망순위 도달여부">
+              미도달
+            </li>
+            <li title="입찰">
+              대기
+            </li>
+            <li title="입찰결과">입찰대기</li>
+            <li title="키워드등록">직접</li>
+            <li title="분류명"></li>
+            <li title="키워드상태">
+              <div class="tag type-text">노출가능</div>
+              <span>ON</span>
+            </li>
+            <li title="광고그룹">
+              #3s299...600
+            </li>
+            <li title="그룹상태">
+              <div class="tag type-text">노출가능</div>
+              <span>ON</span>
+            </li>
+            <li title="캠페인">
+              수동입찰
+            </li>
+            <li title="캠페인상태">
+              <div class="tag type-text">노출가능</div>
+              <span>ON</span>
+            </li>
+            <li title="입찰등록일">
+              2022-04-12
+            </li>
+            <li title="입찰수정일">
+              2022-11-08
+            </li>
+          </ul>
+        </div>
+      </div>
+      <footer class="section-footer">
+        <div class="pagination">
+          <button onclick="" type="button">
+            <div class="arrow double left"></div>
+          </button>
+          <button onclick="" type="button">
+            <div class="arrow left"></div>
+          </button>
+          <div class="pages">
+            <button class="is-active" onclick="" type="button">1</button>
+            <button onclick="" type="button">2</button>
+            <button onclick="" type="button">3</button>
+            <button onclick="" type="button">4</button>
+            <button onclick="" type="button">5</button>
           </div>
-        </footer>
-      </section>
-    </div>
+          <button onclick="" type="button">
+            <div class="arrow right"></div>
+          </button>
+          <button onclick="" type="button">
+            <div class="arrow double right"></div>
+          </button>
+        </div>
+      </footer>
+    </section>
+  </div>
+  <div class="tab-content content-11st-brand-search" data-tab="eleventh">
+    <section class="section-account">
+      <header>
+        <h2>bokdanji</h2>
+      </header>
+      <div class="sync">
+        <div class="selectbox">
+          <select name="sync-account" id="">
+            <option value="">bokdanji</option>
+          </select>
+        </div>
+      </div>
+      <ul class="details-sync">
+        <li class="center">
+          <div>동기화 시간</div>
+          <div>2021-08-20 오전 9:36:43</div>
+        </li>
+        <li>
+          <div>동기화 건수</div>
+          <div class="times">50</div>
+        </li>
+        <li>
+          <div>비즈머니</div>
+          <div class="price">1,894,071</div>
+        </li>
+      </ul>
+      <ul class="details-bidding">
+        <li>
+          <div>전체</div>
+          <strong class="times">1,885</strong>
+        </li>
+        <li>
+          <div>
+            입찰실행
+            <div class="tooltip">
+              <div class="tooltip-content">
+                입찰상태가 ON인 상태입니다.
+              </div>
+            </div>
+          </div>
+          <strong class="times">189</strong>
+        </li>
+        <li>
+          <div>
+            입찰대기
+            <div class="tooltip">
+              <div class="tooltip-content">
+                입찰이 한 번도 실행되지 않은 초기 상태입니다.
+              </div>
+            </div>
+          </div>
+          <strong class="times">385</strong>
+        </li>
+        <li>
+          <div>
+            입찰진행
+            <div class="tooltip">
+              <div class="tooltip-content">
+                입찰이 진행되고 있는 상태로, 입찰가가 상승 중인 상태입니다.
+              </div>
+            </div>
+          </div>
+          <strong class="times">45</strong>
+        </li>
+        <li>
+          <div>
+            목표달성
+            <div class="tooltip">
+              <div class="tooltip-content">
+                목표달성은 희망한 순위에 도달한 상태입니다.
+              </div>
+            </div>
+          </div>
+          <strong class="times">51</strong>
+        </li>
+        <li>
+          <div>
+            최대입찰가도달
+            <div class="tooltip">
+              <dl class="tooltip-content">
+                <dd>입찰가가 사용자가 설정한 최대 입찰가에 도달한 상태입니다.</dd>
+                <dd>최대 입찰가에 도달하면 입찰 프로세스를 완료하지 않고 중단합니다.</dd>
+              </dl>
+            </div>
+          </div>
+          <strong class="times">33</strong>
+        </li>
+        <li>
+          <div>
+            입찰불가
+            <div class="tooltip">
+              <div class="tooltip-content">
+                광고센터에서 캠페인, 그룹, 소재, 키워드 등이 OFF 상태이거나 <br />조회되지 않는 경우 또는 비즈머니가 부족한 상황 등 광고센터 이슈로<br />입찰 프로세스를 정상적으로
+                종료하지 못한 상태입니다.
+              </div>
+            </div>
+          </div>
+          <strong class="times">27</strong>
+        </li>
+
+        <li>
+          <div>
+            입찰실패
+            <div class="tooltip">
+              <div class="tooltip-content">
+                서버, 네트워크 등의 오류로 입찰 프로세스를<br />정상적으로 종료하지 못한 상태입니다.
+              </div>
+            </div>
+          </div>
+          <strong class="times">24</strong>
+        </li>
+      </ul>
+      <small>※ 건수를 클릭하면 해당 리스트만 불러옵니다.</small>
+      <div class="accounts">
+        <h3>계정별 입찰 현황</h3>
+        <ul class="details-accounts">
+          <li>
+            <div>bokdanji</div>
+            <div>
+              <strong class="times"></strong>
+              <small class="percent"></small>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <header>
+        <div class="title">
+          <div>
+            <button class="ico-eye" title="사용자 지정 보기" data-modal="selectColumns"></button>
+            <button class="btn-advanced-search" type="button">상세검색</button>
+          </div>
+          <div class="buttons">
+            <button class="btn-sub" type="button" data-modal="searchGroup">분류조회</button>
+            <button class="btn-sub" type="button" data-modal="setLocation">지역설정</button>
+            <button class="btn-main" class="ico-download" type="button">엑셀다운</button>
+          </div>
+        </div>
+        {% include "advanced_search_bidding.html" %}
+        <div class="filters">
+          <div>
+            <div class="search">
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="keyword">키워드</option>
+                  <option value="keyword">키워드</option>
+                  <option value="keyword">키워드</option>
+                </select>
+              </div>
+              <div class="input">
+                <input type="search" />
+                <span class="x"></span>
+              </div>
+              <button class="btn-main ico-search" type="button"></button>
+            </div>
+            <div class="filters">
+              <strong data-title="선택" class="times">0</strong>
+              <strong data-title="전체" class="times">50</strong>
+            </div>
+          </div>
+          <div class="buttons">
+            <div class="dropdown">
+              <button type="button">선택한 키워드 관리</button>
+              <ul>
+                <li data-modal="settingsNormal">일반설정</li>
+                <li data-modal="settingsNormalPart">일반부분설정</li>
+                <li data-modal="settingsAdvanced">고급설정</li>
+                <li data-modal="settingsAdvancedPart">고급부분설정</li>
+                <li>입찰실행</li>
+                <li>입찰정지</li>
+                <li>입찰삭제</li>
+              </ul>
+            </div>
+            <button type="button" data-modal="">분류해제</button>
+            <button type="button" data-modal="">분류지정</button>
+            <button type="button" data-modal="biddingHistory">입찰이력</button>
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="filter-100">100개씩 보기</option>
+                <option value="filter-50">50개씩 보기</option>
+                <option value="filter-20">20개씩 보기</option>
+                <option value="filter-10">10개씩 보기</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="list sticky">
+        <ul class="row title">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
+              <label for="checkAll"></label>
+            </div>
+          </li>
+          <li class="col-keyword ico-sort">키워드</li>
+          <li class="ico-sort">
+            입찰상태
+          </li>
+          <li>
+            입찰설정
+          </li>
+          <li>
+            입찰주기
+          </li>
+          <li class="ico-sort">
+            입찰대상
+          </li>
+          <li class="ico-sort">입찰기본가</li>
+          <li class="ico-sort">최대입찰가</li>
+          <li class="ico-sort">입찰가감액</li>
+          <li class="ico-sort">하향입찰</li>
+          <li class="ico-sort">입찰가</li>
+          <li class="ico-sort">최대입찰가 도달여부</li>
+          <li class="ico-sort">
+            입찰
+            <div class="tooltip type2">
+              <dl class="tooltip-content">
+                <dt>입찰은 입찰 프로세스 진행 상황에 따라 대기, 성공, 실패가 있습니다.</dt>
+                <dd>대기는 입찰이 한 번도 실행되지 않은 초기 상태입니다.</dd>
+                <dd>성공은 희망 순위에 도달하였거나, 설정한 값을 기준으로 입찰 프로세스가 진행되어 정상적으로 종료된 상태입니다.</dd>
+                <dd>실패는 입찰 프로세스가 진행되었으나, 여러 요인에 의해 정상적으로 종료되지 못한 상태입니다.</dd>
+              </dl>
+            </div>
+          </li>
+          <li class="ico-sort">입찰결과</li>
+          <li class="ico-sort">광고대상</li>
+          <li class="ico-sort col-url">대상 URL</li>
+          <li class="ico-sort">분류명</li>
+          <li class="ico-sort">키워드상태</li>
+          <li class="ico-sort">소재명</li>
+          <li class="ico-sort">소재상태</li>
+          <li class="ico-sort">광고그룹</li>
+          <li class="ico-sort">그룹상태</li>
+          <li class="ico-sort">캠페인</li>
+          <li class="ico-sort">캠페인상태</li>
+          <li class="ico-sort">입찰등록일</li>
+          <li class="ico-sort">입찰수정일</li>
+        </ul>
+        <div class="rows" data-empty="상품을 등록해주세요">
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-01" name="select-item" type="checkbox" />
+                <label for="check-01"></label>
+              </div>
+            </li>
+            <li title="키워드" class="col-keyword">
+              <div class="keyword">제주산조릿대차</div>
+            </li>
+            <li title="입찰상태">
+              <div class="toggle-switch">
+                <input id="toggle-bidding" type="checkbox">
+                <label for="toggle-bidding"></label>
+              </div>
+            </li>
+            <li title="입찰설정">
+              <button>고급설정</button>
+            </li>
+            <li title="입찰주기">
+              5
+            </li>
+            <li title="입찰대상">
+              PC일반
+            </li>
+            <li title="입찰기본가"></li>
+            <li title="최대입찰가">
+              <div class="price">
+                1,000
+              </div>
+            </li>
+            <li title="입찰가감액">
+              <div class="price"></div>
+            </li>
+            <li title="하향입찰">
+              OFF
+            </li>
+            <li title="입찰가">
+              <div class="price"></div>
+            </li>
+            <li title="최대입찰가 도달여부">
+              미도달
+            </li>
+            <li title="입찰">
+              <div>
+                <span>실패</span>
+                <button data-modal="biddingHistory">이력</button>
+              </div>
+            </li>
+            <li title="입찰결과">입찰불가</li>
+            <li title="광고대상"></li>
+            <li class="col-url" title="대상 URL"></li>
+            <li title="분류명">
+              브랜딩검색1
+            </li>
+            <li title="키워드상태">
+              <div>
+                <div class="tag type-text">노출가능</div>
+                <span>ON</span>
+              </div>
+            </li>
+            <li title="소재명">
+              01_브랜딩소재
+            </li>
+            <li title="소재상태">
+              <div>
+                <div class="tag type-text">노출가능</div>
+                <span>ON</span>
+              </div>
+            </li>
+            <li title="광고그룹">
+              01_브랜딩그룹
+            </li>
+            <li title="그룹상태">
+              <div>
+                <div class="tag type-text">노출가능</div>
+                <span>ON</span>
+              </div>
+            </li>
+            <li title="캠페인">
+              PC
+            </li>
+            <li title="캠페인상태">
+              <div>
+                <div class="tag type-text">노출가능</div>
+                <span>ON</span>
+              </div>
+            </li>
+            <li title="입찰등록일">
+              2022-04-12
+            </li>
+            <li title="입찰수정일">
+              2022-11-08
+            </li>
+          </ul>
+        </div>
+      </div>
+      <footer class="section-footer">
+        <div class="pagination">
+          <button onclick="" type="button">
+            <div class="arrow double left"></div>
+          </button>
+          <button onclick="" type="button">
+            <div class="arrow left"></div>
+          </button>
+          <div class="pages">
+            <button class="is-active" onclick="" type="button">1</button>
+            <button onclick="" type="button">2</button>
+            <button onclick="" type="button">3</button>
+            <button onclick="" type="button">4</button>
+            <button onclick="" type="button">5</button>
+          </div>
+          <button onclick="" type="button">
+            <div class="arrow right"></div>
+          </button>
+          <button onclick="" type="button">
+            <div class="arrow double right"></div>
+          </button>
+        </div>
+      </footer>
+    </section>
   </div>
 </main>
-
-<div id="selectColumns" class="modal" title="사용자지정보기">
-  <div class="dialog">
-    <header class="modal-header">
-      <h3>사용자 지정 보기</h3>
-      <div class="close"></div>
-    </header>
-    <div class="modal-content">
-      <section>
-        <div class="list list-checkbox">
-          <div class="checkbox">
-            <input id="select-column1" type="checkbox" name="selectColumn" checked />
-            <label for="select-column1">키워드</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column2" type="checkbox" name="selectColumn" checked />
-            <label for="select-column2">입찰상태</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column3" type="checkbox" name="selectColumn" checked />
-            <label for="select-column3">입찰설정</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column4" type="checkbox" name="selectColumn" checked />
-            <label for="select-column4">입찰주기</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column5" type="checkbox" name="selectColumn" checked />
-            <label for="select-column5">입찰대상</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column6" type="checkbox" name="selectColumn" checked />
-            <label for="select-column6">지역설정</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column7" type="checkbox" name="selectColumn" checked />
-            <label for="select-column7">입찰기본가</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column8" type="checkbox" name="selectColumn" checked />
-            <label for="select-column8">최대입찰가</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column9" type="checkbox" name="selectColumn" checked />
-            <label for="select-column9">입찰가액</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column10" type="checkbox" name="selectColumn" checked />
-            <label for="select-column10">입찰감액</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column11" type="checkbox" name="selectColumn" checked />
-            <label for="select-column11">희망순의</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column12" type="checkbox" name="selectColumn" checked />
-            <label for="select-column12">노출구좌수</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column13" type="checkbox" name="selectColumn" checked />
-            <label for="select-column13">하향입찰</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column14" type="checkbox" name="selectColumn" checked />
-            <label for="select-column14">입찰가</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column15" type="checkbox" name="selectColumn" checked />
-            <label for="select-column15">현재순위</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column16" type="checkbox" name="selectColumn" checked />
-            <label for="select-column16">최대입찰가 도달여부</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column17" type="checkbox" name="selectColumn" checked />
-            <label for="select-column17">희망순위 도달여부</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column18" type="checkbox" name="selectColumn" checked />
-            <label for="select-column18">입찰결과</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column19" type="checkbox" name="selectColumn" checked />
-            <label for="select-column19">분류명</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column20" type="checkbox" name="selectColumn" checked />
-            <label for="select-column20">키워드상태</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column21" type="checkbox" name="selectColumn" checked />
-            <label for="select-column21">광고그룹</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column22" type="checkbox" name="selectColumn" checked />
-            <label for="select-column22">그룹상태</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column23" type="checkbox" name="selectColumn" checked />
-            <label for="select-column23">캠페인</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column24" type="checkbox" name="selectColumn" checked />
-            <label for="select-column24">캠페인상태</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column25" type="checkbox" name="selectColumn" checked />
-            <label for="select-column25">URL</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column26" type="checkbox" name="selectColumn" checked />
-            <label for="select-column26">입찰등록일</label>
-          </div>
-          <div class="checkbox">
-            <input id="select-column27" type="checkbox" name="selectColumn" checked />
-            <label for="select-column27">입찰수정일</label>
-          </div>
-        </div>
-      </section>
-    </div>
-    <div class="buttons">
-      <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-sub" type="button" data-modal="apply">초기화</button>
-      <button class="btn-submit" type="button" data-modal="apply">적용</button>
-    </div>
-  </div>
-</div>
-
-<div id="biddingHistory" class="modal modal-history" title="입찰 이력">
-  <div class="dialog">
-    <header class="modal-header">
-      <h3>입찰 이력</h3>
-      <div class="close"></div>
-    </header>
-    <div class="modal-content">
-      <ul class="tabs">
-        <li class="is-active" data-tab="biddingHistory">성공이력</li>
-        <li data-tab="biddingHistory">실패이력</li>
-      </ul>
-      <div class="tab-content is-active" data-tab="biddingHistory">
-        <div class="list">
-          <ul class="row title">
-            <li class="col-keyword">키워드</li>
-            <li>입찰대상</li>
-            <li>현재순위</li>
-            <li>현재입찰가</li>
-            <li>증감액</li>
-            <li>이전순위</li>
-            <li>이전입찰가</li>
-            <li class="col-date">입찰시각</li>
-          </ul>
-          <div class="rows" data-empty="성공이력 데이터가 존재하지 않습니다.">
-            <ul class="row">
-              <li class="col-keyword">
-                <div class="keyword">레드울프</div>
-              </li>
-              <li>PC일반</li>
-              <li>2</li>
-              <li>
-                <div class="price">500</div>
-              </li>
-              <li>
-                <div class="tag up">10</div>
-              </li>
-              <li>2</li>
-              <li>
-                <div class="price">480</div>
-              </li>
-              <li class="col-date">20223-03-03 오전 8:10:15</li>
-            </ul>
-          </div>
-        </div>
-        <div class="pagination">
-          <button onclick="" type="button">
-            <div class="arrow double left"></div>
-          </button>
-          <button onclick="" type="button">
-            <div class="arrow left"></div>
-          </button>
-          <div class="pages">
-            <button class="is-active" onclick="" type="button">1</button>
-            <button onclick="" type="button">2</button>
-            <button onclick="" type="button">3</button>
-            <button onclick="" type="button">4</button>
-            <button onclick="" type="button">5</button>
-          </div>
-          <button onclick="" type="button">
-            <div class="arrow right"></div>
-          </button>
-          <button onclick="" type="button">
-            <div class="arrow double right"></div>
-          </button>
-        </div>
-      </div>
-      <div class="tab-content" data-tab="biddingHistory">
-        <div class="list">
-          <ul class="row title">
-            <li class="col-keyword">키워드</li>
-            <li>타이틀</li>
-            <li class="col-content">내용</li>
-            <li>현재순위</li>
-            <li>이전순위</li>
-            <li class="col-date">입찰시각</li>
-          </ul>
-          <div class="rows" data-empty="실패이력 데이터가 존재하지 않습니다.">
-            <ul class="row">
-              <li class="col-keyword">
-                <div class="keyword">레드울프</div>
-              </li>
-              <li>입찰가 변경</li>
-              <li class="col-content">최대입찰금액 500원에 도달하였습니다</li>
-              <li>2</li>
-              <li>2</li>
-              <li class="col-date">20223-03-03 오전 8:10:15</li>
-            </ul>
-          </div>
-        </div>
-        <div class="pagination">
-          <button onclick="" type="button">
-            <div class="arrow double left"></div>
-          </button>
-          <button onclick="" type="button">
-            <div class="arrow left"></div>
-          </button>
-          <div class="pages">
-            <button class="is-active" onclick="" type="button">1</button>
-            <button onclick="" type="button">2</button>
-            <button onclick="" type="button">3</button>
-            <button onclick="" type="button">4</button>
-            <button onclick="" type="button">5</button>
-          </div>
-          <button onclick="" type="button">
-            <div class="arrow right"></div>
-          </button>
-          <button onclick="" type="button">
-            <div class="arrow double right"></div>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+{% include "modals.html" %}
 {% endblock %}
