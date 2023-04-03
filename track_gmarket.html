@@ -623,398 +623,396 @@
       </div>
     </div>
   </header>
-  <div class="wrapper">
-    <section>
-      <header>
-        <div class="title">
-          <div></div>
+  <section>
+    <header>
+      <div class="title">
+        <div></div>
 
-          <div class="buttons">
-            <button class="btn-sub" type="button" data-modal="editGroup">그룹편집</button>
-            <button class="btn-sub" class="ico-download" type="button">엑셀다운</button>
-            <button class="btn-main" type="button" data-modal="createItem">상품등록</button>
-          </div>
-        </div>
-        <div class="filters">
-          <div>
-            <div class="selector">
-              <input type="radio" id="select-1day" name="keyword-chart" checked />
-              <label for="select-1day">1일</label>
-              <input type="radio" id="select-1week" name="keyword-chart" />
-              <label for="select-1week">1주</label>
-              <input type="radio" id="select-2weeks" name="keyword-chart" />
-              <label for="select-2weeks">2주</label>
-              <input type="radio" id="select-1month" name="keyword-chart" />
-              <label for="select-1month">1개월</label>
-            </div>
-            <div class="calendar">
-              <input type="text" id="from" name="" placeholder="비교일" autocomplete="off" />
-              <span>~</span>
-              <input type="text" id="to" name="" placeholder="기준일" autocomplete="off" />
-            </div>
-            <div class="search">
-              <button class="btn-main ico-search" type="button"></button>
-            </div>
-            <div class="filters">
-              <strong class="times" data-title="선택">0</strong>
-              <strong class="times" data-title="전체">0</strong>
-            </div>
-          </div>
-          <div class="buttons">
-            <button type="button" data-modal="deleteItem">선택삭제</button>
-            <div class="selectbox">
-              <select name="" id="">
-                <option value="filter-100">100개씩 보기</option>
-                <option value="filter-50">50개씩 보기</option>
-                <option value="filter-20">20개씩 보기</option>
-                <option value="filter-10">10개씩 보기</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </header>
-      <div class="list">
-        <ul class="row title">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
-              <label for="checkAll"></label>
-            </div>
-          </li>
-          <li class="ico-sort">그래프</li>
-          <li class="ico-sort">그룹명</li>
-          <li class="ico-sort">상품수</li>
-          <li class="ico-sort">비교일 판매량</li>
-          <li class="ico-sort">기준일 판매량</li>
-          <li class="ico-sort">
-            전일(D-1)
-            <div class="date d-1">2023-01-10 09:00</div>
-          </li>
-          <li class="ico-sort">
-            전주(D-7)
-            <div class="date d-7">2023-01-04 09:00</div>
-          </li>
-          <li class="ico-sort">
-            2주(D-14)
-            <div class="date d-14">2022-12-28 09:00</div>
-          </li>
-          <li class="ico-sort">
-            전월(D-30)
-            <div class="date d-30">2022-12-12 09:00</div>
-          </li>
-          <li class="ico-sort">가격 변경</li>
-          <li class="ico-sort">배송비 변경</li>
-          <li class="ico-sort">상품명 변경</li>
-          <li class="ico-sort">검색 실패</li>
-        </ul>
-        <div class="rows" data-empty="상품을 등록해주세요">
-          <ul class="row">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="check-01" name="select-item" type="checkbox" />
-                <label for="check-01"></label>
-              </div>
-            </li>
-            <li title="그래프">
-              <button class="ico-chart" type="button">
-              </button>
-            </li>
-            <li title="그룹명">
-              <button onclick="location.href='track_gmarket_details.html'">그룹_A</button>
-            </li>
-            <li title="상품수">
-              <div class="times">221</div>
-            </li>
-            <li title="비교일 판매량">
-              <div class="times">76,421</div>
-            </li>
-            <li title="기준일 판매량">
-              <div class="times">76,421</div>
-            </li>
-            <li title="전일(D-1)">
-              <div class="times">76,421</div>
-            </li>
-            <li title="전주(D-7)">
-              <div class="times">76,420</div>
-              <div class="tag up">1</div>
-            </li>
-            <li title="2주(D-14)">
-              <div class="times">76,417</div>
-              <div class="tag up">4</div>
-            </li>
-            <li title="전월(D-30)">
-              <div class="times">76,413</div>
-              <div class="tag up">8</div>
-            </li>
-            <li title="가격 변경">
-              <div class="times"></div>
-            </li>
-            <li title="배송비 변경">
-              <div class="times"></div>
-            </li>
-            <li title="상품명 변경">
-              <div class="times"></div>
-            </li>
-            <li title="검색 실패">
-              <div class="times">206</div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="check-02" name="select-item" type="checkbox" />
-                <label for="check-02"></label>
-              </div>
-            </li>
-            <li title="그래프">
-              <button class="ico-chart" type="button">
-              </button>
-            </li>
-            <li title="그룹명">
-              <button onclick="location.href='track_gmarket_details.html'">그룹_B</button>
-            </li>
-            <li title="상품수">
-              <div class="times">207</div>
-            </li>
-            <li title="비교일 판매량">
-              <div class="times">45,863</div>
-              <div class="tag up type-bg">2</div>
-            </li>
-            <li title="기준일 판매량">
-              <div class="times">45,865</div>
-            </li>
-            <li title="전일(D-1)">
-              <div class="times">45,863</div>
-              <div class="tag up">2</div>
-            </li>
-            <li title="전주(D-7)">
-              <div class="times">45,856</div>
-              <div class="tag up">9</div>
-            </li>
-            <li title="2주(D-14)">
-              <div class="times">45,850</div>
-              <div class="tag up">15</div>
-            </li>
-            <li title="전월(D-30)">
-              <div class="times">45,836</div>
-              <div class="tag up">29</div>
-            </li>
-            <li title="가격 변경">
-              <div class="times"></div>
-            </li>
-            <li title="배송비 변경">
-              <div class="times"></div>
-            </li>
-            <li title="상품명 변경">
-              <div class="times"></div>
-            </li>
-            <li title="검색 실패">
-              <div class="times">159</div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="check-03" name="select-item" type="checkbox" />
-                <label for="check-03"></label>
-              </div>
-            </li>
-            <li title="그래프">
-              <button class="ico-chart" type="button">
-              </button>
-            </li>
-            <li title="그룹명">
-              <button onclick="location.href='track_gmarket_details.html'">그룹_C</button>
-            </li>
-            <li title="상품수">
-              <div class="times">11</div>
-            </li>
-            <li title="비교일 판매량">
-              <div class="times">205,946</div>
-              <div class="tag up type-bg">41</div>
-            </li>
-            <li title="기준일 판매량">
-              <div class="times">205,987</div>
-            </li>
-            <li title="전일(D-1)">
-              <div class="times">205,946</div>
-              <div class="tag up">41</div>
-            </li>
-            <li title="전주(D-7)">
-              <div class="times">205,813</div>
-              <div class="tag up">174</div>
-            </li>
-            <li title="2주(D-14)">
-              <div class="times">205,620</div>
-              <div class="tag up">367</div>
-            </li>
-            <li title="전월(D-30)">
-              <div class="times">205,174</div>
-              <div class="tag up">813</div>
-            </li>
-            <li title="가격 변경">
-              <div class="times"></div>
-            </li>
-            <li title="배송비 변경">
-              <div class="times"></div>
-            </li>
-            <li title="상품명 변경">
-              <div class="times"></div>
-            </li>
-            <li title="검색 실패">
-              <div class="times">1</div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="check-04" name="select-item" type="checkbox" />
-                <label for="check-04"></label>
-              </div>
-            </li>
-            <li title="그래프">
-              <button class="ico-chart" type="button">
-              </button>
-            </li>
-            <li title="그룹명">
-              <button onclick="location.href='track_gmarket_details.html'">그룹_D</button>
-            </li>
-            <li title="상품수">
-              <div class="times">10</div>
-            </li>
-            <li title="비교일 판매량">
-              <div class="times">3,597</div>
-            </li>
-            <li title="기준일 판매량">
-              <div class="times">3,597</div>
-            </li>
-            <li title="전일(D-1)">
-              <div class="times">3,597</div>
-            </li>
-            <li title="전주(D-7)">
-              <div class="times">3,595</div>
-              <div class="tag up">3</div>
-            </li>
-            <li title="2주(D-14)">
-              <div class="times">3,589</div>
-              <div class="tag up">8</div>
-            </li>
-            <li title="전월(D-30)">
-              <div class="times">3,577</div>
-              <div class="tag up">20</div>
-            </li>
-            <li title="가격 변경">
-              <div class="times"></div>
-            </li>
-            <li title="배송비 변경">
-              <div class="times"></div>
-            </li>
-            <li title="상품명 변경">
-              <div class="times"></div>
-            </li>
-            <li title="검색 실패">
-              <div class="times">9</div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="check-04" name="select-item" type="checkbox" />
-                <label for="check-04"></label>
-              </div>
-            </li>
-            <li title="그래프">
-              <button class="ico-chart" type="button">
-              </button>
-            </li>
-            <li title="그룹명">
-              <button onclick="location.href='track_gmarket_details.html'">그룹_E</button>
-            </li>
-            <li title="상품수">
-              <div class="times">10</div>
-            </li>
-            <li title="비교일 판매량">
-              <div class="times">6,097</div>
-            </li>
-            <li title="기준일 판매량">
-              <div class="times">6,097</div>
-            </li>
-            <li title="전일(D-1)">
-              <div class="times">6,097</div>
-            </li>
-            <li title="전주(D-7)">
-              <div class="times">6,089</div>
-              <div class="tag up">8</div>
-            </li>
-            <li title="2주(D-14)">
-              <div class="times">6,085</div>
-              <div class="tag up">12</div>
-            </li>
-            <li title="전월(D-30)">
-              <div class="times">6,075</div>
-              <div class="tag up">22</div>
-            </li>
-            <li title="가격 변경">
-              <div class="times"></div>
-            </li>
-            <li title="배송비 변경">
-              <div class="times"></div>
-            </li>
-            <li title="상품명 변경">
-              <div class="times"></div>
-            </li>
-            <li title="검색 실패">
-              <div class="times">9</div>
-            </li>
-          </ul>
+        <div class="buttons">
+          <button class="btn-sub" type="button" data-modal="editGroup">그룹편집</button>
+          <button class="btn-sub" class="ico-download" type="button">엑셀다운</button>
+          <button class="btn-main" type="button" data-modal="createItem">상품등록</button>
         </div>
       </div>
-      <footer class="section-footer">
-        <div class="pagination">
-          <button onclick="" type="button">
-            <div class="arrow double left"></div>
-          </button>
-          <button onclick="" type="button">
-            <div class="arrow left"></div>
-          </button>
-          <div class="pages">
-            <button class="is-active" onclick="" type="button">1</button>
-            <button onclick="" type="button">2</button>
-            <button onclick="" type="button">3</button>
-            <button onclick="" type="button">4</button>
-            <button onclick="" type="button">5</button>
+      <div class="filters">
+        <div>
+          <div class="selector">
+            <input type="radio" id="select-1day" name="keyword-chart" checked />
+            <label for="select-1day">1일</label>
+            <input type="radio" id="select-1week" name="keyword-chart" />
+            <label for="select-1week">1주</label>
+            <input type="radio" id="select-2weeks" name="keyword-chart" />
+            <label for="select-2weeks">2주</label>
+            <input type="radio" id="select-1month" name="keyword-chart" />
+            <label for="select-1month">1개월</label>
           </div>
-          <button onclick="" type="button">
-            <div class="arrow right"></div>
-          </button>
-          <button onclick="" type="button">
-            <div class="arrow double right"></div>
-          </button>
-        </div>
-      </footer>
-    </section>
-    <div class="sections">
-      <section class="section-chart">
-        <header>
-          <h3>그룹별 판매량 변동</h3>
-        </header>
-        <div class="keyword-chart">
-          <div class="chart-container" data-empty="데이터 갱신 전입니다.">
-            <div id="gmarketChart" class="chart"></div>
+          <div class="calendar">
+            <input type="text" id="from" name="" placeholder="비교일" autocomplete="off" />
+            <span>~</span>
+            <input type="text" id="to" name="" placeholder="기준일" autocomplete="off" />
+          </div>
+          <div class="search">
+            <button class="btn-main ico-search" type="button"></button>
+          </div>
+          <div class="filters">
+            <strong class="times" data-title="선택">0</strong>
+            <strong class="times" data-title="전체">0</strong>
           </div>
         </div>
-      </section>
-      <section class="section-chart">
-        <header>
-          <h3>그룹별 누적 판매량</h3>
-        </header>
-        <div class="keyword-chart">
-          <div class="chart-container" data-empty="데이터 갱신 전입니다.">
-            <div id="gmarketChart2" class="chart"></div>
+        <div class="buttons">
+          <button type="button" data-modal="deleteItem">선택삭제</button>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="filter-100">100개씩 보기</option>
+              <option value="filter-50">50개씩 보기</option>
+              <option value="filter-20">20개씩 보기</option>
+              <option value="filter-10">10개씩 보기</option>
+            </select>
           </div>
         </div>
-      </section>
+      </div>
+    </header>
+    <div class="list">
+      <ul class="row title">
+        <li class="col-check">
+          <div class="checkbox">
+            <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
+            <label for="checkAll"></label>
+          </div>
+        </li>
+        <li class="ico-sort">그래프</li>
+        <li class="ico-sort">그룹명</li>
+        <li class="ico-sort">상품수</li>
+        <li class="ico-sort">비교일 판매량</li>
+        <li class="ico-sort">기준일 판매량</li>
+        <li class="ico-sort">
+          전일(D-1)
+          <div class="date d-1">2023-01-10 09:00</div>
+        </li>
+        <li class="ico-sort">
+          전주(D-7)
+          <div class="date d-7">2023-01-04 09:00</div>
+        </li>
+        <li class="ico-sort">
+          2주(D-14)
+          <div class="date d-14">2022-12-28 09:00</div>
+        </li>
+        <li class="ico-sort">
+          전월(D-30)
+          <div class="date d-30">2022-12-12 09:00</div>
+        </li>
+        <li class="ico-sort">가격 변경</li>
+        <li class="ico-sort">배송비 변경</li>
+        <li class="ico-sort">상품명 변경</li>
+        <li class="ico-sort">검색 실패</li>
+      </ul>
+      <div class="rows" data-empty="상품을 등록해주세요">
+        <ul class="row">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="check-01" name="select-item" type="checkbox" />
+              <label for="check-01"></label>
+            </div>
+          </li>
+          <li title="그래프">
+            <button class="ico-chart" type="button">
+            </button>
+          </li>
+          <li title="그룹명">
+            <button onclick="location.href='track_gmarket_details.html'">그룹_A</button>
+          </li>
+          <li title="상품수">
+            <div class="times">221</div>
+          </li>
+          <li title="비교일 판매량">
+            <div class="times">76,421</div>
+          </li>
+          <li title="기준일 판매량">
+            <div class="times">76,421</div>
+          </li>
+          <li title="전일(D-1)">
+            <div class="times">76,421</div>
+          </li>
+          <li title="전주(D-7)">
+            <div class="times">76,420</div>
+            <div class="tag up">1</div>
+          </li>
+          <li title="2주(D-14)">
+            <div class="times">76,417</div>
+            <div class="tag up">4</div>
+          </li>
+          <li title="전월(D-30)">
+            <div class="times">76,413</div>
+            <div class="tag up">8</div>
+          </li>
+          <li title="가격 변경">
+            <div class="times"></div>
+          </li>
+          <li title="배송비 변경">
+            <div class="times"></div>
+          </li>
+          <li title="상품명 변경">
+            <div class="times"></div>
+          </li>
+          <li title="검색 실패">
+            <div class="times">206</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="check-02" name="select-item" type="checkbox" />
+              <label for="check-02"></label>
+            </div>
+          </li>
+          <li title="그래프">
+            <button class="ico-chart" type="button">
+            </button>
+          </li>
+          <li title="그룹명">
+            <button onclick="location.href='track_gmarket_details.html'">그룹_B</button>
+          </li>
+          <li title="상품수">
+            <div class="times">207</div>
+          </li>
+          <li title="비교일 판매량">
+            <div class="times">45,863</div>
+            <div class="tag up type-bg">2</div>
+          </li>
+          <li title="기준일 판매량">
+            <div class="times">45,865</div>
+          </li>
+          <li title="전일(D-1)">
+            <div class="times">45,863</div>
+            <div class="tag up">2</div>
+          </li>
+          <li title="전주(D-7)">
+            <div class="times">45,856</div>
+            <div class="tag up">9</div>
+          </li>
+          <li title="2주(D-14)">
+            <div class="times">45,850</div>
+            <div class="tag up">15</div>
+          </li>
+          <li title="전월(D-30)">
+            <div class="times">45,836</div>
+            <div class="tag up">29</div>
+          </li>
+          <li title="가격 변경">
+            <div class="times"></div>
+          </li>
+          <li title="배송비 변경">
+            <div class="times"></div>
+          </li>
+          <li title="상품명 변경">
+            <div class="times"></div>
+          </li>
+          <li title="검색 실패">
+            <div class="times">159</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="check-03" name="select-item" type="checkbox" />
+              <label for="check-03"></label>
+            </div>
+          </li>
+          <li title="그래프">
+            <button class="ico-chart" type="button">
+            </button>
+          </li>
+          <li title="그룹명">
+            <button onclick="location.href='track_gmarket_details.html'">그룹_C</button>
+          </li>
+          <li title="상품수">
+            <div class="times">11</div>
+          </li>
+          <li title="비교일 판매량">
+            <div class="times">205,946</div>
+            <div class="tag up type-bg">41</div>
+          </li>
+          <li title="기준일 판매량">
+            <div class="times">205,987</div>
+          </li>
+          <li title="전일(D-1)">
+            <div class="times">205,946</div>
+            <div class="tag up">41</div>
+          </li>
+          <li title="전주(D-7)">
+            <div class="times">205,813</div>
+            <div class="tag up">174</div>
+          </li>
+          <li title="2주(D-14)">
+            <div class="times">205,620</div>
+            <div class="tag up">367</div>
+          </li>
+          <li title="전월(D-30)">
+            <div class="times">205,174</div>
+            <div class="tag up">813</div>
+          </li>
+          <li title="가격 변경">
+            <div class="times"></div>
+          </li>
+          <li title="배송비 변경">
+            <div class="times"></div>
+          </li>
+          <li title="상품명 변경">
+            <div class="times"></div>
+          </li>
+          <li title="검색 실패">
+            <div class="times">1</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="check-04" name="select-item" type="checkbox" />
+              <label for="check-04"></label>
+            </div>
+          </li>
+          <li title="그래프">
+            <button class="ico-chart" type="button">
+            </button>
+          </li>
+          <li title="그룹명">
+            <button onclick="location.href='track_gmarket_details.html'">그룹_D</button>
+          </li>
+          <li title="상품수">
+            <div class="times">10</div>
+          </li>
+          <li title="비교일 판매량">
+            <div class="times">3,597</div>
+          </li>
+          <li title="기준일 판매량">
+            <div class="times">3,597</div>
+          </li>
+          <li title="전일(D-1)">
+            <div class="times">3,597</div>
+          </li>
+          <li title="전주(D-7)">
+            <div class="times">3,595</div>
+            <div class="tag up">3</div>
+          </li>
+          <li title="2주(D-14)">
+            <div class="times">3,589</div>
+            <div class="tag up">8</div>
+          </li>
+          <li title="전월(D-30)">
+            <div class="times">3,577</div>
+            <div class="tag up">20</div>
+          </li>
+          <li title="가격 변경">
+            <div class="times"></div>
+          </li>
+          <li title="배송비 변경">
+            <div class="times"></div>
+          </li>
+          <li title="상품명 변경">
+            <div class="times"></div>
+          </li>
+          <li title="검색 실패">
+            <div class="times">9</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="check-04" name="select-item" type="checkbox" />
+              <label for="check-04"></label>
+            </div>
+          </li>
+          <li title="그래프">
+            <button class="ico-chart" type="button">
+            </button>
+          </li>
+          <li title="그룹명">
+            <button onclick="location.href='track_gmarket_details.html'">그룹_E</button>
+          </li>
+          <li title="상품수">
+            <div class="times">10</div>
+          </li>
+          <li title="비교일 판매량">
+            <div class="times">6,097</div>
+          </li>
+          <li title="기준일 판매량">
+            <div class="times">6,097</div>
+          </li>
+          <li title="전일(D-1)">
+            <div class="times">6,097</div>
+          </li>
+          <li title="전주(D-7)">
+            <div class="times">6,089</div>
+            <div class="tag up">8</div>
+          </li>
+          <li title="2주(D-14)">
+            <div class="times">6,085</div>
+            <div class="tag up">12</div>
+          </li>
+          <li title="전월(D-30)">
+            <div class="times">6,075</div>
+            <div class="tag up">22</div>
+          </li>
+          <li title="가격 변경">
+            <div class="times"></div>
+          </li>
+          <li title="배송비 변경">
+            <div class="times"></div>
+          </li>
+          <li title="상품명 변경">
+            <div class="times"></div>
+          </li>
+          <li title="검색 실패">
+            <div class="times">9</div>
+          </li>
+        </ul>
+      </div>
     </div>
+    <footer class="section-footer">
+      <div class="pagination">
+        <button onclick="" type="button">
+          <div class="arrow double left"></div>
+        </button>
+        <button onclick="" type="button">
+          <div class="arrow left"></div>
+        </button>
+        <div class="pages">
+          <button class="is-active" onclick="" type="button">1</button>
+          <button onclick="" type="button">2</button>
+          <button onclick="" type="button">3</button>
+          <button onclick="" type="button">4</button>
+          <button onclick="" type="button">5</button>
+        </div>
+        <button onclick="" type="button">
+          <div class="arrow right"></div>
+        </button>
+        <button onclick="" type="button">
+          <div class="arrow double right"></div>
+        </button>
+      </div>
+    </footer>
+  </section>
+  <div class="sections">
+    <section class="section-chart">
+      <header>
+        <h3>그룹별 판매량 변동</h3>
+      </header>
+      <div class="keyword-chart">
+        <div class="chart-container" data-empty="데이터 갱신 전입니다.">
+          <div id="gmarketChart" class="chart"></div>
+        </div>
+      </div>
+    </section>
+    <section class="section-chart">
+      <header>
+        <h3>그룹별 누적 판매량</h3>
+      </header>
+      <div class="keyword-chart">
+        <div class="chart-container" data-empty="데이터 갱신 전입니다.">
+          <div id="gmarketChart2" class="chart"></div>
+        </div>
+      </div>
+    </section>
   </div>
 </main>
 

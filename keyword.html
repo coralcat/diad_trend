@@ -206,410 +206,408 @@
   </nav>
 </div>
     </div>
-    <div class="section-main">
+    <div class="inputs">
       <div class="search">
         <input type="search" placeholder=" 조회할 키워드를 입력해주세요." />
         <button class="btn-sub ico-search" type="button" data-modal="searchKeyword"></button>
       </div>
     </div>
   </header>
-  <div class="wrapper">
-    <section class="section-list">
-      <header>
-        <ul class="tabs">
-          <li class="tab" data-tab="keyword-main">
-            최근 조회 키워드
+  <section class="section-list">
+    <header>
+      <ul class="tabs">
+        <li class="tab" data-tab="keyword-main">
+          최근 조회 키워드
+        </li>
+        <li class="tab" data-tab="keyword-main">
+          즐겨찾기
+        </li>
+      </ul>
+    </header>
+    <div class="tab-content" data-tab="keyword-main" data-empty="조회 키워드가 없습니다.">
+      <div class="list">
+        <ul class="row title">
+          <li class="col-2x">즐겨찾기</li>
+          <li>키워드</li>
+          <li>월간 검색</li>
+          <li>등록 상품</li>
+          <li>컨텐츠</li>
+          <li>최근 조회일시</li>
+          <li class="col-2x">삭제</li>
+        </ul>
+        <ul class="row">
+          <li class="col-2x">
+            <div class="ico-star toggle is-active"></div>
           </li>
-          <li class="tab" data-tab="keyword-main">
-            즐겨찾기
+          <li>
+            <div class="keyword" onclick="location.href='keyword_details.html'">커피원두</div>
+          </li>
+          <li>
+            <div class="times">41,520</div>
+          </li>
+          <li>
+            <div class="times">1,150,536</div>
+          </li>
+          <li>
+            <div class="times">3,293,749</div>
+          </li>
+          <li>2022-03-01 00:00</li>
+          <li class="col-2x">
+            <button class="btn-grayscale ico-delete"></button>
           </li>
         </ul>
-      </header>
-      <div class="tab-content" data-tab="keyword-main" data-empty="조회 키워드가 없습니다.">
-        <div class="list">
-          <ul class="row title">
-            <li class="col-2x">즐겨찾기</li>
-            <li>키워드</li>
-            <li>월간 검색</li>
-            <li>등록 상품</li>
-            <li>컨텐츠</li>
-            <li>최근 조회일시</li>
-            <li class="col-2x">삭제</li>
-          </ul>
-          <ul class="row">
-            <li class="col-2x">
-              <div class="ico-star toggle is-active"></div>
-            </li>
-            <li>
-              <div class="keyword" onclick="location.href='keyword_details.html'">커피원두</div>
-            </li>
-            <li>
-              <div class="times">41,520</div>
-            </li>
-            <li>
-              <div class="times">1,150,536</div>
-            </li>
-            <li>
-              <div class="times">3,293,749</div>
-            </li>
-            <li>2022-03-01 00:00</li>
-            <li class="col-2x">
-              <button class="btn-grayscale ico-delete"></button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-2x">
-              <div class="ico-star toggle"></div>
-            </li>
-            <li>
-              <div class="keyword">나이키</div>
-            </li>
-            <li>
-              <div class="times">3,015,300</div>
-            </li>
-            <li>
-              <div class="times">4,718,162</div>
-            </li>
-            <li>
-              <div class="times">99,999</div>
-            </li>
-            <li>2022-02-28 16:30</li>
-            <li class="col-2x">
-              <button class="btn-grayscale ico-delete"></button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-2x">
-              <div class="ico-star toggle is-active"></div>
-            </li>
-            <li>
-              <div class="keyword">원두커피</div>
-            </li>
-            <li>
-              <div class="times">27,100</div>
-            </li>
-            <li>
-              <div class="times">787,265</div>
-            </li>
-            <li>
-              <div class="times">99,999</div>
-            </li>
-            <li>2022-02-28 09:12</li>
-            <li class="col-2x">
-              <button class="btn-grayscale ico-delete"></button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-2x">
-              <div class="ico-star toggle is-active"></div>
-            </li>
-            <li>
-              <div class="keyword">커피머신</div>
-            </li>
-            <li>
-              <div class="times">217,600</div>
-            </li>
-            <li>
-              <div class="times">1,112,202</div>
-            </li>
-            <li>
-              <div class="times">99,999</div>
-            </li>
-            <li>2022-02-26 23:00</li>
-            <li class="col-2x">
-              <button class="btn-grayscale ico-delete"></button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-2x">
-              <div class="ico-star toggle"></div>
-            </li>
-            <li>
-              <div class="keyword">원두</div>
-            </li>
-            <li>
-              <div class="times">37,570</div>
-            </li>
-            <li>
-              <div class="times">51,259</div>
-            </li>
-            <li>
-              <div class="times">99,999</div>
-            </li>
-            <li>2022-02-26 15:00</li>
-            <li class="col-2x">
-              <button class="btn-grayscale ico-delete"></button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-2x">
-              <div class="ico-star toggle"></div>
-            </li>
-            <li>
-              <div class="keyword">나이키</div>
-            </li>
-            <li>
-              <div class="times">3,015,300</div>
-            </li>
-            <li>
-              <div class="times">4,718,162</div>
-            </li>
-            <li>
-              <div class="times">99,999</div>
-            </li>
-            <li>2022-02-28 16:30</li>
-            <li class="col-2x">
-              <button class="btn-grayscale ico-delete"></button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-2x">
-              <div class="ico-star toggle is-active"></div>
-            </li>
-            <li>
-              <div class="keyword">원두커피</div>
-            </li>
-            <li>
-              <div class="times">27,100</div>
-            </li>
-            <li>
-              <div class="times">787,265</div>
-            </li>
-            <li>
-              <div class="times">99,999</div>
-            </li>
-            <li>2022-02-28 09:12</li>
-            <li class="col-2x">
-              <button class="btn-grayscale ico-delete"></button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-2x">
-              <div class="ico-star toggle is-active"></div>
-            </li>
-            <li>
-              <div class="keyword">커피머신</div>
-            </li>
-            <li>
-              <div class="times">217,600</div>
-            </li>
-            <li>
-              <div class="times">1,112,202</div>
-            </li>
-            <li>
-              <div class="times">99,999</div>
-            </li>
-            <li>2022-02-26 23:00</li>
-            <li class="col-2x">
-              <button class="btn-grayscale ico-delete"></button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-2x">
-              <div class="ico-star toggle"></div>
-            </li>
-            <li>
-              <div class="keyword">원두</div>
-            </li>
-            <li>
-              <div class="times">37,570</div>
-            </li>
-            <li>
-              <div class="times">51,259</div>
-            </li>
-            <li>
-              <div class="times">99,999</div>
-            </li>
-            <li>2022-02-26 15:00</li>
-            <li class="col-2x">
-              <button class="btn-grayscale ico-delete"></button>
-            </li>
-          </ul>
-        </div>
+        <ul class="row">
+          <li class="col-2x">
+            <div class="ico-star toggle"></div>
+          </li>
+          <li>
+            <div class="keyword">나이키</div>
+          </li>
+          <li>
+            <div class="times">3,015,300</div>
+          </li>
+          <li>
+            <div class="times">4,718,162</div>
+          </li>
+          <li>
+            <div class="times">99,999</div>
+          </li>
+          <li>2022-02-28 16:30</li>
+          <li class="col-2x">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-2x">
+            <div class="ico-star toggle is-active"></div>
+          </li>
+          <li>
+            <div class="keyword">원두커피</div>
+          </li>
+          <li>
+            <div class="times">27,100</div>
+          </li>
+          <li>
+            <div class="times">787,265</div>
+          </li>
+          <li>
+            <div class="times">99,999</div>
+          </li>
+          <li>2022-02-28 09:12</li>
+          <li class="col-2x">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-2x">
+            <div class="ico-star toggle is-active"></div>
+          </li>
+          <li>
+            <div class="keyword">커피머신</div>
+          </li>
+          <li>
+            <div class="times">217,600</div>
+          </li>
+          <li>
+            <div class="times">1,112,202</div>
+          </li>
+          <li>
+            <div class="times">99,999</div>
+          </li>
+          <li>2022-02-26 23:00</li>
+          <li class="col-2x">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-2x">
+            <div class="ico-star toggle"></div>
+          </li>
+          <li>
+            <div class="keyword">원두</div>
+          </li>
+          <li>
+            <div class="times">37,570</div>
+          </li>
+          <li>
+            <div class="times">51,259</div>
+          </li>
+          <li>
+            <div class="times">99,999</div>
+          </li>
+          <li>2022-02-26 15:00</li>
+          <li class="col-2x">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-2x">
+            <div class="ico-star toggle"></div>
+          </li>
+          <li>
+            <div class="keyword">나이키</div>
+          </li>
+          <li>
+            <div class="times">3,015,300</div>
+          </li>
+          <li>
+            <div class="times">4,718,162</div>
+          </li>
+          <li>
+            <div class="times">99,999</div>
+          </li>
+          <li>2022-02-28 16:30</li>
+          <li class="col-2x">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-2x">
+            <div class="ico-star toggle is-active"></div>
+          </li>
+          <li>
+            <div class="keyword">원두커피</div>
+          </li>
+          <li>
+            <div class="times">27,100</div>
+          </li>
+          <li>
+            <div class="times">787,265</div>
+          </li>
+          <li>
+            <div class="times">99,999</div>
+          </li>
+          <li>2022-02-28 09:12</li>
+          <li class="col-2x">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-2x">
+            <div class="ico-star toggle is-active"></div>
+          </li>
+          <li>
+            <div class="keyword">커피머신</div>
+          </li>
+          <li>
+            <div class="times">217,600</div>
+          </li>
+          <li>
+            <div class="times">1,112,202</div>
+          </li>
+          <li>
+            <div class="times">99,999</div>
+          </li>
+          <li>2022-02-26 23:00</li>
+          <li class="col-2x">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-2x">
+            <div class="ico-star toggle"></div>
+          </li>
+          <li>
+            <div class="keyword">원두</div>
+          </li>
+          <li>
+            <div class="times">37,570</div>
+          </li>
+          <li>
+            <div class="times">51,259</div>
+          </li>
+          <li>
+            <div class="times">99,999</div>
+          </li>
+          <li>2022-02-26 15:00</li>
+          <li class="col-2x">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
       </div>
-      <div class="tab-content" data-tab="keyword-main" data-empty="즐겨찾기 키워드가 없습니다.">
-        <div class="list">
-          <ul class="row title">
-            <li class="col-2x">즐겨찾기</li>
-            <li>키워드</li>
-            <li>월간 검색</li>
-            <li>등록 상품</li>
-            <li>컨텐츠</li>
-            <li>최근 조회일시</li>
-            <li class="col-2x">삭제</li>
-          </ul>
-          <ul class="row">
-            <li class="col-2x">
-              <div class="ico-star toggle is-active"></div>
-            </li>
-            <li>
-              <div class="keyword">커피원두</div>
-            </li>
-            <li>
-              <div class="times">27,420</div>
-            </li>
-            <li>
-              <div class="times">888,376</div>
-            </li>
-            <li>
-              <div class="times">10,000</div>
-            </li>
-            <li>2022-03-01 00:00</li>
-            <li class="col-2x">
-              <button class="btn-grayscale ico-delete"></button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-2x">
-              <div class="ico-star toggle is-active"></div>
-            </li>
-            <li>
-              <div class="keyword">나이키</div>
-            </li>
-            <li>
-              <div class="times">3,015,300</div>
-            </li>
-            <li>
-              <div class="times">4,718,162</div>
-            </li>
-            <li>
-              <div class="times">99,999</div>
-            </li>
-            <li>2022-02-28 16:30</li>
-            <li class="col-2x">
-              <button class="btn-grayscale ico-delete"></button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-2x">
-              <div class="ico-star toggle is-active"></div>
-            </li>
-            <li>
-              <div class="keyword">원두커피</div>
-            </li>
-            <li>
-              <div class="times">27,100</div>
-            </li>
-            <li>
-              <div class="times">787,265</div>
-            </li>
-            <li>
-              <div class="times">99,999</div>
-            </li>
-            <li>2022-02-28 09:12</li>
-            <li class="col-2x">
-              <button class="btn-grayscale ico-delete"></button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-2x">
-              <div class="ico-star toggle is-active"></div>
-            </li>
-            <li>
-              <div class="keyword">커피머신</div>
-            </li>
-            <li>
-              <div class="times">217,600</div>
-            </li>
-            <li>
-              <div class="times">1,112,202</div>
-            </li>
-            <li>
-              <div class="times">99,999</div>
-            </li>
-            <li>2022-02-26 23:00</li>
-            <li class="col-2x">
-              <button class="btn-grayscale ico-delete"></button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-2x">
-              <div class="ico-star toggle is-active"></div>
-            </li>
-            <li>
-              <div class="keyword">원두</div>
-            </li>
-            <li>
-              <div class="times">37,570</div>
-            </li>
-            <li>
-              <div class="times">51,259</div>
-            </li>
-            <li>
-              <div class="times">99,999</div>
-            </li>
-            <li>2022-02-26 15:00</li>
-            <li class="col-2x">
-              <button class="btn-grayscale ico-delete"></button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-2x">
-              <div class="ico-star toggle is-active"></div>
-            </li>
-            <li>
-              <div class="keyword">커피원두</div>
-            </li>
-            <li>
-              <div class="times">27,420</div>
-            </li>
-            <li>
-              <div class="times">888,376</div>
-            </li>
-            <li>
-              <div class="times">10,000</div>
-            </li>
-            <li>2022-03-01 00:00</li>
-            <li class="col-2x">
-              <button class="btn-grayscale ico-delete"></button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-2x">
-              <div class="ico-star toggle is-active"></div>
-            </li>
-            <li>
-              <div class="keyword">나이키</div>
-            </li>
-            <li>
-              <div class="times">3,015,300</div>
-            </li>
-            <li>
-              <div class="times">4,718,162</div>
-            </li>
-            <li>
-              <div class="times">99,999</div>
-            </li>
-            <li>2022-02-28 16:30</li>
-            <li class="col-2x">
-              <button class="btn-grayscale ico-delete"></button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-2x">
-              <div class="ico-star toggle is-active"></div>
-            </li>
-            <li>
-              <div class="keyword">원두커피</div>
-            </li>
-            <li>
-              <div class="times">27,100</div>
-            </li>
-            <li>
-              <div class="times">787,265</div>
-            </li>
-            <li>
-              <div class="times">99,999</div>
-            </li>
-            <li>2022-02-28 09:12</li>
-            <li class="col-2x">
-              <button class="btn-grayscale ico-delete"></button>
-            </li>
-          </ul>
-        </div>
+    </div>
+    <div class="tab-content" data-tab="keyword-main" data-empty="즐겨찾기 키워드가 없습니다.">
+      <div class="list">
+        <ul class="row title">
+          <li class="col-2x">즐겨찾기</li>
+          <li>키워드</li>
+          <li>월간 검색</li>
+          <li>등록 상품</li>
+          <li>컨텐츠</li>
+          <li>최근 조회일시</li>
+          <li class="col-2x">삭제</li>
+        </ul>
+        <ul class="row">
+          <li class="col-2x">
+            <div class="ico-star toggle is-active"></div>
+          </li>
+          <li>
+            <div class="keyword">커피원두</div>
+          </li>
+          <li>
+            <div class="times">27,420</div>
+          </li>
+          <li>
+            <div class="times">888,376</div>
+          </li>
+          <li>
+            <div class="times">10,000</div>
+          </li>
+          <li>2022-03-01 00:00</li>
+          <li class="col-2x">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-2x">
+            <div class="ico-star toggle is-active"></div>
+          </li>
+          <li>
+            <div class="keyword">나이키</div>
+          </li>
+          <li>
+            <div class="times">3,015,300</div>
+          </li>
+          <li>
+            <div class="times">4,718,162</div>
+          </li>
+          <li>
+            <div class="times">99,999</div>
+          </li>
+          <li>2022-02-28 16:30</li>
+          <li class="col-2x">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-2x">
+            <div class="ico-star toggle is-active"></div>
+          </li>
+          <li>
+            <div class="keyword">원두커피</div>
+          </li>
+          <li>
+            <div class="times">27,100</div>
+          </li>
+          <li>
+            <div class="times">787,265</div>
+          </li>
+          <li>
+            <div class="times">99,999</div>
+          </li>
+          <li>2022-02-28 09:12</li>
+          <li class="col-2x">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-2x">
+            <div class="ico-star toggle is-active"></div>
+          </li>
+          <li>
+            <div class="keyword">커피머신</div>
+          </li>
+          <li>
+            <div class="times">217,600</div>
+          </li>
+          <li>
+            <div class="times">1,112,202</div>
+          </li>
+          <li>
+            <div class="times">99,999</div>
+          </li>
+          <li>2022-02-26 23:00</li>
+          <li class="col-2x">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-2x">
+            <div class="ico-star toggle is-active"></div>
+          </li>
+          <li>
+            <div class="keyword">원두</div>
+          </li>
+          <li>
+            <div class="times">37,570</div>
+          </li>
+          <li>
+            <div class="times">51,259</div>
+          </li>
+          <li>
+            <div class="times">99,999</div>
+          </li>
+          <li>2022-02-26 15:00</li>
+          <li class="col-2x">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-2x">
+            <div class="ico-star toggle is-active"></div>
+          </li>
+          <li>
+            <div class="keyword">커피원두</div>
+          </li>
+          <li>
+            <div class="times">27,420</div>
+          </li>
+          <li>
+            <div class="times">888,376</div>
+          </li>
+          <li>
+            <div class="times">10,000</div>
+          </li>
+          <li>2022-03-01 00:00</li>
+          <li class="col-2x">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-2x">
+            <div class="ico-star toggle is-active"></div>
+          </li>
+          <li>
+            <div class="keyword">나이키</div>
+          </li>
+          <li>
+            <div class="times">3,015,300</div>
+          </li>
+          <li>
+            <div class="times">4,718,162</div>
+          </li>
+          <li>
+            <div class="times">99,999</div>
+          </li>
+          <li>2022-02-28 16:30</li>
+          <li class="col-2x">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-2x">
+            <div class="ico-star toggle is-active"></div>
+          </li>
+          <li>
+            <div class="keyword">원두커피</div>
+          </li>
+          <li>
+            <div class="times">27,100</div>
+          </li>
+          <li>
+            <div class="times">787,265</div>
+          </li>
+          <li>
+            <div class="times">99,999</div>
+          </li>
+          <li>2022-02-28 09:12</li>
+          <li class="col-2x">
+            <button class="btn-grayscale ico-delete"></button>
+          </li>
+        </ul>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </main>
 
   </div>
