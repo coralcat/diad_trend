@@ -1003,9 +1003,6 @@
       <li data-tab="sub-menu">컨텐츠</li>
       <li data-tab="sub-menu">쇼핑</li>
     </ul>
-  </header>
-  <div class="wrapper">
-
     <section class="section-main">
       <div class="information">
         <i class="ico-star toggle is-active"></i>
@@ -1065,373 +1062,2058 @@
         </ul>
       </div>
     </section>
-    <div class="tab-content content-keyword" data-tab="sub-menu">
-      <section class="section-chart">
-        <h3>키워드 한눈에 보기</h3>
-        <div class="section-content">
-          <fieldset>
-            <legend>
-              검색
-              <div class="tooltip">
-                <div class="tooltip-content">
-                  <dl>
-                    <dd>
-                      네이버와 구글 매체의 검색 데이터를 제공합니다.
-                    </dd>
-                    <dd>
-                      월간 데이터의 기준은 네이버는 최근 30일, 구글은 전월 또는 전전월의 데이터입니다.
-                    </dd>
-                  </dl>
-                </div>
+  </header>
+  <div class="tab-content content-keyword" data-tab="sub-menu">
+    <section class="section-chart">
+      <h2>키워드 한눈에 보기</h2>
+      <div class="section-content">
+        <fieldset>
+          <legend>
+            검색
+            <div class="tooltip">
+              <div class="tooltip-content">
+                <dl>
+                  <dd>
+                    네이버와 구글 매체의 검색 데이터를 제공합니다.
+                  </dd>
+                  <dd>
+                    월간 데이터의 기준은 네이버는 최근 30일, 구글은 전월 또는 전전월의 데이터입니다.
+                  </dd>
+                </dl>
               </div>
-            </legend>
-            <div class="report">
-              <div id="searchChart" class="chart"></div>
-              <fieldset>
-                <legend>네이버</legend>
-                <div class="summary">
-                  <ul>
-                    <li>
-                      <div class="title">
-                        PC
-                      </div>
-                      <ul>
-                        <li>
-                          <div>
-                            월간 검색수
-                            <div class="tooltip">
-                              <div class="tooltip-content">
-                                <dl>
-                                  <dd>최근 한 달간 네이버를 이용한 사용자가 PC에서 해당 키워드를 검색한 횟수입니다.
-                                  </dd>
-                                </dl>
-                              </div>
-                            </div>
-                          </div>
-                          <strong class="times">7,320</strong>
-                        </li>
-                        <li>
-                          <div>월 평균 클릭수</div>
-                          <strong class="times">39.5</strong>
-                        </li>
-                        <li>
-                          <div>월 평균 클릭률</div>
-                          <strong class="percent">0.56</strong>
-                        </li>
-                        <li>
-                          <div>경쟁정도</div>
-                          <strong>높음</strong>
-                        </li>
-                        <li>
-                          <div>월 평균 광고노출 (PC)</div>
-                          <strong class="times">15</strong>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <div class="title">
-                        모바일
-                      </div>
-                      <ul>
-                        <li>
-                          <div>
-                            월간 검색수
-                            <div class="tooltip">
-                              <div class="tooltip-content">
-                                <dl>
-                                  <dd>최근 한 달간 네이버를 이용한 사용자가 모바일에서 해당 키워드를 검색한 횟수입니다.
-                                  </dd>
-                                </dl>
-                              </div>
-                            </div>
-                          </div>
-                          <strong class="times">32,300</strong>
-                        </li>
-                        <li>
-                          <div>월 평균 클릭수</div>
-                          <strong class="times">353.6</strong>
-                        </li>
-                        <li>
-                          <div>월 평균 클릭률</div>
-                          <strong class="percent">1.17</strong>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </fieldset>
-              <fieldset>
-                <legend>구글</legend>
-                <div class="summary">
-                  <ul>
-                    <li>
-                      <div>
-                        월간 검색수
-                        <div class="tooltip">
-                          <div class="tooltip-content">
-                            <dl>
-                              <dd>
-                                최근 한 달간 구글을 이용한 사용자가 해당 키워드를 검색한 대략적인 횟수입니다.
-                              </dd>
-                            </dl>
-                          </div>
-                        </div>
-                      </div>
-                      <strong class="times">1,900</strong>
-                    </li>
-                    <li>
-                      <div>
-                        월간 평균 검색량
-                        <div class="tooltip">
-                          <div class="tooltip-content">
-                            <dl>
-                              <dd>
-                                월간 평균 검색량은 지난 12개월 동안 Google을 기준으로, 조회한 키워드와 유사 검색어를 검색한 평균 횟수입니다.
-                              </dd>
-                              <dd>
-                                이 정보를 이용해 해당 키워드가 연중 시기별로 얼마나 자주 검색되는지 알아볼 수 있습니다.
-                              </dd>
-                            </dl>
-                          </div>
-                        </div>
-                      </div>
-                      <strong class="times">1,900</strong>
-                      <div id="searchChart2" class="chart" style="display: block; height: 150px; min-height: auto">
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        경쟁정도
-                        <div class="tooltip">
-                          <div class="tooltip-content">
-                            <dl>
-                              <dd>특정 키워드의 광고 게재 위치가 얼마나 경쟁이 치열한지를 보여 줍니다.</dd>
-                              <dd>
-                                경쟁 수준은 Google에서 검색되는 전체 키워드에 입찰하는 광고주 수에 따라 결정됩니다.
-                              </dd>
-                              <dd>데이터가 충분하지 않으면 대시(-)가 표시됩니다.</dd>
-                            </dl>
-                          </div>
-                        </div>
-                      </div>
-                      <strong>높음</strong>
-                    </li>
-                    <li>
-                      <div>
-                        페이지 상단 입찰가<br>
-                        하위 (20 백분위수)
-                        <div class="tooltip">
-                          <div class="tooltip-content">
-                            <dl>
-                              <dd>
-                                광고주가 키워드에 대해 지불했던 페이지 상단 입찰가 중에서 낮은 범위(20 백분위수)에 해당하는 입찰가를 나타냅니다.
-                              </dd>
-                              <dd>키워드의 평균 CPC는 다를 수 있습니다.</dd>
-                            </dl>
-                          </div>
-                        </div>
-                      </div>
-                      <strong class="price">517</strong>
-                    </li>
-                    <li>
-                      <div>
-                        페이지 상단 입찰가<br>
-                        상위 (80 백분위수)
-                        <div class="tooltip">
-                          <div class="tooltip-content">
-                            <dl>
-                              <dd>
-                                광고주가 키워드에 대해 지불했던 페이지 상단 입찰가 중에서 높은 범위(80 백분위수)에 해당하는 입찰가를 나타냅니다.
-                              </dd>
-                              <dd>키워드의 평균 CPC는 다를 수 있습니다.</dd>
-                            </dl>
-                          </div>
-                        </div>
-                      </div>
-                      <strong class="price">1,259</strong>
-                    </li>
-                  </ul>
-                </div>
-              </fieldset>
             </div>
-          </fieldset>
-          <fieldset>
-            <legend>
-              컨텐츠
-              <div class="tooltip">
-                <div class="tooltip-content">
-                  블로그(네이버, 다음), 카페(네이버, 다음), 뉴스(네이버), 동영상(유튜브) 총 6가지 매체의 컨텐츠 데이터를 제공합니다.
-                </div>
+          </legend>
+          <div class="report">
+            <div id="searchChart" class="chart"></div>
+            <fieldset>
+              <legend>네이버</legend>
+              <div class="summary">
+                <ul>
+                  <li>
+                    <div class="title">
+                      PC
+                    </div>
+                    <ul>
+                      <li>
+                        <div>
+                          월간 검색수
+                          <div class="tooltip">
+                            <div class="tooltip-content">
+                              <dl>
+                                <dd>최근 한 달간 네이버를 이용한 사용자가 PC에서 해당 키워드를 검색한 횟수입니다.
+                                </dd>
+                              </dl>
+                            </div>
+                          </div>
+                        </div>
+                        <strong class="times">7,320</strong>
+                      </li>
+                      <li>
+                        <div>월 평균 클릭수</div>
+                        <strong class="times">39.5</strong>
+                      </li>
+                      <li>
+                        <div>월 평균 클릭률</div>
+                        <strong class="percent">0.56</strong>
+                      </li>
+                      <li>
+                        <div>경쟁정도</div>
+                        <strong>높음</strong>
+                      </li>
+                      <li>
+                        <div>월 평균 광고노출 (PC)</div>
+                        <strong class="times">15</strong>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="title">
+                      모바일
+                    </div>
+                    <ul>
+                      <li>
+                        <div>
+                          월간 검색수
+                          <div class="tooltip">
+                            <div class="tooltip-content">
+                              <dl>
+                                <dd>최근 한 달간 네이버를 이용한 사용자가 모바일에서 해당 키워드를 검색한 횟수입니다.
+                                </dd>
+                              </dl>
+                            </div>
+                          </div>
+                        </div>
+                        <strong class="times">32,300</strong>
+                      </li>
+                      <li>
+                        <div>월 평균 클릭수</div>
+                        <strong class="times">353.6</strong>
+                      </li>
+                      <li>
+                        <div>월 평균 클릭률</div>
+                        <strong class="percent">1.17</strong>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
               </div>
-            </legend>
-            <div class="report">
-              <div id="contentsChart" class="chart"></div>
-              <fieldset>
-                <legend>발행량</legend>
-                <div class="summary">
-                  <ul>
-                    <li>
-                      <ul>
-                        <li>
-                          <div>네이버 블로그</div>
-                          <strong class="times">1,545,684</strong>
-                        </li>
-                        <li>
-                          <div>다음 블로그</div>
-                          <strong class="times">891,523</strong>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <ul>
-                        <li>
-                          <div>네이버 카페</div>
-                          <strong class="times">91,293</strong>
-                        </li>
-                        <li>
-                          <div>다음 카페</div>
-                          <strong class="times">21,563</strong>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <div>네이버 뉴스</div>
-                      <strong class="times">549,032</strong>
-                    </li>
-                    <li>
-                      <div>유튜브 동영상</div>
-                      <strong class="times">194,654</strong>
-                    </li>
-                  </ul>
+            </fieldset>
+            <fieldset>
+              <legend>구글</legend>
+              <div class="summary">
+                <ul>
+                  <li>
+                    <div>
+                      월간 검색수
+                      <div class="tooltip">
+                        <div class="tooltip-content">
+                          <dl>
+                            <dd>
+                              최근 한 달간 구글을 이용한 사용자가 해당 키워드를 검색한 대략적인 횟수입니다.
+                            </dd>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+                    <strong class="times">1,900</strong>
+                  </li>
+                  <li>
+                    <div>
+                      월간 평균 검색량
+                      <div class="tooltip">
+                        <div class="tooltip-content">
+                          <dl>
+                            <dd>
+                              월간 평균 검색량은 지난 12개월 동안 Google을 기준으로, 조회한 키워드와 유사 검색어를 검색한 평균 횟수입니다.
+                            </dd>
+                            <dd>
+                              이 정보를 이용해 해당 키워드가 연중 시기별로 얼마나 자주 검색되는지 알아볼 수 있습니다.
+                            </dd>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+                    <strong class="times">1,900</strong>
+                    <div id="searchChart2" class="chart" style="display: block; height: 150px; min-height: auto">
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      경쟁정도
+                      <div class="tooltip">
+                        <div class="tooltip-content">
+                          <dl>
+                            <dd>특정 키워드의 광고 게재 위치가 얼마나 경쟁이 치열한지를 보여 줍니다.</dd>
+                            <dd>
+                              경쟁 수준은 Google에서 검색되는 전체 키워드에 입찰하는 광고주 수에 따라 결정됩니다.
+                            </dd>
+                            <dd>데이터가 충분하지 않으면 대시(-)가 표시됩니다.</dd>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+                    <strong>높음</strong>
+                  </li>
+                  <li>
+                    <div>
+                      페이지 상단 입찰가<br>
+                      하위 (20 백분위수)
+                      <div class="tooltip">
+                        <div class="tooltip-content">
+                          <dl>
+                            <dd>
+                              광고주가 키워드에 대해 지불했던 페이지 상단 입찰가 중에서 낮은 범위(20 백분위수)에 해당하는 입찰가를 나타냅니다.
+                            </dd>
+                            <dd>키워드의 평균 CPC는 다를 수 있습니다.</dd>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+                    <strong class="price">517</strong>
+                  </li>
+                  <li>
+                    <div>
+                      페이지 상단 입찰가<br>
+                      상위 (80 백분위수)
+                      <div class="tooltip">
+                        <div class="tooltip-content">
+                          <dl>
+                            <dd>
+                              광고주가 키워드에 대해 지불했던 페이지 상단 입찰가 중에서 높은 범위(80 백분위수)에 해당하는 입찰가를 나타냅니다.
+                            </dd>
+                            <dd>키워드의 평균 CPC는 다를 수 있습니다.</dd>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+                    <strong class="price">1,259</strong>
+                  </li>
+                </ul>
+              </div>
+            </fieldset>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>
+            컨텐츠
+            <div class="tooltip">
+              <div class="tooltip-content">
+                블로그(네이버, 다음), 카페(네이버, 다음), 뉴스(네이버), 동영상(유튜브) 총 6가지 매체의 컨텐츠 데이터를 제공합니다.
+              </div>
+            </div>
+          </legend>
+          <div class="report">
+            <div id="contentsChart" class="chart"></div>
+            <fieldset>
+              <legend>발행량</legend>
+              <div class="summary">
+                <ul>
+                  <li>
+                    <ul>
+                      <li>
+                        <div>네이버 블로그</div>
+                        <strong class="times">1,545,684</strong>
+                      </li>
+                      <li>
+                        <div>다음 블로그</div>
+                        <strong class="times">891,523</strong>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <ul>
+                      <li>
+                        <div>네이버 카페</div>
+                        <strong class="times">91,293</strong>
+                      </li>
+                      <li>
+                        <div>다음 카페</div>
+                        <strong class="times">21,563</strong>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div>네이버 뉴스</div>
+                    <strong class="times">549,032</strong>
+                  </li>
+                  <li>
+                    <div>유튜브 동영상</div>
+                    <strong class="times">194,654</strong>
+                  </li>
+                </ul>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>
+                경쟁률
+                <div class="tooltip">
+                  <div class="tooltip-content">
+                    컨텐츠의 경쟁률은 매체 중 월간 검색수 데이터가 있는 네이버만 제공합니다.
+                  </div>
                 </div>
-              </fieldset>
-              <fieldset>
-                <legend>
-                  경쟁률
+              </legend>
+              <div class="summary">
+                <ul>
+                  <li>
+                    <div>
+                      네이버 블로그 경쟁률
+                      <div class="tooltip">
+                        <div class="tooltip-content">
+                          <dl>
+                            <dd>네이버 블로그 발행량 ÷ 네이버 월간 검색수입니다.</dd>
+                            <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+                    <strong>39.29:1</strong>
+                  </li>
+                  <li>
+                    <div>
+                      네이버 카페 경쟁률
+                      <div class="tooltip">
+                        <div class="tooltip-content">
+                          <dl>
+                            <dd>네이버 카페 발행량 ÷ 네이버 월간 검색수입니다.</dd>
+                            <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+                    <strong>2.32:1</strong>
+                  </li>
+                  <li>
+                    <div>
+                      네이버 뉴스 경쟁률
+                      <div class="tooltip">
+                        <div class="tooltip-content">
+                          <dl>
+                            <dd>네이버 뉴스 발행량 ÷ 네이버 월간 검색수입니다.</dd>
+                            <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+                    <strong>0.06:1</strong>
+                  </li>
+                </ul>
+              </div>
+            </fieldset>
+          </div>
+        </fieldset>
+        <fieldset class="items">
+          <legend>
+            상품
+            <div class="tooltip">
+              <div class="tooltip-content">
+                네이버 쇼핑 키워드 검색 시 노출되는 상품 데이터를 제공합니다.
+              </div>
+            </div>
+          </legend>
+          <div class="summary horizontal">
+            <ul>
+              <li>
+                <div>총 등록 상품수</div>
+                <strong>1,268,561</strong>
+              </li>
+              <li>
+                <div>
+                  상품경쟁률
                   <div class="tooltip">
                     <div class="tooltip-content">
-                      컨텐츠의 경쟁률은 매체 중 월간 검색수 데이터가 있는 네이버만 제공합니다.
+                      <dl>
+                        <dd>상품수 ÷ 네이버 월간 검색수입니다.</dd>
+                        <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
+                      </dl>
                     </div>
                   </div>
-                </legend>
-                <div class="summary">
-                  <ul>
-                    <li>
-                      <div>
-                        네이버 블로그 경쟁률
-                        <div class="tooltip">
-                          <div class="tooltip-content">
-                            <dl>
-                              <dd>네이버 블로그 발행량 ÷ 네이버 월간 검색수입니다.</dd>
-                              <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
-                            </dl>
-                          </div>
-                        </div>
-                      </div>
-                      <strong>39.29:1</strong>
-                    </li>
-                    <li>
-                      <div>
-                        네이버 카페 경쟁률
-                        <div class="tooltip">
-                          <div class="tooltip-content">
-                            <dl>
-                              <dd>네이버 카페 발행량 ÷ 네이버 월간 검색수입니다.</dd>
-                              <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
-                            </dl>
-                          </div>
-                        </div>
-                      </div>
-                      <strong>2.32:1</strong>
-                    </li>
-                    <li>
-                      <div>
-                        네이버 뉴스 경쟁률
-                        <div class="tooltip">
-                          <div class="tooltip-content">
-                            <dl>
-                              <dd>네이버 뉴스 발행량 ÷ 네이버 월간 검색수입니다.</dd>
-                              <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
-                            </dl>
-                          </div>
-                        </div>
-                      </div>
-                      <strong>0.06:1</strong>
-                    </li>
-                  </ul>
                 </div>
-              </fieldset>
+                <strong>35.28:1</strong>
+              </li>
+              <li>
+                <div>1페이지 최다 키워드</div>
+                <strong>원두</strong>
+              </li>
+              <li>
+                <div>1페이지 평균가격</div>
+                <strong class="price">20,352.5</strong>
+              </li>
+              <li>
+                <div>1페이지 가격비교상품</div>
+                <strong>32.50%</strong>
+              </li>
+              <li>
+                <div>1페이지 브랜드 점유율</div>
+                <strong>70.00%</strong>
+              </li>
+            </ul>
+          </div>
+        </fieldset>
+      </div>
+    </section>
+  </div>
+  <div class="tab-content content-search" data-tab="sub-menu">
+    <section class="section-chart" title="키워드 검색 차트">
+      <header>
+        <div class="title">
+          <h2>
+            <span>키워드 검색 차트</span>
+            <div class="tooltip">
+              <div class="tooltip-content">
+                <dl>
+                  <dd>지난 12개월간의 네이버 검색 트렌드와 구글 검색량의 월간 추이를 한눈에 확인할 수 있는 차트입니다.
+                  </dd>
+                  <dd>네이버 검색 트렌드는 지난 12개월 동안 검색 횟수가 가장 높은 달을 100으로 둔 상대적 값으로 표현됩니다.</dd>
+                  <dd>그래프 상에서 조회할 기간을 드래그하면 현재 상위 노출되는 컨텐츠(네이버 블로그와 뉴스, 다음 블로그와 카페, 유튜브 동영상) 중 해당 기간 동안 작성 또는 업로드된 건을
+                    확인할 수 있습니다.</dd>
+                </dl>
+              </div>
             </div>
-          </fieldset>
-          <fieldset class="items">
-            <legend>
-              상품
-              <div class="tooltip">
-                <div class="tooltip-content">
-                  네이버 쇼핑 키워드 검색 시 노출되는 상품 데이터를 제공합니다.
+          </h2>
+          <div class="buttons">
+            <button class="ico-download" type="button">엑셀다운</button>
+          </div>
+        </div>
+        <div class="filters">
+          <div>
+            <div class="selector">
+              <input type="radio" id="select-trend-1week" name="keywordTrendChart" checked />
+              <label for="select-trend-1month">1개월</label>
+              <input type="radio" id="select-trend-3months" name="keywordTrendChart" />
+              <label for="select-trend-3months">3개월</label>
+              <input type="radio" id="select-trend-6months" name="keywordTrendChart" />
+              <label for="select-trend-6months">6개월</label>
+              <input type="radio" id="select-trend-1year" name="keywordTrendChart" />
+              <label for="select-trend-1year">1년</label>
+            </div>
+            <div class="calendar">
+              <input type="text" id="keywordTrendChartFrom" name="" />
+              <span>~</span>
+              <input type="text" id="keywordTrendChartTo" name="" />
+            </div>
+            <button class="btn-main ico-search" type="button"></button>
+          </div>
+        </div>
+      </header>
+      <div class="chart-container" data-empty="데이터 갱신 전입니다.">
+        <div id="keywordTrendChart" class="chart"></div>
+      </div>
+    </section>
+    <section class="section-related-keyword" title="연관 키워드">
+      <header>
+        <div class="title">
+          <h2>
+            연관 키워드
+            <div class="tooltip">
+              <div class="tooltip-content">
+                <dl>
+                  <dd>검색한 키워드와 연관도가 높은 키워드 목록을 제공합니다.</dd>
+                  <dd>연관 키워드는 네이버와 구글 매체의 데이터를 제공합니다.</dd>
+                  <dd>연관도 순서(NO)는 매체가 네이버인 경우 우선 나열되고, 뒤에 이어 매체가 구글인 키워드 순으로 나열됩니다.</dd>
+                  <dd>매체가 중복되는 키워드는 네이버 연관도 순서 기준으로 구글 데이터가 추가되어 표시됩니다.</dd>
+                  <dd>네이버와 중복되지 않은 구글 키워드는 네이버 연관 키워드 아래 표시됩니다.</dd>
+                </dl>
+              </div>
+            </div>
+          </h2>
+          <div class="buttons">
+            <button class="ico-refresh">정렬초기화</button>
+            <button class="ico-download">엑셀다운</button>
+          </div>
+        </div>
+        <div class="filters">
+          <div>
+            <div class="checkboxes">
+              <div class="checkbox">
+                <input id="checkNaverList" type="checkbox" checked />
+                <label for="checkNaverList">네이버</label>
+              </div>
+              <div class="checkbox">
+                <input id="checkGoogleList" type="checkbox" checked />
+                <label for="checkGoogleList">구글</label>
+              </div>
+            </div>
+            <div class="selector main">
+              <div class="select-keyword">
+                <input type="radio" id="select-related-keyword" class="select-word" name="filter-related"
+                  checked="checked">
+                <label for="select-related-keyword">키워드</label>
+              </div>
+              <div class="select-monthly-search">
+                <input type="radio" id="select-related-monthly-search" class="select-number" name="filter-related">
+                <label for="select-related-monthly-search">월간검색수</label>
+              </div>
+              <div class="select-monthly-search2">
+                <input type="radio" id="select-related-monthly-search2" class="select-number" name="filter-related">
+                <label for="select-related-monthly-search2">월간평균검색량</label>
+              </div>
+              <div class="select-monthly-click">
+                <input type="radio" id="select-related-monthly-click" class="select-number" name="filter-related">
+                <label for="select-related-monthly-click">월평균클릭수</label>
+              </div>
+              <div class="select-monthly-click2">
+                <input type="radio" id="select-related-monthly-click2" class="select-number" name="filter-related">
+                <label for="select-related-monthly-click2">월평균클릭률</label>
+              </div>
+            </div>
+            <div class="selector selector-word sub">
+              <input type="radio" id="select-related-include-2" name="filter-related-type" checked="">
+              <label for="select-related-include-2">포함</label>
+              <input type="radio" id="select-related-match-2" name="filter-related-type">
+              <label for="select-related-match-2">일치</label>
+              <input type="radio" id="select-related-except-2" name="filter-related-type">
+              <label for="select-related-except-2">제외</label>
+            </div>
+            <div class="selector selector-device sub">
+              <div class="select-naver-pc">
+                <input type="radio" id="select-naver-pc" name="filter-device" checked="">
+                <label for="select-naver-pc">네이버 PC</label>
+              </div>
+              <div class="select-naver-mobile">
+                <input type="radio" id="select-naver-mobile" name="filter-device">
+                <label for="select-naver-mobile">네이버 MO</label>
+              </div>
+              <div class="select-google">
+                <input type="radio" id="select-google" name="filter-device">
+                <label for="select-google">구글</label>
+              </div>
+              <div class="select-all">
+                <input type="radio" id="select-all" name="filter-device">
+                <label for="select-all">총</label>
+              </div>
+            </div>
+            <div class="selector selector-number sub">
+              <input type="radio" id="select-related-less-than" name="filter-related-operaters" checked="">
+              <label for="select-related-less-than">&lt;</label>
+              <input type="radio" id="select-related-greater-than" name="filter-related-operaters">
+              <label for="select-related-greater-than">&gt;</label>
+              <input type="radio" id="select-related-less-equal" name="filter-related-operaters">
+              <label for="select-related-less-equal">&lt;=</label>
+              <input type="radio" id="select-related-greater-equal" name="filter-related-operaters">
+              <label for="select-related-greater-equal">&gt;=</label>
+              <input type="radio" id="select-related-equal" name="filter-related-operaters">
+              <label for="select-related-equal">=</label>
+            </div>
+          </div>
+          <div class="search">
+            <div class="input">
+              <input type="search">
+              <span class="x"></span>
+            </div>
+            <button class="btn-main ico-search" type="button"></button>
+          </div>
+        </div>
+        <div class="filters">
+          <div class="selected-filters"></div>
+          <div>
+            <strong class="times" data-title="네이버">652</strong>
+            <strong class="times" data-title="구글">0</strong>
+            <strong class="times" data-title="총">652</strong>
+          </div>
+        </div>
+      </header>
+      <div class="list list-realted-keyword all">
+        <ul class="row title">
+          <li class="col-number">NO</li>
+          <li class="col-keyword ico-sort">연관 키워드</li>
+          <li>
+            월간 검색수
+            <div class="tooltip">
+              <div class="tooltip-content">
+                <dl>
+                  <dd>
+                    네이버 월간 검색수는 전일 포함 이전 30일 간 네이버를 이용한 사용자가 PC 및 모바일에서 해당 키워드를 검색한 횟수입니다.
+                  </dd>
+                  <dd>
+                    구글 월간 검색수는 당일 기준 2022년 10월 간 구글을 이용한 사용자가 해당 키워드를 검색한 대략적인 횟수입니다.
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            3개월간 변동
+            <div class="tooltip">
+              <div class="tooltip-content">
+                <dl>
+                  <dd>
+                    3개월 변동은 최근 달의 데이터를 그보다 2개월 전의 데이터와 비교하여 3개월 동안의 검색 동향 변화를 표시합니다.
+                  </dd>
+                  <dd>
+                    예를 들어 최근 달이 7월인 경우, 7월 데이터를 5월과 비교하여 3개월 동안의 검색량 변화를 표시합니다.
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            6개월간 변동
+            <div class="tooltip">
+              <div class="tooltip-content">
+                <dl>
+                  <dd>
+                    6개월 변동은 최근 달의 데이터를 그보다 5개월 전의 데이터와 비교하여 6개월 동안의 검색 동향 변화를 표시합니다.
+                  </dd>
+                  <dd>
+                    예를 들어 최근 달이 7월인 경우, 7월 데이터를 2월과 비교하여 6개월 동안의 검색량 변화를 표시합니다.
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            월 평균 클릭수
+            <div class="tooltip">
+              <div class="tooltip-content">
+                최근 한 달간 사용자가 네이버에서 해당 키워드를 검색했을 때, 통합검색 영역에 노출된 광고가 받은 평균 클릭수입니다.
+              </div>
+            </div>
+          </li>
+          <li>
+            월 평균 클릭률
+            <div class="tooltip">
+              <div class="tooltip-content">
+                <dl>
+                  <dd>
+                    최근 한 달간 해당 키워드로 네이버 통합검색 영역에 노출된 광고가 받은 평균 클릭률을 의미합니다.
+                  </dd>
+                  <dd>
+                    예: 광고노출수가 1,000회이고, 노출된 광고를 클릭한 횟수가 5회라면, 클릭률은 0.5%입니다.
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            경쟁정도
+            <div class="tooltip">
+              <div class="tooltip-content">
+                <dl>
+                  <dd>
+                    네이버에서 경쟁정도는 최근 한 달간 해당 키워드에 대한 경쟁정도를 PC통합검색영역 기준으로 구분한 지표입니다. 다수의 광고주가 추가한 광고일수록 경쟁정도가 높을 수 있습니다.
+                  </dd>
+                  <dd>
+                    구글에서 경쟁정도는 특정 키워드의 광고 게재 위치가 얼마나 경쟁이 치열한지를 보여 줍니다. 경쟁 수준은 Google에서 검색되는 전체 키워드에 입찰하는 광고주 수에 따라
+                    결정됩니다. 데이터가 충분하지 않으면 대시(-)가 표시됩니다.
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            월 평균 노출 광고수
+            <div class="tooltip">
+              <div class="tooltip-content">
+                <dl>
+                  <dd>
+                    최근 한 달간 사용자가 해당 키워드를 검색했을 때, PC통합검색영역에 도출된 평균 광고 개수입니다.
+                  </dd>
+                  <dd>
+                    키워드의 경쟁정도를 가늠해볼 수 있습니다.
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            페이지 상단 입찰가
+            <div class="tooltip">
+              <div class="tooltip-content">
+                <dl>
+                  <dd>
+                    페이지 상단 입찰가(하위)는 광고주가 키워드에 대해 지불했던 페이지 상단 입찰가 중에서 낮은 범위(20 백분위수)에 해당하는 입찰가를 나타냅니다. 키워드의 평균 CPC는 다를
+                    수 있습니다.
+                  </dd>
+                  <dd>
+                    페이지 상단 입찰가(상위)는 광고주가 키워드에 대해 지불했던 페이지 상단 입찰가 중에서 높은 범위(80 백분위수)에 해당하는 입찰가를 나타냅니다. 키워드의 평균 CPC는 다를
+                    수 있습니다.
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li class="ico-sort">네이버 PC</li>
+          <li class="ico-sort">네이버 MO</li>
+          <li class="ico-sort">구글</li>
+          <li class="ico-sort">총</li>
+          <li class="ico-sort">구글</li>
+          <li class="ico-sort">구글</li>
+          <li class="ico-sort">네이버 PC</li>
+          <li class="ico-sort">네이버 MO</li>
+          <li class="ico-sort">네이버 PC</li>
+          <li class="ico-sort">네이버 MO</li>
+          <li class="ico-sort">네이버 PC</li>
+          <li class="ico-sort">구글</li>
+          <li class="ico-sort">네이버 PC</li>
+          <li class="ico-sort">구글 하위</li>
+          <li class="ico-sort">구글 상위</li>
+        </ul>
+        <ul class="row">
+          <li class="col-number">1</li>
+          <li class="col-keyword" title="키워드">
+            <div class="keyword" onclick="window.open('keyword_details.html')">커피원두</div>
+          </li>
+          <li title="네이버PC 월간 검색수">
+            <div class="">8,100</div>
+          </li>
+          <li title="네이버MO 월간 검색수">
+            <div class="">28,200</div>
+          </li>
+          <li title="구글 월간 검색수">
+            <div class="">1,900</div>
+          </li>
+          <li title="총 월간 검색수">
+            <div class="">38,200</div>
+          </li>
+          <li title="구글 3개월간 변동">
+            <div class="percent up">19</div>
+          </li>
+          <li title="구글 6개월간 변동">
+            <div class="percent">0</div>
+          </li>
+          <li title="네이버PC 월 평균 클릭수">
+            <div class="">68.4</div>
+          </li>
+          <li title="네이버MO 월 평균 클릭수">
+            <div class="">474.9</div>
+          </li>
+          <li title="네이버PC 월 평균 클릭률">
+            <div class="percent">0.95</div>
+          </li>
+          <li title="네이버MO 월 평균 클릭률">
+            <div class="percent">1.86</div>
+          </li>
+          <li title="네이버PC 경쟁정도">
+            <div class="tag high type-text"></div>
+          </li>
+          <li title="구글 경쟁정도">
+            <div class="tag high type-text"></div>
+          </li>
+          <li title="네이버PC 월 평균 노출 광고수">
+            <div class="">15</div>
+          </li>
+          <li title="구글 하위 페이지 상단 입찰가">
+            <div class="price">517</div>
+          </li>
+          <li title="구글 상위 페이지 상단 입찰가">
+            <div class="price">1,259</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-number">2</li>
+          <li class="col-keyword" title="키워드">
+            <div class="keyword" onclick="window.open('keyword_details.html')">원두커피</div>
+          </li>
+          <li title="네이버PC 월간 검색수">
+            <div class="">7,000</div>
+          </li>
+          <li title="네이버MO 월간 검색수">
+            <div class="">20,100</div>
+          </li>
+          <li title="구글 월간 검색수">
+            <div class="">1,300</div>
+          </li>
+          <li title="총 월간 검색수">
+            <div class="">28,400</div>
+          </li>
+          <li title="구글 3개월간 변동">
+            <div class="percent">0</div>
+          </li>
+          <li title="구글 6개월간 변동">
+            <div class="percent">0</div>
+          </li>
+          <li title="네이버PC 월 평균 클릭수">
+            <div class="">52.6</div>
+          </li>
+          <li title="네이버MO 월 평균 클릭수">
+            <div class="">263.2</div>
+          </li>
+          <li title="네이버PC 월 평균 클릭률">
+            <div class="percent">0.83</div>
+          </li>
+          <li title="네이버MO 월 평균 클릭률">
+            <div class="percent">1.42</div>
+          </li>
+          <li title="네이버PC 경쟁정도">
+            <div class="tag high type-text"></div>
+          </li>
+          <li title="구글 경쟁정도">
+            <div class="tag high type-text"></div>
+          </li>
+          <li title="네이버PC 월 평균 노출 광고수">
+            <div class="">15</div>
+          </li>
+          <li title="구글 하위 페이지 상단 입찰가">
+            <div class="price">667</div>
+          </li>
+          <li title="구글 상위 페이지 상단 입찰가">
+            <div class="price">3,631</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-number">3</li>
+          <li class="col-keyword" title="키워드">
+            <div class="keyword" onclick="window.open('keyword_details.html')">커피머신</div>
+          </li>
+          <li title="네이버PC 월간 검색수">
+            <div class="">33,100</div>
+          </li>
+          <li title="네이버MO 월간 검색수">
+            <div class="">184,500</div>
+          </li>
+          <li title="구글 월간 검색수">
+            <div class=""></div>
+          </li>
+          <li title="총 월간 검색수">
+            <div class="">217,600</div>
+          </li>
+          <li title="구글 3개월간 변동">
+            <div class="percent"></div>
+          </li>
+          <li title="구글 6개월간 변동">
+            <div class="percent"></div>
+          </li>
+          <li title="네이버PC 월 평균 클릭수">
+            <div class="">191.8</div>
+          </li>
+          <li title="네이버MO 월 평균 클릭수">
+            <div class="">2682.1</div>
+          </li>
+          <li title="네이버PC 월 평균 클릭률">
+            <div class="percent">0.64</div>
+          </li>
+          <li title="네이버MO 월 평균 클릭률">
+            <div class="percent">1.57</div>
+          </li>
+          <li title="네이버PC 경쟁정도">
+            <div class="tag high type-text"></div>
+          </li>
+          <li title="구글 경쟁정도">
+            <div class="tag high type-text"></div>
+          </li>
+          <li title="네이버PC 월 평균 노출 광고수">
+            <div class="">15</div>
+          </li>
+          <li title="구글 하위 페이지 상단 입찰가">
+            <div class="price"></div>
+          </li>
+          <li title="구글 상위 페이지 상단 입찰가">
+            <div class="price"></div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-number">4</li>
+          <li class="col-keyword" title="키워드">
+            <div class="keyword" onclick="window.open('keyword_details.html')">원두</div>
+          </li>
+          <li title="네이버PC 월간 검색수">
+            <div class="">7,170</div>
+          </li>
+          <li title="네이버MO 월간 검색수">
+            <div class="">30,400</div>
+          </li>
+          <li title="구글 월간 검색수">
+            <div class="">2,400</div>
+          </li>
+          <li title="총 월간 검색수">
+            <div class="">39,970</div>
+          </li>
+          <li title="구글 3개월간 변동">
+            <div class="percent">0</div>
+          </li>
+          <li title="구글 6개월간 변동">
+            <div class="percent">0</div>
+          </li>
+          <li title="네이버PC 월 평균 클릭수">
+            <div class="">59.1</div>
+          </li>
+          <li title="네이버MO 월 평균 클릭수">
+            <div class="">492.3</div>
+          </li>
+          <li title="네이버PC 월 평균 클릭률">
+            <div class="percent">0.64</div>
+          </li>
+          <li title="네이버MO 월 평균 클릭률">
+            <div class="percent">1.57</div>
+          </li>
+          <li title="네이버PC 경쟁정도">
+            <div class="tag high type-text"></div>
+          </li>
+          <li title="구글 경쟁정도">
+            <div class="tag high type-text"></div>
+          </li>
+          <li title="네이버PC 월 평균 노출 광고수">
+            <div class="">15</div>
+          </li>
+          <li title="구글 하위 페이지 상단 입찰가">
+            <div class="price">667</div>
+          </li>
+          <li title="구글 상위 페이지 상단 입찰가">
+            <div class="price">1,650</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-number">5</li>
+          <li class="col-keyword" title="키워드">
+            <div class="keyword" onclick="window.open('keyword_details.html')">커피종류</div>
+          </li>
+          <li title="네이버PC 월간 검색수">
+            <div class="">2,150</div>
+          </li>
+          <li title="네이버MO 월간 검색수">
+            <div class="네이버MO 월간 검색수">16,300</div>
+          </li>
+          <li title="구글 월간 검색수">
+            <div class=""></div>
+          </li>
+          <li title="총 월간 검색수">
+            <div class="">18,450</div>
+          </li>
+          <li title="구글 3개월간 변동">
+            <div class="percent"></div>
+          </li>
+          <li title="구글 6개월간 변동">
+            <div class="percent"></div>
+          </li>
+          <li title="네이버PC 월 평균 클릭수">
+            <div class="">12.1</div>
+          </li>
+          <li title="네이버MO 월 평균 클릭수">
+            <div class="">193</div>
+          </li>
+          <li title="네이버PC 월 평균 클릭률">
+            <div class="percent">0.61</div>
+          </li>
+          <li title="네이버MO 월 평균 클릭률">
+            <div class="percent">1.27</div>
+          </li>
+          <li title="네이버PC 경쟁정도">
+            <div class="tag high type-text"></div>
+          </li>
+          <li title="구글 경쟁정도">
+            <div class="tag high type-text"></div>
+          </li>
+          <li title="네이버PC 월 평균 노출 광고수">
+            <div class="">15</div>
+          </li>
+          <li title="구글 하위 페이지 상단 입찰가">
+            <div class="price"></div>
+          </li>
+          <li title="구글 상위 페이지 상단 입찰가">
+            <div class="price"></div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-number">6</li>
+          <li class="col-keyword" title="키워드">
+            <div class="keyword" onclick="window.open('keyword_details.html')">아라비카원두</div>
+          </li>
+          <li title="네이버PC 월간 검색수">
+            <div class="">410</div>
+          </li>
+          <li title="네이버MO 월간 검색수">
+            <div class="">1,770</div>
+          </li>
+          <li title="구글 월간 검색수">
+            <div class="">590</div>
+          </li>
+          <li title="총 월간 검색수">
+            <div class="">2,770</div>
+          </li>
+          <li title="구글 3개월간 변동">
+            <div class="percent up">321</div>
+          </li>
+          <li title="구글 6개월간 변동">
+            <div class="percent up">181</div>
+          </li>
+          <li title="네이버PC 월 평균 클릭수">
+            <div class="">1</div>
+          </li>
+          <li title="네이버MO 월 평균 클릭수">
+            <div class="">24.3</div>
+          </li>
+          <li title="네이버PC 월 평균 클릭률">
+            <div class="percent">0.26</div>
+          </li>
+          <li title="네이버MO 월 평균 클릭률">
+            <div class="percent">1.47</div>
+          </li>
+          <li title="네이버PC 경쟁정도">
+            <div class="tag high type-text"></div>
+          </li>
+          <li title="구글 경쟁정도">
+            <div class="tag low type-text"></div>
+          </li>
+          <li title="네이버PC 월 평균 노출 광고수">
+            <div class="">15</div>
+          </li>
+          <li title="구글 하위 페이지 상단 입찰가">
+            <div class="price">204</div>
+          </li>
+          <li title="구글 상위 페이지 상단 입찰가">
+            <div class="price">1,655</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+  <div class="tab-content content-articles" data-tab="sub-menu">
+    <section class="section-article" title="키워드 컨텐츠">
+      <header>
+        <div class="title">
+          <h2> 키워드 컨텐츠
+            <div class="tooltip">
+              <div class="tooltip-content">
+                <dl>
+                  <dd>블로그(네이버, 다음), 카페(네이버, 다음), 뉴스(네이버), 동영상(유튜브) 총 6가지 매체의 컨텐츠를 제공합니다.</dd>
+                  <dd>네이버는 100건, 다음과 유튜브는 50건의 상위 노출 컨텐츠를 확인할 수 있습니다.</dd>
+                  <dd>네이버와 다음은 정확도 순, 유튜브는 조회수 순입니다.</dd>
+                </dl>
+              </div>
+            </div>
+          </h2>
+          <div class="calendar">
+            <input id="contentsFrom" type="text" name="" readonly=""
+              class="hasDatepicker">
+            <span>~</span>
+            <input id="contentsTo" type="text" name="" readonly=""
+              class="hasDatepicker">
+            <button class="btn-main ico-search" type="button"></button>
+            <button class="ico-refresh"> 초기화 </button>
+          </div>
+        </div>
+      </header>
+      <div class="section-content">
+        <ul class="tabs">
+          <li>
+            <div class="main">네이버</div>
+            <ul class="sub">
+              <li class="is-active" data-tab="article">블로그</li>
+              <li data-tab="article">카페</li>
+              <li data-tab="article">뉴스</li>
+            </ul>
+          </li>
+          <li>
+            <div class="main">다음</div>
+            <ul class="sub">
+              <li data-tab="article">블로그</li>
+              <li data-tab="article">카페</li>
+            </ul>
+          </li>
+          <li>
+            <div class="main">유튜브</div>
+            <ul class="sub">
+              <li data-tab="article">동영상</li>
+            </ul>
+          </li>
+        </ul>
+        <div title="네이버 블로그" class="tab-content is-active" data-tab="article">
+          <header>
+            <div class="inputs">
+              <h3>네이버 블로그</h3>
+              <a href="https://search.naver.com/search.naver?query=커피원두&nso=&where=blog&sm=tab_opt" target="_blank"
+                class="ico-link">자세히보기</a>
+            </div>
+            <strong data-title="총" class="times">3,123</strong>
+          </header>
+          <div class="list list-article" data-empty="조건에 맞는 컨텐츠가 없습니다.
+                ">
+            <article>
+              <div class="article-title">가정용 원두커피머신 간편한 오스너 예가클래식</div>
+              <div class="article-content">
+                가정용 원두커피머신 장만을 하게 되었어요. 바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바
+                압력의
+                모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져 가정용 원두커피머신 장만을 하게 되었어요.
+                바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바 압력의
+                모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져가정용 원두커피머신 장만을 하게 되었어요.
+                바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바 압력의
+                모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져
+              </div>
+              <ul class="created">
+                <li>어린왕자의 지구별이야기~!!</li>
+                <li>작성일 2022-01-16</li>
+              </ul>
+            </article>
+            <article>
+              <div class="article-title">디카페인 커피 : 향긋하고 산미있는 원두 #브라운체리 콜롬비아</div>
+              <div class="article-content">
+                9%제거 임산부 커피 원두 200g 서대문구 남가좌동에 쇼룸이 있는 '브라운체리'는... #산미있는원두 #디카페인커피
+                페루 디카페인 Peru
+              </div>
+              <ul class="created">
+                <li>Enviable, 일상을 예술로!</li>
+                <li>작성일 2022-01-02</li>
+              </ul>
+            </article>
+            <article>
+              <div class="article-title">홈카페 원두 추천 송천커피상회</div>
+              <div class="article-content">
+                에스프레소 원두는 송천커피상회 스페셜티 종류 중 하나인데 두 가지 모두 산미가... 올라오는 커피 원두 냄새
+                그래 이거지! 하면서 바로...
+              </div>
+              <ul class="created">
+                <li>알라미의 블로그</li>
+                <li>작성일 2021-12-30</li>
+              </ul>
+            </article>
+            <article>
+              <div class="article-title">가정용 원두커피머신 간편한 오스너 예가클래식</div>
+              <div class="article-content">
+                가정용 원두커피머신 장만을 하게 되었어요. 바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바
+                압력의
+                모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져 가정용 원두커피머신 장만을 하게 되었어요.
+                바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바 압력의
+                모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져가정용 원두커피머신 장만을 하게 되었어요.
+                바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바 압력의
+                모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져
+              </div>
+              <ul class="created">
+                <li>어린왕자의 지구별이야기~!!</li>
+                <li>작성일 2022-01-16</li>
+              </ul>
+            </article>
+            <article>
+              <div class="article-title">디카페인 커피 : 향긋하고 산미있는 원두 #브라운체리 콜롬비아</div>
+              <div class="article-content">
+                9%제거 임산부 커피 원두 200g 서대문구 남가좌동에 쇼룸이 있는 '브라운체리'는... #산미있는원두 #디카페인커피
+                페루 디카페인 Peru
+              </div>
+              <ul class="created">
+                <li>Enviable, 일상을 예술로!</li>
+                <li>작성일 2022-01-02</li>
+              </ul>
+            </article>
+            <article>
+              <div class="article-title">홈카페 원두 추천 송천커피상회</div>
+              <div class="article-content">
+                에스프레소 원두는 송천커피상회 스페셜티 종류 중 하나인데 두 가지 모두 산미가... 올라오는 커피 원두 냄새
+                그래 이거지! 하면서 바로...
+              </div>
+              <ul class="created">
+                <li>알라미의 블로그</li>
+                <li>작성일 2021-12-30</li>
+              </ul>
+            </article>
+          </div>
+          <footer class="section-footer">
+            <div class="pagination">
+              <button onclick="" type="button">
+                <div class="arrow double left"></div>
+              </button>
+              <button onclick="" type="button">
+                <div class="arrow left"></div>
+              </button>
+              <div class="pages">
+                <button class="is-active" onclick="" type="button">1</button>
+                <button onclick="" type="button">2</button>
+                <button onclick="" type="button">3</button>
+                <button onclick="" type="button">4</button>
+                <button onclick="" type="button">5</button>
+              </div>
+              <button onclick="" type="button">
+                <div class="arrow right"></div>
+              </button>
+              <button onclick="" type="button">
+                <div class="arrow double right"></div>
+              </button>
+            </div>
+          </footer>
+        </div>
+        <div title="네이버 카페" class="tab-content" data-tab="article">
+          <header>
+            <div class="title">
+              <strong>
+                네이버 카페
+                <a href="https://search.naver.com/search.naver?where=article&sm=tab_viw.blog&query=커피원두&nso="
+                  target="_blank"
+                  class="ico-link">자세히보기</a>
+              </strong>
+              <span>총 3,123건</span>
+            </div>
+            <div class="filters">
+              <div class="search">
+                <div class="calendar">
+                  <input type="text" id="naverCafeFrom" name="" />
+                  <span>~</span>
+                  <input type="text" id="naverCafeTo" name="" />
+                </div>
+                <button class="btn-main ico-search" type="button"></button>
+              </div>
+            </div>
+          </header>
+          <div class="list list-article" data-empty="조건에 맞는 컨텐츠가 없습니다.
+                ">
+            <article>
+              <div class="article-title">디카페인 커피 : 향긋하고 산미있는 원두 #브라운체리 콜롬비아</div>
+              <div class="article-content">
+                9%제거 임산부 커피 원두 200g 서대문구 남가좌동에 쇼룸이 있는 '브라운체리'는... #산미있는원두 #디카페인커피
+                페루 디카페인 Peru
+              </div>
+              <ul class="created">
+                <li>Enviable, 일상을 예술로!</li>
+                <li>작성일 2022-01-02</li>
+              </ul>
+            </article>
+          </div>
+          <footer class="section-footer">
+            <div class="pagination">
+              <button onclick="" type="button">
+                <div class="arrow double left"></div>
+              </button>
+              <button onclick="" type="button">
+                <div class="arrow left"></div>
+              </button>
+              <div class="pages">
+                <button class="is-active" onclick="" type="button">1</button>
+                <button onclick="" type="button">2</button>
+                <button onclick="" type="button">3</button>
+                <button onclick="" type="button">4</button>
+                <button onclick="" type="button">5</button>
+              </div>
+              <button onclick="" type="button">
+                <div class="arrow right"></div>
+              </button>
+              <button onclick="" type="button">
+                <div class="arrow double right"></div>
+              </button>
+            </div>
+          </footer>
+        </div>
+        <div title="네이버 뉴스" class="tab-content" data-tab="article">
+          <header>
+            <div class="title">
+              <strong>
+                네이버 뉴스
+                <a href="https://search.naver.com/search.naver?where=news&sm=tab_jum&query=커피원두" target="_blank"
+                  class="ico-link">자세히보기</a>
+              </strong>
+              <span>총 3,123건</span>
+            </div>
+            <div class="filters">
+              <div class="search">
+                <div class="calendar">
+                  <input type="text" id="newsFrom" name="" />
+                  <span>~</span>
+                  <input type="text" id="newsTo" name="" />
+                </div>
+                <button class="btn-main ico-search" type="button"></button>
+              </div>
+            </div>
+          </header>
+          <div class="list list-article" data-empty="조건에 맞는 컨텐츠가 없습니다.
+                ">
+            <article>
+              <div class="article-title">홈카페 원두 추천 송천커피상회</div>
+              <div class="article-content">
+                에스프레소 원두는 송천커피상회 스페셜티 종류 중 하나인데 두 가지 모두 산미가... 올라오는 커피 원두 냄새
+                그래 이거지! 하면서 바로...
+              </div>
+              <ul class="created">
+                <li>알라미의 블로그</li>
+                <li>작성일 2021-12-30</li>
+              </ul>
+            </article>
+          </div>
+          <footer class="section-footer">
+            <div class="pagination">
+              <button onclick="" type="button">
+                <div class="arrow double left"></div>
+              </button>
+              <button onclick="" type="button">
+                <div class="arrow left"></div>
+              </button>
+              <div class="pages">
+                <button class="is-active" onclick="" type="button">1</button>
+                <button onclick="" type="button">2</button>
+                <button onclick="" type="button">3</button>
+                <button onclick="" type="button">4</button>
+                <button onclick="" type="button">5</button>
+              </div>
+              <button onclick="" type="button">
+                <div class="arrow right"></div>
+              </button>
+              <button onclick="" type="button">
+                <div class="arrow double right"></div>
+              </button>
+            </div>
+          </footer>
+        </div>
+        <div title="다음 블로그" class="tab-content" data-tab="article">
+          <header>
+            <div class="title">
+              <strong>
+                다음 블로그
+                <a href="https://search.daum.net/search?w=blog&nil_search=btn&DA=NTB&enc=utf8&q=커피원두" target="_blank"
+                  class="ico-link">자세히보기</a>
+              </strong>
+              <span>총 3,123건</span>
+            </div>
+            <div class="filters">
+              <div class="search">
+                <div class="calendar">
+                  <input type="text" id="naverBlogFrom" name="" />
+                  <span>~</span>
+                  <input type="text" id="naverBlogTo" name="" />
+                </div>
+                <button class="btn-main ico-search" type="button"></button>
+              </div>
+            </div>
+          </header>
+          <div class="list list-article list-thumbnail" data-empty="조건에 맞는 컨텐츠가 없습니다.">
+            <article>
+              <div class="image">
+                <img src="https://source.unsplash.com/random/100x100/?coffee" alt="">
+              </div>
+              <div class="texts">
+                <div class="article-title">가정용 원두커피머신 간편한 오스너 예가클래식</div>
+                <div class="article-content">
+                  가정용 원두커피머신 장만을 하게 되었어요. 바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바
+                  압력의
+                  모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져 가정용 원두커피머신 장만을 하게 되었어요.
+                  바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바 압력의
+                  모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져가정용 원두커피머신 장만을 하게 되었어요.
+                  바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바 압력의
+                  모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져
+                </div>
+                <ul class="created">
+                  <li>어린왕자의 지구별이야기~!!</li>
+                  <li>작성일 2022-01-16</li>
+                </ul>
+              </div>
+            </article>
+            <article>
+              <div class="image">
+                <img src="https://source.unsplash.com/random/100x100/?coffee/1" alt="">
+              </div>
+              <div class="texts">
+                <div class="article-title">디카페인 커피 : 향긋하고 산미있는 원두 #브라운체리 콜롬비아</div>
+                <div class="article-content">
+                  9%제거 임산부 커피 원두 200g 서대문구 남가좌동에 쇼룸이 있는 '브라운체리'는... #산미있는원두 #디카페인커피
+                  페루 디카페인 Peru
+                </div>
+                <ul class="created">
+                  <li>Enviable, 일상을 예술로!</li>
+                  <li>작성일 2022-01-02</li>
+                </ul>
+              </div>
+            </article>
+            <article>
+              <div class="image">
+                <img src="https://source.unsplash.com/random/100x100/?coffee/2" alt="">
+              </div>
+              <div class="texts">
+                <div class="article-title">홈카페 원두 추천 송천커피상회</div>
+                <div class="article-content">
+                  에스프레소 원두는 송천커피상회 스페셜티 종류 중 하나인데 두 가지 모두 산미가... 올라오는 커피 원두 냄새
+                  그래 이거지! 하면서 바로...
+                </div>
+                <ul class="created">
+                  <li>알라미의 블로그</li>
+                  <li>작성일 2021-12-30</li>
+                </ul>
+              </div>
+            </article>
+            <article>
+              <div class="image">
+                <img src="https://source.unsplash.com/random/100x100/?coffee/3" alt="">
+              </div>
+              <div class="texts">
+                <div class="article-title">가정용 원두커피머신 간편한 오스너 예가클래식</div>
+                <div class="article-content">
+                  가정용 원두커피머신 장만을 하게 되었어요. 바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바
+                  압력의
+                  모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져 가정용 원두커피머신 장만을 하게 되었어요.
+                  바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바 압력의
+                  모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져가정용 원두커피머신 장만을 하게 되었어요.
+                  바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바 압력의
+                  모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져
+                </div>
+                <ul class="created">
+                  <li>어린왕자의 지구별이야기~!!</li>
+                  <li>작성일 2022-01-16</li>
+                </ul>
+              </div>
+            </article>
+            <article>
+              <div class="image">
+                <img src="https://source.unsplash.com/random/100x100/?coffee/4" alt="">
+              </div>
+              <div class="texts">
+                <div class="article-title">디카페인 커피 : 향긋하고 산미있는 원두 #브라운체리 콜롬비아</div>
+                <div class="article-content">
+                  9%제거 임산부 커피 원두 200g 서대문구 남가좌동에 쇼룸이 있는 '브라운체리'는... #산미있는원두 #디카페인커피
+                  페루 디카페인 Peru
+                </div>
+                <ul class="created">
+                  <li>Enviable, 일상을 예술로!</li>
+                  <li>작성일 2022-01-02</li>
+                </ul>
+              </div>
+            </article>
+            <article>
+              <div class="image">
+                <img src="https://source.unsplash.com/random/100x100/?coffee/5" alt="">
+              </div>
+              <div class="texts">
+                <div class="article-title">홈카페 원두 추천 송천커피상회</div>
+                <div class="article-content">
+                  에스프레소 원두는 송천커피상회 스페셜티 종류 중 하나인데 두 가지 모두 산미가... 올라오는 커피 원두 냄새
+                  그래 이거지! 하면서 바로...
+                </div>
+                <ul class="created">
+                  <li>알라미의 블로그</li>
+                  <li>작성일 2021-12-30</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <footer class="section-footer">
+            <div class="pagination">
+              <button onclick="" type="button">
+                <div class="arrow double left"></div>
+              </button>
+              <button onclick="" type="button">
+                <div class="arrow left"></div>
+              </button>
+              <div class="pages">
+                <button class="is-active" onclick="" type="button">1</button>
+                <button onclick="" type="button">2</button>
+                <button onclick="" type="button">3</button>
+                <button onclick="" type="button">4</button>
+                <button onclick="" type="button">5</button>
+              </div>
+              <button onclick="" type="button">
+                <div class="arrow right"></div>
+              </button>
+              <button onclick="" type="button">
+                <div class="arrow double right"></div>
+              </button>
+            </div>
+          </footer>
+        </div>
+        <div title="다음 카페" class="tab-content" data-tab="article">
+          <header>
+            <div class="title">
+              <strong>
+                다음 카페
+                <a href="https://search.naver.com/search.naver?query=커피원두&nso=&where=blog&sm=tab_opt" target="_blank"
+                  class="ico-link">자세히보기</a>
+              </strong>
+              <span>총 3,123건</span>
+            </div>
+            <div class="filters">
+              <div class="search">
+                <div class="calendar">
+                  <input type="text" id="naverCafeFrom" name="" />
+                  <span>~</span>
+                  <input type="text" id="naverCafeTo" name="" />
+                </div>
+                <button class="btn-main ico-search" type="button"></button>
+              </div>
+            </div>
+          </header>
+          <div class="list list-article list-thumbnail" data-empty="조건에 맞는 컨텐츠가 없습니다.
+                ">
+            <article>
+              <div class="image">
+                <img src="https://source.unsplash.com/random/100x100/?coffee/1" alt="">
+              </div>
+              <div class="texts">
+                <div class="article-title">커피 원두 추천해 주세요.</div>
+                <div class="article-content">
+                  조금 더 맛있었으면 하는 욕심이 ㅎ 커피 원두 추천해 주실만하거 있으실까요? 일주일 정도 마실 양만 갈아서 마시고 있어요. 참고로 고소...
+                </div>
+                <ul class="created">
+                  <li>♬~수원맘 모여라</li>
+                  <li>작성일 2022-01-16</li>
+                </ul>
+              </div>
+            </article>
+            <article>
+              <div class="image">
+                <img src="https://source.unsplash.com/random/100x100/?coffee/2" alt="">
+              </div>
+              <div class="texts">
+                <div class="article-title">커피 원두 추천해 주세요.</div>
+                <div class="article-content">
+                  조금 더 맛있었으면 하는 욕심이 ㅎ 커피 원두 추천해 주실만하거 있으실까요? 일주일 정도 마실 양만 갈아서 마시고 있어요. 참고로 고소...
+                </div>
+                <ul class="created">
+                  <li>♬~수원맘 모여라</li>
+                  <li>작성일 2022-01-16</li>
+                </ul>
+              </div>
+            </article>
+            <article>
+              <div class="image">
+                <img src="https://source.unsplash.com/random/100x100/?coffee/3" alt="">
+              </div>
+              <div class="texts">
+                <div class="article-title">커피 원두 추천해 주세요.</div>
+                <div class="article-content">
+                  조금 더 맛있었으면 하는 욕심이 ㅎ 커피 원두 추천해 주실만하거 있으실까요? 일주일 정도 마실 양만 갈아서 마시고 있어요. 참고로 고소...
+                </div>
+                <ul class="created">
+                  <li>♬~수원맘 모여라</li>
+                  <li>작성일 2022-01-16</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <footer class="section-footer">
+            <div class="pagination">
+              <button onclick="" type="button">
+                <div class="arrow double left"></div>
+              </button>
+              <button onclick="" type="button">
+                <div class="arrow left"></div>
+              </button>
+              <div class="pages">
+                <button class="is-active" onclick="" type="button">1</button>
+                <button onclick="" type="button">2</button>
+                <button onclick="" type="button">3</button>
+                <button onclick="" type="button">4</button>
+                <button onclick="" type="button">5</button>
+              </div>
+              <button onclick="" type="button">
+                <div class="arrow right"></div>
+              </button>
+              <button onclick="" type="button">
+                <div class="arrow double right"></div>
+              </button>
+            </div>
+          </footer>
+        </div>
+        <div title="유튜브 동영상" class="tab-content" data-tab="article">
+          <header>
+            <div class="title">
+              <strong>
+                유튜브 동영상
+                <a href="https://www.youtube.com/results?search_query=커피원두&sp=CAM%253D" target="_blank"
+                  class="ico-link">자세히보기</a>
+              </strong>
+              <span>총 3,123건</span>
+            </div>
+            <div class="filters">
+              <div class="search">
+                <div class="calendar">
+                  <input type="text" id="naverCafeFrom" name="" />
+                  <span>~</span>
+                  <input type="text" id="naverCafeTo" name="" />
+                </div>
+                <button class="btn-main ico-search" type="button"></button>
+              </div>
+            </div>
+          </header>
+          <div class="list list-article list-thumbnail youtube" data-empty="조건에 맞는 컨텐츠가 없습니다.
+                ">
+            <article>
+              <div class="image">
+                <img
+                  src="https://i.ytimg.com/vi/FWyLOAjBpEM/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAjb6Z9hEQqtMV2SwCCnm6oCkPyMw"
+                  alt="">
+              </div>
+              <div class="texts">
+                <div class="article-title">[바리스타룰스] 전석호 본부장도 반한 원두풀한 대용량 커피!</div>
+                <ul class="count">
+                  <li>조회수 3,008,173</li>
+                  <li>좋아요 472</li>
+                  <li>댓글 140</li>
+                </ul>
+                <div class="article-content">
+                  전석호 본부장도 반한 원두풀한 대용량 커피 바리스타룰스! 커피의 세가지 룰을 지켰다. 1. 최고등급 싱글 오리진 원두를 2.
+                </div>
+                <ul class="created">
+                  <li>Maeil</li>
+                  <li>작성일 2022-07-01</li>
+                </ul>
+              </div>
+            </article>
+            <article>
+              <div class="image">
+                <img
+                  src="https://i.ytimg.com/vi/Ma-2pWLLIHA/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLD00xD2SrGJPITOTK24HYf_JfcvzQ"
+                  alt="">
+              </div>
+              <div class="texts">
+                <div class="article-title">[생로병사의 비밀] 커피의 건강학 (2012.3.24. 405회)</div>
+                <ul class="count">
+                  <li>조회수 2,529,162</li>
+                  <li>좋아요 26,148</li>
+                  <li>댓글 1,137</li>
+                </ul>
+                <div class="article-content">
+                  [영상 정보] 향과 맛으로 사람들을 사로잡은 커피! 우리 몸에는 어떤 영향을 미칠까? 간 기능 개선, 노화억제, 각종 질병을 예방하여 커피 ...
+                </div>
+                <ul class="created">
+                  <li>KBS 생로병사의 비밀</li>
+                  <li>작성일 2019-07-31</li>
+                </ul>
+                <ul class="hashtags">
+                  <li class="keyword">생로병사의비밀</li>
+                  <li class="keyword">생로병사</li>
+                  <li class="keyword">생로라이브</li>
+                  <li class="keyword">KBS</li>
+                  <li class="keyword">건강수명</li>
+                  <li class="keyword">매주_수요일_밤10시</li>
+                  <li class="keyword">KBS1TV</li>
+                  <li class="keyword">웰빙</li>
+                  <li class="keyword">다이어트</li>
+                  <li class="keyword">건강정보</li>
+                  <li class="keyword">의학정보</li>
+                  <li class="keyword">믿을 수 있는</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <footer class="section-footer">
+            <div class="pagination">
+              <button onclick="" type="button">
+                <div class="arrow double left"></div>
+              </button>
+              <button onclick="" type="button">
+                <div class="arrow left"></div>
+              </button>
+              <div class="pages">
+                <button class="is-active" onclick="" type="button">1</button>
+                <button onclick="" type="button">2</button>
+                <button onclick="" type="button">3</button>
+                <button onclick="" type="button">4</button>
+                <button onclick="" type="button">5</button>
+              </div>
+              <button onclick="" type="button">
+                <div class="arrow right"></div>
+              </button>
+              <button onclick="" type="button">
+                <div class="arrow double right"></div>
+              </button>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tab-content content-shopping" data-tab="sub-menu">
+    <section class="section-items">
+      <header>
+        <div class="title">
+          <h2>
+            <span>Top 40</span>
+            <div class="tooltip">
+              <div class="tooltip-content">
+                <dl>
+                  <dd>네이버 쇼핑 키워드 검색 시 노출되는 상위 40개의 상품 정보를 제공합니다.</dd>
+                  <dd>광고 상품은 목록에서 제외됩니다.</dd>
+                  <dd>필터를 통해 조건에 맞는 상품 조회가 가능합니다.</dd>
+                </dl>
+              </div>
+            </div>
+          </h2>
+        </div>
+        <div class="filters">
+          <div>
+            <div class="selector main">
+              <input type="radio" id="selectKeyword" class="select-word" name="filterTop40">
+              <label for="selectKeyword">키워드</label>
+              <input type="radio" id="selectCategory" class="select-category" name="filterTop40">
+              <label for="selectCategory">카테고리</label>
+              <input type="radio" id="selectStrore" class="select-word" name="filterTop40">
+              <label for="selectStrore">스토어명</label>
+              <input type="radio" id="selectPrice" class="select-number" name="filterTop40">
+              <label for="selectPrice">판매가</label>
+              <input type="radio" id="selectBrand" class="select-word" name="filterTop40">
+              <label for="selectBrand">브랜드</label>
+              <input type="radio" id="selectCompany" class="select-word" name="filterTop40">
+              <label for="selectCompany">제조사</label>
+            </div>
+            <div class="selector selector-word sub">
+              <input type="radio" id="selectInclude" name="filterTop40Sub" checked="">
+              <label for="selectInclude">포함</label>
+              <input type="radio" id="selectMatch" name="filterTop40Sub">
+              <label for="selectMatch">일치</label>
+              <input type="radio" id="selectExcept" name="filterTop40Sub">
+              <label for="selectExcept">제외</label>
+            </div>
+            <div class="selector selector-category sub">
+              <input type="radio" id="selectMain" name="filterCategory" checked="">
+              <label for="selectMain">대분류</label>
+              <input type="radio" id="selectMiddle" name="filterCategory">
+              <label for="selectMiddle">중분류</label>
+              <input type="radio" id="selectSub" name="filterCategory">
+              <label for="selectSub">소분류</label>
+              <input type="radio" id="selectSmall" name="filterCategory">
+              <label for="selectSmall">세분류</label>
+            </div>
+            <div class="selector selector-number sub">
+              <input type="radio" id="select-less-than" name="filterOperaters" checked="">
+              <label for="select-less-than">&lt;</label>
+              <input type="radio" id="select-greater-than" name="filterOperaters">
+              <label for="select-greater-than">&gt;</label>
+              <input type="radio" id="select-less-equal" name="filterOperaters">
+              <label for="select-less-equal">&lt;=</label>
+              <input type="radio" id="select-greater-equal" name="filterOperaters">
+              <label for="select-greater-equal">&gt;=</label>
+              <input type="radio" id="select-equal" name="filterOperaters">
+              <label for="select-equal">=</label>
+            </div>
+          </div>
+          <div class="search">
+            <div class="input">
+              <input type="search">
+              <div class="x close"></div>
+            </div>
+            <button class="btn-main ico-search" type="button"></button>
+          </div>
+        </div>
+        <div class="filters">
+          <div class="selected-filters">
+          </div>
+          <div>
+            <strong  data-title="총" class="times">652</strong>
+            <div class="layout layout-grid">
+              <button class="ico-list type-list is-active" type="button"></button>
+              <button class="ico-grid type-grid" type="button"></button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="list list-product type-list">
+        <ul class="row title">
+          <li class="col-ranking ico-sort">순위</li>
+          <li class="col-title ico-sort">상품명</li>
+          <li class="ico-sort">카테고리</li>
+          <li class="ico-sort">스토어명</li>
+          <li class="ico-sort">판매가</li>
+          <li class="ico-sort">브랜드</li>
+          <li class="ico-sort">제조사</li>
+        </ul>
+        <div class="rows">
+          <ul class="row"
+            onclick="window.open('about:blank').location.href='https://search.shopping.naver.com/gate.nhn?id=12126547821'">
+            <li class="col-ranking">1</li>
+            <li class="col-title">
+              <div class="image">
+                <img src="https://source.unsplash.com/random/100x100/?coffee" alt="" />
+              </div>
+              <div class="title">
+                <div class="categories">
+                  <span>식품</span>
+                  <span>음료</span>
+                  <span>커피</span>
+                  <span>원두/생두</span>
+                </div>
+                <div class="name">
+                  1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도 디카페인 드립
+                  에스프레소 분쇄 당일 로스팅 갓볶은 맛있는 고소한 원두 커피 홀빈 가루
                 </div>
               </div>
-            </legend>
-            <div class="summary horizontal">
-              <ul>
-                <li>
-                  <div>총 등록 상품수</div>
-                  <strong>1,268,561</strong>
-                </li>
-                <li>
-                  <div>
-                    상품경쟁률
-                    <div class="tooltip">
-                      <div class="tooltip-content">
-                        <dl>
-                          <dd>상품수 ÷ 네이버 월간 검색수입니다.</dd>
-                          <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
-                        </dl>
-                      </div>
-                    </div>
-                  </div>
-                  <strong>35.28:1</strong>
-                </li>
-                <li>
-                  <div>1페이지 최다 키워드</div>
-                  <strong>원두</strong>
-                </li>
-                <li>
-                  <div>1페이지 평균가격</div>
-                  <strong class="price">20,352.5</strong>
-                </li>
-                <li>
-                  <div>1페이지 가격비교상품</div>
-                  <strong>32.50%</strong>
-                </li>
-                <li>
-                  <div>1페이지 브랜드 점유율</div>
-                  <strong>70.00%</strong>
-                </li>
-              </ul>
-            </div>
-          </fieldset>
+            </li>
+            <li title="스토어명" class="col-store">커피창고</li>
+            <li title="판매가" class="col-price"><strong class="price">9,900</strong></li>
+            <li title="브랜드">커피창고</li>
+            <li title="제조사">주식회사 커피창고</li>
+          </ul>
+          <ul class="row">
+            <li class="col-ranking">2</li>
+            <li class="col-title">
+              <div class="image">
+                <img src="https://source.unsplash.com/random/100x100/?coffee/2" alt="" />
+              </div>
+              <div class="title">
+                <div class="tag naver">가격비교상품</div>
+                <div class="categories">
+                  <span>식품</span>
+                  <span>음료</span>
+                  <span>커피</span>
+                  <span>원두/생두</span>
+                </div>
+                <div class="name">
+                  1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도 디카페인 드립
+                  에스프레소 분쇄 당일 로스팅 갓볶은 맛있는 고소한 원두 커피 홀빈 가루
+                </div>
+              </div>
+            </li>
+            <li title="스토어명" class="col-store">네이버</li>
+            <li title="판매가" class="col-price">
+              <div>
+                <div class="tag bg-red">최저가</div>
+                <strong class="price">9,900</strong>
+              </div>
+            </li>
+            <li title="브랜드">커피창고</li>
+            <li title="제조사">주식회사 커피창고</li>
+          </ul>
+          <ul class="row">
+            <li class="col-ranking">3</li>
+            <li class="col-title">
+              <div class="image">
+                <img src="https://source.unsplash.com/random/100x100/?coffee/3" alt="" />
+              </div>
+              <div class="title">
+                <div class="categories">
+                  <span>식품</span>
+                  <span>음료</span>
+                  <span>커피</span>
+                  <span>원두/생두</span>
+                </div>
+                <div class="name">
+                  1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도 디카페인 드립
+                  에스프레소 분쇄 당일 로스팅 갓볶은 맛있는 고소한 원두 커피 홀빈 가루
+                </div>
+              </div>
+            </li>
+            <li title="스토어명" class="col-store">커피창고</li>
+            <li title="판매가" class="col-price"><strong class="price">9,900</strong></li>
+            <li title="브랜드">커피창고</li>
+            <li title="제조사">주식회사 커피창고</li>
+          </ul>
+          <ul class="row">
+            <li class="col-ranking">4</li>
+            <li class="col-title">
+              <div class="image">
+                <img src="https://source.unsplash.com/random/100x100/?coffee/4" alt="" />
+              </div>
+              <div class="title">
+                <div class="categories">
+                  <span>식품</span>
+                  <span>음료</span>
+                  <span>커피</span>
+                  <span>원두/생두</span>
+                </div>
+                <div class="name">
+                  1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도 디카페인 드립
+                  에스프레소 분쇄 당일 로스팅 갓볶은 맛있는 고소한 원두 커피 홀빈 가루
+                </div>
+              </div>
+            </li>
+            <li title="스토어명" class="col-store">커피창고</li>
+            <li title="판매가" class="col-price"><strong class="price">9,900</strong></li>
+            <li title="브랜드">커피창고</li>
+            <li title="제조사">주식회사 커피창고</li>
+          </ul>
+          <ul class="row">
+            <li class="col-ranking">5</li>
+            <li class="col-title">
+              <div class="image">
+                <img src="https://source.unsplash.com/random/100x100/?coffee/5" alt="" />
+              </div>
+              <div class="title">
+                <div class="categories">
+                  <span>식품</span>
+                  <span>음료</span>
+                  <span>커피</span>
+                  <span>원두/생두</span>
+                </div>
+                <div class="name">
+                  1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도 디카페인 드립
+                  에스프레소 분쇄 당일 로스팅 갓볶은 맛있는 고소한 원두 커피 홀빈 가루
+                </div>
+              </div>
+            </li>
+            <li title="스토어명" class="col-store">커피창고</li>
+            <li title="판매가" class="col-price"><strong class="price">9,900</strong></li>
+            <li title="브랜드">커피창고</li>
+            <li title="제조사">주식회사 커피창고</li>
+          </ul>
+          <ul class="row">
+            <li class="col-ranking">6</li>
+            <li class="col-title">
+              <div class="image">
+                <img src="https://source.unsplash.com/random/100x100/?coffee/6" alt="" />
+              </div>
+              <div class="title">
+                <div class="categories">
+                  <span>식품</span>
+                  <span>음료</span>
+                  <span>커피</span>
+                  <span>원두/생두</span>
+                </div>
+                <div class="name">
+                  1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도 디카페인 드립
+                  에스프레소 분쇄 당일 로스팅 갓볶은 맛있는 고소한 원두 커피 홀빈 가루
+                </div>
+              </div>
+            </li>
+            <li title="스토어명" class="col-store">커피창고</li>
+            <li title="판매가" class="col-price"><strong class="price">9,900</strong></li>
+            <li title="브랜드">커피창고</li>
+            <li title="제조사">주식회사 커피창고</li>
+          </ul>
+          <ul class="row">
+            <li class="col-ranking">7</li>
+            <li class="col-title">
+              <div class="image">
+                <img src="https://source.unsplash.com/random/100x100/?coffee/7" alt="" />
+              </div>
+              <div class="title">
+                <div class="categories">
+                  <span>식품</span>
+                  <span>음료</span>
+                  <span>커피</span>
+                  <span>원두/생두</span>
+                </div>
+                <div class="name">
+                  1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도 디카페인 드립
+                  에스프레소 분쇄 당일 로스팅 갓볶은 맛있는 고소한 원두 커피 홀빈 가루
+                </div>
+              </div>
+            </li>
+            <li title="스토어명" class="col-store">커피창고</li>
+            <li title="판매가" class="col-price"><strong class="price">9,900</strong></li>
+            <li title="브랜드">커피창고</li>
+            <li title="제조사">주식회사 커피창고</li>
+          </ul>
         </div>
-      </section>
-    </div>
-    <div class="tab-content content-search" data-tab="sub-menu">
-      <section class="section-chart" title="키워드 검색 차트">
+      </div>
+    </section>
+    <section title="Top 40 카테고리 분석" class="section-chart">
+      <header>
+        <h2>
+          Top 40 카테고리 분석
+          <div class="tooltip">
+            <div class="tooltip-content">
+              <dl>
+                <dd>네이버 쇼핑 키워드 검색 시 노출되는 상위 40개 상품의 카테고리 분석 결과를 제공합니다.</dd>
+                <dd>광고 상품은 제외됩니다.</dd>
+              </dl>
+            </div>
+          </div>
+        </h2>
+        <div class="layout layout-chart">
+          <button class="ico-chart type-chart is-active" type="button"></button>
+          <button class="ico-list type-list" type="button"></button>
+        </div>
+      </header>
+      <div class="report">
+        <div class="summary link">
+          <ul>
+            <li>
+              <div class="title">
+                <div>식품 〉 음료 〉 커피 〉 원두/생두</div>
+                <strong>
+                  24
+                  <small>60.00</small>
+                </strong>
+              </div>
+              <button class="btn-sub ico-arrow" type="button"></button>
+            </li>
+            <li>
+              <div class="title">
+                <div>식품 〉 음료 〉 커피 〉 캡슐커피</div>
+                <strong>
+                  8
+                  <small>20.00</small>
+                </strong>
+              </div>
+              <button class="btn-sub ico-arrow" type="button"></button>
+            </li>
+            <li>
+              <div class="title">
+                <div>식품 〉 음료 〉 커피 〉 커피음료</div>
+                <strong>
+                  4
+                  <small>10.00</small>
+                </strong>
+              </div>
+              <button class="btn-sub ico-arrow" type="button"></button>
+            </li>
+            <li>
+              <div class="title">
+                <div>식품 〉 음료 〉 커피 〉 더치커피</div>
+                <strong>
+                  2
+                  <small>5.00</small>
+                </strong>
+              </div>
+              <button class="btn-sub ico-arrow" type="button"></button>
+            </li>
+            <li>
+              <div class="title">
+                <div>기타</div>
+                <strong>
+                  2
+                  <small>5.00</small>
+                </strong>
+              </div>
+              <button class="btn-sub ico-arrow" type="button"></button>
+            </li>
+          </ul>
+        </div>
+        <div class="chart" id="categoryChart"></div>
+      </div>
+      <div class="list">
+        <ul class="row title">
+          <li>카테고리</li>
+          <li>건수</li>
+          <li>백분율</li>
+          <li>링크</li>
+        </ul>
+        <ul class="row">
+          <li>
+            <div class="categories">
+              <span>식품</span>
+              <span>음료</span>
+              <span>커피</span>
+              <span>원두/생두</span>
+            </div>
+          </li>
+          <li>24건</li>
+          <li>60.00%</li>
+          <li>
+            <button class="btn-sub ico-arrow" type="button"></button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>
+            <div class="categories">
+              <span>식품</span>
+              <span>음료</span>
+              <span>커피</span>
+              <span>캡슐커피</span>
+            </div>
+          </li>
+          <li>8건</li>
+          <li>20.00%</li>
+          <li>
+            <button class="btn-sub" type="button">상품보기</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>
+            <div class="categories">
+              <span>식품</span>
+              <span>음료</span>
+              <span>커피</span>
+              <span>커피음료</span>
+            </div>
+          </li>
+          <li>4건</li>
+          <li>10.00%</li>
+          <li>
+            <button class="btn-sub" type="button">상품보기</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>
+            <div class="categories">
+              <span>식품</span>
+              <span>음료</span>
+              <span>커피</span>
+              <span>더치커피</span>
+            </div>
+          </li>
+          <li>2건</li>
+          <li>5.00%</li>
+          <li>
+            <button class="btn-sub" type="button">상품보기</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>
+            <div class="categories">
+              <span>식품</span>
+              <span>음료</span>
+              <span>커피</span>
+              <span>커피믹스/인스턴트커피</span>
+            </div>
+          </li>
+          <li>1건</li>
+          <li>2.50%</li>
+          <li>
+            <button class="btn-sub" type="button">상품보기</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>
+            <div class="categories">
+              <span>식품</span>
+              <span>음료</span>
+              <span>커피</span>
+              <span>프림</span>
+            </div>
+          </li>
+          <li>1건</li>
+          <li>2.50%</li>
+          <li>
+            <button class="btn-sub" type="button">상품보기</button>
+          </li>
+        </ul>
+      </div>
+      <div class="chart-container" title="쇼핑 카테고리 트렌드 차트">
         <header>
           <div class="title">
-            <h3>
-              <span>키워드 검색 차트</span>
+            <h2>
+              쇼핑 카테고리 트렌드 차트
               <div class="tooltip">
                 <div class="tooltip-content">
                   <dl>
-                    <dd>지난 12개월간의 네이버 검색 트렌드와 구글 검색량의 월간 추이를 한눈에 확인할 수 있는 차트입니다.
-                    </dd>
-                    <dd>네이버 검색 트렌드는 지난 12개월 동안 검색 횟수가 가장 높은 달을 100으로 둔 상대적 값으로 표현됩니다.</dd>
-                    <dd>그래프 상에서 조회할 기간을 드래그하면 현재 상위 노출되는 컨텐츠(네이버 블로그와 뉴스, 다음 블로그와 카페, 유튜브 동영상) 중 해당 기간 동안 작성 또는 업로드된 건을
-                      확인할 수 있습니다.</dd>
+                    <dd>Top 40 카테고리 분석 상위 3개 카테고리의 검색 클릭 추이를 알 수 있는 쇼핑 트렌드 차트입니다.</dd>
+                    <dd>기간은 2017년 8월부터 조회 가능합니다.</dd>
+                    <dd>트렌드는 조회하신 기간 중 검색 횟수가 가장 높은 시점을 100으로 둔 상대적 값으로 표현됩니다.</dd>
                   </dl>
                 </div>
               </div>
-            </h3>
+            </h2>
             <div class="buttons">
               <button class="ico-download" type="button">엑셀다운</button>
             </div>
@@ -1439,2065 +3121,374 @@
           <div class="filters">
             <div>
               <div class="selector">
-                <input type="radio" id="select-trend-1week" name="keywordTrendChart" checked />
-                <label for="select-trend-1month">1개월</label>
-                <input type="radio" id="select-trend-3months" name="keywordTrendChart" />
-                <label for="select-trend-3months">3개월</label>
-                <input type="radio" id="select-trend-6months" name="keywordTrendChart" />
-                <label for="select-trend-6months">6개월</label>
-                <input type="radio" id="select-trend-1year" name="keywordTrendChart" />
-                <label for="select-trend-1year">1년</label>
+                <input type="radio" id="daily-select-1month" name="shoppingCategoryTrendChart" checked />
+                <label for="daily-select-1month">1개월</label>
+                <input type="radio" id="daily-select-3months" name="shoppingCategoryTrendChart" />
+                <label for="daily-select-3months">3개월</label>
+                <input type="radio" id="daily-select-6months" name="shoppingCategoryTrendChart" />
+                <label for="daily-select-6months">6개월</label>
+                <input type="radio" id="daily-select-1year" name="shoppingCategoryTrendChart" />
+                <label for="daily-select-1year">1년</label>
               </div>
+            </div>
+            <div>
+              
               <div class="calendar">
-                <input type="text" id="keywordTrendChartFrom" name="" />
+                <input type="text" id="dailyLowestPriceChartFrom" name="" />
                 <span>~</span>
-                <input type="text" id="keywordTrendChartTo" name="" />
+                <input type="text" id="dailyLowestPriceChartTo" name="" />
               </div>
               <button class="btn-main ico-search" type="button"></button>
             </div>
           </div>
         </header>
-        <div class="chart-container" data-empty="데이터 갱신 전입니다.">
-          <div id="keywordTrendChart" class="chart"></div>
+        <div class="chart" id="categoryTrendChart"></div>
+      </div>
+    </section>
+    <section title="Top 40 상품명 분석" class="section-chart">
+      <header>
+        <h2>
+          Top 40 상품명 분석
+          <div class="tooltip">
+            <div class="tooltip-content">
+              <dl>
+                <dd>
+                  네이버 쇼핑 키워드 검색 시 노출되는 상위 40개 상품의 상품명 분석 결과를 제공합니다.
+                </dd>
+                <dd>광고 상품은 제외됩니다.</dd>
+                <dd>띄어쓰기를 기준으로 분석합니다.
+                  <dl>
+                    <dd>
+                      예시: 스타벅스 디카페인 커피원두
+                      → 스타벅스 / 디카페인 / 커피원두
+                    </dd>
+                  </dl>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </h2>
+        <div class="layout layout-chart">
+          <button class="ico-chart type-chart is-active" type="button"></button>
+          <button class="ico-list type-list" type="button"></button>
         </div>
-      </section>
-      <section class="section-related-keyword" title="연관 키워드">
-        <header>
-          <div class="title">
-            <h3>
-              연관 키워드
-              <div class="tooltip">
-                <div class="tooltip-content">
-                  <dl>
-                    <dd>검색한 키워드와 연관도가 높은 키워드 목록을 제공합니다.</dd>
-                    <dd>연관 키워드는 네이버와 구글 매체의 데이터를 제공합니다.</dd>
-                    <dd>연관도 순서(NO)는 매체가 네이버인 경우 우선 나열되고, 뒤에 이어 매체가 구글인 키워드 순으로 나열됩니다.</dd>
-                    <dd>매체가 중복되는 키워드는 네이버 연관도 순서 기준으로 구글 데이터가 추가되어 표시됩니다.</dd>
-                    <dd>네이버와 중복되지 않은 구글 키워드는 네이버 연관 키워드 아래 표시됩니다.</dd>
-                  </dl>
-                </div>
-              </div>
-            </h3>
-            <div class="buttons">
-              <button class="ico-refresh">정렬초기화</button>
-              <button class="ico-download">엑셀다운</button>
-            </div>
-          </div>
-          <div class="filters">
-            <div>
-              <div class="checkboxes">
-                <div class="checkbox">
-                  <input id="checkNaverList" type="checkbox" checked />
-                  <label for="checkNaverList">네이버</label>
-                </div>
-                <div class="checkbox">
-                  <input id="checkGoogleList" type="checkbox" checked />
-                  <label for="checkGoogleList">구글</label>
-                </div>
-              </div>
-              <div class="selector main">
-                <div class="select-keyword">
-                  <input type="radio" id="select-related-keyword" class="select-word" name="filter-related"
-                    checked="checked">
-                  <label for="select-related-keyword">키워드</label>
-                </div>
-                <div class="select-monthly-search">
-                  <input type="radio" id="select-related-monthly-search" class="select-number" name="filter-related">
-                  <label for="select-related-monthly-search">월간검색수</label>
-                </div>
-                <div class="select-monthly-search2">
-                  <input type="radio" id="select-related-monthly-search2" class="select-number" name="filter-related">
-                  <label for="select-related-monthly-search2">월간평균검색량</label>
-                </div>
-                <div class="select-monthly-click">
-                  <input type="radio" id="select-related-monthly-click" class="select-number" name="filter-related">
-                  <label for="select-related-monthly-click">월평균클릭수</label>
-                </div>
-                <div class="select-monthly-click2">
-                  <input type="radio" id="select-related-monthly-click2" class="select-number" name="filter-related">
-                  <label for="select-related-monthly-click2">월평균클릭률</label>
-                </div>
-              </div>
-              <div class="selector selector-word sub">
-                <input type="radio" id="select-related-include-2" name="filter-related-type" checked="">
-                <label for="select-related-include-2">포함</label>
-                <input type="radio" id="select-related-match-2" name="filter-related-type">
-                <label for="select-related-match-2">일치</label>
-                <input type="radio" id="select-related-except-2" name="filter-related-type">
-                <label for="select-related-except-2">제외</label>
-              </div>
-              <div class="selector selector-device sub">
-                <div class="select-naver-pc">
-                  <input type="radio" id="select-naver-pc" name="filter-device" checked="">
-                  <label for="select-naver-pc">네이버 PC</label>
-                </div>
-                <div class="select-naver-mobile">
-                  <input type="radio" id="select-naver-mobile" name="filter-device">
-                  <label for="select-naver-mobile">네이버 MO</label>
-                </div>
-                <div class="select-google">
-                  <input type="radio" id="select-google" name="filter-device">
-                  <label for="select-google">구글</label>
-                </div>
-                <div class="select-all">
-                  <input type="radio" id="select-all" name="filter-device">
-                  <label for="select-all">총</label>
-                </div>
-              </div>
-              <div class="selector selector-number sub">
-                <input type="radio" id="select-related-less-than" name="filter-related-operaters" checked="">
-                <label for="select-related-less-than">&lt;</label>
-                <input type="radio" id="select-related-greater-than" name="filter-related-operaters">
-                <label for="select-related-greater-than">&gt;</label>
-                <input type="radio" id="select-related-less-equal" name="filter-related-operaters">
-                <label for="select-related-less-equal">&lt;=</label>
-                <input type="radio" id="select-related-greater-equal" name="filter-related-operaters">
-                <label for="select-related-greater-equal">&gt;=</label>
-                <input type="radio" id="select-related-equal" name="filter-related-operaters">
-                <label for="select-related-equal">=</label>
-              </div>
-            </div>
-            <div class="search">
-              <div class="input">
-                <input type="search">
-                <span class="x"></span>
-              </div>
-              <button class="btn-main ico-search" type="button"></button>
-            </div>
-          </div>
-          <div class="filters">
-            <div class="selected-filters"></div>
-            <ul class="list-count">
-              <li>
-                <small>네이버 652개, 구글 0개</small>
-              </li>
-              <li>
-                <span class="total times">652</span>
-              </li>
-            </ul>
-          </div>
-        </header>
-        <div class="list list-realted-keyword all">
-          <ul class="row title">
-            <li class="col-number">NO</li>
-            <li class="col-keyword ico-sort">연관 키워드</li>
+      </header>
+      <div class="report">
+        <div class="summary link">
+          <ul>
             <li>
-              월간 검색수
-              <div class="tooltip">
-                <div class="tooltip-content">
-                  <dl>
-                    <dd>
-                      네이버 월간 검색수는 전일 포함 이전 30일 간 네이버를 이용한 사용자가 PC 및 모바일에서 해당 키워드를 검색한 횟수입니다.
-                    </dd>
-                    <dd>
-                      구글 월간 검색수는 당일 기준 2022년 10월 간 구글을 이용한 사용자가 해당 키워드를 검색한 대략적인 횟수입니다.
-                    </dd>
-                  </dl>
-                </div>
-              </div>
-            </li>
-            <li>
-              3개월간 변동
-              <div class="tooltip">
-                <div class="tooltip-content">
-                  <dl>
-                    <dd>
-                      3개월 변동은 최근 달의 데이터를 그보다 2개월 전의 데이터와 비교하여 3개월 동안의 검색 동향 변화를 표시합니다.
-                    </dd>
-                    <dd>
-                      예를 들어 최근 달이 7월인 경우, 7월 데이터를 5월과 비교하여 3개월 동안의 검색량 변화를 표시합니다.
-                    </dd>
-                  </dl>
-                </div>
-              </div>
-            </li>
-            <li>
-              6개월간 변동
-              <div class="tooltip">
-                <div class="tooltip-content">
-                  <dl>
-                    <dd>
-                      6개월 변동은 최근 달의 데이터를 그보다 5개월 전의 데이터와 비교하여 6개월 동안의 검색 동향 변화를 표시합니다.
-                    </dd>
-                    <dd>
-                      예를 들어 최근 달이 7월인 경우, 7월 데이터를 2월과 비교하여 6개월 동안의 검색량 변화를 표시합니다.
-                    </dd>
-                  </dl>
-                </div>
-              </div>
-            </li>
-            <li>
-              월 평균 클릭수
-              <div class="tooltip">
-                <div class="tooltip-content">
-                  최근 한 달간 사용자가 네이버에서 해당 키워드를 검색했을 때, 통합검색 영역에 노출된 광고가 받은 평균 클릭수입니다.
-                </div>
-              </div>
-            </li>
-            <li>
-              월 평균 클릭률
-              <div class="tooltip">
-                <div class="tooltip-content">
-                  <dl>
-                    <dd>
-                      최근 한 달간 해당 키워드로 네이버 통합검색 영역에 노출된 광고가 받은 평균 클릭률을 의미합니다.
-                    </dd>
-                    <dd>
-                      예: 광고노출수가 1,000회이고, 노출된 광고를 클릭한 횟수가 5회라면, 클릭률은 0.5%입니다.
-                    </dd>
-                  </dl>
-                </div>
-              </div>
-            </li>
-            <li>
-              경쟁정도
-              <div class="tooltip">
-                <div class="tooltip-content">
-                  <dl>
-                    <dd>
-                      네이버에서 경쟁정도는 최근 한 달간 해당 키워드에 대한 경쟁정도를 PC통합검색영역 기준으로 구분한 지표입니다. 다수의 광고주가 추가한 광고일수록 경쟁정도가 높을 수 있습니다.
-                    </dd>
-                    <dd>
-                      구글에서 경쟁정도는 특정 키워드의 광고 게재 위치가 얼마나 경쟁이 치열한지를 보여 줍니다. 경쟁 수준은 Google에서 검색되는 전체 키워드에 입찰하는 광고주 수에 따라
-                      결정됩니다. 데이터가 충분하지 않으면 대시(-)가 표시됩니다.
-                    </dd>
-                  </dl>
-                </div>
-              </div>
-            </li>
-            <li>
-              월 평균 노출 광고수
-              <div class="tooltip">
-                <div class="tooltip-content">
-                  <dl>
-                    <dd>
-                      최근 한 달간 사용자가 해당 키워드를 검색했을 때, PC통합검색영역에 도출된 평균 광고 개수입니다.
-                    </dd>
-                    <dd>
-                      키워드의 경쟁정도를 가늠해볼 수 있습니다.
-                    </dd>
-                  </dl>
-                </div>
-              </div>
-            </li>
-            <li>
-              페이지 상단 입찰가
-              <div class="tooltip">
-                <div class="tooltip-content">
-                  <dl>
-                    <dd>
-                      페이지 상단 입찰가(하위)는 광고주가 키워드에 대해 지불했던 페이지 상단 입찰가 중에서 낮은 범위(20 백분위수)에 해당하는 입찰가를 나타냅니다. 키워드의 평균 CPC는 다를
-                      수 있습니다.
-                    </dd>
-                    <dd>
-                      페이지 상단 입찰가(상위)는 광고주가 키워드에 대해 지불했던 페이지 상단 입찰가 중에서 높은 범위(80 백분위수)에 해당하는 입찰가를 나타냅니다. 키워드의 평균 CPC는 다를
-                      수 있습니다.
-                    </dd>
-                  </dl>
-                </div>
-              </div>
-            </li>
-            <li class="ico-sort">네이버 PC</li>
-            <li class="ico-sort">네이버 MO</li>
-            <li class="ico-sort">구글</li>
-            <li class="ico-sort">총</li>
-            <li class="ico-sort">구글</li>
-            <li class="ico-sort">구글</li>
-            <li class="ico-sort">네이버 PC</li>
-            <li class="ico-sort">네이버 MO</li>
-            <li class="ico-sort">네이버 PC</li>
-            <li class="ico-sort">네이버 MO</li>
-            <li class="ico-sort">네이버 PC</li>
-            <li class="ico-sort">구글</li>
-            <li class="ico-sort">네이버 PC</li>
-            <li class="ico-sort">구글 하위</li>
-            <li class="ico-sort">구글 상위</li>
-          </ul>
-          <ul class="row">
-            <li class="col-number">1</li>
-            <li class="col-keyword" title="키워드">
-              <div class="keyword" onclick="window.open('keyword_details.html')">커피원두</div>
-            </li>
-            <li title="네이버PC 월간 검색수">
-              <div class="">8,100</div>
-            </li>
-            <li title="네이버MO 월간 검색수">
-              <div class="">28,200</div>
-            </li>
-            <li title="구글 월간 검색수">
-              <div class="">1,900</div>
-            </li>
-            <li title="총 월간 검색수">
-              <div class="">38,200</div>
-            </li>
-            <li title="구글 3개월간 변동">
-              <div class="percent up">19</div>
-            </li>
-            <li title="구글 6개월간 변동">
-              <div class="percent">0</div>
-            </li>
-            <li title="네이버PC 월 평균 클릭수">
-              <div class="">68.4</div>
-            </li>
-            <li title="네이버MO 월 평균 클릭수">
-              <div class="">474.9</div>
-            </li>
-            <li title="네이버PC 월 평균 클릭률">
-              <div class="percent">0.95</div>
-            </li>
-            <li title="네이버MO 월 평균 클릭률">
-              <div class="percent">1.86</div>
-            </li>
-            <li title="네이버PC 경쟁정도">
-              <div class="tag high type-text"></div>
-            </li>
-            <li title="구글 경쟁정도">
-              <div class="tag high type-text"></div>
-            </li>
-            <li title="네이버PC 월 평균 노출 광고수">
-              <div class="">15</div>
-            </li>
-            <li title="구글 하위 페이지 상단 입찰가">
-              <div class="price">517</div>
-            </li>
-            <li title="구글 상위 페이지 상단 입찰가">
-              <div class="price">1,259</div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-number">2</li>
-            <li class="col-keyword" title="키워드">
-              <div class="keyword" onclick="window.open('keyword_details.html')">원두커피</div>
-            </li>
-            <li title="네이버PC 월간 검색수">
-              <div class="">7,000</div>
-            </li>
-            <li title="네이버MO 월간 검색수">
-              <div class="">20,100</div>
-            </li>
-            <li title="구글 월간 검색수">
-              <div class="">1,300</div>
-            </li>
-            <li title="총 월간 검색수">
-              <div class="">28,400</div>
-            </li>
-            <li title="구글 3개월간 변동">
-              <div class="percent">0</div>
-            </li>
-            <li title="구글 6개월간 변동">
-              <div class="percent">0</div>
-            </li>
-            <li title="네이버PC 월 평균 클릭수">
-              <div class="">52.6</div>
-            </li>
-            <li title="네이버MO 월 평균 클릭수">
-              <div class="">263.2</div>
-            </li>
-            <li title="네이버PC 월 평균 클릭률">
-              <div class="percent">0.83</div>
-            </li>
-            <li title="네이버MO 월 평균 클릭률">
-              <div class="percent">1.42</div>
-            </li>
-            <li title="네이버PC 경쟁정도">
-              <div class="tag high type-text"></div>
-            </li>
-            <li title="구글 경쟁정도">
-              <div class="tag high type-text"></div>
-            </li>
-            <li title="네이버PC 월 평균 노출 광고수">
-              <div class="">15</div>
-            </li>
-            <li title="구글 하위 페이지 상단 입찰가">
-              <div class="price">667</div>
-            </li>
-            <li title="구글 상위 페이지 상단 입찰가">
-              <div class="price">3,631</div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-number">3</li>
-            <li class="col-keyword" title="키워드">
-              <div class="keyword" onclick="window.open('keyword_details.html')">커피머신</div>
-            </li>
-            <li title="네이버PC 월간 검색수">
-              <div class="">33,100</div>
-            </li>
-            <li title="네이버MO 월간 검색수">
-              <div class="">184,500</div>
-            </li>
-            <li title="구글 월간 검색수">
-              <div class=""></div>
-            </li>
-            <li title="총 월간 검색수">
-              <div class="">217,600</div>
-            </li>
-            <li title="구글 3개월간 변동">
-              <div class="percent"></div>
-            </li>
-            <li title="구글 6개월간 변동">
-              <div class="percent"></div>
-            </li>
-            <li title="네이버PC 월 평균 클릭수">
-              <div class="">191.8</div>
-            </li>
-            <li title="네이버MO 월 평균 클릭수">
-              <div class="">2682.1</div>
-            </li>
-            <li title="네이버PC 월 평균 클릭률">
-              <div class="percent">0.64</div>
-            </li>
-            <li title="네이버MO 월 평균 클릭률">
-              <div class="percent">1.57</div>
-            </li>
-            <li title="네이버PC 경쟁정도">
-              <div class="tag high type-text"></div>
-            </li>
-            <li title="구글 경쟁정도">
-              <div class="tag high type-text"></div>
-            </li>
-            <li title="네이버PC 월 평균 노출 광고수">
-              <div class="">15</div>
-            </li>
-            <li title="구글 하위 페이지 상단 입찰가">
-              <div class="price"></div>
-            </li>
-            <li title="구글 상위 페이지 상단 입찰가">
-              <div class="price"></div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-number">4</li>
-            <li class="col-keyword" title="키워드">
-              <div class="keyword" onclick="window.open('keyword_details.html')">원두</div>
-            </li>
-            <li title="네이버PC 월간 검색수">
-              <div class="">7,170</div>
-            </li>
-            <li title="네이버MO 월간 검색수">
-              <div class="">30,400</div>
-            </li>
-            <li title="구글 월간 검색수">
-              <div class="">2,400</div>
-            </li>
-            <li title="총 월간 검색수">
-              <div class="">39,970</div>
-            </li>
-            <li title="구글 3개월간 변동">
-              <div class="percent">0</div>
-            </li>
-            <li title="구글 6개월간 변동">
-              <div class="percent">0</div>
-            </li>
-            <li title="네이버PC 월 평균 클릭수">
-              <div class="">59.1</div>
-            </li>
-            <li title="네이버MO 월 평균 클릭수">
-              <div class="">492.3</div>
-            </li>
-            <li title="네이버PC 월 평균 클릭률">
-              <div class="percent">0.64</div>
-            </li>
-            <li title="네이버MO 월 평균 클릭률">
-              <div class="percent">1.57</div>
-            </li>
-            <li title="네이버PC 경쟁정도">
-              <div class="tag high type-text"></div>
-            </li>
-            <li title="구글 경쟁정도">
-              <div class="tag high type-text"></div>
-            </li>
-            <li title="네이버PC 월 평균 노출 광고수">
-              <div class="">15</div>
-            </li>
-            <li title="구글 하위 페이지 상단 입찰가">
-              <div class="price">667</div>
-            </li>
-            <li title="구글 상위 페이지 상단 입찰가">
-              <div class="price">1,650</div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-number">5</li>
-            <li class="col-keyword" title="키워드">
-              <div class="keyword" onclick="window.open('keyword_details.html')">커피종류</div>
-            </li>
-            <li title="네이버PC 월간 검색수">
-              <div class="">2,150</div>
-            </li>
-            <li title="네이버MO 월간 검색수">
-              <div class="네이버MO 월간 검색수">16,300</div>
-            </li>
-            <li title="구글 월간 검색수">
-              <div class=""></div>
-            </li>
-            <li title="총 월간 검색수">
-              <div class="">18,450</div>
-            </li>
-            <li title="구글 3개월간 변동">
-              <div class="percent"></div>
-            </li>
-            <li title="구글 6개월간 변동">
-              <div class="percent"></div>
-            </li>
-            <li title="네이버PC 월 평균 클릭수">
-              <div class="">12.1</div>
-            </li>
-            <li title="네이버MO 월 평균 클릭수">
-              <div class="">193</div>
-            </li>
-            <li title="네이버PC 월 평균 클릭률">
-              <div class="percent">0.61</div>
-            </li>
-            <li title="네이버MO 월 평균 클릭률">
-              <div class="percent">1.27</div>
-            </li>
-            <li title="네이버PC 경쟁정도">
-              <div class="tag high type-text"></div>
-            </li>
-            <li title="구글 경쟁정도">
-              <div class="tag high type-text"></div>
-            </li>
-            <li title="네이버PC 월 평균 노출 광고수">
-              <div class="">15</div>
-            </li>
-            <li title="구글 하위 페이지 상단 입찰가">
-              <div class="price"></div>
-            </li>
-            <li title="구글 상위 페이지 상단 입찰가">
-              <div class="price"></div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li class="col-number">6</li>
-            <li class="col-keyword" title="키워드">
-              <div class="keyword" onclick="window.open('keyword_details.html')">아라비카원두</div>
-            </li>
-            <li title="네이버PC 월간 검색수">
-              <div class="">410</div>
-            </li>
-            <li title="네이버MO 월간 검색수">
-              <div class="">1,770</div>
-            </li>
-            <li title="구글 월간 검색수">
-              <div class="">590</div>
-            </li>
-            <li title="총 월간 검색수">
-              <div class="">2,770</div>
-            </li>
-            <li title="구글 3개월간 변동">
-              <div class="percent up">321</div>
-            </li>
-            <li title="구글 6개월간 변동">
-              <div class="percent up">181</div>
-            </li>
-            <li title="네이버PC 월 평균 클릭수">
-              <div class="">1</div>
-            </li>
-            <li title="네이버MO 월 평균 클릭수">
-              <div class="">24.3</div>
-            </li>
-            <li title="네이버PC 월 평균 클릭률">
-              <div class="percent">0.26</div>
-            </li>
-            <li title="네이버MO 월 평균 클릭률">
-              <div class="percent">1.47</div>
-            </li>
-            <li title="네이버PC 경쟁정도">
-              <div class="tag high type-text"></div>
-            </li>
-            <li title="구글 경쟁정도">
-              <div class="tag low type-text"></div>
-            </li>
-            <li title="네이버PC 월 평균 노출 광고수">
-              <div class="">15</div>
-            </li>
-            <li title="구글 하위 페이지 상단 입찰가">
-              <div class="price">204</div>
-            </li>
-            <li title="구글 상위 페이지 상단 입찰가">
-              <div class="price">1,655</div>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </div>
-    <div class="tab-content content-articles" data-tab="sub-menu">
-      <section class="section-article" title="키워드 컨텐츠">
-        <header>
-          <div class="title">
-            <h3> 키워드 컨텐츠
-              <div class="tooltip">
-                <div class="tooltip-content">
-                  <dl>
-                    <dd>블로그(네이버, 다음), 카페(네이버, 다음), 뉴스(네이버), 동영상(유튜브) 총 6가지 매체의 컨텐츠를 제공합니다.</dd>
-                    <dd>네이버는 100건, 다음과 유튜브는 50건의 상위 노출 컨텐츠를 확인할 수 있습니다.</dd>
-                    <dd>네이버와 다음은 정확도 순, 유튜브는 조회수 순입니다.</dd>
-                  </dl>
-                </div>
-              </div>
-            </h3>
-            <div class="calendar">
-              <input id="contentsFrom" type="text" name="" readonly=""
-                class="hasDatepicker">
-              <span>~</span>
-              <input id="contentsTo" type="text" name="" readonly=""
-                class="hasDatepicker">
-              <button class="btn-main ico-search" type="button"></button>
-              <button class="ico-refresh"> 초기화 </button>
-            </div>
-          </div>
-        </header>
-        <div class="section-content">
-          <ul class="tabs">
-            <li>
-              <div class="main">네이버</div>
-              <ul class="sub">
-                <li class="is-active" data-tab="article">블로그</li>
-                <li data-tab="article">카페</li>
-                <li data-tab="article">뉴스</li>
-              </ul>
-            </li>
-            <li>
-              <div class="main">다음</div>
-              <ul class="sub">
-                <li data-tab="article">블로그</li>
-                <li data-tab="article">카페</li>
-              </ul>
-            </li>
-            <li>
-              <div class="main">유튜브</div>
-              <ul class="sub">
-                <li data-tab="article">동영상</li>
-              </ul>
-            </li>
-          </ul>
-          <div title="네이버 블로그" class="tab-content is-active" data-tab="article">
-            <header>
               <div class="title">
+                <div>원두커피</div>
                 <strong>
-                  네이버 블로그
-                  <a href="https://search.naver.com/search.naver?query=커피원두&nso=&where=blog&sm=tab_opt" target="_blank"
-                    class="ico-link">자세히보기</a>
+                  40
+                  <small>32.26</small>
                 </strong>
-                <span>총 3,123건</span>
               </div>
-            </header>
-            <div class="list list-article" data-empty="조건에 맞는 컨텐츠가 없습니다.
-                ">
-              <article>
-                <div class="article-title">가정용 원두커피머신 간편한 오스너 예가클래식</div>
-                <div class="article-content">
-                  가정용 원두커피머신 장만을 하게 되었어요. 바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바
-                  압력의
-                  모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져 가정용 원두커피머신 장만을 하게 되었어요.
-                  바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바 압력의
-                  모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져가정용 원두커피머신 장만을 하게 되었어요.
-                  바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바 압력의
-                  모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져
-                </div>
-                <ul class="created">
-                  <li>어린왕자의 지구별이야기~!!</li>
-                  <li>작성일 2022-01-16</li>
-                </ul>
-              </article>
-              <article>
-                <div class="article-title">디카페인 커피 : 향긋하고 산미있는 원두 #브라운체리 콜롬비아</div>
-                <div class="article-content">
-                  9%제거 임산부 커피 원두 200g 서대문구 남가좌동에 쇼룸이 있는 '브라운체리'는... #산미있는원두 #디카페인커피
-                  페루 디카페인 Peru
-                </div>
-                <ul class="created">
-                  <li>Enviable, 일상을 예술로!</li>
-                  <li>작성일 2022-01-02</li>
-                </ul>
-              </article>
-              <article>
-                <div class="article-title">홈카페 원두 추천 송천커피상회</div>
-                <div class="article-content">
-                  에스프레소 원두는 송천커피상회 스페셜티 종류 중 하나인데 두 가지 모두 산미가... 올라오는 커피 원두 냄새
-                  그래 이거지! 하면서 바로...
-                </div>
-                <ul class="created">
-                  <li>알라미의 블로그</li>
-                  <li>작성일 2021-12-30</li>
-                </ul>
-              </article>
-              <article>
-                <div class="article-title">가정용 원두커피머신 간편한 오스너 예가클래식</div>
-                <div class="article-content">
-                  가정용 원두커피머신 장만을 하게 되었어요. 바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바
-                  압력의
-                  모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져 가정용 원두커피머신 장만을 하게 되었어요.
-                  바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바 압력의
-                  모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져가정용 원두커피머신 장만을 하게 되었어요.
-                  바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바 압력의
-                  모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져
-                </div>
-                <ul class="created">
-                  <li>어린왕자의 지구별이야기~!!</li>
-                  <li>작성일 2022-01-16</li>
-                </ul>
-              </article>
-              <article>
-                <div class="article-title">디카페인 커피 : 향긋하고 산미있는 원두 #브라운체리 콜롬비아</div>
-                <div class="article-content">
-                  9%제거 임산부 커피 원두 200g 서대문구 남가좌동에 쇼룸이 있는 '브라운체리'는... #산미있는원두 #디카페인커피
-                  페루 디카페인 Peru
-                </div>
-                <ul class="created">
-                  <li>Enviable, 일상을 예술로!</li>
-                  <li>작성일 2022-01-02</li>
-                </ul>
-              </article>
-              <article>
-                <div class="article-title">홈카페 원두 추천 송천커피상회</div>
-                <div class="article-content">
-                  에스프레소 원두는 송천커피상회 스페셜티 종류 중 하나인데 두 가지 모두 산미가... 올라오는 커피 원두 냄새
-                  그래 이거지! 하면서 바로...
-                </div>
-                <ul class="created">
-                  <li>알라미의 블로그</li>
-                  <li>작성일 2021-12-30</li>
-                </ul>
-              </article>
-            </div>
-            <footer class="section-footer">
-              <div class="pagination">
-                <button onclick="" type="button">
-                  <div class="arrow double left"></div>
-                </button>
-                <button onclick="" type="button">
-                  <div class="arrow left"></div>
-                </button>
-                <div class="pages">
-                  <button class="is-active" onclick="" type="button">1</button>
-                  <button onclick="" type="button">2</button>
-                  <button onclick="" type="button">3</button>
-                  <button onclick="" type="button">4</button>
-                  <button onclick="" type="button">5</button>
-                </div>
-                <button onclick="" type="button">
-                  <div class="arrow right"></div>
-                </button>
-                <button onclick="" type="button">
-                  <div class="arrow double right"></div>
-                </button>
-              </div>
-            </footer>
-          </div>
-          <div title="네이버 카페" class="tab-content" data-tab="article">
-            <header>
-              <div class="title">
-                <strong>
-                  네이버 카페
-                  <a href="https://search.naver.com/search.naver?where=article&sm=tab_viw.blog&query=커피원두&nso="
-                    target="_blank"
-                    class="ico-link">자세히보기</a>
-                </strong>
-                <span>총 3,123건</span>
-              </div>
-              <div class="filters">
-                <div class="search">
-                  <div class="calendar">
-                    <input type="text" id="naverCafeFrom" name="" />
-                    <span>~</span>
-                    <input type="text" id="naverCafeTo" name="" />
-                  </div>
-                  <button class="btn-main ico-search" type="button"></button>
-                </div>
-              </div>
-            </header>
-            <div class="list list-article" data-empty="조건에 맞는 컨텐츠가 없습니다.
-                ">
-              <article>
-                <div class="article-title">디카페인 커피 : 향긋하고 산미있는 원두 #브라운체리 콜롬비아</div>
-                <div class="article-content">
-                  9%제거 임산부 커피 원두 200g 서대문구 남가좌동에 쇼룸이 있는 '브라운체리'는... #산미있는원두 #디카페인커피
-                  페루 디카페인 Peru
-                </div>
-                <ul class="created">
-                  <li>Enviable, 일상을 예술로!</li>
-                  <li>작성일 2022-01-02</li>
-                </ul>
-              </article>
-            </div>
-            <footer class="section-footer">
-              <div class="pagination">
-                <button onclick="" type="button">
-                  <div class="arrow double left"></div>
-                </button>
-                <button onclick="" type="button">
-                  <div class="arrow left"></div>
-                </button>
-                <div class="pages">
-                  <button class="is-active" onclick="" type="button">1</button>
-                  <button onclick="" type="button">2</button>
-                  <button onclick="" type="button">3</button>
-                  <button onclick="" type="button">4</button>
-                  <button onclick="" type="button">5</button>
-                </div>
-                <button onclick="" type="button">
-                  <div class="arrow right"></div>
-                </button>
-                <button onclick="" type="button">
-                  <div class="arrow double right"></div>
-                </button>
-              </div>
-            </footer>
-          </div>
-          <div title="네이버 뉴스" class="tab-content" data-tab="article">
-            <header>
-              <div class="title">
-                <strong>
-                  네이버 뉴스
-                  <a href="https://search.naver.com/search.naver?where=news&sm=tab_jum&query=커피원두" target="_blank"
-                    class="ico-link">자세히보기</a>
-                </strong>
-                <span>총 3,123건</span>
-              </div>
-              <div class="filters">
-                <div class="search">
-                  <div class="calendar">
-                    <input type="text" id="newsFrom" name="" />
-                    <span>~</span>
-                    <input type="text" id="newsTo" name="" />
-                  </div>
-                  <button class="btn-main ico-search" type="button"></button>
-                </div>
-              </div>
-            </header>
-            <div class="list list-article" data-empty="조건에 맞는 컨텐츠가 없습니다.
-                ">
-              <article>
-                <div class="article-title">홈카페 원두 추천 송천커피상회</div>
-                <div class="article-content">
-                  에스프레소 원두는 송천커피상회 스페셜티 종류 중 하나인데 두 가지 모두 산미가... 올라오는 커피 원두 냄새
-                  그래 이거지! 하면서 바로...
-                </div>
-                <ul class="created">
-                  <li>알라미의 블로그</li>
-                  <li>작성일 2021-12-30</li>
-                </ul>
-              </article>
-            </div>
-            <footer class="section-footer">
-              <div class="pagination">
-                <button onclick="" type="button">
-                  <div class="arrow double left"></div>
-                </button>
-                <button onclick="" type="button">
-                  <div class="arrow left"></div>
-                </button>
-                <div class="pages">
-                  <button class="is-active" onclick="" type="button">1</button>
-                  <button onclick="" type="button">2</button>
-                  <button onclick="" type="button">3</button>
-                  <button onclick="" type="button">4</button>
-                  <button onclick="" type="button">5</button>
-                </div>
-                <button onclick="" type="button">
-                  <div class="arrow right"></div>
-                </button>
-                <button onclick="" type="button">
-                  <div class="arrow double right"></div>
-                </button>
-              </div>
-            </footer>
-          </div>
-          <div title="다음 블로그" class="tab-content" data-tab="article">
-            <header>
-              <div class="title">
-                <strong>
-                  다음 블로그
-                  <a href="https://search.daum.net/search?w=blog&nil_search=btn&DA=NTB&enc=utf8&q=커피원두" target="_blank"
-                    class="ico-link">자세히보기</a>
-                </strong>
-                <span>총 3,123건</span>
-              </div>
-              <div class="filters">
-                <div class="search">
-                  <div class="calendar">
-                    <input type="text" id="naverBlogFrom" name="" />
-                    <span>~</span>
-                    <input type="text" id="naverBlogTo" name="" />
-                  </div>
-                  <button class="btn-main ico-search" type="button"></button>
-                </div>
-              </div>
-            </header>
-            <div class="list list-article list-thumbnail" data-empty="조건에 맞는 컨텐츠가 없습니다.">
-              <article>
-                <div class="image">
-                  <img src="https://source.unsplash.com/random/100x100/?coffee" alt="">
-                </div>
-                <div class="texts">
-                  <div class="article-title">가정용 원두커피머신 간편한 오스너 예가클래식</div>
-                  <div class="article-content">
-                    가정용 원두커피머신 장만을 하게 되었어요. 바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바
-                    압력의
-                    모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져 가정용 원두커피머신 장만을 하게 되었어요.
-                    바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바 압력의
-                    모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져가정용 원두커피머신 장만을 하게 되었어요.
-                    바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바 압력의
-                    모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져
-                  </div>
-                  <ul class="created">
-                    <li>어린왕자의 지구별이야기~!!</li>
-                    <li>작성일 2022-01-16</li>
-                  </ul>
-                </div>
-              </article>
-              <article>
-                <div class="image">
-                  <img src="https://source.unsplash.com/random/100x100/?coffee/1" alt="">
-                </div>
-                <div class="texts">
-                  <div class="article-title">디카페인 커피 : 향긋하고 산미있는 원두 #브라운체리 콜롬비아</div>
-                  <div class="article-content">
-                    9%제거 임산부 커피 원두 200g 서대문구 남가좌동에 쇼룸이 있는 '브라운체리'는... #산미있는원두 #디카페인커피
-                    페루 디카페인 Peru
-                  </div>
-                  <ul class="created">
-                    <li>Enviable, 일상을 예술로!</li>
-                    <li>작성일 2022-01-02</li>
-                  </ul>
-                </div>
-              </article>
-              <article>
-                <div class="image">
-                  <img src="https://source.unsplash.com/random/100x100/?coffee/2" alt="">
-                </div>
-                <div class="texts">
-                  <div class="article-title">홈카페 원두 추천 송천커피상회</div>
-                  <div class="article-content">
-                    에스프레소 원두는 송천커피상회 스페셜티 종류 중 하나인데 두 가지 모두 산미가... 올라오는 커피 원두 냄새
-                    그래 이거지! 하면서 바로...
-                  </div>
-                  <ul class="created">
-                    <li>알라미의 블로그</li>
-                    <li>작성일 2021-12-30</li>
-                  </ul>
-                </div>
-              </article>
-              <article>
-                <div class="image">
-                  <img src="https://source.unsplash.com/random/100x100/?coffee/3" alt="">
-                </div>
-                <div class="texts">
-                  <div class="article-title">가정용 원두커피머신 간편한 오스너 예가클래식</div>
-                  <div class="article-content">
-                    가정용 원두커피머신 장만을 하게 되었어요. 바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바
-                    압력의
-                    모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져 가정용 원두커피머신 장만을 하게 되었어요.
-                    바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바 압력의
-                    모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져가정용 원두커피머신 장만을 하게 되었어요.
-                    바리스타 자격증이 있는 친구에게 어디게 좋냐고 묻곤 했었는데 오스너... 에스프레소 머신은 비용이 높더라도 안정적인 추출을 위해 20바 압력의
-                    모터를 사용을 하는걸 확인할 수 있었어요. CEME 그룹에서 생산하는 이탈리아 율카 모터를 사용하는데 세계 최대 커피 모터 펌프로 알려져
-                  </div>
-                  <ul class="created">
-                    <li>어린왕자의 지구별이야기~!!</li>
-                    <li>작성일 2022-01-16</li>
-                  </ul>
-                </div>
-              </article>
-              <article>
-                <div class="image">
-                  <img src="https://source.unsplash.com/random/100x100/?coffee/4" alt="">
-                </div>
-                <div class="texts">
-                  <div class="article-title">디카페인 커피 : 향긋하고 산미있는 원두 #브라운체리 콜롬비아</div>
-                  <div class="article-content">
-                    9%제거 임산부 커피 원두 200g 서대문구 남가좌동에 쇼룸이 있는 '브라운체리'는... #산미있는원두 #디카페인커피
-                    페루 디카페인 Peru
-                  </div>
-                  <ul class="created">
-                    <li>Enviable, 일상을 예술로!</li>
-                    <li>작성일 2022-01-02</li>
-                  </ul>
-                </div>
-              </article>
-              <article>
-                <div class="image">
-                  <img src="https://source.unsplash.com/random/100x100/?coffee/5" alt="">
-                </div>
-                <div class="texts">
-                  <div class="article-title">홈카페 원두 추천 송천커피상회</div>
-                  <div class="article-content">
-                    에스프레소 원두는 송천커피상회 스페셜티 종류 중 하나인데 두 가지 모두 산미가... 올라오는 커피 원두 냄새
-                    그래 이거지! 하면서 바로...
-                  </div>
-                  <ul class="created">
-                    <li>알라미의 블로그</li>
-                    <li>작성일 2021-12-30</li>
-                  </ul>
-                </div>
-              </article>
-            </div>
-            <footer class="section-footer">
-              <div class="pagination">
-                <button onclick="" type="button">
-                  <div class="arrow double left"></div>
-                </button>
-                <button onclick="" type="button">
-                  <div class="arrow left"></div>
-                </button>
-                <div class="pages">
-                  <button class="is-active" onclick="" type="button">1</button>
-                  <button onclick="" type="button">2</button>
-                  <button onclick="" type="button">3</button>
-                  <button onclick="" type="button">4</button>
-                  <button onclick="" type="button">5</button>
-                </div>
-                <button onclick="" type="button">
-                  <div class="arrow right"></div>
-                </button>
-                <button onclick="" type="button">
-                  <div class="arrow double right"></div>
-                </button>
-              </div>
-            </footer>
-          </div>
-          <div title="다음 카페" class="tab-content" data-tab="article">
-            <header>
-              <div class="title">
-                <strong>
-                  다음 카페
-                  <a href="https://search.naver.com/search.naver?query=커피원두&nso=&where=blog&sm=tab_opt" target="_blank"
-                    class="ico-link">자세히보기</a>
-                </strong>
-                <span>총 3,123건</span>
-              </div>
-              <div class="filters">
-                <div class="search">
-                  <div class="calendar">
-                    <input type="text" id="naverCafeFrom" name="" />
-                    <span>~</span>
-                    <input type="text" id="naverCafeTo" name="" />
-                  </div>
-                  <button class="btn-main ico-search" type="button"></button>
-                </div>
-              </div>
-            </header>
-            <div class="list list-article list-thumbnail" data-empty="조건에 맞는 컨텐츠가 없습니다.
-                ">
-              <article>
-                <div class="image">
-                  <img src="https://source.unsplash.com/random/100x100/?coffee/1" alt="">
-                </div>
-                <div class="texts">
-                  <div class="article-title">커피 원두 추천해 주세요.</div>
-                  <div class="article-content">
-                    조금 더 맛있었으면 하는 욕심이 ㅎ 커피 원두 추천해 주실만하거 있으실까요? 일주일 정도 마실 양만 갈아서 마시고 있어요. 참고로 고소...
-                  </div>
-                  <ul class="created">
-                    <li>♬~수원맘 모여라</li>
-                    <li>작성일 2022-01-16</li>
-                  </ul>
-                </div>
-              </article>
-              <article>
-                <div class="image">
-                  <img src="https://source.unsplash.com/random/100x100/?coffee/2" alt="">
-                </div>
-                <div class="texts">
-                  <div class="article-title">커피 원두 추천해 주세요.</div>
-                  <div class="article-content">
-                    조금 더 맛있었으면 하는 욕심이 ㅎ 커피 원두 추천해 주실만하거 있으실까요? 일주일 정도 마실 양만 갈아서 마시고 있어요. 참고로 고소...
-                  </div>
-                  <ul class="created">
-                    <li>♬~수원맘 모여라</li>
-                    <li>작성일 2022-01-16</li>
-                  </ul>
-                </div>
-              </article>
-              <article>
-                <div class="image">
-                  <img src="https://source.unsplash.com/random/100x100/?coffee/3" alt="">
-                </div>
-                <div class="texts">
-                  <div class="article-title">커피 원두 추천해 주세요.</div>
-                  <div class="article-content">
-                    조금 더 맛있었으면 하는 욕심이 ㅎ 커피 원두 추천해 주실만하거 있으실까요? 일주일 정도 마실 양만 갈아서 마시고 있어요. 참고로 고소...
-                  </div>
-                  <ul class="created">
-                    <li>♬~수원맘 모여라</li>
-                    <li>작성일 2022-01-16</li>
-                  </ul>
-                </div>
-              </article>
-            </div>
-            <footer class="section-footer">
-              <div class="pagination">
-                <button onclick="" type="button">
-                  <div class="arrow double left"></div>
-                </button>
-                <button onclick="" type="button">
-                  <div class="arrow left"></div>
-                </button>
-                <div class="pages">
-                  <button class="is-active" onclick="" type="button">1</button>
-                  <button onclick="" type="button">2</button>
-                  <button onclick="" type="button">3</button>
-                  <button onclick="" type="button">4</button>
-                  <button onclick="" type="button">5</button>
-                </div>
-                <button onclick="" type="button">
-                  <div class="arrow right"></div>
-                </button>
-                <button onclick="" type="button">
-                  <div class="arrow double right"></div>
-                </button>
-              </div>
-            </footer>
-          </div>
-          <div title="유튜브 동영상" class="tab-content" data-tab="article">
-            <header>
-              <div class="title">
-                <strong>
-                  유튜브 동영상
-                  <a href="https://www.youtube.com/results?search_query=커피원두&sp=CAM%253D" target="_blank"
-                    class="ico-link">자세히보기</a>
-                </strong>
-                <span>총 3,123건</span>
-              </div>
-              <div class="filters">
-                <div class="search">
-                  <div class="calendar">
-                    <input type="text" id="naverCafeFrom" name="" />
-                    <span>~</span>
-                    <input type="text" id="naverCafeTo" name="" />
-                  </div>
-                  <button class="btn-main ico-search" type="button"></button>
-                </div>
-              </div>
-            </header>
-            <div class="list list-article list-thumbnail youtube" data-empty="조건에 맞는 컨텐츠가 없습니다.
-                ">
-              <article>
-                <div class="image">
-                  <img
-                    src="https://i.ytimg.com/vi/FWyLOAjBpEM/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAjb6Z9hEQqtMV2SwCCnm6oCkPyMw"
-                    alt="">
-                </div>
-                <div class="texts">
-                  <div class="article-title">[바리스타룰스] 전석호 본부장도 반한 원두풀한 대용량 커피!</div>
-                  <ul class="count">
-                    <li>조회수 3,008,173</li>
-                    <li>좋아요 472</li>
-                    <li>댓글 140</li>
-                  </ul>
-                  <div class="article-content">
-                    전석호 본부장도 반한 원두풀한 대용량 커피 바리스타룰스! 커피의 세가지 룰을 지켰다. 1. 최고등급 싱글 오리진 원두를 2.
-                  </div>
-                  <ul class="created">
-                    <li>Maeil</li>
-                    <li>작성일 2022-07-01</li>
-                  </ul>
-                </div>
-              </article>
-              <article>
-                <div class="image">
-                  <img
-                    src="https://i.ytimg.com/vi/Ma-2pWLLIHA/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLD00xD2SrGJPITOTK24HYf_JfcvzQ"
-                    alt="">
-                </div>
-                <div class="texts">
-                  <div class="article-title">[생로병사의 비밀] 커피의 건강학 (2012.3.24. 405회)</div>
-                  <ul class="count">
-                    <li>조회수 2,529,162</li>
-                    <li>좋아요 26,148</li>
-                    <li>댓글 1,137</li>
-                  </ul>
-                  <div class="article-content">
-                    [영상 정보] 향과 맛으로 사람들을 사로잡은 커피! 우리 몸에는 어떤 영향을 미칠까? 간 기능 개선, 노화억제, 각종 질병을 예방하여 커피 ...
-                  </div>
-                  <ul class="created">
-                    <li>KBS 생로병사의 비밀</li>
-                    <li>작성일 2019-07-31</li>
-                  </ul>
-                  <ul class="hashtags">
-                    <li class="keyword">생로병사의비밀</li>
-                    <li class="keyword">생로병사</li>
-                    <li class="keyword">생로라이브</li>
-                    <li class="keyword">KBS</li>
-                    <li class="keyword">건강수명</li>
-                    <li class="keyword">매주_수요일_밤10시</li>
-                    <li class="keyword">KBS1TV</li>
-                    <li class="keyword">웰빙</li>
-                    <li class="keyword">다이어트</li>
-                    <li class="keyword">건강정보</li>
-                    <li class="keyword">의학정보</li>
-                    <li class="keyword">믿을 수 있는</li>
-                  </ul>
-                </div>
-              </article>
-            </div>
-            <footer class="section-footer">
-              <div class="pagination">
-                <button onclick="" type="button">
-                  <div class="arrow double left"></div>
-                </button>
-                <button onclick="" type="button">
-                  <div class="arrow left"></div>
-                </button>
-                <div class="pages">
-                  <button class="is-active" onclick="" type="button">1</button>
-                  <button onclick="" type="button">2</button>
-                  <button onclick="" type="button">3</button>
-                  <button onclick="" type="button">4</button>
-                  <button onclick="" type="button">5</button>
-                </div>
-                <button onclick="" type="button">
-                  <div class="arrow right"></div>
-                </button>
-                <button onclick="" type="button">
-                  <div class="arrow double right"></div>
-                </button>
-              </div>
-            </footer>
-          </div>
-        </div>
-      </section>
-    </div>
-    <div class="tab-content content-shopping" data-tab="sub-menu">
-      <section class="section-items">
-        <header>
-          <div class="title">
-            <h3>
-              <span>Top 40</span>
-              <div class="tooltip">
-                <div class="tooltip-content">
-                  <dl>
-                    <dd>네이버 쇼핑 키워드 검색 시 노출되는 상위 40개의 상품 정보를 제공합니다.</dd>
-                    <dd>광고 상품은 목록에서 제외됩니다.</dd>
-                    <dd>필터를 통해 조건에 맞는 상품 조회가 가능합니다.</dd>
-                  </dl>
-                </div>
-              </div>
-            </h3>
-          </div>
-          <div class="filters">
-            <div>
-              <div class="selector main">
-                <input type="radio" id="selectKeyword" class="select-word" name="filterTop40">
-                <label for="selectKeyword">키워드</label>
-                <input type="radio" id="selectCategory" class="select-category" name="filterTop40">
-                <label for="selectCategory">카테고리</label>
-                <input type="radio" id="selectStrore" class="select-word" name="filterTop40">
-                <label for="selectStrore">스토어명</label>
-                <input type="radio" id="selectPrice" class="select-number" name="filterTop40">
-                <label for="selectPrice">판매가</label>
-                <input type="radio" id="selectBrand" class="select-word" name="filterTop40">
-                <label for="selectBrand">브랜드</label>
-                <input type="radio" id="selectCompany" class="select-word" name="filterTop40">
-                <label for="selectCompany">제조사</label>
-              </div>
-              <div class="selector selector-word sub">
-                <input type="radio" id="selectInclude" name="filterTop40Sub" checked="">
-                <label for="selectInclude">포함</label>
-                <input type="radio" id="selectMatch" name="filterTop40Sub">
-                <label for="selectMatch">일치</label>
-                <input type="radio" id="selectExcept" name="filterTop40Sub">
-                <label for="selectExcept">제외</label>
-              </div>
-              <div class="selector selector-category sub">
-                <input type="radio" id="selectMain" name="filterCategory" checked="">
-                <label for="selectMain">대분류</label>
-                <input type="radio" id="selectMiddle" name="filterCategory">
-                <label for="selectMiddle">중분류</label>
-                <input type="radio" id="selectSub" name="filterCategory">
-                <label for="selectSub">소분류</label>
-                <input type="radio" id="selectSmall" name="filterCategory">
-                <label for="selectSmall">세분류</label>
-              </div>
-              <div class="selector selector-number sub">
-                <input type="radio" id="select-less-than" name="filterOperaters" checked="">
-                <label for="select-less-than">&lt;</label>
-                <input type="radio" id="select-greater-than" name="filterOperaters">
-                <label for="select-greater-than">&gt;</label>
-                <input type="radio" id="select-less-equal" name="filterOperaters">
-                <label for="select-less-equal">&lt;=</label>
-                <input type="radio" id="select-greater-equal" name="filterOperaters">
-                <label for="select-greater-equal">&gt;=</label>
-                <input type="radio" id="select-equal" name="filterOperaters">
-                <label for="select-equal">=</label>
-              </div>
-            </div>
-            <div class="search">
-              <div class="input">
-                <input type="search">
-                <div class="x close"></div>
-              </div>
-              <button class="btn-main ico-search" type="button"></button>
-            </div>
-          </div>
-          <div class="filters">
-            <div class="selected-filters">
-            </div>
-            <div>
-              <ul class="list-count">
-                <li>
-                  <span class="total">652</span>
-                </li>
-              </ul>
-              <div class="layout layout-grid">
-                <button class="ico-list type-list is-active" type="button"></button>
-                <button class="ico-grid type-grid" type="button"></button>
-              </div>
-            </div>
-          </div>
-        </header>
-        <div class="list list-product type-list">
-          <ul class="row title">
-            <li class="col-ranking ico-sort">순위</li>
-            <li class="col-title ico-sort">상품명</li>
-            <li class="ico-sort">카테고리</li>
-            <li class="ico-sort">스토어명</li>
-            <li class="ico-sort">판매가</li>
-            <li class="ico-sort">브랜드</li>
-            <li class="ico-sort">제조사</li>
-          </ul>
-          <div class="rows">
-            <ul class="row"
-              onclick="window.open('about:blank').location.href='https://search.shopping.naver.com/gate.nhn?id=12126547821'">
-              <li class="col-ranking">1</li>
-              <li class="col-title">
-                <div class="image">
-                  <img src="https://source.unsplash.com/random/100x100/?coffee" alt="" />
-                </div>
-                <div class="title">
-                  <div class="categories">
-                    <span>식품</span>
-                    <span>음료</span>
-                    <span>커피</span>
-                    <span>원두/생두</span>
-                  </div>
-                  <div class="name">
-                    1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도 디카페인 드립
-                    에스프레소 분쇄 당일 로스팅 갓볶은 맛있는 고소한 원두 커피 홀빈 가루
-                  </div>
-                </div>
-              </li>
-              <li title="스토어명" class="col-store">커피창고</li>
-              <li title="판매가" class="col-price"><strong class="price">9,900</strong></li>
-              <li title="브랜드">커피창고</li>
-              <li title="제조사">주식회사 커피창고</li>
-            </ul>
-            <ul class="row">
-              <li class="col-ranking">2</li>
-              <li class="col-title">
-                <div class="image">
-                  <img src="https://source.unsplash.com/random/100x100/?coffee/2" alt="" />
-                </div>
-                <div class="title">
-                  <div class="tag naver">가격비교상품</div>
-                  <div class="categories">
-                    <span>식품</span>
-                    <span>음료</span>
-                    <span>커피</span>
-                    <span>원두/생두</span>
-                  </div>
-                  <div class="name">
-                    1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도 디카페인 드립
-                    에스프레소 분쇄 당일 로스팅 갓볶은 맛있는 고소한 원두 커피 홀빈 가루
-                  </div>
-                </div>
-              </li>
-              <li title="스토어명" class="col-store">네이버</li>
-              <li title="판매가" class="col-price">
-                <div>
-                  <div class="tag bg-red">최저가</div>
-                  <strong class="price">9,900</strong>
-                </div>
-              </li>
-              <li title="브랜드">커피창고</li>
-              <li title="제조사">주식회사 커피창고</li>
-            </ul>
-            <ul class="row">
-              <li class="col-ranking">3</li>
-              <li class="col-title">
-                <div class="image">
-                  <img src="https://source.unsplash.com/random/100x100/?coffee/3" alt="" />
-                </div>
-                <div class="title">
-                  <div class="categories">
-                    <span>식품</span>
-                    <span>음료</span>
-                    <span>커피</span>
-                    <span>원두/생두</span>
-                  </div>
-                  <div class="name">
-                    1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도 디카페인 드립
-                    에스프레소 분쇄 당일 로스팅 갓볶은 맛있는 고소한 원두 커피 홀빈 가루
-                  </div>
-                </div>
-              </li>
-              <li title="스토어명" class="col-store">커피창고</li>
-              <li title="판매가" class="col-price"><strong class="price">9,900</strong></li>
-              <li title="브랜드">커피창고</li>
-              <li title="제조사">주식회사 커피창고</li>
-            </ul>
-            <ul class="row">
-              <li class="col-ranking">4</li>
-              <li class="col-title">
-                <div class="image">
-                  <img src="https://source.unsplash.com/random/100x100/?coffee/4" alt="" />
-                </div>
-                <div class="title">
-                  <div class="categories">
-                    <span>식품</span>
-                    <span>음료</span>
-                    <span>커피</span>
-                    <span>원두/생두</span>
-                  </div>
-                  <div class="name">
-                    1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도 디카페인 드립
-                    에스프레소 분쇄 당일 로스팅 갓볶은 맛있는 고소한 원두 커피 홀빈 가루
-                  </div>
-                </div>
-              </li>
-              <li title="스토어명" class="col-store">커피창고</li>
-              <li title="판매가" class="col-price"><strong class="price">9,900</strong></li>
-              <li title="브랜드">커피창고</li>
-              <li title="제조사">주식회사 커피창고</li>
-            </ul>
-            <ul class="row">
-              <li class="col-ranking">5</li>
-              <li class="col-title">
-                <div class="image">
-                  <img src="https://source.unsplash.com/random/100x100/?coffee/5" alt="" />
-                </div>
-                <div class="title">
-                  <div class="categories">
-                    <span>식품</span>
-                    <span>음료</span>
-                    <span>커피</span>
-                    <span>원두/생두</span>
-                  </div>
-                  <div class="name">
-                    1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도 디카페인 드립
-                    에스프레소 분쇄 당일 로스팅 갓볶은 맛있는 고소한 원두 커피 홀빈 가루
-                  </div>
-                </div>
-              </li>
-              <li title="스토어명" class="col-store">커피창고</li>
-              <li title="판매가" class="col-price"><strong class="price">9,900</strong></li>
-              <li title="브랜드">커피창고</li>
-              <li title="제조사">주식회사 커피창고</li>
-            </ul>
-            <ul class="row">
-              <li class="col-ranking">6</li>
-              <li class="col-title">
-                <div class="image">
-                  <img src="https://source.unsplash.com/random/100x100/?coffee/6" alt="" />
-                </div>
-                <div class="title">
-                  <div class="categories">
-                    <span>식품</span>
-                    <span>음료</span>
-                    <span>커피</span>
-                    <span>원두/생두</span>
-                  </div>
-                  <div class="name">
-                    1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도 디카페인 드립
-                    에스프레소 분쇄 당일 로스팅 갓볶은 맛있는 고소한 원두 커피 홀빈 가루
-                  </div>
-                </div>
-              </li>
-              <li title="스토어명" class="col-store">커피창고</li>
-              <li title="판매가" class="col-price"><strong class="price">9,900</strong></li>
-              <li title="브랜드">커피창고</li>
-              <li title="제조사">주식회사 커피창고</li>
-            </ul>
-            <ul class="row">
-              <li class="col-ranking">7</li>
-              <li class="col-title">
-                <div class="image">
-                  <img src="https://source.unsplash.com/random/100x100/?coffee/7" alt="" />
-                </div>
-                <div class="title">
-                  <div class="categories">
-                    <span>식품</span>
-                    <span>음료</span>
-                    <span>커피</span>
-                    <span>원두/생두</span>
-                  </div>
-                  <div class="name">
-                    1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도 디카페인 드립
-                    에스프레소 분쇄 당일 로스팅 갓볶은 맛있는 고소한 원두 커피 홀빈 가루
-                  </div>
-                </div>
-              </li>
-              <li title="스토어명" class="col-store">커피창고</li>
-              <li title="판매가" class="col-price"><strong class="price">9,900</strong></li>
-              <li title="브랜드">커피창고</li>
-              <li title="제조사">주식회사 커피창고</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-      <section title="Top 40 카테고리 분석" class="section-chart">
-        <header>
-          <h3>
-            Top 40 카테고리 분석
-            <div class="tooltip">
-              <div class="tooltip-content">
-                <dl>
-                  <dd>네이버 쇼핑 키워드 검색 시 노출되는 상위 40개 상품의 카테고리 분석 결과를 제공합니다.</dd>
-                  <dd>광고 상품은 제외됩니다.</dd>
-                </dl>
-              </div>
-            </div>
-          </h3>
-          <div class="layout layout-chart">
-            <button class="ico-chart type-chart is-active" type="button"></button>
-            <button class="ico-list type-list" type="button"></button>
-          </div>
-        </header>
-        <div class="report">
-          <div class="summary link">
-            <ul>
-              <li>
-                <div class="title">
-                  <div>식품 〉 음료 〉 커피 〉 원두/생두</div>
-                  <strong>
-                    24
-                    <small>60.00</small>
-                  </strong>
-                </div>
-                <button class="btn-sub ico-arrow" type="button"></button>
-              </li>
-              <li>
-                <div class="title">
-                  <div>식품 〉 음료 〉 커피 〉 캡슐커피</div>
-                  <strong>
-                    8
-                    <small>20.00</small>
-                  </strong>
-                </div>
-                <button class="btn-sub ico-arrow" type="button"></button>
-              </li>
-              <li>
-                <div class="title">
-                  <div>식품 〉 음료 〉 커피 〉 커피음료</div>
-                  <strong>
-                    4
-                    <small>10.00</small>
-                  </strong>
-                </div>
-                <button class="btn-sub ico-arrow" type="button"></button>
-              </li>
-              <li>
-                <div class="title">
-                  <div>식품 〉 음료 〉 커피 〉 더치커피</div>
-                  <strong>
-                    2
-                    <small>5.00</small>
-                  </strong>
-                </div>
-                <button class="btn-sub ico-arrow" type="button"></button>
-              </li>
-              <li>
-                <div class="title">
-                  <div>기타</div>
-                  <strong>
-                    2
-                    <small>5.00</small>
-                  </strong>
-                </div>
-                <button class="btn-sub ico-arrow" type="button"></button>
-              </li>
-            </ul>
-          </div>
-          <div class="chart" id="categoryChart"></div>
-        </div>
-        <div class="list">
-          <ul class="row title">
-            <li>카테고리</li>
-            <li>건수</li>
-            <li>백분율</li>
-            <li>링크</li>
-          </ul>
-          <ul class="row">
-            <li>
-              <div class="categories">
-                <span>식품</span>
-                <span>음료</span>
-                <span>커피</span>
-                <span>원두/생두</span>
-              </div>
+              <button class="btn-sub ico-arrow" type="button"></button>
             </li>
-            <li>24건</li>
-            <li>60.00%</li>
             <li>
+              <div class="title">
+                <div>기타</div>
+                <strong>
+                  29
+                  <small>23.39</small>
+                </strong>
+              </div>
+              <button class="btn-sub ico-arrow" type="button"></button>
+            </li>
+            <li>
+              <div class="title">
+                <div>원두</div>
+                <strong>
+                  25
+                  <small>20.16</small>
+                </strong>
+              </div>
+              <button class="btn-sub ico-arrow" type="button"></button>
+            </li>
+            <li>
+              <div class="title">
+                <div>분쇄</div>
+                <strong>
+                  15
+                  <small>12.10</small>
+                </strong>
+              </div>
+              <button class="btn-sub ico-arrow" type="button"></button>
+            </li>
+            <li>
+              <div class="title">
+                <div>커피</div>
+                <strong>
+                  15
+                  <small>12.10</small>
+                </strong>
+              </div>
               <button class="btn-sub ico-arrow" type="button"></button>
             </li>
           </ul>
-          <ul class="row">
-            <li>
-              <div class="categories">
-                <span>식품</span>
-                <span>음료</span>
-                <span>커피</span>
-                <span>캡슐커피</span>
-              </div>
-            </li>
-            <li>8건</li>
-            <li>20.00%</li>
-            <li>
-              <button class="btn-sub" type="button">상품보기</button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>
-              <div class="categories">
-                <span>식품</span>
-                <span>음료</span>
-                <span>커피</span>
-                <span>커피음료</span>
-              </div>
-            </li>
-            <li>4건</li>
-            <li>10.00%</li>
-            <li>
-              <button class="btn-sub" type="button">상품보기</button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>
-              <div class="categories">
-                <span>식품</span>
-                <span>음료</span>
-                <span>커피</span>
-                <span>더치커피</span>
-              </div>
-            </li>
-            <li>2건</li>
-            <li>5.00%</li>
-            <li>
-              <button class="btn-sub" type="button">상품보기</button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>
-              <div class="categories">
-                <span>식품</span>
-                <span>음료</span>
-                <span>커피</span>
-                <span>커피믹스/인스턴트커피</span>
-              </div>
-            </li>
-            <li>1건</li>
-            <li>2.50%</li>
-            <li>
-              <button class="btn-sub" type="button">상품보기</button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>
-              <div class="categories">
-                <span>식품</span>
-                <span>음료</span>
-                <span>커피</span>
-                <span>프림</span>
-              </div>
-            </li>
-            <li>1건</li>
-            <li>2.50%</li>
-            <li>
-              <button class="btn-sub" type="button">상품보기</button>
-            </li>
-          </ul>
         </div>
-        <div class="chart-container" title="쇼핑 카테고리 트렌드 차트">
-          <header class="section-header multi-line">
-            <div class="title">
-              <h3>
-                쇼핑 카테고리 트렌드 차트
-                <div class="tooltip">
-                  <div class="tooltip-content">
-                    <dl>
-                      <dd>Top 40 카테고리 분석 상위 3개 카테고리의 검색 클릭 추이를 알 수 있는 쇼핑 트렌드 차트입니다.</dd>
-                      <dd>기간은 2017년 8월부터 조회 가능합니다.</dd>
-                      <dd>트렌드는 조회하신 기간 중 검색 횟수가 가장 높은 시점을 100으로 둔 상대적 값으로 표현됩니다.</dd>
-                    </dl>
-                  </div>
-                </div>
-              </h3>
-              <div class="buttons">
-                <button class="ico-download" type="button">엑셀다운</button>
-              </div>
+        <div class="chart" id="keywordChart"></div>
+      </div>
+      <div class="list">
+        <ul class="row title">
+          <li>키워드</li>
+          <li>건수</li>
+          <li>백분율</li>
+          <li>링크</li>
+        </ul>
+        <ul class="row">
+          <li>
+            <div class="keyword">원두커피</div>
+          </li>
+          <li>40건</li>
+          <li>32.26%</li>
+          <li>
+            <button class="btn-sub" type="button">상품보기</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>
+            <div class="keyword">원두</div>
+          </li>
+          <li>25건</li>
+          <li>20.16%</li>
+          <li>
+            <button class="btn-sub" type="button">상품보기</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>
+            <div class="keyword">분쇄</div>
+          </li>
+          <li>15건</li>
+          <li>12.10%</li>
+          <li>
+            <button class="btn-sub" type="button">상품보기</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>
+            <div class="keyword">커피</div>
+          </li>
+          <li>15건</li>
+          <li>12.10%</li>
+          <li>
+            <button class="btn-sub" type="button">상품보기</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>
+            <div class="keyword">과테말라</div>
+          </li>
+          <li>3건</li>
+          <li>2.42%</li>
+          <li>
+            <button class="btn-sub" type="button">상품보기</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>
+            <div class="keyword">로스팅</div>
+          </li>
+          <li>3건</li>
+          <li>2.42%</li>
+          <li>
+            <button class="btn-sub" type="button">상품보기</button>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section-chart section-price-analysis">
+      <header>
+        <h2>
+          Top 40 판매가 분석
+          <div class="tooltip">
+            <div class="tooltip-content">
+              <dl>
+                <dd>네이버 쇼핑 키워드 검색 시 노출되는 상위 40개 상품의 판매가 분석 결과를 제공합니다.</dd>
+                <dd>광고 상품은 제외됩니다.</dd>
+                <dd>일반상품은 판매가, 가격비교상품은 최저가를 기준으로 분석합니다.</dd>
+                <dd>원하는 구간의 그래프를 더블 클릭하시면 해당 구간의 상품목록을 확인하실 수 있습니다.</dd>
+              </dl>
             </div>
-            <div class="filters">
-              <div>
-                <div class="selector">
-                  <input type="radio" id="daily-select-1month" name="shoppingCategoryTrendChart" checked />
-                  <label for="daily-select-1month">1개월</label>
-                  <input type="radio" id="daily-select-3months" name="shoppingCategoryTrendChart" />
-                  <label for="daily-select-3months">3개월</label>
-                  <input type="radio" id="daily-select-6months" name="shoppingCategoryTrendChart" />
-                  <label for="daily-select-6months">6개월</label>
-                  <input type="radio" id="daily-select-1year" name="shoppingCategoryTrendChart" />
-                  <label for="daily-select-1year">1년</label>
-                </div>
-                <div class="calendar">
-                  <input type="text" id="dailyLowestPriceChartFrom" name="" />
-                  <span>~</span>
-                  <input type="text" id="dailyLowestPriceChartTo" name="" />
-                </div>
-                <button class="btn-main ico-search" type="button"></button>
-              </div>
+          </div>
+        </h2>
+      </header>
+      <div class="report">
+        <div class="summary horizontal">
+          <ul>
+            <li>
+              <div>평균 판매가</div>
+              <strong>9,910원</strong>
+            </li>
+            <li>
+              <div>최저가</div>
+              <strong>750원</strong>
+            </li>
+            <li>
+              <div>최고가</div>
+              <strong>32,000원</strong>
+            </li>
+            <li>
+              <div>주요 가격대</div>
+              <strong>9,051~17,350원</strong>
+            </li>
+            <li>
+              <div>가격비교상품</div>
+              <strong>7건 (17.50%)</strong>
+            </li>
+          </ul>
+        </div>
+        <div class="chart-container">
+          <div class="chart" id="priceChart"></div>
+        </div>
+      </div>
+    </section>
+    <section class="section-chart">
+      <header>
+        <h2>
+          Top 40 브랜드 분석
+          <div class="tooltip">
+            <div class="tooltip-content">
+              <dl>
+                <dd>네이버 쇼핑 키워드 검색 시 노출되는 상위 40개 상품의 브랜드 분석 결과를 제공합니다.
+                </dd>
+                <dd>광고 상품은 제외됩니다.
+                </dd>
+              </dl>
             </div>
-          </header>
-          <div class="chart" id="categoryTrendChart"></div>
+          </div>
+        </h2>
+        <div class="layout layout-chart">
+          <button class="ico-chart type-chart is-active" type="button"></button>
+          <button class="ico-list type-list" type="button"></button>
         </div>
-      </section>
-      <section title="Top 40 상품명 분석" class="section-chart">
-        <header>
-          <h3>
-            Top 40 상품명 분석
-            <div class="tooltip">
-              <div class="tooltip-content">
-                <dl>
-                  <dd>
-                    네이버 쇼핑 키워드 검색 시 노출되는 상위 40개 상품의 상품명 분석 결과를 제공합니다.
-                  </dd>
-                  <dd>광고 상품은 제외됩니다.</dd>
-                  <dd>띄어쓰기를 기준으로 분석합니다.
-                    <dl>
-                      <dd>
-                        예시: 스타벅스 디카페인 커피원두
-                        → 스타벅스 / 디카페인 / 커피원두
-                      </dd>
-                    </dl>
-                  </dd>
-                </dl>
+      </header>
+      <div class="report">
+        <div class="summary link">
+          <ul>
+            <li>
+              <div class="title">
+                <div>스타벅스</div>
+                <strong>
+                  16
+                  <small>40.00</small>
+                </strong>
               </div>
-            </div>
-          </h3>
-          <div class="layout layout-chart">
-            <button class="ico-chart type-chart is-active" type="button"></button>
-            <button class="ico-list type-list" type="button"></button>
-          </div>
-        </header>
-        <div class="report">
-          <div class="summary link">
-            <ul>
-              <li>
-                <div class="title">
-                  <div>원두커피</div>
-                  <strong>
-                    40
-                    <small>32.26</small>
-                  </strong>
-                </div>
-                <button class="btn-sub ico-arrow" type="button"></button>
-              </li>
-              <li>
-                <div class="title">
-                  <div>기타</div>
-                  <strong>
-                    29
-                    <small>23.39</small>
-                  </strong>
-                </div>
-                <button class="btn-sub ico-arrow" type="button"></button>
-              </li>
-              <li>
-                <div class="title">
-                  <div>원두</div>
-                  <strong>
-                    25
-                    <small>20.16</small>
-                  </strong>
-                </div>
-                <button class="btn-sub ico-arrow" type="button"></button>
-              </li>
-              <li>
-                <div class="title">
-                  <div>분쇄</div>
-                  <strong>
-                    15
-                    <small>12.10</small>
-                  </strong>
-                </div>
-                <button class="btn-sub ico-arrow" type="button"></button>
-              </li>
-              <li>
-                <div class="title">
-                  <div>커피</div>
-                  <strong>
-                    15
-                    <small>12.10</small>
-                  </strong>
-                </div>
-                <button class="btn-sub ico-arrow" type="button"></button>
-              </li>
-            </ul>
-          </div>
-          <div class="chart" id="keywordChart"></div>
-        </div>
-        <div class="list">
-          <ul class="row title">
-            <li>키워드</li>
-            <li>건수</li>
-            <li>백분율</li>
-            <li>링크</li>
-          </ul>
-          <ul class="row">
-            <li>
-              <div class="keyword">원두커피</div>
+              <button class="btn-sub ico-arrow" type="button"></button>
             </li>
-            <li>40건</li>
-            <li>32.26%</li>
             <li>
-              <button class="btn-sub" type="button">상품보기</button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>
-              <div class="keyword">원두</div>
-            </li>
-            <li>25건</li>
-            <li>20.16%</li>
-            <li>
-              <button class="btn-sub" type="button">상품보기</button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>
-              <div class="keyword">분쇄</div>
-            </li>
-            <li>15건</li>
-            <li>12.10%</li>
-            <li>
-              <button class="btn-sub" type="button">상품보기</button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>
-              <div class="keyword">커피</div>
-            </li>
-            <li>15건</li>
-            <li>12.10%</li>
-            <li>
-              <button class="btn-sub" type="button">상품보기</button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>
-              <div class="keyword">과테말라</div>
-            </li>
-            <li>3건</li>
-            <li>2.42%</li>
-            <li>
-              <button class="btn-sub" type="button">상품보기</button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>
-              <div class="keyword">로스팅</div>
-            </li>
-            <li>3건</li>
-            <li>2.42%</li>
-            <li>
-              <button class="btn-sub" type="button">상품보기</button>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section class="section-chart section-price-analysis">
-        <header>
-          <h3>
-            Top 40 판매가 분석
-            <div class="tooltip">
-              <div class="tooltip-content">
-                <dl>
-                  <dd>네이버 쇼핑 키워드 검색 시 노출되는 상위 40개 상품의 판매가 분석 결과를 제공합니다.</dd>
-                  <dd>광고 상품은 제외됩니다.</dd>
-                  <dd>일반상품은 판매가, 가격비교상품은 최저가를 기준으로 분석합니다.</dd>
-                  <dd>원하는 구간의 그래프를 더블 클릭하시면 해당 구간의 상품목록을 확인하실 수 있습니다.</dd>
-                </dl>
+              <div class="title">
+                <div>테라로사</div>
+                <strong>
+                  10
+                  <small>25.00</small>
+                </strong>
               </div>
-            </div>
-          </h3>
-        </header>
-        <div class="report">
-          <div class="summary horizontal">
-            <ul>
-              <li>
-                <div>평균 판매가</div>
-                <strong>9,910원</strong>
-              </li>
-              <li>
-                <div>최저가</div>
-                <strong>750원</strong>
-              </li>
-              <li>
-                <div>최고가</div>
-                <strong>32,000원</strong>
-              </li>
-              <li>
-                <div>주요 가격대</div>
-                <strong>9,051~17,350원</strong>
-              </li>
-              <li>
-                <div>가격비교상품</div>
-                <strong>7건 (17.50%)</strong>
-              </li>
-            </ul>
-          </div>
-          <div class="chart-container">
-            <div class="chart" id="priceChart"></div>
-          </div>
-        </div>
-      </section>
-      <section class="section-chart">
-        <header>
-          <h3>
-            Top 40 브랜드 분석
-            <div class="tooltip">
-              <div class="tooltip-content">
-                <dl>
-                  <dd>네이버 쇼핑 키워드 검색 시 노출되는 상위 40개 상품의 브랜드 분석 결과를 제공합니다.
-                  </dd>
-                  <dd>광고 상품은 제외됩니다.
-                  </dd>
-                </dl>
+              <button class="btn-sub ico-arrow" type="button"></button>
+            </li>
+            <li>
+              <div class="title">
+                <div>커피창고</div>
+                <strong>
+                  6
+                  <small>15.00</small>
+                </strong>
               </div>
-            </div>
-          </h3>
-          <div class="layout layout-chart">
-            <button class="ico-chart type-chart is-active" type="button"></button>
-            <button class="ico-list type-list" type="button"></button>
-          </div>
-        </header>
-        <div class="report">
-          <div class="summary link">
-            <ul>
-              <li>
-                <div class="title">
-                  <div>스타벅스</div>
-                  <strong>
-                    16
-                    <small>40.00</small>
-                  </strong>
-                </div>
-                <button class="btn-sub ico-arrow" type="button"></button>
-              </li>
-              <li>
-                <div class="title">
-                  <div>테라로사</div>
-                  <strong>
-                    10
-                    <small>25.00</small>
-                  </strong>
-                </div>
-                <button class="btn-sub ico-arrow" type="button"></button>
-              </li>
-              <li>
-                <div class="title">
-                  <div>커피창고</div>
-                  <strong>
-                    6
-                    <small>15.00</small>
-                  </strong>
-                </div>
-                <button class="btn-sub ico-arrow" type="button"></button>
-              </li>
-              <li>
-                <div class="title">
-                  <div>브랜드 없음</div>
-                  <strong>
-                    6
-                    <small>15.00</small>
-                  </strong>
-                </div>
-                <button class="btn-sub ico-arrow" type="button"></button>
-              </li>
-              <li>
-                <div class="title">
-                  <div>기타</div>
-                  <strong>
-                    2
-                    <small>5.00</small>
-                  </strong>
-                </div>
-                <button class="btn-sub ico-arrow" type="button"></button>
-              </li>
-            </ul>
-          </div>
-          <div class="chart" id="brandChart"></div>
-        </div>
-        <div class="list">
-          <ul class="row title">
-            <li>브랜드</li>
-            <li>건수</li>
-            <li>백분율</li>
-            <li>링크</li>
-          </ul>
-          <ul class="row">
-            <li>스타벅스</li>
-            <li>16건</li>
-            <li>40.00%</li>
-            <li>
-              <button class="btn-sub" type="button">상품보기</button>
+              <button class="btn-sub ico-arrow" type="button"></button>
             </li>
-          </ul>
-          <ul class="row">
             <li>
-              테라로사
+              <div class="title">
+                <div>브랜드 없음</div>
+                <strong>
+                  6
+                  <small>15.00</small>
+                </strong>
+              </div>
+              <button class="btn-sub ico-arrow" type="button"></button>
             </li>
-            <li>10건</li>
-            <li>25.00%</li>
             <li>
-              <button class="btn-sub" type="button">상품보기</button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>
-              커피창고
-            </li>
-            <li>6건</li>
-            <li>15.00%</li>
-            <li>
-              <button class="btn-sub" type="button">상품보기</button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>
-              브랜드없음
-            </li>
-            <li>6건</li>
-            <li>5.00%</li>
-            <li>
-              <button class="btn-sub" type="button">상품보기</button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>
-              코스트코
-            </li>
-            <li>1건</li>
-            <li>2.50%</li>
-            <li>
-              <button class="btn-sub" type="button">상품보기</button>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>
-              일리
-            </li>
-            <li>1건</li>
-            <li>2.50%</li>
-            <li>
-              <button class="btn-sub" type="button">상품보기</button>
+              <div class="title">
+                <div>기타</div>
+                <strong>
+                  2
+                  <small>5.00</small>
+                </strong>
+              </div>
+              <button class="btn-sub ico-arrow" type="button"></button>
             </li>
           </ul>
         </div>
-      </section>
-    </div>
+        <div class="chart" id="brandChart"></div>
+      </div>
+      <div class="list">
+        <ul class="row title">
+          <li>브랜드</li>
+          <li>건수</li>
+          <li>백분율</li>
+          <li>링크</li>
+        </ul>
+        <ul class="row">
+          <li>스타벅스</li>
+          <li>16건</li>
+          <li>40.00%</li>
+          <li>
+            <button class="btn-sub" type="button">상품보기</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>
+            테라로사
+          </li>
+          <li>10건</li>
+          <li>25.00%</li>
+          <li>
+            <button class="btn-sub" type="button">상품보기</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>
+            커피창고
+          </li>
+          <li>6건</li>
+          <li>15.00%</li>
+          <li>
+            <button class="btn-sub" type="button">상품보기</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>
+            브랜드없음
+          </li>
+          <li>6건</li>
+          <li>5.00%</li>
+          <li>
+            <button class="btn-sub" type="button">상품보기</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>
+            코스트코
+          </li>
+          <li>1건</li>
+          <li>2.50%</li>
+          <li>
+            <button class="btn-sub" type="button">상품보기</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>
+            일리
+          </li>
+          <li>1건</li>
+          <li>2.50%</li>
+          <li>
+            <button class="btn-sub" type="button">상품보기</button>
+          </li>
+        </ul>
+      </div>
+    </section>
   </div>
 </main>
 
