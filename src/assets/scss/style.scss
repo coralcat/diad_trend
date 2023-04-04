@@ -49,11 +49,22 @@ body {
 
   h2 {
     font-size: clamp(17px, 2vw, 18px);
+
+    .tooltip {
+      &::before {
+        width: 18px;
+        height: 18px;
+      }
+    }
   }
 
   h3 {
     font-size: clamp(15px, 2vw, 16px);
     gap: 3px;
+
+    .tooltip {
+      margin-left: 0;
+    }
   }
 
   h5 {
@@ -180,7 +191,6 @@ body {
 
     &::before,
     &::after {
-      color: #333;
       font-family: "NanumSquareR";
     }
 
@@ -971,6 +981,12 @@ header {
 
     &[data-title] {
       font-size: 16px;
+      line-height: normal;
+
+      &::before,
+      &::after {
+        color: #333;
+      }
 
       &::before {
         font-size: 13px;
@@ -1483,7 +1499,6 @@ main {
   > .wrapper {
     flex: 1 1 auto;
     display: flex;
-    flex-direction: column;
     gap: 0.75rem;
     width: 100%;
   }
@@ -2911,32 +2926,6 @@ main {
   }
 }
 
-.list-checkbox {
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 50vw;
-  gap: 0.5rem;
-  padding: 1rem;
-
-  .checkbox {
-    flex: 0 0 109px;
-
-    label {
-      border: 1px solid #eee;
-      padding: 0.25rem 0.5rem;
-      border-radius: 3px;
-
-      &:is(input:checked + label) {
-        border-color: rgba(80, 72, 215, 0.5);
-      }
-    }
-
-    svg {
-      left: 12px;
-    }
-  }
-}
-
 .filters {
   display: flex;
   align-items: center;
@@ -2949,6 +2938,7 @@ main {
     flex-wrap: wrap;
     align-items: center;
     gap: 0.75rem;
+    min-height: 36px;
   }
 
   .buttons {
@@ -3683,6 +3673,7 @@ main {
     flex: 1 1 auto;
     min-width: 450px;
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: column;
     gap: 1rem;
 
@@ -4968,20 +4959,23 @@ main {
 }
 
 .content-keyword-trend-details {
+  flex-direction: row;
+  align-items: flex-start;
+
+  .content-header {
+    flex-direction: column;
+    align-items: flex-start;
+    position: sticky;
+    top: 0;
+  }
+
   .wrapper {
     overflow: hidden;
     flex-direction: row;
   }
 
   .tab-content {
-    overflow-y: auto;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  .content-header {
-    justify-content: flex-start;
-    gap: 2rem;
+    padding-top: 67px;
   }
 
   .chart {
@@ -5949,9 +5943,6 @@ main {
 
               &:hover,
               &.is-active {
-                color: white;
-                background-color: #333;
-                font-family: "NanumSquareL";
               }
             }
           }
@@ -5971,30 +5962,23 @@ main {
         height: 100%;
         overflow: hidden;
         margin-left: 1rem;
+        padding-top: 0;
 
         header {
-          .title {
-            strong:not(.total strong) {
-              font-size: 18px;
-              display: flex;
-              gap: 0.5rem;
-            }
+          .ico-link {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'%3E%3Cpath fill='slategray' d='M14 3v2h3.59l-9.83 9.83l1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7Z'/%3E%3C/svg%3E");
+            display: inline-flex;
+            font-size: 12px;
+            border: 1px solid #eee;
+            padding: 3px 5px;
+            border-radius: 3px;
+            color: #5c55c6;
+            padding-right: 1.35rem;
+            background-position: right 5px center;
+            background-size: 14px;
 
-            .ico-link {
-              background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'%3E%3Cpath fill='slategray' d='M14 3v2h3.59l-9.83 9.83l1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7Z'/%3E%3C/svg%3E");
-              display: inline-flex;
-              font-size: 12px;
-              border: 1px solid #eee;
-              padding: 3px 5px;
-              border-radius: 3px;
-              color: #5c55c6;
-              padding-right: 1.35rem;
-              background-position: right 5px center;
-              background-size: 14px;
-
-              &::after {
-                content: none;
-              }
+            &::after {
+              content: none;
             }
           }
         }
@@ -6702,7 +6686,7 @@ main {
     }
   }
 
-  &.modal-history {
+  &-history {
     .list {
       .row {
         li {
@@ -6712,7 +6696,7 @@ main {
     }
   }
 
-  &.modal-chart {
+  &-chart {
     .tooltip-content {
       right: -3.35rem;
 
@@ -6747,7 +6731,7 @@ main {
     }
   }
 
-  &.modal-advanced {
+  &-advanced {
     section {
       &:first-of-type {
         flex-direction: row;
@@ -6839,8 +6823,40 @@ main {
     }
   }
 
+  &-checkboxes {
+    .dialog {
+      width: 50vw;
+    }
+
+    .inputs {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 1rem;
+
+      .checkbox {
+        flex: 0 0 auto;
+        width: 109px;
+
+        label {
+          border: 1px solid #eee;
+          padding: 0.25rem 0.5rem;
+          border-radius: 3px;
+
+          &:is(input:checked + label) {
+            border-color: rgba(80, 72, 215, 0.5);
+          }
+        }
+
+        svg {
+          left: 12px;
+        }
+      }
+    }
+  }
+
   .modal-header {
-    padding: 1rem 1.25rem;
+    padding: 0.75rem 1rem;
     border-bottom: 1px solid #e3e6e9;
 
     &.no-title {
@@ -6892,6 +6908,8 @@ main {
   .list {
     flex: 1 1 auto;
     max-height: 360px;
+    gap: 0.5rem;
+    padding-bottom: 0.75rem;
 
     .rows {
       min-height: auto;
@@ -6901,12 +6919,20 @@ main {
       }
     }
 
+    .row {
+      .col-check {
+        .checkbox {
+          transform: scale(1);
+        }
+      }
+    }
+
     li {
       width: 90px;
       border: 0;
       flex-direction: row;
       justify-content: flex-start;
-      padding: 0.25rem 0.5rem !important;
+      padding: 0 !important;
       position: relative;
 
       &.keyword {

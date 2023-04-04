@@ -1,4 +1,4 @@
-<div id="selectColumns" class="modal" title="사용자지정보기">
+<div id="selectColumns" class="modal modal-checkboxes" title="사용자지정보기">
   <div class="dialog">
     <header class="modal-header">
       <h3>사용자 지정 보기</h3>
@@ -6,7 +6,7 @@
     </header>
     <div class="modal-content">
       <section>
-        <div class="list list-checkbox">
+        <div class="inputs">
           <div class="checkbox">
             <input id="select-column1" type="checkbox" name="selectColumn" checked />
             <label for="select-column1">키워드</label>
@@ -2758,22 +2758,22 @@
           </ul>
           <div class="rows" data-empty="성공이력 데이터가 존재하지 않습니다.">
             <ul class="row">
-              <li class="col-keyword">
+              <li title="키워드" class="col-keyword">
                 <div class="keyword">레드울프</div>
               </li>
-              <li>PC일반</li>
+              <li title="현재순위">PC일반</li>
               <li>2</li>
-              <li>
+              <li title="현재입찰가">
                 <div class="price">500</div>
               </li>
-              <li>
+              <li title="증감액">
                 <div class="tag up">10</div>
               </li>
-              <li>2</li>
-              <li>
+              <li title="이전순위">2</li>
+              <li title="이전입찰가">
                 <div class="price">480</div>
               </li>
-              <li class="col-date">20223-03-03 오전 8:10:15</li>
+              <li title="입찰시각" class="col-date">20223-03-03 오전 8:10:15</li>
             </ul>
           </div>
         </div>
