@@ -16,7 +16,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
   .section-main {
     article[data-brand] {
       &::before {
-        content: none
+        content: none;
       }
 
       > * {
@@ -211,7 +211,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
   }
 
   .modal {
-
     header {
       padding: 0;
     }
@@ -234,7 +233,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
         width: 100%;
         padding: 0;
         box-shadow: 0 0 0;
-        gap: .5rem;
+        gap: 0.5rem;
 
         &.title {
           display: flex !important;
@@ -249,20 +248,17 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     }
 
     &-location {
-
       .lists {
         height: 40vh !important;
         overflow-y: auto;
 
         .list {
           max-height: none !important;
-          padding: .75rem;
+          padding: 0.75rem;
           border: 1px solid #e3e6e9;
 
           .row {
-
             &.title {
-
               li {
                 background-color: transparent;
               }
@@ -273,22 +269,18 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     }
 
     &-checkboxes {
-
       .inputs {
-
         .checkbox {
-          width: calc(50% - .25rem)
+          width: calc(50% - 0.25rem);
         }
       }
     }
 
     &-history {
-
       .list {
-
         .row {
           border: 1px solid #eee;
-          padding: .75rem;
+          padding: 0.75rem;
 
           &.title {
             display: none !important;
@@ -357,10 +349,16 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
         .buttons {
           button {
+            flex: 1 1 auto;
             padding: 0.5rem;
           }
         }
       }
+    }
+
+    &.section-list {
+      height: auto;
+      overflow: unset;
     }
 
     &.section-chart {
@@ -522,11 +520,12 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       gap: 0;
 
       header {
-        padding: 0 1rem
+        background-color: transparent;
+        padding: 0 1rem;
       }
 
       section {
-        padding: 0
+        padding: 0;
       }
 
       article {
@@ -537,10 +536,17 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       .sections {
         flex-wrap: wrap;
       }
+
       .articles {
         width: 100%;
         flex-wrap: nowrap;
         padding-left: 1rem;
+
+        article {
+          .title {
+            padding: 0 !important;
+          }
+        }
       }
 
       .username {
@@ -549,7 +555,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
       .title {
         min-height: 3rem;
-        padding: .75rem;
+        padding: 0.75rem;
       }
 
       .subline {
@@ -676,7 +682,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
       & .checked {
         background-color: #f1f2fe;
-
       }
 
       &:hover {
@@ -798,8 +803,11 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
       .row {
         max-width: 100%;
+        box-shadow: 0 0 0;
+        border-radius: 0;
+
         &.title {
-          display: flex;
+          display: flex !important;
         }
       }
     }
@@ -992,7 +1000,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       header {
         .buttons {
           width: 100%;
-  
+
           .btn-main {
             position: fixed;
             left: 0;
@@ -1006,7 +1014,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
             z-index: 100;
           }
         }
-
       }
     }
 
@@ -1029,6 +1036,11 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     .filters {
       flex-wrap: wrap;
       flex-direction: column-reverse;
+
+      .filters {
+        flex-direction: row;
+        justify-content: flex-start;
+      }
     }
 
     .list {
@@ -1114,7 +1126,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     }
 
     .content-header {
-
       .title {
       }
     }
@@ -1149,7 +1160,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
       .related {
         width: 100%;
-
       }
     }
   }
@@ -1279,9 +1289,8 @@ $secondary-color: rgba(118, 130, 248, 0.1);
   }
 
   .content-keyword-trend-details {
-
     .content-header {
-      padding: .75rem;
+      padding: 0.75rem;
       gap: 0;
       position: relative;
     }
@@ -1306,9 +1315,9 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     }
     .section-main {
       background-color: white;
-      border-radius: .5rem;
+      border-radius: 0.5rem;
       width: auto;
-      margin-top: .75rem;
+      margin-top: 0.75rem;
 
       .information {
         .details {
@@ -1488,10 +1497,9 @@ $secondary-color: rgba(118, 130, 248, 0.1);
           margin-left: 0;
 
           section {
-
             header {
               flex-direction: column;
-  
+
               .filters {
                 flex-direction: row;
               }
@@ -1848,22 +1856,21 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     }
 
     section {
-
       header {
         padding: 3rem 1rem 1rem;
-  
+
         .title {
           font-size: 16px;
         }
-  
+
         h1 {
           font-size: 24px;
         }
-  
+
         p {
           font-size: 15px;
         }
-  
+
         .updated {
           font-size: 17px;
         }

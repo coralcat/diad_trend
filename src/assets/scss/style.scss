@@ -49,6 +49,7 @@ body {
 
   h2 {
     font-size: clamp(17px, 2vw, 18px);
+    line-height: 2;
 
     .tooltip {
       &::before {
@@ -70,7 +71,7 @@ body {
   h5 {
     font-size: 14px;
     font-weight: normal;
-    font-family: "RobotoMedium", "NanumSquareR";
+    font-family: "Outfit", "NanumSquareR";
   }
 
   small {
@@ -174,8 +175,7 @@ body {
 
   .date {
     white-space: nowrap;
-    font-family: "Outfit";
-    font-weight: 500;
+    font: 500 13px/1 "Outfit"
   }
 
   .username {
@@ -186,6 +186,7 @@ body {
     display: flex;
     align-items: center;
     gap: 2px !important;
+    line-height: normal;
     font-family: "Outfit";
     font-weight: 500;
 
@@ -198,7 +199,7 @@ body {
       font-size: 80%;
     }
 
-    &:empty {
+    &:empty:not([data-title]) {
       text-decoration: none !important;
       &::before {
         content: none !important;
@@ -396,7 +397,7 @@ body {
 
   .main-color {
     color: #7682f8;
-    font-family: "RobotoMedium";
+    font-family: "Outfit";
     font-size: 120%;
   }
 
@@ -501,7 +502,7 @@ body {
     }
 
     .title {
-      min-height: auto;
+      min-height: auto !important;
       font-family: "NanumSquareB";
     }
   }
@@ -607,7 +608,7 @@ body {
   padding: 3px;
   color: $main-color;
   font-size: 11px;
-  font-family: "RobotoMedium";
+  font-family: "Outfit";
 
   &::before {
     content: "MID:";
@@ -721,10 +722,9 @@ body {
     background-color: transparent;
     border: 1px solid rgba(118, 130, 248, 0.5);
     padding: 2px 6px;
-    font-family: "RobotoMedium";
     color: $main-color;
     border-radius: 30px;
-    font-size: 12px !important;
+    font: 500 12px/1 "Outfit";
 
     &::before {
       content: "D-";
@@ -918,6 +918,7 @@ section {
 
   &.section-list {
     height: 100%;
+    overflow: hidden;
   }
 
   &.section-main {
@@ -940,7 +941,7 @@ section {
     display: flex;
     gap: 1rem;
   }
-
+  
   [data-brand] {
     &::before {
       width: 36px;
@@ -1002,7 +1003,7 @@ header {
     background-size: 120px;
     width: fit-content;
     padding-left: 3.5rem;
-    font-family: "RobotoMedium";
+    font-family: "Outfit";
 
     .impact {
       color: $primary-color;
@@ -1621,7 +1622,7 @@ main {
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    font-family: "RobotoMedium", "NanumSquareR";
+    font-family: "Outfit", "NanumSquareR";
 
     .date {
       font-size: 13px;
@@ -1662,7 +1663,7 @@ main {
     }
 
     .tag {
-      font-family: "RobotoMedium";
+      font-family: "Outfit";
       font-size: 14px;
       background-color: rgba(0, 0, 0, 0.2);
       color: #333;
@@ -1694,7 +1695,7 @@ main {
         }
 
         .count {
-          font-family: "RobotoMedium", "NanumSquareR";
+          font-family: "Outfit", "NanumSquareR";
           font-size: 16px;
           color: $main-color;
 
@@ -2088,7 +2089,7 @@ main {
       white-space: nowrap;
       text-overflow: ellipsis;
       line-height: 1;
-      font-family: "RobotoMedium", "NanumSquareR";
+      font-family: "Outfit", "NanumSquareR";
       text-align: left;
       overflow: hidden;
       cursor: pointer;
@@ -2199,7 +2200,7 @@ main {
     min-width: 40px;
     font-size: 12px;
     line-height: normal;
-    font-family: "RobotoMedium", "NanumSquareR";
+    font-family: "Outfit", "NanumSquareR";
     white-space: nowrap;
     color: #11b4d4;
 
@@ -2235,7 +2236,7 @@ main {
 
       &::before {
         font-size: 13px !important;
-        font-family: "RobotoMedium", "NanumSquareR";
+        font-family: "Outfit", "NanumSquareR";
       }
 
       &.high {
@@ -2507,7 +2508,7 @@ main {
       width: 20%;
       min-height: 36px;
       padding: 0.75rem 0.5rem;
-      font-family: "RobotoMedium", "NanumSquareR";
+      font-family: "Outfit", "NanumSquareR";
       transition: background-color 0.25s;
 
       &:empty {
@@ -2875,7 +2876,7 @@ main {
 
     .article-title {
       margin-bottom: 0.35rem;
-      font-family: "RobotoMedium", "NanumSquareB";
+      font-family: "Outfit", "NanumSquareB";
       font-size: 16px;
 
       strong {
@@ -3608,7 +3609,7 @@ main {
         justify-content: center;
         font-size: 13px;
         margin-right: 5px;
-        font-family: "RobotoMedium";
+        font-family: "Outfit";
       }
     }
   }
@@ -3616,7 +3617,7 @@ main {
   h4 {
     strong {
       margin-left: 5px;
-      font-family: "RobotoMedium", "NanumSquareB";
+      font-family: "Outfit", "NanumSquareB";
       font-size: 15px;
     }
   }
@@ -3779,6 +3780,23 @@ main {
 .content-main {
   > .wrapper {
     padding: 0 1rem 1rem;
+  }
+
+  .service-type {
+    background-color: transparent;
+    height: auto;
+
+
+    strong {
+      width: 2rem;
+      height: 2rem;
+      background-color: $secondary-color;
+      color: $main-color;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   fieldset {
@@ -3964,6 +3982,7 @@ main {
         &.title {
           li {
             font-size: 17px;
+            flex-direction: column;
           }
         }
 
@@ -4088,6 +4107,12 @@ main {
 }
 
 .content-tracking.gmarket {
+  overflow: hidden;
+
+  section {
+    overflow: hidden;
+  }
+
   .list {
     .row {
       li {
@@ -4386,7 +4411,7 @@ main {
         &.title {
           .date {
             font-weight: normal;
-            font-family: "RobotoMedium", "NanumSquareR";
+            font-family: "Outfit", "NanumSquareR";
             color: #49536b;
           }
 
@@ -4417,7 +4442,7 @@ main {
               justify-content: center;
               border-radius: 16px;
               font-size: 10px;
-              font-family: "RobotoMedium";
+              font-family: "Outfit";
             }
 
             &:hover {
@@ -4510,6 +4535,7 @@ main {
       width: 50%;
       display: flex;
       flex-direction: column;
+      gap: .75rem;
 
       .list {
         flex: 1 1 auto;
@@ -4644,6 +4670,12 @@ main {
 }
 
 .content-bidding {
+  overflow: hidden;
+
+  section {
+    overflow: hidden
+  }
+
   .content-11st-brand-search,
   &.naver,
   &.google {
@@ -4991,7 +5023,9 @@ main {
     gap: 1rem;
 
     .chart {
+      display: block;
       align-self: center;
+      overflow: hidden;
     }
   }
 
@@ -5115,7 +5149,7 @@ main {
           display: flex;
           align-items: center;
           color: slategray;
-          font-family: "RobotoMedium", "NanumSquareR";
+          font-family: "Outfit", "NanumSquareR";
           white-space: nowrap;
           font-size: 13px;
 
@@ -5918,6 +5952,7 @@ main {
           justify-content: flex-start;
           padding: 0.5rem;
           font-size: 15px;
+          line-height: 1.5;
 
           &:not(:last-of-type) {
             border-bottom: 1px solid #eee;
@@ -5936,7 +5971,7 @@ main {
             gap: 0.5rem;
 
             li {
-              padding: 0.35rem 1rem;
+              padding: 5px 1rem;
               border-radius: 50px;
               text-align: center;
               justify-content: center;
@@ -5945,6 +5980,13 @@ main {
 
               &:hover,
               &.is-active {
+                background-color: #434649;
+                color: white;
+                font-family: 'NanumSquareR';
+
+                &::before {
+                  content: none
+                }
               }
             }
           }
@@ -6467,7 +6509,7 @@ main {
       background-size: 17px;
       padding-left: 1.25rem;
       background-position: center left;
-      font-family: "RobotoMedium";
+      font-family: "Outfit";
 
       &:first-of-type {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z'/%3E%3C/svg%3E");
@@ -6541,7 +6583,7 @@ main {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      font-family: "RobotoMedium", "NanumSquareR";
+      font-family: "Outfit", "NanumSquareR";
       white-space: nowrap;
 
       > :first-child {
@@ -6717,7 +6759,7 @@ main {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font: 15px "RobotoMedium", "NanumSquareR";
+        font: 15px "Outfit", "NanumSquareR";
 
         .times {
           margin-left: 0.5rem;
@@ -6975,6 +7017,13 @@ main {
 
   &.modal-edit {
     .list {
+
+      .rows {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+      }
+
       li {
         gap: 0.75rem;
       }
@@ -7330,7 +7379,6 @@ main {
         &:nth-of-type(10) {
           .tag {
             background-color: transparent;
-            font-size: 14px;
             &.up {
               color: tomato;
             }
