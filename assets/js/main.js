@@ -15,9 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let lastScrollTop = 0;
 
-  wrapper &&
-    wrapper.addEventListener("scroll", () => {
-      let currentScrollTop = wrapper.scrollTop;
+  main &&
+    main.addEventListener("scroll", () => {
+      let currentScrollTop = main.scrollTop;
 
       if (currentScrollTop > 50) {
         currentScrollTop > lastScrollTop
@@ -45,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   scrollToTop.addEventListener("click", () => {
-    wrapper.scrollTo({top: 0, behavior: "smooth"});
     main.scrollTo({top: 0, behavior: "smooth"});
   });
 
@@ -384,7 +383,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const targetModal = document.getElementById(modalData);
     if (targetModal) {
       targetModal.classList.add("is-active");
-      targetModal.querySelector("[data-modal]").addEventListener("click", () => {
+      const modalButton = targetModal.querySelector("[data-modal]")
+      modalButton && modalButton.addEventListener("click", () => {
         setTimeout(() => {
           targetModal.querySelector("input").value = "";
         }, 500);
@@ -625,20 +625,6 @@ document.addEventListener("DOMContentLoaded", () => {
           search.classList.toggle("is-active");
         });
     });
-
-    // 키워드 효과
-    // const keyword = advancedSearch.querySelector("textarea");
-    // keyword.addEventListener("keyup", event => {
-    //   const {target, code} = event;
-    //   if (code === "Comma") {
-    //     const keywords = target.value.split(",");
-    //     const wrapper = document.createElement("div");
-    //     wrapper.classList.add("keyword");
-    //     keywords.forEach(keyword => {
-    //       wrapper.appendChild(keyword);
-    //     });
-    //   }
-    // });
   }
 
   /* =====================================================
@@ -806,7 +792,7 @@ document.addEventListener("DOMContentLoaded", () => {
   matchMedia("screen and (max-width: 960px)").matches && aside.classList.add("icons-only");
   matchMedia("screen and (max-width: 640px)").matches && aside.classList.remove("icons-only");
 
-  const menus = document.querySelectorAll(".aside nav menu span");
+  const menus = document.querySelectorAll(".aside nav menu a");
   menus.forEach(menu => {
     menu.closest("div").querySelector("ul") && menu.closest("menu").classList.add("more");
     menu.addEventListener("click", event => {

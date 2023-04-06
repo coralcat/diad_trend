@@ -59,56 +59,56 @@
     <div class=" is-active  ">
       <menu>
         <i class="ico-ranking"></i>
-        <span onclick="location.href='tracking.html'">스토어</span>
+        <a onclick="location.href='tracking.html'">스토어</a>
       </menu>
       <ul>
         <li class="gmarket is-active">
-          <span onclick="location.href='track_gmarket.html'">지마켓 판매량 추적</span>
+          <a onclick="location.href='track_gmarket.html'">지마켓 판매량 추적</a>
         </li>
         <li class="naver ">
-          <span onclick="location.href='ranking.html'">네이버 순위 추적</span>
+          <a onclick="location.href='ranking.html'">네이버 순위 추적</a>
         </li>
         <li class="naver ">
-          <span onclick="location.href='lowest_price.html'">네이버 최저가 추적</span>
+          <a onclick="location.href='lowest_price.html'">네이버 최저가 추적</a>
         </li>
       </ul>
     </div>
     <div class="    ">
       <menu>
         <i class="ico-price"></i>
-        <span onclick="location.href='bidding.html'">자동입찰</span>
+        <a onclick="location.href='bidding.html'">자동입찰</a>
       </menu>
       <ul>
         <li class="naver ">
-          <span onclick="location.href='bid_naver.html'">네이버</span>
+          <a onclick="location.href='bid_naver.html'">네이버</a>
         </li>
         <li class="eleventh ">
-          <span onclick="location.href='bid_11st.html'">11번가</span>
+          <a onclick="location.href='bid_11st.html'">11번가</a>
         </li>
         <li class="gmarket ">
-          <span onclick="location.href='bid_gmarket.html'">지마켓 파워클릭</span>
+          <a onclick="location.href='bid_gmarket.html'">지마켓 파워클릭</a>
         </li>
         <li class="google ">
-          <span onclick="location.href='bid_google.html'">구글 검색광고</span>
+          <a onclick="location.href='bid_google.html'">구글 검색광고</a>
         </li>
       </ul>
     </div>
     <div class="">
       <menu>
         <i class="ico-trend"></i>
-        <span onclick="location.href='keyword.html'">키워드 분석</span>
+        <a onclick="location.href='keyword.html'">키워드 분석</a>
       </menu>
     </div>
     <div>
       <menu>
         <i class="ico-calendar"></i>
-        <span onclick="location.href='calendar.html'">다이애드 캘린더</span>
+        <a onclick="location.href='calendar.html'">다이애드 캘린더</a>
       </menu>
     </div>
     <div>
       <menu>
         <i class="ico-ranking"></i>
-        <span class="ico-link" onclick="window.open('https://blog.diad.co.kr/manual')">다이애드 매뉴얼</span>
+        <a class="ico-link" onclick="window.open('https://blog.diad.co.kr/manual')">다이애드 매뉴얼</a>
       </menu>
     </div>
     <div style="display: none;">
@@ -146,10 +146,10 @@
   </nav>
   <ul class="account">
     <li>
-      <button class="username" title="계정설정">coralcat</button>
+      <button class="username" title="계정설정" onclick="location.href='accounts.html'">coralcat</button>
     </li>
     <li>
-      <button class="ico-cog" title="알람설정"></button>
+      <button class="ico-cog" title="알람설정" onclick="location.href='settings.html'"></button>
       <button>logout</button>
     </li>
   </ul>
@@ -609,39 +609,37 @@
 </script>
 <main class="content-tracking gmarket">
   <header class="content-header">
-    <div class="title">
-      <h1>
-        <span>지마켓 판매량 추적</span>
-        <div class="tooltip">
-          <div class="tooltip-content">
-            <dl>
-              <dd></dd>
-            </dl>
-          </div>
+    <h1>
+      <span>지마켓 판매량 추적</span>
+      <div class="tooltip">
+        <div class="tooltip-content">
+          <dl>
+            <dd></dd>
+          </dl>
         </div>
-      </h1>
-
-      <div class="subline status">
-        <ul class="services">
-          <li>서비스 제공량</li>
-          <li>
-            <span class="count">30</span>
-          </li>
-        </ul>
-        <ul class="service-period">
-          <li>서비스 이용기간</li>
-          <li>
-            2022-03-01 ~ 2023-02-28
-            <span class="tag d-day">310</span>
-          </li>
-        </ul>
       </div>
+    </h1>
+
+    <div class="subline status">
+      <ul class="services">
+        <li>서비스 제공량</li>
+        <li>
+          <span class="count">30</span>
+        </li>
+      </ul>
+      <ul class="service-period">
+        <li>서비스 이용기간</li>
+        <li>
+          2022-03-01 ~ 2023-02-28
+          <span class="tag d-day">310</span>
+        </li>
+      </ul>
     </div>
   </header>
   <section>
     <header>
       <div class="title">
-        <h3>데브테스트</h3>
+        <h2>데브테스트</h2>
         <div class="buttons">
           <button class="btn-sub" class="ico-download" type="button">엑셀다운</button>
           <button class="btn-main" type="button" data-modal="createItem">상품등록</button>
@@ -666,7 +664,7 @@
           </div>
           <div class="search">
             <button class="btn-main ico-search" type="button"></button>
-          </div>          
+          </div>
           <div class="filters">
             <strong class="times" data-title="선택">0</strong>
             <strong class="times" data-title="총">0</strong>
@@ -925,9 +923,9 @@
     <section>
       <header>
         <div class="title">
-          <h3>
+          <h2>
             <span>데브테스트 판매량 변동</span>
-          </h3>
+          </h2>
         </div>
       </header>
       <div class="keyword-chart">
@@ -939,9 +937,9 @@
     <section>
       <header>
         <div class="title">
-          <h3>
+          <h2>
             <span>데브테스트 누적 판매량</span>
-          </h3>
+          </h2>
         </div>
       </header>
       <div class="keyword-chart">
