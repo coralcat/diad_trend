@@ -1,8 +1,10 @@
 {% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('bidGoogle')}}
 <main class="content-bidding google">
   <header class="content-header">
-    <h1>구글 검색광고</h1>
-    {% include "account.html" %}
+    <div class="title">
+      <h1>구글 검색광고</h1>
+      {% include "account.html" %}
+    </div>
   </header>
   <div class="wrapper">
     <section class="section-account">
@@ -98,9 +100,9 @@
             <button class="btn-advanced-search" type="button">상세검색</button>
           </div>
           <div class="buttons">
-            <button class="btn-sub" type="button" data-modal="searchGroup">분류조회</button>
-            <button class="btn-sub" type="button" data-modal="setLocation">지역설정</button>
-            <button class="btn-main" class="ico-download" type="button">엑셀다운</button>
+            <button  class="ico-download" type="button">엑셀다운</button>
+            <button type="button" data-modal="searchGroup">분류조회</button>
+            <button type="button" data-modal="setLocation">지역설정</button>
           </div>
         </div>
         {% include "advanced_search_bidding.html" %}

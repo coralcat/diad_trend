@@ -38,7 +38,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
     .content-header {
       width: 100%;
-      gap: 0.5rem;
+      position: relative;
     }
 
     .section-main {
@@ -190,15 +190,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
           }
         }
       }
-      main {
-        overflow: hidden;
-        padding: 0;
-        position: relative;
-
-        &.mutated {
-          padding: 0;
-        }
-      }
 
       .content {
         border-radius: 0;
@@ -206,8 +197,31 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     }
   }
 
+  .filters {
+    border-radius: 0.5rem;
+    background: rgba(255,255,255,.5);
+    padding: 0.5rem;
+    margin-top: 0 !important;
+  }
+
   .container {
     flex-direction: column;
+  }
+
+  main {
+    overflow-y: auto !important;
+    gap: 0.5rem;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+
+    &.mutated {
+      padding: 0;
+    }
+
+    .sections {
+      gap: 0.5rem;
+    }
   }
 
   .modal {
@@ -331,15 +345,16 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     border-radius: 0;
     width: 100%;
     max-width: 100%;
+    overflow: unset !important;
 
     header {
-      background: rgb(255 255 255 / 50%);
-      padding: 0.75rem;
-      border-radius: 0.5rem;
 
       button {
-        min-width: 40px;
-        height: 40px;
+        min-width: 36px;
+
+        &.ico-download {
+          display: none;
+        }
       }
 
       .title {
@@ -351,6 +366,10 @@ $secondary-color: rgba(118, 130, 248, 0.1);
           button {
             flex: 1 1 auto;
             padding: 0.5rem;
+
+            &.btn-main {
+              display: none;
+            }
           }
         }
       }
@@ -359,6 +378,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     &.section-list {
       height: auto;
       overflow: unset;
+      padding-top: 1rem;
     }
 
     &.section-chart {
@@ -369,11 +389,46 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       &:not(:last-of-type) {
         margin-bottom: 0.5rem;
       }
+
+      header {
+        padding: 0;
+      }
     }
 
     .wrapper {
       flex-wrap: wrap;
       max-width: 100%;
+    }
+  }
+
+  .section-main {
+    padding: 0;
+
+    header {
+      padding: 0 1rem;
+      background-color: transparent;
+    }
+
+    article {
+      flex: 0 0 auto;
+      background-color: white !important;
+      flex-direction: column;
+      align-items: flex-start !important;
+      flex-basis: auto;
+      padding: .5rem;
+      gap: 5px;
+    }
+
+    .articles {
+      width: 100%;
+      flex-wrap: nowrap;
+      padding-left: 1rem;
+
+      article {
+        .title {
+          padding: 0 !important;
+        }
+      }
     }
   }
 
@@ -504,8 +559,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
   }
 
   main {
-    overflow-y: auto !important;
-
     > .wrapper {
       flex-direction: column !important;
       padding: 0 !important;
@@ -513,67 +566,49 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
     .tab-content {
       gap: 0 !important;
+      overflow: unset;
+    }
+  }
+
+  .content-header {
+    gap: 0;
+
+    header {
+      background-color: transparent;
+      padding: 0 1rem;
     }
 
-    .content-header {
-      min-height: 3rem;
-      gap: 0;
+    section {
+      padding: 0;
+    }
 
-      header {
-        background-color: transparent;
-        padding: 0 1rem;
-      }
+    .title {
+      padding: .75rem 1rem 0
+    }
 
-      section {
-        padding: 0;
-      }
+    .sections {
+      flex-wrap: wrap;
+    }
 
-      article {
-        flex: 0 0 280px;
-        background-color: white !important;
-      }
+    .username {
+      display: none !important;
+    }
 
-      .sections {
-        flex-wrap: wrap;
-      }
+    .subline {
+      display: none;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
 
-      .articles {
-        width: 100%;
-        flex-wrap: nowrap;
-        padding-left: 1rem;
+    .tabs {
+      padding: 0 1rem;
+      width: 100%;
+      border-bottom: 1px solid #ddd;
+      overflow-x: auto;
 
-        article {
-          .title {
-            padding: 0 !important;
-          }
-        }
-      }
-
-      .username {
-        display: none !important;
-      }
-
-      .title {
-        min-height: 3rem;
-        padding: 0.75rem;
-      }
-
-      .subline {
-        display: none;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-
-      .tabs {
-        padding: 0 1rem;
-        width: 100%;
-        border-bottom: 1px solid #ddd;
-        overflow-x: auto;
-
-        li {
-          white-space: nowrap;
-          line-height: 45px;
-        }
+      li {
+        white-space: nowrap;
+        line-height: 45px;
       }
     }
   }
@@ -582,6 +617,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     > div {
       width: 100%;
       flex-wrap: wrap;
+      min-height: auto;
     }
 
     .selected-filters:empty {
@@ -620,19 +656,21 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       flex-wrap: nowrap;
       width: 100%;
       gap: 0;
-      min-height: 40px;
       justify-content: space-around;
 
       > * {
         flex: 1 1 25%;
         padding: 0 !important;
+        margin: 0 !important;
         color: slategray !important;
         background-color: transparent;
         font-size: 14px;
         justify-content: center;
 
         &:not(:last-of-type) {
-          border-color: #ccc;
+          &::after {
+            content: none;
+          }
         }
       }
 
@@ -1692,8 +1730,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     }
 
     .content-header {
-      padding: 1rem;
-
       .btn-main {
         position: fixed;
         justify-content: center;
