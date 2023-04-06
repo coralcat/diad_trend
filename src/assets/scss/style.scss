@@ -1301,6 +1301,10 @@ main {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+
+    .section-main {
+      flex: 1 1 auto
+    }
   }
 
   > .wrapper {
@@ -5858,6 +5862,7 @@ main {
   }
 
   section {
+    flex: 1;
     padding: 1rem !important;
   }
 
@@ -5906,7 +5911,6 @@ main {
         .period {
           width: 100%;
           align-items: flex-start;
-          height: 64px;
 
           .tag {
             margin-bottom: 0.35rem;
