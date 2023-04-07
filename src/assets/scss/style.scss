@@ -3395,6 +3395,11 @@ main {
 }
 
 .content-dashboard {
+  padding: 0;
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  overflow-y: scroll;
+
   p {
     width: 100%;
   }
@@ -3492,12 +3497,10 @@ main {
     }
   }
 
-  .wrapper {
-    scroll-snap-type: y mandatory;
-  }
-
   .tab-content {
-    height: 100%;
+    padding: 1rem;
+    flex-direction: row;
+    min-height: 100%;
     scroll-snap-align: center;
     display: flex;
 
@@ -3531,6 +3534,17 @@ main {
         }
       }
     }
+
+    &:nth-of-type(3) {
+
+      &.is-active {
+
+        + .scroll-down {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    }
   }
 
   .list {
@@ -3543,7 +3557,9 @@ main {
   }
 
   .scroll-down {
-    position: absolute;
+    opacity: 1;
+    visibility: visible;
+    position: fixed;
     bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
@@ -3552,6 +3568,7 @@ main {
     border-radius: 100%;
     border: 2px solid #9f9be2;
     z-index: 100;
+    transition: .25s;
 
     &::before {
       content: "";

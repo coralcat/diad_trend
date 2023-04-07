@@ -932,7 +932,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 대시보드 스크롤 효과
   if (main.classList.contains("content-dashboard")) {
-    const sections = [...document.querySelectorAll(".tab-content")];
+    const contents = [...document.querySelectorAll(".tab-content")];
 
     let options = {
       rootMargin: "0px",
@@ -953,14 +953,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const observer = new IntersectionObserver(callback, options);
 
-    sections.forEach((section, index) => {
-      const sectionChildren = [...section.querySelector("[data-content]").children];
+    contents.forEach((content, index) => {
+      const sections = [...content.children];
 
-      sectionChildren.forEach((el, index) => {
-        el.style.setProperty("--delay", `${index * 250}ms`);
+      sections.forEach((section, index) => {
+        section.style.setProperty("--delay", `${index * 150}ms`);
       });
 
-      observer.observe(section);
+      observer.observe(content);
     });
   }
 });
