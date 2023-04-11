@@ -177,29 +177,47 @@
     );
 
     var data = [{
-      "year": "2021",
-      "europe": 2.5,
-      "namerica": 2.5,
-      "asia": 2.1,
-      "lamerica": 1,
-      "meast": 0.8,
-      "africa": 0.4
+      "group": "그룹A",
+      "date1": 3,
+      "date2": 3,
+      "date3": 1,
+      "now": 3,
     }, {
-      "year": "2022",
-      "europe": 2.6,
-      "namerica": 2.7,
-      "asia": 2.2,
-      "lamerica": 0.5,
-      "meast": 0.4,
-      "africa": 0.3
+      "group": "그룹B",
+      "date1": 5,
+      "date2": 11,
+      "date3": 5,
+      "now": 6,
     }, {
-      "year": "2023",
-      "europe": 2.8,
-      "namerica": 2.9,
-      "asia": 2.4,
-      "lamerica": 0.3,
-      "meast": 0.9,
-      "africa": 0.5
+      "group": "그룹C",
+      "date1": 181,
+      "date2": 255,
+      "date3": 271,
+      "now": 183,
+    }, {
+      "group": "그룹D",
+      "date1": 4,
+      "date2": 6,
+      "date3": 7,
+      "now": 5,
+    }, {
+      "group": "그룹E",
+      "date1": 2,
+      "date2": 10,
+      "date3": 5,
+      "now": 6,
+    }, {
+      "group": "그룹F",
+      "date1": 120,
+      "date2": 201,
+      "date3": 89,
+      "now": 127,
+    }, {
+      "group": "그룹G",
+      "date1": 120,
+      "date2": 78,
+      "date3": 98,
+      "now": 85,
     }]
 
     var xRenderer = am5xy.AxisRendererX.new(root, {
@@ -208,7 +226,7 @@
     })
 
     var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
-      categoryField: "year",
+      categoryField: "group",
       renderer: xRenderer,
       tooltip: am5.Tooltip.new(root, {})
     }));
@@ -234,7 +252,7 @@
         xAxis: xAxis,
         yAxis: yAxis,
         valueYField: fieldName,
-        categoryXField: "year"
+        categoryXField: "group"
       }));
 
       series.columns.template.setAll({
@@ -264,12 +282,10 @@
       legend.data.push(series);
     }
 
-    makeSeries("Europe", "europe");
-    makeSeries("North America", "namerica");
-    makeSeries("Asia", "asia");
-    makeSeries("Latin America", "lamerica");
-    makeSeries("Middle East", "meast");
-    makeSeries("Africa", "africa");
+    makeSeries("2023.01.02~2023.01.08", "date1");
+    makeSeries("2023.01.09~2023.01.15", "date2");
+    makeSeries("2023.01.16~2023.01.22", "date3");
+    makeSeries("2023.01.23~2023.01.25(진행중)", "now");
 
     chart.appear(1000, 100);
 
@@ -291,47 +307,35 @@
 
     // Define data
     var data = [{
-      date: new Date(2021, 0, 1).getTime(),
+      "rank": "1위",
       value: 100
     }, {
-      date: new Date(2021, 0, 2).getTime(),
+      "rank": "41위",
       value: 320
     }, {
-      date: new Date(2021, 0, 3).getTime(),
+      "rank": "81위",
       value: 216
     }, {
-      date: new Date(2021, 0, 4).getTime(),
+      "rank": "121위",
       value: 150
     }, {
-      date: new Date(2021, 0, 5).getTime(),
+      "rank": "161위",
       value: 156
     }, {
-      date: new Date(2021, 0, 6).getTime(),
+      "rank": "201위",
       value: 199
     }, {
-      date: new Date(2021, 0, 7).getTime(),
+      "rank": "241위",
       value: 114
     }, {
-      date: new Date(2021, 0, 8).getTime(),
+      "rank": "281위",
       value: 269
     }, {
-      date: new Date(2021, 0, 9).getTime(),
+      "rank": "321위",
       value: 190
     }, {
-      date: new Date(2021, 0, 10).getTime(),
+      "rank": "361위",
       value: 380
-    }, {
-      date: new Date(2021, 0, 11).getTime(),
-      value: 250
-    }, {
-      date: new Date(2021, 0, 12).getTime(),
-      value: 110
-    }, {
-      date: new Date(2021, 0, 13).getTime(),
-      value: 185
-    }, {
-      date: new Date(2021, 0, 14).getTime(),
-      value: 105
     }];
 
     // Create Y-axis
@@ -359,7 +363,7 @@
         xAxis: xAxis,
         yAxis: yAxis,
         valueYField: field,
-        valueXField: "date",
+        valueXField: "rank",
         tooltip: am5.Tooltip.new(root, {}),
         clustered: true
       }));
@@ -798,8 +802,8 @@
   }); // end am5.ready()
 </script>
 <main class="content-dashboard">
-  <!-- <header class="content-header">
-    <div class="title">
+  <div class="tab-content" data-tab="dashboard">
+    <header class="content-header">
       <ul class="tabs">
         <li data-tab="dashboard" class="is-active">
           나의 다이애드
@@ -814,275 +818,276 @@
     </ul>
   </nav>
 </div>
-    </div>
-  </header> -->
-  <div class="tab-content" data-tab="dashboard">
-    <div class="sections">
-      <section class="section-monitoring">
-        <header>
-          <h2 data-brand="gmarket">
-            판매량 추적 모니터링
-          </h2>
-          <div class="date">최근 업데이트 2023.04.01</div>
-        </header>
-        <div class="articles">
-          <article>
-            <h4>
-              최근 업데이트 시
-              <strong>일간 판매량 0인 상품</strong>
-            </h4>
-            <div class="progress">
-              <div class="title">
-                <span class="percent" data-title="보통">
-                  <strong>33</strong>
-                </span>
-                <ul>
-                  <li data-title="판매량 없음: ">
-                    <strong class="times">160</strong>
-                  </li>
-                  <li data-title="전체: ">
-                    <strong class="times">480</strong>
-                  </li>
-                </ul>
+    </header>
+    <div class="wrapper">
+      <div class="sections">
+        <section class="section-monitoring">
+          <header>
+            <h2 data-brand="gmarket">
+              판매량 추적 모니터링
+            </h2>
+            <div class="date">최근 업데이트 2023.04.01</div>
+          </header>
+          <div class="articles" data-empty="데이터가 없습니다.">
+            <article>
+              <h4>
+                최근 업데이트 시
+                <strong>일간 판매량 0인 상품</strong>
+              </h4>
+              <div class="progress">
+                <div class="title">
+                  <span class="percent" data-title="보통">
+                    <strong>33</strong>
+                  </span>
+                  <ul>
+                    <li data-title="판매량 없음: ">
+                      <strong class="times">160</strong>
+                    </li>
+                    <li data-title="전체: ">
+                      <strong class="times">480</strong>
+                    </li>
+                  </ul>
+                </div>
+                <progress value="33" max="100"></progress>
               </div>
-              <progress value="33" max="100"></progress>
-            </div>
-          </article>
-          <article>
-            <h4>
-              전주 같은 요일 대비
-              <strong>일간 판매량 감소 상품</strong>
-            </h4>
-            <div class="progress">
-              <div class="title">
-                <span class="percent" data-title="보통">
-                  <strong>33</strong>
-                </span>
-                <ul>
-                  <li data-title="감소: ">
-                    <strong class="times">160</strong>
-                  </li>
-                  <li data-title="전체: ">
-                    <strong class="times">480</strong>
-                  </li>
-                </ul>
+            </article>
+            <article>
+              <h4>
+                전주 같은 요일 대비
+                <strong>일간 판매량 감소 상품</strong>
+              </h4>
+              <div class="progress">
+                <div class="title">
+                  <span class="percent" data-title="보통">
+                    <strong>33</strong>
+                  </span>
+                  <ul>
+                    <li data-title="감소: ">
+                      <strong class="times">160</strong>
+                    </li>
+                    <li data-title="전체: ">
+                      <strong class="times">480</strong>
+                    </li>
+                  </ul>
+                </div>
+                <progress value="33" max="100"></progress>
               </div>
-              <progress value="33" max="100"></progress>
-            </div>
-          </article>
-        </div>
-      </section>
-      <section class="section-chart">
-        <header>
-          <h2>그룹별 주간 판매량</h2>
-          <div class="selectbox">
-            <select name="" id="">
-              <option value="">전체</option>
-            </select>
+            </article>
           </div>
-        </header>
-        <div class="chart-container">
-          <div id="chartdiv" class="chart"></div>
-        </div>
-      </section>
-      <section class="section-article">
-        <header>
-          <h2>주간 판매 상위 상품</h2>
-          <div class="inputs">
+        </section>
+        <section class="section-chart">
+          <header>
+            <h2>그룹별 주간 판매량</h2>
             <div class="selectbox">
               <select name="" id="">
-                <option value="">그룹: 전체</option>
+                <option value="">전체</option>
               </select>
             </div>
-            <div class="selectbox">
-              <select name="" id="">
-                <option value="">마켓: 전체</option>
-              </select>
+          </header>
+          <div class="chart-container" data-empty="데이터가 없습니다.">
+            <div id="chartdiv" class="chart"></div>
+          </div>
+        </section>
+        <section class="section-article">
+          <header>
+            <h2>주간 판매 상위 상품</h2>
+            <div class="inputs">
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">
+                    그룹: 전체</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">마켓: 전체</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">기준: 판매량</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">2023.04.01 ~ 2023.04.31</option>
+                </select>
+              </div>
             </div>
-            <div class="selectbox">
-              <select name="" id="">
-                <option value="">기준: 판매량</option>
-              </select>
-            </div>
-            <div class="selectbox">
-              <select name="" id="">
-                <option value="">2023.04.01 ~ 2023.04.31</option>
-              </select>
+          </header>
+          <div class="list">
+            <ul class="row title">
+              <li>그룹</li>
+              <li>코드</li>
+              <li class="col-title">상품명</li>
+              <li>마켓</li>
+              <li>판매량</li>
+              <li>판매액(추정)</li>
+            </ul>
+            <div class="rows" data-empty="데이터가 없습니다.">
+              <ul class="row">
+                <li>그룹A</li>
+                <li>0000000000</li>
+                <li class="col-title">갤럭시 S22 울트라 노트20/노∙∙∙</li>
+                <li>G</li>
+                <li>196</li>
+                <li>
+                  <div class="price">3,900,400</div>
+                </li>
+              </ul>
+              <ul class="row">
+                <li>그룹A</li>
+                <li>0000000000</li>
+                <li class="col-title">S22 노트20/노트10/S21/S20/∙∙∙</li>
+                <li>G</li>
+                <li>157</li>
+                <li>
+                  <div class="price">3,124,300</div>
+                </li>
+              </ul>
+              <ul class="row">
+                <li>그룹B</li>
+                <li>0000000000</li>
+                <li class="col-title">핸드폰 갤럭시S22울트라 S21∙∙∙</li>
+                <li>G</li>
+                <li>140</li>
+                <li>
+                  <div class="price">1,386,000</div>
+                </li>
+              </ul>
+              <ul class="row">
+                <li>그룹C</li>
+                <li>A000000000</li>
+                <li class="col-title">[까미또] 갤럭시S22 S21 S20 ∙∙∙</li>
+                <li>A</li>
+                <li>130</li>
+                <li>
+                  <div class="price">743,600</div>
+                </li>
+              </ul>
+              <ul class="row">
+                <li>그룹C</li>
+                <li>A000000000</li>
+                <li class="col-title">[레드울프] S22 노트20 S20S1∙∙∙</li>
+                <li>A</li>
+                <li>110</li>
+                <li>
+                  <div class="price">2,189,000</div>
+                </li>
+              </ul>
+              <ul class="row">
+                <li>그룹C</li>
+                <li>A000000000</li>
+                <li class="col-title">갤럭시 S22 울트라 노트20 노∙∙∙</li>
+                <li>A</li>
+                <li>90</li>
+                <li>
+                  <div class="price">1,791,400</div>
+                </li>
+              </ul>
+              <ul class="row">
+                <li>그룹E</li>
+                <li>0000000000</li>
+                <li class="col-title">휴대폰케이스 전문샵 / 우체국∙∙∙</li>
+                <li>G</li>
+                <li>52</li>
+                <li>
+                  <div class="price">514,800</div>
+                </li>
+              </ul>
+              <ul class="row">
+                <li>그룹D</li>
+                <li>0000000000</li>
+                <li class="col-title">42까지 가죽 남성벨트 정장 남∙∙∙</li>
+                <li>G</li>
+                <li>30</li>
+                <li>
+                  <div class="price">285,000</div>
+                </li>
+              </ul>
             </div>
           </div>
-        </header>
-        <div class="list">
-          <ul class="row title">
-            <li>그룹</li>
-            <li>코드</li>
-            <li class="col-title">상품명</li>
-            <li>마켓</li>
-            <li>판매량</li>
-            <li>판매액(추정)</li>
-          </ul>
-          <ul class="row">
-            <li>그룹A</li>
-            <li>0000000000</li>
-            <li class="col-title">갤럭시 S22 울트라 노트20/노∙∙∙</li>
-            <li>G</li>
-            <li>196</li>
-            <li>
-              <div class="price">3,900,400</div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>그룹A</li>
-            <li>0000000000</li>
-            <li class="col-title">S22 노트20/노트10/S21/S20/∙∙∙</li>
-            <li>G</li>
-            <li>157</li>
-            <li>
-              <div class="price">3,124,300</div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>그룹B</li>
-            <li>0000000000</li>
-            <li class="col-title">핸드폰 갤럭시S22울트라 S21∙∙∙</li>
-            <li>G</li>
-            <li>140</li>
-            <li>
-              <div class="price">1,386,000</div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>그룹C</li>
-            <li>A000000000</li>
-            <li class="col-title">[까미또] 갤럭시S22 S21 S20 ∙∙∙</li>
-            <li>A</li>
-            <li>130</li>
-            <li>
-              <div class="price">743,600</div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>그룹C</li>
-            <li>A000000000</li>
-            <li class="col-title">[레드울프] S22 노트20 S20S1∙∙∙</li>
-            <li>A</li>
-            <li>110</li>
-            <li>
-              <div class="price">2,189,000</div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>그룹C</li>
-            <li>A000000000</li>
-            <li class="col-title">갤럭시 S22 울트라 노트20 노∙∙∙</li>
-            <li>A</li>
-            <li>90</li>
-            <li>
-              <div class="price">1,791,400</div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>그룹E</li>
-            <li>0000000000</li>
-            <li class="col-title">휴대폰케이스 전문샵 / 우체국∙∙∙</li>
-            <li>G</li>
-            <li>52</li>
-            <li>
-              <div class="price">514,800</div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>그룹D</li>
-            <li>0000000000</li>
-            <li class="col-title">42까지 가죽 남성벨트 정장 남∙∙∙</li>
-            <li>G</li>
-            <li>30</li>
-            <li>
-              <div class="price">285,000</div>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </div>
-    <div class="sections">
-      <section class="section-article">
-        <header>
-          <h2>자동입찰 비즈머니</h2>
-          <div class="date">최근 업데이트 2023.04.01 07:00</div>
-        </header>
-        <div class="articles">
-          <article data-brand="naver">
-            <header>
-              <h4>검색광고</h4>
-              <div class="inputs">
-                <strong>gabiacns_E</strong>
-                <div class="price">310,718</div>
-              </div>
-            </header>
-          </article>
-          <article data-brand="naver">
-            <header>
-              <h4>쇼핑검색광고</h4>
-              <div class="inputs">
-                <strong>gabiacns_T</strong>
-                <div class="price">2,214,842</div>
-              </div>
-            </header>
-          </article>
-          <article data-brand="naver">
-            <header>
-              <h4>파워컨텐츠</h4>
-              <div class="inputs">
-                <strong>gabiacns_X</strong>
-                <div class="price">4,332</div>
-              </div>
-            </header>
-          </article>
-          <article data-brand="eleventh">
-            <header>
-              <h4>포커스클릭</h4>
-              <div class="inputs">
-                <strong>gabiacns_A</strong>
-                <div class="price">3,582,263</div>
-              </div>
-            </header>
-          </article>
-          <article data-brand="eleventh">
-            <header>
-              <h4>브랜드검색</h4>
-              <div class="inputs">
-                <strong>cnsdiad_01</strong>
-                <div class="price">2,770,384</div>
-              </div>
-            </header>
-          </article>
-          <article data-brand="gmarket">
-            <header>
-              <h4>G마켓 파워클릭</h4>
-              <div class="inputs">
-                <strong>gabiacns_G</strong>
-                <div class="price">59,284</div>
-              </div>
-            </header>
-          </article>
-          <article data-brand="auction">
-            <header>
-              <h4>옥션 파워클릭</h4>
-              <div class="inputs">
-                <strong>gabiacns_A</strong>
-                <div class="price">21,877</div>
-              </div>
-            </header>
-          </article>
-        </div>
-      </section>
-      <section class="section-monitoring">
-        <header>
-          <div class="title">
-            <div>
+        </section>
+      </div>
+      <div class="sections">
+        <section class="section-article">
+          <header>
+            <h2>자동입찰 비즈머니</h2>
+            <div class="date">최근 업데이트 2023.04.01 07:00</div>
+          </header>
+          <div class="articles" data-empty="데이터가 없습니다.">
+            <article data-brand="naver">
+              <header>
+                <h4>검색광고</h4>
+                <div class="inputs">
+                  <strong>gabiacns_E</strong>
+                  <div class="price">310,718</div>
+                </div>
+              </header>
+            </article>
+            <article data-brand="naver">
+              <header>
+                <h4>쇼핑검색광고</h4>
+                <div class="inputs">
+                  <strong>gabiacns_T</strong>
+                  <div class="price">2,214,842</div>
+                </div>
+              </header>
+            </article>
+            <article data-brand="naver">
+              <header>
+                <h4>파워컨텐츠</h4>
+                <div class="inputs">
+                  <strong>gabiacns_X</strong>
+                  <div class="price">4,332</div>
+                </div>
+              </header>
+            </article>
+            <article data-brand="eleventh">
+              <header>
+                <h4>포커스클릭</h4>
+                <div class="inputs">
+                  <strong>gabiacns_A</strong>
+                  <div class="price">3,582,263</div>
+                </div>
+              </header>
+            </article>
+            <article data-brand="eleventh">
+              <header>
+                <h4>브랜드검색</h4>
+                <div class="inputs">
+                  <strong>cnsdiad_01</strong>
+                  <div class="price">2,770,384</div>
+                </div>
+              </header>
+            </article>
+            <article data-brand="gmarket">
+              <header>
+                <h4>G마켓 파워클릭</h4>
+                <div class="inputs">
+                  <strong>gabiacns_G</strong>
+                  <div class="price">59,284</div>
+                </div>
+              </header>
+            </article>
+            <article data-brand="auction">
+              <header>
+                <h4>옥션 파워클릭</h4>
+                <div class="inputs">
+                  <strong>gabiacns_A</strong>
+                  <div class="price">21,877</div>
+                </div>
+              </header>
+            </article>
+          </div>
+        </section>
+        <section class="section-monitoring">
+          <header>
+            <div class="inputs">
               <h2>자동입찰 모니터링</h2>
               <a href="">자동입찰 바로가기</a>
             </div>
-            <div class="filters">
+            <div class="inputs">
               <div class="selectbox">
                 <select name="" id="">
                   <option value="">매체: 전체</option>
@@ -1094,78 +1099,78 @@
                 </select>
               </div>
             </div>
-          </div>
-        </header>
-        <div class="articles">
-          <article>
-            <h5>
-              입찰실행 중
-              <strong>목표도달</strong>
-            </h5>
-            <div class="progress">
-              <div class="title">
-                <span class="percent" data-title="보통">
-                  <strong>54</strong>
-                </span>
-                <ul>
-                  <li data-title="목표도달">
-                    <strong class="times">37</strong>
-                  </li>
-                  <li data-title="입찰실행">
-                    <strong class="times">69</strong>
-                  </li>
-                </ul>
+          </header>
+          <div class="articles" data-empty="데이터가 없습니다.">
+            <article>
+              <h5>
+                입찰실행 중
+                <strong>목표도달</strong>
+              </h5>
+              <div class="progress">
+                <div class="title">
+                  <span class="percent" data-title="보통">
+                    <strong>54</strong>
+                  </span>
+                  <ul>
+                    <li data-title="목표도달">
+                      <strong class="times">37</strong>
+                    </li>
+                    <li data-title="입찰실행">
+                      <strong class="times">69</strong>
+                    </li>
+                  </ul>
+                </div>
+                <progress value="54" max="100"></progress>
               </div>
-              <progress value="54" max="100"></progress>
-            </div>
-          </article>
-          <article>
-            <h5>
-              입찰: 실패 중
-              <strong>최대 입찰가 도달</strong>
-            </h5>
+            </article>
+            <article>
+              <h5>
+                입찰: 실패 중
+                <strong>최대 입찰가 도달</strong>
+              </h5>
 
-            <div class="progress">
-              <div class="title">
-                <span class="percent" data-title="높음">
-                  <strong>85</strong>
-                </span>
-                <ul>
-                  <li data-title="최대 입찰가 도달">
-                    <strong class="times">28</strong>
-                  </li>
-                  <li data-title="입찰: 실패">
-                    <strong class="times">33</strong>
-                  </li>
-                </ul>
+              <div class="progress">
+                <div class="title">
+                  <span class="percent" data-title="높음">
+                    <strong>85</strong>
+                  </span>
+                  <ul>
+                    <li data-title="최대 입찰가 도달">
+                      <strong class="times">28</strong>
+                    </li>
+                    <li data-title="입찰: 실패">
+                      <strong class="times">33</strong>
+                    </li>
+                  </ul>
+                </div>
+                <progress value="85" max="100"></progress>
               </div>
-              <progress value="85" max="100"></progress>
-            </div>
-          </article>
-          <article>
-            <h5>
-              입찰: 실패 중
-              <strong>입찰실패</strong>
-            </h5>
-            <div class="progress">
-              <div class="title">
-                <span class="percent" data-title="높음">
-                  <strong>85</strong>
-                </span>
-                <ul>
-                  <li data-title="입찰실패">
-                    <strong class="times">28</strong>
-                  </li>
-                  <li data-title="입찰: 실패">
-                    <strong class="times">33</strong>
-                  </li>
-                </ul>
+            </article>
+            <article>
+              <h5>
+                입찰: 실패 중
+                <strong>입찰실패</strong>
+              </h5>
+              <div class="progress">
+                <div class="title">
+                  <span class="percent" data-title="높음">
+                    <strong>85</strong>
+                  </span>
+                  <ul>
+                    <li data-title="입찰실패">
+                      <strong class="times">28</strong>
+                    </li>
+                    <li data-title="입찰: 실패">
+                      <strong class="times">33</strong>
+                    </li>
+                  </ul>
+                </div>
+                <progress value="85" max="100"></progress>
               </div>
-              <progress value="85" max="100"></progress>
-            </div>
-          </article>
-        </div>
-      </section>
+            </article>
+          </div>
+        </section>
+      </div>
     </div>
   </div>
   <div class="tab-content" data-tab="dashboard">
