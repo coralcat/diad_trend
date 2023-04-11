@@ -351,12 +351,17 @@ body {
   }
 }
 
-:not(.ui-datepicker, img, button, .chart, .chart div, canvas):empty {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  &[data-empty] {
+[data-empty] {
+
+  &:empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 5rem;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+
     &::before {
       content: attr(data-empty);
     }

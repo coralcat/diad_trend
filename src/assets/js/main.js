@@ -932,35 +932,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 대시보드 스크롤 효과
   if (main.classList.contains("content-dashboard")) {
-    const contents = [...document.querySelectorAll(".tab-content")];
-
-    let options = {
-      rootMargin: "0px",
-      threshold: 0.75,
-    };
-
-    const callback = (entries, observer) => {
-      entries.forEach(entry => {
-        const {target} = entry;
-
-        if (entry.intersectionRatio >= 0.75) {
-          target.classList.add("is-active");
-        } else {
-          target.classList.remove("is-active");
+    if (matchMedia("screen and (min-width: 1280px)").matches) {
+      const contents = [...document.querySelectorAll(".tab-content")];
+  
+      let options = {
+        rootMargin: "0px",
+        threshold: 0.75,
+      };
+  
+      const callback = (entries, observer) => {
+        entries.forEach(entry => {
+          const {target} = entry;
+  
+          if (entry.intersectionRatio >= 0.75) {
+            target.classList.add("is-active");
+          } else {
+            target.classList.remove("is-active");
+          }
+        });
+      };
+  
+      const observer = new IntersectionObserver(callback, options);
+  
+      contents.forEach((content, index) => {
+        const sections = [...content.children];
+  
+        sections.forEach((section, index) => {
+          section.style.setProperty("--delay", `${index * 150}ms`);
+        });
+  
+        observer.observe(content);
+      });
+  
+      const scrollDown = document.querySelector(".scroll-down");
+  
+      const handleTabContents = (event, index) => {
+        if (contents[0].classList.contains("is-active")) {
+          contents[0].classList.remove("is-active");
+          contents[1].classList.add("is-active");
+        } else if (contents[0].classList.contains("is-active")) {
+          contents[0].classList.remove("is-active");
+          contents[1].classList.add("is-active");
         }
-      });
-    };
-
-    const observer = new IntersectionObserver(callback, options);
-
-    contents.forEach((content, index) => {
-      const sections = [...content.children];
-
-      sections.forEach((section, index) => {
-        section.style.setProperty("--delay", `${index * 150}ms`);
-      });
-
-      observer.observe(content);
-    });
+      }
+      scrollDown.addEventListener("click", handleTabContents)
+    }
   }
 });

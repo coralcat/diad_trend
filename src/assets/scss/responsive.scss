@@ -89,6 +89,31 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       }
     }
   }
+
+  .content-dashboard {
+    scroll-snap-type: none;
+
+    .scroll-down {
+      display: none;
+    }
+
+    .tab-content {
+      opacity: 1;
+      visibility: visible;
+      scroll-snap-align:unset;
+      min-height: auto;
+      overflow: unset;
+
+      * {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      .sections {
+        transform: none;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 960px) {
@@ -105,6 +130,17 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
     .ranking-chart {
       width: 100% !important;
+    }
+  }
+
+  .content-dashboard {
+
+    .tab-content {
+      flex-direction: column;
+      
+      .wrapper {
+        flex-direction: column;
+      }
     }
   }
 }
@@ -199,7 +235,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
   .filters {
     border-radius: 0.5rem;
-    background: rgba(255,255,255,.5);
+    background: rgba(255, 255, 255, 0.5);
     padding: 0.5rem;
     margin-top: 0 !important;
   }
@@ -348,7 +384,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     overflow: unset !important;
 
     header {
-
       button {
         min-width: 36px;
 
@@ -415,7 +450,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       flex-direction: column;
       align-items: flex-start !important;
       flex-basis: auto;
-      padding: .5rem;
+      padding: 0.5rem;
       gap: 5px;
     }
 
@@ -583,7 +618,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     }
 
     .title {
-      padding: .75rem 1rem 0
+      padding: 0.75rem 1rem 0;
     }
 
     .sections {
@@ -825,6 +860,27 @@ $secondary-color: rgba(118, 130, 248, 0.1);
           div {
             max-width: 80%;
             text-align: right !important;
+          }
+        }
+      }
+    }
+  }
+
+  .content-dashboard {
+
+    .tab-content {
+      padding: 0;
+
+      .articles {
+        flex-wrap: nowrap;
+
+        article {
+          width: 240px;
+          flex: 0 0 auto;
+          background-color: white;
+
+          &[data-brand] {
+            width: 100%;
           }
         }
       }

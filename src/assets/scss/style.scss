@@ -238,6 +238,7 @@ body {
 }
 
 .articles {
+  flex: 1 1 auto;
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
@@ -302,12 +303,18 @@ body {
 
   strong {
     color: $main-color;
+
+    &::before,
+    &::after {
+      color: #333;
+    }
   }
 
   ul {
     display: flex;
     align-items: center;
     gap: 5px;
+    flex-wrap: wrap;
 
     li {
       display: flex;
@@ -324,6 +331,8 @@ body {
   }
 
   .title {
+    width: 100%;
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 5px;
@@ -719,10 +728,6 @@ section {
     strong {
       font-size: 16px;
       color: $main-color;
-
-      &::after {
-        color: #333;
-      }
     }
 
     article {
@@ -1799,8 +1804,7 @@ main {
 .chart {
   width: 100%;
   max-width: 100%;
-  min-height: 200px;
-  height: 100%;
+  height: 200px;
 
   canvas {
     width: 100% !important;
@@ -3424,8 +3428,9 @@ main {
   }
 
   h4 {
+    flex-wrap: wrap;
+
     strong {
-      margin-left: 5px;
       font-family: "Outfit", "NanumSquareB";
       font-size: 15px;
     }
@@ -3474,35 +3479,30 @@ main {
     &.section-article {
       flex: 1 1 auto;
 
+      .articles {
+        flex-direction: column;
+        flex-wrap: nowrap;
+      }
+
       h4 {
         gap: 5px;
       }
     }
   }
 
-  .sections {
-    flex: 1 1 auto;
-    min-width: 450px;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    gap: 1rem;
-
-    &:last-of-type {
-      .section-monitoring {
-        .articles {
-          flex-direction: column;
-        }
-      }
-    }
-  }
-
   .tab-content {
-    padding: 1rem;
+    display: flex;
     flex-direction: row;
+    padding: 1rem;
     min-height: 100%;
     scroll-snap-align: center;
-    display: flex;
+
+    .wrapper {
+      flex:  1 1 auto;
+      display: flex;
+      gap: 1rem;
+      overflow: hidden;
+    }
 
     [data-content] {
       display: flex;
@@ -3513,6 +3513,17 @@ main {
       opacity: 0;
       transform: translate3d(0, 4rem, 0);
       transition: opacity 800ms var(--delay), transform 800ms cubic-bezier(0.13, 0.07, 0.26, 0.99) var(--delay);
+      flex: 1 1 auto;
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      gap: 1rem;
+  
+      &:nth-of-type(1) {
+        .articles {
+          flex-wrap: nowrap;
+        }
+      }
     }
 
     &.is-active {
@@ -3533,6 +3544,10 @@ main {
           flex-basis: 0;
         }
       }
+    }
+
+    &:nth-of-type(1) {
+      flex-direction: column;
     }
 
     &:nth-of-type(3) {
@@ -3559,6 +3574,8 @@ main {
   .scroll-down {
     opacity: 1;
     visibility: visible;
+    display: flex;
+    justify-content: center;
     position: fixed;
     bottom: 2rem;
     left: 50%;
@@ -3777,6 +3794,7 @@ main {
   }
 
   .section-article {
+
     .wrapper {
       gap: 1rem;
       margin: unset;
@@ -3923,6 +3941,16 @@ main {
           width: 200px !important;
         }
       }
+    }
+  }
+}
+
+.content-tracking {
+  .sections {
+    flex-wrap: nowrap;
+
+    section {
+      width: 50%;
     }
   }
 }
