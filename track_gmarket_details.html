@@ -58,51 +58,51 @@
   <nav>
     <div class=" is-active  ">
       <menu>
-        <i class="ico-ranking"></i>
-        <a onclick="location.href='tracking.html'">스토어</a>
+        <i class="ico-ranking" onclick="location.href='tracking.html'"></i>
+        <a href='tracking.html'">스토어</a>
       </menu>
       <ul>
         <li class="gmarket is-active">
-          <a onclick="location.href='track_gmarket.html'">지마켓 판매량 추적</a>
+          <a href='track_gmarket.html'">지마켓 판매량 추적</a>
         </li>
         <li class="naver ">
-          <a onclick="location.href='ranking.html'">네이버 순위 추적</a>
+          <a href='ranking.html'">네이버 순위 추적</a>
         </li>
         <li class="naver ">
-          <a onclick="location.href='lowest_price.html'">네이버 최저가 추적</a>
+          <a href='lowest_price.html'">네이버 최저가 추적</a>
         </li>
       </ul>
     </div>
     <div class="    ">
       <menu>
-        <i class="ico-price"></i>
-        <a onclick="location.href='bidding.html'">자동입찰</a>
+        <i class="ico-price" onclick="location.href='bidding.html'"></i>
+        <a href='bidding.html'">자동입찰</a>
       </menu>
       <ul>
         <li class="naver ">
-          <a onclick="location.href='bid_naver.html'">네이버</a>
+          <a href='bid_naver.html'">네이버</a>
         </li>
         <li class="eleventh ">
-          <a onclick="location.href='bid_11st.html'">11번가</a>
+          <a href='bid_11st.html'">11번가</a>
         </li>
         <li class="gmarket ">
-          <a onclick="location.href='bid_gmarket.html'">지마켓 파워클릭</a>
+          <a href='bid_gmarket.html'">지마켓 파워클릭</a>
         </li>
         <li class="google ">
-          <a onclick="location.href='bid_google.html'">구글 검색광고</a>
+          <a href='bid_google.html'">구글 검색광고</a>
         </li>
       </ul>
     </div>
     <div class="">
       <menu>
         <i class="ico-trend"></i>
-        <a onclick="location.href='keyword.html'">키워드 분석</a>
+        <a href='keyword.html'">키워드 분석</a>
       </menu>
     </div>
     <div>
       <menu>
         <i class="ico-calendar"></i>
-        <a onclick="location.href='calendar.html'">다이애드 캘린더</a>
+        <a href='calendar.html'">다이애드 캘린더</a>
       </menu>
     </div>
     <div>
@@ -609,31 +609,32 @@
 </script>
 <main class="content-tracking gmarket">
   <header class="content-header">
-    <h1>
-      <span>지마켓 판매량 추적</span>
-      <div class="tooltip">
-        <div class="tooltip-content">
-          <dl>
-            <dd></dd>
-          </dl>
+    <div class="title">
+      <h1>
+        <span>지마켓 판매량 추적</span>
+        <div class="tooltip">
+          <div class="tooltip-content">
+            <dl>
+              <dd></dd>
+            </dl>
+          </div>
         </div>
+      </h1>
+      <div class="subline status">
+        <ul class="services">
+          <li>서비스 제공량</li>
+          <li>
+            <span class="count">30</span>
+          </li>
+        </ul>
+        <ul class="service-period">
+          <li>서비스 이용기간</li>
+          <li>
+            2022-03-01 ~ 2023-02-28
+            <span class="tag d-day">310</span>
+          </li>
+        </ul>
       </div>
-    </h1>
-
-    <div class="subline status">
-      <ul class="services">
-        <li>서비스 제공량</li>
-        <li>
-          <span class="count">30</span>
-        </li>
-      </ul>
-      <ul class="service-period">
-        <li>서비스 이용기간</li>
-        <li>
-          2022-03-01 ~ 2023-02-28
-          <span class="tag d-day">310</span>
-        </li>
-      </ul>
     </div>
   </header>
   <section>
@@ -920,7 +921,7 @@
     </footer>
   </section>
   <div class="sections">
-    <section>
+    <section class="section-chart">
       <header>
         <div class="title">
           <h2>
@@ -934,7 +935,7 @@
         </div>
       </div>
     </section>
-    <section>
+    <section class="section-chart">
       <header>
         <div class="title">
           <h2>

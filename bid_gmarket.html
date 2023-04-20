@@ -58,51 +58,51 @@
   <nav>
     <div class="   ">
       <menu>
-        <i class="ico-ranking"></i>
-        <a onclick="location.href='tracking.html'">스토어</a>
+        <i class="ico-ranking" onclick="location.href='tracking.html'"></i>
+        <a href='tracking.html'">스토어</a>
       </menu>
       <ul>
         <li class="gmarket ">
-          <a onclick="location.href='track_gmarket.html'">지마켓 판매량 추적</a>
+          <a href='track_gmarket.html'">지마켓 판매량 추적</a>
         </li>
         <li class="naver ">
-          <a onclick="location.href='ranking.html'">네이버 순위 추적</a>
+          <a href='ranking.html'">네이버 순위 추적</a>
         </li>
         <li class="naver ">
-          <a onclick="location.href='lowest_price.html'">네이버 최저가 추적</a>
+          <a href='lowest_price.html'">네이버 최저가 추적</a>
         </li>
       </ul>
     </div>
     <div class="   is-active ">
       <menu>
-        <i class="ico-price"></i>
-        <a onclick="location.href='bidding.html'">자동입찰</a>
+        <i class="ico-price" onclick="location.href='bidding.html'"></i>
+        <a href='bidding.html'">자동입찰</a>
       </menu>
       <ul>
         <li class="naver ">
-          <a onclick="location.href='bid_naver.html'">네이버</a>
+          <a href='bid_naver.html'">네이버</a>
         </li>
         <li class="eleventh ">
-          <a onclick="location.href='bid_11st.html'">11번가</a>
+          <a href='bid_11st.html'">11번가</a>
         </li>
         <li class="gmarket is-active">
-          <a onclick="location.href='bid_gmarket.html'">지마켓 파워클릭</a>
+          <a href='bid_gmarket.html'">지마켓 파워클릭</a>
         </li>
         <li class="google ">
-          <a onclick="location.href='bid_google.html'">구글 검색광고</a>
+          <a href='bid_google.html'">구글 검색광고</a>
         </li>
       </ul>
     </div>
     <div class="">
       <menu>
         <i class="ico-trend"></i>
-        <a onclick="location.href='keyword.html'">키워드 분석</a>
+        <a href='keyword.html'">키워드 분석</a>
       </menu>
     </div>
     <div>
       <menu>
         <i class="ico-calendar"></i>
-        <a onclick="location.href='calendar.html'">다이애드 캘린더</a>
+        <a href='calendar.html'">다이애드 캘린더</a>
       </menu>
     </div>
     <div>
@@ -320,6 +320,29 @@
         </div>
       </div>
     </li>
+    <li style="flex-wrap: nowrap;">
+      <h5>기본입찰가</h5>
+      <div class="selectors">
+        <input id="pc-1" type="checkbox" />
+        <label for="pc-1">PC 통합검색 1위 평균 입찰가</label>
+        <input id="pc-2" type="checkbox" />
+        <label for="pc-2">PC 통합검색 2위 평균 입찰가</label>
+        <input id="pc-3" type="checkbox" />
+        <label for="pc-3">PC 통합검색 3위 평균 입찰가</label>
+        <input id="pc-4" type="checkbox" />
+        <label for="pc-4">PC 통합검색 4위 평균 입찰가</label>
+        <input id="pc-5" type="checkbox" />
+        <label for="pc-5">PC 통합검색 5위 평균 입찰가</label>
+        <input id="pc-6" type="checkbox" />
+        <label for="pc-6">PC 통합검색 6위 평균 입찰가</label>
+        <input id="pc-7" type="checkbox" />
+        <label for="pc-7">PC 통합검색 7위 평균 입찰가</label>
+        <input id="pc-8" type="checkbox" />
+        <label for="pc-8">PC 통합검색 8위 평균 입찰가</label>
+        <input id="pc-9" type="checkbox" />
+        <label for="pc-9">PC 통합검색 9위 평균 입찰가</label>
+      </div>
+    </li>
   </ul>
   <ul>
     <li>
@@ -328,14 +351,36 @@
         <div class="checkbox">
           <input id="bidding-on" type="checkbox" name="bidding-settings" />
           <label for="bidding-on">설정</label>
-          <div class="options">
+          <div class="checkboxes">
             <div class="checkbox">
-              <input id="settings-normal" type="checkbox" name="bidding-settings" />
-              <label for="settings-normal">일반설정</label>
+              <input id="bidding-live" type="checkbox" name="bidding-live">
+              <label for="bidding-live">라이브</label>
             </div>
+            <div class="options">
+              <div class="checkbox">
+                <input id="bidding-live-normal" type="checkbox" name="bidding-wait">
+                <label for="bidding-live-normal">일반설정</label>
+              </div>
+              <div class="checkbox">
+                <input id="bidding-live-advanced" type="checkbox" name="bidding-wait">
+                <label for="bidding-live-advanced">고급설정</label>
+              </div>
+            </div>
+          </div>
+          <div class="checkboxes">
             <div class="checkbox">
-              <input id="settings-advanced" type="checkbox" name="bidding-settings" />
-              <label for="settings-advanced">고급설정</label>
+              <input id="bidding-regular" type="checkbox" name="bidding-regular">
+              <label for="bidding-regular">레귤러</label>
+            </div>
+            <div class="options">
+              <div class="checkbox">
+                <input id="bidding-regular-normal" type="checkbox" name="bidding-wait">
+                <label for="bidding-regular-normal">일반설정</label>
+              </div>
+              <div class="checkbox">
+                <input id="bidding-regular-advanced" type="checkbox" name="bidding-wait">
+                <label for="bidding-regular-advanced">고급설정</label>
+              </div>
             </div>
           </div>
         </div>
@@ -423,10 +468,44 @@
         </div>
       </div>
     </li>
+    <li>
+      <h5>
+        <span>희망 URL</span>
+        <small>복수검색 가능</small>
+      </h5>
+      <div class="inputs">
+        <textarea id="" name=""></textarea>
+        <div class="select">
+          <input
+            id="url-01"
+            type="radio"
+            name="filter-url"
+            checked>
+          <label for="url-01">일치</label>
+          <input
+            id="url-02"
+            type="radio"
+            name="filter-url">
+          <label for="url-02">포함</label>
+          <input
+            id="url-03"
+            type="radio"
+            name="filter-url">
+          <label for="url-03">제외</label>
+        </div>
+        <small>※ 복수검색은 줄바꿈으로 구분합니다.<br />
+          ex) 입찰<br />
+          광고
+        </small>
+      </div>
+    </li>
   </ul>
   <ul>
     <li>
-      <h5>입찰대상</h5>
+      <h5>
+        입찰대상
+        <small>라이브 입찰 대상</small>
+      </h5>
       <div class="inputs">
         <div class="checkbox">
           <input id="bidding-pc" type="checkbox" />
@@ -513,6 +592,10 @@
             <label for="bidding-failed">실패</label>
           </div>
           <div class="options">
+            <div class="checkbox">
+              <input id="bidding-lowest-price" type="checkbox" name="bidding-failed" />
+              <label for="bidding-lowest-price">최소입찰가미만</label>
+            </div>
             <div class="checkbox">
               <input id="bidding-highest-price" type="checkbox" name="bidding-failed" />
               <label for="bidding-highest-price">최대입찰가도달</label>
@@ -4128,6 +4211,751 @@
     <div class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
       <button class="btn-submit" type="button">적용</button>
+    </div>
+  </div>
+</div>
+
+<div id="settingsRegularNormal" class="modal" title="레귤러 일반설정">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>레귤러 일반설정</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section>
+        <div class="caution">
+          <p>※ 레귤러 설정은 <strong>레귤러 플랜을 사용 중인 경우</strong> 설정 가능합니다.</p>
+          <p>※ 레귤러 설정 시 <strong>1일 3회 고정된 시간에 입찰</strong>을 합니다.</p>
+          <p>※ 네이버 레귤러 입찰 시 선택한 <strong>기본입찰가에 사용자 설정 옵션을 부여하여 원하는 입찰가를 산출</strong>하고, <strong>최소입찰가와 최대입찰가 범위 내에서 산출
+              입찰가로 입찰가를 변경</strong>합니다.</p>
+          <p>※ 기본입찰가는 네이버에서 제공하는 데이터로, 과거 데이터를 기반으로 추정한 데이터입니다. 사용자에게 기준이 될 수 있는 가격을 제시할 뿐 노출순위를 보장하지 않습니다.</p>
+        </div>
+      </section>
+      <section>
+        <div class="list list-form">
+          <ul class="row">
+            <li>
+              입찰대상
+              <div class="tooltip">
+                <dl class="tooltip-content">
+                  <dd>
+                    입찰대상은 네이버 권장 입찰가를 데이터 성격에 따라 구분한 기준입니다.
+                  </dd>
+                  <dd>
+                    PC 데이터를 원하면 PC 기준, 모바일 데이터를 원하면 모바일 기준, 사용자 키워드의 과거 데이터를 원하면 나의 데이터 기준을 선택하고 각 기준에 맞는 기본입찰가를 선택할 수
+                    있습니다.
+                  </dd>
+                </dl>
+              </div>
+            </li>
+            <li>
+              <input id="standard-pc" type="radio" name="bidding-modal">
+              <label for="standard-pc">PC 기준</label>
+              <input id="standard-mobile" type="radio" name="bidding-modal">
+              <label for="standard-mobile">모바일(MO) 기준</label>
+              <input id="standard-my" type="radio" name="bidding-modal">
+              <label for="standard-my">나의 데이터(MY) 기준</label>
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              기본입찰가
+              <div class="tooltip">
+                <dl class="tooltip-content">
+                  <dd>
+                    기본입찰가는 입찰가 변경의 기본이 되는 입찰가로 네이버에서 제공하는 권장 입찰가 및 데이터를 사용합니다.
+                  </dd>
+                  <dd>
+                    네이버 권장 입찰가는 과거 데이터를 기반으로 추정한 데이터입니다. 사용자에게 기준이 될 수 있는 가격을 제시할 뿐 노출순위를 보장하지 않습니다.
+                  </dd>
+                </dl>
+              </div>
+            </li>
+            <li>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">PC 통합검색 1위 평균 입찰가</option>
+                  <option value="">PC 통합검색 2위 평균 입찰가</option>
+                  <option value="">PC 통합검색 3위 평균 입찰가</option>
+                  <option value="">PC 통합검색 4위 평균 입찰가</option>
+                  <option value="">PC 통합검색 5위 평균 입찰가</option>
+                  <option value="">PC 통합검색 6위 평균 입찰가</option>
+                  <option value="">PC 통합검색 7위 평균 입찰가</option>
+                  <option value="">PC 통합검색 8위 평균 입찰가</option>
+                  <option value="">PC 통합검색 9위 평균 입찰가</option>
+                  <option value="">PC 통합검색 10위 평균 입찰가</option>
+                  <option value="">PC 통합검색 11위 평균 입찰가</option>
+                  <option value="">PC 통합검색 12위 평균 입찰가</option>
+                  <option value="">PC 통합검색 13위 평균 입찰가</option>
+                  <option value="">PC 통합검색 14위 평균 입찰가</option>
+                  <option value="">PC 통합검색 15위 평균 입찰가</option>
+                  <option value="">어제 PC 최소 노출 입찰가</option>
+                  <option value="">지난 28일 PC 최소 노출 입찰가</option>
+                  <option value="">어제 PC 중간 노출 입찰가</option>
+                  <option value="">지난 28일 PC 중간 노출 입찰가</option>
+                </select>
+              </div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              최소입찰가
+              <div class="tooltip">
+                <dl class="tooltip-content">
+                  <dd>
+                    최소입찰가는 사용자가 설정하는 입찰가 변경 가능 범위의 최소치로 일반적으로 입찰가는 최소입찰가보다 작을 수 없고, 산출 입찰가(사용자 설정 옵션 미사용 시 기본입찰가)가
+                    최소입찰가보다 작으면 최소입찰가로 입찰가가 변경됩니다.
+                  </dd>
+                  <dd>
+                    최소입찰가로 평균 클릭 비용 사용 시 평균 클릭 비용이 입찰가 최소치보다 작으면 최소입찰가는 자동으로 입찰가 최소치로 조정됩니다.
+                  </dd>
+                  <dd>
+                    최소입찰가로 평균 클릭 비용 사용 시 최소입찰가 우선 적용 체크박스를 체크하면 최소입찰가가 최대입찰가보다 큰 경우 최소입찰가를 입찰가로 변경할 수 있습니다. 체크박스를 체크하지
+                    않으면 최대입찰가와 산출 입찰가(사용자 설정 옵션 미사용 시 기본입찰가) 중 더 작은 값으로 입찰가가 변경됩니다.
+                  </dd>
+                </dl>
+              </div>
+            </li>
+            <li class="more-options">
+              <input id="inactive-bidding-lowest-price" type="radio" name="lowest-price" checked />
+              <label for="inactive-bidding-lowest-price">미사용</label>
+              <input id="active-bidding-lowest-price" type="radio" name="lowest-price" />
+              <label for="active-bidding-lowest-price">사용</label>
+              <div class="options">
+                <div class="inputs">
+                  <input id="input-price-directly" type="radio" />
+                  <label for="input-price-directly">직접 입력</label>
+                  <input id="input-price-yesterday" type="radio" />
+                  <label for="input-price-yesterday">어제 평균 클릭 비용</label>
+                  <input id="input-price-7days" type="radio" />
+                  <label for="input-price-7days">지난 7일 평균 클릭 비용</label>
+                </div>
+                <div class="price">
+                  <input type="number">
+                </div>
+                <div class="checkbox">
+                  <input id="check-lowest-price" type="checkbox" />
+                  <label for="check-lowest-price">
+                    평균 클릭 비용 선택 시 최소입찰가가 최대입찰가보다 큰 경우 최소입찰가로 입찰
+                  </label>
+                </div>
+                <div>
+                  체크하지 않으면 산출 입찰가(기본입찰가)와 최대입찰가 중 작은 입찰가로 입찰가가 변경됩니다.
+                </div>
+              </div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="asterisk">
+              최대입찰가
+            </li>
+            <li>
+              <div class="price">
+                <input type="number">
+              </div>
+            </li>
+          </ul>
+          <fieldset>
+            <legend>
+              사용자 설정 옵션
+              <div class="tooltip">
+                <div class="tooltip-content">
+                  사용자 설정 옵션은 선택사항으로 기본입찰가에 사용자가 원하는 조합의 옵션을 부여하여 세부적인 입찰가 설정이 가능합니다.
+                </div>
+              </div>
+            </legend>
+            <ul class="row">
+              <li>
+                평균값
+                <div class="tooltip">
+                  <dl class="tooltip-content">
+                    <dd>
+                      사용자 설정 옵션은 선택사항으로 기본입찰가에 사용자가 원하는 조합의 옵션을 부여하여 세부적인 입찰가 설정이 가능합니다.
+                    </dd>
+                    <dd>
+                      선택한 데이터 값이 0이면 평균을 구하지 않고 기본입찰가를 사용합니다.
+                    </dd>
+                  </dl>
+                </div>
+              </li>
+              <li class="more-options">
+                <input id="inactive-average-price" type="radio" name="average-price" checked />
+                <label for="inactive-average-price">미사용</label>
+                <input id="active-average-price" type="radio" name="average-price" />
+                <label for="active-average-price">사용</label>
+                <div class="options">
+                  <div class="inputs">
+                    <input id="select-standard-pc" type="radio" />
+                    <label for="select-standard-pc">PC 기준</label>
+                    <input id="select-standard-mobile" type="radio" />
+                    <label for="select-standard-mobile">모바일(MO) 기준</label>
+                    <input id="select-standard-my" type="radio" />
+                    <label for="select-standard-my">나의 데이터(MY) 기준</label>
+                  </div>
+                  <div class="selectbox">
+                    <select name="" id="">
+                      <option value="">PC 통합검색 1위 평균 입찰가</option>
+                      <option value="">PC 통합검색 2위 평균 입찰가</option>
+                      <option value="">PC 통합검색 3위 평균 입찰가</option>
+                      <option value="">PC 통합검색 4위 평균 입찰가</option>
+                      <option value="">PC 통합검색 5위 평균 입찰가</option>
+                      <option value="">PC 통합검색 6위 평균 입찰가</option>
+                      <option value="">PC 통합검색 7위 평균 입찰가</option>
+                      <option value="">PC 통합검색 8위 평균 입찰가</option>
+                      <option value="">PC 통합검색 9위 평균 입찰가</option>
+                      <option value="">PC 통합검색 10위 평균 입찰가</option>
+                      <option value="">PC 통합검색 11위 평균 입찰가</option>
+                      <option value="">PC 통합검색 12위 평균 입찰가</option>
+                      <option value="">PC 통합검색 13위 평균 입찰가</option>
+                      <option value="">PC 통합검색 14위 평균 입찰가</option>
+                      <option value="">PC 통합검색 15위 평균 입찰가</option>
+                      <option value="">어제 PC 최소 노출 입찰가</option>
+                      <option value="">지난 28일 PC 최소 노출 입찰가</option>
+                      <option value="">어제 PC 중간 노출 입찰가</option>
+                      <option value="">지난 28일 PC 중간 노출 입찰가</option>
+                    </select>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                가감액
+                <div class="tooltip">
+                  <dl class="tooltip-content">
+                    <dd>
+                      가감액 옵션 사용 시 기본입찰가 또는 평균값(평균값 옵션 사용 시)에 가감할 금액을 설정할 수 있습니다.
+                    </dd>
+                    <dd>
+                      가감액은 최근 통합검색 평균 노출 순위의 유무에 따라 나누어 입력합니다.
+                    </dd>
+                    <dd>
+                      가감액을 %로 설정하신 경우 평균값 옵션을 사용하더라도 기본입찰가를 기준으로 %가 계산됩니다.
+                    </dd>
+                  </dl>
+                </div>
+              </li>
+              <li class="more-options">
+                <input id="inactive-change-price" type="radio" name="change-price" checked />
+                <label for="inactive-change-price">미사용</label>
+                <input id="active-change-price" type="radio" name="change-price" />
+                <label for="active-change-price">사용</label>
+                <div class="options">
+                  <div class="inputs">
+                    <input id="increase-price" type="radio" />
+                    <label for="increase-price">가액</label>
+                    <div class="input" data-title="순위 있음">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">원</option>
+                          <option value="">%</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="input" data-title="순위 없음">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">원</option>
+                          <option value="">%</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="inputs" style="margin-left: 0">
+                    <input id="decrease-price" type="radio" />
+                    <label for="decrease-price">감액</label>
+                    <div class="input" data-title="순위 있음">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">원</option>
+                          <option value="">%</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="input" data-title="순위 없음">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">원</option>
+                          <option value="">%</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </fieldset>
+        </div>
+      </section>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" type="button" data-modal="">입찰적용</button>
+    </div>
+  </div>
+</div>
+<div id="settingsRegularNormalPart" class="modal" title="레귤러 일반부분설정">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>레귤러 일반부분설정</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section>
+        <div class="caution">
+          <p>※ 레귤러 설정은 <strong>레귤러 플랜을 사용 중인 경우</strong> 설정 가능합니다.</p>
+          <p>※ 레귤러 설정 시 <strong>1일 3회 고정된 시간에 입찰</strong>을 합니다.</p>
+          <p>※ 네이버 레귤러 입찰 시 선택한 <strong>기본입찰가에 사용자 설정 옵션을 부여하여 원하는 입찰가를 산출</strong>하고, <strong>최소입찰가와 최대입찰가 범위 내에서 산출
+              입찰가로 입찰가를 변경</strong>합니다.</p>
+          <p>※ 기본입찰가는 네이버에서 제공하는 데이터로, 과거 데이터를 기반으로 추정한 데이터입니다. 사용자에게 기준이 될 수 있는 가격을 제시할 뿐 노출순위를 보장하지 않습니다.</p>
+        </div>
+      </section>
+      <section>
+        <div class="list list-form">
+          <ul class="row">
+            <li>
+              <div class="checkbox">
+                <input id="check-regular-normal" name="select-item" type="checkbox">
+                <label for="check-regular-normal">입찰대상</label>
+                <div class="tooltip">
+                  <dl class="tooltip-content">
+                    <dd>
+                      입찰대상은 네이버 권장 입찰가를 데이터 성격에 따라 구분한 기준입니다.
+                    </dd>
+                    <dd>
+                      PC 데이터를 원하면 PC 기준, 모바일 데이터를 원하면 모바일 기준, 사용자 키워드의 과거 데이터를 원하면 나의 데이터 기준을 선택하고 각 기준에 맞는 기본입찰가를 선택할 수
+                      있습니다.
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </li>
+            <li>
+              <input id="standard-pc" type="radio" name="bidding-modal">
+              <label for="standard-pc">PC 기준</label>
+              <input id="standard-mobile" type="radio" name="bidding-modal">
+              <label for="standard-mobile">모바일(MO) 기준</label>
+              <input id="standard-my" type="radio" name="bidding-modal">
+              <label for="standard-my">나의 데이터(MY) 기준</label>
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              기본입찰가
+              <div class="tooltip">
+                <dl class="tooltip-content">
+                  <dd>
+                    기본입찰가는 입찰가 변경의 기본이 되는 입찰가로 네이버에서 제공하는 권장 입찰가 및 데이터를 사용합니다.
+                  </dd>
+                  <dd>
+                    네이버 권장 입찰가는 과거 데이터를 기반으로 추정한 데이터입니다. 사용자에게 기준이 될 수 있는 가격을 제시할 뿐 노출순위를 보장하지 않습니다.
+                  </dd>
+                </dl>
+              </div>
+            </li>
+            <li>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">PC 통합검색 1위 평균 입찰가</option>
+                  <option value="">PC 통합검색 2위 평균 입찰가</option>
+                  <option value="">PC 통합검색 3위 평균 입찰가</option>
+                  <option value="">PC 통합검색 4위 평균 입찰가</option>
+                  <option value="">PC 통합검색 5위 평균 입찰가</option>
+                  <option value="">PC 통합검색 6위 평균 입찰가</option>
+                  <option value="">PC 통합검색 7위 평균 입찰가</option>
+                  <option value="">PC 통합검색 8위 평균 입찰가</option>
+                  <option value="">PC 통합검색 9위 평균 입찰가</option>
+                  <option value="">PC 통합검색 10위 평균 입찰가</option>
+                  <option value="">PC 통합검색 11위 평균 입찰가</option>
+                  <option value="">PC 통합검색 12위 평균 입찰가</option>
+                  <option value="">PC 통합검색 13위 평균 입찰가</option>
+                  <option value="">PC 통합검색 14위 평균 입찰가</option>
+                  <option value="">PC 통합검색 15위 평균 입찰가</option>
+                  <option value="">어제 PC 최소 노출 입찰가</option>
+                  <option value="">지난 28일 PC 최소 노출 입찰가</option>
+                  <option value="">어제 PC 중간 노출 입찰가</option>
+                  <option value="">지난 28일 PC 중간 노출 입찰가</option>
+                </select>
+              </div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              <div class="checkbox">
+                <input id="check-regular-normal-02" name="select-item" type="checkbox">
+                <label for="check-regular-normal-02">최소입찰가</label>
+                <div class="tooltip">
+                  <dl class="tooltip-content">
+                    <dd>
+                      최소입찰가는 사용자가 설정하는 입찰가 변경 가능 범위의 최소치로 일반적으로 입찰가는 최소입찰가보다 작을 수 없고, 산출 입찰가(사용자 설정 옵션 미사용 시 기본입찰가)가
+                      최소입찰가보다 작으면 최소입찰가로 입찰가가 변경됩니다.
+                    </dd>
+                    <dd>
+                      최소입찰가로 평균 클릭 비용 사용 시 평균 클릭 비용이 입찰가 최소치보다 작으면 최소입찰가는 자동으로 입찰가 최소치로 조정됩니다.
+                    </dd>
+                    <dd>
+                      최소입찰가로 평균 클릭 비용 사용 시 최소입찰가 우선 적용 체크박스를 체크하면 최소입찰가가 최대입찰가보다 큰 경우 최소입찰가를 입찰가로 변경할 수 있습니다. 체크박스를 체크하지
+                      않으면 최대입찰가와 산출 입찰가(사용자 설정 옵션 미사용 시 기본입찰가) 중 더 작은 값으로 입찰가가 변경됩니다.
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </li>
+            <li class="more-options">
+              <input id="inactive-bidding-lowest-price" type="radio" name="lowest-price" checked />
+              <label for="inactive-bidding-lowest-price">미사용</label>
+              <input id="active-bidding-lowest-price" type="radio" name="lowest-price" />
+              <label for="active-bidding-lowest-price">사용</label>
+              <div class="options">
+                <div class="inputs">
+                  <input id="input-price-directly" type="radio" />
+                  <label for="input-price-directly">직접 입력</label>
+                  <input id="input-price-yesterday" type="radio" />
+                  <label for="input-price-yesterday">어제 평균 클릭 비용</label>
+                  <input id="input-price-7days" type="radio" />
+                  <label for="input-price-7days">지난 7일 평균 클릭 비용</label>
+                </div>
+                <div class="price">
+                  <input type="number">
+                </div>
+                <div class="checkbox">
+                  <input id="check-lowest-price" type="checkbox" />
+                  <label for="check-lowest-price">
+                    평균 클릭 비용 선택 시 최소입찰가가 최대입찰가보다 큰 경우 최소입찰가로 입찰
+                  </label>
+                </div>
+                <div>
+                  체크하지 않으면 산출 입찰가(기본입찰가)와 최대입찰가 중 작은 입찰가로 입찰가가 변경됩니다.
+                </div>
+              </div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="asterisk">
+              <div class="checkbox">
+                <input id="check-regular-normal-03" name="select-item" type="checkbox">
+                <label for="check-regular-normal-03">최대입찰가</label>
+              </div>
+            </li>
+            <li>
+              <div class="price">
+                <input type="number">
+              </div>
+            </li>
+          </ul>
+          <fieldset>
+            <legend>
+              사용자 설정 옵션
+              <div class="tooltip">
+                <div class="tooltip-content">
+                  사용자 설정 옵션은 선택사항으로 기본입찰가에 사용자가 원하는 조합의 옵션을 부여하여 세부적인 입찰가 설정이 가능합니다.
+                </div>
+              </div>
+            </legend>
+            <ul class="row">
+              <li>
+                평균값
+                <div class="tooltip">
+                  <dl class="tooltip-content">
+                    <dd>
+                      사용자 설정 옵션은 선택사항으로 기본입찰가에 사용자가 원하는 조합의 옵션을 부여하여 세부적인 입찰가 설정이 가능합니다.
+                    </dd>
+                    <dd>
+                      선택한 데이터 값이 0이면 평균을 구하지 않고 기본입찰가를 사용합니다.
+                    </dd>
+                  </dl>
+                </div>
+              </li>
+              <li class="more-options">
+                <input id="inactive-average-price" type="radio" name="average-price" checked />
+                <label for="inactive-average-price">미사용</label>
+                <input id="active-average-price" type="radio" name="average-price" />
+                <label for="active-average-price">사용</label>
+                <div class="options">
+                  <div class="inputs">
+                    <input id="select-standard-pc" type="radio" />
+                    <label for="select-standard-pc">PC 기준</label>
+                    <input id="select-standard-mobile" type="radio" />
+                    <label for="select-standard-mobile">모바일(MO) 기준</label>
+                    <input id="select-standard-my" type="radio" />
+                    <label for="select-standard-my">나의 데이터(MY) 기준</label>
+                  </div>
+                  <div class="selectbox">
+                    <select name="" id="">
+                      <option value="">PC 통합검색 1위 평균 입찰가</option>
+                      <option value="">PC 통합검색 2위 평균 입찰가</option>
+                      <option value="">PC 통합검색 3위 평균 입찰가</option>
+                      <option value="">PC 통합검색 4위 평균 입찰가</option>
+                      <option value="">PC 통합검색 5위 평균 입찰가</option>
+                      <option value="">PC 통합검색 6위 평균 입찰가</option>
+                      <option value="">PC 통합검색 7위 평균 입찰가</option>
+                      <option value="">PC 통합검색 8위 평균 입찰가</option>
+                      <option value="">PC 통합검색 9위 평균 입찰가</option>
+                      <option value="">PC 통합검색 10위 평균 입찰가</option>
+                      <option value="">PC 통합검색 11위 평균 입찰가</option>
+                      <option value="">PC 통합검색 12위 평균 입찰가</option>
+                      <option value="">PC 통합검색 13위 평균 입찰가</option>
+                      <option value="">PC 통합검색 14위 평균 입찰가</option>
+                      <option value="">PC 통합검색 15위 평균 입찰가</option>
+                      <option value="">어제 PC 최소 노출 입찰가</option>
+                      <option value="">지난 28일 PC 최소 노출 입찰가</option>
+                      <option value="">어제 PC 중간 노출 입찰가</option>
+                      <option value="">지난 28일 PC 중간 노출 입찰가</option>
+                    </select>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li>
+                가감액
+                <div class="tooltip">
+                  <dl class="tooltip-content">
+                    <dd>
+                      가감액 옵션 사용 시 기본입찰가 또는 평균값(평균값 옵션 사용 시)에 가감할 금액을 설정할 수 있습니다.
+                    </dd>
+                    <dd>
+                      가감액은 최근 통합검색 평균 노출 순위의 유무에 따라 나누어 입력합니다.
+                    </dd>
+                    <dd>
+                      가감액을 %로 설정하신 경우 평균값 옵션을 사용하더라도 기본입찰가를 기준으로 %가 계산됩니다.
+                    </dd>
+                  </dl>
+                </div>
+              </li>
+              <li class="more-options">
+                <input id="inactive-change-price" type="radio" name="change-price" checked />
+                <label for="inactive-change-price">미사용</label>
+                <input id="active-change-price" type="radio" name="change-price" />
+                <label for="active-change-price">사용</label>
+                <div class="options">
+                  <div class="inputs">
+                    <input id="increase-price" type="radio" />
+                    <label for="increase-price">가액</label>
+                    <div class="input" data-title="순위 있음">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">원</option>
+                          <option value="">%</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="input" data-title="순위 없음">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">원</option>
+                          <option value="">%</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="inputs" style="margin-left: 0">
+                    <input id="decrease-price" type="radio" />
+                    <label for="decrease-price">감액</label>
+                    <div class="input" data-title="순위 있음">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">원</option>
+                          <option value="">%</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="input" data-title="순위 없음">
+                      <input type="text">
+                      <div class="selectbox">
+                        <select name="" id="">
+                          <option value="">원</option>
+                          <option value="">%</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </fieldset>
+        </div>
+      </section>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" type="button" data-modal="">입찰적용</button>
+    </div>
+  </div>
+</div>
+<div id="calculateBidPrice" class="modal modal-calculate-bid-price" title="입찰가 산출내역">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>입찰가 산출내역</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <div class="list bid-price">
+        <ul class="row">
+          <li>본 입찰가</li>
+          <li>
+            <strong>PC 기준</strong>
+            PC 통합검색 1위 평균 입찰가
+          </li>
+          <li>
+            <div class="price">
+              <input type="number" value="1380">
+            </div>
+          </li>
+        </ul>
+      </div>
+      <section>
+        <header>
+          <div>입찰가 사용자 설정 옵션</div>
+          <div>
+            <span data-title="평균값: ">사용</span>
+            <span data-title="가감액: ">사용</span>
+          </div>
+        </header>
+        <div class="list">
+          <ul class="row">
+            <li>
+              <div class="checkbox">
+                <input id="check-calculate-average-price" name="select-item" type="checkbox">
+                <label for="check-calculate-average-price">평균값</label>
+              </div>
+            </li>
+            <li>PC 기준 PC 통합검색 2위 평균 입찰가</li>
+            <li>
+              <div class="price">
+                <input type="number" value="1320">
+              </div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li></li>
+            <li>평균 계산값</li>
+            <li>
+              <div class="price">
+                <input type="number" value="1350">
+              </div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              <div class="checkbox">
+                <input id="check-calculate-change-price" name="select-item" type="checkbox">
+                <label for="check-calculate-change-price">가감액</label>
+              </div>
+            </li>
+            <li>
+              노출 순위 있음
+              <strong>가액 100원</strong>
+            </li>
+            <li>
+              <div class="price">
+                <input type="number" value="100">
+              </div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li></li>
+            <li>
+              노출 순위 없음
+              <strong>가액 10%</strong>
+            </li>
+            <li>
+              <div class="price">
+                <input type="number" value="138">
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="list result">
+          <ul class="row">
+            <li>
+              <strong>산출 입찰가</strong>
+            </li>
+            <li>노출 순위 있음</li>
+            <li>
+              <div class="price">
+                1450
+              </div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li></li>
+            <li>노출 순위 없음</li>
+            <li>
+              <div class="price">
+                1490
+              </div>
+            </li>
+          </ul>
+        </div>
+        <section>
+          <div class="list">
+            <ul class="row">
+              <li>최소입찰가</li>
+              <li>직접 입력</li>
+              <li>
+                <div class="price">
+                  <input type="number" value="500">
+                </div>
+              </li>
+            </ul>
+            <div>
+              <div class="checkbox">
+                <input id="check-calculate-average-price" name="select-item" type="checkbox">
+                <label for="check-calculate-average-price">평균 클릭 비용 선택 시 최소입찰가가 최대입찰가보다 큰 경우 최소입찰가로 입찰</label>
+              </div>
+              <small>
+                체크하지 않으면 산출 입찰가(기본입찰가)와 최대입찰가 중 작은 입찰가로 입찰가가 변경됩니다.
+              </small>
+            </div>
+            <ul class="row">
+              <li></li>
+              <li>최대입찰가</li>
+              <li>
+                <div class="price">
+                  <input type="number" />
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="list result">
+            <ul class="row">
+              <li>
+                <strong>최종 입찰가</strong>
+                <div class="tooltip">
+                  <dl class="tooltip-content">
+                    <dd>최종 입찰가는 레귤러 (부분)설정 완료 시 산출된 또는 입찰 시 변경한 입찰가입니다.</dd>
+                    <dd>최종 입찰가는 산출 입찰가, 최소입찰가, 최대입찰가 대소관계에 따라 최종 결정됩니다.</dd>
+                    <dd>평균 클릭 비용을 최소입찰가로 사용할 때 최소입찰가 우선 적용 체크박스 체크 시 최소입찰가가 최대입찰가보다 큰 경우 최소입찰가로 입찰가를 변경합니다.</dd>
+                  </dl>
+                </div>
+              </li>
+              <li>노출 순위 있음</li>
+              <li>
+                <div class="price">1450</div>
+              </li>
+            </ul>
+            <ul class="row">
+              <li></li>
+              <li>노출 순위 없음</li>
+              <li>
+                <div class="price">1490</div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </section>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" type="button" data-modal="">입찰적용</button>
     </div>
   </div>
 </div>
