@@ -34,6 +34,29 @@
         </div>
       </div>
     </li>
+    <li style="flex-wrap: nowrap;">
+      <h5>기본입찰가</h5>
+      <div class="selectors">
+        <input id="pc-1" type="checkbox" />
+        <label for="pc-1">PC 통합검색 1위 평균 입찰가</label>
+        <input id="pc-2" type="checkbox" />
+        <label for="pc-2">PC 통합검색 2위 평균 입찰가</label>
+        <input id="pc-3" type="checkbox" />
+        <label for="pc-3">PC 통합검색 3위 평균 입찰가</label>
+        <input id="pc-4" type="checkbox" />
+        <label for="pc-4">PC 통합검색 4위 평균 입찰가</label>
+        <input id="pc-5" type="checkbox" />
+        <label for="pc-5">PC 통합검색 5위 평균 입찰가</label>
+        <input id="pc-6" type="checkbox" />
+        <label for="pc-6">PC 통합검색 6위 평균 입찰가</label>
+        <input id="pc-7" type="checkbox" />
+        <label for="pc-7">PC 통합검색 7위 평균 입찰가</label>
+        <input id="pc-8" type="checkbox" />
+        <label for="pc-8">PC 통합검색 8위 평균 입찰가</label>
+        <input id="pc-9" type="checkbox" />
+        <label for="pc-9">PC 통합검색 9위 평균 입찰가</label>
+      </div>
+    </li>
   </ul>
   <ul>
     <li>
@@ -42,14 +65,36 @@
         <div class="checkbox">
           <input id="bidding-on" type="checkbox" name="bidding-settings" />
           <label for="bidding-on">설정</label>
-          <div class="options">
+          <div class="checkboxes">
             <div class="checkbox">
-              <input id="settings-normal" type="checkbox" name="bidding-settings" />
-              <label for="settings-normal">일반설정</label>
+              <input id="bidding-live" type="checkbox" name="bidding-live">
+              <label for="bidding-live">라이브</label>
             </div>
+            <div class="options">
+              <div class="checkbox">
+                <input id="bidding-live-normal" type="checkbox" name="bidding-wait">
+                <label for="bidding-live-normal">일반설정</label>
+              </div>
+              <div class="checkbox">
+                <input id="bidding-live-advanced" type="checkbox" name="bidding-wait">
+                <label for="bidding-live-advanced">고급설정</label>
+              </div>
+            </div>
+          </div>
+          <div class="checkboxes">
             <div class="checkbox">
-              <input id="settings-advanced" type="checkbox" name="bidding-settings" />
-              <label for="settings-advanced">고급설정</label>
+              <input id="bidding-regular" type="checkbox" name="bidding-regular">
+              <label for="bidding-regular">레귤러</label>
+            </div>
+            <div class="options">
+              <div class="checkbox">
+                <input id="bidding-regular-normal" type="checkbox" name="bidding-wait">
+                <label for="bidding-regular-normal">일반설정</label>
+              </div>
+              <div class="checkbox">
+                <input id="bidding-regular-advanced" type="checkbox" name="bidding-wait">
+                <label for="bidding-regular-advanced">고급설정</label>
+              </div>
             </div>
           </div>
         </div>
@@ -137,10 +182,44 @@
         </div>
       </div>
     </li>
+    <li>
+      <h5>
+        <span>희망 URL</span>
+        <small>복수검색 가능</small>
+      </h5>
+      <div class="inputs">
+        <textarea id="" name=""></textarea>
+        <div class="select">
+          <input
+            id="url-01"
+            type="radio"
+            name="filter-url"
+            checked>
+          <label for="url-01">일치</label>
+          <input
+            id="url-02"
+            type="radio"
+            name="filter-url">
+          <label for="url-02">포함</label>
+          <input
+            id="url-03"
+            type="radio"
+            name="filter-url">
+          <label for="url-03">제외</label>
+        </div>
+        <small>※ 복수검색은 줄바꿈으로 구분합니다.<br />
+          ex) 입찰<br />
+          광고
+        </small>
+      </div>
+    </li>
   </ul>
   <ul>
     <li>
-      <h5>입찰대상</h5>
+      <h5>
+        입찰대상
+        <small>라이브 입찰 대상</small>
+      </h5>
       <div class="inputs">
         <div class="checkbox">
           <input id="bidding-pc" type="checkbox" />
@@ -227,6 +306,10 @@
             <label for="bidding-failed">실패</label>
           </div>
           <div class="options">
+            <div class="checkbox">
+              <input id="bidding-lowest-price" type="checkbox" name="bidding-failed" />
+              <label for="bidding-lowest-price">최소입찰가미만</label>
+            </div>
             <div class="checkbox">
               <input id="bidding-highest-price" type="checkbox" name="bidding-failed" />
               <label for="bidding-highest-price">최대입찰가도달</label>

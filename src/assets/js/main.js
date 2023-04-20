@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
       tooltip.addEventListener("mouseover", event => {
         event.preventDefault();
         event.stopPropagation();
-        event.target.parentElement.style.zIndex = "5";
+        event.target.parentElement.style.zIndex = "51";
       });
     });
   }

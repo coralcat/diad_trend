@@ -1,10 +1,12 @@
 {% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('settings')}}
 <main class="content-settings">
   <header class="content-header">
-    <h1>알림설정</h1>
-    <div class="buttons">
-      <button class="btn-sub" type="button">초기화</button>
-      <button class="btn-main" type="button">적용</button>
+    <div class="title">
+      <h1>알림설정</h1>
+      <div class="buttons">
+        <button class="btn-sub" type="button">초기화</button>
+        <button class="btn-main" type="button">적용</button>
+      </div>
     </div>
   </header>
   <div class="sections">

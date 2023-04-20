@@ -631,6 +631,8 @@ aside {
     position: relative;
     flex: 1 1 auto;
     display: flex;
+    align-items: center;
+    gap: .5rem;
 
     input {
       width: 100%;
@@ -1160,6 +1162,7 @@ input[type="radio"] {
       border-radius: 25px;
       transition: 0.2s;
       overflow: unset;
+      display: inline-block;
       cursor: pointer;
 
       &::before {
@@ -1353,6 +1356,7 @@ input[type="radio"] {
   cursor: pointer;
 
   &:hover {
+    z-index: 100;
     &::before,
     &::after {
       opacity: 1;

@@ -4,16 +4,31 @@
   <header class="content-header">
     <ul class="tabs">
       <li data-tab="naver">
-        네이버 검색광고
+        파워링크
       </li>
       <li data-tab="naver">
-        네이버 쇼핑검색광고
+        쇼핑검색 상품형
       </li>
       <li data-tab="naver">
-        네이버 파워컨텐츠
+        쇼핑검색 브랜드형
+      </li>
+      <li data-tab="naver">
+        파워컨텐츠
       </li>
     </ul>
-    {% include "account.html" %}
+    <div class="filters">
+      <ul class="my-plan" data-title="나의 입찰 플랜">
+        <li>
+          <span class="tag" data-tooltip="test">Live</span>
+          <span>300 / 500</span>
+        </li>
+        <li>
+          <span class="tag">Regular</span>
+          <span>199 / 300</span>
+        </li>
+      </ul>
+      {% include "account.html" %}
+    </div>
   </header>
   <div class="tab-content content-naver-searchad" data-tab="naver">
     <section class="section-account">
@@ -104,6 +119,18 @@
             </div>
           </div>
           <strong class="times">9</strong>
+        </li>
+        <li>
+          <div>
+            최소입찰가미만
+            <div class="tooltip">
+              <div class="tooltip-content">
+                레귤러 설정에서 최소입찰가를 설정한 경우<br />
+                산출 입찰가가 최소입찰가보다 작은 상태입니다.
+              </div>
+            </div>
+          </div>
+          <strong class="times">33</strong>
         </li>
         <li>
           <div>
@@ -248,15 +275,23 @@
           <div class="buttons">
             <div class="dropdown">
               <button class="" type="button">선택한 키워드 관리</button>
-              <ul>
-                <li data-modal="settingsNormal">일반설정</li>
-                <li data-modal="settingsNormalPart">일반부분설정</li>
-                <li data-modal="settingsAdvanced">고급설정</li>
-                <li data-modal="settingsAdvancedPart">고급부분설정</li>
-                <li>입찰실행</li>
-                <li>입찰정지</li>
-                <li>입찰삭제</li>
-              </ul>
+              <nav>
+                <ul data-title="라이브">
+                  <li data-modal="settingsLiveNormal">일반설정</li>
+                  <li data-modal="settingsLiveNormalPart">일반부분설정</li>
+                  <li data-modal="settingsLiveAdvanced">고급설정</li>
+                  <li data-modal="settingsLiveAdvancedPart">고급부분설정</li>
+                </ul>
+                <ul data-title="레귤러">
+                  <li data-modal="settingsRegularNormal">일반설정</li>
+                  <li data-modal="settingsRegularNormalPart">일반부분설정</li>
+                </ul>
+                <ul>
+                  <li>입찰실행</li>
+                  <li>입찰정지</li>
+                  <li>입찰삭제</li>
+                </ul>
+              </nav>
             </div>
             <button type="button" data-modal="">분류해제</button>
             <button type="button" data-modal="">분류지정</button>
@@ -292,6 +327,20 @@
           </li>
           <li class="ico-sort">
             입찰대상
+          </li>
+          <li class="col-long">
+            입찰예정가
+            <div class="tooltip">
+              <dl class="tooltip-content">
+                <dd>레귤러 설정 시 사용자가 선택한 기본입찰가와 최종 입찰(예정)가가 표시됩니다. 
+                </dd>
+                <dd>입찰예정가는 기본입찰가, 사용자 설정 옵션, 최소입찰가, 최대입찰가를 종합적으로 판단하여 최종적으로 입찰을 수행할 가격입니다.
+                </dd>
+                <dd>입찰예정가는 (부분)설정 완료 또는 입찰 시 업데이트 됩니다. 설정 완료 시 업데이트된 입찰예정가는 실제 입찰 시에는 호출되는 데이터에 따라 달라질 수 있습니다.
+                </dd>
+                <dd>사용자 설정 옵션으로 가감액을 입력했다면 최근 통합검색 평균 노출 순위가 있는 경우와 없는 경우로 나누어 산출된 입찰가 2가지가 표시됩니다</dd>
+              </dl>
+            </div>
           </li>
           <li class="ico-sort">
             지역설정
@@ -345,13 +394,18 @@
               </div>
             </li>
             <li title="입찰설정">
-              <button data-modal="settingsAdvanced">고급설정</button>
+              <button data-modal="settingsAdvanced">라이브 고급</button>
             </li>
             <li title="입찰주기">
               5
             </li>
             <li title="입찰대상">
               PC일반
+            </li>
+            <li class="col-long" title="입찰예정가">
+              <button data-modal="calculateBidPrice" type="button">
+                1위 평균 입찰가 (1,300 / 1,300)
+              </button>
             </li>
             <li title="지역설정">
               미설정
@@ -540,6 +594,18 @@
         </li>
         <li>
           <div>
+            최소입찰가미만
+            <div class="tooltip">
+              <div class="tooltip-content">
+                레귤러 설정에서 최소입찰가를 설정한 경우<br />
+                산출 입찰가가 최소입찰가보다 작은 상태입니다.
+              </div>
+            </div>
+          </div>
+          <strong class="times">33</strong>
+        </li>
+        <li>
+          <div>
             최대입찰가도달
             <div class="tooltip">
               <dl class="tooltip-content">
@@ -648,6 +714,7 @@
           <div class="buttons">
             <button class="ico-download" type="button">엑셀다운</button>
             <button type="button" data-modal="searchGroup">분류조회</button>
+            <button type="button" data-modal="">성별/연령설정</button>
             <button type="button" data-modal="setLocation">지역설정</button>
           </div>
         </div>
@@ -680,15 +747,23 @@
           <div class="buttons">
             <div class="dropdown">
               <button type="button">선택한 키워드 관리</button>
-              <ul>
-                <li data-modal="settingsNormal">일반설정</li>
-                <li data-modal="settingsNormalPart">일반부분설정</li>
-                <li data-modal="settingsAdvanced">고급설정</li>
-                <li data-modal="settingsAdvancedPart">고급부분설정</li>
-                <li>입찰실행</li>
-                <li>입찰정지</li>
-                <li>입찰삭제</li>
-              </ul>
+              <nav>
+                <ul data-title="라이브">
+                  <li data-modal="settingsLiveNormal">일반설정</li>
+                  <li data-modal="settingsLiveNormalPart">일반부분설정</li>
+                  <li data-modal="settingsLiveAdvanced">고급설정</li>
+                  <li data-modal="settingsLiveAdvancedPart">고급부분설정</li>
+                </ul>
+                <ul data-title="레귤러">
+                  <li data-modal="settingsRegularNormal">일반설정</li>
+                  <li data-modal="settingsRegularNormalPart">일반부분설정</li>
+                </ul>
+                <ul>
+                  <li>입찰실행</li>
+                  <li>입찰정지</li>
+                  <li>입찰삭제</li>
+                </ul>
+              </nav>
             </div>
             <button type="button" data-modal="">분류해제</button>
             <button type="button" data-modal="">분류지정</button>
@@ -719,6 +794,20 @@
           </li>
           <li>
             입찰설정
+          </li>
+          <li class="col-long">
+            입찰예정가
+            <div class="tooltip">
+              <dl class="tooltip-content">
+                <dd>레귤러 설정 시 사용자가 선택한 기본입찰가와 최종 입찰(예정)가가 표시됩니다. 
+                </dd>
+                <dd>입찰예정가는 기본입찰가, 사용자 설정 옵션, 최소입찰가, 최대입찰가를 종합적으로 판단하여 최종적으로 입찰을 수행할 가격입니다.
+                </dd>
+                <dd>입찰예정가는 (부분)설정 완료 또는 입찰 시 업데이트 됩니다. 설정 완료 시 업데이트된 입찰예정가는 실제 입찰 시에는 호출되는 데이터에 따라 달라질 수 있습니다.
+                </dd>
+                <dd>사용자 설정 옵션으로 가감액을 입력했다면 최근 통합검색 평균 노출 순위가 있는 경우와 없는 경우로 나누어 산출된 입찰가 2가지가 표시됩니다</dd>
+              </dl>
+            </div>
           </li>
           <li>
             입찰주기
@@ -757,6 +846,8 @@
           <li class="ico-sort">몰ID</li>
           <li class="ico-sort">입찰등록일</li>
           <li class="ico-sort">입찰수정일</li>
+          <li class="ico-sort">성별설정</li>
+          <li class="ico-sort">연령설정</li>
         </ul>
         <div class="rows" data-empty="상품을 등록해주세요">
           <ul class="row">
@@ -786,7 +877,12 @@
               </div>
             </li>
             <li title="입찰설정">
-              <button data-modal="settingsAdvanced">고급설정</button>
+              <button data-modal="settingsAdvanced">라이브 고급</button>
+            </li>
+            <li class="col-long" title="입찰예정가">
+              <button data-modal="calculateBidPrice" type="button">
+                1위 평균 입찰가 (1,300 / 1,300)
+              </button>
             </li>
             <li title="입찰주기">
               5
@@ -861,6 +957,12 @@
             <li title="입찰수정일">
               2022-11-08
             </li>
+            <li title="성별설정">
+              여성
+            </li>
+            <li title="연령설정">
+              14~18세
+            </li>
           </ul>
         </div>
       </div>
@@ -889,6 +991,7 @@
       </footer>
     </section>
   </div>
+  <div class="tab-content content-naver-shopping-brand" data-tab="naver"></div>
   <div class="tab-content content-naver-power-contents" data-tab="naver">
     <section class="section-account">
       <h2>samda_C</h2>
@@ -1121,15 +1224,23 @@
           <div class="buttons">
             <div class="dropdown">
               <button type="button">선택한 키워드 관리</button>
-              <ul>
-                <li data-modal="settingsNormal">일반설정</li>
-                <li data-modal="settingsNormalPart">일반부분설정</li>
-                <li data-modal="settingsAdvanced">고급설정</li>
-                <li data-modal="settingsAdvancedPart">고급부분설정</li>
-                <li>입찰실행</li>
-                <li>입찰정지</li>
-                <li>입찰삭제</li>
-              </ul>
+              <nav>
+                <ul data-title="라이브">
+                  <li data-modal="settingsLiveNormal">일반설정</li>
+                  <li data-modal="settingsLiveNormalPart">일반부분설정</li>
+                  <li data-modal="settingsLiveAdvanced">고급설정</li>
+                  <li data-modal="settingsLiveAdvancedPart">고급부분설정</li>
+                </ul>
+                <ul data-title="레귤러">
+                  <li data-modal="settingsRegularNormal">일반설정</li>
+                  <li data-modal="settingsRegularNormalPart">일반부분설정</li>
+                </ul>
+                <ul>
+                  <li>입찰실행</li>
+                  <li>입찰정지</li>
+                  <li>입찰삭제</li>
+                </ul>
+              </nav>
             </div>
             <button type="button" data-modal="">분류해제</button>
             <button type="button" data-modal="">분류지정</button>
@@ -1159,6 +1270,20 @@
           </li>
           <li>
             입찰설정
+          </li>
+          <li class="col-long">
+            입찰예정가
+            <div class="tooltip">
+              <dl class="tooltip-content">
+                <dd>레귤러 설정 시 사용자가 선택한 기본입찰가와 최종 입찰(예정)가가 표시됩니다. 
+                </dd>
+                <dd>입찰예정가는 기본입찰가, 사용자 설정 옵션, 최소입찰가, 최대입찰가를 종합적으로 판단하여 최종적으로 입찰을 수행할 가격입니다.
+                </dd>
+                <dd>입찰예정가는 (부분)설정 완료 또는 입찰 시 업데이트 됩니다. 설정 완료 시 업데이트된 입찰예정가는 실제 입찰 시에는 호출되는 데이터에 따라 달라질 수 있습니다.
+                </dd>
+                <dd>사용자 설정 옵션으로 가감액을 입력했다면 최근 통합검색 평균 노출 순위가 있는 경우와 없는 경우로 나누어 산출된 입찰가 2가지가 표시됩니다</dd>
+              </dl>
+            </div>
           </li>
           <li>
             입찰주기
@@ -1218,7 +1343,12 @@
               </div>
             </li>
             <li title="입찰설정">
-              <button data-modal="settingsAdvanced">고급설정</button>
+              <button data-modal="settingsAdvanced">라이브 고급</button>
+            </li>
+            <li class="col-long" title="입찰예정가">              
+              <button data-modal="calculateBidPrice" type="button">
+                1위 평균 입찰가 (1,300 / 1,300)
+              </button>
             </li>
             <li title="입찰주기">
               5
