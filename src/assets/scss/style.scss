@@ -358,6 +358,17 @@ body {
 .my-plan {
   li {
     align-items: center;
+    position: relative;
+
+    nav {
+      margin-top: 0.5rem;
+      min-width: fit-content;
+      right: 50%;
+
+      ul {
+        align-items: flex-start;
+      }
+    }
   }
 }
 
@@ -665,74 +676,6 @@ section {
         border-top: 1px solid #eee;
         margin-top: 0.5rem;
         padding-top: 0.5rem;
-      }
-    }
-
-    .dropdown {
-      user-select: none;
-      display: flex;
-      z-index: 100;
-
-      button {
-        min-height: 36px;
-      }
-
-      nav {
-        opacity: 0;
-        visibility: hidden;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        max-height: 0;
-        display: flex;
-        flex-direction: column;
-        background-color: #434649;
-        transform: translateY(7px);
-        transition: 0.25s;
-        min-width: 120px;
-        border-radius: 0.5rem;
-        z-index: 100;
-
-        ul {
-          display: flex;
-          flex-direction: column;
-          gap: 0;
-
-          &::before {
-            color: white;
-            margin-top: 1rem;
-            text-align: center;
-          }
-
-          &:not(:last-of-type) {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-          }
-        }
-
-        li {
-          min-height: 36px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          white-space: nowrap;
-          font-size: 13px;
-          color: rgba(255, 255, 255, 0.75);
-          transition: color 0.25s;
-          cursor: pointer;
-
-          &:hover {
-            color: white;
-          }
-        }
-      }
-
-      &:hover {
-        nav {
-          opacity: 1;
-          visibility: visible;
-          max-height: 999px;
-          transform: translateY(0);
-        }
       }
     }
   }
@@ -1809,7 +1752,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    max-height: 200px;
+    max-height: 400px;
     overflow-y: auto;
 
     input[type="checkbox"] {
@@ -7087,7 +7030,7 @@ main {
     .bid-price {
       background-color: $secondary-color;
       padding: 0.5rem;
-      border-radius: 3px;    
+      border-radius: 3px;
       color: slategray;
       border: 0;
 
@@ -7097,7 +7040,7 @@ main {
       }
 
       .row {
-        padding: 0 .5rem;
+        padding: 0 0.5rem;
 
         li {
           background-color: transparent;
@@ -7106,7 +7049,7 @@ main {
     }
 
     .list {
-      padding: .5rem 0;
+      padding: 0.5rem 0;
 
       &.result {
         gap: 0;
@@ -7119,7 +7062,7 @@ main {
         }
 
         .row {
-          padding: 0 .5rem;
+          padding: 0 0.5rem;
 
           li {
             background-color: transparent;

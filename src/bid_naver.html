@@ -19,11 +19,39 @@
     <div class="filters">
       <ul class="my-plan" data-title="나의 입찰 플랜">
         <li>
-          <span class="tag" data-tooltip="test">Live</span>
+          <span class="tag dropdown">
+            Live
+            <nav>
+              <ul>
+                <li data-title="타입">
+                  E (제공 키워드 500개, 잔여 키워드 300개) 
+                </li>
+                <li data-title="등급">레드(입찰주기 10분)</li>
+                <li data-title="기간">
+                  <span class="tag d-day">24</span>
+                  2023-03-03 ~ 2023-04-01
+                </li>
+              </ul>
+            </nav>
+          </span>
           <span>300 / 500</span>
         </li>
         <li>
-          <span class="tag">Regular</span>
+          <span class="tag dropdown">
+            Regular
+            <nav>
+              <ul>
+                <li data-title="타입">
+                  E (제공 키워드 500개, 잔여 키워드 300개) 
+                </li>
+                <li data-title="등급">레드(입찰주기 10분)</li>
+                <li data-title="기간">
+                  <span class="tag d-day">24</span>
+                  2023-03-03 ~ 2023-04-01
+                </li>
+              </ul>
+            </nav>
+          </span>
           <span>199 / 300</span>
         </li>
       </ul>
@@ -304,6 +332,20 @@
                 <option value="filter-10">10개씩 보기</option>
               </select>
             </div>
+          </div>
+        </div>
+        <div class="filters">
+          <div class="selector">
+            <input type="radio" id="list-all" name="listTabs" checked="">
+            <label for="list-all">전체 (1,885)</label>
+            <input type="radio" id="list-live-normal" name="listTabs">
+            <label for="list-live-normal">라이브 일반 (1,094)</label>
+            <input type="radio" id="list-live-advanced" name="listTabs">
+            <label for="list-live-advanced">라이브 고급 (210)</label>
+            <input type="radio" id="list-regular-normal" name="listTabs">
+            <label for="list-regular-normal">레귤러 일반 (481)</label>
+            <input type="radio" id="list-not-set" name="listTabs">
+            <label for="list-not-set">미설정 (100)</label>
           </div>
         </div>
       </header>
