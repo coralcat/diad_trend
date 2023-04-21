@@ -191,7 +191,46 @@
         11번가 브랜드검색
       </li>
     </ul>
-    <div href="#" class="username" target="_blank">
+    <div class="filters">
+      <ul class="my-plan" data-title="나의 입찰 플랜">
+        <li>
+          <span class="tag dropdown">
+            Live
+            <nav>
+              <ul>
+                <li data-title="타입">
+                  E (제공 키워드 500개, 잔여 키워드 300개) 
+                </li>
+                <li data-title="등급">레드(입찰주기 10분)</li>
+                <li data-title="기간">
+                  <span class="tag d-day">24</span>
+                  2023-03-03 ~ 2023-04-01
+                </li>
+              </ul>
+            </nav>
+          </span>
+          <span>300 / 500</span>
+        </li>
+        <li>
+          <span class="tag dropdown">
+            Regular
+            <nav>
+              <ul>
+                <li data-title="타입">
+                  E (제공 키워드 500개, 잔여 키워드 300개) 
+                </li>
+                <li data-title="등급">레드(입찰주기 10분)</li>
+                <li data-title="기간">
+                  <span class="tag d-day">24</span>
+                  2023-03-03 ~ 2023-04-01
+                </li>
+              </ul>
+            </nav>
+          </span>
+          <span>199 / 300</span>
+        </li>
+      </ul>
+      <div href="#" class="username" target="_blank">
   <menu>coralcat</menu>
   <nav>
     <ul>
@@ -200,6 +239,7 @@
     </ul>
   </nav>
 </div>
+    </div>
   </header>
   <div class="tab-content content-11st-focus-click" data-tab="eleventh">
     <section class="section-account">
@@ -756,15 +796,23 @@
           <div class="buttons">
             <div class="dropdown">
               <button type="button">선택한 키워드 관리</button>
-              <ul>
-                <li data-modal="settingsNormal">일반설정</li>
-                <li data-modal="settingsNormalPart">일반부분설정</li>
-                <li data-modal="settingsAdvanced">고급설정</li>
-                <li data-modal="settingsAdvancedPart">고급부분설정</li>
-                <li>입찰실행</li>
-                <li>입찰정지</li>
-                <li>입찰삭제</li>
-              </ul>
+              <nav>
+                <ul data-title="라이브">
+                  <li data-modal="settingsLiveNormal">일반설정</li>
+                  <li data-modal="settingsLiveNormalPart">일반부분설정</li>
+                  <li data-modal="settingsLiveAdvanced">고급설정</li>
+                  <li data-modal="settingsLiveAdvancedPart">고급부분설정</li>
+                </ul>
+                <ul data-title="레귤러">
+                  <li data-modal="settingsRegularNormal">일반설정</li>
+                  <li data-modal="settingsRegularNormalPart">일반부분설정</li>
+                </ul>
+                <ul>
+                  <li>입찰실행</li>
+                  <li>입찰정지</li>
+                  <li>입찰삭제</li>
+                </ul>
+              </nav>
             </div>
             <button type="button" data-modal="">분류해제</button>
             <button type="button" data-modal="">분류지정</button>
@@ -1491,15 +1539,23 @@
           <div class="buttons">
             <div class="dropdown">
               <button type="button">선택한 키워드 관리</button>
-              <ul>
-                <li data-modal="settingsNormal">일반설정</li>
-                <li data-modal="settingsNormalPart">일반부분설정</li>
-                <li data-modal="settingsAdvanced">고급설정</li>
-                <li data-modal="settingsAdvancedPart">고급부분설정</li>
-                <li>입찰실행</li>
-                <li>입찰정지</li>
-                <li>입찰삭제</li>
-              </ul>
+              <nav>
+                <ul data-title="라이브">
+                  <li data-modal="settingsLiveNormal">일반설정</li>
+                  <li data-modal="settingsLiveNormalPart">일반부분설정</li>
+                  <li data-modal="settingsLiveAdvanced">고급설정</li>
+                  <li data-modal="settingsLiveAdvancedPart">고급부분설정</li>
+                </ul>
+                <ul data-title="레귤러">
+                  <li data-modal="settingsRegularNormal">일반설정</li>
+                  <li data-modal="settingsRegularNormalPart">일반부분설정</li>
+                </ul>
+                <ul>
+                  <li>입찰실행</li>
+                  <li>입찰정지</li>
+                  <li>입찰삭제</li>
+                </ul>
+              </nav>
             </div>
             <button type="button" data-modal="">분류해제</button>
             <button type="button" data-modal="">분류지정</button>
