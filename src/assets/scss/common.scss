@@ -450,7 +450,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 3px !important;
-  color: slategray;
+  color: #636669;
 
   &.sub {
     display: none;
@@ -468,7 +468,7 @@ body {
     + label {
       display: flex;
       align-items: center;
-      background-color: #f1f2f3;
+      border: 1px solid #e3e6e9;
       margin-right: 0;
       border-radius: 3px;
       padding: 0.35rem 0.75rem;
@@ -618,6 +618,10 @@ header {
 
   a {
     display: flex;
+  }
+
+  button {
+    min-height: 36px
   }
 
   .logo {
@@ -1990,6 +1994,28 @@ input[type="radio"] {
     }
   }
   
+  .ico-pin {
+    &::before {
+      content: "";
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='24'%3E%3Cg%3E%3Crect fill='none' height='24' width='24'/%3E%3C/g%3E%3Cg%3E%3Cpath fill='lightgray' d='M16,9V4l1,0c0.55,0,1-0.45,1-1v0c0-0.55-0.45-1-1-1H7C6.45,2,6,2.45,6,3v0 c0,0.55,0.45,1,1,1l1,0v5c0,1.66-1.34,3-3,3h0v2h5.97v7l1,1l1-1v-7H19v-2h0C17.34,12,16,10.66,16,9z' fill-rule='evenodd'/%3E%3C/g%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: 100%;
+      width: 18px;
+      height: 18px;
+      display: inline-block;
+      transform: rotate(45deg);
+      margin-top: 2px;
+      transition: 0.25s;
+    }
+  
+    &.is-active {
+      &::before {
+        content: "";
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24' viewBox='0 0 24 24' width='24'%3E%3Cg%3E%3Crect fill='none' height='24' width='24'/%3E%3C/g%3E%3Cg%3E%3Cpath fill='rgba(255,184,63)'  d='M16,9V4l1,0c0.55,0,1-0.45,1-1v0c0-0.55-0.45-1-1-1H7C6.45,2,6,2.45,6,3v0 c0,0.55,0.45,1,1,1l1,0v5c0,1.66-1.34,3-3,3h0v2h5.97v7l1,1l1-1v-7H19v-2h0C17.34,12,16,10.66,16,9z' fill-rule='evenodd'/%3E%3C/g%3E%3C/svg%3E");
+      }
+    }
+  }
+  
   .ico-arrow {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='rgb(91, 84, 198)' d='M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z'/%3E%3C/svg%3E");
     background-size: 16px 16px;
@@ -2035,7 +2061,7 @@ input[type="radio"] {
   }
   
   .ico-sync {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='800px' height='800px' viewBox='0 0 24 24' version='1.1'%3E%3Ctitle%3Esync%3C/title%3E%3Cdesc%3ECreated with sketchtool.%3C/desc%3E%3Cg id='web-app' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='sync' fill='%235b54c6'%3E%3Cpath d='M6.8762659,15.1237341 C7.93014755,16.8486822 9.83062143,18 12,18 C14.6124377,18 16.8349158,16.3303847 17.6585886,14 L19.747965,14 C18.8598794,17.4504544 15.7276789,20 12,20 C9.28005374,20 6.87714422,18.6426044 5.43172915,16.5682708 L3,19 L3,13 L9,13 L6.8762659,15.1237341 Z M17.1245693,8.87543068 C16.0703077,7.15094618 14.1695981,6 12,6 C9.3868762,6 7.16381436,7.66961525 6.33992521,10 L4.25,10 C5.13831884,6.54954557 8.27134208,4 12,4 C14.7202162,4 17.123416,5.35695218 18.5692874,7.43071264 L21,5 L21,11 L15,11 L17.1245693,8.87543068 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='800px' height='800px' viewBox='0 0 24 24' version='1.1'%3E%3Ctitle%3Esync%3C/title%3E%3Cdesc%3ECreated with sketchtool.%3C/desc%3E%3Cg id='web-app' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='sync' fill='white'%3E%3Cpath d='M6.8762659,15.1237341 C7.93014755,16.8486822 9.83062143,18 12,18 C14.6124377,18 16.8349158,16.3303847 17.6585886,14 L19.747965,14 C18.8598794,17.4504544 15.7276789,20 12,20 C9.28005374,20 6.87714422,18.6426044 5.43172915,16.5682708 L3,19 L3,13 L9,13 L6.8762659,15.1237341 Z M17.1245693,8.87543068 C16.0703077,7.15094618 14.1695981,6 12,6 C9.3868762,6 7.16381436,7.66961525 6.33992521,10 L4.25,10 C5.13831884,6.54954557 8.27134208,4 12,4 C14.7202162,4 17.123416,5.35695218 18.5692874,7.43071264 L21,5 L21,11 L15,11 L17.1245693,8.87543068 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     background-size: 20px 20px;
     background-position: center;
   }

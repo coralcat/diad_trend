@@ -93,6 +93,98 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =====================================================
+       Drag and Drop
+  ===================================================== */
+  var dragSrcEl = null;
+
+  function handleDragStart(e) {
+    console.log(e.target);
+    e.stopPropagation();
+    console.log(e.target);
+    // Target (this) element is the source node.
+    dragSrcEl = this;
+
+    e.dataTransfer.effectAllowed = "move";
+    e.dataTransfer.setData("text/html", this.outerHTML);
+    console.log(e.target);
+
+    this.classList.add("dragElem");
+  }
+  function handleDragOver(e) {
+    console.log("handleDragOver");
+    e.stopPropagation();
+    if (e.preventDefault) {
+      e.preventDefault(); // Necessary. Allows us to drop.
+    }
+    this.classList.add("over");
+
+    e.dataTransfer.dropEffect = "move"; // See the section on the DataTransfer object.
+
+    return false;
+  }
+
+  function handleDragEnter(e) {
+    console.log("handleDragEnter");
+    e.stopPropagation();
+    // this / e.target is the current hover target.
+  }
+
+  function handleDragLeave(e) {
+    console.log("handleDragLeave");
+    e.stopPropagation();
+    this.classList.remove("over"); // this / e.target is previous target element.
+  }
+
+  function handleDrop(e) {
+    console.log("handleDrop");
+    e.stopPropagation();
+    // this/e.target is current target element.
+
+    if (e.stopPropagation) {
+      e.stopPropagation(); // Stops some browsers from redirecting.
+    }
+
+    // Don't do anything if dropping the same column we're dragging.
+    if (dragSrcEl != this) {
+      // Set the source column's HTML to the HTML of the column we dropped on.
+      //alert(this.outerHTML);
+      //dragSrcEl.innerHTML = this.innerHTML;
+      //this.innerHTML = e.dataTransfer.getData('text/html');
+      this.parentNode.removeChild(dragSrcEl);
+      var dropHTML = e.dataTransfer.getData("text/html");
+      this.insertAdjacentHTML("beforebegin", dropHTML);
+      var dropElem = this.previousSibling;
+      addDnDHandlers(dropElem);
+    }
+    this.classList.remove("over");
+    return false;
+  }
+
+  function handleDragEnd(e) {
+    console.log("handleDragEnd");
+    e.stopPropagation();
+    // this/e.target is the source node.
+    this.classList.remove("over");
+
+    /*[].forEach.call(cols, function (col) {
+      col.classList.remove('over');
+    });*/
+  }
+
+  function addDnDHandlers(elem) {
+    console.log(elem);
+    elem.addEventListener("dragstart", handleDragStart, false);
+    elem.addEventListener("dragenter", handleDragEnter, false);
+    elem.addEventListener("dragover", handleDragOver, false);
+    elem.addEventListener("dragleave", handleDragLeave, false);
+    elem.addEventListener("drop", handleDrop, false);
+    elem.addEventListener("dragend", handleDragEnd, false);
+  }
+
+  var cols = document.querySelectorAll(".modal-checkboxes .inputs li");
+  [].forEach.call(cols, addDnDHandlers);
+
+  /* =====================================================
        Target Smooth Scroll
   ===================================================== */
   // 상품 최저가 리포트: 일별 최저가 차트 클릭시
@@ -383,12 +475,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const targetModal = document.getElementById(modalData);
     if (targetModal) {
       targetModal.classList.add("is-active");
-      const modalButton = targetModal.querySelector("[data-modal]")
-      modalButton && modalButton.addEventListener("click", () => {
-        setTimeout(() => {
-          targetModal.querySelector("input").value = "";
-        }, 500);
-      });
+      const modalButton = targetModal.querySelector("[data-modal]");
+      modalButton &&
+        modalButton.addEventListener("click", () => {
+          setTimeout(() => {
+            targetModal.querySelector("input").value = "";
+          }, 500);
+        });
     }
 
     const openAlertModal = () => {
@@ -565,6 +658,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     modal.classList.contains("modal-apply") && initialize();
+
+    if(modal.classList.contains("modal-advanced")) {
+      const modalInputs = modal.querySelectorAll("input");
+      modalInputs.forEach(input => {
+        if(input.type === "checkbox") {
+          input.checked = false;
+        } else if (input.type === "radio") {
+          const divisions = modal.querySelectorAll(".inputs");
+          divisions.forEach(div => {
+            const input = div.querySelectorAll("input[type='radio']");
+            input[0].checked = true;
+          })
+        } else if (input.type === "number" || input.type === "text") {
+          input.value = ""
+        }
+      })
+    }
   };
 
   const closeButtons = document.querySelectorAll(".modal .close");
@@ -934,16 +1044,16 @@ document.addEventListener("DOMContentLoaded", () => {
   if (main.classList.contains("content-dashboard")) {
     if (matchMedia("screen and (min-width: 1280px)").matches) {
       const contents = [...document.querySelectorAll(".tab-content")];
-  
+
       let options = {
         rootMargin: "0px",
         threshold: 0.75,
       };
-  
+
       const callback = (entries, observer) => {
         entries.forEach(entry => {
           const {target} = entry;
-  
+
           if (entry.intersectionRatio >= 0.75) {
             target.classList.add("is-active");
           } else {
@@ -951,21 +1061,21 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       };
-  
+
       const observer = new IntersectionObserver(callback, options);
-  
+
       contents.forEach((content, index) => {
         const sections = [...content.children];
-  
+
         sections.forEach((section, index) => {
           section.style.setProperty("--delay", `${index * 150}ms`);
         });
-  
+
         observer.observe(content);
       });
-  
+
       const scrollDown = document.querySelector(".scroll-down");
-  
+
       const handleTabContents = (event, index) => {
         if (contents[0].classList.contains("is-active")) {
           contents[0].classList.remove("is-active");
@@ -974,8 +1084,8 @@ document.addEventListener("DOMContentLoaded", () => {
           contents[0].classList.remove("is-active");
           contents[1].classList.add("is-active");
         }
-      }
-      scrollDown.addEventListener("click", handleTabContents)
+      };
+      scrollDown.addEventListener("click", handleTabContents);
     }
   }
 });

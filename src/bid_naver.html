@@ -58,7 +58,7 @@
       {% include "account.html" %}
     </div>
   </header>
-  <div class="tab-content content-naver-searchad" data-tab="naver">
+  <div class="tab-content content-naver-power-link" data-tab="naver">
     <section class="section-account">
       <h2>samda_C</h2>
       <div class="sync">
@@ -436,7 +436,7 @@
               </div>
             </li>
             <li title="입찰설정">
-              <button data-modal="settingsAdvanced">라이브 고급</button>
+              <button data-modal="settingsLiveAdvanced">라이브 고급</button>
             </li>
             <li title="입찰주기">
               5
@@ -544,7 +544,7 @@
       </footer>
     </section>
   </div>
-  <div class="tab-content content-naver-searchad-shopping" data-tab="naver">
+  <div class="tab-content content-naver-shopping-items" data-tab="naver">
     <section class="section-account">
       <h2>samda_C</h2>
       <div class="sync">
@@ -820,6 +820,20 @@
             </div>
           </div>
         </div>
+        <div class="filters">
+          <div class="selector">
+            <input type="radio" id="list-all" name="listTabs" checked="">
+            <label for="list-all">전체 (1,885)</label>
+            <input type="radio" id="list-live-normal" name="listTabs">
+            <label for="list-live-normal">라이브 일반 (1,094)</label>
+            <input type="radio" id="list-live-advanced" name="listTabs">
+            <label for="list-live-advanced">라이브 고급 (210)</label>
+            <input type="radio" id="list-regular-normal" name="listTabs">
+            <label for="list-regular-normal">레귤러 일반 (481)</label>
+            <input type="radio" id="list-not-set" name="listTabs">
+            <label for="list-not-set">미설정 (100)</label>
+          </div>
+        </div>
       </header>
       <div class="list sticky">
         <ul class="row title">
@@ -919,7 +933,7 @@
               </div>
             </li>
             <li title="입찰설정">
-              <button data-modal="settingsAdvanced">라이브 고급</button>
+              <button data-modal="settingsLiveAdvanced">라이브 고급</button>
             </li>
             <li class="col-long" title="입찰예정가">
               <button data-modal="calculateBidPrice" type="button">
@@ -1033,7 +1047,492 @@
       </footer>
     </section>
   </div>
-  <div class="tab-content content-naver-shopping-brand" data-tab="naver"></div>
+  <div class="tab-content content-naver-shopping-brands" data-tab="naver">
+    <section class="section-account">
+      <h2>samda_C</h2>
+      <div class="sync">
+        <div class="selectbox">
+          <select name="sync-account" id="">
+            <option value="">samda_C</option>
+            <option value="">bokdanji_H</option>
+            <option value="">gabiacns2_L</option>
+            <option value="">hearkorea_N</option>
+            <option value="">mastered_A</option>
+            <option value="">plays_U</option>
+          </select>
+        </div>
+      </div>
+      <ul class="details-sync">
+        <li class="center">
+          <div>동기화 시간</div>
+          <div>2022-04-26 오후 3:53:21</div>
+        </li>
+        <li>
+          <div>동기화 건수</div>
+          <div class="times">9,206</div>
+        </li>
+        <li>
+          <div>비즈머니</div>
+          <div class="price">5,904,921</div>
+        </li>
+      </ul>
+      <ul class="details-bidding">
+        <li>
+          <div>전체</div>
+          <strong class="times">1,885</strong>
+        </li>
+        <li>
+          <div>
+            입찰실행
+            <div class="tooltip">
+              <div class="tooltip-content">
+                입찰상태가 ON인 상태입니다.
+              </div>
+            </div>
+          </div>
+          <strong class="times">189</strong>
+        </li>
+        <li>
+          <div>
+            입찰대기
+            <div class="tooltip">
+              <div class="tooltip-content">
+                입찰이 한 번도 실행되지 않은 초기 상태입니다.
+              </div>
+            </div>
+          </div>
+          <strong class="times">385</strong>
+        </li>
+        <li>
+          <div>
+            입찰진행
+            <div class="tooltip">
+              <div class="tooltip-content">
+                입찰이 진행되고 있는 상태로, 입찰가가 상승 중인 상태입니다.
+              </div>
+            </div>
+          </div>
+          <strong class="times">45</strong>
+        </li>
+        <li>
+          <div>
+            목표달성
+            <div class="tooltip">
+              <div class="tooltip-content">
+                목표달성은 희망한 순위에 도달한 상태입니다.
+              </div>
+            </div>
+          </div>
+          <strong class="times">51</strong>
+        </li>
+        <li>
+          <div>
+            하향입찰
+            <div class="tooltip">
+              <dl class="tooltip-content">
+                <dd>목표달성 후 사용자가 하향입찰을 설정한 경우 하향입찰이 진행됩니다.</dd>
+                <dd>입찰가가 하락 중인 상태입니다.</dd>
+              </dl>
+            </div>
+          </div>
+          <strong class="times">9</strong>
+        </li>
+        <li>
+          <div>
+            최소입찰가미만
+            <div class="tooltip">
+              <div class="tooltip-content">
+                레귤러 설정에서 최소입찰가를 설정한 경우<br />
+                산출 입찰가가 최소입찰가보다 작은 상태입니다.
+              </div>
+            </div>
+          </div>
+          <strong class="times">33</strong>
+        </li>
+        <li>
+          <div>
+            최대입찰가도달
+            <div class="tooltip">
+              <dl class="tooltip-content">
+                <dd>입찰가가 사용자가 설정한 최대 입찰가에 도달한 상태입니다.</dd>
+                <dd>최대 입찰가에 도달하면 입찰 프로세스를 완료하지 않고 중단합니다.</dd>
+              </dl>
+            </div>
+          </div>
+          <strong class="times">33</strong>
+        </li>
+        <li>
+          <div>
+            입찰불가
+            <div class="tooltip">
+              <div class="tooltip-content">
+                광고센터에서 캠페인, 그룹, 소재, 키워드 등이 OFF 상태이거나 <br />조회되지 않는 경우 또는 비즈머니가 부족한 상황 등 광고센터 이슈로<br />입찰 프로세스를 정상적으로
+                종료하지 못한 상태입니다.
+              </div>
+            </div>
+          </div>
+          <strong class="times">27</strong>
+        </li>
+
+        <li>
+          <div>
+            입찰실패
+            <div class="tooltip">
+              <div class="tooltip-content">
+                서버, 네트워크 등의 오류로 입찰 프로세스를<br />정상적으로 종료하지 못한 상태입니다.
+              </div>
+            </div>
+          </div>
+          <strong class="times">24</strong>
+        </li>
+      </ul>
+      <small>※ 건수를 클릭하면 해당 리스트만 불러옵니다.</small>
+      <div class="accounts">
+        <h3>계정별 입찰 현황</h3>
+        <ul class="details-accounts">
+          <li>
+            <div>bokdanji_H</div>
+            <div>
+              <strong class="times"></strong>
+              <small class="percent"></small>
+            </div>
+          </li>
+          <li>
+            <div>esellers_R</div>
+            <div>
+              <strong class="times"></strong>
+              <small class="percent"></small>
+            </div>
+          </li>
+          <li>
+            <div>bokdanji_H</div>
+            <div>
+              <strong class="times"></strong>
+              <small class="percent"></small>
+            </div>
+          </li>
+          <li>
+            <div>gabiacns2_L</div>
+            <div>
+              <strong class="times"></strong>
+              <small class="percent"></small>
+            </div>
+          </li>
+          <li>
+            <div>hearkorea_N</div>
+            <div>
+              <strong class="times"></strong>
+              <small class="percent"></small>
+            </div>
+          </li>
+          <li>
+            <div>mastered_A</div>
+            <div>
+              <strong class="times"></strong>
+              <small class="percent"></small>
+            </div>
+          </li>
+          <li>
+            <div>plays_U</div>
+            <div>
+              <strong class="times"></strong>
+              <small class="percent"></small>
+            </div>
+          </li>
+          <li>
+            <div>samda_C</div>
+            <div>
+              <strong class="times"></strong>
+              <small class="percent"></small>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <header>
+        <div class="title">
+          <div>
+            <button class="ico-eye" title="사용자 지정 보기" data-modal="selectColumns"></button>
+            <button class="btn-advanced-search" type="button">상세검색</button>
+          </div>
+          <div class="buttons">
+            <button class="ico-download" type="button">엑셀다운</button>
+            <button type="button" data-modal="searchGroup">분류조회</button>
+            <button type="button" data-modal="editCategories">분류편집</button>
+            <button type="button" data-modal="setLocation">지역설정</button>
+          </div>
+        </div>
+        {% include "advanced_search_bidding.html" %}
+        <div class="filters">
+          <div>
+            <div class="search">
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="keyword">키워드</option>
+                  <option value="keyword">키워드</option>
+                  <option value="keyword">키워드</option>
+                </select>
+              </div>
+              <div class="input">
+                <input type="search" />
+                <span class="x"></span>
+              </div>
+              <button class="btn-main ico-search" type="button"></button>
+            </div>
+            <ul class="list-count">
+              <li>
+                <span class="selected times">0</span>
+              </li>
+              <li>
+                <span class="total times">9,206</span>
+              </li>
+            </ul>
+          </div>
+          <div class="buttons">
+            <div class="dropdown">
+              <button class="" type="button">선택한 키워드 관리</button>
+              <nav>
+                <ul data-title="라이브">
+                  <li data-modal="settingsLiveNormal">일반설정</li>
+                  <li data-modal="settingsLiveNormalPart">일반부분설정</li>
+                  <li data-modal="settingsLiveAdvanced">고급설정</li>
+                  <li data-modal="settingsLiveAdvancedPart">고급부분설정</li>
+                </ul>
+                <ul data-title="레귤러">
+                  <li data-modal="settingsRegularNormal">일반설정</li>
+                  <li data-modal="settingsRegularNormalPart">일반부분설정</li>
+                </ul>
+                <ul>
+                  <li>입찰실행</li>
+                  <li>입찰정지</li>
+                  <li>입찰삭제</li>
+                </ul>
+              </nav>
+            </div>
+            <button type="button" data-modal="">분류해제</button>
+            <button type="button" data-modal="">분류지정</button>
+            <button type="button" data-modal="biddingHistory">입찰이력</button>
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="filter-100">100개씩 보기</option>
+                <option value="filter-50">50개씩 보기</option>
+                <option value="filter-20">20개씩 보기</option>
+                <option value="filter-10">10개씩 보기</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="filters">
+          <div class="selector">
+            <input type="radio" id="list-all" name="listTabs" checked="">
+            <label for="list-all">전체 (1,885)</label>
+            <input type="radio" id="list-live-normal" name="listTabs">
+            <label for="list-live-normal">라이브 일반 (1,094)</label>
+            <input type="radio" id="list-live-advanced" name="listTabs">
+            <label for="list-live-advanced">라이브 고급 (210)</label>
+            <input type="radio" id="list-regular-normal" name="listTabs">
+            <label for="list-regular-normal">레귤러 일반 (481)</label>
+            <input type="radio" id="list-not-set" name="listTabs">
+            <label for="list-not-set">미설정 (100)</label>
+          </div>
+        </div>
+      </header>
+      <div class="list sticky">
+        <ul class="row title">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
+              <label for="checkAll"></label>
+            </div>
+          </li>
+          <li class="col-keyword ico-sort">키워드</li>
+          <li class="ico-sort">
+            입찰상태
+          </li>
+          <li>
+            입찰설정
+          </li>
+          <li>
+            입찰주기
+          </li>
+          <li class="ico-sort">
+            입찰대상
+          </li>
+          <li class="col-long">
+            입찰예정가
+            <div class="tooltip">
+              <dl class="tooltip-content">
+                <dd>레귤러 설정 시 사용자가 선택한 기본입찰가와 최종 입찰(예정)가가 표시됩니다. 
+                </dd>
+                <dd>입찰예정가는 기본입찰가, 사용자 설정 옵션, 최소입찰가, 최대입찰가를 종합적으로 판단하여 최종적으로 입찰을 수행할 가격입니다.
+                </dd>
+                <dd>입찰예정가는 (부분)설정 완료 또는 입찰 시 업데이트 됩니다. 설정 완료 시 업데이트된 입찰예정가는 실제 입찰 시에는 호출되는 데이터에 따라 달라질 수 있습니다.
+                </dd>
+                <dd>사용자 설정 옵션으로 가감액을 입력했다면 최근 통합검색 평균 노출 순위가 있는 경우와 없는 경우로 나누어 산출된 입찰가 2가지가 표시됩니다</dd>
+              </dl>
+            </div>
+          </li>
+          <li class="ico-sort">
+            지역설정
+          </li>
+          <li class="ico-sort">입찰기본가</li>
+          <li class="ico-sort">최대입찰가</li>
+          <li class="ico-sort">입찰가액</li>
+          <li class="ico-sort">입찰감액</li>
+          <li class="ico-sort">희망순위</li>
+          <li class="ico-sort">노출구좌수</li>
+          <li class="ico-sort">하향입찰</li>
+          <li class="ico-sort">입찰가</li>
+          <li class="ico-sort">현재순위</li>
+          <li class="ico-sort">
+            입찰
+            <div class="tooltip type2">
+              <dl class="tooltip-content">
+                <dt>입찰은 입찰 프로세스 진행 상황에 따라 대기, 성공, 실패가 있습니다.</dt>
+                <dd>대기는 입찰이 한 번도 실행되지 않은 초기 상태입니다.</dd>
+                <dd>성공은 희망 순위에 도달하였거나, 설정한 값을 기준으로 입찰 프로세스가 진행되어 정상적으로 종료된 상태입니다.</dd>
+                <dd>실패는 입찰 프로세스가 진행되었으나, 여러 요인에 의해 정상적으로 종료되지 못한 상태입니다.</dd>
+              </dl>
+            </div>
+          </li>
+          <li class="ico-sort">입찰결과</li>
+          <li class="ico-sort">분류명</li>
+          <li class="ico-sort">키워드상태</li>
+          <li class="ico-sort">광고그룹</li>
+          <li class="ico-sort">그룹상태</li>
+          <li class="ico-sort">캠페인</li>
+          <li class="ico-sort">캠페인상태</li>
+          <li class="ico-sort col-url">URL</li>
+          <li class="ico-sort">입찰등록일</li>
+          <li class="ico-sort">입찰수정일</li>
+        </ul>
+        <div class="rows" data-empty="상품을 등록해주세요">
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-01" name="select-item" type="checkbox" />
+                <label for="check-01"></label>
+              </div>
+            </li>
+            <li title="키워드" class="col-keyword">
+              <div class="keyword">제주산조릿대차</div>
+            </li>
+            <li title="입찰상태">
+              <div class="toggle-switch">
+                <input id="toggle-bidding" type="checkbox">
+                <label for="toggle-bidding"></label>
+              </div>
+            </li>
+            <li title="입찰설정">
+              <button data-modal="settingsLiveAdvanced">라이브 고급</button>
+            </li>
+            <li title="입찰주기">
+              5
+            </li>
+            <li title="입찰대상">
+              PC일반
+            </li>
+            <li class="col-long" title="입찰예정가">
+              <button data-modal="calculateBidPrice" type="button">
+                1위 평균 입찰가 (1,300 / 1,300)
+              </button>
+            </li>
+            <li title="지역설정">
+              미설정
+            </li>
+            <li title="입찰기본가">
+              <div class="price"></div>
+            </li>
+            <li title="최대입찰가">
+              <div class="price">
+                1,000
+              </div>
+            </li>
+            <li title="입찰가액">
+              <div class="price"></div>
+            </li>
+            <li title="입찰감액">
+              <div class="price"></div>
+            </li>
+            <li title="희망순위">
+              3
+            </li>
+            <li title="노출구좌수"></li>
+            <li title="하향입찰">
+              OFF
+            </li>
+            <li title="입찰가">
+              <div class="price"></div>
+            </li>
+            <li title="현재순위"></li>
+            <li title="입찰">
+              <div>
+                <span>성공</span>
+                <button data-modal="biddingHistory">이력</button>
+              </div>
+            </li>
+            <li title="입찰결과">
+              입찰진행
+            </li>
+            <li title="분류명"></li>
+            <li title="키워드상태">
+              <div class="tag type-text">노출가능</div>
+              <span>ON</span>
+            </li>
+            <li title="광고그룹">
+              16차
+            </li>
+            <li title="그룹상태">
+              <div class="tag type-text">노출가능</div>
+              <span>ON</span>
+            </li>
+            <li title="캠페인">
+              PC
+            </li>
+            <li title="캠페인상태">
+              <div class="tag type-text">노출가능</div>
+              <span>ON</span>
+            </li>
+            <li class="col-url" title="URL">
+              <div>
+                http://www.samdamall.com
+              </div>
+            </li>
+            <li title="입찰등록일">
+              2022-04-12
+            </li>
+            <li title="입찰수정일">
+              2022-11-08
+            </li>
+          </ul>
+        </div>
+      </div>
+      <footer class="section-footer">
+        <div class="pagination">
+          <button onclick="" type="button">
+            <div class="arrow double left"></div>
+          </button>
+          <button onclick="" type="button">
+            <div class="arrow left"></div>
+          </button>
+          <div class="pages">
+            <button class="is-active" onclick="" type="button">1</button>
+            <button onclick="" type="button">2</button>
+            <button onclick="" type="button">3</button>
+            <button onclick="" type="button">4</button>
+            <button onclick="" type="button">5</button>
+          </div>
+          <button onclick="" type="button">
+            <div class="arrow right"></div>
+          </button>
+          <button onclick="" type="button">
+            <div class="arrow double right"></div>
+          </button>
+        </div>
+      </footer>
+    </section>
+  </div>
   <div class="tab-content content-naver-power-contents" data-tab="naver">
     <section class="section-account">
       <h2>samda_C</h2>
@@ -1297,6 +1796,20 @@
             </div>
           </div>
         </div>
+        <div class="filters">
+          <div class="selector">
+            <input type="radio" id="list-all" name="listTabs" checked="">
+            <label for="list-all">전체 (1,885)</label>
+            <input type="radio" id="list-live-normal" name="listTabs">
+            <label for="list-live-normal">라이브 일반 (1,094)</label>
+            <input type="radio" id="list-live-advanced" name="listTabs">
+            <label for="list-live-advanced">라이브 고급 (210)</label>
+            <input type="radio" id="list-regular-normal" name="listTabs">
+            <label for="list-regular-normal">레귤러 일반 (481)</label>
+            <input type="radio" id="list-not-set" name="listTabs">
+            <label for="list-not-set">미설정 (100)</label>
+          </div>
+        </div>
       </header>
       <div class="list sticky">
         <ul class="row title">
@@ -1385,7 +1898,7 @@
               </div>
             </li>
             <li title="입찰설정">
-              <button data-modal="settingsAdvanced">라이브 고급</button>
+              <button data-modal="settingsLiveAdvanced">라이브 고급</button>
             </li>
             <li class="col-long" title="입찰예정가">              
               <button data-modal="calculateBidPrice" type="button">
