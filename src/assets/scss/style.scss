@@ -559,7 +559,7 @@ body {
   }
 
   &:empty {
-    padding: 0;
+    display: none;
   }
 
   &.failed {
@@ -2333,6 +2333,16 @@ main {
 
       &.date {
         justify-content: flex-end;
+      }
+
+      &.inputs {
+
+        > div {
+
+          &:first-of-type {
+            border-bottom: 1px solid #ddd;
+          }
+        }
       }
 
       &.button {
@@ -6531,10 +6541,6 @@ main {
       height: 36px;
     }
 
-    + label {
-      min-height: 32px;
-    }
-
     &:not([type="radio"], [type="checkbox"]) {
       background-color: #f3f6f9;
       border: 1px solid #f3f6f9;
@@ -6550,6 +6556,16 @@ main {
     border-radius: 0;
     background-color: transparent;
     box-shadow: 0 0 0;
+  }
+
+  header {
+
+    button {
+
+      &.btn-grayscale {
+        min-height: 24px;
+      }
+    }
   }
 
   .caution {
@@ -6577,6 +6593,7 @@ main {
       border-radius: 0.5rem;
     }
   }
+
 
   .right-arrow {
     padding: 0;
@@ -6673,22 +6690,6 @@ main {
     gap: 0.5rem;
     padding-bottom: 0.75rem;
 
-    .rows {
-      min-height: auto;
-
-      &:empty {
-        min-height: 6rem;
-      }
-    }
-
-    .row {
-      .col-check {
-        .checkbox {
-          transform: scale(1);
-        }
-      }
-    }
-
     li {
       width: 90px;
       border: 0;
@@ -6724,6 +6725,22 @@ main {
           background-size: 100%;
           width: 12px;
           height: 12px;
+        }
+      }
+    }
+
+    .rows {
+      min-height: auto;
+
+      &:empty {
+        min-height: 6rem;
+      }
+    }
+
+    .row {
+      .col-check {
+        .checkbox {
+          transform: scale(1);
         }
       }
     }
@@ -6853,6 +6870,44 @@ main {
     }
   }
 
+  &-management-templates {
+
+    .row {
+
+      &.title {
+
+        li {
+          justify-content: center !important;
+        }
+      }
+    }
+
+    .tags {
+
+      .tag {
+        &:first-of-type {
+          color: lightgray;
+        }
+      }
+    }
+
+    .list {
+
+      li {
+        justify-content: center;
+
+        &:nth-of-type(2) {
+          justify-content: flex-start;
+        }
+
+        &:nth-of-type(3),
+        &:nth-of-type(4) {
+          flex: 0 0 100px
+        }
+      }
+    }
+  }
+
   &-sync {
 
     .dialog {
@@ -6943,7 +6998,7 @@ main {
         flex-direction: row;
       }
     }
-
+    
     .legend {
       padding-top: 0.5rem;
       display: flex;

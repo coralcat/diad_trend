@@ -459,8 +459,10 @@
         <div class="caution">
           <p>※ 입찰주기는 사용하신 등급에 따라 선택조건이 달라집니다.</p>
           <p>※ 현재 회원님의 사용등급은 이므로 3분 이상 설정이 가능합니다.</p>
-          <p>※ 키워드 속성과 입찰 대상마다 입찰 가능 순위(광고 노출 위치 및 개수)가 상이하므로 희망순위 설정 시 유의하시기 바랍니다. 자세한 내용은 희망순위 옆 도움말을 확인하세요.</p>
-          <p>※ 입찰가감액은 희망순위에 도달하기 위해 입찰가 조정 시 사용되며, 사용하지 않는 경우 '0'을 입력해주세요.</p>
+          <p>※ 희망순위 설정 시 PC 15위, 모바일 5위 이내로 설정이 가능합니다. 타겟 URL 설정 시 파워링크로 노출되는 타겟 URL을 정확히 입력하세요.
+          </p>
+          <p>※ 광고센터에서 특정 지역을 광고 노출 제외 지역으로 설정할 경우 입찰이 원활하지 않을 수 있습니다. (예: 서울)
+          </p>
           <p>※ 요일/시간 노출 제외 시 자동입찰 OFF 설정 필수 (고급설정 활용)</p>
         </div>
       </section>
@@ -480,9 +482,44 @@
               <input id="pc-footer" type="radio" name="bidding-modal">
               <label for="pc-footer">PC 하단</label>
               <input id="mobile-header" type="radio" name="bidding-modal">
-              <label for="mobile-header">모바일 상단</label>
+              <label for="mobile-header">모바일 일반</label>
               <input id="mobile-footer" type="radio" name="bidding-modal">
-              <label for="mobile-footer">모바일 하단</label>
+              <label for="mobile-footer">모바일 지역</label>
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              입찰목표
+              <div class="tooltip">
+                <div class="tooltip-content">
+                  <dl>
+                    <dd></dd>
+                  </dl>
+                </div>
+              </div>
+            </li>
+            <li class="inputs">
+              <div>
+                <input id="input-ranking" type="radio" name="bidding-target">
+                <label for="input-ranking">희망순위</label>
+                <input id="target-url" type="radio" name="bidding-target">
+                <label for="target-url">타겟URL</label>
+                <input type="text">
+                <input id="above-this" type="radio" name="bidding-order">
+                <label for="above-this">보다 위</label>
+                <input id="below-this" type="radio" name="bidding-order">
+                <label for="below-this">보다 아래</label>
+              </div>
+              <div>
+                <div>
+                  최저순위
+                </div>
+                <div class="tooltip">
+                  <div class="tooltip-content">test</div>
+                </div>
+                <input type="number">
+                위
+              </div>
             </li>
           </ul>
           <ul class="row">
@@ -987,10 +1024,7 @@
                 <option value="">테스트</option>
               </select>
             </div>
-            <button class="btn-sub">템플릿 수정</button>
-            <button class="btn-sub">템플릿 복사</button>
-            <button class="btn-sub">템플릿 삭제</button>
-            <button class="btn-main">템플릿 추가</button>
+            <button class="btn-sub" data-modal="managementTemplates">템플릿 관리</button>
           </div>
         </header>
         <div class="list list-advanced-settings">
@@ -2064,10 +2098,7 @@
                 <option value="">테스트</option>
               </select>
             </div>
-            <button class="btn-sub">템플릿 수정</button>
-            <button class="btn-sub">템플릿 복사</button>
-            <button class="btn-sub">템플릿 삭제</button>
-            <button class="btn-main">템플릿 추가</button>
+            <button class="btn-sub" data-modal="managementTemplates">템플릿 관리</button>
           </div>
         </header>
         <div class="list list-advanced-settings">
@@ -4170,6 +4201,123 @@
     <div class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
       <button class="btn-submit" type="button" data-modal="">입찰적용</button>
+    </div>
+  </div>
+</div>
+
+<div id="managementTemplates" class="modal modal-management-templates" title="고급 설정 템플릿 관리">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>고급 설정 템플릿 관리</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <header>
+        <div class="filters">
+          <strong data-title="선택" class="times">0</strong>
+          <strong data-title="전체" class="times">0</strong>
+        </div>
+        <button class="btn-grayscale" type="button" data-modal="">선택삭제</button>
+      </header>
+      <div class="list list-group">
+        <ul class="row title">
+          <li class="col-check">
+            <div class="checkbox">
+              <input id="createKeywordCheckAll" type="checkbox" name="createKeywordCheck" class="check-all">
+              <label for="createKeywordCheckAll"></label>
+            </div>
+          </li>
+          <li>템플릿명</li>
+          <li>등록일</li>
+          <li>수정일</li>
+        </ul>
+        <div class="rows" data-empty="템플릿을 추가해주세요.">
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check0" type="checkbox" name="createKeywordCheck">
+                <label for="check0"></label>
+              </div>
+            </li>
+            <li>
+              지역설정1
+            </li>
+            <li>2020-09-14</li>
+            <li>2020-09-14</li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check1" type="checkbox" name="createKeywordCheck">
+                <label for="check1"></label>
+              </div>
+            </li>
+            <li>
+              테스트
+            </li>
+            <li>2021-03-15</li>
+            <li>2021-03-15</li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check2" type="checkbox" name="createKeywordCheck">
+                <label for="check2"></label>
+              </div>
+            </li>
+            <li>
+              복사본 수정1
+            </li>
+            <li>2021-03-15</li>
+            <li>2021-03-18</li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check3" type="checkbox" name="createKeywordCheck">
+                <label for="check3"></label>
+              </div>
+            </li>
+            <li>
+              test_062201
+            </li>
+            <li>2021-06-22</li>
+            <li>2021-06-22</li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check4" type="checkbox" name="createKeywordCheck">
+                <label for="check4"></label>
+              </div>
+            </li>
+            <li>
+              기본입찰가1
+            </li>
+            <li>2021-11-15</li>
+            <li></li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check0" type="checkbox" name="createKeywordCheck">
+                <label for="check0"></label>
+              </div>
+            </li>
+            <li>
+              화요일OFF
+            </li>
+            <li>2021-11-15</li>
+            <li>2021-12-06</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-sub" type="button" data-modal="">복사</button>
+      <button class="btn-sub" type="button" data-modal="">추가</button>
+      <button class="btn-submit" type="button" data-modal="">수정</button>
     </div>
   </div>
 </div>
