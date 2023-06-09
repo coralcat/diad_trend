@@ -1428,15 +1428,13 @@
     </header>
     <div class="modal-content">
       <section>
-        <div class="caution">
-          <p>※ 입찰주기는 사용하신 등급에 따라 선택조건이 달라집니다.</p>
-          <p>※ 현재 회원님의 사용등급은 이므로 3분 이상 설정이 가능합니다.</p>
-          <p>※ 희망순위 설정 시 PC 15위, 모바일 5위 이내로 설정이 가능합니다. 타겟 URL 설정 시 파워링크로 노출되는 타겟 URL을 정확히 입력하세요.
-          </p>
-          <p>※ 광고센터에서 특정 지역을 광고 노출 제외 지역으로 설정할 경우 입찰이 원활하지 않을 수 있습니다. (예: 서울)
-          </p>
-          <p>※ 요일/시간 노출 제외 시 자동입찰 OFF 설정 필수 (고급설정 활용)</p>
-        </div>
+        <dl>
+          <dd>입찰주기는 사용하신 등급에 따라 선택조건이 달라집니다.</dd>
+          <dd>현재 회원님의 사용등급은 이므로 0분 이상 설정이 가능합니다.</dd>
+          <dd>희망순위 설정 시 PC 15위, 모바일 5위 이내로 설정이 가능합니다. 타겟 URL 설정 시 파워링크로 노출되는 타겟 URL을 정확히 입력하세요.</dd>
+          <dd>광고센터에서 특정 지역을 광고 노출 제외 지역으로 설정할 경우 입찰이 원활하지 않을 수 있습니다. (예: 서울)</dd>
+          <dd>요일/시간 노출 제외 시 자동입찰 OFF 설정 필수 (고급설정 활용)</dd>
+        </dl>
       </section>
       <section>
         <div class="list list-form">
@@ -1449,10 +1447,10 @@
           <ul class="row">
             <li>입찰대상</li>
             <li>
-              <input id="pc-header" type="radio" name="bidding-modal">
-              <label for="pc-header">PC 상단</label>
-              <input id="pc-footer" type="radio" name="bidding-modal">
-              <label for="pc-footer">PC 하단</label>
+              <input id="pc-normal" type="radio" name="bidding-modal">
+              <label for="pc-normal">PC 일반</label>
+              <input id="pc-local" type="radio" name="bidding-modal">
+              <label for="pc-local">PC 지역</label>
               <input id="mobile-header" type="radio" name="bidding-modal">
               <label for="mobile-header">모바일 일반</label>
               <input id="mobile-footer" type="radio" name="bidding-modal">
@@ -1465,51 +1463,44 @@
               <div class="tooltip">
                 <div class="tooltip-content">
                   <dl>
-                    <dd></dd>
+                    <dd>라이브 입찰(일반, 고급)은 희망순위 또는 타겟 URL을 입찰목표로 설정할 수 있습니다.</dd>
+                    <dd>희망순위는 설정한 순위를 목표로 입찰을 진행합니다.</dd>
+                    <dd>타겟 URL은 타겟이 되는 URL를 지정하여 해당 URL 위치 바로 위나 아래를 목표로 입찰을 진행합니다.</dd>
                   </dl>
                 </div>
               </div>
             </li>
             <li class="inputs">
-              <div>
-                <input id="input-ranking" type="radio" name="bidding-target">
-                <label for="input-ranking">희망순위</label>
-                <input id="target-url" type="radio" name="bidding-target">
-                <label for="target-url">타겟URL</label>
-                <input type="text">
-                <input id="above-this" type="radio" name="bidding-order">
-                <label for="above-this">보다 위</label>
-                <input id="below-this" type="radio" name="bidding-order">
-                <label for="below-this">보다 아래</label>
+              <input class="input-ranking" id="input-ranking" type="radio" name="bidding-target" checked>
+              <label for="input-ranking">희망순위</label>
+              <input class="input-target" id="target-url" type="radio" name="bidding-target">
+              <label for="target-url">타겟URL</label>
+              <div class="ranking">
+                <input type="text"/>위
               </div>
-              <div>
+              <div class="target">
                 <div>
+                  <input type="text"/>
+                  <input id="above-this" type="radio" name="bidding-order">
+                  <label for="above-this">보다 위</label>
+                  <input id="below-this" type="radio" name="bidding-order">
+                  <label for="below-this">보다 아래</label>
+                </div>
+                <div class="">
                   최저순위
-                </div>
-                <div class="tooltip">
-                  <div class="tooltip-content">test</div>
-                </div>
-                <input type="number">
-                위
-              </div>
-            </li>
-          </ul>
-          <ul class="row">
-            <li>
-              희망순위
-              <div class="tooltip">
-                <div class="tooltip-content">
-                  <dl>
-                    <dd>입찰가를 원하는 금액으로 빠르게 조정하기 위해 설정하는 금액입니다.</dd>
-                    <dd>필수 입력 항목이 아니므로, 미사용 시 입력하지 않으셔도 됩니다.</dd>
-                    <dd>순위 확인이 불가하고 현재 입찰가보다 클 때 적용됩니다.</dd>
-                    <dd>최대입찰가보다 클 수 없습니다.</dd>
-                  </dl>
+                  <div class="tooltip">
+                    <div class="tooltip-content">
+                      <dl>
+                        <dd>최저순위는 이 순위 아래로는 떨어지지 않았으면 하는 순위를 의미하고, 필수 입력 항목입니다.</dd>
+                        <dd>입찰 시 최저순위 아래로 내려간 경우 입찰가를 올려 최저순위로 순위를 끌어 올립니다.</dd>
+                        <dd>PC는 15위, 모바일은 5위 이내로 설정 가능합니다.</dd>
+                      </dl>
+                    </div>
+                  </div>
+                  <input type="number" placeholder="PC는 15위, 모바일은 5위 이내로 설정 가능합니다." />
+                  위
                 </div>
               </div>
-            </li>
-            <li>
-              <input type="number">위
             </li>
           </ul>
           <ul class="row">
@@ -1518,16 +1509,15 @@
               <div class="tooltip">
                 <div class="tooltip-content">
                   <dl>
-                    <dd>입찰가를 원하는 금액으로 빠르게 조정하기 위해 설정하는 금액입니다.</dd>
-                    <dd>필수 입력 항목이 아니므로, 미사용 시 입력하지 않으셔도 됩니다.</dd>
-                    <dd>순위 확인이 불가하고 현재 입찰가보다 클 때 적용됩니다.</dd>
-                    <dd>최대입찰가보다 클 수 없습니다.</dd>
+                    <dd>입찰기본가는 입찰가를 원하는 금액으로 빠르게 조정하기 위해 설정하는 금액입니다.</dd>
+                    <dd>순위 확인이 되지 않고 입력한 입찰기본가가 현재 입찰가보다 클 때 입찰기본가로 입찰가를 변경합니다.</dd>
+                    <dd>입찰기본가는 최대입찰가보다 클 수 없고, 선택 입력 항목입니다.</dd>
                   </dl>
                 </div>
               </div>
             </li>
             <li>
-              <input type="number">원
+              <input type="number" placeholder="필수 항목이 아닙니다." />원
             </li>
           </ul>
           <ul class="row">
@@ -1542,7 +1532,9 @@
               <div class="tooltip">
                 <div class="tooltip-content">
                   <dl>
-                    <dd>입찰가감액은 필수 입력 항목으로, 미사용 시 '0'원을 입력합니다.</dd>
+                    <dd>입찰가감액은 입찰가 조정 단위로, 필수 입력 항목입니다. 미사용 시 0원을 입력하세요.</dd>
+                    <dd>가액은 입찰가 상승 시에 적용되면, (현재순위 - 희망(목표)순위) ※ 가액만큼 입찰가가 조정됩니다.</dd>
+                    <dd>감액은 입찰가 하락 시나 하향입찰 시 적용되며, 감액만큼만 입찰가가 조정됩니다.</dd>
                   </dl>
                 </div>
               </div>
@@ -1555,7 +1547,17 @@
             </li>
           </ul>
           <ul class="row">
-            <li>하향입찰</li>
+            <li>
+              하향입찰
+              <div class="tooltip">
+                <div class="tooltip-content">
+                  <dl>
+                    <dd>하향입찰은 가장 낮은 금액으로 원하는 순위에 노출 가능하게 합니다.</dd>
+                    <dd>입력한 횟수 동안 현재순위를 확인하여 순위를 유지하면 바로 아래 순위가 될 때까지 입찰가감액의 감액만큼 입찰가를 하향 조정합니다.</dd>
+                  </dl>
+                </div>
+              </div>
+            </li>
             <li>
               <input id="check-bidding-down-on" type="radio" name="bidding-down-modal" />
               <label for="check-bidding-down-on">ON</label>
@@ -1577,26 +1579,31 @@
 <div id="settingsLiveNormalPart" class="modal" title="일반부분설정">
   <div class="dialog">
     <header class="modal-header">
-      <h3>일반부분설정</h3>
+      <h3>라이브 일반부분설정</h3>
       <div class="close"></div>
     </header>
     <div class="modal-content">
       <section>
+        <dl>
+          <dd>입찰주기는 사용하신 등급에 따라 선택조건이 달라집니다.</dd>
+          <dd>현재 회원님의 사용등급은 이므로 0분 이상 설정이 가능합니다.</dd>
+          <dd>희망순위 설정 시 PC 15위, 모바일 5위 이내로 설정이 가능합니다. 타겟 URL 설정 시 파워링크로 노출되는 타겟 URL을 정확히 입력하세요.</dd>
+          <dd>광고센터에서 특정 지역을 광고 노출 제외 지역으로 설정할 경우 입찰이 원활하지 않을 수 있습니다. (예: 서울)</dd>
+          <dd>요일/시간 노출 제외 시 자동입찰 OFF 설정 필수 (고급설정 활용)</dd>
+        </dl>
         <div class="caution">
-          <p>※ 입찰주기는 사용하신 등급에 따라 선택조건이 달라집니다.</p>
-          <p>※ 현재 회원님의 사용등급은 이므로 0분 이상 설정이 가능합니다.</p>
-          <p>※ 입찰은 PC 15위, 모바일 5위 이내로 설정이 가능합니다.</p>
-          <p>※ 광고센터에서 특정 지역을 광고 노출 제외 지역으로 설정할 경우 입찰이 원활하지 않을 수 있습니다. (예: 서울)</p>
-          <p>※ 요일/시간 노출 제외시 자동입찰 OFF 설정 필수(고급설정 활용)</p>
-        </div>
+          <h5>부분설정 시 유의사항</h5>
+          <p>※ 전체 설정하지 않은 소재는 부분 설정이 불가합니다.</p>
+          <p>※ 부분 설정 시 설정이 필요한 항목만 체크하여 입찰정보를 입력하세요.</p>
+          <p>※ 부분 설정 시 기존에 설정된 입찰정보와 수정된 입찰정보가 배치되는 경우 입찰이 진행되지 않을 수 있습니다. 이 부분 유의하여 사용하시기 바랍니다.</p>
       </section>
       <section>
         <div class="list list-form">
           <ul class="row">
             <li>
               <div class="checkbox">
-                <input id="check-setting-normal-01" name="select-item" type="checkbox">
-                <label for="check-setting-normal-01">입찰주기</label>
+                <input id="check-setting-live-normal-part-01" name="select-item" type="checkbox">
+                <label for="check-setting-live-normal-part-01">입찰주기</label>
               </div>
             </li>
             <li>
@@ -1606,8 +1613,8 @@
           <ul class="row">
             <li>
               <div class="checkbox">
-                <input id="check-setting-normal-02" name="select-item" type="checkbox">
-                <label for="check-setting-normal-02">입찰대상</label>
+                <input id="check-setting-live-normal-part-02" name="select-item" type="checkbox">
+                <label for="check-setting-live-normal-part-02">입찰대상</label>
               </div>
             </li>
             <li>
@@ -1624,19 +1631,59 @@
           <ul class="row">
             <li>
               <div class="checkbox">
-                <input id="check-setting-normal-03" name="select-item" type="checkbox">
-                <label for="check-setting-normal-03">희망순위</label>
+                <input id="check-setting-live-normal-part-03" name="select-item" type="checkbox">
+                <label for="check-setting-live-normal-part-03">
+                  입찰목표
+                  <div class="tooltip">
+                    <div class="tooltip-content">
+                      <dl>
+                        <dd>라이브 입찰(일반, 고급)은 희망순위 또는 타겟 URL을 입찰목표로 설정할 수 있습니다.</dd>
+                        <dd>희망순위는 설정한 순위를 목표로 입찰을 진행합니다.</dd>
+                        <dd>타겟 URL은 타겟이 되는 URL를 지정하여 해당 URL 위치 바로 위나 아래를 목표로 입찰을 진행합니다.</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </label>
               </div>
             </li>
-            <li>
-              <input type="number">위
+            <li class="inputs">
+              <input class="input-ranking" id="input-ranking-live-normal-part" type="radio" name="bidding-target-live-normal-part" checked>
+              <label for="input-ranking-live-normal-part">희망순위</label>
+              <input class="input-target" id="target-url-live-normal-part" type="radio" name="bidding-target-live-normal-part">
+              <label for="target-url-live-normal-part">타겟URL</label>
+              <div class="ranking">
+                <input type="text"/>위
+              </div>
+              <div class="target">
+                <div>
+                  <input type="text"/>
+                  <input id="above-this" type="radio" name="bidding-order">
+                  <label for="above-this">보다 위</label>
+                  <input id="below-this" type="radio" name="bidding-order">
+                  <label for="below-this">보다 아래</label>
+                </div>
+                <div class="">
+                  최저순위
+                  <div class="tooltip">
+                    <div class="tooltip-content">
+                      <dl>
+                        <dd>최저순위는 이 순위 아래로는 떨어지지 않았으면 하는 순위를 의미하고, 필수 입력 항목입니다.</dd>
+                        <dd>입찰 시 최저순위 아래로 내려간 경우 입찰가를 올려 최저순위로 순위를 끌어 올립니다.</dd>
+                        <dd>PC는 15위, 모바일은 5위 이내로 설정 가능합니다.</dd>
+                      </dl>
+                    </div>
+                  </div>
+                  <input type="number" placeholder="PC는 15위, 모바일은 5위 이내로 설정 가능합니다." />
+                  위
+                </div>
+              </div>
             </li>
           </ul>
           <ul class="row">
             <li>
               <div class="checkbox">
-                <input id="check-setting-normal-04" name="select-item" type="checkbox">
-                <label for="check-setting-normal-04">
+                <input id="check-setting-live-normal-part-04" name="select-item" type="checkbox">
+                <label for="check-setting-live-normal-part-04">
                   입찰기본가
                   <div class="tooltip">
                     <div class="tooltip-content">
@@ -1658,8 +1705,8 @@
           <ul class="row">
             <li>
               <div class="checkbox">
-                <input id="check-setting-normal-05" name="select-item" type="checkbox">
-                <label for="check-setting-normal-05">최대입찰가</label>
+                <input id="check-setting-live-normal-part-05" name="select-item" type="checkbox">
+                <label for="check-setting-live-normal-part-05">최대입찰가</label>
               </div>
             </li>
             <li>
@@ -1669,13 +1716,15 @@
           <ul class="row">
             <li>
               <div class="checkbox">
-                <input id="check-setting-normal-06" name="select-item" type="checkbox">
-                <label for="check-setting-normal-06">
+                <input id="check-setting-live-normal-part-06" name="select-item" type="checkbox">
+                <label for="check-setting-live-normal-part-06">
                   입찰가감액
                   <div class="tooltip">
                     <div class="tooltip-content">
                       <dl>
-                        <dd>입찰가감액은 필수 입력 항목으로, 미사용 시 '0'원을 입력합니다.</dd>
+                        <dd>입찰가감액은 입찰가 조정 단위로, 필수 입력 항목입니다. 미사용 시 0원을 입력하세요.</dd>
+                        <dd>가액은 입찰가 상승 시에 적용되면, (현재순위 - 희망(목표)순위) ※ 가액만큼 입찰가가 조정됩니다.</dd>
+                        <dd>감액은 입찰가 하락 시나 하향입찰 시 적용되며, 감액만큼만 입찰가가 조정됩니다.</dd>
                       </dl>
                     </div>
                   </div>
@@ -1692,8 +1741,18 @@
           <ul class="row">
             <li>
               <div class="checkbox">
-                <input id="check-setting-normal-07" name="select-item" type="checkbox">
-                <label for="check-setting-normal-07">하향입찰</label>
+                <input id="check-setting-live-normal-part-07" name="select-item" type="checkbox">
+                <label for="check-setting-live-normal-part-07">
+                  하향입찰
+                  <div class="tooltip">
+                    <div class="tooltip-content">
+                      <dl>
+                        <dd>하향입찰은 가장 낮은 금액으로 원하는 순위에 노출 가능하게 합니다.</dd>
+                        <dd>입력한 횟수 동안 현재순위를 확인하여 순위를 유지하면 바로 아래 순위가 될 때까지 입찰가감액의 감액만큼 입찰가를 하향 조정합니다.</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </label>
               </div>
             </li>
             <li>
@@ -3823,10 +3882,10 @@
   </div>
 </div>
 
-<div id="biddingHistory" class="modal modal-history" title="입찰 이력">
+<div id="biddingHistory" class="modal modal-history" title="입찰이력조회">
   <div class="dialog">
     <header class="modal-header">
-      <h3>입찰 이력</h3>
+      <h3>입찰이력조회</h3>
       <div class="close"></div>
     </header>
     <div class="modal-content">
@@ -3845,7 +3904,9 @@
         <div class="list">
           <ul class="row title">
             <li class="col-keyword">키워드</li>
+            <li>입찰설정</li>
             <li>입찰대상</li>
+            <li>입찰목표</li>
             <li>현재순위</li>
             <li>현재입찰가</li>
             <li>증감액</li>
@@ -3858,8 +3919,10 @@
               <li title="키워드" class="col-keyword">
                 <div class="keyword">레드울프</div>
               </li>
-              <li title="현재순위">PC일반</li>
-              <li>2</li>
+              <li title="입찰설정">라이브 일반</li>
+              <li title="입찰대상">PC일반</li>
+              <li title="입찰목표">희망순위</li>
+              <li title="현재순위">2</li>
               <li title="현재입찰가">
                 <div class="price">500</div>
               </li>
@@ -3900,6 +3963,8 @@
         <div class="list">
           <ul class="row title">
             <li class="col-keyword">키워드</li>
+            <li>입찰설정</li>
+            <li>입찰목표</li>
             <li>타이틀</li>
             <li class="col-content">내용</li>
             <li>현재순위</li>
@@ -3911,6 +3976,8 @@
               <li class="col-keyword">
                 <div class="keyword">레드울프</div>
               </li>
+              <li>라이브 일반</li>
+              <li>희망순위</li>
               <li>입찰가 변경</li>
               <li class="col-content">최대입찰금액 500원에 도달하였습니다</li>
               <li>2</li>
@@ -4803,8 +4870,8 @@
           <ul class="row">
             <li>
               <div class="checkbox">
-                <input id="check-regular-normal-02" name="select-item" type="checkbox">
-                <label for="check-regular-normal-02">최소입찰가</label>
+                <input id="check-regular-live-normal-part-02" name="select-item" type="checkbox">
+                <label for="check-regular-live-normal-part-02">최소입찰가</label>
                 <div class="tooltip">
                   <dl class="tooltip-content">
                     <dd>
@@ -4854,8 +4921,8 @@
           <ul class="row">
             <li class="asterisk">
               <div class="checkbox">
-                <input id="check-regular-normal-03" name="select-item" type="checkbox">
-                <label for="check-regular-normal-03">최대입찰가</label>
+                <input id="check-regular-live-normal-part-03" name="select-item" type="checkbox">
+                <label for="check-regular-live-normal-part-03">최대입찰가</label>
               </div>
             </li>
             <li>
