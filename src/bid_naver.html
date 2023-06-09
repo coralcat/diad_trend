@@ -363,6 +363,16 @@
           </li>
           <li>
             입찰설정
+            <div class="tooltip type2">
+              <dl class="tooltip-content">
+                <dd>
+                  라이브 입찰은 사용자가 설정한 입찰주기마다 입찰이 진행됩니다.
+                </dd>
+                <dd>
+                  레귤러 입찰은 하루 3번 정해진 시간에 입찰이 진행되며, 원하는 순위에 도달하기 위해 입찰가를 조정하는 것이 아니라 입찰가를 원하는 입찰가로 변경합니다.
+                </dd>
+              </dl>
+            </div>
           </li>
           <li>
             입찰주기
@@ -372,7 +382,7 @@
           </li>
           <li class="col-long">
             입찰예정가
-            <div class="tooltip">
+            <div class="tooltip type2">
               <dl class="tooltip-content">
                 <dd>레귤러 설정 시 사용자가 선택한 기본입찰가와 최종 입찰(예정)가가 표시됩니다. 
                 </dd>
@@ -391,11 +401,44 @@
           <li class="ico-sort">최대입찰가</li>
           <li class="ico-sort">입찰가액</li>
           <li class="ico-sort">입찰감액</li>
-          <li class="ico-sort">희망순위</li>
+          <li class="ico-sort col-url">
+            입찰목표
+            <div class="tooltip type2">
+              <dl class="tooltip-content">
+                <dd>
+                  라이브 입찰(일반, 고급)은 희망순위 또는 타겟 URL을 입찰목표로 설정할 수 있습니다.
+                </dd>
+                <dd>
+                  희망순위는 설정한 순위를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 희망순위가 표시됩니다.
+                </dd>
+                <dd>
+                  타겟 URL은 타겟이 되는 URL를 지정하여 해당 URL 위치 바로 위나 아래를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 URL과 위/아래 선택값이 함께 표시됩니다.
+                </dd>
+              </dl>
+            </div>
+          </li>
           <li class="ico-sort">노출구좌수</li>
           <li class="ico-sort">하향입찰</li>
           <li class="ico-sort">입찰가</li>
-          <li class="ico-sort">현재순위</li>
+          <li class="ico-sort">
+            현재순위
+            <div class="tooltip type2">
+              <dl class="tooltip-content">
+                <dd>입찰설정이 라이브 입찰이면 입찰 시 현재순위가 업데이트 됩니다.</dd>
+                <dd>입찰목표를 희망순위로 설정한 경우 현재순위가 표시됩니다.</dd>
+                <dd>입찰목표를 타겟 URL로 설정한 경우 현재순위와 타겟 URL의 순위가 함께 표시됩니다.</dd>
+              </dl>
+            </div>
+          </li>
+          <li class="ico-sort">
+            최저순위
+            <div class="tooltip type2">
+              <dl class="tooltip-content">
+                <dd>라이브 입찰에서 입찰목표로 타겟 URL을 설정한 경우 입력한 최저순위가 표시됩니다.</dd>
+                <dd>최저순위에서 지정한 순위 아래로 내려간 경우 입찰가를 올려 최저순위로 끌어 올립니다.</dd>
+              </dl>
+            </div>
+          </li>
           <li class="ico-sort">
             입찰
             <div class="tooltip type2">
@@ -466,8 +509,8 @@
             <li title="입찰감액">
               <div class="price"></div>
             </li>
-            <li title="희망순위">
-              3
+            <li class="col-url" title="입찰목표">
+              www.diad.co.kr (위)
             </li>
             <li title="노출구좌수"></li>
             <li title="하향입찰">
@@ -476,7 +519,8 @@
             <li title="입찰가">
               <div class="price"></div>
             </li>
-            <li title="현재순위"></li>
+            <li title="현재순위">4(2)</li>
+            <li title="최저순위">5</li>
             <li title="입찰">
               <div>
                 <span>성공</span>
@@ -850,10 +894,20 @@
           </li>
           <li>
             입찰설정
+            <div class="tooltip type2">
+              <dl class="tooltip-content">
+                <dd>
+                  라이브 입찰은 사용자가 설정한 입찰주기마다 입찰이 진행됩니다.
+                </dd>
+                <dd>
+                  레귤러 입찰은 하루 3번 정해진 시간에 입찰이 진행되며, 원하는 순위에 도달하기 위해 입찰가를 조정하는 것이 아니라 입찰가를 원하는 입찰가로 변경합니다.
+                </dd>
+              </dl>
+            </div>
           </li>
           <li class="col-long">
             입찰예정가
-            <div class="tooltip">
+            <div class="tooltip type2">
               <dl class="tooltip-content">
                 <dd>레귤러 설정 시 사용자가 선택한 기본입찰가와 최종 입찰(예정)가가 표시됩니다. 
                 </dd>
@@ -875,10 +929,43 @@
           <li class="ico-sort">최대입찰가</li>
           <li class="ico-sort">입찰가액</li>
           <li class="ico-sort">입찰감액</li>
-          <li class="ico-sort">희망순위</li>
+          <li class="ico-sort">
+            입찰목표
+            <div class="tooltip type2">
+              <dl class="tooltip-content">
+                <dd>
+                  라이브 입찰(일반, 고급)은 희망순위 또는 타겟 URL을 입찰목표로 설정할 수 있습니다.
+                </dd>
+                <dd>
+                  희망순위는 설정한 순위를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 희망순위가 표시됩니다.
+                </dd>
+                <dd>
+                  타겟 URL은 타겟이 되는 URL를 지정하여 해당 URL 위치 바로 위나 아래를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 URL과 위/아래 선택값이 함께 표시됩니다.
+                </dd>
+              </dl>
+            </div>
+          </li>
           <li class="ico-sort">하향입찰</li>
           <li class="ico-sort">입찰가</li>
-          <li class="ico-sort">현재순위</li>
+          <li class="ico-sort">
+            현재순위
+            <div class="tooltip type2">
+              <dl class="tooltip-content">
+                <dd>입찰설정이 라이브 입찰이면 입찰 시 현재순위가 업데이트 됩니다.</dd>
+                <dd>입찰목표를 희망순위로 설정한 경우 현재순위가 표시됩니다.</dd>
+                <dd>입찰목표를 타겟 URL로 설정한 경우 현재순위와 타겟 URL의 순위가 함께 표시됩니다.</dd>
+              </dl>
+            </div>
+          </li>
+          <li class="ico-sort">
+            최저순위
+            <div class="tooltip type2">
+              <dl class="tooltip-content">
+                <dd>라이브 입찰에서 입찰목표로 타겟 URL을 설정한 경우 입력한 최저순위가 표시됩니다.</dd>
+                <dd>최저순위에서 지정한 순위 아래로 내려간 경우 입찰가를 올려 최저순위로 끌어 올립니다.</dd>
+              </dl>
+            </div>
+          </li>
           <li class="ico-sort">
             입찰
             <div class="tooltip type2">
@@ -960,7 +1047,7 @@
             <li title="입찰감액">
               <div class="price"></div>
             </li>
-            <li title="희망순위">
+            <li title="입찰목표">
               3
             </li>
             <li title="하향입찰">
@@ -970,6 +1057,7 @@
               <div class="price"></div>
             </li>
             <li title="현재순위"></li>
+            <li title="최저순위"></li>
             <li title="입찰">
               <div>
                 <span>실패</span>
@@ -1352,6 +1440,16 @@
           </li>
           <li>
             입찰설정
+            <div class="tooltip type2">
+              <dl class="tooltip-content">
+                <dd>
+                  라이브 입찰은 사용자가 설정한 입찰주기마다 입찰이 진행됩니다.
+                </dd>
+                <dd>
+                  레귤러 입찰은 하루 3번 정해진 시간에 입찰이 진행되며, 원하는 순위에 도달하기 위해 입찰가를 조정하는 것이 아니라 입찰가를 원하는 입찰가로 변경합니다.
+                </dd>
+              </dl>
+            </div>
           </li>
           <li>
             입찰주기
@@ -1361,7 +1459,7 @@
           </li>
           <li class="col-long">
             입찰예정가
-            <div class="tooltip">
+            <div class="tooltip type2">
               <dl class="tooltip-content">
                 <dd>레귤러 설정 시 사용자가 선택한 기본입찰가와 최종 입찰(예정)가가 표시됩니다. 
                 </dd>
@@ -1380,11 +1478,44 @@
           <li class="ico-sort">최대입찰가</li>
           <li class="ico-sort">입찰가액</li>
           <li class="ico-sort">입찰감액</li>
-          <li class="ico-sort">희망순위</li>
+          <li class="ico-sort">
+            입찰목표
+            <div class="tooltip type2">
+              <dl class="tooltip-content">
+                <dd>
+                  라이브 입찰(일반, 고급)은 희망순위 또는 타겟 URL을 입찰목표로 설정할 수 있습니다.
+                </dd>
+                <dd>
+                  희망순위는 설정한 순위를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 희망순위가 표시됩니다.
+                </dd>
+                <dd>
+                  타겟 URL은 타겟이 되는 URL를 지정하여 해당 URL 위치 바로 위나 아래를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 URL과 위/아래 선택값이 함께 표시됩니다.
+                </dd>
+              </dl>
+            </div>
+          </li>
           <li class="ico-sort">노출구좌수</li>
           <li class="ico-sort">하향입찰</li>
           <li class="ico-sort">입찰가</li>
-          <li class="ico-sort">현재순위</li>
+          <li class="ico-sort">
+            현재순위
+            <div class="tooltip type2">
+              <dl class="tooltip-content">
+                <dd>입찰설정이 라이브 입찰이면 입찰 시 현재순위가 업데이트 됩니다.</dd>
+                <dd>입찰목표를 희망순위로 설정한 경우 현재순위가 표시됩니다.</dd>
+                <dd>입찰목표를 타겟 URL로 설정한 경우 현재순위와 타겟 URL의 순위가 함께 표시됩니다.</dd>
+              </dl>
+            </div>
+          </li>
+          <li class="ico-sort">
+            최저순위
+            <div class="tooltip type2">
+              <dl class="tooltip-content">
+                <dd>라이브 입찰에서 입찰목표로 타겟 URL을 설정한 경우 입력한 최저순위가 표시됩니다.</dd>
+                <dd>최저순위에서 지정한 순위 아래로 내려간 경우 입찰가를 올려 최저순위로 끌어 올립니다.</dd>
+              </dl>
+            </div>
+          </li>
           <li class="ico-sort">
             입찰
             <div class="tooltip type2">
@@ -1455,7 +1586,7 @@
             <li title="입찰감액">
               <div class="price"></div>
             </li>
-            <li title="희망순위">
+            <li title="입찰목표">
               3
             </li>
             <li title="노출구좌수"></li>
@@ -1466,6 +1597,7 @@
               <div class="price"></div>
             </li>
             <li title="현재순위"></li>
+            <li title="최저순위"></li>
             <li title="입찰">
               <div>
                 <span>성공</span>
@@ -1825,10 +1957,20 @@
           </li>
           <li>
             입찰설정
+            <div class="tooltip type2">
+              <dl class="tooltip-content">
+                <dd>
+                  라이브 입찰은 사용자가 설정한 입찰주기마다 입찰이 진행됩니다.
+                </dd>
+                <dd>
+                  레귤러 입찰은 하루 3번 정해진 시간에 입찰이 진행되며, 원하는 순위에 도달하기 위해 입찰가를 조정하는 것이 아니라 입찰가를 원하는 입찰가로 변경합니다.
+                </dd>
+              </dl>
+            </div>
           </li>
           <li class="col-long">
             입찰예정가
-            <div class="tooltip">
+            <div class="tooltip type2">
               <dl class="tooltip-content">
                 <dd>레귤러 설정 시 사용자가 선택한 기본입찰가와 최종 입찰(예정)가가 표시됩니다. 
                 </dd>
@@ -1853,11 +1995,44 @@
           <li class="ico-sort">최대입찰가</li>
           <li class="ico-sort">입찰가액</li>
           <li class="ico-sort">입찰감액</li>
-          <li class="ico-sort">희망순위</li>
+          <li class="ico-sort">
+            입찰목표
+            <div class="tooltip type2">
+              <dl class="tooltip-content">
+                <dd>
+                  라이브 입찰(일반, 고급)은 희망순위 또는 타겟 URL을 입찰목표로 설정할 수 있습니다.
+                </dd>
+                <dd>
+                  희망순위는 설정한 순위를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 희망순위가 표시됩니다.
+                </dd>
+                <dd>
+                  타겟 URL은 타겟이 되는 URL를 지정하여 해당 URL 위치 바로 위나 아래를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 URL과 위/아래 선택값이 함께 표시됩니다.
+                </dd>
+              </dl>
+            </div>
+          </li>
           <li class="ico-sort">노출구좌수</li>
           <li class="ico-sort">하향입찰</li>
           <li class="ico-sort">입찰가</li>
-          <li class="ico-sort">현재순위</li>
+          <li class="ico-sort">
+            현재순위
+            <div class="tooltip type2">
+              <dl class="tooltip-content">
+                <dd>입찰설정이 라이브 입찰이면 입찰 시 현재순위가 업데이트 됩니다.</dd>
+                <dd>입찰목표를 희망순위로 설정한 경우 현재순위가 표시됩니다.</dd>
+                <dd>입찰목표를 타겟 URL로 설정한 경우 현재순위와 타겟 URL의 순위가 함께 표시됩니다.</dd>
+              </dl>
+            </div>
+          </li>
+          <li class="ico-sort">
+            최저순위
+            <div class="tooltip type2">
+              <dl class="tooltip-content">
+                <dd>라이브 입찰에서 입찰목표로 타겟 URL을 설정한 경우 입력한 최저순위가 표시됩니다.</dd>
+                <dd>최저순위에서 지정한 순위 아래로 내려간 경우 입찰가를 올려 최저순위로 끌어 올립니다.</dd>
+              </dl>
+            </div>
+          </li>
           <li class="ico-sort">
             입찰
             <div class="tooltip type2">
@@ -1928,7 +2103,7 @@
             <li title="입찰감액">
               <div class="price">20</div>
             </li>
-            <li title="희망순위">
+            <li title="입찰목표">
               3
             </li>
             <li title="노출구좌수">1</li>
@@ -1939,6 +2114,7 @@
               <div class="price">1,120</div>
             </li>
             <li title="현재순위"></li>
+            <li title="최저순위"></li>
             <li title="입찰">
               <div>
                 <span>성공</span>
