@@ -230,6 +230,7 @@
     <ul>
       <li onclick="location.href='accounts.html'">계정 설정</li>
       <li onclick="location.href='settings.html'">알림 설정</li>
+      <li>로그아웃</li>
     </ul>
   </nav>
 </div>
@@ -248,6 +249,7 @@
             <option value="">cjlion2004</option>
           </select>
         </div>
+        <button class="btn-main ico-sync" type="button"></button>
       </div>
       <ul class="details-sync">
         <li class="center">
@@ -510,7 +512,7 @@
     </li>
     <li>
       <h5>
-        <span>희망 URL</span>
+        <span>타겟 URL</span>
         <small>복수검색 가능</small>
       </h5>
       <div class="inputs">
@@ -1427,20 +1429,20 @@
               </div>
             </li>
             <li class="inputs">
-              <input class="input-ranking" id="input-ranking" type="radio" name="bidding-target" checked>
-              <label for="input-ranking">희망순위</label>
-              <input class="input-target" id="target-url" type="radio" name="bidding-target">
-              <label for="target-url">타겟URL</label>
+              <input class="input-ranking" id="input-ranking-live-normal" type="radio" name="bidding-target-live-normal" checked>
+              <label for="input-ranking-live-normal">희망순위</label>
+              <input class="input-target" id="target-url-live-normal" type="radio" name="bidding-target-live-normal">
+              <label for="target-url-live-normal">타겟URL</label>
               <div class="ranking">
-                <input type="text"/>위
+                <input type="text" />위
               </div>
               <div class="target">
                 <div>
-                  <input type="text"/>
-                  <input id="above-this" type="radio" name="bidding-order">
-                  <label for="above-this">보다 위</label>
-                  <input id="below-this" type="radio" name="bidding-order">
-                  <label for="below-this">보다 아래</label>
+                  <input type="text" />
+                  <input id="above-this-live-normal" type="radio" name="bidding-order-live-normal">
+                  <label for="above-this-live-normal">보다 위</label>
+                  <input id="below-this-live-normal" type="radio" name="bidding-order-live-normal">
+                  <label for="below-this-live-normal">보다 아래</label>
                 </div>
                 <div class="">
                   최저순위
@@ -1603,16 +1605,18 @@
               </div>
             </li>
             <li class="inputs">
-              <input class="input-ranking" id="input-ranking-live-normal-part" type="radio" name="bidding-target-live-normal-part" checked>
+              <input class="input-ranking" id="input-ranking-live-normal-part" type="radio"
+                name="bidding-target-live-normal-part" checked>
               <label for="input-ranking-live-normal-part">희망순위</label>
-              <input class="input-target" id="target-url-live-normal-part" type="radio" name="bidding-target-live-normal-part">
+              <input class="input-target" id="target-url-live-normal-part" type="radio"
+                name="bidding-target-live-normal-part">
               <label for="target-url-live-normal-part">타겟URL</label>
               <div class="ranking">
-                <input type="text"/>위
+                <input type="text" />위
               </div>
               <div class="target">
                 <div>
-                  <input type="text"/>
+                  <input type="text" />
                   <input id="above-this" type="radio" name="bidding-order">
                   <label for="above-this">보다 위</label>
                   <input id="below-this" type="radio" name="bidding-order">
@@ -1729,10 +1733,10 @@
   </div>
 </div>
 
-<div id="settingsLiveAdvanced" class="modal modal-advanced" title="고급설정">
+<div id="settingsLiveAdvanced" class="modal modal-advanced" title="라이브 고급설정">
   <div class="dialog">
     <header class="modal-header">
-      <h3>고급설정</h3>
+      <h3>라이브 고급설정</h3>
       <div class="close"></div>
     </header>
     <div class="modal-content">
@@ -1916,52 +1920,99 @@
             </li>
           </ul>
           <ul>
-            <li>
-              <h5>희망순위</h5>
-              <div class="inputs">
-                <input type="number">
-                위
+            <li class="inputs">
+              <h5>
+                입찰목표
+                <div class="tooltip">
+                  <dl class="tooltip-content">
+                    <dd>라이브 입찰(일반, 고급)은 희망순위 또는 타겟 URL을 입찰목표로 설정할 수 있습니다.</dd>
+                    <dd>희망순위는 설정한 순위를 목표로 입찰을 진행합니다.</dd>
+                    <dd>타겟 URL은 타겟이 되는 URL를 지정하여 해당 URL 위치 바로 위나 아래를 목표로 입찰을 진행합니다.</dd>
+                  </dl>
+                </div>
+              </h5>
+              <div>
+                <input class="input-ranking" id="input-ranking-live-advanced" type="radio" name="bidding-target" checked="">
+                <label for="input-ranking-live-advanced">희망순위</label>
+                <input class="input-target" id="target-url-live-advanced" type="radio" name="bidding-target">
+                <label for="target-url-live-advanced">타겟URL</label>
+                <div class="ranking">
+                  <input type="text">위
+                </div>
+                <div class="target">
+                  <div>
+                    <input type="text">
+                    <input id="above-this-live-advanced" type="radio" name="bidding-order">
+                    <label for="above-this-live-advanced">보다 위</label>
+                    <input id="below-this-live-advanced" type="radio" name="bidding-order">
+                    <label for="below-this-live-advanced">보다 아래</label>
+                  </div>
+                  <div class="">
+                    최저순위
+                    <div class="tooltip">
+                      <div class="tooltip-content">
+                        <dl>
+                          <dd>최저순위는 이 순위 아래로는 떨어지지 않았으면 하는 순위를 의미하고, 필수 입력 항목입니다.</dd>
+                          <dd>입찰 시 최저순위 아래로 내려간 경우 입찰가를 올려 최저순위로 순위를 끌어 올립니다.</dd>
+                          <dd>PC는 15위, 모바일은 5위 이내로 설정 가능합니다.</dd>
+                        </dl>
+                      </div>
+                    </div>
+                    <input type="number" />
+                    위
+                  </div>
+                </div>
               </div>
             </li>
-            <li class="columns">
-              <div>
-                <h5>
-                  입찰기본가
-                  <div class="tooltip">
-                    <div class="tooltip-content">
-                      <dl>
-                        <dt>입찰기본가</dt>
-                        <dd>(1)입찰가를 원하는 금액으로 빠르게 조정하기 위해 설정하는 금액입니다.</dd>
-                        <dd>(2) 필수 입력 항목이 아니므로, 미사용 시 입력하지 않으셔도 됩니다.</dd>
-                        <dd>(3) 순위 확인이 불가하고 현재 입찰가보다 클 때 적용됩니다.</dd>
-                        <dd>(4) 최대입찰가보다 클 수 없습니다.</dd>
-                      </dl>
-                    </div>
+            <li>
+              <h5>
+                입찰기본가
+                <div class="tooltip">
+                  <div class="tooltip-content">
+                    <dl>
+                      <dt>입찰기본가</dt>
+                      <dd>(1)입찰가를 원하는 금액으로 빠르게 조정하기 위해 설정하는 금액입니다.</dd>
+                      <dd>(2) 필수 입력 항목이 아니므로, 미사용 시 입력하지 않으셔도 됩니다.</dd>
+                      <dd>(3) 순위 확인이 불가하고 현재 입찰가보다 클 때 적용됩니다.</dd>
+                      <dd>(4) 최대입찰가보다 클 수 없습니다.</dd>
+                    </dl>
                   </div>
-                </h5>
-                <div class="inputs">
-                  <input type="number">원
                 </div>
+              </h5>
+              <div class="inputs">
+                <input type="number">원
               </div>
-              <div>
-                <h5>
-                  최대입찰가
-                </h5>
-                <div class="inputs">
-                  <input type="number">원
-                </div>
+            </li>
+            <li>
+              <h5>
+                최대입찰가
+              </h5>
+              <div class="inputs">
+                <input type="number">원
               </div>
             </li>
           </ul>
           <ul>
-            <li class="columns">
-              <h5>입찰가액</h5>
+            <li>
+              <h5>
+                입찰가감액
+                <div class="tooltip">
+                  <dl class="tooltip-content">
+                    <dd>입찰가감액은 입찰가 조정 단위로, 필수 입력 항목입니다. 미사용 시 0원을 입력하세요.</dd>
+                    <dd>가액은 입찰가 상승 시에 적용되면, (현재순위 - 희망(목표)순위) * 가액만큼 입찰가가 조정됩니다.</dd>
+                    <dd>감액은 입찰가 하락 시나 하향입찰 시 적용되며, 감액만큼만 입찰가가 조정됩니다.</dd>
+                  </dl>
+                </div>
+              </h5>
               <div class="inputs">
-                <input type="number">
-              </div>
-              <h5>입찰감액</h5>
-              <div class="inputs">
-                <input type="number">
+                <div class="input">
+                  <h5>가액</h5>
+                  <input type="number">원
+                </div>
+                <div class="input">
+                  <h5>감액</h5>
+                  <input type="number">원
+                </div>
               </div>
             </li>
             <li>
