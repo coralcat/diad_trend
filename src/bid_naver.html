@@ -72,6 +72,7 @@
             <option value="">plays_U</option>
           </select>
         </div>
+        <button class="btn-main ico-sync" type="button"></button>
       </div>
       <ul class="details-sync">
         <li class="center">
@@ -336,15 +337,15 @@
         </div>
         <div class="filters">
           <div class="selector">
-            <input type="radio" id="list-all" name="listTabs" checked="">
+            <input type="radio" id="list-all" name="listTabs-power-link" checked="">
             <label for="list-all">전체 (1,885)</label>
-            <input type="radio" id="list-live-normal" name="listTabs">
+            <input type="radio" id="list-live-normal" name="listTabs-power-link">
             <label for="list-live-normal">라이브 일반 (1,094)</label>
-            <input type="radio" id="list-live-advanced" name="listTabs">
+            <input type="radio" id="list-live-advanced" name="listTabs-power-link">
             <label for="list-live-advanced">라이브 고급 (210)</label>
-            <input type="radio" id="list-regular-normal" name="listTabs">
+            <input type="radio" id="list-regular-normal" name="listTabs-power-link">
             <label for="list-regular-normal">레귤러 일반 (481)</label>
-            <input type="radio" id="list-not-set" name="listTabs">
+            <input type="radio" id="list-not-set" name="listTabs-power-link">
             <label for="list-not-set">미설정 (100)</label>
           </div>
         </div>
@@ -602,6 +603,7 @@
             <option value="">plays_U</option>
           </select>
         </div>
+        <button class="btn-main ico-sync" type="button"></button>
       </div>
       <ul class="details-sync">
         <li class="center">
@@ -800,8 +802,8 @@
           <div class="buttons">
             <button class="ico-download" type="button">엑셀다운</button>
             <button type="button" data-modal="searchGroup">분류조회</button>
+            <button type="button" data-modal="editGroup">분류편집</button>
             <button type="button" data-modal="">성별/연령설정</button>
-            <button type="button" data-modal="setLocation">지역설정</button>
           </div>
         </div>
         {% include "advanced_search_bidding.html" %}
@@ -866,15 +868,15 @@
         </div>
         <div class="filters">
           <div class="selector">
-            <input type="radio" id="list-all" name="listTabs" checked="">
+            <input type="radio" id="list-all" name="listTabs-shopping-items" checked="">
             <label for="list-all">전체 (1,885)</label>
-            <input type="radio" id="list-live-normal" name="listTabs">
+            <input type="radio" id="list-live-normal" name="listTabs-shopping-items">
             <label for="list-live-normal">라이브 일반 (1,094)</label>
-            <input type="radio" id="list-live-advanced" name="listTabs">
+            <input type="radio" id="list-live-advanced" name="listTabs-shopping-items">
             <label for="list-live-advanced">라이브 고급 (210)</label>
-            <input type="radio" id="list-regular-normal" name="listTabs">
+            <input type="radio" id="list-regular-normal" name="listTabs-shopping-items">
             <label for="list-regular-normal">레귤러 일반 (481)</label>
-            <input type="radio" id="list-not-set" name="listTabs">
+            <input type="radio" id="list-not-set" name="listTabs-shopping-items">
             <label for="list-not-set">미설정 (100)</label>
           </div>
         </div>
@@ -925,6 +927,9 @@
           <li class="ico-sort">
             입찰대상
           </li>
+          <li class="ico-sort">성별/연령</li>
+          <li class="ico-sort">성별설정</li>
+          <li class="ico-sort">연령설정</li>
           <li class="ico-sort">입찰기본가</li>
           <li class="ico-sort">최대입찰가</li>
           <li class="ico-sort">입찰가액</li>
@@ -989,8 +994,6 @@
           <li class="ico-sort">몰ID</li>
           <li class="ico-sort">입찰등록일</li>
           <li class="ico-sort">입찰수정일</li>
-          <li class="ico-sort">성별설정</li>
-          <li class="ico-sort">연령설정</li>
         </ul>
         <div class="rows" data-empty="상품을 등록해주세요">
           <ul class="row">
@@ -1032,6 +1035,18 @@
             </li>
             <li title="입찰대상">
               PC일반
+            </li>
+            <li title="성별/연령">
+              <div class="toggle-switch">
+                <input id="toggle-gender-age" type="checkbox">
+                <label for="toggle-gender-age"></label>
+              </div>
+            </li>
+            <li title="성별설정">
+              여성
+            </li>
+            <li title="연령설정">
+              14~18세
             </li>
             <li title="입찰기본가">
               <div class="price"></div>
@@ -1101,12 +1116,6 @@
             <li title="입찰수정일">
               2022-11-08
             </li>
-            <li title="성별설정">
-              여성
-            </li>
-            <li title="연령설정">
-              14~18세
-            </li>
           </ul>
         </div>
       </div>
@@ -1149,6 +1158,7 @@
             <option value="">plays_U</option>
           </select>
         </div>
+        <button class="btn-main ico-sync" type="button"></button>
       </div>
       <ul class="details-sync">
         <li class="center">
@@ -1413,15 +1423,15 @@
         </div>
         <div class="filters">
           <div class="selector">
-            <input type="radio" id="list-all" name="listTabs" checked="">
+            <input type="radio" id="list-all" name="listTabs-shopping-brands" checked="">
             <label for="list-all">전체 (1,885)</label>
-            <input type="radio" id="list-live-normal" name="listTabs">
+            <input type="radio" id="list-live-normal" name="listTabs-shopping-brands">
             <label for="list-live-normal">라이브 일반 (1,094)</label>
-            <input type="radio" id="list-live-advanced" name="listTabs">
+            <input type="radio" id="list-live-advanced" name="listTabs-shopping-brands">
             <label for="list-live-advanced">라이브 고급 (210)</label>
-            <input type="radio" id="list-regular-normal" name="listTabs">
+            <input type="radio" id="list-regular-normal" name="listTabs-shopping-brands">
             <label for="list-regular-normal">레귤러 일반 (481)</label>
-            <input type="radio" id="list-not-set" name="listTabs">
+            <input type="radio" id="list-not-set" name="listTabs-shopping-brands">
             <label for="list-not-set">미설정 (100)</label>
           </div>
         </div>
@@ -1457,6 +1467,9 @@
           <li class="ico-sort">
             입찰대상
           </li>
+          <li class="ico-sort">성별/연령</li>
+          <li class="ico-sort">성별설정</li>
+          <li class="ico-sort">연령설정</li>
           <li class="col-long">
             입찰예정가
             <div class="tooltip type2">
@@ -1563,6 +1576,18 @@
             </li>
             <li title="입찰대상">
               PC일반
+            </li>
+            <li title="성별/연령">
+              <div class="toggle-switch">
+                <input id="toggle-gender-age" type="checkbox">
+                <label for="toggle-gender-age"></label>
+              </div>
+            </li>
+            <li title="성별설정">
+              미설정
+            </li>
+            <li title="연령설정">
+              미설정
             </li>
             <li class="col-long" title="입찰예정가">
               <button data-modal="calculateBidPrice" type="button">
@@ -1679,6 +1704,7 @@
             <option value="">plays_U</option>
           </select>
         </div>
+        <button class="btn-main ico-sync" type="button"></button>
       </div>
       <ul class="details-sync">
         <li class="center">
