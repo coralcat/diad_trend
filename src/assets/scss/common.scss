@@ -1346,6 +1346,7 @@ input[type="radio"] {
 
   .dialog {
     min-width: 30rem;
+    width: min(600px, 30vw);
     max-width: calc(100% - 2rem);
     max-height: 90%;
     background-color: white;
