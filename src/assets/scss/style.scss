@@ -1699,6 +1699,7 @@ main {
       width: 100%;
       flex-basis: 30px;
       justify-self: flex-end;
+      text-align: right;
 
       &:focus {
         outline: 1px solid $main-color;
@@ -2383,6 +2384,10 @@ main {
           &::after {
             content: "-";
           }
+        }
+
+        &.accounts {
+          flex-wrap: nowrap;
         }
       }
     }
@@ -7209,6 +7214,8 @@ main {
       }
 
       + .caution {
+        flex: 0 0 auto;
+        width: min(400px, 100%);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
