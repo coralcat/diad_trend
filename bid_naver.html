@@ -1351,7 +1351,7 @@
             <button class="ico-download" type="button">엑셀다운</button>
             <button type="button" data-modal="searchGroup">분류조회</button>
             <button type="button" data-modal="editGroup">분류편집</button>
-            <button type="button" data-modal="">성별/연령설정</button>
+            <button type="button" data-modal="setGenderAge">성별/연령설정</button>
           </div>
         </div>
         <div class="advanced-search">
@@ -1768,14 +1768,14 @@
               <button type="button">선택한 키워드 관리</button>
               <nav>
                 <ul data-title="라이브">
-                  <li data-modal="settingsLiveNormal">일반설정</li>
-                  <li data-modal="settingsLiveNormalPart">일반부분설정</li>
-                  <li data-modal="settingsLiveAdvanced">고급설정</li>
-                  <li data-modal="settingsLiveAdvancedPart">고급부분설정</li>
+                  <li data-modal="settingsLiveNormalType2">일반설정</li>
+                  <li data-modal="settingsLiveNormalPartType2">일반부분설정</li>
+                  <li data-modal="settingsLiveAdvancedType2">고급설정</li>
+                  <li data-modal="settingsLiveAdvancedPartType2">고급부분설정</li>
                 </ul>
                 <ul data-title="레귤러">
-                  <li data-modal="settingsRegularNormal">일반설정</li>
-                  <li data-modal="settingsRegularNormalPart">일반부분설정</li>
+                  <li data-modal="settingsRegularNormalType2">일반설정</li>
+                  <li data-modal="settingsRegularNormalPartType2">일반부분설정</li>
                 </ul>
                 <ul>
                   <li>입찰실행</li>
@@ -1954,7 +1954,7 @@
               </div>
             </li>
             <li title="입찰설정">
-              <button data-modal="settingsLiveAdvanced">라이브 고급</button>
+              <button data-modal="settingsLiveAdvancedType2">라이브 고급</button>
             </li>
             <li class="col-long" title="입찰예정가">
               <button data-modal="calculateBidPrice" type="button">
@@ -2706,14 +2706,14 @@
               <button class="" type="button">선택한 키워드 관리</button>
               <nav>
                 <ul data-title="라이브">
-                  <li data-modal="settingsLiveNormal">일반설정</li>
-                  <li data-modal="settingsLiveNormalPart">일반부분설정</li>
-                  <li data-modal="settingsLiveAdvanced">고급설정</li>
-                  <li data-modal="settingsLiveAdvancedPart">고급부분설정</li>
+                  <li data-modal="settingsLiveNormalType2">일반설정</li>
+                  <li data-modal="settingsLiveNormalPartType2">일반부분설정</li>
+                  <li data-modal="settingsLiveAdvancedType2">고급설정</li>
+                  <li data-modal="settingsLiveAdvancedPartType2">고급부분설정</li>
                 </ul>
                 <ul data-title="레귤러">
-                  <li data-modal="settingsRegularNormal">일반설정</li>
-                  <li data-modal="settingsRegularNormalPart">일반부분설정</li>
+                  <li data-modal="settingsRegularNormalType2">일반설정</li>
+                  <li data-modal="settingsRegularNormalPartType2">일반부분설정</li>
                 </ul>
                 <ul>
                   <li>입찰실행</li>
@@ -2883,7 +2883,7 @@
               </div>
             </li>
             <li title="입찰설정">
-              <button data-modal="settingsLiveAdvanced">라이브 고급</button>
+              <button data-modal="settingsLiveAdvancedType2">라이브 고급</button>
             </li>
             <li title="입찰주기">
               5
@@ -4405,7 +4405,8 @@
               </div>
             </li>
             <li class="inputs">
-              <input class="input-ranking" id="input-ranking-live-normal" type="radio" name="bidding-target-live-normal" checked>
+              <input class="input-ranking" id="input-ranking-live-normal" type="radio" name="bidding-target-live-normal"
+                checked>
               <label for="input-ranking-live-normal">희망순위</label>
               <input class="input-target" id="target-url-live-normal" type="radio" name="bidding-target-live-normal">
               <label for="target-url-live-normal">타겟URL</label>
@@ -4478,6 +4479,151 @@
               <input type="number">원
               <div>감액</div>
               <input type="number">원
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              하향입찰
+              <div class="tooltip">
+                <div class="tooltip-content">
+                  <dl>
+                    <dd>하향입찰은 가장 낮은 금액으로 원하는 순위에 노출 가능하게 합니다.</dd>
+                    <dd>입력한 횟수 동안 현재순위를 확인하여 순위를 유지하면 바로 아래 순위가 될 때까지 입찰가감액의 감액만큼 입찰가를 하향 조정합니다.</dd>
+                  </dl>
+                </div>
+              </div>
+            </li>
+            <li>
+              <input id="check-bidding-down-on" type="radio" name="bidding-down-modal" />
+              <label for="check-bidding-down-on">ON</label>
+              <input id="check-bidding-down-off" type="radio" name="bidding-down-modal" />
+              <label for="check-bidding-down-off">OFF</label>
+              <input type="number">회
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" type="button" data-modal="">입찰적용</button>
+    </div>
+  </div>
+</div>
+
+<div id="settingsLiveNormalType2" class="modal" title="라이브일반설정">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>라이브 일반설정</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section>
+        <dl>
+          <dd>입찰주기는 사용하신 등급에 따라 선택조건이 달라집니다.</dd>
+          <dd>현재 회원님의 사용등급은 이므로 0분 이상 설정이 가능합니다.</dd>
+          <dd>광고센터에서 특정 연령과 성별을 광고 노출 제외 대상으로 설정할 경우 입찰이 원활하지 않을 수 있습니다. (예: 알 수 없음) 
+          </dd>
+          <dd>키워드 속성과 입찰 대상마다 입찰 가능 순위(광고 노출 위치 및 개수)가 상이하므로 희망순위 설정 시 유의하시기 바랍니다. 자세한 내용은 희망순위 옆 도움말을 확인하세요.</dd>
+          <dd>입찰가감액은 희망순위에 도달하기 위해 입찰가 조정 시 사용되며, 사용하지 않는 경우 '0'을 입력해주세요.</dd>
+          <dd>요일/시간 노출 제외 시 자동입찰 OFF 설정 필수 (고급설정 활용)</dd>
+        </dl>
+      </section>
+      <section>
+        <div class="list list-form">
+          <ul class="row">
+            <li>입찰주기</li>
+            <li>
+              <input type="text" />분
+            </li>
+          </ul>
+          <ul class="row">
+            <li>입찰대상</li>
+            <li>
+              <input id="pc-header" type="radio" name="bidding-modal">
+              <label for="pc-header">PC 상단</label>
+              <input id="pc-footer" type="radio" name="bidding-modal">
+              <label for="pc-footer">PC 하단</label>
+              <input id="mobile-header" type="radio" name="bidding-modal">
+              <label for="mobile-header">모바일 상단</label>
+              <input id="mobile-footer" type="radio" name="bidding-modal">
+              <label for="mobile-footer">모바일 하단</label>
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              성별/연령
+            </li>
+            <li>
+              <input class="input-ranking" id="input-gender-age-live-normal" type="radio" name="gender-age-live-normal"
+                checked>
+              <label for="input-gender-age-live-normal">ON</label>
+              <input class="input-target" id="target-url-live-normal" type="radio" name="gender-age-live-normal">
+              <label for="target-url-live-normal">OFF</label>
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              희망순위
+              <div class="tooltip">
+                <div class="tooltip-content">
+                  <dl>
+                    <dd>최저순위는 이 순위 아래로는 떨어지지 않았으면 하는 순위를 의미하고, 필수 입력 항목입니다.</dd>
+                    <dd>입찰 시 최저순위 아래로 내려간 경우 입찰가를 올려 최저순위로 순위를 끌어 올립니다.</dd>
+                    <dd>PC는 15위, 모바일은 5위 이내로 설정 가능합니다.</dd>
+                  </dl>
+                </div>
+              </div>
+            </li>
+            <li>
+              <input type="number" />
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              입찰기본가
+              <div class="tooltip">
+                <div class="tooltip-content">
+                  <dl>
+                    <dd>입찰기본가는 입찰가를 원하는 금액으로 빠르게 조정하기 위해 설정하는 금액입니다.</dd>
+                    <dd>순위 확인이 되지 않고 입력한 입찰기본가가 현재 입찰가보다 클 때 입찰기본가로 입찰가를 변경합니다.</dd>
+                    <dd>입찰기본가는 최대입찰가보다 클 수 없고, 선택 입력 항목입니다.</dd>
+                  </dl>
+                </div>
+              </div>
+            </li>
+            <li>
+              <input type="number" placeholder="필수 항목이 아닙니다." />원
+            </li>
+          </ul>
+          <ul class="row">
+            <li>최대입찰가</li>
+            <li>
+              <input type="number">원
+            </li>
+          </ul>
+          <ul class="row">
+            <li>
+              입찰가감액
+              <div class="tooltip">
+                <div class="tooltip-content">
+                  <dl>
+                    <dd>입찰가감액은 입찰가 조정 단위로, 필수 입력 항목입니다. 미사용 시 0원을 입력하세요.</dd>
+                    <dd>가액은 입찰가 상승 시에 적용되면, (현재순위 - 희망(목표)순위) ※ 가액만큼 입찰가가 조정됩니다.</dd>
+                    <dd>감액은 입찰가 하락 시나 하향입찰 시 적용되며, 감액만큼만 입찰가가 조정됩니다.</dd>
+                  </dl>
+                </div>
+              </div>
+            </li>
+            <li class="inputs">
+              <div>
+                <div>가액</div>
+                <input type="number">원
+              </div>
+              <div>
+                <div>감액</div>
+                <input type="number">원
+              </div>
             </li>
           </ul>
           <ul class="row">
@@ -4908,7 +5054,8 @@
                 </div>
               </h5>
               <div>
-                <input class="input-ranking" id="input-ranking-live-advanced" type="radio" name="bidding-target" checked="">
+                <input class="input-ranking" id="input-ranking-live-advanced" type="radio" name="bidding-target"
+                  checked="">
                 <label for="input-ranking-live-advanced">희망순위</label>
                 <input class="input-target" id="target-url-live-advanced" type="radio" name="bidding-target">
                 <label for="target-url-live-advanced">타겟URL</label>
@@ -5071,6 +5218,1058 @@
               </li>
               <li title="입찰감액">
                 <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">ON</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">ON</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">ON</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">ON</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">ON</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">ON</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+          </div>
+          <div class="row">
+            <ol class="inactive">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">OFF</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위"></li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price"></div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰"></li>
+            </ol>
+            <ol></ol>
+            <ol class="">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">OFF</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위"></li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price"></div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰"></li>
+            </ol>
+            <ol></ol>
+            <ol class="">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">OFF</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위"></li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price"></div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰"></li>
+            </ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol class="inactive">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">ON</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="inactive">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">ON</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="inactive">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">ON</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="inactive">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">ON</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="inactive">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">ON</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="inactive">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">ON</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="inactive">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">ON</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">ON</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="inactive"></ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">ON</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="inactive"></ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">ON</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="inactive"></ol>
+            <ol class="inactive"></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">ON</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">ON</div>
+                  <div class="tag">PC일반</div>
+                </div>
+              </li>
+              <li title="희망순위">5</li>
+              <li title="입찰기본가">
+                <div class="price"></div>
+              </li>
+              <li title="최대입찰가">
+                <div class="price">500</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price"></div>
+              </li>
+              <li title="입찰감액">
+                <div class="price"></div>
+              </li>
+              <li title="하향입찰">
+                5
+              </li>
+            </ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+          <div class="row">
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+            <ol></ol>
+          </div>
+        </div>
+        <ul class="legend">
+          <li>광고상태 ON</li>
+          <li>광고상태 OFF</li>
+          <li>M: 모바일</li>
+        </ul>
+      </section>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" type="button" data-modal="">입찰적용</button>
+    </div>
+  </div>
+</div>
+
+<div id="settingsLiveAdvancedType2" class="modal modal-advanced" title="라이브 고급설정">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>라이브 고급설정</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section class="section-advanced-search">
+        <div class="advanced-search">
+          <ul>
+            <li>
+              <h5>요일선택</h5>
+              <div class="inputs options">
+                <div class="checkbox">
+                  <input id="days-all" class="check-all" type="checkbox" name="select-days" />
+                  <label for="days-all">All</label>
+                </div>
+                <div class="checkbox">
+                  <input id="monday" type="checkbox" name="select-days" />
+                  <label for="monday">월</label>
+                </div>
+                <div class="checkbox">
+                  <input id="tuesday" type="checkbox" name="select-days" />
+                  <label for="tuesday">화</label>
+                </div>
+                <div class="checkbox">
+                  <input id="wednesday" type="checkbox" name="select-days" />
+                  <label for="wednesday">수</label>
+                </div>
+                <div class="checkbox">
+                  <input id="thursday" type="checkbox" name="select-days" />
+                  <label for="thursday">목</label>
+                </div>
+                <div class="checkbox">
+                  <input id="friday" type="checkbox" name="select-days" />
+                  <label for="friday">금</label>
+                </div>
+                <div class="checkbox">
+                  <input id="saturday" type="checkbox" name="select-days" />
+                  <label for="saturday">토</label>
+                </div>
+                <div class="checkbox">
+                  <input id="sunday" type="checkbox" name="select-days" />
+                  <label for="sunday">일</label>
+                </div>
+              </div>
+            </li>
+            <li>
+              <h5>시간선택</h5>
+              <div class="inputs options">
+                <div class="checkbox">
+                  <input id="days-all" class="check-all" type="checkbox" name="select-time" />
+                  <label for="days-all">All</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-00" type="checkbox" name="select-time" />
+                  <label for="time-00">00</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-01" type="checkbox" name="select-time" />
+                  <label for="time-01">01</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-02" type="checkbox" name="select-time" />
+                  <label for="time-02">02</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-03" type="checkbox" name="select-time" />
+                  <label for="time-03">03</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-04" type="checkbox" name="select-time" />
+                  <label for="time-04">04</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-05" type="checkbox" name="select-time" />
+                  <label for="time-05">05</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-06" type="checkbox" name="select-time" />
+                  <label for="time-06">06</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-07" type="checkbox" name="select-time" />
+                  <label for="time-07">07</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-08" type="checkbox" name="select-time" />
+                  <label for="time-08">08</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-09" type="checkbox" name="select-time" />
+                  <label for="time-09">09</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-10" type="checkbox" name="select-time" />
+                  <label for="time-10">10</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-11" type="checkbox" name="select-time" />
+                  <label for="time-11">11</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-12" type="checkbox" name="select-time" />
+                  <label for="time-12">12</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-13" type="checkbox" name="select-time" />
+                  <label for="time-13">13</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-14" type="checkbox" name="select-time" />
+                  <label for="time-14">14</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-15" type="checkbox" name="select-time" />
+                  <label for="time-15">15</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-16" type="checkbox" name="select-time" />
+                  <label for="time-16">16</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-17" type="checkbox" name="select-time" />
+                  <label for="time-17">17</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-18" type="checkbox" name="select-time" />
+                  <label for="time-18">18</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-19" type="checkbox" name="select-time" />
+                  <label for="time-19">19</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-20" type="checkbox" name="select-time" />
+                  <label for="time-20">20</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-21" type="checkbox" name="select-time" />
+                  <label for="time-21">21</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-22" type="checkbox" name="select-time" />
+                  <label for="time-22">22</label>
+                </div>
+                <div class="checkbox">
+                  <input id="time-23" type="checkbox" name="select-time" />
+                  <label for="time-23">23</label>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <h5>광고</h5>
+              <div class="inputs">
+                <input id="ads-on" type="radio" name="ads-status">
+                <label for="ads-on">사용</label>
+                <input id="ads-off" type="radio" name="ads-status">
+                <label for="ads-off">미사용</label>
+              </div>
+            </li>
+            <li>
+              <h5>자동입찰</h5>
+              <div class="inputs">
+                <input id="automated-bidding-on" type="radio" name="automated-bidding">
+                <label for="automated-bidding-on">사용</label>
+                <input id="automated-bidding-off" type="radio" name="automated-bidding">
+                <label for="automated-bidding-off">미사용</label>
+              </div>
+            </li>
+            <li>
+              <h5>입찰대상</h5>
+              <div class="inputs">
+                <input id="target-pc-normal" type="radio" name="bid-target">
+                <label for="target-pc-normal">PC통합</label>
+                <input id="target-pc-local" type="radio" name="bid-target">
+                <label for="target-pc-local">PC더보기</label>
+                <input id="target-mobile-normal" type="radio" name="bid-target">
+                <label for="target-mobile-normal">모바일통합</label>
+                <input id="target-mobile-local" type="radio" name="bid-target">
+                <label for="target-mobile-local">모바일더보기</label>
+              </div>
+            </li>
+            <li>
+              <h5>성별/연령</h5>
+              <div class="inputs">
+                <input id="gender-age-on" type="radio" name="gender-age-live-advanced" />
+                <label for="gender-age-on">ON</label>
+                <input id="gender-age-off" type="radio" name="gender-age-live-advanced" />
+                <label for="gender-age-off">OFF</label>
+              </div>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <h5>
+                희망순위
+              </h5>
+              <div class="inputs">
+                <input type="number">위
+              </div>
+            </li>
+            <li>
+              <h5>
+                입찰기본가
+                <div class="tooltip">
+                  <div class="tooltip-content">
+                    <dl>
+                      <dt>입찰기본가</dt>
+                      <dd>(1)입찰가를 원하는 금액으로 빠르게 조정하기 위해 설정하는 금액입니다.</dd>
+                      <dd>(2) 필수 입력 항목이 아니므로, 미사용 시 입력하지 않으셔도 됩니다.</dd>
+                      <dd>(3) 순위 확인이 불가하고 현재 입찰가보다 클 때 적용됩니다.</dd>
+                      <dd>(4) 최대입찰가보다 클 수 없습니다.</dd>
+                    </dl>
+                  </div>
+                </div>
+              </h5>
+              <div class="inputs">
+                <input type="number">원
+              </div>
+            </li>
+            <li>
+              <h5>
+                최대입찰가
+              </h5>
+              <div class="inputs">
+                <input type="number">원
+              </div>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <h5>
+                입찰가감액
+                <div class="tooltip">
+                  <dl class="tooltip-content">
+                    <dd>입찰가감액은 입찰가 조정 단위로, 필수 입력 항목입니다. 미사용 시 0원을 입력하세요.</dd>
+                    <dd>가액은 입찰가 상승 시에 적용되면, (현재순위 - 희망(목표)순위) * 가액만큼 입찰가가 조정됩니다.</dd>
+                    <dd>감액은 입찰가 하락 시나 하향입찰 시 적용되며, 감액만큼만 입찰가가 조정됩니다.</dd>
+                  </dl>
+                </div>
+              </h5>
+              <div class="inputs">
+                <div class="input">
+                  <h5>가액</h5>
+                  <input type="number">원
+                </div>
+                <div class="input">
+                  <h5>감액</h5>
+                  <input type="number">원
+                </div>
+              </div>
+            </li>
+            <li>
+              <h5>하향입찰</h5>
+              <div class="inputs">
+                <input id="bidding-down-on-4" type="radio" name="bidding-down-4">
+                <label for="bidding-down-on-4">사용</label>
+                <input id="bidding-down-off-4" type="radio" name="bidding-down-4">
+                <label for="bidding-down-off-4">미사용</label>
+                <input type="number">회
+              </div>
+            </li>
+            <li class="buttons">
+              <button class="btn-sub clear">
+                초기화
+              </button>
+              <button
+                class="btn-main"
+                data-modal="advancedSearch">
+                확인
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="caution">
+          <p>※ 입찰주기는 사용하신 등급에 따라 선택조건이 달라집니다.</p>
+          <p>※ 현재 회원님의 사용등급은 이므로 0분 이상 설정이 가능합니다.</p>
+          <p>※ 광고센터에서 특정 연령과 성별을 광고 노출 제외 대상으로 설정할 경우 입찰이 원활하지 않을 수 있습니다. (예: 알 수 없음) </p>
+          <p>※ 고급설정: 요일/시간대별 입찰 설정을 다르게 할 수 있습니다.</p>
+          <p>※ 템플릿 불러오기/저장하기: 설정한 입찰정보를 저장하여 추후 다른 키워드 입찰 시 보다 편리하게 입찰이 가능합니다.</p>
+          <p class="impact">※ 요일/시간 노출 제외시 자동입찰 OFF 설정 필수</p>
+        </div>
+      </section>
+      <section class="section-advanced-settings">
+        <header>
+          <div class="inputs">
+            <label for="">입찰주기</label>
+            <input type="number" />
+            분
+          </div>
+          <div class="buttons">
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="">입찰 템플릿 선택(초기화면)</option>
+                <option value="">지역설정1</option>
+                <option value="">테스트</option>
+              </select>
+            </div>
+            <button class="btn-sub" data-modal="managementTemplates">템플릿 관리</button>
+          </div>
+        </header>
+        <div class="list list-advanced-settings">
+          <ul class="row title">
+            <li>월</li>
+            <li>화</li>
+            <li>수</li>
+            <li>목</li>
+            <li>금</li>
+            <li>토</li>
+            <li>일</li>
+          </ul>
+          <div class="row">
+            <ol class="active">
+              <li title="입찰상태">
+                <div class="tags">
+                  <div class="tag">OFF</div>
+                  <div class="tag">PC상단</div>
+                </div>
+              </li>
+              <li title="성별/연령">OFF</li>
+              <li title="희망순위">1</li>
+              <li title="최대입찰가">
+                <div class="price">4,000</div>
+              </li>
+              <li title="입찰가액">
+                <div class="price">10</div>
+              </li>
+              <li title="입찰감액">
+                <div class="price">10</div>
               </li>
               <li title="하향입찰">
                 5
@@ -7478,6 +8677,130 @@
     <div class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
       <button class="btn-submit" type="button">적용</button>
+    </div>
+  </div>
+</div>
+
+<div id="setGenderAge" class="modal modal-gender-age" title="성별/연령 설정">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>성별/연령 설정</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <dl>
+        <dd>광고센터에서 성별/연령 타겟팅 시 광고 노출 제외로 설정한 성별/연령을 다이애드에서 노출 성별/연령으로 설정할 경우 입찰이 원활하지 않을 수 있습니다.</dd>
+        <dd>성별/연령설정 적용 완료 후 저장까지 클릭해야 적용된 내용으로 저장됩니다.</dd>
+      </dl>
+      <section>
+        <header>
+          <div class="filters">
+            <strong data-title="선택 그룹" class="times">0</strong>
+            <strong data-title="전체 그룹" class="times">0</strong>
+          </div>
+          <div class="inputs">
+            성별
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="">미설정</option>
+                <option value="">남성</option>
+                <option value="">여성</option>
+              </select>
+            </div>
+            연령
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="">미설정</option>
+                <option value="">14~18세</option>
+                <option value="">19~24세</option>
+                <option value="">25~29세</option>
+                <option value="">30~34세</option>
+                <option value="">35~39세</option>
+                <option value="">40~44세</option>
+                <option value="">45~49세</option>
+                <option value="">50~54세</option>
+                <option value="">55~59세</option>
+                <option value="">60세 이상</option>
+              </select>
+            </div>
+            <button class="btn-sub">적용</button>
+          </div>
+        </header>
+        <div class="list">
+          <ul class="row title">
+            <li>캠페인</li>
+            <li>광고그룹</li>
+            <li>성별</li>
+            <li>연령</li>
+          </ul>
+          <div class="rows" data-empty="그룹을 추가해주세요.">
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check0" type="checkbox" name="createKeywordCheck" />
+                  <label for="check0">쇼핑검색상품_원두</label>
+                </div>
+              </li>
+              <li>스타벅스_원두</li>
+              <li>미설정</li>
+              <li>미설정</li>
+            </ul>
+            <ul class="row">
+              <li></li>
+              <li>블루보틀_원두</li>
+              <li>여성</li>
+              <li>14~18세</li>
+            </ul>
+            <ul class="row">
+              <li></li>
+              <li>일리_원두</li>
+              <li>남성</li>
+              <li>19~24세</li>
+            </ul>
+            <ul class="row">
+              <li></li>
+              <li>테라로사_원두</li>
+              <li>여성</li>
+              <li>30~34세</li>
+            </ul>
+          </div>
+          <div class="rows" data-empty="그룹을 추가해주세요.">
+            <ul class="row">
+              <li>
+                <div class="checkbox">
+                  <input id="check0" type="checkbox" name="createKeywordCheck" />
+                  <label for="check0">쇼핑검색상품_캡슐</label>
+                </div>
+              </li>
+              <li>스타벅스_캡슐</li>
+              <li>남성</li>
+              <li>35~39세</li>
+            </ul>
+            <ul class="row">
+              <li></li>
+              <li>네스프레소_캡슐</li>
+              <li>남성</li>
+              <li>40~44세</li>
+            </ul>
+            <ul class="row">
+              <li></li>
+              <li>일리_캡슐</li>
+              <li>여성</li>
+              <li>45~49세</li>
+            </ul>
+            <ul class="row">
+              <li></li>
+              <li>폴바셋_캡슐</li>
+              <li>남성</li>
+              <li>60세 이상</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="buttons">
+      <button class="btn-cancel close" type="button">취소</button>
+      <button class="btn-submit" type="button">저장</button>
     </div>
   </div>
 </div>
