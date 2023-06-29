@@ -151,6 +151,13 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     background: transparent; /* make scrollbar transparent */
   }
 
+  header {
+
+    .my-plan {
+      padding: .5rem;
+    }
+  }
+
   html {
     overflow: hidden;
 
@@ -318,7 +325,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       }
     }
 
-    &-checkboxes {
+    &-sortable {
       .inputs {
         .checkbox {
           width: calc(50% - 0.25rem);
