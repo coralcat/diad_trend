@@ -3,7 +3,7 @@
 <main class="content-bidding naver">
   <header class="content-header">
     <ul class="tabs">
-      <li data-tab="naver">
+      <li class="is-active" data-tab="naver">
         파워링크
       </li>
       <li data-tab="naver">
@@ -58,7 +58,7 @@
       {% include "account.html" %}
     </div>
   </header>
-  <div class="tab-content content-naver-power-link" data-tab="naver">
+  <div class="tab-content is-active content-naver-power-link" data-tab="naver">
     <section class="section-account">
       <h2>samda_C</h2>
       <div class="sync">
@@ -350,7 +350,7 @@
           </div>
         </div>
       </header>
-      <div class="list sticky">
+      <div class="list">
         <ul class="row title">
           <li class="col-check">
             <div class="checkbox">
@@ -364,7 +364,7 @@
           </li>
           <li>
             입찰설정
-            <div data-tooltip="startingBid">
+            <div data-tooltip="bidSettings">
           </li>
           <li>
             입찰주기
@@ -872,7 +872,7 @@
           </div>
         </div>
       </header>
-      <div class="list sticky">
+      <div class="list">
         <ul class="row title">
           <li class="col-check">
             <div class="checkbox">
@@ -1004,8 +1004,129 @@
                 <div class="title">쥬련제작소 30수 170g 프렌치 코마사 목욕 수건 5장 세트</div>
               </div>
             </li>
-            <li class="col-keyword">
+            <li class="col-keyword" title="희망키워드">
               <div class="keyword">어린이집수건</div>
+            </li>
+            <li title="입찰상태">
+              <div class="toggle-switch">
+                <input id="toggle-bidding-down" type="checkbox">
+                <label for="toggle-bidding-down"></label>
+              </div>
+            </li>
+            <li title="입찰설정">
+              <button data-modal="settingsLiveAdvancedType2">라이브 고급</button>
+            </li>
+            <li class="col-long" title="입찰예정가">
+              <button data-modal="calculateBidPrice" type="button">
+                1위 평균 입찰가 (1,300 / 1,300)
+              </button>
+            </li>
+            <li title="입찰주기">
+              5
+            </li>
+            <li title="입찰대상">
+              PC일반
+            </li>
+            <li title="성별/연령">
+              <div class="toggle-switch">
+                <input id="toggle-gender-age" type="checkbox">
+                <label for="toggle-gender-age"></label>
+              </div>
+            </li>
+            <li title="성별설정">
+              여성
+            </li>
+            <li title="연령설정">
+              14~18세
+            </li>
+            <li title="입찰기본가">
+              <div class="price"></div>
+            </li>
+            <li title="최대입찰가">
+              <div class="price">
+                1,000
+              </div>
+            </li>
+            <li title="입찰가액">
+              <div class="price"></div>
+            </li>
+            <li title="입찰감액">
+              <div class="price"></div>
+            </li>
+            <li title="입찰목표">
+              3
+            </li>
+            <li title="하향입찰">
+              OFF
+            </li>
+            <li title="입찰가">
+              <div class="price"></div>
+            </li>
+            <li title="현재순위"></li>
+            <li title="최저순위"></li>
+            <li title="입찰">
+              <div>
+                <span>실패</span>
+                <button data-modal="biddingHistory">이력</button>
+              </div>
+            </li>
+            <li title="입찰결과">입찰진행</li>
+            <li title="분류명"></li>
+            <li title="키워드상태">
+              <div class="tag type-text">노출가능</div>
+              <span>ON</span>
+            </li>
+            <li title="광고그룹">
+              광고그룹#1
+            </li>
+            <li title="그룹상태">
+              <div class="tag type-text">노출가능</div>
+              <span>ON</span>
+            </li>
+            <li title="캠페인">
+              리빙윈도 겸용
+            </li>
+            <li title="캠페인상태">
+              <div class="tag type-text">노출가능</div>
+              <span>ON</span>
+            </li>
+            <li class="col-id" title="소재 ID">
+              <div>
+                nad-a001-02-000000092537768
+              </div>
+            </li>
+            <li title="쇼핑상품ID">
+              82278506728
+            </li>
+            <li title="몰ID">
+              4733985264
+            </li>
+            <li title="입찰등록일">
+              2022-04-12
+            </li>
+            <li title="입찰수정일">
+              2022-11-08
+            </li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-01" name="select-item" type="checkbox" />
+                <label for="check-01"></label>
+              </div>
+            </li>
+            <li title="상품" class="col-title item">
+              <div class="image" onclick="location.href='ranking_details.html'">
+                <img src="https://shopping-phinf.pstatic.net/main_8227850/82278506728.9.jpg" alt="" />
+              </div>
+              <div class="information">
+                <a class="item-mid" href="https://search.shopping.naver.com/gate.nhn?id=33257516674"
+                  target="_blank">33257516674</a>
+                <div class="title">쥬련제작소 30수 170g 프렌치 코마사 목욕 수건 5장 세트</div>
+              </div>
+            </li>
+            <li class="col-keyword" title="희망키워드">
+              <button data-modal="desiredKeyword">키워드등록</button>
             </li>
             <li title="입찰상태">
               <div class="toggle-switch">
@@ -1427,7 +1548,7 @@
           </div>
         </div>
       </header>
-      <div class="list sticky">
+      <div class="list">
         <ul class="row title">
           <li class="col-check">
             <div class="checkbox">
@@ -1960,7 +2081,7 @@
           </div>
         </div>
       </header>
-      <div class="list sticky">
+      <div class="list">
         <ul class="row title">
           <li class="col-check">
             <div class="checkbox">
