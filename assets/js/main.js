@@ -3,6 +3,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const loader = document.querySelector(".spinner-loader");
   const container = document.querySelector(".container");
+  const app = document.getElementById("app");
   const scrollToTop = document.createElement("div");
   scrollToTop.classList.add("scroll-to-top");
 
@@ -63,26 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
     container 내부 요소들 클래스명 변화 감지 (scroll to top 제외)
   ===================================================== */
-  // const mutationObserver = new MutationObserver((mutation) => {
+  const mutationObserver = new MutationObserver((mutations) => {
     const main = document.querySelector("main");
-
-    // 목록화면 - 사용자 지정 보기
-    const sortableModal = document.querySelector(".modal-sortable");
-    if (sortableModal) {
-
-      const handleCheckPinned = (event) => {
-        event.target.closest("li").classList.toggle("pinned");
-        if(event.target.classList.contains("is-active")) {
-
-        } else {
-        }
-      }
-      
-      const pins = sortableModal.querySelectorAll(".ico-pin");
-      pins.forEach((pin) => {
-        pin.addEventListener("click", handleCheckPinned)
-      });
-    }
 
     // 스크롤 맨 위로
     if (main) {
@@ -126,23 +109,16 @@ document.addEventListener("DOMContentLoaded", () => {
       Checkbox
     ===================================================== */
     // 체크박스 애니메이션 효과
-    document.querySelectorAll(".checkbox:not(.modal .checkbox)").forEach((checkbox) => {
+    document.querySelectorAll(".checkbox").forEach((checkbox) => {
       if (!checkbox.querySelector("svg")) {
         checkbox.insertAdjacentHTML(
           "beforeend",
           `<svg width="15px" height="10px">
-                <polyline points="1,5 6,9 14,1"></polyline>
-              </svg>`
+              <polyline points="1,5 6,9 14,1"></polyline>
+            </svg>`
         );
       }
     });
-    /* document.querySelectorAll(".checkbox:not(.modal .checkbox)").forEach((checkbox) => {
-          checkbox.innerHTML += `
-          <svg width="15px" height="10px">
-            <polyline points="1,5 6,9 14,1"></polyline>
-          </svg>
-          `;
-        }); */
 
     // 체크박스 모두 체크
     const checkAll = document.querySelectorAll(".check-all");
@@ -154,7 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
           checkboxes.forEach((checkbox) => {
             checkbox.checked = all.checked;
-
           });
         };
         all.addEventListener("click", handleCheckAll);
@@ -181,14 +156,22 @@ document.addEventListener("DOMContentLoaded", () => {
     /* =====================================================
           Toggle
         ===================================================== */
-    const toggles = document.querySelectorAll(".toggle");
-    if (toggles[0]) {
+    const toggles = document.querySelectorAll("[data-toggle]");
+    const handleToggleContent = (event) => {
+      event.stopPropagation();
+      const toggleName = event.target.dataset.toggle;
+      const toggles = document.querySelectorAll(`[data-toggle='${toggleName}']`);
+
       toggles.forEach((toggle) => {
-        toggle.addEventListener("click", (event) => {
-          event.target.classList.toggle("is-active");
-        });
+        toggle.classList.contains("is-active")
+          ? toggle.classList.remove("is-active")
+          : toggle.classList.add("is-active");
       });
-    }
+    };
+
+    toggles.forEach((toggle) => {
+      toggle.addEventListener("click", handleToggleContent);
+    });
 
     /* =====================================================
       Accordion
@@ -206,7 +189,6 @@ document.addEventListener("DOMContentLoaded", () => {
           Tab Menu
         ===================================================== */
     const tabs = document.querySelectorAll(".tabs li");
-    const tabContents = document.querySelectorAll(".tab-content");
 
     const showTabContent = (event) => {
       event.stopPropagation();
@@ -219,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
         [...tabs].indexOf(tab) === menuIndex ? tab.classList.add("is-active") : tab.classList.remove("is-active");
       });
 
-      tabContents &&
+      tabContents[0] &&
         tabContents.forEach((content) => {
           [...tabContents].indexOf(content) === 0 && content.classList.add("is-active");
           [...tabContents].indexOf(content) === menuIndex
@@ -229,8 +211,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     tabs.forEach((tab) => {
-      [...tabs][0].classList.add("is-active");
-      [...tabContents][0].classList.add("is-active");
+      // [...tabs][0].classList.add("is-active");
+      // [...tabContents][0].classList.add("is-active");
       tab.addEventListener("click", showTabContent);
     });
 
@@ -238,19 +220,20 @@ document.addEventListener("DOMContentLoaded", () => {
           Target Smooth Scroll
         ===================================================== */
     // 상품 최저가 리포트: 일별 최저가 차트 클릭시
-    if (main.classList.contains("content-lowest-price-details")) {
+    if (main && main.classList.contains("content-lowest-price-details")) {
       const anchors = document.querySelectorAll("a[href^='#']");
       anchors.forEach((anchor) => {
-        anchor.addEventListener("click", () => {
-          anchor.getAttribute("href").scrollIntoView({
+        const smoothScrolling = (event) => {
+          event.target.getAttribute("href").scrollIntoView({
             behavior: "smooth",
           });
-        });
+        };
+        anchor.addEventListener("click", smoothScrolling);
       });
     }
 
     // 메인 대시보드 스크롤 효과
-    if (main.classList.contains("content-dashboard")) {
+    if (main && main.classList.contains("content-dashboard")) {
       if (matchMedia("screen and (min-width: 1280px)").matches) {
         const contents = [...document.querySelectorAll(".tab-content")];
 
@@ -259,19 +242,17 @@ document.addEventListener("DOMContentLoaded", () => {
           threshold: 0.75,
         };
 
-        const callback = (entries, observer) => {
+        const callback = (entries) => {
           entries.forEach((entry) => {
-            if (entry.intersectionRatio >= 0.75) {
-              event.target.classList.add("is-active");
-            } else {
-              event.target.classList.remove("is-active");
-            }
+            entry.intersectionRatio >= 0.75
+              ? entry.target.classList.add("is-active")
+              : entry.target.classList.remove("is-active");
           });
         };
 
         const observer = new IntersectionObserver(callback, options);
 
-        contents.forEach((content, index) => {
+        contents.forEach((content) => {
           const sections = [...content.children];
 
           sections.forEach((section, index) => {
@@ -282,8 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         const scrollDown = document.querySelector(".scroll-down");
-
-        const handleTabContents = (event, index) => {
+        const handleTabContents = () => {
           if (contents[0].classList.contains("is-active")) {
             contents[0].classList.remove("is-active");
             contents[1].classList.add("is-active");
@@ -362,7 +342,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 알림 서비스 설정 전체해제 (다른 데에서도 재사용 가능)
-    const dataToggles = document.querySelectorAll("[data-toggle]");
+    /*     const dataToggles = document.querySelectorAll("[data-toggle]");
     const controllers = document.querySelectorAll(".toggle-controller");
     controllers.forEach((controller) => {
       controller.addEventListener("click", (event) => {
@@ -382,7 +362,7 @@ document.addEventListener("DOMContentLoaded", () => {
           });
         }
       });
-    });
+    }); */
 
     // 알림 매체 설정 disabled 처리
     const changeAlarmInformation = document.querySelector(".content-settings .change-information");
@@ -435,11 +415,7 @@ document.addEventListener("DOMContentLoaded", () => {
         initialize();
         if (event.target.id === "checkNaverList") {
           if (event.target.checked === true) {
-            if (checkGoogle.checked === true) {
-              list.classList.add("all");
-            } else {
-              list.classList.add("naver");
-            }
+            checkGoogle.checked === true ? list.classList.add("all") : list.classList.add("naver");
           } else if (checkGoogle.checked === true) {
             list.classList.add("google");
           } else {
@@ -449,11 +425,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (event.target.id === "checkGoogleList") {
           if (event.target.checked === true) {
-            if (checkNaver.checked === true) {
-              list.classList.add("all");
-            } else {
-              list.classList.add("google");
-            }
+            checkNaver.checked === true ? list.classList.add("all") : list.classList.add("google");
           } else if (checkNaver.checked === true) {
             list.classList.add("naver");
           } else {
@@ -469,13 +441,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 키워드 트렌드 리포트 - 키워드 콘텐츠 스크롤 올리기
-    const pagination = document.querySelectorAll(".pagination");
+    const pagination = document.querySelectorAll(".tab-content .pagination");
     if (pagination[0]) {
       pagination.forEach((pages) => {
-        pages.addEventListener("click", (event) => {
+        const scrollingToTop = (event) => {
           const wrapper = event.target.closest(".tab-content");
           wrapper.querySelector(".list").scrollTop = 0;
-        });
+        };
+        pages.addEventListener("click", scrollingToTop);
       });
     }
 
@@ -484,37 +457,10 @@ document.addEventListener("DOMContentLoaded", () => {
       ===================================================== */
     const modals = document.querySelectorAll(".modal");
 
-    const alertModal = document.createElement("div");
-    alertModal.classList.add("modal", "modal-alert");
-    alertModal.innerHTML = `
-          <div class="dialog">
-            <div class="modal-content"></div>
-            <div class="buttons">
-              <button class="btn-submit close" type="button">확인</button>
-            </div>
-          </div>
-        `;
-
-    const confirmModal = document.createElement("div");
-    confirmModal.classList.add("modal", "modal-confirm");
-    confirmModal.innerHTML = `
-          <div class="dialog">
-            <header class="modal-header">
-              <div class="close"></div>
-            </header>
-            <div class="modal-content"></div>
-            <div class="buttons">
-              <button class="btn-cancel close" type="button">아니오</button>
-              <button class="btn-submit" type="button">예</button>
-            </div>
-          </div>
-        `;
-
-    container.appendChild(confirmModal);
-    container.appendChild(alertModal);
-
-    const alertModalContent = alertModal.querySelector(".modal-content");
-    const confirmModalContent = confirmModal.querySelector(".modal-content");
+    const alertModal = document.querySelector(".modal-alert");
+    const confirmModal = document.querySelector(".modal-confirm");
+    const alertModalContent = document.querySelector(".modal-alert .modal-content");
+    const confirmModalContent = document.querySelector(".modal-confirm .modal-content");
 
     // Modal Messages
     const modalMessage = {
@@ -707,7 +653,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Basic Modal
-    const modalButtons = document.querySelectorAll("[data-modal]");
+    const modalButtons = document.querySelectorAll("[data-modal='desiredKeyword']");
     modalButtons.forEach((button) => {
       button.addEventListener("click", openModal);
 
@@ -739,8 +685,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       modal.classList.contains("modal-apply") && initialize();
 
-      if (modal.classList.contains("modal-advanced")) {
-        const modalInputs = modal.querySelectorAll("input");
+      const modalInputs = modal.querySelectorAll("input");
+      modalInputs[0] &&
         modalInputs.forEach((input) => {
           if (input.type === "checkbox") {
             input.checked = false;
@@ -754,14 +700,111 @@ document.addEventListener("DOMContentLoaded", () => {
             input.value = "";
           }
         });
-      }
     };
 
     const closeButtons = document.querySelectorAll(".modal .close");
-    if (closeButtons) {
+    if (closeButtons[0]) {
       closeButtons.forEach((close) => {
         close.addEventListener("click", closeModal);
       });
+    }
+
+    // 목록화면 - 사용자 지정 보기
+    const sortableModal = document.querySelector(".modal-sortable");
+    if (sortableModal) {
+      setTimeout(() => {
+        const mainRows = document.querySelectorAll("main .tab-content.is-active .list ul:not(.modal ul)");
+        const pinned = sortableModal.querySelectorAll(".ico-pin.is-active");
+        pinned.forEach((pin) => pin.closest("li").classList.add("pinned"));
+
+        // 핀을 클릭하면
+        const handleCheckPinned = (event) => {
+          const lists = sortableModal.querySelectorAll(".inputs li");
+          const targetList = event.target.closest("li");
+          const targetIndex = [...lists].indexOf(targetList);
+
+          // 6번째 이상의 리스트에서는 핀해제 및 아이콘 숨김
+          lists.forEach((list) => {
+            if ([...lists].indexOf(list) > 4) {
+              list.classList.remove("pinned");
+              list.querySelector(".ico-pin").classList.remove("is-active");
+            }
+          });
+
+          // 내가 누른 핀이 활성화되는 경우
+          if (event.target.classList.contains("is-active")) {
+
+            // 해당 리스트 고정
+            targetList.classList.add("pinned");
+
+            // 해당 핀보다 이전 순번의 리스트들은 전부 고정 기능 활성화
+            lists.forEach((list, index) => {
+              if (index <= targetIndex) {
+                list.classList.add("pinned");
+                list.querySelector(".ico-pin").classList.add("is-active");
+                // 체크해제 금지
+                list.querySelector("input").checked = true;
+                list.querySelector("input").disabled = true;
+              }
+            });
+
+            // 고정할 때 왼쪽에서 얼만큼 이동할건지 list title의 폭값을 활용
+            let width = 40;
+            const mainTitleLists = [...mainRows][0].querySelectorAll("li");
+            mainTitleLists.forEach((list, index) => {
+              if (index > 0 && index <= targetIndex + 1) {
+                list.classList.add("sticky");
+                width += list.offsetWidth;
+                finalWidth = width - [...mainTitleLists][index].offsetWidth;
+                list.style.left = `${finalWidth}px`;
+              }
+            });
+
+            mainRows.forEach((row, index) => {
+              if (index > 0) {
+                const mainLists = row.querySelectorAll("li");
+                mainLists.forEach((list, index) => {
+                  // 팝업과 달리 메인목록에는 체크박스 컬럼이 하나 더 있기 때문에 + 1
+                  if (index <= targetIndex + 1) {
+                    list.classList.add("sticky");
+                    [...mainLists][index].style.left = [...mainTitleLists][index].style.left;
+                  }
+                });
+              }
+            });
+          }
+
+          // 내가 누른 핀이 비활성화되는 경우
+          else {
+            // 해당 리스트 고정 해제
+            targetList.classList.remove("pinned");
+            lists.forEach((list, index) => {
+              // 해당 핀보다 이전 순번의 리스트들은 전부 고정 기능 비활성화
+              if (index >= [...lists].indexOf(targetList)) {
+                list.classList.remove("pinned");
+                list.querySelector(".ico-pin").classList.remove("is-active");
+                list.querySelector("input").disabled = false;
+
+                mainRows.forEach((row) => {
+                  const mainLists = row.querySelectorAll("li");
+                  mainLists.forEach((list) => {
+                    // 핀해제한 리스트와 그 이상은 전부 고정 해제
+                    if ([...mainLists].indexOf(list) >= index) {
+                      list.classList.remove("sticky");
+                      list.style.removeProperty("left");
+                    }
+                  });
+                });
+              }
+            });
+          }
+        };
+
+        const pins = sortableModal.querySelectorAll(".ico-pin");
+        pins.forEach((pin) => {
+          pin.addEventListener("click", handleCheckPinned);
+        });
+      }, 100);
     }
 
     /* =====================================================
@@ -991,12 +1034,40 @@ document.addEventListener("DOMContentLoaded", () => {
         button &&
           button.addEventListener("click", () => {
             initialize();
-            search.classList.toggle("is-active");
           });
       });
     }
-  // });
+
+    const lists = document.querySelectorAll(".list");
+    lists.forEach((list) => {
+      mutationObserver.observe(list, {
+        childList: true,
+        characterData: true,
+      });
+    });
+
+    const tabContents = document.querySelectorAll(".tab-content");
+    tabContents.forEach((content) => {
+      mutationObserver.observe(content, {
+        childList: true,
+        characterData: true,
+      });
+    });
+
+    modals.forEach((modal) => {
+      mutationObserver.observe(modal, {
+        childList: true,
+        subtree: true,
+      });
+    });
+  });
+
+  mutationObserver.observe(container, {
+    childList: true,
+    characterData: true,
+  });
 });
+
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".container");
   const modals = document.querySelectorAll(".modal");
