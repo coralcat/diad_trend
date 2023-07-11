@@ -2019,7 +2019,7 @@
   </div>
 </div>
 
-<div id="selectColumns" class="modal modal-sortable is-active" title="사용자지정보기">
+<div id="selectColumns" class="modal modal-sortable" title="사용자지정보기">
   <div class="dialog">
     <header class="modal-header">
       <h3>사용자 지정 보기</h3>
@@ -2247,6 +2247,35 @@
           </div>
         </div>
       </section>
+    </div>
+    <footer class="buttons"><button type="button"> 저장 </button></footer>
+  </div>
+</div>
+
+<div id="uploadAnExcelFile" class="modal modal-ulpload" title="주문통계(엑셀업로드)">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>분류편집</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section>
+        <dl>
+          <dd>
+            주문통계는 ESMPLUS에서 관리하는 전체주문 엑셀파일을 업로드하여 요일별/시간별 판매 현황을 확인 하실 수 있는 통계지표입니다.
+          </dd>
+          <dd>
+            다이애드PRO 고급설정 진행 시 통계지표를 활용하세요. 주문통계는 데이터 저장없이 일회성으로 확인하실 수 있습니다.
+          </dd>
+        </dl>
+      </section>
+      <div class="inputs">
+        <div class="input">
+          <input id="newDivisionInput" type="text" placeholder="파일을 선택해주세요.">
+          <span class="x"></span>
+        </div>
+        <button class="btn-sub" type="button">파일 선택</button>
+      </div>
     </div>
     <footer class="buttons"><button type="button"> 저장 </button></footer>
   </div>

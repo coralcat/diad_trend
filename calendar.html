@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>다이애드 TREND</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+  <script src="assets/lib/amcharts/index.js"></script>
+  <script src="assets/lib/amcharts/responsive.js"></script>
+  <script src="assets/lib/amcharts/xy.js"></script>
+  <script src="assets/lib/amcharts/percent.js"></script>
+  <script src="assets/lib/amcharts/animated.js"></script>
+  <script src="assets/lib/jquery/jquery-3.6.0.js"></script>
+  <script src="assets/lib/jquery/jquery-ui-1.13.0.js"></script>
+  <script src="assets/js/main.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header responsive">
+      <a href="index.html" class="logo"></a>    
+      <nav>
+        <ul>
+          <li>
+            <div href="#" class="username" target="_blank">
+              <menu>coralcat</menu>
+              <ul>
+                <li onclick="location.href='accounts.html'">계정 설정</li>
+                <li onclick="location.href='settings.html'">알림 설정</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="hamburg-menu">
+        <svg viewBox="0 0 100 100" width="80">
+          <path d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40"></path>
+          <path d="m 30,50 h 40"></path>
+          <path d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40"></path>
+        </svg>
+      </div>
+    </header>
+    
+
+
+<aside class="aside">
+  <div class="buttons">
+    <a href="index.html" class="logo"></a>
+    <button class="aside-handler">
+      <svg viewBox="0 0 100 100" width="80">
+        <path d="m 30,33 h 40 c 0,0 8.5,-0.68551 8.5,10.375 0,8.292653 -6.122707,9.002293 -8.5,6.625 l -11.071429,-11.071429" />
+        <path d="m 70,50 h -40" />
+        <path d="m 30,67 h 40 c 0,0 8.5,0.68551 8.5,-10.375 0,-8.292653 -6.122707,-9.002293 -8.5,-6.625 l -11.071429,11.071429" />
+      </svg>
+    </button>
+  </div>
+  <nav>
+    <div class="   ">
+      <menu>
+        <i class="ico-ranking" onclick="location.href='tracking.html'"></i>
+        <a href='tracking.html'">스토어</a>
+      </menu>
+      <ul>
+        <li class="gmarket ">
+          <a href='track_gmarket.html'">지마켓 판매량 추적</a>
+        </li>
+        <li class="naver ">
+          <a href='ranking.html'">네이버 순위 추적</a>
+        </li>
+        <li class="naver ">
+          <a href='lowest_price.html'">네이버 최저가 추적</a>
+        </li>
+      </ul>
+    </div>
+    <div class="    ">
+      <menu>
+        <i class="ico-price" onclick="location.href='bidding.html'"></i>
+        <a href='bidding.html'">자동입찰</a>
+      </menu>
+      <ul>
+        <li class="naver ">
+          <a href='bid_naver.html'">네이버</a>
+        </li>
+        <li class="eleventh ">
+          <a href='bid_11st.html'">11번가</a>
+        </li>
+        <li class="gmarket ">
+          <a href='bid_gmarket.html'">지마켓 파워클릭</a>
+        </li>
+        <li class="google ">
+          <a href='bid_google.html'">구글 검색광고</a>
+        </li>
+      </ul>
+    </div>
+    <div class="">
+      <menu>
+        <i class="ico-trend"></i>
+        <a href='keyword.html'">키워드 분석</a>
+      </menu>
+    </div>
+    <div>
+      <menu>
+        <i class="ico-calendar"></i>
+        <a href='calendar.html'">다이애드 캘린더</a>
+      </menu>
+    </div>
+    <div>
+      <menu>
+        <i class="ico-ranking"></i>
+        <a class="ico-link" onclick="window.open('https://blog.diad.co.kr/manual')">다이애드 매뉴얼</a>
+      </menu>
+    </div>
+    <div style="display: none;">
+      <menu>
+        <i class="ico-ranking"></i>
+        <span>다이애드 +</span>
+      </menu>
+      <ul>
+        <li>
+          <span>다이애드 캘린더</span>
+        </li>
+        <li>
+          <span onclick="window.open('https://blog.diad.co.kr/manual')">다이애드 매뉴얼</span>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <nav style="display: none;">
+    <a class="" href="ranking.html">
+      <i class="ico-ranking"></i>
+      <span>상품 순위 추적</span>
+    </a>
+    <a class="" href="lowest_price.html">
+      <i class="ico-price"></i>
+      <span>최저가 알림</span>
+    </a>
+    <a class="" href="keyword.html">
+      <i class="ico-trend"></i>
+      <span>키워드 트렌드</span>
+    </a>
+    <a class="" href="settings.html">
+      <i class="ico-alarm"></i>
+      <span>알림설정</span>
+    </a>
+  </nav>
+  <ul class="account">
+    <li>
+      <button class="username" title="계정설정" onclick="location.href='accounts.html'">coralcat</button>
+    </li>
+    <li>
+      <button class="ico-cog" title="알람설정" onclick="location.href='settings.html'"></button>
+      <button>logout</button>
+    </li>
+  </ul>
+</aside>
+
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.8/index.global.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/web-component@6.1.8/index.global.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.8/index.global.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/list@6.1.8/index.global.min.js"></script>
+<main class="content-calendar">
+  <header class="content-header">
+    <div class="title">
+      <h1>
+        다이애드 캘린더
+      </h1>
+      <div href="#" class="username" target="_blank">
+  <menu>coralcat</menu>
+  <nav>
+    <ul>
+      <li onclick="location.href='accounts.html'">계정 설정</li>
+      <li onclick="location.href='settings.html'">알림 설정</li>
+      <li>로그아웃</li>
+    </ul>
+  </nav>
+</div>
+    </div>
+    <div class="title">
+      <ul class="tabs main-tabs">
+        <li data-tab="calendar" class="is-active">
+          달력 보기
+        </li>
+        <li data-tab="calendar">
+          목록 보기
+        </li>
+      </ul>
+      <button class="btn-main">
+        이벤트 추가
+      </button>
+    </div>
+  </header>
+  <div class="tab-content is-active" data-tab="calendar">
+    <section>
+      <full-calendar id="calendar" />
+    </section>
+  </div>
+  <div class="tab-content" data-tab="calendar">
+    <section>
+      <list id="list" />
+    </section>
+  </div>
+</main>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const calendarEl = document.querySelector("full-calendar");
+    calendarEl.options = {
+      headerToolbar: {
+        left: "title",
+        center: "",
+        right: "dayGridMonth, listMonth"
+      },
+      events: [
+        {
+          title: "전체 회의",
+          start: "2023-07-14",
+          end: "2023-07-14",
+          color: "#5048d7"
+        },
+        {
+          title: "키워드 검색광고 관리",
+          start: "2023-07-20",
+          end: "2023-07-22",
+          color: "#5048d7"
+        },
+        {
+          title: "매체별 광고현황 보고서 작성",
+          start: "2023-07-18",
+          end: "2023-07-21",
+          color: "#7682f8"
+        },
+      ],
+      eventColor: "#7682f8",
+    }
+
+    var listEl = document.querySelector("list");
+    listEl.options = {
+      headerToolbar: {
+        left: "title",
+        center: "",
+        right: "dayGridMonth, listMonth"
+      },
+      events: [
+        {
+          title: "전체 회의",
+          start: "2023-07-14",
+          end: "2023-07-14",
+        },
+        {
+          title: "키워드 검색광고 관리",
+          start: "2023-07-20",
+          end: "2023-07-22",
+        },
+        {
+          title: "매체별 광고현황 보고서 작성",
+          start: "2023-07-18",
+          end: "2023-07-21",
+        },
+      ],
+      eventColor: "#7682f8"
+    }
+  })
+</script>
+
+  </div>
+</body>
+
+</html>

@@ -1,11 +1,5 @@
-/** @format */
-
 document.addEventListener("DOMContentLoaded", () => {
-  const loader = document.querySelector(".spinner-loader");
   const container = document.querySelector(".container");
-  const app = document.getElementById("app");
-  const scrollToTop = document.createElement("div");
-  scrollToTop.classList.add("scroll-to-top");
 
   // 휴대기기 높이값 변경
   let vh = window.innerHeight * 0.01;
@@ -31,20 +25,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const asideHandler = document.querySelector(".aside-handler");
-  asideHandler.addEventListener("click", () => {
+  const handleAside = () => {
     if (matchMedia("screen and (max-width: 640px)").matches) {
       aside.classList.remove("is-active");
       hamburgMenu.classList.remove("is-active");
     } else {
       aside.classList.contains("icons-only") ? aside.classList.remove("icons-only") : aside.classList.add("icons-only");
     }
-  });
+  };
+  asideHandler.addEventListener("click", handleAside);
 
   /* =====================================================
     브라우저 리사이징 감지
   ===================================================== */
   const ro = new ResizeObserver((entries) => {
-    const aside = document.querySelector(".aside");
     window.requestAnimationFrame(() => {
       if (!Array.isArray(entries) || !entries.length) {
         return;
@@ -64,21 +58,18 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
     container 내부 요소들 클래스명 변화 감지 (scroll to top 제외)
   ===================================================== */
+  const scrollToTop = document.createElement("div");
+  scrollToTop.classList.add("scroll-to-top");
   const mutationObserver = new MutationObserver((mutations) => {
     const main = document.querySelector("main");
 
     // 스크롤 맨 위로
     if (main) {
-      main.appendChild(scrollToTop);
       let lastScrollTop = 0;
+      main.appendChild(scrollToTop);
 
-      scrollToTop.addEventListener("click", () => {
-        main.scrollTo({ top: 0, behavior: "smooth" });
-      });
-
-      main.addEventListener("scroll", () => {
+      const handleScrollToTop = () => {
         let currentScrollTop = main.scrollTop;
-
         if (currentScrollTop > 50) {
           currentScrollTop > lastScrollTop
             ? scrollToTop.classList.remove("is-active")
@@ -87,22 +78,12 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           scrollToTop.classList.remove("is-active");
         }
+      };
+      main.addEventListener("scroll", handleScrollToTop);
+
+      scrollToTop.addEventListener("click", () => {
+        main.scrollTo({ top: 0, behavior: "smooth" });
       });
-
-      if (matchMedia("screen and (max-width: 640px)")) {
-        main.addEventListener("scroll", () => {
-          let currentScrollTop = main.scrollTop;
-
-          if (currentScrollTop > 50) {
-            currentScrollTop > lastScrollTop
-              ? scrollToTop.classList.remove("is-active")
-              : scrollToTop.classList.add("is-active");
-            lastScrollTop = currentScrollTop;
-          } else {
-            scrollToTop.classList.remove("is-active");
-          }
-        });
-      }
     }
 
     /* =====================================================
@@ -122,24 +103,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 체크박스 모두 체크
     const checkAll = document.querySelectorAll(".check-all");
-    if (checkAll[0]) {
-      checkAll.forEach((all) => {
-        const handleCheckAll = (event) => {
-          const inputName = event.target.getAttribute("name"); //createKeywordCheckAll
-          const checkboxes = document.getElementsByName(inputName); // 인풋전체
-
-          checkboxes.forEach((checkbox) => {
-            checkbox.checked = all.checked;
-          });
-        };
-        all.addEventListener("click", handleCheckAll);
-      });
-    }
+    checkAll.forEach((all) => {
+      const handleCheckAll = (event) => {
+        const inputName = event.target.getAttribute("name");
+        const checkboxes = document.getElementsByName(inputName);
+        checkboxes.forEach((checkbox) => {
+          checkbox.checked = all.checked;
+        });
+      };
+      all.addEventListener("click", handleCheckAll);
+    });
 
     // 목록 체크박스 효과
     const listCheckboxes = document.querySelectorAll(".list input[type='checkbox']");
     listCheckboxes.forEach((check) => {
-      check.addEventListener("change", (event) => {
+      const handleListCheckboxes = (event) => {
         if (check.classList.contains("check-all")) {
           const rows = event.target.closest(".list").querySelectorAll(".row:not(.title)");
           rows.forEach((row) => {
@@ -150,46 +128,43 @@ document.addEventListener("DOMContentLoaded", () => {
             ? event.target.closest(".row").classList.add("checked")
             : event.target.closest(".row").classList.remove("checked");
         }
-      });
+      };
+      check.addEventListener("change", handleListCheckboxes);
     });
 
     /* =====================================================
           Toggle
         ===================================================== */
     const toggles = document.querySelectorAll("[data-toggle]");
-    const handleToggleContent = (event) => {
+    const handleToggle = (event) => {
       event.stopPropagation();
       const toggleName = event.target.dataset.toggle;
       const toggles = document.querySelectorAll(`[data-toggle='${toggleName}']`);
-
       toggles.forEach((toggle) => {
         toggle.classList.contains("is-active")
           ? toggle.classList.remove("is-active")
           : toggle.classList.add("is-active");
       });
     };
-
     toggles.forEach((toggle) => {
-      toggle.addEventListener("click", handleToggleContent);
+      toggle.addEventListener("click", handleToggle);
     });
 
     /* =====================================================
       Accordion
     ===================================================== */
     const accordion = document.querySelector(".accordion");
-    if (accordion) {
-      accordion.addEventListener("click", (event) => {
-        event.target.closest("li").classList.contains("is-active")
-          ? event.target.closest("li").classList.remove("is-active")
-          : event.target.closest("li").classList.add("is-active");
-      });
-    }
+    const handleAccordion = (event) => {
+      event.target.closest("li").classList.contains("is-active")
+        ? event.target.closest("li").classList.remove("is-active")
+        : event.target.closest("li").classList.add("is-active");
+    };
+    accordion && accordion.addEventListener("click", handleAccordion);
 
     /* =====================================================
           Tab Menu
         ===================================================== */
     const tabs = document.querySelectorAll(".tabs li");
-
     const showTabContent = (event) => {
       event.stopPropagation();
       const tabName = event.target.dataset.tab;
@@ -249,16 +224,13 @@ document.addEventListener("DOMContentLoaded", () => {
               : entry.target.classList.remove("is-active");
           });
         };
-
         const observer = new IntersectionObserver(callback, options);
 
         contents.forEach((content) => {
           const sections = [...content.children];
-
           sections.forEach((section, index) => {
             section.style.setProperty("--delay", `${index * 150}ms`);
           });
-
           observer.observe(content);
         });
 
@@ -423,7 +395,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         }
 
-        if (event.target.id === "checkGoogleList") {
+        else if (event.target.id === "checkGoogleList") {
           if (event.target.checked === true) {
             checkNaver.checked === true ? list.classList.add("all") : list.classList.add("google");
           } else if (checkNaver.checked === true) {
@@ -709,101 +681,85 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // 목록화면 - 사용자 지정 보기
-    const sortableModal = document.querySelector(".modal-sortable");
-    if (sortableModal) {
-      setTimeout(() => {
-        const mainRows = document.querySelectorAll("main .tab-content.is-active .list ul:not(.modal ul)");
-        const pinned = sortableModal.querySelectorAll(".ico-pin.is-active");
-        pinned.forEach((pin) => pin.closest("li").classList.add("pinned"));
+    // 계정 동기화 전체 체크
+    const syncModal = document.querySelector(".modal-sync");
+    if (syncModal) {
+      const checkAll = syncModal.querySelector("header .check-all");
 
-        // 핀을 클릭하면
-        const handleCheckPinned = (event) => {
-          const lists = sortableModal.querySelectorAll(".inputs li");
-          const targetList = event.target.closest("li");
-          const targetIndex = [...lists].indexOf(targetList);
+      checkAll &&
+        checkAll.addEventListener("click", (event) => {
+          const checkboxes = event.target.closest(".modal-content").querySelectorAll("input[type='checkbox']");
 
-          // 6번째 이상의 리스트에서는 핀해제 및 아이콘 숨김
-          lists.forEach((list) => {
-            if ([...lists].indexOf(list) > 4) {
-              list.classList.remove("pinned");
-              list.querySelector(".ico-pin").classList.remove("is-active");
-            }
+          event.target.checked = !event.target.checked;
+          checkboxes.forEach((checkbox) => {
+            checkbox.checked = !checkbox.checked;
           });
+        });
+    }
 
-          // 내가 누른 핀이 활성화되는 경우
-          if (event.target.classList.contains("is-active")) {
+    // 목록화면 - 사용자 지정 보기
+    const eye = document.querySelector(".ico-eye");
+    if (eye) {
+      setTimeout(() => {
+        const sortableModals = document.querySelectorAll(".modal-sortable");
+        if (sortableModals[0]) {
+          sortableModals.forEach((modal) => {
+            const pinned = modal.querySelectorAll(".ico-pin.is-active");
+            pinned.forEach((pin) => pin.closest("li").classList.add("pinned"));
 
-            // 해당 리스트 고정
-            targetList.classList.add("pinned");
-
-            // 해당 핀보다 이전 순번의 리스트들은 전부 고정 기능 활성화
-            lists.forEach((list, index) => {
-              if (index <= targetIndex) {
-                list.classList.add("pinned");
-                list.querySelector(".ico-pin").classList.add("is-active");
-                // 체크해제 금지
-                list.querySelector("input").checked = true;
-                list.querySelector("input").disabled = true;
-              }
-            });
-
-            // 고정할 때 왼쪽에서 얼만큼 이동할건지 list title의 폭값을 활용
-            let width = 40;
-            const mainTitleLists = [...mainRows][0].querySelectorAll("li");
-            mainTitleLists.forEach((list, index) => {
-              if (index > 0 && index <= targetIndex + 1) {
-                list.classList.add("sticky");
-                width += list.offsetWidth;
-                finalWidth = width - [...mainTitleLists][index].offsetWidth;
-                list.style.left = `${finalWidth}px`;
-              }
-            });
-
-            mainRows.forEach((row, index) => {
-              if (index > 0) {
-                const mainLists = row.querySelectorAll("li");
-                mainLists.forEach((list, index) => {
-                  // 팝업과 달리 메인목록에는 체크박스 컬럼이 하나 더 있기 때문에 + 1
-                  if (index <= targetIndex + 1) {
-                    list.classList.add("sticky");
-                    [...mainLists][index].style.left = [...mainTitleLists][index].style.left;
+            // 핀을 클릭하면
+            const handleCheckPinned = (event) => {
+              const currentModal = event.target.closest(".modal-sortable")
+              const lists = currentModal.querySelectorAll(".inputs li");
+              const targetList = event.target.closest("li");
+              const targetIndex = [...lists].indexOf(targetList);
+  
+              // 6번째 이상의 리스트에서는 핀해제 및 아이콘 숨김
+              lists.forEach((list) => {
+                if ([...lists].indexOf(list) > 4) {
+                  list.classList.remove("pinned");
+                  list.querySelector(".ico-pin").classList.remove("is-active");
+                }
+              });
+  
+              // 내가 누른 핀이 활성화되는 경우
+              if (event.target.classList.contains("is-active")) {
+                // 해당 리스트 고정
+                targetList.classList.add("pinned");
+  
+                // 해당 핀보다 이전 순번의 리스트들은 전부 고정 기능 활성화
+                lists.forEach((list, index) => {
+                  if (index <= targetIndex) {
+                    list.classList.add("pinned");
+                    list.querySelector(".ico-pin").classList.add("is-active");
+                    // 체크해제 금지
+                    list.querySelector("input").checked = true;
+                    list.querySelector("input").disabled = true;
                   }
                 });
               }
-            });
-          }
-
-          // 내가 누른 핀이 비활성화되는 경우
-          else {
-            // 해당 리스트 고정 해제
-            targetList.classList.remove("pinned");
-            lists.forEach((list, index) => {
-              // 해당 핀보다 이전 순번의 리스트들은 전부 고정 기능 비활성화
-              if (index >= [...lists].indexOf(targetList)) {
-                list.classList.remove("pinned");
-                list.querySelector(".ico-pin").classList.remove("is-active");
-                list.querySelector("input").disabled = false;
-
-                mainRows.forEach((row) => {
-                  const mainLists = row.querySelectorAll("li");
-                  mainLists.forEach((list) => {
-                    // 핀해제한 리스트와 그 이상은 전부 고정 해제
-                    if ([...mainLists].indexOf(list) >= index) {
-                      list.classList.remove("sticky");
-                      list.style.removeProperty("left");
-                    }
-                  });
+  
+              // 내가 누른 핀이 비활성화되는 경우
+              else {
+                // 해당 리스트 고정 해제
+                targetList.classList.remove("pinned");
+                lists.forEach((list, index) => {
+                  // 해당 핀보다 이전 순번의 리스트들은 전부 고정 기능 비활성화
+                  if (index >= [...lists].indexOf(targetList)) {
+                    list.classList.remove("pinned");
+                    list.querySelector(".ico-pin").classList.remove("is-active");
+                    list.querySelector("input").disabled = false;
+                  }
                 });
               }
+            };
+  
+            const pins = modal.querySelectorAll(".ico-pin");
+            pins.forEach((pin) => {
+              pin.addEventListener("click", handleCheckPinned);
             });
-          }
-        };
-
-        const pins = sortableModal.querySelectorAll(".ico-pin");
-        pins.forEach((pin) => {
-          pin.addEventListener("click", handleCheckPinned);
-        });
+          })
+        }
       }, 100);
     }
 
@@ -1038,14 +994,16 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    // 목록 데이터 감지
     const lists = document.querySelectorAll(".list");
     lists.forEach((list) => {
       mutationObserver.observe(list, {
         childList: true,
-        characterData: true,
+        subtree: true,
       });
     });
 
+    // 탭 이동 감지
     const tabContents = document.querySelectorAll(".tab-content");
     tabContents.forEach((content) => {
       mutationObserver.observe(content, {
@@ -1054,6 +1012,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+    // 팝업 감지
     modals.forEach((modal) => {
       mutationObserver.observe(modal, {
         childList: true,
