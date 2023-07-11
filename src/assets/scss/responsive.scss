@@ -265,6 +265,33 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     }
   }
 
+  .list {
+    &.pinned {
+      ul {
+        flex-wrap: wrap;
+        width: 100%;
+
+        &.sticky {
+
+          li {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+
+    .row {
+
+      &.checked {
+        background-color: $secondary-color;
+        box-shadow: 0 0 0 1px inset $main-color;
+        li {
+          background-color: transparent !important;
+        }
+      }
+    }
+  }
+  
   .modal {
     header {
       padding: 0;
@@ -320,6 +347,13 @@ $secondary-color: rgba(118, 130, 248, 0.1);
             }
           }
         }
+      }
+    }
+
+    &-sync {
+      .list {
+        gap: 0 !important;
+        max-height: none !important;
       }
     }
 
@@ -681,7 +715,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
         flex: 1 1 auto;
         justify-content: center;
         padding: 0.35rem;
-        max-width: 33.333%;
+        max-width: fit-content;
       }
     }
     .calendar {

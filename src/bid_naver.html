@@ -1548,123 +1548,127 @@
           </div>
         </div>
       </header>
-      <div class="list">
-        <ul class="row title">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
-              <label for="checkAll"></label>
-            </div>
-          </li>
-          <li class="col-keyword ico-sort">키워드</li>
-          <li class="ico-sort">
-            입찰상태
-          </li>
-          <li>
-            입찰설정
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dd>
-                  라이브 입찰은 사용자가 설정한 입찰주기마다 입찰이 진행됩니다.
-                </dd>
-                <dd>
-                  레귤러 입찰은 하루 3번 정해진 시간에 입찰이 진행되며, 원하는 순위에 도달하기 위해 입찰가를 조정하는 것이 아니라 입찰가를 원하는 입찰가로 변경합니다.
-                </dd>
-              </dl>
-            </div>
-          </li>
-          <li>
-            입찰주기
-          </li>
-          <li class="ico-sort">
-            입찰대상
-          </li>
-          <li class="ico-sort">성별/연령</li>
-          <li class="ico-sort">성별설정</li>
-          <li class="ico-sort">연령설정</li>
-          <li class="col-long">
-            입찰예정가
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dd>레귤러 설정 시 사용자가 선택한 기본입찰가와 최종 입찰(예정)가가 표시됩니다. 
-                </dd>
-                <dd>입찰예정가는 기본입찰가, 사용자 설정 옵션, 최소입찰가, 최대입찰가를 종합적으로 판단하여 최종적으로 입찰을 수행할 가격입니다.
-                </dd>
-                <dd>입찰예정가는 (부분)설정 완료 또는 입찰 시 업데이트 됩니다. 설정 완료 시 업데이트된 입찰예정가는 실제 입찰 시에는 호출되는 데이터에 따라 달라질 수 있습니다.
-                </dd>
-                <dd>사용자 설정 옵션으로 가감액을 입력했다면 최근 통합검색 평균 노출 순위가 있는 경우와 없는 경우로 나누어 산출된 입찰가 2가지가 표시됩니다</dd>
-              </dl>
-            </div>
-          </li>
-          <li class="ico-sort">
-            지역설정
-          </li>
-          <li class="ico-sort">입찰기본가</li>
-          <li class="ico-sort">최대입찰가</li>
-          <li class="ico-sort">입찰가액</li>
-          <li class="ico-sort">입찰감액</li>
-          <li class="ico-sort">
-            입찰목표
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dd>
-                  라이브 입찰(일반, 고급)은 희망순위 또는 타겟 URL을 입찰목표로 설정할 수 있습니다.
-                </dd>
-                <dd>
-                  희망순위는 설정한 순위를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 희망순위가 표시됩니다.
-                </dd>
-                <dd>
-                  타겟 URL은 타겟이 되는 URL를 지정하여 해당 URL 위치 바로 위나 아래를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 URL과 위/아래 선택값이 함께 표시됩니다.
-                </dd>
-              </dl>
-            </div>
-          </li>
-          <li class="ico-sort">노출구좌수</li>
-          <li class="ico-sort">하향입찰</li>
-          <li class="ico-sort">입찰가</li>
-          <li class="ico-sort">
-            현재순위
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dd>입찰설정이 라이브 입찰이면 입찰 시 현재순위가 업데이트 됩니다.</dd>
-                <dd>입찰목표를 희망순위로 설정한 경우 현재순위가 표시됩니다.</dd>
-                <dd>입찰목표를 타겟 URL로 설정한 경우 현재순위와 타겟 URL의 순위가 함께 표시됩니다.</dd>
-              </dl>
-            </div>
-          </li>
-          <li class="ico-sort">
-            최저순위
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dd>라이브 입찰에서 입찰목표로 타겟 URL을 설정한 경우 입력한 최저순위가 표시됩니다.</dd>
-                <dd>최저순위에서 지정한 순위 아래로 내려간 경우 입찰가를 올려 최저순위로 끌어 올립니다.</dd>
-              </dl>
-            </div>
-          </li>
-          <li class="ico-sort">
-            입찰
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dt>입찰은 입찰 프로세스 진행 상황에 따라 대기, 성공, 실패가 있습니다.</dt>
-                <dd>대기는 입찰이 한 번도 실행되지 않은 초기 상태입니다.</dd>
-                <dd>성공은 희망 순위에 도달하였거나, 설정한 값을 기준으로 입찰 프로세스가 진행되어 정상적으로 종료된 상태입니다.</dd>
-                <dd>실패는 입찰 프로세스가 진행되었으나, 여러 요인에 의해 정상적으로 종료되지 못한 상태입니다.</dd>
-              </dl>
-            </div>
-          </li>
-          <li class="ico-sort">입찰결과</li>
-          <li class="ico-sort">분류명</li>
-          <li class="ico-sort">키워드상태</li>
-          <li class="ico-sort">광고그룹</li>
-          <li class="ico-sort">그룹상태</li>
-          <li class="ico-sort">캠페인</li>
-          <li class="ico-sort">캠페인상태</li>
-          <li class="ico-sort col-url">URL</li>
-          <li class="ico-sort">입찰등록일</li>
-          <li class="ico-sort">입찰수정일</li>
-        </ul>
-        <div class="rows" data-empty="상품을 등록해주세요">
-          <ul class="row">
+      <div class="list pinned">
+        <div class="row title">
+          <ul class="sticky">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="checkAll" class="check-all" name="select-item" type="checkbox" />
+                <label for="checkAll"></label>
+              </div>
+            </li>
+            <li class="col-keyword ico-sort">키워드</li>
+            <li class="ico-sort">
+              입찰상태
+            </li>
+          </ul>
+          <ul>
+            <li>
+              입찰설정
+              <div class="tooltip type2">
+                <dl class="tooltip-content">
+                  <dd>
+                    라이브 입찰은 사용자가 설정한 입찰주기마다 입찰이 진행됩니다.
+                  </dd>
+                  <dd>
+                    레귤러 입찰은 하루 3번 정해진 시간에 입찰이 진행되며, 원하는 순위에 도달하기 위해 입찰가를 조정하는 것이 아니라 입찰가를 원하는 입찰가로 변경합니다.
+                  </dd>
+                </dl>
+              </div>
+            </li>
+            <li>
+              입찰주기
+            </li>
+            <li class="ico-sort">
+              입찰대상
+            </li>
+            <li class="ico-sort">성별/연령</li>
+            <li class="ico-sort">성별설정</li>
+            <li class="ico-sort">연령설정</li>
+            <li class="col-long">
+              입찰예정가
+              <div class="tooltip type2">
+                <dl class="tooltip-content">
+                  <dd>레귤러 설정 시 사용자가 선택한 기본입찰가와 최종 입찰(예정)가가 표시됩니다. 
+                  </dd>
+                  <dd>입찰예정가는 기본입찰가, 사용자 설정 옵션, 최소입찰가, 최대입찰가를 종합적으로 판단하여 최종적으로 입찰을 수행할 가격입니다.
+                  </dd>
+                  <dd>입찰예정가는 (부분)설정 완료 또는 입찰 시 업데이트 됩니다. 설정 완료 시 업데이트된 입찰예정가는 실제 입찰 시에는 호출되는 데이터에 따라 달라질 수 있습니다.
+                  </dd>
+                  <dd>사용자 설정 옵션으로 가감액을 입력했다면 최근 통합검색 평균 노출 순위가 있는 경우와 없는 경우로 나누어 산출된 입찰가 2가지가 표시됩니다</dd>
+                </dl>
+              </div>
+            </li>
+            <li class="ico-sort">
+              지역설정
+            </li>
+            <li class="ico-sort">입찰기본가</li>
+            <li class="ico-sort">최대입찰가</li>
+            <li class="ico-sort">입찰가액</li>
+            <li class="ico-sort">입찰감액</li>
+            <li class="ico-sort">
+              입찰목표
+              <div class="tooltip type2">
+                <dl class="tooltip-content">
+                  <dd>
+                    라이브 입찰(일반, 고급)은 희망순위 또는 타겟 URL을 입찰목표로 설정할 수 있습니다.
+                  </dd>
+                  <dd>
+                    희망순위는 설정한 순위를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 희망순위가 표시됩니다.
+                  </dd>
+                  <dd>
+                    타겟 URL은 타겟이 되는 URL를 지정하여 해당 URL 위치 바로 위나 아래를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 URL과 위/아래 선택값이 함께 표시됩니다.
+                  </dd>
+                </dl>
+              </div>
+            </li>
+            <li class="ico-sort">노출구좌수</li>
+            <li class="ico-sort">하향입찰</li>
+            <li class="ico-sort">입찰가</li>
+            <li class="ico-sort">
+              현재순위
+              <div class="tooltip type2">
+                <dl class="tooltip-content">
+                  <dd>입찰설정이 라이브 입찰이면 입찰 시 현재순위가 업데이트 됩니다.</dd>
+                  <dd>입찰목표를 희망순위로 설정한 경우 현재순위가 표시됩니다.</dd>
+                  <dd>입찰목표를 타겟 URL로 설정한 경우 현재순위와 타겟 URL의 순위가 함께 표시됩니다.</dd>
+                </dl>
+              </div>
+            </li>
+            <li class="ico-sort">
+              최저순위
+              <div class="tooltip type2">
+                <dl class="tooltip-content">
+                  <dd>라이브 입찰에서 입찰목표로 타겟 URL을 설정한 경우 입력한 최저순위가 표시됩니다.</dd>
+                  <dd>최저순위에서 지정한 순위 아래로 내려간 경우 입찰가를 올려 최저순위로 끌어 올립니다.</dd>
+                </dl>
+              </div>
+            </li>
+            <li class="ico-sort">
+              입찰
+              <div class="tooltip type2">
+                <dl class="tooltip-content">
+                  <dt>입찰은 입찰 프로세스 진행 상황에 따라 대기, 성공, 실패가 있습니다.</dt>
+                  <dd>대기는 입찰이 한 번도 실행되지 않은 초기 상태입니다.</dd>
+                  <dd>성공은 희망 순위에 도달하였거나, 설정한 값을 기준으로 입찰 프로세스가 진행되어 정상적으로 종료된 상태입니다.</dd>
+                  <dd>실패는 입찰 프로세스가 진행되었으나, 여러 요인에 의해 정상적으로 종료되지 못한 상태입니다.</dd>
+                </dl>
+              </div>
+            </li>
+            <li class="ico-sort">입찰결과</li>
+            <li class="ico-sort">분류명</li>
+            <li class="ico-sort">키워드상태</li>
+            <li class="ico-sort">광고그룹</li>
+            <li class="ico-sort">그룹상태</li>
+            <li class="ico-sort">캠페인</li>
+            <li class="ico-sort">캠페인상태</li>
+            <li class="ico-sort col-url">URL</li>
+            <li class="ico-sort">입찰등록일</li>
+            <li class="ico-sort">입찰수정일</li>
+          </ul>
+        </div>
+        <div class="row">
+          <ul class="sticky">
             <li class="col-check">
               <div class="checkbox">
                 <input id="check-01" name="select-item" type="checkbox" />
@@ -1680,6 +1684,8 @@
                 <label for="toggle-bidding"></label>
               </div>
             </li>
+          </ul>
+          <ul>
             <li title="입찰설정">
               <button data-modal="settingsLiveAdvancedType2">라이브 고급</button>
             </li>

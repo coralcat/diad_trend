@@ -4,14 +4,6 @@ $primary-color: #7682f8;
 $secondary-color: rgba(91, 84, 198, 0.1);
 $violet-medium-color: rgb(214, 217, 253);
 
-$emoji-base-color: #ffda6a;
-$emoji-like-color: #548dff;
-$emoji-love-color: #f55064;
-$emoji-angry-color: #d5234c;
-$emoji-white-color: #ffffff;
-$emoji-black-color: #000000;
-$emoji-text-color: #8a8a8a;
-
 html,
 body {
   :is(.price, .percent, .times, .rank) {
@@ -666,7 +658,6 @@ section {
       ~ .filters {
         width: 100%;
         border-top: 1px solid #eee;
-        margin-top: 0.5rem;
         padding-top: 0.5rem;
       }
     }
@@ -1910,12 +1901,49 @@ main {
   background-color: rgba(0, 20, 40, 0);
   transition: background-color 0.8s;
 
-  &:hover {
-  }
-
   &:empty {
     min-height: 200px;
     border-bottom: 1px solid #e3e6e9;
+  }
+
+  &.pinned {
+
+    .row {
+
+      &.title {
+
+        li {
+          flex-direction: row;
+          padding: 0.5rem;
+          background-color: #f7f8f9;
+          color: #565e72;
+          word-break: keep-all;
+          font-size: 13px;
+        }
+
+        .sticky {
+          li {
+            background-color: #f1f2f3;
+          }
+        }
+      }
+    }
+
+    ul {
+      display: flex;
+
+      &.sticky {
+        flex: 0 0 auto;
+        overflow-x: hidden;
+        position: sticky;
+        left: 0;
+        z-index: 3;
+
+        li {
+          background-color: #fafbfc;
+        }
+      }
+    }
   }
 
   &.sticky {
@@ -2152,7 +2180,7 @@ main {
 
     &.checked {
       li {
-        background-color: #f1f2fe;
+        background-color: #f1f2fe !important;
       }
     }
 
@@ -2453,6 +2481,10 @@ main {
         .tag {
           justify-content: center;
           color: $main-color;
+
+          &s {
+            flex-direction: column;
+          }
         }
 
         &.inactive {
@@ -2886,6 +2918,7 @@ main {
     margin: 0 auto;
 
     .wrapper {
+      justify-content: space-between;
       background-color: transparent;
     }
 
@@ -2908,11 +2941,6 @@ main {
       align-items: flex-start;
       margin-bottom: 3rem;
       font-family: "NanumSquareB";
-
-      p {
-        font-size: clamp(2rem, 2.15vw, 3rem);
-        color: #333;
-      }
     }
 
     p {
@@ -2944,11 +2972,16 @@ main {
 
     .section-title {
       width: 50%;
-      padding-top: 7rem;
+      padding: 4rem 0 2rem;
       margin-bottom: 0;
 
       h1 {
         margin-bottom: 1rem;
+        line-height: 1.25;
+      }
+
+      p {
+        line-height: 1.5;
       }
 
       h1,
@@ -2964,12 +2997,12 @@ main {
 
       input {
         border-radius: 50px;
-        font-size: 20px;
-        padding: 1rem 2rem;
+        font-size: 18px;
+        padding: 1rem 1.5rem;
         height: auto;
         margin: 0 auto;
         background: transparent;
-        border: 3px solid white;
+        border: 2px solid white;
         color: white;
         opacity: 0.75;
         transition: 0.25s;
@@ -2982,7 +3015,7 @@ main {
           border-color: white !important;
           width: 100%;
           opacity: 1;
-          border-width: 6px;
+          border-width: 4px;
 
           + button {
             opacity: 1;
@@ -2995,8 +3028,8 @@ main {
         background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='white' d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E")
           no-repeat;
         background-size: 100%;
-        width: 3rem;
-        height: 3rem;
+        width: 2.5rem;
+        height: 2.5rem;
         display: block;
         position: absolute;
         right: 1rem;
@@ -3008,20 +3041,24 @@ main {
     }
 
     .keywords {
-      padding-top: 2rem;
+      padding-top: 1rem;
       display: flex;
-      gap: 1rem;
+      gap: .5rem;
+      flex-wrap: wrap;
 
       .keyword {
         white-space: nowrap;
         color: white;
-        font-size: 17px;
+        font-size: 15px;
         border-color: rgba(255, 255, 255, 0.35);
         max-width: 120px;
         overflow: hidden;
         text-overflow: ellipsis;
-        display: inline-block;
         line-height: normal;
+
+        &::before {
+          color: $primary-color
+        }
       }
     }
   }
@@ -4492,7 +4529,7 @@ main {
     small {
       word-break: keep-all;
       text-align: center;
-      font-size: 13px;
+      font-size: 12px;
       line-height: 1.25;
     }
 
@@ -4578,6 +4615,10 @@ main {
     .details-accounts {
       overflow-y: auto;
       background-color: #e3eaf2;
+
+      &[data-empty] {
+        color: slategray;
+      }
 
       li {
         border-bottom: 0;
@@ -6443,10 +6484,6 @@ main {
     border-radius: 0;
     background-color: transparent;
     box-shadow: 0 0 0;
-
-    &:last-of-type {
-      overflow-y: auto;
-    }
   }
 
   header {
@@ -6647,6 +6684,10 @@ main {
             > div {
               width: 100%;
               margin-left: 0;
+
+              div:first-of-type {
+                text-align: right;
+              }
             }
 
             .target {
@@ -6896,7 +6937,7 @@ main {
     }
 
     .list {
-      flex-basis: calc(100% / 3 - 0.5rem);
+      width: calc(100% / 3 - 0.5rem);
       gap: 0;
       padding: 0;
       overflow-y: unset;
@@ -6973,6 +7014,11 @@ main {
   }
 
   &-management-templates {
+
+    li {
+      border: 0
+    }
+    
     .row {
       &.title {
         li {
@@ -7050,6 +7096,7 @@ main {
       overflow: unset;
 
       &:first-of-type {
+        flex: 0 0 auto;
         flex-direction: row;
       }
     }
@@ -7255,6 +7302,7 @@ main {
         right: 0.5rem;
         top: 50%;
         transform: translateY(-50%);
+        z-index: 3;
       }
 
       li {
@@ -7462,129 +7510,6 @@ main {
   }
 }
 
-.emoji {
-  width: 120px;
-  height: 120px;
-  margin: 15px 15px 40px;
-  background: $emoji-base-color;
-  display: inline-block;
-  border-radius: 50%;
-  position: relative;
-
-  &:after {
-    position: absolute;
-    bottom: -40px;
-    font-size: 18px;
-    width: 60px;
-    left: calc(50% - 30px);
-    color: $emoji-text-color;
-  }
-}
-
-.emoji-face,
-.emoji-eyebrows,
-.emoji-eyes,
-.emoji-mouth {
-  position: absolute;
-
-  &:before,
-  &:after {
-    position: absolute;
-    content: "";
-  }
-}
-
-.emoji-face {
-  width: inherit;
-  height: inherit;
-}
-
-.emoji-sad {
-  .emoji-face {
-    animation: sad-face 2s ease-in infinite;
-  }
-
-  .emoji-eyebrows {
-    left: calc(50% - 3px);
-    top: 35px;
-    height: 6px;
-    width: 6px;
-    border-radius: 50%;
-    background: transparent;
-    box-shadow: -40px 9px 0 0 $emoji-black-color, -25px 0 0 0 $emoji-black-color, 25px 0 0 0 $emoji-black-color,
-      40px 9px 0 0 $emoji-black-color;
-
-    &:before,
-    &:after {
-      width: 30px;
-      height: 20px;
-      border: 6px solid $emoji-black-color;
-      box-sizing: border-box;
-      border-radius: 50%;
-      border-bottom-color: transparent;
-      border-left-color: transparent;
-      border-right-color: transparent;
-      top: 2px;
-      left: calc(50% - 15px);
-    }
-
-    &:before {
-      margin-left: -30px;
-      transform: rotate(-30deg);
-    }
-
-    &:after {
-      margin-left: 30px;
-      transform: rotate(30deg);
-    }
-  }
-
-  .emoji-eyes {
-    width: 14px;
-    height: 16px;
-    left: calc(50% - 7px);
-    top: 50px;
-    border-radius: 50%;
-    background: transparent;
-    box-shadow: 25px 0 0 0 $emoji-black-color, -25px 0 0 0 $emoji-black-color;
-
-    &:after {
-      background: $emoji-like-color;
-      width: 12px;
-      height: 12px;
-      margin-left: 6px;
-      border-radius: 0 100% 40% 50% / 0 50% 40% 100%;
-      transform-origin: 0% 0%;
-      animation: tear-drop 2s ease-in infinite;
-    }
-  }
-
-  .emoji-mouth {
-    width: 60px;
-    height: 80px;
-    left: calc(50% - 30px);
-    top: 80px;
-    box-sizing: border-box;
-    border: 6px solid $emoji-black-color;
-    border-radius: 50%;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-    border-right-color: transparent;
-    background: transparent;
-    animation: sad-mouth 2s ease-in infinite;
-
-    &:after {
-      width: 6px;
-      height: 6px;
-      background: transparent;
-      border-radius: 50%;
-      top: 4px;
-      left: calc(50% - 3px);
-      box-shadow: -18px 0 0 0 $emoji-black-color, 18px 0 0 0 $emoji-black-color;
-    }
-  }
-}
-
 .content-ranking,
 .content-lowest-price {
   .section-main {
@@ -7620,70 +7545,31 @@ main {
   }
 }
 
-@keyframes sad-face {
-  25%,
-  35% {
-    top: -15px;
+.content-calendar {
+  overflow: hidden;
+  
+  section {
+    overflow: hidden;
   }
-  55%,
-  95% {
-    top: 10px;
-  }
-  100%,
-  0% {
-    top: 0;
-  }
-}
 
-@keyframes sad-mouth {
-  25%,
-  35% {
-    transform: scale(0.85);
-    top: 70px;
+  #calendar {
+    max-height: 100%;
   }
-  55%,
-  100%,
-  0% {
-    transform: scale(1);
-    top: 80px;
-  }
-}
 
-@keyframes tear-drop {
-  0%,
-  100% {
-    display: block;
-    left: 35px;
-    top: 15px;
-    transform: rotate(45deg) scale(0);
+  .fc .fc-daygrid-day.fc-day-today {
+    background-color: $secondary-color;
   }
-  25% {
-    display: block;
-    left: 35px;
-    transform: rotate(45deg) scale(2);
+
+  .fc-h-event .fc-event-title-container {
+    padding: 5px;
   }
-  49.9% {
-    display: block;
-    left: 35px;
-    top: 65px;
-    transform: rotate(45deg) scale(0);
+
+  .fc-view-harness {
+    flex: 1 1 auto
   }
-  50% {
-    display: block;
-    left: -35px;
-    top: 15px;
-    transform: rotate(45deg) scale(0);
-  }
-  75% {
-    display: block;
-    left: -35px;
-    transform: rotate(45deg) scale(2);
-  }
-  99.9% {
-    display: block;
-    left: -35px;
-    top: 65px;
-    transform: rotate(45deg) scale(0);
+
+  .fc .fc-view-harness-active > .fc-list {
+    position: relative
   }
 }
 

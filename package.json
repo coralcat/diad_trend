@@ -36,5 +36,11 @@
         "gulp-uglify": "^3.0.2",
         "gulp-watch": "^5.0.1",
         "sass": "^1.44.0"
+    },
+    "dependencies": {
+        "@fullcalendar/core": "^6.1.8",
+        "@fullcalendar/daygrid": "^6.1.8",
+        "@fullcalendar/list": "^6.1.8",
+        "@fullcalendar/web-component": "^6.1.8"
     }
 }
