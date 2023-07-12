@@ -184,7 +184,7 @@
 <main class="content-bidding eleventh">
   <header class="content-header">
     <ul class="tabs">
-      <li data-tab="eleventh">
+      <li data-tab="eleventh" class="is-active">
         11번가 포커스클릭
       </li>
       <li data-tab="eleventh">
@@ -242,7 +242,7 @@
 </div>
     </div>
   </header>
-  <div class="tab-content content-11st-focus-click" data-tab="eleventh">
+  <div class="tab-content content-11st-focus-click is-active" data-tab="eleventh">
     <section class="section-account">
       <header>
         <h2>3scoltd</h2>
@@ -830,7 +830,7 @@
           </div>
         </div>
       </header>
-      <div class="list sticky">
+      <div class="list">
         <ul class="row title">
           <li class="col-check">
             <div class="checkbox">
@@ -1574,7 +1574,7 @@
           </div>
         </div>
       </header>
-      <div class="list sticky">
+      <div class="list">
         <ul class="row title">
           <li class="col-check">
             <div class="checkbox">
@@ -2252,10 +2252,10 @@
   </div>
 </div>
 
-<div id="uploadAnExcelFile" class="modal modal-ulpload" title="주문통계(엑셀업로드)">
+<div id="uploadAnExcelFile" class="modal modal-upload" title="주문통계(엑셀업로드)">
   <div class="dialog">
     <header class="modal-header">
-      <h3>분류편집</h3>
+      <h3>주문통계(엑셀업로드)</h3>
       <div class="close"></div>
     </header>
     <div class="modal-content">
@@ -2269,15 +2269,19 @@
           </dd>
         </dl>
       </section>
-      <div class="inputs">
-        <div class="input">
-          <input id="newDivisionInput" type="text" placeholder="파일을 선택해주세요.">
-          <span class="x"></span>
-        </div>
-        <button class="btn-sub" type="button">파일 선택</button>
-      </div>
+      <section class="section-upload">
+        <header class="ico-upload">
+          업로드 할 파일을 올려주세요.
+        </header>
+        <span>또는</span>
+        <button class="btn-sub">찾아보기</button>
+        <input type="file" hidden>
+      </section>
     </div>
-    <footer class="buttons"><button type="button"> 저장 </button></footer>
+    <footer class="buttons">
+      <button class="btn-sub" type="button">엑셀다운</button>
+      <button class="btn-main" type="button">저장</button>
+    </footer>
   </div>
 </div>
 
