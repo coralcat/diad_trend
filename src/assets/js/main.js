@@ -141,9 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const toggleName = event.target.dataset.toggle;
       const toggles = document.querySelectorAll(`[data-toggle='${toggleName}']`);
       toggles.forEach(toggle => {
-        toggle.classList.contains("is-active")
-          ? toggle.classList.remove("is-active")
-          : toggle.classList.add("is-active");
+        toggle.classList.toggle("is-active")
       });
     };
     toggles.forEach(toggle => {
@@ -623,7 +621,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Basic Modal
-    const modalButtons = document.querySelectorAll("[data-modal='desiredKeyword']");
+    const modalButtons = document.querySelectorAll("[data-modal]");
     modalButtons.forEach(button => {
       button.addEventListener("click", openModal);
 
@@ -1005,8 +1003,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       button.onclick = () => input.click();
 
-      input.addEventListener("change", () => {
-        file = this.files[0];
+      input.addEventListener("change", (event) => {
+        file = event.target.files[0];
         uploadSection.classList.add("active");
         showFile();
       });
@@ -1030,12 +1028,14 @@ document.addEventListener("DOMContentLoaded", () => {
       
       const showFile = () => {
         let fileType = file.type;
-        let validExtensions = ["application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"];
+        let validExtensions = [
+          "application/vnd.ms-excel", 
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ];
         if (validExtensions.includes(fileType)) {
           text.textContent = file.name;
 
           let fileReader = new FileReader();
-          console.dir(fileReader)
           fileReader.onload = () => {
             let fileURL = fileReader.result; //passing user file source in fileURL variable
             // UNCOMMENT THIS BELOW LINE. I GOT AN ERROR WHILE UPLOADING THIS POST SO I COMMENTED IT
@@ -1045,7 +1045,6 @@ document.addEventListener("DOMContentLoaded", () => {
           fileReader.readAsDataURL(file);
         } else {
 
-          console.log(file.type)
           uploadSection.classList.remove("active");
           text.textContent = "엑셀 파일만 업로드 가능합니다.";
         }
@@ -1074,7 +1073,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modals.forEach(modal => {
       mutationObserver.observe(modal, {
         childList: true,
-        subtree: true,
+        attributes: true,
       });
     });
   });

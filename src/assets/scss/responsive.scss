@@ -2,6 +2,23 @@ $main-color: #5b54c6;
 $primary-color: #7682f8;
 $secondary-color: rgba(118, 130, 248, 0.1);
 
+@media screen and (max-width: 1600px) {
+  .content-bidding {
+
+
+    &.main {
+
+      .list {
+
+        li {
+          flex: 0 0 auto;
+          min-width: 100px;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1280px) {
   section {
     header {

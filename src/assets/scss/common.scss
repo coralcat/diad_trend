@@ -95,10 +95,10 @@ body {
   overflow-x: hidden;
 
   small {
-    font-size: 13px;
+    font-size: clamp(13px, 0.7vw, 14px);
     line-height: 1.25;
     display: inline-flex;
-    font-family: "NanumSquareR";
+    align-items: center;
   }
 
   p {
@@ -130,7 +130,7 @@ body {
 
   h1 {
     font-family: "NanumSquareB";
-    font-size: clamp(18px, 2.15vw, 20px);
+    font-size: clamp(17px, 1.25vw, 20px);
 
     [data-tooltip] {
       &::before {
@@ -141,7 +141,7 @@ body {
   }
 
   h2 {
-    font-size: clamp(17px, 2vw, 18px);
+    font-size: clamp(16px, 1.1vw, 18px);
 
     .tooltip {
       &::before {
@@ -152,7 +152,7 @@ body {
   }
 
   h3 {
-    font-size: clamp(15px, 2vw, 16px);
+    font-size: clamp(15px, 1.1vw, 16px);
     gap: 3px;
 
     .tooltip {
@@ -199,7 +199,8 @@ body {
     background: transparent;
     border-radius: 0.25rem;
     white-space: nowrap;
-    font: 14px/1 "Roboto", "NanumSquareR";
+    font-family: "Roboto", "NanumSquareR";
+    font-size: clamp(13px, 0.7vw, 14px);
     transition: background 0.2s;
     cursor: pointer;
 
@@ -498,10 +499,6 @@ body {
   display: flex;
   z-index: 110;
 
-  button {
-    min-height: 36px;
-  }
-
   nav {
     opacity: 0;
     visibility: hidden;
@@ -629,7 +626,6 @@ header {
   }
 
   button {
-    min-height: 36px;
   }
 
   .logo {
@@ -648,7 +644,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 36px;
   }
 }
 
@@ -843,7 +838,7 @@ progress {
 .checkbox {
   position: relative;
 
-  input {
+  input[type="checkbox"] {
     display: none !important;
 
     &:checked {
@@ -1404,7 +1399,7 @@ input[type="radio"] {
   &.is-active {
     max-height: 300px;
     transform: translate(0, 0.5rem);
-    z-index: 100 !important;
+    z-index: 1001 !important;
 
     &::before {
       opacity: 1;
