@@ -237,7 +237,7 @@
             <option value="">plays_U</option>
           </select>
         </div>
-        <button class="btn-main ico-sync" type="button"></button>
+        <button class="ico-sync" type="button"></button>
       </div>
       <ul class="details-sync">
         <li class="center">
@@ -261,92 +261,56 @@
         <li>
           <div>
             입찰실행
-            <div class="tooltip">
-              <div class="tooltip-content">
-                입찰상태가 ON인 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="bidProceed"></div>
           </div>
           <strong class="times">189</strong>
         </li>
         <li>
           <div>
             입찰대기
-            <div class="tooltip">
-              <div class="tooltip-content">
-                입찰이 한 번도 실행되지 않은 초기 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="bidWaiting"></div>
           </div>
           <strong class="times">385</strong>
         </li>
         <li>
           <div>
             입찰진행
-            <div class="tooltip">
-              <div class="tooltip-content">
-                입찰이 진행되고 있는 상태로, 입찰가가 상승 중인 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="biddingInProgress"></div>
           </div>
           <strong class="times">45</strong>
         </li>
         <li>
           <div>
             목표달성
-            <div class="tooltip">
-              <div class="tooltip-content">
-                목표달성은 희망한 순위에 도달한 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="goalAchieved"></div>
           </div>
           <strong class="times">51</strong>
         </li>
         <li>
           <div>
             하향입찰
-            <div class="tooltip">
-              <dl class="tooltip-content">
-                <dd>목표달성 후 사용자가 하향입찰을 설정한 경우 하향입찰이 진행됩니다.</dd>
-                <dd>입찰가가 하락 중인 상태입니다.</dd>
-              </dl>
-            </div>
+            <div data-tooltip="biddingDown"></div>
           </div>
           <strong class="times">9</strong>
         </li>
         <li>
           <div>
             최소입찰가미만
-            <div class="tooltip">
-              <div class="tooltip-content">
-                레귤러 설정에서 최소입찰가를 설정한 경우<br />
-                산출 입찰가가 최소입찰가보다 작은 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="minimumBid"></div>
           </div>
           <strong class="times">33</strong>
         </li>
         <li>
           <div>
             최대입찰가도달
-            <div class="tooltip">
-              <dl class="tooltip-content">
-                <dd>입찰가가 사용자가 설정한 최대 입찰가에 도달한 상태입니다.</dd>
-                <dd>최대 입찰가에 도달하면 입찰 프로세스를 완료하지 않고 중단합니다.</dd>
-              </dl>
-            </div>
+            <div data-tooltip="maximumBid"></div>
           </div>
           <strong class="times">33</strong>
         </li>
         <li>
           <div>
             입찰불가
-            <div class="tooltip">
-              <div class="tooltip-content">
-                광고센터에서 캠페인, 그룹, 소재, 키워드 등이 OFF 상태이거나 <br />조회되지 않는 경우 또는 비즈머니가 부족한 상황 등 광고센터 이슈로<br />입찰 프로세스를 정상적으로
-                종료하지 못한 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="unableToBid"></div>
           </div>
           <strong class="times">27</strong>
         </li>
@@ -354,11 +318,7 @@
         <li>
           <div>
             입찰실패
-            <div class="tooltip">
-              <div class="tooltip-content">
-                서버, 네트워크 등의 오류로 입찰 프로세스를<br />정상적으로 종료하지 못한 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="bidFailed"></div>
           </div>
           <strong class="times">24</strong>
         </li>
@@ -840,14 +800,8 @@
               </div>
               <button class="btn-main ico-search" type="button"></button>
             </div>
-            <ul class="list-count">
-              <li>
-                <span class="selected times">0</span>
-              </li>
-              <li>
-                <span class="total times">9,206</span>
-              </li>
-            </ul>
+            <strong data-title="선택" class="times">0</strong>
+            <strong data-title="전체" class="times">185</strong>
           </div>
           <div class="buttons">
             <div class="dropdown">
@@ -922,17 +876,7 @@
           </li>
           <li class="col-long">
             입찰예정가
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dd>레귤러 설정 시 사용자가 선택한 기본입찰가와 최종 입찰(예정)가가 표시됩니다. 
-                </dd>
-                <dd>입찰예정가는 기본입찰가, 사용자 설정 옵션, 최소입찰가, 최대입찰가를 종합적으로 판단하여 최종적으로 입찰을 수행할 가격입니다.
-                </dd>
-                <dd>입찰예정가는 (부분)설정 완료 또는 입찰 시 업데이트 됩니다. 설정 완료 시 업데이트된 입찰예정가는 실제 입찰 시에는 호출되는 데이터에 따라 달라질 수 있습니다.
-                </dd>
-                <dd>사용자 설정 옵션으로 가감액을 입력했다면 최근 통합검색 평균 노출 순위가 있는 경우와 없는 경우로 나누어 산출된 입찰가 2가지가 표시됩니다</dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="bidPrice"></div>
           </li>
           <li class="ico-sort">
             지역설정
@@ -943,52 +887,22 @@
           <li class="ico-sort">입찰감액</li>
           <li class="ico-sort col-url">
             입찰목표
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dd>
-                  라이브 입찰(일반, 고급)은 희망순위 또는 타겟 URL을 입찰목표로 설정할 수 있습니다.
-                </dd>
-                <dd>
-                  희망순위는 설정한 순위를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 희망순위가 표시됩니다.
-                </dd>
-                <dd>
-                  타겟 URL은 타겟이 되는 URL를 지정하여 해당 URL 위치 바로 위나 아래를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 URL과 위/아래 선택값이 함께 표시됩니다.
-                </dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="biddingTarget"></div>
           </li>
           <li class="ico-sort">노출구좌수</li>
           <li class="ico-sort">하향입찰</li>
           <li class="ico-sort">입찰가</li>
           <li class="ico-sort">
             현재순위
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dd>입찰설정이 라이브 입찰이면 입찰 시 현재순위가 업데이트 됩니다.</dd>
-                <dd>입찰목표를 희망순위로 설정한 경우 현재순위가 표시됩니다.</dd>
-                <dd>입찰목표를 타겟 URL로 설정한 경우 현재순위와 타겟 URL의 순위가 함께 표시됩니다.</dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="biddingCurrentRank"></div>
           </li>
           <li class="ico-sort">
             최저순위
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dd>라이브 입찰에서 입찰목표로 타겟 URL을 설정한 경우 입력한 최저순위가 표시됩니다.</dd>
-                <dd>최저순위에서 지정한 순위 아래로 내려간 경우 입찰가를 올려 최저순위로 끌어 올립니다.</dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="biddingLowestRank"></div>
           </li>
           <li class="ico-sort">
             입찰
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dt>입찰은 입찰 프로세스 진행 상황에 따라 대기, 성공, 실패가 있습니다.</dt>
-                <dd>대기는 입찰이 한 번도 실행되지 않은 초기 상태입니다.</dd>
-                <dd>성공은 희망 순위에 도달하였거나, 설정한 값을 기준으로 입찰 프로세스가 진행되어 정상적으로 종료된 상태입니다.</dd>
-                <dd>실패는 입찰 프로세스가 진행되었으나, 여러 요인에 의해 정상적으로 종료되지 못한 상태입니다.</dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="bidding"></div>
           </li>
           <li class="ico-sort">입찰결과</li>
           <li class="ico-sort">분류명</li>
@@ -1142,7 +1056,7 @@
             <option value="">plays_U</option>
           </select>
         </div>
-        <button class="btn-main ico-sync" type="button"></button>
+        <button class="ico-sync" type="button"></button>
       </div>
       <ul class="details-sync">
         <li class="center">
@@ -1166,92 +1080,56 @@
         <li>
           <div>
             입찰실행
-            <div class="tooltip">
-              <div class="tooltip-content">
-                입찰상태가 ON인 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="bidProceed"></div>
           </div>
           <strong class="times">189</strong>
         </li>
         <li>
           <div>
             입찰대기
-            <div class="tooltip">
-              <div class="tooltip-content">
-                입찰이 한 번도 실행되지 않은 초기 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="bidWaiting"></div>
           </div>
           <strong class="times">385</strong>
         </li>
         <li>
           <div>
             입찰진행
-            <div class="tooltip">
-              <div class="tooltip-content">
-                입찰이 진행되고 있는 상태로, 입찰가가 상승 중인 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="biddingInProgress"></div>
           </div>
           <strong class="times">45</strong>
         </li>
         <li>
           <div>
             목표달성
-            <div class="tooltip">
-              <div class="tooltip-content">
-                목표달성은 희망한 순위에 도달한 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="goalAchieved"></div>
           </div>
           <strong class="times">51</strong>
         </li>
         <li>
           <div>
             하향입찰
-            <div class="tooltip">
-              <dl class="tooltip-content">
-                <dd>목표달성 후 사용자가 하향입찰을 설정한 경우 하향입찰이 진행됩니다.</dd>
-                <dd>입찰가가 하락 중인 상태입니다.</dd>
-              </dl>
-            </div>
+            <div data-tooltip="biddingDown"></div>
           </div>
           <strong class="times">9</strong>
         </li>
         <li>
           <div>
             최소입찰가미만
-            <div class="tooltip">
-              <div class="tooltip-content">
-                레귤러 설정에서 최소입찰가를 설정한 경우<br />
-                산출 입찰가가 최소입찰가보다 작은 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="minimumBid"></div>
           </div>
           <strong class="times">33</strong>
         </li>
         <li>
           <div>
             최대입찰가도달
-            <div class="tooltip">
-              <dl class="tooltip-content">
-                <dd>입찰가가 사용자가 설정한 최대 입찰가에 도달한 상태입니다.</dd>
-                <dd>최대 입찰가에 도달하면 입찰 프로세스를 완료하지 않고 중단합니다.</dd>
-              </dl>
-            </div>
+            <div data-tooltip="maximumBid"></div>
           </div>
           <strong class="times">33</strong>
         </li>
         <li>
           <div>
             입찰불가
-            <div class="tooltip">
-              <div class="tooltip-content">
-                광고센터에서 캠페인, 그룹, 소재, 키워드 등이 OFF 상태이거나 <br />조회되지 않는 경우 또는 비즈머니가 부족한 상황 등 광고센터 이슈로<br />입찰 프로세스를 정상적으로
-                종료하지 못한 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="unableToBid"></div>
           </div>
           <strong class="times">27</strong>
         </li>
@@ -1259,11 +1137,7 @@
         <li>
           <div>
             입찰실패
-            <div class="tooltip">
-              <div class="tooltip-content">
-                서버, 네트워크 등의 오류로 입찰 프로세스를<br />정상적으로 종료하지 못한 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="bidFailed"></div>
           </div>
           <strong class="times">24</strong>
         </li>
@@ -1745,14 +1619,8 @@
               </div>
               <button class="btn-main ico-search" type="button"></button>
             </div>
-            <ul class="list-count">
-              <li>
-                <span class="selected times">0</span>
-              </li>
-              <li>
-                <span class="total times">9,206</span>
-              </li>
-            </ul>
+            <strong data-title="선택" class="times">0</strong>
+            <strong data-title="전체" class="times">185</strong>
           </div>
           <div class="buttons">
             <div class="dropdown">
@@ -1818,30 +1686,11 @@
           </li>
           <li>
             입찰설정
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dd>
-                  라이브 입찰은 사용자가 설정한 입찰주기마다 입찰이 진행됩니다.
-                </dd>
-                <dd>
-                  레귤러 입찰은 하루 3번 정해진 시간에 입찰이 진행되며, 원하는 순위에 도달하기 위해 입찰가를 조정하는 것이 아니라 입찰가를 원하는 입찰가로 변경합니다.
-                </dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="bidSettings"></div>
           </li>
           <li class="col-long">
             입찰예정가
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dd>레귤러 설정 시 사용자가 선택한 기본입찰가와 최종 입찰(예정)가가 표시됩니다. 
-                </dd>
-                <dd>입찰예정가는 기본입찰가, 사용자 설정 옵션, 최소입찰가, 최대입찰가를 종합적으로 판단하여 최종적으로 입찰을 수행할 가격입니다.
-                </dd>
-                <dd>입찰예정가는 (부분)설정 완료 또는 입찰 시 업데이트 됩니다. 설정 완료 시 업데이트된 입찰예정가는 실제 입찰 시에는 호출되는 데이터에 따라 달라질 수 있습니다.
-                </dd>
-                <dd>사용자 설정 옵션으로 가감액을 입력했다면 최근 통합검색 평균 노출 순위가 있는 경우와 없는 경우로 나누어 산출된 입찰가 2가지가 표시됩니다</dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="bidPrice"></div>
           </li>
           <li>
             입찰주기
@@ -1858,51 +1707,21 @@
           <li class="ico-sort">입찰감액</li>
           <li class="ico-sort">
             입찰목표
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dd>
-                  라이브 입찰(일반, 고급)은 희망순위 또는 타겟 URL을 입찰목표로 설정할 수 있습니다.
-                </dd>
-                <dd>
-                  희망순위는 설정한 순위를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 희망순위가 표시됩니다.
-                </dd>
-                <dd>
-                  타겟 URL은 타겟이 되는 URL를 지정하여 해당 URL 위치 바로 위나 아래를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 URL과 위/아래 선택값이 함께 표시됩니다.
-                </dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="biddingTarget"></div>
           </li>
           <li class="ico-sort">하향입찰</li>
           <li class="ico-sort">입찰가</li>
           <li class="ico-sort">
             현재순위
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dd>입찰설정이 라이브 입찰이면 입찰 시 현재순위가 업데이트 됩니다.</dd>
-                <dd>입찰목표를 희망순위로 설정한 경우 현재순위가 표시됩니다.</dd>
-                <dd>입찰목표를 타겟 URL로 설정한 경우 현재순위와 타겟 URL의 순위가 함께 표시됩니다.</dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="biddingCurrentRank"></div>
           </li>
           <li class="ico-sort">
             최저순위
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dd>라이브 입찰에서 입찰목표로 타겟 URL을 설정한 경우 입력한 최저순위가 표시됩니다.</dd>
-                <dd>최저순위에서 지정한 순위 아래로 내려간 경우 입찰가를 올려 최저순위로 끌어 올립니다.</dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="biddingLowestRank"></div>
           </li>
           <li class="ico-sort">
             입찰
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dt>입찰은 입찰 프로세스 진행 상황에 따라 대기, 성공, 실패가 있습니다.</dt>
-                <dd>대기는 입찰이 한 번도 실행되지 않은 초기 상태입니다.</dd>
-                <dd>성공은 희망 순위에 도달하였거나, 설정한 값을 기준으로 입찰 프로세스가 진행되어 정상적으로 종료된 상태입니다.</dd>
-                <dd>실패는 입찰 프로세스가 진행되었으나, 여러 요인에 의해 정상적으로 종료되지 못한 상태입니다.</dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="bidding"></div>
           </li>
           <li class="ico-sort">입찰결과</li>
           <li class="ico-sort">분류명</li>
@@ -2201,7 +2020,7 @@
             <option value="">plays_U</option>
           </select>
         </div>
-        <button class="btn-main ico-sync" type="button"></button>
+        <button class="ico-sync" type="button"></button>
       </div>
       <ul class="details-sync">
         <li class="center">
@@ -2225,92 +2044,56 @@
         <li>
           <div>
             입찰실행
-            <div class="tooltip">
-              <div class="tooltip-content">
-                입찰상태가 ON인 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="bidProceed"></div>
           </div>
           <strong class="times">189</strong>
         </li>
         <li>
           <div>
             입찰대기
-            <div class="tooltip">
-              <div class="tooltip-content">
-                입찰이 한 번도 실행되지 않은 초기 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="bidWaiting"></div>
           </div>
           <strong class="times">385</strong>
         </li>
         <li>
           <div>
             입찰진행
-            <div class="tooltip">
-              <div class="tooltip-content">
-                입찰이 진행되고 있는 상태로, 입찰가가 상승 중인 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="biddingInProgress"></div>
           </div>
           <strong class="times">45</strong>
         </li>
         <li>
           <div>
             목표달성
-            <div class="tooltip">
-              <div class="tooltip-content">
-                목표달성은 희망한 순위에 도달한 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="goalAchieved"></div>
           </div>
           <strong class="times">51</strong>
         </li>
         <li>
           <div>
             하향입찰
-            <div class="tooltip">
-              <dl class="tooltip-content">
-                <dd>목표달성 후 사용자가 하향입찰을 설정한 경우 하향입찰이 진행됩니다.</dd>
-                <dd>입찰가가 하락 중인 상태입니다.</dd>
-              </dl>
-            </div>
+            <div data-tooltip="biddingDown"></div>
           </div>
           <strong class="times">9</strong>
         </li>
         <li>
           <div>
             최소입찰가미만
-            <div class="tooltip">
-              <div class="tooltip-content">
-                레귤러 설정에서 최소입찰가를 설정한 경우<br />
-                산출 입찰가가 최소입찰가보다 작은 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="minimumBid"></div>
           </div>
           <strong class="times">33</strong>
         </li>
         <li>
           <div>
             최대입찰가도달
-            <div class="tooltip">
-              <dl class="tooltip-content">
-                <dd>입찰가가 사용자가 설정한 최대 입찰가에 도달한 상태입니다.</dd>
-                <dd>최대 입찰가에 도달하면 입찰 프로세스를 완료하지 않고 중단합니다.</dd>
-              </dl>
-            </div>
+            <div data-tooltip="maximumBid"></div>
           </div>
           <strong class="times">33</strong>
         </li>
         <li>
           <div>
             입찰불가
-            <div class="tooltip">
-              <div class="tooltip-content">
-                광고센터에서 캠페인, 그룹, 소재, 키워드 등이 OFF 상태이거나 <br />조회되지 않는 경우 또는 비즈머니가 부족한 상황 등 광고센터 이슈로<br />입찰 프로세스를 정상적으로
-                종료하지 못한 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="unableToBid"></div>
           </div>
           <strong class="times">27</strong>
         </li>
@@ -2318,11 +2101,7 @@
         <li>
           <div>
             입찰실패
-            <div class="tooltip">
-              <div class="tooltip-content">
-                서버, 네트워크 등의 오류로 입찰 프로세스를<br />정상적으로 종료하지 못한 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="bidFailed"></div>
           </div>
           <strong class="times">24</strong>
         </li>
@@ -2804,14 +2583,8 @@
               </div>
               <button class="btn-main ico-search" type="button"></button>
             </div>
-            <ul class="list-count">
-              <li>
-                <span class="selected times">0</span>
-              </li>
-              <li>
-                <span class="total times">9,206</span>
-              </li>
-            </ul>
+            <strong data-title="선택" class="times">0</strong>
+            <strong data-title="전체" class="times">185</strong>
           </div>
           <div class="buttons">
             <div class="dropdown">
@@ -2879,16 +2652,7 @@
           <ul>
             <li>
               입찰설정
-              <div class="tooltip type2">
-                <dl class="tooltip-content">
-                  <dd>
-                    라이브 입찰은 사용자가 설정한 입찰주기마다 입찰이 진행됩니다.
-                  </dd>
-                  <dd>
-                    레귤러 입찰은 하루 3번 정해진 시간에 입찰이 진행되며, 원하는 순위에 도달하기 위해 입찰가를 조정하는 것이 아니라 입찰가를 원하는 입찰가로 변경합니다.
-                  </dd>
-                </dl>
-              </div>
+              <div class="type2" data-tooltip="bidSettings"></div>
             </li>
             <li>
               입찰주기
@@ -2901,17 +2665,7 @@
             <li class="ico-sort">연령설정</li>
             <li class="col-long">
               입찰예정가
-              <div class="tooltip type2">
-                <dl class="tooltip-content">
-                  <dd>레귤러 설정 시 사용자가 선택한 기본입찰가와 최종 입찰(예정)가가 표시됩니다. 
-                  </dd>
-                  <dd>입찰예정가는 기본입찰가, 사용자 설정 옵션, 최소입찰가, 최대입찰가를 종합적으로 판단하여 최종적으로 입찰을 수행할 가격입니다.
-                  </dd>
-                  <dd>입찰예정가는 (부분)설정 완료 또는 입찰 시 업데이트 됩니다. 설정 완료 시 업데이트된 입찰예정가는 실제 입찰 시에는 호출되는 데이터에 따라 달라질 수 있습니다.
-                  </dd>
-                  <dd>사용자 설정 옵션으로 가감액을 입력했다면 최근 통합검색 평균 노출 순위가 있는 경우와 없는 경우로 나누어 산출된 입찰가 2가지가 표시됩니다</dd>
-                </dl>
-              </div>
+              <div class="type2" data-tooltip="bidPrice"></div>
             </li>
             <li class="ico-sort">
               지역설정
@@ -2922,52 +2676,22 @@
             <li class="ico-sort">입찰감액</li>
             <li class="ico-sort">
               입찰목표
-              <div class="tooltip type2">
-                <dl class="tooltip-content">
-                  <dd>
-                    라이브 입찰(일반, 고급)은 희망순위 또는 타겟 URL을 입찰목표로 설정할 수 있습니다.
-                  </dd>
-                  <dd>
-                    희망순위는 설정한 순위를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 희망순위가 표시됩니다.
-                  </dd>
-                  <dd>
-                    타겟 URL은 타겟이 되는 URL를 지정하여 해당 URL 위치 바로 위나 아래를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 URL과 위/아래 선택값이 함께 표시됩니다.
-                  </dd>
-                </dl>
-              </div>
+              <div class="type2" data-tooltip="biddingTarget"></div>
             </li>
             <li class="ico-sort">노출구좌수</li>
             <li class="ico-sort">하향입찰</li>
             <li class="ico-sort">입찰가</li>
             <li class="ico-sort">
               현재순위
-              <div class="tooltip type2">
-                <dl class="tooltip-content">
-                  <dd>입찰설정이 라이브 입찰이면 입찰 시 현재순위가 업데이트 됩니다.</dd>
-                  <dd>입찰목표를 희망순위로 설정한 경우 현재순위가 표시됩니다.</dd>
-                  <dd>입찰목표를 타겟 URL로 설정한 경우 현재순위와 타겟 URL의 순위가 함께 표시됩니다.</dd>
-                </dl>
-              </div>
+              <div class="type2" data-tooltip="biddingCurrentRank"></div>
             </li>
             <li class="ico-sort">
               최저순위
-              <div class="tooltip type2">
-                <dl class="tooltip-content">
-                  <dd>라이브 입찰에서 입찰목표로 타겟 URL을 설정한 경우 입력한 최저순위가 표시됩니다.</dd>
-                  <dd>최저순위에서 지정한 순위 아래로 내려간 경우 입찰가를 올려 최저순위로 끌어 올립니다.</dd>
-                </dl>
-              </div>
+              <div class="type2" data-tooltip="biddingLowestRank"></div>
             </li>
             <li class="ico-sort">
               입찰
-              <div class="tooltip type2">
-                <dl class="tooltip-content">
-                  <dt>입찰은 입찰 프로세스 진행 상황에 따라 대기, 성공, 실패가 있습니다.</dt>
-                  <dd>대기는 입찰이 한 번도 실행되지 않은 초기 상태입니다.</dd>
-                  <dd>성공은 희망 순위에 도달하였거나, 설정한 값을 기준으로 입찰 프로세스가 진행되어 정상적으로 종료된 상태입니다.</dd>
-                  <dd>실패는 입찰 프로세스가 진행되었으나, 여러 요인에 의해 정상적으로 종료되지 못한 상태입니다.</dd>
-                </dl>
-              </div>
+              <div class="type2" data-tooltip="bidding"></div>
             </li>
             <li class="ico-sort">입찰결과</li>
             <li class="ico-sort">분류명</li>
@@ -3136,7 +2860,7 @@
             <option value="">plays_U</option>
           </select>
         </div>
-        <button class="btn-main ico-sync" type="button"></button>
+        <button class="ico-sync" type="button"></button>
       </div>
       <ul class="details-sync">
         <li class="center">
@@ -3160,80 +2884,49 @@
         <li>
           <div>
             입찰실행
-            <div class="tooltip">
-              <div class="tooltip-content">
-                입찰상태가 ON인 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="bidProceed"></div>
           </div>
           <strong class="times">189</strong>
         </li>
         <li>
           <div>
             입찰대기
-            <div class="tooltip">
-              <div class="tooltip-content">
-                입찰이 한 번도 실행되지 않은 초기 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="bidWaiting"></div>
           </div>
           <strong class="times">385</strong>
         </li>
         <li>
           <div>
             입찰진행
-            <div class="tooltip">
-              <div class="tooltip-content">
-                입찰이 진행되고 있는 상태로, 입찰가가 상승 중인 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="biddingInProgress"></div>
           </div>
           <strong class="times">45</strong>
         </li>
         <li>
           <div>
             목표달성
-            <div class="tooltip">
-              <div class="tooltip-content">
-                목표달성은 희망한 순위에 도달한 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="goalAchieved"></div>
           </div>
           <strong class="times">51</strong>
         </li>
         <li>
           <div>
             하향입찰
-            <div class="tooltip">
-              <dl class="tooltip-content">
-                <dd>목표달성 후 사용자가 하향입찰을 설정한 경우 하향입찰이 진행됩니다.</dd>
-                <dd>입찰가가 하락 중인 상태입니다.</dd>
-              </dl>
-            </div>
+            <div data-tooltip="biddingDown"></div>
           </div>
           <strong class="times">9</strong>
         </li>
         <li>
           <div>
             최대입찰가도달
-            <div class="tooltip">
-              <dl class="tooltip-content">
-                <dd>입찰가가 사용자가 설정한 최대 입찰가에 도달한 상태입니다.</dd>
-                <dd>최대 입찰가에 도달하면 입찰 프로세스를 완료하지 않고 중단합니다.</dd>
-              </dl>
-            </div>
+            <div data-tooltip="maximumBid"></div>
           </div>
           <strong class="times">33</strong>
         </li>
         <li>
           <div>
             입찰불가
-            <div class="tooltip">
-              <div class="tooltip-content">
-                광고센터에서 캠페인, 그룹, 소재, 키워드 등이 OFF 상태이거나 <br />조회되지 않는 경우 또는 비즈머니가 부족한 상황 등 광고센터 이슈로<br />입찰 프로세스를 정상적으로
-                종료하지 못한 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="unableToBid"></div>
           </div>
           <strong class="times">27</strong>
         </li>
@@ -3241,11 +2934,7 @@
         <li>
           <div>
             입찰실패
-            <div class="tooltip">
-              <div class="tooltip-content">
-                서버, 네트워크 등의 오류로 입찰 프로세스를<br />정상적으로 종료하지 못한 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="bidFailed"></div>
           </div>
           <strong class="times">24</strong>
         </li>
@@ -3726,14 +3415,8 @@
               </div>
               <button class="btn-main ico-search" type="button"></button>
             </div>
-            <ul class="list-count">
-              <li>
-                <span class="selected times">0</span>
-              </li>
-              <li>
-                <span class="total times">9,206</span>
-              </li>
-            </ul>
+            <strong data-title="선택" class="times">0</strong>
+            <strong data-title="전체" class="times">185</strong>
           </div>
           <div class="buttons">
             <div class="dropdown">
@@ -3798,30 +3481,11 @@
           </li>
           <li>
             입찰설정
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dd>
-                  라이브 입찰은 사용자가 설정한 입찰주기마다 입찰이 진행됩니다.
-                </dd>
-                <dd>
-                  레귤러 입찰은 하루 3번 정해진 시간에 입찰이 진행되며, 원하는 순위에 도달하기 위해 입찰가를 조정하는 것이 아니라 입찰가를 원하는 입찰가로 변경합니다.
-                </dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="bidSettings"></div>
           </li>
           <li class="col-long">
             입찰예정가
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dd>레귤러 설정 시 사용자가 선택한 기본입찰가와 최종 입찰(예정)가가 표시됩니다. 
-                </dd>
-                <dd>입찰예정가는 기본입찰가, 사용자 설정 옵션, 최소입찰가, 최대입찰가를 종합적으로 판단하여 최종적으로 입찰을 수행할 가격입니다.
-                </dd>
-                <dd>입찰예정가는 (부분)설정 완료 또는 입찰 시 업데이트 됩니다. 설정 완료 시 업데이트된 입찰예정가는 실제 입찰 시에는 호출되는 데이터에 따라 달라질 수 있습니다.
-                </dd>
-                <dd>사용자 설정 옵션으로 가감액을 입력했다면 최근 통합검색 평균 노출 순위가 있는 경우와 없는 경우로 나누어 산출된 입찰가 2가지가 표시됩니다</dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="bidPrice"></div>
           </li>
           <li>
             입찰주기
@@ -3838,52 +3502,22 @@
           <li class="ico-sort">입찰감액</li>
           <li class="ico-sort">
             입찰목표
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dd>
-                  라이브 입찰(일반, 고급)은 희망순위 또는 타겟 URL을 입찰목표로 설정할 수 있습니다.
-                </dd>
-                <dd>
-                  희망순위는 설정한 순위를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 희망순위가 표시됩니다.
-                </dd>
-                <dd>
-                  타겟 URL은 타겟이 되는 URL를 지정하여 해당 URL 위치 바로 위나 아래를 목표로 입찰을 진행합니다. 입찰목표에는 사용자가 입력한 URL과 위/아래 선택값이 함께 표시됩니다.
-                </dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="biddingTarget"></div>
           </li>
           <li class="ico-sort">노출구좌수</li>
           <li class="ico-sort">하향입찰</li>
           <li class="ico-sort">입찰가</li>
           <li class="ico-sort">
             현재순위
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dd>입찰설정이 라이브 입찰이면 입찰 시 현재순위가 업데이트 됩니다.</dd>
-                <dd>입찰목표를 희망순위로 설정한 경우 현재순위가 표시됩니다.</dd>
-                <dd>입찰목표를 타겟 URL로 설정한 경우 현재순위와 타겟 URL의 순위가 함께 표시됩니다.</dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="biddingCurrentRank"></div>
           </li>
           <li class="ico-sort">
             최저순위
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dd>라이브 입찰에서 입찰목표로 타겟 URL을 설정한 경우 입력한 최저순위가 표시됩니다.</dd>
-                <dd>최저순위에서 지정한 순위 아래로 내려간 경우 입찰가를 올려 최저순위로 끌어 올립니다.</dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="biddingLowestRank"></div>
           </li>
           <li class="ico-sort">
             입찰
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dt>입찰은 입찰 프로세스 진행 상황에 따라 대기, 성공, 실패가 있습니다.</dt>
-                <dd>대기는 입찰이 한 번도 실행되지 않은 초기 상태입니다.</dd>
-                <dd>성공은 희망 순위에 도달하였거나, 설정한 값을 기준으로 입찰 프로세스가 진행되어 정상적으로 종료된 상태입니다.</dd>
-                <dd>실패는 입찰 프로세스가 진행되었으나, 여러 요인에 의해 정상적으로 종료되지 못한 상태입니다.</dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="bidding"></div>
           </li>
           <li class="ico-sort">입찰결과</li>
           <li class="ico-sort">분류명</li>
