@@ -1073,7 +1073,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modals.forEach(modal => {
       mutationObserver.observe(modal, {
         childList: true,
-        attributes: true,
+        subtree: true,
       });
     });
   });

@@ -11,7 +11,7 @@
               <nav>
                 <ul>
                   <li data-title="타입">
-                    E (제공 키워드 500개, 잔여 키워드 300개) 
+                    E (제공 키워드 500개, 잔여 키워드 300개)
                   </li>
                   <li data-title="등급">레드(입찰주기 10분)</li>
                   <li data-title="기간">
@@ -29,7 +29,7 @@
               <nav>
                 <ul>
                   <li data-title="타입">
-                    E (제공 키워드 500개, 잔여 키워드 300개) 
+                    E (제공 키워드 500개, 잔여 키워드 300개)
                   </li>
                   <li data-title="등급">레드(입찰주기 10분)</li>
                   <li data-title="기간">
@@ -48,9 +48,7 @@
   </header>
   <div class="wrapper">
     <section class="section-account">
-      <header>
-        <h2>4506521631</h2>
-      </header>
+      <h2>4506521631</h2>
       <div class="sync">
         <div class="selectbox">
           <select name="sync-account" id="">
@@ -58,7 +56,7 @@
             <option value="">4506521631</option>
           </select>
         </div>
-        <button class="btn-main ico-sync" type="button"></button>
+        <button class="ico-sync" type="button"></button>
       </div>
       <ul class="details-sync">
         <li class="center">
@@ -83,31 +81,19 @@
         <li>
           <div>
             입찰성공
-            <div class="tooltip">
-              <div class="tooltip-content">
-                최대 CPC가 최종 입찰목표 금액에 도달함
-              </div>
-            </div>
+            <div data-tooltip="biddingSuccess"></div>
           </div>
           <div class="times"></div>
         </li>
         <li>
           <div>입찰실패
-            <div class="tooltip">
-              <div class="tooltip-content">
-                최대 CPC가 최종 입찰목표 금액에 도달하지 못함
-              </div>
-            </div>
+            <div data-tooltip="bidFailedGoogle"></div>
           </div>
           <div class="times"></div>
         </li>
         <li>
           <div>최대입찰가도달
-            <div class="tooltip">
-              <div class="tooltip-content">
-                최종 입찰목표 금액이 입찰한도를 초과한 경우
-              </div>
-            </div>
+            <div data-tooltip="maximumBid2"></div>
           </div>
           <div class="times"></div>
         </li>
@@ -141,7 +127,7 @@
             <button class="btn-advanced-search" type="button">상세검색</button>
           </div>
           <div class="buttons">
-            <button  class="ico-download" type="button">엑셀다운</button>
+            <button class="ico-download" type="button">엑셀다운</button>
             <button type="button" data-modal="searchGroup">분류조회</button>
             <button type="button" data-modal="setLocation">지역설정</button>
           </div>
@@ -243,14 +229,7 @@
           <li class="ico-sort">비용</li>
           <li class="ico-sort">
             입찰
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dt>입찰은 입찰 프로세스 진행 상황에 따라 대기, 성공, 실패가 있습니다.</dt>
-                <dd>대기는 입찰이 한 번도 실행되지 않은 초기 상태입니다.</dd>
-                <dd>성공은 희망 순위에 도달하였거나, 설정한 값을 기준으로 입찰 프로세스가 진행되어 정상적으로 종료된 상태입니다.</dd>
-                <dd>실패는 입찰 프로세스가 진행되었으나, 여러 요인에 의해 정상적으로 종료되지 못한 상태입니다.</dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="bidding"></div>
           </li>
           <li class="ico-sort">입찰결과</li>
           <li class="ico-sort">분류명</li>

@@ -43,7 +43,7 @@
             <nav>
               <ul>
                 <li data-title="타입">
-                  E (제공 키워드 500개, 잔여 키워드 300개) 
+                  E (제공 키워드 500개, 잔여 키워드 300개)
                 </li>
                 <li data-title="등급">레드(입찰주기 10분)</li>
                 <li data-title="기간">
@@ -61,7 +61,7 @@
             <nav>
               <ul>
                 <li data-title="타입">
-                  E (제공 키워드 500개, 잔여 키워드 300개) 
+                  E (제공 키워드 500개, 잔여 키워드 300개)
                 </li>
                 <li data-title="등급">레드(입찰주기 10분)</li>
                 <li data-title="기간">
@@ -79,9 +79,7 @@
   </header>
   <div class="tab-content content-11st-focus-click is-active" data-tab="eleventh">
     <section class="section-account">
-      <header>
-        <h2>3scoltd</h2>
-      </header>
+      <h2>3scoltd</h2>
       <div class="sync">
         <div class="selectbox">
           <select name="sync-account" id="">
@@ -89,7 +87,7 @@
             <option value="">cjlion2004</option>
           </select>
         </div>
-        <button class="btn-main ico-sync" type="button"></button>
+        <button class="ico-sync" type="button"></button>
       </div>
       <ul class="details-sync">
         <li class="center">
@@ -113,68 +111,42 @@
         <li>
           <div>
             입찰실행
-            <div class="tooltip">
-              <div class="tooltip-content">
-                입찰상태가 ON인 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="bidProceed"></div>
           </div>
           <strong class="times">189</strong>
         </li>
         <li>
           <div>
             입찰대기
-            <div class="tooltip">
-              <div class="tooltip-content">
-                입찰이 한 번도 실행되지 않은 초기 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="bidWaiting"></div>
           </div>
           <strong class="times">385</strong>
         </li>
         <li>
           <div>
             입찰진행
-            <div class="tooltip">
-              <div class="tooltip-content">
-                입찰이 진행되고 있는 상태로, 입찰가가 상승 중인 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="biddingInProgress"></div>
           </div>
           <strong class="times">45</strong>
         </li>
         <li>
           <div>
             목표달성
-            <div class="tooltip">
-              <div class="tooltip-content">
-                목표달성은 희망한 순위에 도달한 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="goalAchieved"></div>
           </div>
           <strong class="times">51</strong>
         </li>
         <li>
           <div>
             최대입찰가도달
-            <div class="tooltip">
-              <dl class="tooltip-content">
-                <dd>입찰가가 사용자가 설정한 최대 입찰가에 도달한 상태입니다.</dd>
-                <dd>최대 입찰가에 도달하면 입찰 프로세스를 완료하지 않고 중단합니다.</dd>
-              </dl>
-            </div>
+            <div data-tooltip="maximumBid"></div>
           </div>
           <strong class="times">33</strong>
         </li>
         <li>
           <div>
             입찰불가
-            <div class="tooltip">
-              <div class="tooltip-content">
-                광고센터에서 캠페인, 그룹, 소재, 키워드 등이 OFF 상태이거나 <br />조회되지 않는 경우 또는 비즈머니가 부족한 상황 등 광고센터 이슈로<br />입찰 프로세스를 정상적으로
-                종료하지 못한 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="unableToBid"></div>
           </div>
           <strong class="times">27</strong>
         </li>
@@ -182,11 +154,7 @@
         <li>
           <div>
             입찰실패
-            <div class="tooltip">
-              <div class="tooltip-content">
-                서버, 네트워크 등의 오류로 입찰 프로세스를<br />정상적으로 종료하지 못한 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="bidFailed"></div>
           </div>
           <strong class="times">24</strong>
         </li>
@@ -313,14 +281,7 @@
           <li class="ico-sort">희망순위 도달여부</li>
           <li class="ico-sort">
             입찰
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dt>입찰은 입찰 프로세스 진행 상황에 따라 대기, 성공, 실패가 있습니다.</dt>
-                <dd>대기는 입찰이 한 번도 실행되지 않은 초기 상태입니다.</dd>
-                <dd>성공은 희망 순위에 도달하였거나, 설정한 값을 기준으로 입찰 프로세스가 진행되어 정상적으로 종료된 상태입니다.</dd>
-                <dd>실패는 입찰 프로세스가 진행되었으나, 여러 요인에 의해 정상적으로 종료되지 못한 상태입니다.</dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="bidding"></div>
           </li>
           <li class="ico-sort">입찰결과</li>
           <li class="ico-sort">키워드등록</li>
@@ -448,16 +409,14 @@
   </div>
   <div class="tab-content content-11st-brand-search" data-tab="eleventh">
     <section class="section-account">
-      <header>
-        <h2>bokdanji</h2>
-      </header>
+      <h2>bokdanji</h2>
       <div class="sync">
         <div class="selectbox">
           <select name="sync-account" id="">
             <option value="">bokdanji</option>
           </select>
         </div>
-        <button class="btn-main ico-sync" type="button"></button>
+        <button class="ico-sync" type="button"></button>
       </div>
       <ul class="details-sync">
         <li class="center">
@@ -481,22 +440,14 @@
         <li>
           <div>
             입찰실행
-            <div class="tooltip">
-              <div class="tooltip-content">
-                입찰상태가 ON인 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="bidProceed"></div>
           </div>
           <strong class="times">189</strong>
         </li>
         <li>
           <div>
             입찰대기
-            <div class="tooltip">
-              <div class="tooltip-content">
-                입찰이 한 번도 실행되지 않은 초기 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="bidWaiting"></div>
           </div>
           <strong class="times">385</strong>
         </li>
@@ -504,9 +455,7 @@
           <div>
             입찰진행
             <div class="tooltip">
-              <div class="tooltip-content">
-                입찰이 진행되고 있는 상태로, 입찰가가 상승 중인 상태입니다.
-              </div>
+              <div data-tooltip="biddingInProgress"></div>
             </div>
           </div>
           <strong class="times">45</strong>
@@ -514,35 +463,21 @@
         <li>
           <div>
             목표달성
-            <div class="tooltip">
-              <div class="tooltip-content">
-                목표달성은 희망한 순위에 도달한 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="goalAchieved"></div>
           </div>
           <strong class="times">51</strong>
         </li>
         <li>
           <div>
             최대입찰가도달
-            <div class="tooltip">
-              <dl class="tooltip-content">
-                <dd>입찰가가 사용자가 설정한 최대 입찰가에 도달한 상태입니다.</dd>
-                <dd>최대 입찰가에 도달하면 입찰 프로세스를 완료하지 않고 중단합니다.</dd>
-              </dl>
-            </div>
+            <div data-tooltip="maximumBid"></div>
           </div>
           <strong class="times">33</strong>
         </li>
         <li>
           <div>
             입찰불가
-            <div class="tooltip">
-              <div class="tooltip-content">
-                광고센터에서 캠페인, 그룹, 소재, 키워드 등이 OFF 상태이거나 <br />조회되지 않는 경우 또는 비즈머니가 부족한 상황 등 광고센터 이슈로<br />입찰 프로세스를 정상적으로
-                종료하지 못한 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="unableToBid"></div>
           </div>
           <strong class="times">27</strong>
         </li>
@@ -550,11 +485,7 @@
         <li>
           <div>
             입찰실패
-            <div class="tooltip">
-              <div class="tooltip-content">
-                서버, 네트워크 등의 오류로 입찰 프로세스를<br />정상적으로 종료하지 못한 상태입니다.
-              </div>
-            </div>
+            <div data-tooltip="bidFailed"></div>
           </div>
           <strong class="times">24</strong>
         </li>
@@ -672,14 +603,7 @@
           <li class="ico-sort">최대입찰가 도달여부</li>
           <li class="ico-sort">
             입찰
-            <div class="tooltip type2">
-              <dl class="tooltip-content">
-                <dt>입찰은 입찰 프로세스 진행 상황에 따라 대기, 성공, 실패가 있습니다.</dt>
-                <dd>대기는 입찰이 한 번도 실행되지 않은 초기 상태입니다.</dd>
-                <dd>성공은 희망 순위에 도달하였거나, 설정한 값을 기준으로 입찰 프로세스가 진행되어 정상적으로 종료된 상태입니다.</dd>
-                <dd>실패는 입찰 프로세스가 진행되었으나, 여러 요인에 의해 정상적으로 종료되지 못한 상태입니다.</dd>
-              </dl>
-            </div>
+            <div class="type2" data-tooltip="bidding"></div>
           </li>
           <li class="ico-sort">입찰결과</li>
           <li class="ico-sort">광고대상</li>

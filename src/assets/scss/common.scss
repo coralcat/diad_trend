@@ -190,12 +190,12 @@ body {
   }
 
   button {
-    min-height: 24px;
+    height: clamp(30px, 4vh, 36px);
+    padding: 0 0.75rem;
     user-select: none;
     display: flex;
     align-items: center;
     border: 0;
-    padding: 0;
     background: transparent;
     border-radius: 0.25rem;
     white-space: nowrap;
@@ -210,11 +210,6 @@ body {
       cursor: default;
     }
 
-    &.ico-search {
-      width: 36px;
-      height: 36px !important;
-    }
-
     .btn-submit {
       background-color: $primary-color;
       color: white;
@@ -223,7 +218,6 @@ body {
     &.btn-main {
       background-color: $main-color;
       color: white !important;
-      padding: 0 1.5rem;
       border: 0 !important;
     }
 
@@ -1045,11 +1039,12 @@ input[type="radio"] {
     flex: 1 1 auto;
     display: flex;
     align-items: center;
-    border: 1px solid #ddd;
+    border: 0;
+    box-shadow: 0 0 1px 1px #ddd;
     border-radius: 3px;
     width: 100%;
-    height: $input-height;
-    padding: 0 1.5rem 0 0.35rem;
+    height: clamp(30px, 4vh, 36px);
+    padding: 0 1.5rem 0 0.5rem;
     font: 14px/1 "RobotoMedium", "NanumSquareR";
     background-color: white;
     color: #333;
@@ -1117,34 +1112,6 @@ input[type="radio"] {
   input {
     appearance: none;
     display: none !important;
-
-    + label {
-      position: relative;
-      user-select: none;
-      background-color: #d3d6d9;
-      height: 19px;
-      width: 35px;
-      border-radius: 25px;
-      transition: 0.2s;
-      overflow: unset;
-      display: inline-block;
-      cursor: pointer;
-
-      &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 2px;
-        left: 2px;
-        width: 15px;
-        height: 15px;
-        background-color: white;
-        border-radius: 50%;
-        transition: 0.2s;
-        box-shadow: 0 5px 10px 0px rgb(0 0 0 / 15%);
-      }
-    }
-
     &:checked {
       + label {
         background-color: $main-color;
@@ -1156,6 +1123,34 @@ input[type="radio"] {
       }
     }
   }
+
+  label {
+    position: relative;
+    user-select: none;
+    background-color: #d3d6d9;
+    height: 19px;
+    width: 35px;
+    border-radius: 25px;
+    transition: 0.2s;
+    overflow: unset;
+    display: inline-block;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 15px;
+      height: 15px;
+      background-color: white;
+      border-radius: 50%;
+      transition: 0.2s;
+      box-shadow: 0 5px 10px 0px rgb(0 0 0 / 15%);
+    }
+  }
+
 }
 
 /* =====================================================
@@ -1385,10 +1380,10 @@ input[type="radio"] {
   word-break: keep-all;
   position: fixed;
   top: 100%;
-  padding: 0.75rem;
+  padding: 0.5rem;
   width: fit-content;
   max-width: 360px;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   background-color: #333;
   color: white;
   text-align: left;
