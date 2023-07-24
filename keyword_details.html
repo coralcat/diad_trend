@@ -1000,7 +1000,7 @@
       <h1>키워드 트렌드 리포트</h1>
     </div>
     <ul class="tabs">
-      <li data-tab="sub-menu">통합</li>
+      <li class="is-active" data-tab="sub-menu">통합</li>
       <li data-tab="sub-menu">검색</li>
       <li data-tab="sub-menu">컨텐츠</li>
       <li data-tab="sub-menu">쇼핑</li>
@@ -1065,7 +1065,7 @@
       </div>
     </section>
   </header>
-  <div class="tab-content content-keyword" data-tab="sub-menu">
+  <div class="tab-content content-keyword is-active" data-tab="sub-menu">
     <section class="section-chart">
       <h2>키워드 한눈에 보기</h2>
       <div class="section-content">
@@ -1437,22 +1437,20 @@
           </div>
         </div>
         <div class="filters">
-          <div>
-            <div class="selector">
-              <input type="radio" id="select-trend-1week" name="keywordTrendChart" checked />
-              <label for="select-trend-1month">1개월</label>
-              <input type="radio" id="select-trend-3months" name="keywordTrendChart" />
-              <label for="select-trend-3months">3개월</label>
-              <input type="radio" id="select-trend-6months" name="keywordTrendChart" />
-              <label for="select-trend-6months">6개월</label>
-              <input type="radio" id="select-trend-1year" name="keywordTrendChart" />
-              <label for="select-trend-1year">1년</label>
-            </div>
-            <div class="calendar">
-              <input type="text" id="keywordTrendChartFrom" name="" />
-              <span>~</span>
-              <input type="text" id="keywordTrendChartTo" name="" />
-            </div>
+          <div class="selector">
+            <input type="radio" id="select-trend-1week" name="keywordTrendChart" checked />
+            <label for="select-trend-1month">1개월</label>
+            <input type="radio" id="select-trend-3months" name="keywordTrendChart" />
+            <label for="select-trend-3months">3개월</label>
+            <input type="radio" id="select-trend-6months" name="keywordTrendChart" />
+            <label for="select-trend-6months">6개월</label>
+            <input type="radio" id="select-trend-1year" name="keywordTrendChart" />
+            <label for="select-trend-1year">1년</label>
+          </div>
+          <div class="calendar">
+            <input type="text" id="keywordTrendChartFrom" name="" />
+            <span>~</span>
+            <input type="text" id="keywordTrendChartTo" name="" />
             <button class="btn-main ico-search" type="button"></button>
           </div>
         </div>
@@ -1560,9 +1558,8 @@
           <div class="search">
             <div class="input">
               <input type="search">
-              <span class="x"></span>
             </div>
-            <button class="btn-main ico-search" type="button"></button>
+            <button type="button"></button>
           </div>
         </div>
         <div class="filters">
@@ -2184,23 +2181,14 @@
         <div title="네이버 카페" class="tab-content" data-tab="article">
           <header>
             <div class="title">
-              <strong>
-                네이버 카페
-                <a href="https://search.naver.com/search.naver?where=article&sm=tab_viw.blog&query=커피원두&nso="
-                  target="_blank"
+              <div class="inputs">
+                <h3>
+                  네이버 카페
+                </h3>
+                <a href="https://search.naver.com/search.naver?where=news&sm=tab_jum&query=커피원두" target="_blank"
                   class="ico-link">자세히보기</a>
-              </strong>
-              <span>총 3,123건</span>
-            </div>
-            <div class="filters">
-              <div class="search">
-                <div class="calendar">
-                  <input type="text" id="naverCafeFrom" name="" />
-                  <span>~</span>
-                  <input type="text" id="naverCafeTo" name="" />
-                </div>
-                <button class="btn-main ico-search" type="button"></button>
               </div>
+              <strong data-title="총" class="times">3,123</strong>
             </div>
           </header>
           <div class="list list-article" data-empty="조건에 맞는 컨텐츠가 없습니다.
@@ -2244,22 +2232,14 @@
         <div title="네이버 뉴스" class="tab-content" data-tab="article">
           <header>
             <div class="title">
-              <strong>
-                네이버 뉴스
+              <div class="inputs">
+                <h3>
+                  네이버 뉴스
+                </h3>
                 <a href="https://search.naver.com/search.naver?where=news&sm=tab_jum&query=커피원두" target="_blank"
                   class="ico-link">자세히보기</a>
-              </strong>
-              <span>총 3,123건</span>
-            </div>
-            <div class="filters">
-              <div class="search">
-                <div class="calendar">
-                  <input type="text" id="newsFrom" name="" />
-                  <span>~</span>
-                  <input type="text" id="newsTo" name="" />
-                </div>
-                <button class="btn-main ico-search" type="button"></button>
               </div>
+              <strong data-title="총" class="times">3,123</strong>
             </div>
           </header>
           <div class="list list-article" data-empty="조건에 맞는 컨텐츠가 없습니다.
@@ -2303,22 +2283,12 @@
         <div title="다음 블로그" class="tab-content" data-tab="article">
           <header>
             <div class="title">
-              <strong>
-                다음 블로그
-                <a href="https://search.daum.net/search?w=blog&nil_search=btn&DA=NTB&enc=utf8&q=커피원두" target="_blank"
+              <div class="inputs">
+                <h3>다음 블로그</h3>
+                <a href="https://search.naver.com/search.naver?where=news&sm=tab_jum&query=커피원두" target="_blank"
                   class="ico-link">자세히보기</a>
-              </strong>
-              <span>총 3,123건</span>
-            </div>
-            <div class="filters">
-              <div class="search">
-                <div class="calendar">
-                  <input type="text" id="naverBlogFrom" name="" />
-                  <span>~</span>
-                  <input type="text" id="naverBlogTo" name="" />
-                </div>
-                <button class="btn-main ico-search" type="button"></button>
               </div>
+              <strong data-title="총" class="times">3,123</strong>
             </div>
           </header>
           <div class="list list-article list-thumbnail" data-empty="조건에 맞는 컨텐츠가 없습니다.">
@@ -2456,22 +2426,12 @@
         <div title="다음 카페" class="tab-content" data-tab="article">
           <header>
             <div class="title">
-              <strong>
-                다음 카페
-                <a href="https://search.naver.com/search.naver?query=커피원두&nso=&where=blog&sm=tab_opt" target="_blank"
+              <div class="inputs">
+                <h3>다음 카페</h3>
+                <a href="https://search.naver.com/search.naver?where=news&sm=tab_jum&query=커피원두" target="_blank"
                   class="ico-link">자세히보기</a>
-              </strong>
-              <span>총 3,123건</span>
-            </div>
-            <div class="filters">
-              <div class="search">
-                <div class="calendar">
-                  <input type="text" id="naverCafeFrom" name="" />
-                  <span>~</span>
-                  <input type="text" id="naverCafeTo" name="" />
-                </div>
-                <button class="btn-main ico-search" type="button"></button>
               </div>
+              <strong data-title="총" class="times">3,123</strong>
             </div>
           </header>
           <div class="list list-article list-thumbnail" data-empty="조건에 맞는 컨텐츠가 없습니다.
@@ -2549,22 +2509,12 @@
         <div title="유튜브 동영상" class="tab-content" data-tab="article">
           <header>
             <div class="title">
-              <strong>
-                유튜브 동영상
-                <a href="https://www.youtube.com/results?search_query=커피원두&sp=CAM%253D" target="_blank"
+              <div class="inputs">
+                <h3>유튜브 동영상</h3>
+                <a href="https://search.naver.com/search.naver?where=news&sm=tab_jum&query=커피원두" target="_blank"
                   class="ico-link">자세히보기</a>
-              </strong>
-              <span>총 3,123건</span>
-            </div>
-            <div class="filters">
-              <div class="search">
-                <div class="calendar">
-                  <input type="text" id="naverCafeFrom" name="" />
-                  <span>~</span>
-                  <input type="text" id="naverCafeTo" name="" />
-                </div>
-                <button class="btn-main ico-search" type="button"></button>
               </div>
+              <strong data-title="총" class="times">3,123</strong>
             </div>
           </header>
           <div class="list list-article list-thumbnail youtube" data-empty="조건에 맞는 컨텐츠가 없습니다.
@@ -2720,18 +2670,15 @@
             </div>
           </div>
           <div class="search">
-            <div class="input">
-              <input type="search">
-              <div class="x close"></div>
-            </div>
-            <button class="btn-main ico-search" type="button"></button>
+            <input type="search">
+            <button type="button"></button>
           </div>
         </div>
         <div class="filters">
           <div class="selected-filters">
           </div>
           <div>
-            <strong  data-title="총" class="times">652</strong>
+            <strong data-title="총" class="times">652</strong>
             <div class="layout layout-grid">
               <button class="ico-list type-list is-active" type="button"></button>
               <button class="ico-grid type-grid" type="button"></button>
@@ -2743,7 +2690,6 @@
         <ul class="row title">
           <li class="col-ranking ico-sort">순위</li>
           <li class="col-title ico-sort">상품명</li>
-          <li class="ico-sort">카테고리</li>
           <li class="ico-sort">스토어명</li>
           <li class="ico-sort">판매가</li>
           <li class="ico-sort">브랜드</li>
@@ -3134,7 +3080,7 @@
               </div>
             </div>
             <div>
-              
+
               <div class="calendar">
                 <input type="text" id="dailyLowestPriceChartFrom" name="" />
                 <span>~</span>

@@ -1051,6 +1051,16 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    const progresses = document.querySelectorAll("progress");
+
+    progresses.forEach((progress, index) => {
+      let delay = 0;
+      delay += 0.3 * index;
+      progress.style.animationDelay = `${delay}s`
+    })
+    
+
+
     // 목록 데이터 감지
     const lists = document.querySelectorAll(".list");
     lists.forEach(list => {
@@ -1093,9 +1103,9 @@ document.addEventListener("DOMContentLoaded", () => {
   alertModal.innerHTML = `
       <div class="dialog">
         <div class="modal-content"></div>
-        <div class="buttons">
-          <button class="btn-submit close" type="button">확인</button>
-        </div>
+        <footer class="buttons">
+          <button class="close" type="button">확인</button>
+        </footer>
       </div>
     `;
 
@@ -1107,10 +1117,10 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="close"></div>
         </header>
         <div class="modal-content"></div>
-        <div class="buttons">
+        <footer class="buttons">
           <button class="btn-cancel close" type="button">아니오</button>
-          <button class="btn-submit" type="button">예</button>
-        </div>
+          <button type="button">예</button>
+        </footer>
       </div>
     `;
 
