@@ -1051,6 +1051,16 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    const progresses = document.querySelectorAll("progress");
+
+    progresses.forEach((progress, index) => {
+      let delay = 0;
+      delay += 0.3 * index;
+      progress.style.animationDelay = `${delay}s`
+    })
+    
+
+
     // 목록 데이터 감지
     const lists = document.querySelectorAll(".list");
     lists.forEach(list => {

@@ -67,7 +67,7 @@ gulp.task("scss", () => {
   };
 
   return gulp
-    .src(["src/assets/scss/common.scss", "src/assets/scss/style.scss", "src/assets/scss/responsive.scss"])
+    .src(["src/assets/scss/common.scss", "src/assets/scss/style.scss", "src/assets/scss/modals.scss", "src/assets/scss/responsive.scss"])
     .pipe(sourcemaps.init())
     .pipe(sass({outputStyle: "compressed"}).on("error", sass.logError))
     .pipe(autoprefixer({cascade: false}))
