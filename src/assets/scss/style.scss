@@ -4,6 +4,17 @@ $primary-color: #7682f8;
 $secondary-color: rgba(91, 84, 198, 0.1);
 $violet-medium-color: rgb(214, 217, 253);
 
+.sections {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .section-main {
+    flex: 1 1 auto;
+  }
+}
+
 .my-plan {
   border: 1px solid #e3e6e9;
   padding: 5px;
@@ -893,17 +904,6 @@ main {
   background-color: #eff3f7;
   position: relative;
   overflow-y: auto;
-
-  .sections {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-
-    .section-main {
-      flex: 1 1 auto;
-    }
-  }
 
   > .wrapper {
     flex: 1 1 auto;
@@ -2076,7 +2076,6 @@ main {
 
   .row {
     &.title {
-      margin-bottom: 0.5rem;
       padding-left: 2rem;
 
       li {
@@ -2086,6 +2085,7 @@ main {
     }
 
     &:not(.title) {
+      padding: 0;
       margin-left: 2rem;
       position: relative;
       border-bottom: 1px solid #eee;
@@ -2103,7 +2103,13 @@ main {
       }
 
       &:nth-of-type(12) {
-        border-color: #c3c6c9;
+        // border-color: #c3c6c9;
+      }
+
+      .limit {
+        border-top: 2px solid tomato;
+        background-color: rgba(255, 99, 71, 0.1);
+        height: 100%;
       }
 
       ol {
@@ -2160,26 +2166,32 @@ main {
       }
 
       li {
-        flex: 1 1 auto;
-        width: auto;
-        min-height: auto;
-        flex-direction: column;
         padding: 0 !important;
+        border: 0;
+      }
 
-        &::before {
-          content: attr(title);
-          white-space: nowrap;
-          color: slategray;
-          font-family: "굴림";
-          font-size: 11px;
-        }
+      ol {
+        li {
+          flex: 1 1 auto;
+          width: auto;
+          min-height: auto;
+          flex-direction: column;
 
-        .tag {
-          min-width: auto;
-          display: flex;
-          align-items: center;
-          font-family: "굴림";
-          font-size: 11px;
+          &::before {
+            content: attr(title);
+            white-space: nowrap;
+            color: slategray;
+            font-family: "굴림";
+            font-size: 11px;
+          }
+
+          .tag {
+            min-width: auto;
+            display: flex;
+            align-items: center;
+            font-family: "굴림";
+            font-size: 11px;
+          }
         }
       }
     }
@@ -5355,7 +5367,6 @@ main {
 
   .content-articles {
     .section-article {
-
       .section-content {
         flex: 1 1 auto;
         display: flex;

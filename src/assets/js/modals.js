@@ -267,7 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const divisions = modal.querySelectorAll(".inputs");
           divisions.forEach(div => {
             const input = div.querySelectorAll("input[type='radio']");
-            input[0].checked = true;
+            input[0] && (input[0].checked = true);
           });
         } else if (input.type === "number" || input.type === "text") {
           input.value = "";

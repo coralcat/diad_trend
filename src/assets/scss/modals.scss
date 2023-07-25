@@ -23,6 +23,7 @@ $secondary-color: #f2f1ff;
     dd {
       position: relative;
       padding-left: 0.5rem;
+      line-height: 1.5;
 
       &::before {
         content: "\00B7";
@@ -209,6 +210,10 @@ $secondary-color: #f2f1ff;
       justify-content: space-between;
       padding: 0 0.5rem;
       position: relative;
+
+      &:last-of-type {
+        margin-bottom: .5rem
+      }
 
       &.title {
         border: 0;
@@ -656,14 +661,14 @@ $secondary-color: #f2f1ff;
     section {
       overflow: unset;
 
-      &:first-of-type {
+      &:first-of-type:not(.sections section) {
         flex: 0 0 auto;
         flex-direction: row;
       }
     }
 
+
     .legend {
-      padding-top: 0.5rem;
       display: flex;
       justify-content: center;
       gap: 1rem;
@@ -689,9 +694,16 @@ $secondary-color: #f2f1ff;
           }
         }
 
-        &:last-of-type {
+        &:last-of-type:not(:first-of-type) {
           &::before {
             content: none;
+          }
+        }
+
+        &.limit {
+          &::before {
+            border-top: 2px solid tomato;
+            background-color: rgba(255, 99, 71, 0.1);
           }
         }
       }
@@ -705,9 +717,6 @@ $secondary-color: #f2f1ff;
       visibility: visible;
       position: relative;
       top: auto;
-
-      input[type="number"] {
-      }
 
       ul {
         &:first-of-type {
@@ -800,14 +809,16 @@ $secondary-color: #f2f1ff;
     }
 
     .section-advanced-settings {
-      flex: 1;
-      height: 420px;
+      flex: 1 1 auto;
+      min-height: 200px;
       overflow-y: hidden;
     }
 
     .dialog {
       width: fit-content;
     }
+
+    .sections {}
   }
 
   &-sortable {

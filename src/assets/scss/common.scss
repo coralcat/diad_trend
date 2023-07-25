@@ -206,12 +206,13 @@ body {
     display: flex;
     align-items: center;
     border: 0;
-    background: transparent;
+    background-color: transparent;
     border-radius: 0.25rem;
     white-space: nowrap;
     font-family: "Roboto", "NanumSquareR";
     font-size: clamp(13px, 0.7vw, 14px);
-    transition: background 0.2s;
+    line-height: 1;
+    transition: background-color 0.2s;
     cursor: pointer;
 
     &:disabled {
@@ -372,6 +373,7 @@ body {
 
   section {
     position: relative;
+    line-height: 1.5;
   }
 
   ul {
@@ -1639,7 +1641,7 @@ input[type="radio"] {
     min-width: 600px;
     width: min(600px, 30vw);
     max-width: calc(100% - 2rem);
-    max-height: 90%;
+    max-height: calc(100% - 2rem);
     background-color: white;
     border-radius: 0.5rem;
     display: flex;
@@ -1684,14 +1686,13 @@ input[type="radio"] {
     justify-content: space-between;
 
     button {
-      border-radius: 0.35rem;
-      height: 36px;
-      padding: 0 2rem;
+      padding: 0 1rem;
 
       &:last-of-type {
         background-color: $main-color;
         color: #fff;
         box-shadow: 0 3px 9px -4px $main-color;
+        padding: 0 2rem;
       }
 
       &.btn-cancel {
