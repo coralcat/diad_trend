@@ -75,7 +75,7 @@ $violet-medium-color: rgb(214, 217, 253);
   left: 0;
   border-radius: 0;
   opacity: 0;
-  padding: 0.75rem;
+  padding: 0.5rem;
   background: linear-gradient(270deg, #00daef, #bc67ff);
   background-size: 200% 200%;
   text-align: center;
@@ -106,8 +106,7 @@ $violet-medium-color: rgb(214, 217, 253);
   margin-bottom: 0.25rem;
   color: $main-color;
   font-size: 12px;
-  font-family: "Outfit";
-  font-weight: 600;
+  font-family: "Poppins";
 
   &::before {
     content: "MID: ";
@@ -161,7 +160,7 @@ $violet-medium-color: rgb(214, 217, 253);
     padding-left: 1.45rem !important;
     padding: 0.35rem 0.5rem;
     color: #5b54c6;
-    border: 1px solid #eee;
+    border: 1px solid #e3e6e9;
   }
 
   .success {
@@ -182,8 +181,7 @@ $violet-medium-color: rgb(214, 217, 253);
   color: white;
   border-radius: 3px;
   padding: 3px 6px;
-  font-size: 11px;
-  font-family: "Outfit", "굴림";
+  font-size: 12px;
   line-height: normal;
 
   &.d-day {
@@ -192,7 +190,6 @@ $violet-medium-color: rgb(214, 217, 253);
     padding: 2px 6px;
     color: $main-color;
     border-radius: 30px;
-    font: 500 12px/1 "Outfit";
 
     &::before {
       content: "D-";
@@ -237,7 +234,6 @@ section {
 
   header {
     width: 100%;
-    min-height: 24px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -314,7 +310,7 @@ section {
 
       ~ .filters {
         width: 100%;
-        border-top: 1px solid #eee;
+        border-top: 1px solid #e3e6e9;
         padding-top: 0.5rem;
       }
     }
@@ -328,15 +324,19 @@ section {
   &.section-main {
     flex: 0 0 auto;
 
-    strong {
-      font-size: clamp(14px, 1vw, 16px);
-      color: $main-color;
-    }
-
     article {
       min-width: auto;
       border: 0 !important;
       background-color: #f3f6f9;
+
+      &[title] {
+        cursor: pointer;
+        transition: background-color .25s;
+
+        &:hover {
+          background-color: $secondary-color;
+        }
+      }
     }
 
     .row {
@@ -389,16 +389,9 @@ header,
     // color: $main-color;
 
     &[data-title] {
-      font-size: 16px;
-      line-height: normal;
-
       &::before,
       &::after {
         color: #333;
-      }
-
-      &::before {
-        font-size: 13px;
       }
     }
   }
@@ -431,7 +424,6 @@ header,
     background-size: 120px;
     width: fit-content;
     padding-left: 3.5rem;
-    font-family: "Outfit";
 
     .impact {
       color: $primary-color;
@@ -611,7 +603,6 @@ header,
         gap: 0.5rem;
         background-size: 200% 200%;
         position: relative;
-        font-size: 13px;
         z-index: 10;
         cursor: pointer;
 
@@ -723,7 +714,6 @@ header,
       align-items: center;
       gap: 0.35rem;
       color: rgba(255, 255, 255, 0.75);
-      font-size: 13px;
       z-index: 5;
       transition: 0.25s opacity 0.1s;
 
@@ -982,7 +972,7 @@ main {
       gap: 0;
       padding: 0;
       background-color: white;
-      border: 1px solid #eee;
+      border: 1px solid #e3e6e9;
       border-radius: 0.5rem;
 
       li {
@@ -994,7 +984,7 @@ main {
         justify-content: center;
 
         &:not(:last-of-type) {
-          border-bottom: 1px solid #eee;
+          border-bottom: 1px solid #e3e6e9;
         }
       }
     }
@@ -1025,7 +1015,6 @@ main {
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    font-family: "Outfit", "NanumSquareR";
 
     .date {
       font-size: 13px;
@@ -1058,7 +1047,6 @@ main {
     }
 
     .tag {
-      font-family: "Outfit";
       font-size: 14px;
       background-color: rgba(0, 0, 0, 0.2);
       color: #333;
@@ -1068,7 +1056,6 @@ main {
         border: 0;
         background-color: #333639;
         color: white;
-        font-family: "Outfit";
         font-size: 12px;
       }
     }
@@ -1090,23 +1077,15 @@ main {
         }
 
         .count {
-          font-family: "Outfit", "NanumSquareR";
-          font-size: 16px;
           color: $main-color;
+          font-weight: 600;
 
           &::after {
             content: "개";
-            font-size: 14px;
             color: #333;
           }
         }
       }
-    }
-  }
-
-  .tabs {
-    li {
-      font-size: clamp(17px, 1.25vw, 20px);
     }
   }
 }
@@ -1207,7 +1186,6 @@ main {
       position: absolute;
       left: 1.4rem;
       color: #333;
-      font-family: "NanumSquareR";
     }
   }
 
@@ -1392,7 +1370,7 @@ main {
   flex: 1 1 auto;
   width: 100%;
   min-height: 12rem;
-  border: 1px solid #eee;
+  border: 1px solid #e3e6e9;
   padding: 1rem;
   border-radius: 0.5rem;
 
@@ -1405,7 +1383,7 @@ main {
 .chart {
   width: 100%;
   max-width: 100%;
-  height: 200px;
+  height: 30vh;
 
   canvas {
     width: 100% !important;
@@ -1468,7 +1446,7 @@ main {
 
   .image {
     flex: 0 0 auto;
-    background: repeating-linear-gradient(45deg, #f9f9f9, #f9f9f9 10px, #eee 10px, #eee 20px);
+    background: repeating-linear-gradient(45deg, #f9f9f9, #f9f9f9 10px, #e3e6e9 10px, #e3e6e9 20px);
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -1498,7 +1476,6 @@ main {
       white-space: nowrap;
       text-overflow: ellipsis;
       line-height: 1.25;
-      font-family: "Outfit", "NanumSquareR";
       text-align: left;
       overflow: hidden;
       cursor: pointer;
@@ -1507,7 +1484,7 @@ main {
     .store,
     .categories {
       color: slategray;
-      font-size: 12px;
+      font-size: 13px;
       margin-top: 0.5rem;
       display: flex;
       align-items: center;
@@ -1617,7 +1594,6 @@ main {
     text-decoration: underline;
     text-underline-position: under;
     color: #4f47d5;
-    font-size: 13px;
 
     &[class*="ico"] {
       font-size: 12px;
@@ -1650,21 +1626,14 @@ main {
     justify-content: space-between;
     border: 1px solid;
     background-color: transparent;
-    padding: 0 0.35rem;
+    padding: 0 4px;
     gap: 3px;
     height: 18px;
     min-width: 40px;
     font-size: 12px;
     line-height: normal;
-    font-family: "Outfit", "NanumSquareR";
     white-space: nowrap;
     color: #11b4d4;
-
-    &::before {
-      font-size: 10px;
-      line-height: 1;
-      font-family: "Poppins";
-    }
 
     &.type-bg {
       color: white !important;
@@ -1689,13 +1658,6 @@ main {
       justify-content: center;
       height: 22px;
       color: lightseagreen;
-      font-size: 11px;
-      line-height: 1;
-
-      &::before {
-        font-size: 13px !important;
-        font-family: "Outfit", "NanumSquareR";
-      }
 
       &.high {
         border-color: rgba(255, 99, 71, 0.15);
@@ -1716,7 +1678,7 @@ main {
       }
 
       &.low {
-        border-color: #eee;
+        border-color: #e3e6e9;
 
         &::before {
           content: "낮음";
@@ -1744,7 +1706,7 @@ main {
 
       &.same {
         display: flex;
-        border-color: #eee;
+        border-color: #e3e6e9;
 
         &::before {
           content: "유지";
@@ -1764,8 +1726,6 @@ main {
 
       &::before {
         content: "확인불가";
-        font-size: 11px;
-        font-family: "NanumSquareR";
       }
     }
 
@@ -1794,7 +1754,7 @@ main {
 
       &::before {
         content: "-";
-        font-size: 15px;
+        font-size: 13px;
       }
     }
   }
@@ -1857,11 +1817,9 @@ main {
         padding: 0.5rem;
         background-color: #f7f8f9;
         color: #565e72;
-        word-break: keep-all;
-        font-size: 13px;
 
         &:not(:last-of-type) {
-          border-right: 1px solid #eee;
+          border-right: 1px solid #e3e6e9;
         }
 
         &.multiple {
@@ -1876,7 +1834,7 @@ main {
             &:first-of-type {
               width: 100%;
               justify-content: center;
-              border-bottom: 1px solid #eee;
+              border-bottom: 1px solid #e3e6e9;
             }
           }
 
@@ -1892,7 +1850,7 @@ main {
               padding: 0.5rem;
 
               &:not(:last-of-type) {
-                border-right: 1px solid #eee;
+                border-right: 1px solid #e3e6e9;
               }
             }
           }
@@ -1923,7 +1881,7 @@ main {
 
     li {
       background-color: white;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #e3e6e9;
       flex: 1 1 auto;
       display: flex;
       flex-wrap: wrap;
@@ -1936,7 +1894,7 @@ main {
       min-height: 36px;
       padding: 0.75rem 0.5rem;
       word-break: keep-all;
-      font-family: "Outfit", "NanumSquareR";
+      line-height: 1;
       transition: background-color 0.25s;
 
       &:empty {
@@ -1960,7 +1918,7 @@ main {
           font-size: 13px;
           height: 100%;
           padding: 0.25rem 2rem;
-          background-color: #eee;
+          background-color: #e3e6e9;
           border: 1px solid #ddd;
           border-radius: 2px;
         }
@@ -2088,7 +2046,7 @@ main {
       padding: 0;
       margin-left: 2rem;
       position: relative;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #e3e6e9;
       gap: 2px;
 
       &::before {
@@ -2126,7 +2084,7 @@ main {
         }
 
         &:not(:last-of-type) {
-          border-right: 1px solid #eee;
+          border-right: 1px solid #e3e6e9;
         }
 
         .tag {
@@ -2206,7 +2164,7 @@ main {
 
       .image {
         flex: 0 0 auto;
-        background: repeating-linear-gradient(45deg, #f9f9f9, #f9f9f9 10px, #eee 10px, #eee 20px);
+        background: repeating-linear-gradient(45deg, #f9f9f9, #f9f9f9 10px, #e3e6e9 10px, #e3e6e9 20px);
         width: 80px;
         height: 80px;
         border-radius: 3px;
@@ -2253,7 +2211,7 @@ main {
     padding: 1rem 0;
 
     &:not(:last-of-type) {
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #e3e6e9;
     }
 
     &:nth-of-type(1) strong::before {
@@ -2308,8 +2266,8 @@ main {
 
     .article-title {
       margin-bottom: 0.35rem;
-      font-family: "Outfit", "NanumSquareB";
-      font-size: 16px;
+      font-family: "NanumSquareB";
+      font-size: clamp(14px, 1.25vw, 15px);
 
       strong {
         &::before {
@@ -2347,7 +2305,7 @@ main {
         li {
           &:not(:last-of-type) {
             padding-right: 0.5rem;
-            border-right: 1px solid #eee;
+            border-right: 1px solid #e3e6e9;
           }
         }
       }
@@ -2431,6 +2389,7 @@ main {
     .selectbox {
       display: flex;
       align-items: center;
+      padding: 0 !important;
 
       &:last-of-type {
         select {
@@ -2451,7 +2410,7 @@ main {
 
       label {
         height: 36px;
-        border: 1px solid #eee;
+        border: 1px solid #e3e6e9;
         align-items: center;
         display: flex;
         gap: 3px;
@@ -2578,7 +2537,7 @@ main {
 
     h1 {
       flex-direction: column;
-      font-size: clamp(1.75rem, 2.15vw, 3rem);
+      font-size: clamp(24px,2.15vw,30px);
       align-items: flex-start;
       margin-bottom: 3rem;
       font-family: "NanumSquareB";
@@ -2770,7 +2729,7 @@ main {
 
     li {
       flex: 1 1 33.333%;
-      border: 1px solid #eee;
+      border: 1px solid #e3e6e9;
       background-color: #f3f6f9;
       border-radius: 0 0 2rem 2rem;
       box-shadow: 0px 15px 20px rgba(118, 130, 248, 0.2);
@@ -2790,7 +2749,6 @@ main {
 
         small {
           font-size: 17px;
-          font-family: "Outfit";
         }
 
         h3 {
@@ -3046,18 +3004,12 @@ main {
         justify-content: center;
         font-size: 13px;
         margin-right: 5px;
-        font-family: "Outfit";
       }
     }
   }
 
   h4 {
     flex-wrap: wrap;
-
-    strong {
-      font-family: "Outfit", "NanumSquareB";
-      font-size: 15px;
-    }
   }
 
   article {
@@ -3083,19 +3035,16 @@ main {
       flex-direction: column;
     }
 
-    .progress {
-      ul {
-        li {
-          strong {
-            font-size: 16px;
-          }
-        }
+    &.section-monitoring {
+      article {
+        width: 100%
       }
     }
 
     &.section-chart,
     &.section-article {
       flex: 1 1 auto;
+      height: 33.333%;
 
       h4 {
         gap: 5px;
@@ -3364,7 +3313,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #e3e6e9;
     padding-top: 1rem;
 
     h3 {
@@ -3514,10 +3463,6 @@ main {
         content: none;
       }
 
-      .date {
-        font-size: 11px;
-      }
-
       .failed {
         display: flex;
         gap: 3px;
@@ -3539,9 +3484,6 @@ main {
 
     .row {
       &.title {
-        .date {
-          font: normal 12px/1 "Outfit";
-        }
 
         li {
           height: auto;
@@ -3561,7 +3503,6 @@ main {
 
         .page {
           display: flex;
-          font-size: 12px;
           width: 100%;
           justify-content: center;
         }
@@ -3711,10 +3652,6 @@ main {
         }
       }
 
-      .categories {
-        font-size: 13px;
-      }
-
       .name {
         font-size: 16px;
         word-break: keep-all;
@@ -3751,11 +3688,8 @@ main {
 
       li {
         gap: 2px !important;
-        font-family: "Outfit", "NanumSquareR";
-        font-weight: 500;
 
         > :first-of-type {
-          font-size: 13px;
           color: lightslategray;
         }
 
@@ -3859,7 +3793,7 @@ main {
   }
 
   .sections {
-    padding-top: 45px;
+    padding-top: 1.75rem;
     overflow: hidden;
   }
 
@@ -3870,8 +3804,6 @@ main {
       .row {
         &.title {
           .date {
-            font-weight: normal;
-            font-family: "Outfit", "NanumSquareR";
             color: #49536b;
           }
 
@@ -3919,7 +3851,6 @@ main {
               justify-content: center;
               border-radius: 16px;
               font-size: 10px;
-              font-family: "Outfit";
             }
           }
 
@@ -3936,7 +3867,7 @@ main {
           gap: 0.5rem;
 
           &:not(:last-of-type) {
-            border-right: 1px solid #eee;
+            border-right: 1px solid #e3e6e9;
           }
 
           &.col-keyword {
@@ -4051,13 +3982,13 @@ main {
   align-items: flex-start;
 
   .content-header {
-    width: 280px;
+    width: 240px;
     position: sticky;
     top: 0;
   }
 
   .sections {
-    padding-top: 45px;
+    padding-top: 1.75rem;
   }
 
   .list {
@@ -4185,9 +4116,7 @@ main {
       text-align: center;
       justify-content: center;
       margin: 0 auto;
-      font:
-        18px "Poppins",
-        "NanumSquareR";
+      font: 18px "Poppins", "NanumSquareB";
     }
 
     .sync {
@@ -4241,12 +4170,8 @@ main {
         align-items: center;
         flex-wrap: wrap;
         gap: 0.5rem;
-        font-family: "Outfit", "NanumSquareR";
-        font-weight: 500;
-        line-height: normal;
 
         > :first-child {
-          font-size: 13px;
           color: lightslategray;
           display: flex;
           line-height: 1;
@@ -4643,9 +4568,7 @@ main {
           display: flex;
           align-items: center;
           color: slategray;
-          font-family: "Outfit", "NanumSquareR";
           white-space: nowrap;
-          font-size: 13px;
 
           strong {
             color: #49536b;
@@ -4665,7 +4588,6 @@ main {
 
           small {
             justify-content: right;
-            font: normal 13px/1 "Outfit";
             color: slategray;
 
             &::before {
@@ -4736,7 +4658,7 @@ main {
       text-align: center;
 
       &:not(:last-of-type) {
-        border-right: 1px solid #eee;
+        border-right: 1px solid #e3e6e9;
       }
 
       &.is-active {
@@ -4755,7 +4677,7 @@ main {
     }
 
     .chart-container {
-      border-top: 1px solid #eee;
+      border-top: 1px solid #e3e6e9;
       padding-top: 1rem;
       margin-top: 1rem;
     }
@@ -4796,7 +4718,7 @@ main {
       width: 300px;
 
       .title {
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid #e3e6e9;
         padding-bottom: 0.5rem;
         justify-content: center;
       }
@@ -5072,7 +4994,7 @@ main {
             }
 
             &:nth-of-type(6):not(:empty) {
-              border-left: 1px solid #eee;
+              border-left: 1px solid #e3e6e9;
               padding-left: 0.5rem;
               margin-left: 0.25rem;
             }
@@ -5380,7 +5302,7 @@ main {
         width: fit-content;
         white-space: nowrap;
         height: fit-content;
-        border: 1px solid #eee;
+        border: 1px solid #e3e6e9;
 
         li {
           display: flex;
@@ -5391,7 +5313,7 @@ main {
           line-height: 1.5;
 
           &:not(:last-of-type) {
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #e3e6e9;
           }
 
           .main {
@@ -5418,7 +5340,6 @@ main {
               &.is-active {
                 background-color: #434649;
                 color: white;
-                font-family: "NanumSquareR";
 
                 &::before {
                   content: none;
@@ -5449,7 +5370,7 @@ main {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'%3E%3Cpath fill='slategray' d='M14 3v2h3.59l-9.83 9.83l1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7Z'/%3E%3C/svg%3E");
             display: inline-flex;
             font-size: 12px;
-            border: 1px solid #eee;
+            border: 1px solid #e3e6e9;
             padding: 3px 5px;
             border-radius: 3px;
             color: #5c55c6;
@@ -5511,7 +5432,7 @@ main {
       .alarm {
         width: calc(50% - 0.25rem);
         padding: 0.75rem;
-        border: 1px solid #eee;
+        border: 1px solid #e3e6e9;
         border-radius: 0.5rem;
         display: flex;
         gap: 1rem;
@@ -5770,7 +5691,7 @@ main {
     &.section-items {
       &.empty {
         border-top: 2px solid #333;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid #e3e6e9;
         padding: 3rem;
         text-align: center;
 
@@ -5876,7 +5797,7 @@ main {
         flex: 1 1 auto;
         list-style: none;
         text-align: center;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid #e3e6e9;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -5945,7 +5866,6 @@ main {
       background-size: 17px;
       padding-left: 1.25rem;
       background-position: center left;
-      font-family: "Outfit";
 
       &:first-of-type {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z'/%3E%3C/svg%3E");

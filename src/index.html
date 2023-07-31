@@ -662,7 +662,7 @@
             <h2 data-brand="gmarket">
               판매량 추적 모니터링
             </h2>
-            <div class="date">최근 업데이트 2023.04.01</div>
+            <small>최근 업데이트 2023.04.01</small>
           </header>
           <div class="articles" data-empty="데이터가 없습니다.">
             <article>
@@ -671,20 +671,20 @@
                 <strong>일간 판매량 0인 상품</strong>
               </h4>
               <div class="progress">
-                <div class="title">
-                  <span class="percent" data-title="보통">
-                    <strong>33</strong>
-                  </span>
-                  <ul>
-                    <li data-title="판매량 없음: ">
-                      <strong class="times">160</strong>
-                    </li>
-                    <li data-title="전체: ">
-                      <strong class="times">480</strong>
-                    </li>
-                  </ul>
-                </div>
-                <progress value="33" max="100"></progress>
+                <progress 
+                  value="0" 
+                  max="480" 
+                  data-value="160"
+                  data-title="판매량 없음"
+                />
+                <ul>
+                  <li>
+                    <small class="times">0</small>
+                  </li>
+                  <li data-title="총">
+                    <small class="times">480</small>
+                  </li>
+                </ul>
               </div>
             </article>
             <article>
@@ -693,20 +693,20 @@
                 <strong>일간 판매량 감소 상품</strong>
               </h4>
               <div class="progress">
-                <div class="title">
-                  <span class="percent" data-title="보통">
-                    <strong>33</strong>
-                  </span>
-                  <ul>
-                    <li data-title="감소: ">
-                      <strong class="times">160</strong>
-                    </li>
-                    <li data-title="전체: ">
-                      <strong class="times">480</strong>
-                    </li>
-                  </ul>
-                </div>
-                <progress value="33" max="100"></progress>
+                <progress 
+                  value="0" 
+                  max="480" 
+                  data-value="160"
+                  data-title="감소"
+                />
+                <ul>
+                  <li>
+                    <small class="times">0</small>
+                  </li>
+                  <li data-title="총">
+                    <small class="times">480</small>
+                  </li>
+                </ul>
               </div>
             </article>
           </div>
@@ -849,7 +849,7 @@
         <section class="section-article">
           <header>
             <h2>자동입찰 비즈머니</h2>
-            <div class="date">최근 업데이트 2023.04.01 07:00</div>
+            <small>최근 업데이트 2023.04.01 07:00</small>
           </header>
           <div class="articles" data-empty="데이터가 없습니다.">
             <article data-brand="naver">
@@ -938,70 +938,70 @@
           </header>
           <div class="articles" data-empty="데이터가 없습니다.">
             <article>
-              <h5>
+              <h4>
                 입찰실행 중
                 <strong>목표도달</strong>
-              </h5>
+              </h4>
               <div class="progress">
-                <div class="title">
-                  <span class="percent" data-title="보통">
-                    <strong>54</strong>
-                  </span>
-                  <ul>
-                    <li data-title="목표도달">
-                      <strong class="times">37</strong>
-                    </li>
-                    <li data-title="입찰실행">
-                      <strong class="times">69</strong>
-                    </li>
-                  </ul>
-                </div>
-                <progress value="54" max="100"></progress>
+                <progress 
+                  value="0" 
+                  max="69" 
+                  data-value="37"
+                  data-title="도달"
+                />
+                <ul>
+                  <li>
+                    <small class="times">0</small>
+                  </li>
+                  <li data-title="총 입찰실행">
+                    <small class="times">69</small>
+                  </li>
+                </ul>
               </div>
             </article>
             <article>
-              <h5>
+              <h4>
                 입찰: 실패 중
                 <strong>최대 입찰가 도달</strong>
-              </h5>
+              </h4>
 
               <div class="progress">
-                <div class="title">
-                  <span class="percent" data-title="높음">
-                    <strong>85</strong>
-                  </span>
-                  <ul>
-                    <li data-title="최대 입찰가 도달">
-                      <strong class="times">28</strong>
-                    </li>
-                    <li data-title="입찰: 실패">
-                      <strong class="times">33</strong>
-                    </li>
-                  </ul>
-                </div>
-                <progress value="85" max="100"></progress>
+                <progress 
+                  value="0" 
+                  max="33" 
+                  data-value="28" 
+                  data-title="도달"
+                />
+                <ul>
+                  <li>
+                    <small class="times">0</small>
+                  </li>
+                  <li data-title="총 입찰: 실패">
+                    <small class="times">33</small>
+                  </li>
+                </ul>
               </div>
             </article>
             <article>
-              <h5>
+              <h4>
                 입찰: 실패 중
                 <strong>입찰실패</strong>
-              </h5>
+              </h4>
               <div class="progress">
-                <div class="title">
-                  <span class="percent" data-title="높음">
-                    <strong>85</strong>
-                  </span>
-                  <ul>
-                    <li data-title="입찰실패">
-                      <strong class="times">28</strong>
-                    </li>
-                    <li data-title="입찰: 실패">
-                      <strong class="times">33</strong>
-                    </li>
-                  </ul>
-                </div>
-                <progress value="85" max="100"></progress>
+                <progress 
+                  value="0"
+                  max="33"
+                  data-value="28"
+                  data-title="실패"
+                />
+                <ul>
+                  <li>
+                    <small class="times">0</small>
+                  </li>
+                  <li data-title="총 입찰: 실패">
+                    <small class="times">33</small>
+                  </li>
+                </ul>
               </div>
             </article>
           </div>
@@ -1014,7 +1014,7 @@
       <section>
         <header>
           <h2 data-brand="naver">순위 추적</h2>
-          <div class="date" data-title="최근 업데이트">2023.04.01</div>
+          <small data-title="최근 업데이트">2023.04.01</small>
         </header>
         <div class="articles">
           <article>
@@ -1023,22 +1023,22 @@
               <strong>순위 변동</strong> 소재
             </h4>
             <div class="progress">
-              <div class="title">
-                <span class="percent" data-title="높음">
-                  <strong>86</strong>
-                </span>
-                <ul>
-                  <li data-title="변동">
-                    <strong class="times">59</strong>(
-                    <strong class="times" data-title="상승">39</strong> |
-                    <strong class="times" data-title="하락">20</strong>)
-                  </li>
-                  <li data-title="전체">
-                    <strong class="times">69</strong>
-                  </li>
-                </ul>
-              </div>
-              <progress value="86" max="100"></progress>
+              <progress 
+                value="0"
+                max="69"
+                data-value="59"
+                data-title="변동"
+              />
+              <ul>
+                <li data-title="변동">
+                  <small class="times">59</small>(
+                  <small class="times" data-title="상승">39</small> |
+                  <small class="times" data-title="하락">20</small>)
+                </li>
+                <li data-title="총">
+                  <small class="times">69</small>
+                </li>
+              </ul>
             </div>
           </article>
           <article>
@@ -1047,20 +1047,20 @@
               <strong>순위 40위 안 유지</strong>소재
             </h4>
             <div class="progress">
-              <div class="title">
-                <span class="percent" data-title="낮음">
-                  <strong>14</strong>
-                </span>
-                <ul>
-                  <li data-title="40위 안">
-                    <strong class="times">10</strong>
-                  </li>
-                  <li data-title="전체">
-                    <strong class="times">69</strong>
-                  </li>
-                </ul>
-              </div>
-              <progress value="14" max="100"></progress>
+              <progress 
+                value="0" 
+                max="69" 
+                data-value="10" 
+                data-title="40위 안"
+              />
+              <ul>
+                <li>
+                  <small class="times">0</small>
+                </li>
+                <li data-title="총">
+                  <small class="times">69</small>
+                </li>
+              </ul>
             </div>
           </article>
         </div>
@@ -1084,7 +1084,7 @@
       <section>
         <header>
           <h2 data-brand="naver">최저가 추적</h2>
-          <div class="date">2023.04.01 09:00</div>
+          <small>2023.04.01 09:00</small>
         </header>
         <div class="articles">
           <article>
@@ -1093,23 +1093,23 @@
               <strong>최저가 변동</strong> 소재
             </h4>
             <div class="progress">
-              <div class="title">
-                <span class="percent" data-title="높음">
-                  <strong>86</strong>
-                </span>
-                <ul>
-                  <li data-title="변동">
-                    <strong class="times">59</strong>
-                    (
-                    <strong class="times" data-title="상승">39</strong> |
-                    <strong class="times" data-title="하락">20</strong>)
-                  </li>
-                  <li data-title="전체">
-                    <strong class="times">69</strong>
-                  </li>
-                </ul>
-              </div>
-              <progress value="86" max="100"></progress>
+              <progress 
+                value="0" 
+                max="69" 
+                data-value="59" 
+                data-title="변동"
+              />
+              <ul>
+                <li data-title="변동">
+                  <small class="times">59</small>
+                  (
+                  <small class="times" data-title="상승">39</small> |
+                  <small class="times" data-title="하락">20</small>)
+                </li>
+                <li data-title="총">
+                  <small class="times">69</small>
+                </li>
+              </ul>
             </div>
           </article>
           <article>
@@ -1118,20 +1118,20 @@
               <strong>최저가 변동</strong>소재
             </h4>
             <div class="progress">
-              <div class="title">
-                <span class="percent" data-title="높음">
-                  <strong>86</strong>
-                </span>
-                <ul>
-                  <li data-title="변동">
-                    <strong class="times">59</strong>
-                  </li>
-                  <li data-title="전체">
-                    <strong class="times">69</strong>
-                  </li>
-                </ul>
-              </div>
-              <progress value="14" max="100"></progress>
+              <progress                 
+                value="0" 
+                max="69"                 
+                data-value="59" 
+                data-title="변동"
+              />
+              <ul>
+                <li>
+                  <strong class="times">0</strong>
+                </li>
+                <li data-title="총">
+                  <strong class="times">69</strong>
+                </li>
+              </ul>
             </div>
           </article>
         </div>
@@ -1140,7 +1140,7 @@
         <header>
           <h2>
             최근 7일 간 그룹별 같은 업데이트 시간 대비 최저가 변동률
-            <div data-tooltip=""></div>
+            <div data-tooltip="" />
           </h2>
         </header>
         <div class="chart-container">
@@ -1176,7 +1176,7 @@
         <div class="articles">
           <article data-brand="naver">
             <header>
-              <h5>2023.04.01 07:00:00</h5>
+              <h4>2023.04.01 07:00:00</h4>
               <a href="">확인하기</a>
             </header>
             <div class="texts">
@@ -1190,7 +1190,7 @@
           </article>
           <article data-brand="naver">
             <header>
-              <h5>2023.04.01 07:00:00</h5>
+              <h4>2023.04.01 07:00:00</h4>
               <a href="">확인하기</a>
             </header>
             <div class="texts">
@@ -1202,7 +1202,7 @@
           </article>
           <article data-brand="gmarket">
             <header>
-              <h5>2023.04.01 07:00:00</h5>
+              <h4>2023.04.01 07:00:00</h4>
               <a href="">확인하기</a>
             </header>
             <div class="texts">
@@ -1214,7 +1214,7 @@
           </article>
           <article data-brand="eleventh">
             <header>
-              <h5>2023.04.01 07:00:00</h5>
+              <h4>2023.04.01 07:00:00</h4>
               <a href="">확인하기</a>
             </header>
             <div class="texts">
@@ -1247,18 +1247,21 @@
               <span class="tag d-day">183</span>
             </header>
             <div class="progress">
-              <div class="title">
-                <span class="date">2023.04.01 ~ 2023.04.31</span>
-                <ul>
-                  <li data-title="제공량">
-                    <strong class="times">100</strong>
-                  </li>
-                  <li data-title="잔여량">
-                    <strong class="times">14</strong>
-                  </li>
-                </ul>
-              </div>
-              <progress value="14" max="100"></progress>
+              <small>2023.04.01 ~ 2023.04.31</small>
+              <progress 
+                value="0" 
+                max="100" 
+                data-value="14"
+                data-title="잔여"
+              />
+              <ul>
+                <li>
+                  <small class="times">0</small>
+                </li>
+                <li data-title="제공량">
+                  <small class="times">100</small>
+                </li>
+              </ul>
             </div>
           </article>
           <article data-brand="eleventh">
@@ -1272,18 +1275,21 @@
               <span class="tag d-day">45</span>
             </header>
             <div class="progress">
-              <div class="title">
-                <span class="date">2023.04.01 ~ 2023.04.31</span>
-                <ul>
-                  <li data-title="제공량">
-                    <strong class="times">30</strong>
-                  </li>
-                  <li title="잔여량">
-                    <strong class="times">27</strong>
-                  </li>
-                </ul>
-              </div>
-              <progress value="27" max="30"></progress>
+              <small>2023.04.01 ~ 2023.04.31</small>
+              <progress 
+                value="0" 
+                max="30" 
+                data-value="27" 
+                data-title="잔여"
+              />
+              <ul>
+                <li>
+                  <small class="times">0</small>
+                </li>
+                <li data-title="제공량">
+                  <small class="times">30</small>
+                </li>
+              </ul>
             </div>
           </article>
           <article data-brand="gmarket">
@@ -1297,18 +1303,21 @@
               <span class="tag d-day">13</span>
             </header>
             <div class="progress">
-              <div class="title">
-                <span class="date">2023.04.01 ~ 2023.04.31</span>
-                <ul>
-                  <li data-title="제공량">
-                    <strong class="times">300</strong>
-                  </li>
-                  <li data-title="잔여량">
-                    <strong class="times">20</strong>
-                  </li>
-                </ul>
-              </div>
-              <progress value="20" max="300"></progress>
+              <small>2023.04.01 ~ 2023.04.31</small>
+              <progress 
+                value="0" 
+                max="300" 
+                data-value="20" 
+                data-title="잔여"
+              />
+              <ul>
+                <li>
+                  <small class="times">0</small>
+                </li>
+                <li data-title="제공량">
+                  <small class="times">300</small>
+                </li>
+              </ul>
             </div>
           </article>
           <article data-brand="google">
@@ -1322,18 +1331,21 @@
               <span class="tag d-day">45</span>
             </header>
             <div class="progress">
-              <div class="title">
-                <span class="date">2023.04.01 ~ 2023.04.31</span>
-                <ul>
-                  <li data-title="제공량">
-                    <strong class="times">100</strong>
-                  </li>
-                  <li data-title="잔여량">
-                    <strong class="times">63</strong>
-                  </li>
-                </ul>
-              </div>
-              <progress value="63" max="100"></progress>
+              <small>2023.04.01 ~ 2023.04.31</small>
+              <progress 
+                value="0" 
+                max="100" 
+                data-value="63" 
+                data-title="잔여"
+              />
+              <ul>
+                <li>
+                  <small class="times">0</small>
+                </li>
+                <li data-title="제공량">
+                  <small class="times">100</small>
+                </li>
+              </ul>
             </div>
           </article>
         </div>
@@ -1355,18 +1367,21 @@
               <span class="tag d-day">45</span>
             </header>
             <div class="progress">
-              <div class="title">
-                <span class="date">2023.04.01 ~ 2023.04.31</span>
-                <ul>
-                  <li data-title="제공량">
-                    <strong class="times">100</strong>
-                  </li>
-                  <li data-title="잔여량">
-                    <strong class="times">75</strong>
-                  </li>
-                </ul>
-              </div>
-              <progress value="75" max="100"></progress>
+              <small>2023.04.01 ~ 2023.04.31</small>
+              <progress 
+                value="0" 
+                max="100" 
+                data-value="75" 
+                data-title="잔여"
+              />
+              <ul>
+                <li>
+                  <small class="times">0</small>
+                </li>
+                <li data-title="제공량">
+                  <small class="times">100</small>
+                </li>
+              </ul>
             </div>
           </article>
           <article data-brand="naver">
@@ -1380,18 +1395,21 @@
               <span class="tag d-day">640</span>
             </header>
             <div class="progress">
-              <div class="title">
-                <span class="date">2023.04.01 ~ 2023.04.31</span>
-                <ul>
-                  <li data-tab="제공량">
-                    <strong class="times">100</strong>
-                  </li>
-                  <li data-title="잔여량">
-                    <strong class="times">71</strong>
-                  </li>
-                </ul>
-              </div>
-              <progress value="71" max="100"></progress>
+              <small>2023.04.01 ~ 2023.04.31</small>
+              <progress 
+                value="0" 
+                max="100" 
+                data-value="71" 
+                data-title="잔여"
+              />
+              <ul>
+                <li>
+                  <small class="times">0</small>
+                </li>
+                <li data-title="제공량">
+                  <small class="times">100</small>
+                </li>
+              </ul>
             </div>
           </article>
           <article data-brand="naver">
@@ -1405,18 +1423,21 @@
               <span class="tag d-day">638</span>
             </header>
             <div class="progress">
-              <div class="title">
-                <span class="date">2023.04.01 ~ 2023.04.31</span>
-                <ul>
-                  <li data-title="제공량">
-                    <strong class="times">90</strong>
-                  </li>
-                  <li data-title="잔여량">
-                    <strong class="times">58</strong>
-                  </li>
-                </ul>
-              </div>
-              <progress value="58" max="90"></progress>
+              <small>2023.04.01 ~ 2023.04.31</small>
+              <progress 
+                value="0" 
+                max="90" 
+                data-value="58" 
+                data-title="잔여"
+              />
+              <ul>
+                <li>
+                  <small class="times">0</small>
+                </li>
+                <li data-title="제공량">
+                  <small class="times">90</small>
+                </li>
+              </ul>
             </div>
           </article>
           <article data-brand="naver">
@@ -1430,18 +1451,21 @@
               <span class="tag d-day">640</span>
             </header>
             <div class="progress">
-              <div class="title">
-                <span class="date">2023.04.01 ~ 2023.04.31</span>
-                <ul>
-                  <li data-title="제공량">
-                    <strong class="times"></strong>
-                  </li>
-                  <li data-title="잔여량">
-                    <strong class="times"></strong>
-                  </li>
-                </ul>
-              </div>
-              <progress value="58" max="90"></progress>
+              <small>2023.04.01 ~ 2023.04.31</small>
+              <progress 
+                value="0" 
+                max="90" 
+                data-value="58" 
+                data-title="잔여"
+              />
+              <ul>
+                <li>
+                  <small class="times">0</small>
+                </li>
+                <li data-title="제공량">
+                  <small class="times">90</small>
+                </li>
+              </ul>
             </div>
           </article>
           <article data-brand="naver">
@@ -1455,18 +1479,21 @@
               <span class="tag d-day">638</span>
             </header>
             <div class="progress">
-              <div class="title">
-                <span class="date">2023.04.01 ~ 2023.04.31</span>
-                <ul>
-                  <li data-title="제공량">
-                    <strong class="times"></strong>
-                  </li>
-                  <li data-title="잔여량">
-                    <strong class="times"></strong>
-                  </li>
-                </ul>
-              </div>
-              <progress value="58" max="90"></progress>
+              <small>2023.04.01 ~ 2023.04.31</small>
+              <progress 
+                value="0" 
+                max="90" 
+                data-value="58" 
+                data-title="잔여"
+              />
+              <ul>
+                <li>
+                  <small class="times">0</small>
+                </li>
+                <li data-title="제공량">
+                  <small class="times">90</small>
+                </li>
+              </ul>
             </div>
           </article>
         </div>
@@ -1487,7 +1514,7 @@
         <div class="articles">
           <article data-brand="gmarket">
             <header>
-              <h5>2023.04.01 07:00:00</h5>
+              <h4>2023.04.01 07:00:00</h4>
               <a href="">확인하기</a>
             </header>
             <div class="texts">
@@ -1501,7 +1528,7 @@
           </article>
           <article data-brand="naver">
             <header>
-              <h5>2023.04.01 07:00:00</h5>
+              <h4>2023.04.01 07:00:00</h4>
               <a href="">확인하기</a>
             </header>
             <div class="texts">
@@ -1516,7 +1543,7 @@
           </article>
           <article data-brand="naver">
             <header>
-              <h5>2023.04.01 07:00:00</h5>
+              <h4>2023.04.01 07:00:00</h4>
               <a href="">확인하기</a>
             </header>
             <div class="texts">
@@ -1535,31 +1562,31 @@
       <section class="section-article">
         <header>
           <h2>공지사항</h2>
-          <a href="">더보기</a>
+            <a
+              class="more"
+              :href="$goToService('Customer/NoticeList?Category=All')"
+              target="_blank"
+            >
+              더보기
+            </a>
         </header>
         <div class="articles content">
-          <article>
-            <header>
-              <h5>[일반] 다이애드TREND 변경사항 안내</h5>
-              <span class="date">2023.04.01</span>
+          <article
+            v-for="(item, index) in $store.state.serviceInfo.noticeInfo"
+            :key="index"
+            @click="$onclickGoToService('Customer/NoticeView?Idx=' + item.idx + '&Category=Normal', null)"
+          >
+            <header
+              v-if="item.category == 'NORMAL'"
+            >
+              <h4>[일반] {{ item.title }}</h4>
+              <small>{{ item.cdate }}</small>
             </header>
-          </article>
-          <article>
-            <header>
-              <h5>[일반] 다이애드TREND 변경사항 안내</h5>
-              <span class="date">2023.04.01</span>
-            </header>
-          </article>
-          <article>
-            <header>
-              <h5>[일반] 다이애드TREND 변경사항 안내</h5>
-              <span class="date">2023.04.01</span>
-            </header>
-          </article>
-          <article>
-            <header>
-              <h5>[일반] 다이애드TREND 변경사항 안내</h5>
-              <span class="date">2023.04.01</span>
+            <header
+              v-if="item.category == 'TIP'"
+            >
+              <h4>[판매TIP] {{ item.title }}</h4>
+              <small>{{ item.cdate }}</small>
             </header>
           </article>
         </div>
@@ -1572,26 +1599,26 @@
         <div class="articles">
           <article>
             <header>
-              <h5>[일반] 다이애드TREND 변경사항 안내</h5>
-              <span class="date">2023.04.01</span>
+              <h4>[일반] 다이애드TREND 변경사항 안내</h4>
+              <small>2023.04.01</small>
             </header>
           </article>
           <article>
             <header>
-              <h5>[일반] 다이애드TREND 변경사항 안내</h5>
-              <span class="date">2023.04.01</span>
+              <h4>[일반] 다이애드TREND 변경사항 안내</h4>
+              <small>2023.04.01</small>
             </header>
           </article>
           <article>
             <header>
-              <h5>[일반] 다이애드TREND 변경사항 안내</h5>
-              <span class="date">2023.04.01</span>
+              <h4>[일반] 다이애드TREND 변경사항 안내</h4>
+              <small>2023.04.01</small>
             </header>
           </article>
           <article>
             <header>
-              <h5>[일반] 다이애드TREND 변경사항 안내</h5>
-              <span class="date">2023.04.01</span>
+              <h4>[일반] 다이애드TREND 변경사항 안내</h4>
+              <small>2023.04.01</small>
             </header>
           </article>
         </div>
@@ -1604,8 +1631,8 @@
         <div class="articles content">
           <article>
             <header>
-              <h5>[일반] 다이애드TREND 변경사항 안내</h5>
-              <span class="date">2023.04.01</span>
+              <h4>[일반] 다이애드TREND 변경사항 안내</h4>
+              <small>2023.04.01</small>
             </header>
             <p>지마켓 빅세일</p>
           </article>

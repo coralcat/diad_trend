@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 메뉴
   const hamburgMenu = document.querySelector(".hamburg-menu");
   const aside = document.querySelector(".aside");
-  hamburgMenu.addEventListener("click", event => {
+  hamburgMenu.addEventListener("click", (event) => {
     event.currentTarget.classList.toggle("is-active")
       ? event.currentTarget.classList.remove("is-active")
       : event.currentTarget.classList.add("is-active");
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   if (aside) {
-    hamburgMenu.addEventListener("click", event => {
+    hamburgMenu.addEventListener("click", (event) => {
       event.currentTarget.classList.toggle("is-active");
       aside.classList.toggle("is-active");
     });
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
     브라우저 리사이징 감지
   ===================================================== */
-  const ro = new ResizeObserver(entries => {
+  const ro = new ResizeObserver((entries) => {
     window.requestAnimationFrame(() => {
       if (!Array.isArray(entries) || !entries.length) {
         return;
@@ -60,7 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
   ===================================================== */
   const scrollToTop = document.createElement("div");
   scrollToTop.classList.add("scroll-to-top");
-  const mutationObserver = new MutationObserver(mutations => {
+
+  const containerMutated = () => {
     const main = document.querySelector("main");
 
     // 스크롤 맨 위로
@@ -82,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
       main.addEventListener("scroll", handleScrollToTop);
 
       scrollToTop.addEventListener("click", () => {
-        main.scrollTo({top: 0, behavior: "smooth"});
+        main.scrollTo({ top: 0, behavior: "smooth" });
       });
     }
 
@@ -90,24 +91,24 @@ document.addEventListener("DOMContentLoaded", () => {
       Checkbox
     ===================================================== */
     // 체크박스 애니메이션 효과
-    document.querySelectorAll(".checkbox").forEach(checkbox => {
+    document.querySelectorAll(".checkbox").forEach((checkbox) => {
       if (!checkbox.querySelector("svg")) {
         checkbox.insertAdjacentHTML(
           "beforeend",
           `<svg width="15px" height="10px">
               <polyline points="1,5 6,9 14,1"></polyline>
-            </svg>`,
+            </svg>`
         );
       }
     });
 
     // 체크박스 모두 체크
     const checkAll = document.querySelectorAll(".check-all");
-    checkAll.forEach(all => {
-      const handleCheckAll = event => {
+    checkAll.forEach((all) => {
+      const handleCheckAll = (event) => {
         const inputName = event.target.getAttribute("name");
         const checkboxes = document.getElementsByName(inputName);
-        checkboxes.forEach(checkbox => {
+        checkboxes.forEach((checkbox) => {
           checkbox.checked = all.checked;
         });
       };
@@ -116,11 +117,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 목록 체크박스 효과
     const listCheckboxes = document.querySelectorAll(".list input[type='checkbox']");
-    listCheckboxes.forEach(check => {
-      const handleListCheckboxes = event => {
+    listCheckboxes.forEach((check) => {
+      const handleListCheckboxes = (event) => {
         if (check.classList.contains("check-all")) {
           const rows = event.target.closest(".list").querySelectorAll(".row:not(.title)");
-          rows.forEach(row => {
+          rows.forEach((row) => {
             event.target.checked ? row.classList.add("checked") : row.classList.remove("checked");
           });
         } else {
@@ -133,18 +134,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* =====================================================
-          Toggle
-        ===================================================== */
+      Toggle
+    ===================================================== */
     const toggles = document.querySelectorAll("[data-toggle]");
-    const handleToggle = event => {
+    const handleToggle = (event) => {
       event.stopPropagation();
       const toggleName = event.target.dataset.toggle;
       const toggles = document.querySelectorAll(`[data-toggle='${toggleName}']`);
-      toggles.forEach(toggle => {
-        toggle.classList.toggle("is-active")
+      toggles.forEach((toggle) => {
+        toggle.classList.toggle("is-active");
       });
     };
-    toggles.forEach(toggle => {
+    toggles.forEach((toggle) => {
       toggle.addEventListener("click", handleToggle);
     });
 
@@ -152,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
       Accordion
     ===================================================== */
     const accordion = document.querySelector(".accordion");
-    const handleAccordion = event => {
+    const handleAccordion = (event) => {
       event.target.closest("li").classList.contains("is-active")
         ? event.target.closest("li").classList.remove("is-active")
         : event.target.closest("li").classList.add("is-active");
@@ -160,22 +161,22 @@ document.addEventListener("DOMContentLoaded", () => {
     accordion && accordion.addEventListener("click", handleAccordion);
 
     /* =====================================================
-          Tab Menu
-        ===================================================== */
+      Tab Menu
+    ===================================================== */
     const tabs = document.querySelectorAll(".tabs li");
-    const showTabContent = event => {
+    const showTabContent = (event) => {
       event.stopPropagation();
       const tabName = event.target.dataset.tab;
       const tabs = document.querySelectorAll(`[data-tab='${tabName}']`);
       const tabContents = document.querySelectorAll(`.tab-content[data-tab='${tabName}']`);
       let menuIndex = [...tabs].indexOf(event.target);
 
-      tabs.forEach(tab => {
+      tabs.forEach((tab) => {
         [...tabs].indexOf(tab) === menuIndex ? tab.classList.add("is-active") : tab.classList.remove("is-active");
       });
 
       tabContents[0] &&
-        tabContents.forEach(content => {
+        tabContents.forEach((content) => {
           [...tabContents].indexOf(content) === 0 && content.classList.add("is-active");
           [...tabContents].indexOf(content) === menuIndex
             ? content.classList.add("is-active")
@@ -183,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    tabs.forEach(tab => {
+    tabs.forEach((tab) => {
       // [...tabs][0].classList.add("is-active");
       // [...tabContents][0].classList.add("is-active");
       tab.addEventListener("click", showTabContent);
@@ -195,8 +196,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // 상품 최저가 리포트: 일별 최저가 차트 클릭시
     if (main && main.classList.contains("content-lowest-price-details")) {
       const anchors = document.querySelectorAll("a[href^='#']");
-      anchors.forEach(anchor => {
-        const smoothScrolling = event => {
+      anchors.forEach((anchor) => {
+        const smoothScrolling = (event) => {
           event.target.getAttribute("href").scrollIntoView({
             behavior: "smooth",
           });
@@ -215,8 +216,8 @@ document.addEventListener("DOMContentLoaded", () => {
           threshold: 0.75,
         };
 
-        const callback = entries => {
-          entries.forEach(entry => {
+        const callback = (entries) => {
+          entries.forEach((entry) => {
             entry.intersectionRatio >= 0.75
               ? entry.target.classList.add("is-active")
               : entry.target.classList.remove("is-active");
@@ -224,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
         const observer = new IntersectionObserver(callback, options);
 
-        contents.forEach(content => {
+        contents.forEach((content) => {
           const sections = [...content.children];
           sections.forEach((section, index) => {
             section.style.setProperty("--delay", `${index * 150}ms`);
@@ -251,8 +252,8 @@ document.addEventListener("DOMContentLoaded", () => {
         ===================================================== */
     // 인풋창에 "x"표시 있을시 clear value
     const inputs = document.querySelectorAll(".input input");
-    inputs.forEach(input => {
-      input.addEventListener("keyup", event => {
+    inputs.forEach((input) => {
+      input.addEventListener("keyup", (event) => {
         const container = event.target.closest(".input");
         const clear = container.querySelector(".x");
         clear.classList.add("is-active");
@@ -268,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
           Layout: 키워드트렌드 리포트 - 쇼핑 유형선택
         ===================================================== */
     const layout = document.querySelectorAll(".layout");
-    layout.forEach(layout => {
+    layout.forEach((layout) => {
       const listType = layout.querySelector(".type-list");
       const list = layout.closest("section").querySelector(".list");
 
@@ -341,8 +342,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const detail1 = select[0].closest(".select").querySelector(".details");
       const detail2 = select[1].closest(".select").querySelector(".details");
 
-      select.forEach(button => {
-        button.addEventListener("click", event => {
+      select.forEach((button) => {
+        button.addEventListener("click", (event) => {
           if (event.target === select[0]) {
             detail1.classList.add("is-active");
             detail2.classList.remove("is-active");
@@ -351,13 +352,13 @@ document.addEventListener("DOMContentLoaded", () => {
             detail2.classList.add("is-active");
 
             const toggles = detail2.querySelectorAll(".toggle-switch");
-            const inputDisabled = event => {
+            const inputDisabled = (event) => {
               const row = event.target.closest(".row");
               const checked = row.querySelector("input:checked");
               const inputs = row.querySelector(".inputs");
               checked ? inputs.classList.add("is-active") : inputs.classList.remove("is-active");
             };
-            toggles.forEach(toggle => {
+            toggles.forEach((toggle) => {
               toggle.addEventListener("click", inputDisabled);
             });
           }
@@ -381,7 +382,7 @@ document.addEventListener("DOMContentLoaded", () => {
         list.classList.remove("all", "naver", "google");
       };
 
-      const changeFilters = event => {
+      const changeFilters = (event) => {
         initialize();
         if (event.target.id === "checkNaverList") {
           if (event.target.checked === true) {
@@ -403,7 +404,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       const checkboxes = relatedKeywordSection.querySelectorAll(".filters .checkboxes input");
-      checkboxes.forEach(check => {
+      checkboxes.forEach((check) => {
         check.addEventListener("change", changeFilters);
       });
     }
@@ -411,8 +412,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // 키워드 트렌드 리포트 - 키워드 콘텐츠 스크롤 올리기
     const pagination = document.querySelectorAll(".tab-content .pagination");
     if (pagination[0]) {
-      pagination.forEach(pages => {
-        const scrollingToTop = event => {
+      pagination.forEach((pages) => {
+        const scrollingToTop = (event) => {
           const wrapper = event.target.closest(".tab-content");
           wrapper.querySelector(".list").scrollTop = 0;
         };
@@ -455,7 +456,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const initialize = () => {
-      modals.forEach(modal => {
+      modals.forEach((modal) => {
         modal.classList.remove("is-active");
         modal.removeAttribute("onclick");
       });
@@ -463,7 +464,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alertModal.classList.remove("modal-apply");
     };
 
-    const openModal = event => {
+    const openModal = (event) => {
       event.preventDefault();
       const modalData = event.target.dataset.modal;
       const targetModal = document.getElementById(modalData);
@@ -499,7 +500,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Modal in Modal
       const currentModal = event.target.closest(".modal");
-      const validateMessage = message => {
+      const validateMessage = (message) => {
         alertModalContent.innerText = message;
         alertModal.classList.add("is-active");
       };
@@ -579,7 +580,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (checkboxes.length === 0) {
           validateMessage("그룹을 선택해주세요.");
         } else {
-          checkboxes.forEach(checked => {
+          checkboxes.forEach((checked) => {
             const row = checked.closest(".row");
             row.remove();
           });
@@ -622,7 +623,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Basic Modal
     const modalButtons = document.querySelectorAll("[data-modal]");
-    modalButtons.forEach(button => {
+    modalButtons.forEach((button) => {
       button.addEventListener("click", openModal);
 
       // 알림설정
@@ -637,7 +638,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Close Modal
-    const closeModal = event => {
+    const closeModal = (event) => {
       const modal = event.target.closest(".modal");
       modal.classList.remove("is-active");
       modal.classList.contains("modal-apply");
@@ -655,12 +656,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const modalInputs = modal.querySelectorAll("input");
       modalInputs[0] &&
-        modalInputs.forEach(input => {
+        modalInputs.forEach((input) => {
           if (input.type === "checkbox") {
             input.checked = false;
           } else if (input.type === "radio") {
             const divisions = modal.querySelectorAll(".inputs");
-            divisions.forEach(div => {
+            divisions.forEach((div) => {
               const input = div.querySelectorAll("input[type='radio']");
               // input[0].checked = true;
             });
@@ -672,7 +673,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const closeButtons = document.querySelectorAll(".modal .close");
     if (closeButtons[0]) {
-      closeButtons.forEach(close => {
+      closeButtons.forEach((close) => {
         close.addEventListener("click", closeModal);
       });
     }
@@ -683,11 +684,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const checkAll = syncModal.querySelector("header .check-all");
 
       checkAll &&
-        checkAll.addEventListener("click", event => {
+        checkAll.addEventListener("click", (event) => {
           const checkboxes = event.target.closest(".modal-content").querySelectorAll("input[type='checkbox']");
 
           event.target.checked = !event.target.checked;
-          checkboxes.forEach(checkbox => {
+          checkboxes.forEach((checkbox) => {
             checkbox.checked = !checkbox.checked;
           });
         });
@@ -699,19 +700,19 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         const sortableModals = document.querySelectorAll(".modal-sortable");
         if (sortableModals[0]) {
-          sortableModals.forEach(modal => {
+          sortableModals.forEach((modal) => {
             const pinned = modal.querySelectorAll(".ico-pin.is-active");
-            pinned.forEach(pin => pin.closest("li").classList.add("pinned"));
+            pinned.forEach((pin) => pin.closest("li").classList.add("pinned"));
 
             // 핀을 클릭하면
-            const handleCheckPinned = event => {
+            const handleCheckPinned = (event) => {
               const currentModal = event.target.closest(".modal-sortable");
               const lists = currentModal.querySelectorAll(".inputs li");
               const targetList = event.target.closest("li");
               const targetIndex = [...lists].indexOf(targetList);
 
               // 6번째 이상의 리스트에서는 핀해제 및 아이콘 숨김
-              lists.forEach(list => {
+              lists.forEach((list) => {
                 if ([...lists].indexOf(list) > 4) {
                   list.classList.remove("pinned");
                   list.querySelector(".ico-pin").classList.remove("is-active");
@@ -751,7 +752,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
             const pins = modal.querySelectorAll(".ico-pin");
-            pins.forEach(pin => {
+            pins.forEach((pin) => {
               pin.addEventListener("click", handleCheckPinned);
             });
           });
@@ -764,15 +765,15 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
     const selectors = document.querySelectorAll(".filters .selector.main");
     if (selectors[0]) {
-      selectors.forEach(mainSelector => {
+      selectors.forEach((mainSelector) => {
         const subSelectors = mainSelector.parentElement.querySelectorAll(".selector.sub");
         const selects = mainSelector.querySelectorAll("input");
         selects[0].checked = true;
         subSelectors[0].classList.add("is-active");
 
-        selects.forEach(selected => {
-          selected.addEventListener("click", event => {
-            subSelectors.forEach(sub => {
+        selects.forEach((selected) => {
+          selected.addEventListener("click", (event) => {
+            subSelectors.forEach((sub) => {
               const initialize = () => sub.classList.remove("is-active");
               const checkSelect = () => {
                 if (event.target.classList.contains("select-word") && sub.classList.contains("selector-word")) {
@@ -794,12 +795,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
                   const devices = document.querySelectorAll(".selector-device [class*='select']");
                   if (event.target.closest(".select-monthly-search")) {
-                    devices.forEach(device => {
+                    devices.forEach((device) => {
                       device.style.display = "flex";
                     });
                   }
                   if (event.target.closest(".select-monthly-search2")) {
-                    devices.forEach(device => {
+                    devices.forEach((device) => {
                       if (device.classList.contains("select-google")) {
                         device.style.display = "flex";
                         device.querySelector("input").checked = true;
@@ -809,7 +810,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                   }
                   if (event.target.closest(".select-monthly-click")) {
-                    devices.forEach(device => {
+                    devices.forEach((device) => {
                       if (
                         device.classList.contains("select-naver-pc") ||
                         device.classList.contains("select-naver-mobile")
@@ -841,8 +842,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const searchButtons = document.querySelectorAll(".content-keyword-trend-details .search button");
 
-    searchButtons.forEach(button => {
-      button.addEventListener("click", event => {
+    searchButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
         const content = event.target.closest(".tab-content");
         const searchInput = content.querySelector(".search input");
         const clearInput = content.querySelector(".x");
@@ -866,7 +867,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const filter = document.createElement("li");
           filter.classList.add("ico-filter");
 
-          selectors.forEach(selector => {
+          selectors.forEach((selector) => {
             if (selector.classList.contains("main") || selector.classList.contains("is-active")) {
               const span = document.createElement("span");
               const text = selector.querySelector("input:checked + label").innerText;
@@ -884,8 +885,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const removeSelectedFilters = () => {
           const closes = selectedFilters.querySelectorAll(".x");
-          closes.forEach(close => {
-            close.addEventListener("click", event => {
+          closes.forEach((close) => {
+            close.addEventListener("click", (event) => {
               event.target.parentElement.remove();
             });
           });
@@ -896,9 +897,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const menus = document.querySelectorAll(".aside nav menu a");
-    menus.forEach(menu => {
+    menus.forEach((menu) => {
       menu.closest("div").querySelector("ul") && menu.closest("menu").classList.add("more");
-      menu.addEventListener("click", event => {
+      menu.addEventListener("click", (event) => {
         event.stopPropagation();
         if (!event.target.classList.contains("ico-link")) {
           event.target.closest("div").classList.toggle("is-active");
@@ -912,7 +913,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const date14 = document.querySelector(".list .date.d-14");
     const date30 = document.querySelector(".list .date.d-30");
 
-    const getDateAgo = days => {
+    const getDateAgo = (days) => {
       let dateCopy = new Date();
       dateCopy.setDate(dateCopy.getDate() - days);
 
@@ -943,7 +944,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
     const advancedSearch = document.querySelectorAll(".advanced-search");
     if (advancedSearch[0]) {
-      advancedSearch.forEach(search => {
+      advancedSearch.forEach((search) => {
         const button = search.closest("section").querySelector(".btn-advanced-search");
         const inputs = search.querySelectorAll("input[type='text'], input[type='number'], textarea");
         const checkboxes = search.querySelectorAll("input[type='checkbox']");
@@ -951,15 +952,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         //초기화
         const initialize = () => {
-          inputs.forEach(input => {
+          inputs.forEach((input) => {
             input.value = "";
           });
 
-          checkboxes.forEach(checkbox => {
+          checkboxes.forEach((checkbox) => {
             checkbox.checked = false;
           });
 
-          selections.forEach(select => {
+          selections.forEach((select) => {
             select.checked = true;
           });
         };
@@ -974,8 +975,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const options = itemCreated && itemCreated.querySelectorAll(".select input");
 
         options &&
-          options.forEach(option => {
-            const choose = event => {
+          options.forEach((option) => {
+            const choose = (event) => {
               event.target.dataset.select === "yes"
                 ? calendar.classList.add("is-active")
                 : calendar.classList.remove("is-active");
@@ -1009,7 +1010,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showFile();
       });
 
-      uploadSection.addEventListener("dragover", event => {
+      uploadSection.addEventListener("dragover", (event) => {
         event.preventDefault();
         uploadSection.classList.add("active");
         text.textContent = "이 파일을 업로드합니다.";
@@ -1020,17 +1021,17 @@ document.addEventListener("DOMContentLoaded", () => {
         text.textContent = "업로드 할 파일을 올려주세요.";
       });
 
-      uploadSection.addEventListener("drop", event => {
+      uploadSection.addEventListener("drop", (event) => {
         event.preventDefault();
         file = event.dataTransfer.files[0];
         showFile();
       });
-      
+
       const showFile = () => {
         let fileType = file.type;
         let validExtensions = [
-          "application/vnd.ms-excel", 
-          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+          "application/vnd.ms-excel",
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         ];
         if (validExtensions.includes(fileType)) {
           text.textContent = file.name;
@@ -1044,35 +1045,58 @@ document.addEventListener("DOMContentLoaded", () => {
           };
           fileReader.readAsDataURL(file);
         } else {
-
           uploadSection.classList.remove("active");
           text.textContent = "엑셀 파일만 업로드 가능합니다.";
         }
-      }
+      };
     }
 
     const progresses = document.querySelectorAll("progress");
 
     progresses.forEach((progress, index) => {
       let delay = 0;
-      delay += 0.3 * index;
-      progress.style.animationDelay = `${delay}s`
-    })
-    
+      delay += `${index * 0.5}s`;
+      progress.style.setProperty("--progressDelay", delay);
+      progress.style.setProperty("--progressPercent", 0);
 
+      setTimeout(() => {
+        progress.value = progress.dataset.value;
+        const max = progress.max;
+        const current = progress.dataset.value;
+        const currentWidth = window.getComputedStyle(progress, "::before").width;
+        const percent = `calc(${parseInt((100 * current) / max)}% - ${currentWidth})`;
+        progress.style.setProperty("--progressPercent", percent);
+
+        if (parseInt((100 * current) / max) < 10) {
+          progress.style.setProperty("--progressPercent", 0);
+          progress.style.setProperty("--progressColor", "linear-gradient(135deg, orangered 40%, orangered)");
+        } else if (parseInt((100 * current) / max) < 20) {
+          progress.style.setProperty("--progressPercent", 0);
+          progress.style.setProperty("--progressColor", "linear-gradient(135deg, orangered 40%, coral)");
+        } else if (parseInt((100 * current) / max) < 30) {
+          progress.style.setProperty("--progressColor", "linear-gradient(135deg, coral 40%, orange)");
+        } else if (parseInt((100 * current) / max) > 80) {
+          progress.style.setProperty("--progressColor", "linear-gradient(135deg, #5048d7 40%, darkturquoise)");
+        } else if (parseInt((100 * current) / max) > 60) {
+          progress.style.setProperty("--progressColor", "linear-gradient(135deg, #5048d7 40%, dodgerblue)");
+        } else {
+          progress.style.setProperty("--progressColor", "linear-gradient(135deg, #5048d7 40%, #5048d7)");
+        }
+      }, 500);
+    });
 
     // 목록 데이터 감지
-    const lists = document.querySelectorAll(".list");
-    lists.forEach(list => {
+/*     const lists = document.querySelectorAll(".list");
+    lists.forEach((list) => {
       mutationObserver.observe(list, {
         childList: true,
-        subtree: true,
+        characterData: true,
       });
-    });
+    }); */
 
     // 탭 이동 감지
     const tabContents = document.querySelectorAll(".tab-content");
-    tabContents.forEach(content => {
+    tabContents.forEach((content) => {
       mutationObserver.observe(content, {
         childList: true,
         characterData: true,
@@ -1080,11 +1104,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 팝업 감지
-    modals.forEach(modal => {
+    modals.forEach((modal) => {
       mutationObserver.observe(modal, {
         childList: true,
         subtree: true,
+        characterData: true,
       });
+    });
+  };
+
+  const mutationObserver = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      containerMutated();
     });
   });
 

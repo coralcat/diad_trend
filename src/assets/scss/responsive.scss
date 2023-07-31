@@ -180,7 +180,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     body {
       display: flex;
       flex-direction: column;
-      font: 15px "Roboto", "NanumSquareR";
       overflow: hidden !important;
 
       .responsive {
@@ -385,7 +384,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     &-history {
       .list {
         .row {
-          border: 1px solid #eee;
+          border: 1px solid #e3e6e9;
           padding: 0.75rem;
 
           &.title {
@@ -556,7 +555,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
         font-size: 12px;
         border: 1px solid #555;
         padding: 0.5rem;
-        font-family: "Poppins", "NanumSquareR";
       }
 
       li {
@@ -644,7 +642,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
       a {
         font-size: 22px;
-        font-family: "RobotoMedium";
         color: #333;
       }
     }
@@ -1355,7 +1352,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
             justify-content: space-between;
 
             &:not(:last-of-type) {
-              border-right: 1px solid #eee;
+              border-right: 1px solid #e3e6e9;
             }
 
             &.col-keyword {
@@ -1592,7 +1589,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
           flex-direction: row;
           padding-top: 0;
           width: 100%;
-          border-bottom: 1px solid #eee;
+          border-bottom: 1px solid #e3e6e9;
 
           li {
             &.is-active {
