@@ -4128,13 +4128,11 @@ main {
       }
 
       button {
+        flex: 0 0 auto;
         aspect-ratio: 1;
         background-color: $main-color;
         border-radius: 0.5rem;
-        position: relative;
-        justify-content: center;
         padding: 0;
-        overflow: hidden;
 
         i {
           width: 20px;
@@ -5405,6 +5403,13 @@ main {
 .content-settings {
   overflow-y: auto;
 
+  section {
+    flex: 0 0 auto;
+    width: 800px;
+    margin: 0 auto;
+    padding: 1rem !important;
+  }
+
   .sections {
     section {
       &:last-of-type {
@@ -5414,9 +5419,26 @@ main {
     }
   }
 
-  section {
-    flex: 1;
-    padding: 1rem !important;
+  .list {
+    border: 0;
+
+    .toggle-switch {
+      order: 1;
+      scale: 1;
+    }
+
+    .row {
+      align-items: center;
+      min-height: 50px;
+      border-bottom: 1px solid #f3f6f9;
+      gap: 1rem;
+      justify-content: space-between;
+
+      li {
+        border: 0;
+        justify-content: space-between;
+      }
+    }
   }
 
   .section-my-alarm {
@@ -5428,28 +5450,50 @@ main {
     .alarms {
       display: flex;
       gap: 0.5rem;
+      width: 100%;
+      flex-wrap: nowrap;
+      scroll-snap-type: x mandatory;
+      overflow-x: auto;
+      padding-bottom: .75rem;
 
-      .alarm {
-        width: calc(50% - 0.25rem);
+      article {
+        order: 2;
+        opacity: .5;
+        scroll-snap-align: start;
+        flex: 0 0 auto;
+        width: 200px;
         padding: 0.75rem;
         border: 1px solid #e3e6e9;
         border-radius: 0.5rem;
         display: flex;
-        gap: 1rem;
         justify-content: space-between;
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 1rem;
         position: relative;
 
-        li {
-          flex: 0 0 auto;
-          display: flex;
-          flex-direction: column;
-          white-space: nowrap;
+        &.subscribe {
+          order: 0 !important;
+          opacity: 1;
+          border-color: $main-color;
+        }
+
+        &.available {
+          order: 1;
+          opacity: 1;
+        }
+
+        h3 {
+          width: 100%
+        }
+
+        div {
 
           &::before {
             font-size: 13px;
             color: #939699;
-            margin-bottom: 0.25rem;
+            width: 100%;
+            text-align: center;
+            line-height: 1;
           }
         }
 
@@ -5461,13 +5505,17 @@ main {
           position: relative;
         }
 
-        .period {
-          width: 100%;
-          align-items: flex-start;
-
-          .tag {
-            margin-bottom: 0.35rem;
+        .filters {
+          flex-wrap: nowrap !important;
+          
+          > div {
+            gap: 5px;
+            justify-content: center;
           }
+        }
+
+        .toggle-switch {
+          display: flex
         }
 
         .land {
@@ -5478,60 +5526,20 @@ main {
 
         .quantity {
           &::before {
-            content: "알림 ON 소재";
+            content: "알림 ON 소재" !important;
           }
         }
 
         .subscribe {
           &::before {
-            content: "알림설정";
+            content: "사용여부";
           }
-        }
-      }
-    }
-
-    .list {
-      .row {
-        li {
-          &:nth-of-type(3) {
-            flex: 0 0 auto;
-            width: 280px;
-          }
-        }
-      }
-    }
-  }
-
-  .section-alarm-services {
-    .list {
-      border: 0;
-
-      .row {
-        gap: 1rem;
-        justify-content: space-between;
-
-        li {
-          border: 0;
-          justify-content: space-between;
-        }
-
-        .column {
-          width: 50%;
-        }
-      }
-
-      &:not(.list-alarm-type) {
-        .row {
-          align-items: center;
-          min-height: 50px;
-          border-bottom: 1px solid #f3f6f9;
         }
       }
     }
   }
 
   .section-alarm-type {
-    width: 100%;
 
     .select-alarm-type {
       display: flex;
@@ -5594,6 +5602,7 @@ main {
             opacity: 0;
             visibility: hidden;
             flex: 1 1 auto;
+            flex-wrap: nowrap;
             transition: opacity 0.25s;
           }
         }
