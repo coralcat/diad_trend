@@ -164,166 +164,245 @@
   </ul>
 </aside>
 
-<main class="content-settings">
+<main class="content content-settings">
   <header class="content-header">
     <div class="title">
       <h1>알림설정</h1>
-      <div class="buttons">
-        <button class="btn-sub" type="button">초기화</button>
-        <button class="btn-main" type="button">적용</button>
-      </div>
+      <div class="subline"><button class="btn-sub" type="button"> 초기화 </button><button class="btn-main" type="button">
+          적용 </button></div>
     </div>
   </header>
-  <div class="sections">
-    <section class="section-my-alarm">
-      <header>
-        <h3>나의 알림 서비스 현황</h3>
-        <a class="right-arrow" href="https://diad.co.kr/Mypage/PaymentHistoryView" target="_blank">서비스 이용 내역 보기</a>
-      </header>
-      <div class="alarms">
-        <ul class="alarm">
-          <li class="title">
-            상품순위조회
-          </li>
-          <li class="period">
-            <div class="tag green">사용중</div>
-            <div class="">2022-03-31 ~ 2022-05-07</div>
-            <div>1개월 7일</div>
-          </li>
-          <li class="land">카카오톡/이메일</li>
-          <li class="quantity">15개</li>
-          <li class="subscribe">ON</li>
-        </ul>
-        <ul class="alarm">
-          <li class="title">
-            최저가알림
-          </li>
-          <li class="period">
-            <div class="tag red">사용안함</div>
-            <div class="">-</div>
-          </li>
-          <li class="land">카카오톡/이메일</li>
-          <li class="quantity">0</li>
-          <li class="subscribe">OFF</li>
-        </ul>
-      </div>
-    </section>
-    <section class="section-alarm-services">
-      <header>
-        <h3>알림 서비스 설정</h3>
-        <div class="toggle toggle-switch toggle-controller is-active" data-toggle="alarm-services">
-          <input id="toggle1" type="checkbox" checked />
-          <label for="toggle1"></label>
-        </div>
-      </header>
-      <div class="list">
-        <div class="row">
-          <div>상품 순위 추적</div>
-          <div class="toggle toggle-switch is-active" data-toggle="alarm-services">
-            <input id="toggle2" type="checkbox" checked />
-            <label for="toggle2"></label>
+  <section class="section-my-alarm">
+    <header>
+      <h2>나의 알림 서비스 현황</h2><a href="https://localhost:49166/Mypage/PaymentHistoryView" class="right-arrow"
+        target="_blank">서비스 이용 내역 보기</a>
+    </header>
+    <div class="alarms">
+      <article class="available subscribe">
+        <header><span class="tag green"> 사용가능 </span><span class="tag d-day"></span>
+          <h3> 네이버 검색광고 <span class="date"></span></h3>
+        </header>
+        <div class="filters">
+          <div class="quantity times"></div>
+          <div class="subscribe">
+            <div class="toggle-switch"><input id="toggleNaver1" type="checkbox"><label for="toggleNaver1"></label></div>
           </div>
         </div>
-        <div class="row">
-          <div>최저가 알림</div>
-          <div class="toggle toggle-switch" data-toggle="alarm-services">
-            <input id="toggle3" type="checkbox" />
-            <label for="toggle3"></label>
+      </article>
+      <article class="available subscribe">
+        <header><span class="tag green"> 사용가능 </span><span class="tag d-day"></span>
+          <h3> 네이버 쇼핑검색광고 <span class="date"></span></h3>
+        </header>
+        <div class="filters">
+          <div class="quantity times"></div>
+          <div class="subscribe">
+            <div class="toggle-switch"><input id="toggleNaver2" type="checkbox"><label for="toggleNaver2"></label></div>
           </div>
         </div>
-      </div>
-    </section>
-  </div>
-  <div class="sections">
-    <section class="section-alarm-type">
-      <header>
-        <h3>알림 매체 설정</h3>
-      </header>
-      <div class="select-alarm-type">
-        <div class="select default-information">
-          <div class="title">
-            <div>
-              <input id="defaultInformation" name="selectRecieveInformation" type="radio" checked />
-              <label for="defaultInformation">
-                가입 시 입력한 이메일 / 휴대전화 번호(카카오 알림톡)로 알림 받기
-              </label>
-            </div>
-            <a href="https://diad.co.kr/Mypage/Membermanage " target="_blank" class="right-arrow">가입 정보 변경</a>
+      </article>
+      <article class="available subscribe">
+        <header><span class="tag green"> 사용가능 </span><span class="tag d-day"></span>
+          <h3> 네이버 파워콘텐츠 <span class="date"></span></h3>
+        </header>
+        <div class="filters">
+          <div class="quantity times"></div>
+          <div class="subscribe">
+            <div class="toggle-switch"><input id="toggleNaver3" type="checkbox"><label for="toggleNaver3"></label></div>
           </div>
-          <div class="details">
-            <div class="row">
+        </div>
+      </article>
+      <article class="available subscribe">
+        <header><span class="tag green"> 사용가능 </span><span class="tag d-day"></span>
+          <h3> 11번가 포커스클릭 <span class="date"></span></h3>
+        </header>
+        <div class="filters">
+          <div class="quantity times"></div>
+          <div class="subscribe">
+            <div class="toggle-switch"><input id="toggleEleventhFocusClick" type="checkbox"><label
+                for="toggleEleventhFocusClick"></label></div>
+          </div>
+        </div>
+      </article>
+      <article class="available subscribe">
+        <header><span class="tag green"> 사용가능 </span><span class="tag d-day"></span>
+          <h3> 11번가 브랜드검색 <span class="date"></span></h3>
+        </header>
+        <div class="filters">
+          <div class="quantity times"></div>
+          <div class="subscribe">
+            <div class="toggle-switch"><input id="toggleEleventhBrand" type="checkbox"><label
+                for="toggleEleventhBrand"></label></div>
+          </div>
+        </div>
+      </article>
+      <article class="available subscribe">
+        <header><span class="tag green"> 사용가능 </span><span class="tag d-day"></span>
+          <h3> 지마켓 파워클릭 <span class="date"></span></h3>
+        </header>
+        <div class="filters">
+          <div class="quantity times"></div>
+          <div class="subscribe">
+            <div class="toggle-switch"><input id="toggleGmarketPowerClick" type="checkbox"><label
+                for="toggleGmarketPowerClick"></label></div>
+          </div>
+        </div>
+      </article>
+      <article class="available subscribe">
+        <header><span class="tag green"> 사용가능 </span><span class="tag d-day"></span>
+          <h3> 구글 검색광고 <span class="date"></span></h3>
+        </header>
+        <div class="filters">
+          <div class="quantity times"></div>
+          <div class="subscribe">
+            <div class="toggle-switch"><input id="toggleGoogleSearch" type="checkbox"><label
+                for="toggleGoogleSearch"></label></div>
+          </div>
+        </div>
+      </article><!-- <article>                                     WAVE 추후 구현 필요
+          <header>
+            <span class="tag red">사용불가</span>
+            <span class="tag d-day"></span>
+            <h3>
+              지마켓 판매량 추적
+              <span class="date"></span>
+            </h3>
+          </header>
+          <div class="filters">
+            <div class="quantity times"></div>
+            <div class="subscribe">
               <div class="toggle-switch">
-                <input id="toggle7" type="checkbox" checked />
-                <label for="toggle7"></label>
+                <input 
+                  id="toggleGmarketSales" 
+                  type="checkbox" 
+                  disabled
+                >
+                <label for="toggleGmarketSales" />
               </div>
-              <div class="row-title">휴대전화 번호</div>
-              <span>010-1234-***</span>
             </div>
-            <div class="row">
-              <div class="toggle-switch">
-                <input id="toggle8" type="checkbox" checked />
-                <label for="toggle8"></label>
-              </div>
-              <div class="row-title">이메일</div>
-              <span>gabia***@gabiacns.com</span>
-            </div>
+          </div>
+        </article> -->
+      <article class="">
+        <header><span class="tag red"> 사용불가 </span><!--v-if-->
+          <h3> 네이버 순위 추적(유료) <!--v-if--></h3>
+        </header><!-- <div
+            v-if="$store.state.serviceInfo.totalAlarmInfo.phoneYn == true && $store.state.serviceInfo.totalAlarmInfo.emailYn == false"
+            class="land"
+          >
+            카카오톡
+          </div>
+          <div
+            v-else-if="$store.state.serviceInfo.totalAlarmInfo.phoneYn == true && $store.state.serviceInfo.totalAlarmInfo.emailYn == true"
+            class="land"
+          >
+            카카오톡/이메일
+          </div>
+          <div
+            v-else-if="$store.state.serviceInfo.totalAlarmInfo.phoneYn == false && $store.state.serviceInfo.totalAlarmInfo.emailYn == true"
+            class="land"
+          >
+            이메일
+          </div> -->
+        <div class="filters">
+          <div class="quantity"> - </div>
+          <div class="subscribe">
+            <div class="toggle-switch"><input id="rankAlarmOnOff" type="checkbox" disabled=""><label
+                for="rankAlarmOnOff"></label></div>
           </div>
         </div>
-        <div class="select change-information">
-          <div class="title">
-            <div>
-              <input id="changeInformation" name="selectRecieveInformation" type="radio" />
-              <label for="changeInformation">
-                지정한 이메일 / 휴대전화 번호(카카오 알림톡)로 알림 받기
-              </label>
+      </article>
+      <article class="">
+        <header><span class="tag red"> 사용불가 </span><!--v-if-->
+          <h3> 네이버 최저가 추적(유료) <!--v-if--></h3>
+        </header>
+        <div class="filters">
+          <div class="quantity"> - </div>
+          <div class="subscribe">
+            <div class="toggle-switch"><input id="lowestAlarmOnOff" type="checkbox" disabled=""><label
+                for="lowestAlarmOnOff"></label></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="section-alarm-type">
+    <header>
+      <h2>알림 매체 설정</h2>
+    </header>
+    <div class="select-alarm-type">
+      <div class="select default-information">
+        <div class="title">
+          <div><input id="defaultInformation" name="selectRecieveInformation" type="radio"><label
+              for="defaultInformation"> 가입 시 입력한 이메일 / 휴대전화 번호(카카오 알림톡)로 알림 받기 </label></div><a
+            href="https://localhost:49166/Mypage/Membermanage" class="right-arrow" target="_blank">가입 정보 변경</a>
+        </div>
+        <div class="details">
+          <div class="row">
+            <div class="toggle-switch"><input id="defaultPhoneNum" type="checkbox"><label for="defaultPhoneNum"></label>
+            </div>
+            <div class="row-title"> 휴대전화 번호 </div><span>010-5671-****</span>
+          </div>
+          <div class="row">
+            <div class="toggle-switch"><input id="defaultEmail" type="checkbox"><label for="defaultEmail"></label></div>
+            <div class="row-title"> 이메일 </div><span>eu***@gabiacns.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="select change-information">
+        <div class="title">
+          <div><input id="changeInformation" name="selectRecieveInformation" type="radio"><label
+              id="changeLabelDescription" for="changeInformation"> 지정한 이메일 / 휴대전화 번호(카카오 알림톡)로 알림 받기 </label></div>
+        </div>
+        <div class="details is-active">
+          <div class="row">
+            <div class="toggle toggle-switch"><input id="phoneNumToggle" type="checkbox"><label
+                for="phoneNumToggle"></label></div>
+            <div class="row-title"> 휴대전화 번호 </div>
+            <div class="inputs is-active"><input id="authenticateNumber" type="text" readonly=""><button
+                class="btn-main" type="button"> 번호인증 </button>
+              <form name="form_chk" method="post"><input type="hidden" name="m" value="checkplusService"><input
+                  id="EncodeData" type="hidden" name="EncodeData"><input type="hidden" name="param_r1"><input
+                  type="hidden" name="param_r2"><input type="hidden" name="param_r3"></form>
             </div>
           </div>
-          <div class="details">
-            <div class="row">
-              <div class="toggle toggle-switch">
-                <input id="toggle9" type="checkbox" />
-                <label for="toggle9"></label>
-              </div>
-              <div class="row-title">휴대전화 번호</div>
-              <div class="inputs">
-                <input type="number" />
-                <button class="btn-main" type="button">번호인증</button>
-              </div>
+          <div class="row">
+            <div class="toggle toggle-switch"><input id="emailToggle" type="checkbox"><label for="emailToggle"></label>
             </div>
-            <div class="row">
-              <div class="toggle toggle-switch">
-                <input id="toggle10" type="checkbox" />
-                <label for="toggle10"></label>
-              </div>
-              <div class="row-title">이메일</div>
-              <div class="inputs">
-                <input type="text" />
-                <span>@</span>
-                <input type="text" />
-                <div class="selectbox">
-                  <select name="" id="">
-                    <option value="">직접입력</option>
-                  </select>
-                </div>
-              </div>
+            <div class="row-title"> 이메일 </div>
+            <div class="inputs is-active"><input id="userEmail" type="text"
+                oninput="this.value = this.value.replace(/ /gi, '').replace(/[ㄱ-힣]/, '');"><span>@</span><input
+                id="domainName" type="text">
+              <div class="selectbox"><select id="changeDomain" name="changeDomain">
+                  <option value=""> 직접입력 </option>
+                  <option value="gmail.com"> gmail.com </option>
+                  <option value="dreamwiz.com"> dreamwiz.com </option>
+                  <option value="freechal.com"> freechal.com </option>
+                  <option value="hanmail.net"> hanmail.net </option>
+                  <option value="hanmir.com"> hanmir.com </option>
+                  <option value="hotmail.com"> hotmail.com </option>
+                  <option value="korea.com"> korea.com </option>
+                  <option value="nate.com"> nate.com </option>
+                  <option value="naver.com"> naver.com </option>
+                  <option value="paran.com"> paran.com </option>
+                </select></div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <section class="section-alarm-services">
-      <header>
-        <h3>알림 시간대 설정</h3>
-      </header>
-      <div class="list">
-        <div class="row">
-          <div>심야 시간에도(21시 ~ 8시) 알림을 받겠습니다.</div>
-          <div class="toggle toggle-switch" data-toggle="alarm-services"><input id="toggle-midnight"
-              type="checkbox"><label for="toggle-midnight"></label></div>
-        </div>
-      </div>
-    </section>
-  </div>
+    </div>
+  </section>
+  <section class="section-alarm-services">
+    <header>
+      <h2>알림 시간대 설정</h2>
+    </header>
+    <ul class="list">
+      <li class="row">
+        <div>심야 시간에도(21시 ~ 8시) 알림을 받겠습니다.</div>
+        <div class="toggle toggle-switch" data-toggle="alarm-services"><input id="toggle-midnight"
+            type="checkbox"><label for="toggle-midnight"></label></div>
+      </li>
+    </ul>
+  </section>
+  <div class="scroll-to-top"></div>
 </main>
 
   </div>

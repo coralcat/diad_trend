@@ -246,9 +246,7 @@
             <option value="">plays_U</option>
           </select>
         </div>
-        <button type="button">
-          <i class="ico-sync"></i>
-        </button>
+        <button class="ico-sync" type="button"></button>
       </div>
       <ul class="details-sync">
         <li class="center">
@@ -1064,9 +1062,7 @@
             <option value="">plays_U</option>
           </select>
         </div>
-        <button type="button">
-          <i class="ico-sync"></i>
-        </button>
+        <button class="ico-sync" type="button"></button>
       </div>
       <ul class="details-sync">
         <li class="center">
@@ -2027,9 +2023,7 @@
             <option value="">plays_U</option>
           </select>
         </div>
-        <button type="button">
-          <i class="ico-sync"></i>
-        </button>
+        <button class="ico-sync" type="button"></button>
       </div>
       <ul class="details-sync">
         <li class="center">
@@ -2866,9 +2860,7 @@
             <option value="">plays_U</option>
           </select>
         </div>
-        <button type="button">
-          <i class="ico-sync"></i>
-        </button>
+        <button class="ico-sync" type="button"></button>
       </div>
       <ul class="details-sync">
         <li class="center">
@@ -4843,11 +4835,15 @@
                 </div>
               </div>
             </li>
-            <li>
-              <div>가액</div>
-              <input type="number">원
-              <div>감액</div>
-              <input type="number">원
+            <li class="inputs">
+              <div>
+                가액
+                <input type="number">원
+              </div>
+              <div>
+                감액
+                <input type="number">원
+              </div>
             </li>
           </ul>
           <ul class="row">
@@ -5176,11 +5172,15 @@
                 </label>
               </div>
             </li>
-            <li>
-              <div>가액</div>
-              <input type="number">원
-              <div>감액</div>
-              <input type="number">원
+            <li class="inputs">
+              <div>
+                가액
+                <input type="number">원
+              </div>
+              <div>
+                감액
+                <input type="number">원
+              </div>
             </li>
           </ul>
           <ul class="row">
@@ -9451,17 +9451,7 @@
           <ul class="row">
             <li>
               입찰대상
-              <div class="tooltip">
-                <dl class="tooltip-content">
-                  <dd>
-                    입찰대상은 네이버 권장 입찰가를 데이터 성격에 따라 구분한 기준입니다.
-                  </dd>
-                  <dd>
-                    PC 데이터를 원하면 PC 기준, 모바일 데이터를 원하면 모바일 기준, 사용자 키워드의 과거 데이터를 원하면 나의 데이터 기준을 선택하고 각 기준에 맞는 기본입찰가를 선택할 수
-                    있습니다.
-                  </dd>
-                </dl>
-              </div>
+              <div data-tooltip="biddingTarget2"></div>
             </li>
             <li>
               <input id="standard-pc" type="radio" name="bidding-modal">
@@ -9475,16 +9465,7 @@
           <ul class="row">
             <li>
               기본입찰가
-              <div class="tooltip">
-                <dl class="tooltip-content">
-                  <dd>
-                    기본입찰가는 입찰가 변경의 기본이 되는 입찰가로 네이버에서 제공하는 권장 입찰가 및 데이터를 사용합니다.
-                  </dd>
-                  <dd>
-                    네이버 권장 입찰가는 과거 데이터를 기반으로 추정한 데이터입니다. 사용자에게 기준이 될 수 있는 가격을 제시할 뿐 노출순위를 보장하지 않습니다.
-                  </dd>
-                </dl>
-              </div>
+              <div data-tooltip="baseBidPrice2"></div>
             </li>
             <li>
               <div class="selectbox">
@@ -9515,36 +9496,20 @@
           <ul class="row">
             <li>
               최소입찰가
-              <div class="tooltip">
-                <dl class="tooltip-content">
-                  <dd>
-                    최소입찰가는 사용자가 설정하는 입찰가 변경 가능 범위의 최소치로 일반적으로 입찰가는 최소입찰가보다 작을 수 없고, 산출 입찰가(사용자 설정 옵션 미사용 시 기본입찰가)가
-                    최소입찰가보다 작으면 최소입찰가로 입찰가가 변경됩니다.
-                  </dd>
-                  <dd>
-                    최소입찰가로 평균 클릭 비용 사용 시 평균 클릭 비용이 입찰가 최소치보다 작으면 최소입찰가는 자동으로 입찰가 최소치로 조정됩니다.
-                  </dd>
-                  <dd>
-                    최소입찰가로 평균 클릭 비용 사용 시 최소입찰가 우선 적용 체크박스를 체크하면 최소입찰가가 최대입찰가보다 큰 경우 최소입찰가를 입찰가로 변경할 수 있습니다. 체크박스를 체크하지
-                    않으면 최대입찰가와 산출 입찰가(사용자 설정 옵션 미사용 시 기본입찰가) 중 더 작은 값으로 입찰가가 변경됩니다.
-                  </dd>
-                </dl>
-              </div>
+              <div data-tooltip="lowestBidPrice"></div>
             </li>
             <li class="more-options">
               <input id="inactive-bidding-lowest-price" type="radio" name="lowest-price" checked />
               <label for="inactive-bidding-lowest-price">미사용</label>
               <input id="active-bidding-lowest-price" type="radio" name="lowest-price" />
               <label for="active-bidding-lowest-price">사용</label>
-              <div class="options">
-                <div class="inputs">
-                  <input id="input-price-directly" type="radio" />
-                  <label for="input-price-directly">직접 입력</label>
-                  <input id="input-price-yesterday" type="radio" />
-                  <label for="input-price-yesterday">어제 평균 클릭 비용</label>
-                  <input id="input-price-7days" type="radio" />
-                  <label for="input-price-7days">지난 7일 평균 클릭 비용</label>
-                </div>
+              <div class="inputs">
+                <input id="input-price-directly" type="radio" />
+                <label for="input-price-directly">직접 입력</label>
+                <input id="input-price-yesterday" type="radio" />
+                <label for="input-price-yesterday">어제 평균 클릭 비용</label>
+                <input id="input-price-7days" type="radio" />
+                <label for="input-price-7days">지난 7일 평균 클릭 비용</label>
                 <div class="price">
                   <input type="number">
                 </div>
@@ -9573,40 +9538,25 @@
           <fieldset>
             <legend>
               사용자 설정 옵션
-              <div class="tooltip">
-                <div class="tooltip-content">
-                  사용자 설정 옵션은 선택사항으로 기본입찰가에 사용자가 원하는 조합의 옵션을 부여하여 세부적인 입찰가 설정이 가능합니다.
-                </div>
-              </div>
+              <div data-tooltip="customizationOptions"></div>
             </legend>
             <ul class="row">
               <li>
                 평균값
-                <div class="tooltip">
-                  <dl class="tooltip-content">
-                    <dd>
-                      사용자 설정 옵션은 선택사항으로 기본입찰가에 사용자가 원하는 조합의 옵션을 부여하여 세부적인 입찰가 설정이 가능합니다.
-                    </dd>
-                    <dd>
-                      선택한 데이터 값이 0이면 평균을 구하지 않고 기본입찰가를 사용합니다.
-                    </dd>
-                  </dl>
-                </div>
+                <div data-tooltip="averagePrice"></div>
               </li>
               <li class="more-options">
                 <input id="inactive-average-price" type="radio" name="average-price" checked />
                 <label for="inactive-average-price">미사용</label>
                 <input id="active-average-price" type="radio" name="average-price" />
                 <label for="active-average-price">사용</label>
-                <div class="options">
-                  <div class="inputs">
-                    <input id="select-standard-pc" type="radio" />
-                    <label for="select-standard-pc">PC 기준</label>
-                    <input id="select-standard-mobile" type="radio" />
-                    <label for="select-standard-mobile">모바일(MO) 기준</label>
-                    <input id="select-standard-my" type="radio" />
-                    <label for="select-standard-my">나의 데이터(MY) 기준</label>
-                  </div>
+                <div class="inputs">
+                  <input id="select-standard-pc" type="radio" />
+                  <label for="select-standard-pc">PC 기준</label>
+                  <input id="select-standard-mobile" type="radio" />
+                  <label for="select-standard-mobile">모바일(MO) 기준</label>
+                  <input id="select-standard-my" type="radio" />
+                  <label for="select-standard-my">나의 데이터(MY) 기준</label>
                   <div class="selectbox">
                     <select name="" id="">
                       <option value="">PC 통합검색 1위 평균 입찰가</option>
@@ -9636,68 +9586,54 @@
             <ul class="row">
               <li>
                 가감액
-                <div class="tooltip">
-                  <dl class="tooltip-content">
-                    <dd>
-                      가감액 옵션 사용 시 기본입찰가 또는 평균값(평균값 옵션 사용 시)에 가감할 금액을 설정할 수 있습니다.
-                    </dd>
-                    <dd>
-                      가감액은 최근 통합검색 평균 노출 순위의 유무에 따라 나누어 입력합니다.
-                    </dd>
-                    <dd>
-                      가감액을 %로 설정하신 경우 평균값 옵션을 사용하더라도 기본입찰가를 기준으로 %가 계산됩니다.
-                    </dd>
-                  </dl>
-                </div>
+                <div data-tooltip="additionAndSubtraction3"></div>
               </li>
               <li class="more-options">
                 <input id="inactive-change-price" type="radio" name="change-price" checked />
                 <label for="inactive-change-price">미사용</label>
                 <input id="active-change-price" type="radio" name="change-price" />
                 <label for="active-change-price">사용</label>
-                <div class="options">
-                  <div class="inputs">
-                    <input id="increase-price" type="radio" />
-                    <label for="increase-price">가액</label>
-                    <div class="input" data-title="순위 있음">
-                      <input type="text">
-                      <div class="selectbox">
-                        <select name="" id="">
-                          <option value="">원</option>
-                          <option value="">%</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="input" data-title="순위 없음">
-                      <input type="text">
-                      <div class="selectbox">
-                        <select name="" id="">
-                          <option value="">원</option>
-                          <option value="">%</option>
-                        </select>
-                      </div>
+                <div class="inputs">
+                  <input id="increase-price" type="radio" />
+                  <label for="increase-price">가액</label>
+                  <div class="input" data-title="순위 있음">
+                    <input type="text">
+                    <div class="selectbox">
+                      <select name="" id="">
+                        <option value="">원</option>
+                        <option value="">%</option>
+                      </select>
                     </div>
                   </div>
-                  <div class="inputs" style="margin-left: 0">
-                    <input id="decrease-price" type="radio" />
-                    <label for="decrease-price">감액</label>
-                    <div class="input" data-title="순위 있음">
-                      <input type="text">
-                      <div class="selectbox">
-                        <select name="" id="">
-                          <option value="">원</option>
-                          <option value="">%</option>
-                        </select>
-                      </div>
+                  <div class="input" data-title="순위 없음">
+                    <input type="text">
+                    <div class="selectbox">
+                      <select name="" id="">
+                        <option value="">원</option>
+                        <option value="">%</option>
+                      </select>
                     </div>
-                    <div class="input" data-title="순위 없음">
-                      <input type="text">
-                      <div class="selectbox">
-                        <select name="" id="">
-                          <option value="">원</option>
-                          <option value="">%</option>
-                        </select>
-                      </div>
+                  </div>
+                </div>
+                <div class="inputs" style="margin-left: 0">
+                  <input id="decrease-price" type="radio" />
+                  <label for="decrease-price">감액</label>
+                  <div class="input" data-title="순위 있음">
+                    <input type="text">
+                    <div class="selectbox">
+                      <select name="" id="">
+                        <option value="">원</option>
+                        <option value="">%</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="input" data-title="순위 없음">
+                    <input type="text">
+                    <div class="selectbox">
+                      <select name="" id="">
+                        <option value="">원</option>
+                        <option value="">%</option>
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -9732,18 +9668,10 @@
             <li>
               <div class="checkbox">
                 <input id="check-regular-normal" name="select-item" type="checkbox">
-                <label for="check-regular-normal">입찰대상</label>
-                <div class="tooltip">
-                  <dl class="tooltip-content">
-                    <dd>
-                      입찰대상은 네이버 권장 입찰가를 데이터 성격에 따라 구분한 기준입니다.
-                    </dd>
-                    <dd>
-                      PC 데이터를 원하면 PC 기준, 모바일 데이터를 원하면 모바일 기준, 사용자 키워드의 과거 데이터를 원하면 나의 데이터 기준을 선택하고 각 기준에 맞는 기본입찰가를 선택할 수
-                      있습니다.
-                    </dd>
-                  </dl>
-                </div>
+                <label for="check-regular-normal">
+                  입찰대상
+                  <div data-tooltip="biddingTarget2"></div>
+                </label>
               </div>
             </li>
             <li>
@@ -9758,16 +9686,7 @@
           <ul class="row">
             <li>
               기본입찰가
-              <div class="tooltip">
-                <dl class="tooltip-content">
-                  <dd>
-                    기본입찰가는 입찰가 변경의 기본이 되는 입찰가로 네이버에서 제공하는 권장 입찰가 및 데이터를 사용합니다.
-                  </dd>
-                  <dd>
-                    네이버 권장 입찰가는 과거 데이터를 기반으로 추정한 데이터입니다. 사용자에게 기준이 될 수 있는 가격을 제시할 뿐 노출순위를 보장하지 않습니다.
-                  </dd>
-                </dl>
-              </div>
+              <div data-tooltip="baseBidPrice2"></div>
             </li>
             <li>
               <div class="selectbox">
@@ -9799,22 +9718,10 @@
             <li>
               <div class="checkbox">
                 <input id="check-regular-live-normal-part-02" name="select-item" type="checkbox">
-                <label for="check-regular-live-normal-part-02">최소입찰가</label>
-                <div class="tooltip">
-                  <dl class="tooltip-content">
-                    <dd>
-                      최소입찰가는 사용자가 설정하는 입찰가 변경 가능 범위의 최소치로 일반적으로 입찰가는 최소입찰가보다 작을 수 없고, 산출 입찰가(사용자 설정 옵션 미사용 시 기본입찰가)가
-                      최소입찰가보다 작으면 최소입찰가로 입찰가가 변경됩니다.
-                    </dd>
-                    <dd>
-                      최소입찰가로 평균 클릭 비용 사용 시 평균 클릭 비용이 입찰가 최소치보다 작으면 최소입찰가는 자동으로 입찰가 최소치로 조정됩니다.
-                    </dd>
-                    <dd>
-                      최소입찰가로 평균 클릭 비용 사용 시 최소입찰가 우선 적용 체크박스를 체크하면 최소입찰가가 최대입찰가보다 큰 경우 최소입찰가를 입찰가로 변경할 수 있습니다. 체크박스를 체크하지
-                      않으면 최대입찰가와 산출 입찰가(사용자 설정 옵션 미사용 시 기본입찰가) 중 더 작은 값으로 입찰가가 변경됩니다.
-                    </dd>
-                  </dl>
-                </div>
+                <label for="check-regular-live-normal-part-02">
+                  최소입찰가
+                  <div data-tooltip="lowestBidPrice"></div>
+                </label>
               </div>
             </li>
             <li class="more-options">
@@ -9862,25 +9769,12 @@
           <fieldset>
             <legend>
               사용자 설정 옵션
-              <div class="tooltip">
-                <div class="tooltip-content">
-                  사용자 설정 옵션은 선택사항으로 기본입찰가에 사용자가 원하는 조합의 옵션을 부여하여 세부적인 입찰가 설정이 가능합니다.
-                </div>
-              </div>
+              <div data-tooltip="customizationOptions"></div>
             </legend>
             <ul class="row">
               <li>
                 평균값
-                <div class="tooltip">
-                  <dl class="tooltip-content">
-                    <dd>
-                      사용자 설정 옵션은 선택사항으로 기본입찰가에 사용자가 원하는 조합의 옵션을 부여하여 세부적인 입찰가 설정이 가능합니다.
-                    </dd>
-                    <dd>
-                      선택한 데이터 값이 0이면 평균을 구하지 않고 기본입찰가를 사용합니다.
-                    </dd>
-                  </dl>
-                </div>
+                <div data-tooltip="averagePrice"></div>
               </li>
               <li class="more-options">
                 <input id="inactive-average-price" type="radio" name="average-price" checked />
@@ -9925,68 +9819,54 @@
             <ul class="row">
               <li>
                 가감액
-                <div class="tooltip">
-                  <dl class="tooltip-content">
-                    <dd>
-                      가감액 옵션 사용 시 기본입찰가 또는 평균값(평균값 옵션 사용 시)에 가감할 금액을 설정할 수 있습니다.
-                    </dd>
-                    <dd>
-                      가감액은 최근 통합검색 평균 노출 순위의 유무에 따라 나누어 입력합니다.
-                    </dd>
-                    <dd>
-                      가감액을 %로 설정하신 경우 평균값 옵션을 사용하더라도 기본입찰가를 기준으로 %가 계산됩니다.
-                    </dd>
-                  </dl>
-                </div>
+                <div data-tooltip="additionAndSubtraction3"></div>
               </li>
               <li class="more-options">
                 <input id="inactive-change-price" type="radio" name="change-price" checked />
                 <label for="inactive-change-price">미사용</label>
                 <input id="active-change-price" type="radio" name="change-price" />
                 <label for="active-change-price">사용</label>
-                <div class="options">
-                  <div class="inputs">
-                    <input id="increase-price" type="radio" />
-                    <label for="increase-price">가액</label>
-                    <div class="input" data-title="순위 있음">
-                      <input type="text">
-                      <div class="selectbox">
-                        <select name="" id="">
-                          <option value="">원</option>
-                          <option value="">%</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="input" data-title="순위 없음">
-                      <input type="text">
-                      <div class="selectbox">
-                        <select name="" id="">
-                          <option value="">원</option>
-                          <option value="">%</option>
-                        </select>
-                      </div>
+                <div class="inputs">
+                  <input id="increase-price" type="radio" />
+                  <label for="increase-price">가액</label>
+                  <div class="input" data-title="순위 있음">
+                    <input type="text">
+                    <div class="selectbox">
+                      <select name="" id="">
+                        <option value="">원</option>
+                        <option value="">%</option>
+                      </select>
                     </div>
                   </div>
-                  <div class="inputs" style="margin-left: 0">
-                    <input id="decrease-price" type="radio" />
-                    <label for="decrease-price">감액</label>
-                    <div class="input" data-title="순위 있음">
-                      <input type="text">
-                      <div class="selectbox">
-                        <select name="" id="">
-                          <option value="">원</option>
-                          <option value="">%</option>
-                        </select>
-                      </div>
+                  <div class="input" data-title="순위 없음">
+                    <input type="text">
+                    <div class="selectbox">
+                      <select name="" id="">
+                        <option value="">원</option>
+                        <option value="">%</option>
+                      </select>
                     </div>
-                    <div class="input" data-title="순위 없음">
-                      <input type="text">
-                      <div class="selectbox">
-                        <select name="" id="">
-                          <option value="">원</option>
-                          <option value="">%</option>
-                        </select>
-                      </div>
+                  </div>
+                </div>
+                <div class="inputs" style="margin-left: 0">
+                  <input id="decrease-price" type="radio" />
+                  <label for="decrease-price">감액</label>
+                  <div class="input" data-title="순위 있음">
+                    <input type="text">
+                    <div class="selectbox">
+                      <select name="" id="">
+                        <option value="">원</option>
+                        <option value="">%</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="input" data-title="순위 없음">
+                    <input type="text">
+                    <div class="selectbox">
+                      <select name="" id="">
+                        <option value="">원</option>
+                        <option value="">%</option>
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -10169,116 +10049,83 @@
 <div id="managementTemplates" class="modal modal-management-templates" title="고급 설정 템플릿 관리">
   <div class="dialog">
     <header class="modal-header">
-      <h3>고급 설정 템플릿 관리</h3>
+      <h3>고급설정 템플릿 관리</h3>
       <div class="close"></div>
     </header>
     <div class="modal-content">
       <header>
-        <div class="filters">
-          <strong data-title="선택" class="times">0</strong>
-          <strong data-title="전체" class="times">0</strong>
-        </div>
-        <button class="btn-grayscale" type="button" data-modal="">선택삭제</button>
+        <div class="filters"><strong data-title="선택" class="times">0</strong><strong data-title="전체"
+            class="times">7</strong></div><button class="ico-delete btn-grayscale" type="button"></button>
       </header>
-      <div class="list list-group">
-        <ul class="row title">
-          <li class="col-check">
-            <div class="checkbox">
-              <input id="createKeywordCheckAll" type="checkbox" name="createKeywordCheck" class="check-all">
-              <label for="createKeywordCheckAll"></label>
-            </div>
-          </li>
-          <li>템플릿명</li>
-          <li>등록일</li>
-          <li>수정일</li>
-        </ul>
-        <div class="rows" data-empty="템플릿을 추가해주세요.">
-          <ul class="row">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="check0" type="checkbox" name="createKeywordCheck">
-                <label for="check0"></label>
-              </div>
-            </li>
-            <li>
-              지역설정1
-            </li>
-            <li>2020-09-14</li>
-            <li>2020-09-14</li>
-          </ul>
-          <ul class="row">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="check1" type="checkbox" name="createKeywordCheck">
-                <label for="check1"></label>
-              </div>
-            </li>
-            <li>
-              테스트
-            </li>
-            <li>2021-03-15</li>
-            <li>2021-03-15</li>
-          </ul>
-          <ul class="row">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="check2" type="checkbox" name="createKeywordCheck">
-                <label for="check2"></label>
-              </div>
-            </li>
-            <li>
-              복사본 수정1
-            </li>
-            <li>2021-03-15</li>
-            <li>2021-03-18</li>
-          </ul>
-          <ul class="row">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="check3" type="checkbox" name="createKeywordCheck">
-                <label for="check3"></label>
-              </div>
-            </li>
-            <li>
-              test_062201
-            </li>
-            <li>2021-06-22</li>
-            <li>2021-06-22</li>
-          </ul>
-          <ul class="row">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="check4" type="checkbox" name="createKeywordCheck">
-                <label for="check4"></label>
-              </div>
-            </li>
-            <li>
-              기본입찰가1
-            </li>
-            <li>2021-11-15</li>
-            <li></li>
-          </ul>
-          <ul class="row">
-            <li class="col-check">
-              <div class="checkbox">
-                <input id="check0" type="checkbox" name="createKeywordCheck">
-                <label for="check0"></label>
-              </div>
-            </li>
-            <li>
-              화요일OFF
-            </li>
-            <li>2021-11-15</li>
-            <li>2021-12-06</li>
-          </ul>
-        </div>
-      </div>
+      <ul class="list template-manage" data-empty="템플릿을 추가해주세요.">
+        <li class="row title">
+          <div class="checkbox"><input id="createKeywordCheckAll" type="checkbox" name="createKeywordCheck"
+              class="check-all"><label for="createKeywordCheckAll">템플릿명</label><svg width="15px" height="10px">
+              <polyline points="1,5 6,9 14,1"></polyline>
+            </svg></div>
+          <div>등록일</div>
+          <div>수정일</div>
+        </li>
+        <li class="row" index="0">
+          <div class="checkbox"><input id="check-0" type="checkbox" name="createKeywordCheck" value="40163"><label
+              for="check-0">시작</label><svg width="15px" height="10px">
+              <polyline points="1,5 6,9 14,1"></polyline>
+            </svg></div>
+          <div>2023-08-01</div>
+          <div> - </div>
+        </li>
+        <li class="row" index="1">
+          <div class="checkbox"><input id="check-1" type="checkbox" name="createKeywordCheck" value="40164"><label
+              for="check-1">추가수정</label><svg width="15px" height="10px">
+              <polyline points="1,5 6,9 14,1"></polyline>
+            </svg></div>
+          <div>2023-08-01</div>
+          <div>2023-08-02</div>
+        </li>
+        <li class="row" index="2">
+          <div class="checkbox"><input id="check-2" type="checkbox" name="createKeywordCheck" value="40165"><label
+              for="check-2">추가수정_복사본</label><svg width="15px" height="10px">
+              <polyline points="1,5 6,9 14,1"></polyline>
+            </svg></div>
+          <div>2023-08-01</div>
+          <div> - </div>
+        </li>
+        <li class="row" index="3">
+          <div class="checkbox"><input id="check-3" type="checkbox" name="createKeywordCheck" value="40166"><label
+              for="check-3">파컨</label><svg width="15px" height="10px">
+              <polyline points="1,5 6,9 14,1"></polyline>
+            </svg></div>
+          <div>2023-08-02</div>
+          <div>2023-08-02</div>
+        </li>
+        <li class="row" index="4">
+          <div class="checkbox"><input id="check-4" type="checkbox" name="createKeywordCheck" value="40168"><label
+              for="check-4">파컨_복사본</label><svg width="15px" height="10px">
+              <polyline points="1,5 6,9 14,1"></polyline>
+            </svg></div>
+          <div>2023-08-02</div>
+          <div> - </div>
+        </li>
+        <li class="row" index="5">
+          <div class="checkbox"><input id="check-5" type="checkbox" name="createKeywordCheck" value="40172"><label
+              for="check-5"></label><svg width="15px" height="10px">
+              <polyline points="1,5 6,9 14,1"></polyline>
+            </svg></div>
+          <div>2023-08-08</div>
+          <div> - </div>
+        </li>
+        <li class="row" index="6">
+          <div class="checkbox"><input id="check-6" type="checkbox" name="createKeywordCheck" value="40173"><label
+              for="check-6"></label><svg width="15px" height="10px">
+              <polyline points="1,5 6,9 14,1"></polyline>
+            </svg></div>
+          <div>2023-08-08</div>
+          <div> - </div>
+        </li>
+      </ul>
     </div>
-    <footer class="buttons">
-      <button class="btn-sub" type="button" data-modal="">복사</button>
-      <button class="btn-sub" type="button" data-modal="">추가</button>
-      <button class="btn-submit" type="button" data-modal="">수정</button>
-    </footer>
+    <footer class="buttons"><button class="btn-sub" type="button"> 복사 </button><button class="btn-sub" type="button"> 추가
+      </button><button type="button"> 수정 </button></footer>
   </div>
 </div>
 

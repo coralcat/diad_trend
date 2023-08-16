@@ -1470,7 +1470,7 @@ const tooltipContents = {
     `,
   // 최근 30일 변동
   last30Days: `
-    <dl class="tooltip-content">
+    <dl>
       <dd>최근 30일 동안의 최저가 변동(상승, 하락) 여부를 알 수 있습니다.</dd>
       <dd>최근 30일 동안 최저가 변동이 1회라도 있으면 변동입니다.</dd>
       <dd>최근 30일은 당일 포함 30일입니다.</dd>
@@ -1478,14 +1478,14 @@ const tooltipContents = {
     `,
   // 최근 30일 변동 횟수
   last30DaysTimes: `
-    <dl class="tooltip-content">
+    <dl>
       <dd>최근 30일 동안의 최저가 상승과 하락 횟수를 알 수 있습니다.</dd>
       <dd>최근 30일은 당일 포함 30일입니다.</dd>
     </dl>
     `,
   // 최근 30일 최대 상승 금액
   last30DaysHighestPrice: `
-    <dl class="tooltip-content">
+    <dl>
       <dd>최근 30일 동안의 최저가가 상승한 건 중 금액이 가장 큰 값을 알 수 있습니다.</dd>
       <dd>금액 아래에는 최대 상승 금액으로 변동한 갱신 타임이 표시됩니다.</dd>
       <dd>최대 상승 금액이 동일한 갱신 타임이 있는 경우 최근 일시가 표시됩니다.</dd>
@@ -1494,7 +1494,7 @@ const tooltipContents = {
     `,
   // 최근 30일 최대 하락 금액
   last30DaysLowestPrice: `
-    <dl class="tooltip-content">
+    <dl>
       <dd>최근 30일 동안의 최저가가 하락한 건 중 금액이 가장 큰 값을 알 수 있습니다.</dd>
       <dd>금액 아래에는 최대 하락 금액으로 변동한 갱신 타임이 표시됩니다.</dd>
       <dd>최대 하락 금액이 동일한 갱신 타임이 있는 경우 최근 일시가 표시됩니다.</dd>
@@ -1520,7 +1520,7 @@ const tooltipContents = {
 
   // 목록 갱신실패
   failedToLoad: `
-    <dl class="tooltip-content">
+    <dl>
       <dd>일시적으로 상품을 찾을 수 없는 경우 '갱신실패'로 상품 정보가 갱신 되지 않을 수 있습니다.</dd>
       <dd>
         <div>'갱신실패'가 갱신타임 연속으로 2일 이상 지속될 경우 갱신이 자동으로 중단됩니다.</div>
@@ -1759,7 +1759,7 @@ const tooltipContents = {
 
   // 네이버 & 구글 경쟁정도
   naverAndGoogleCompetition: `
-    <dl class="tooltip-content">
+    <dl>
       <dd>
         네이버에서 경쟁정도는 최근 한 달간 해당 키워드에 대한 경쟁정도를 PC통합검색영역 기준으로 구분한 지표입니다. 다수의 광고주가 추가한 광고일수록 경쟁정도가 높을 수 있습니다.
       </dd>
@@ -1774,7 +1774,7 @@ const tooltipContents = {
 
   // 상품경쟁률
   productCompetitionRate: `
-    <dl class="tooltip-content">
+    <dl>
       <dd>상품수 ÷ 월간 검색량 입니다.</dd>
       <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
     </dl>
@@ -1782,7 +1782,7 @@ const tooltipContents = {
 
   // 네이버 블로그 경쟁률
   naverBlogCompetitionRate: `
-    <dl class="tooltip-content">
+    <dl>
       <dd>네이버 블로그 발행량 ÷ 네이버 월간 검색수입니다.</dd>
       <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
     </dl>
@@ -1790,7 +1790,7 @@ const tooltipContents = {
 
   // 네이버 카페 경쟁률
   naverCafeCompetitionRate: `
-    <dl class="tooltip-content">
+    <dl>
       <dd>네이버 카페 발행량 ÷ 네이버 월간 검색수입니다.</dd>
       <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
     </dl>
@@ -1798,7 +1798,7 @@ const tooltipContents = {
 
   // 네이버 카페 경쟁률
   naverNewsCompetitionRate: `
-    <dl class="tooltip-content">
+    <dl>
       <dd>네이버 뉴스 발행량 ÷ 네이버 월간 검색수입니다.</dd>
       <dd>숫자가 클수록 경쟁이 심하고, 작을수록 경쟁이 덜합니다.</dd>
     </dl>
@@ -1809,7 +1809,7 @@ const tooltipContents = {
 
   // 페이지 상단 입찰가
   topOfPageBid: `
-    <dl class="tooltip-content">
+    <dl>
       <dd>
         페이지 상단 입찰가(하위)는 광고주가 키워드에 대해 지불했던 페이지 상단 입찰가 중에서 낮은 범위(20 백분위수)에 해당하는 입찰가를 나타냅니다. 키워드의 평균 CPC는 다를 수 있습니다.
       </dd>
@@ -1839,7 +1839,7 @@ const tooltipContents = {
 
   // 연관 키워드
   relatedKeyword: `
-    <dl class="tooltip-content">
+    <dl>
       <dd>검색한 키워드와 연관도가 높은 키워드 목록을 제공합니다.</dd>
       <dd>연관 키워드는 네이버와 구글 매체의 데이터를 제공합니다.</dd>
       <dd>연관도 순서(NO)는 매체가 네이버인 경우 우선 나열되고, 뒤에 이어 매체가 구글인 키워드 순으로 나열됩니다.</dd>
@@ -1849,7 +1849,7 @@ const tooltipContents = {
     `,
 
   naverMonthlySearch: `
-    <dl class="tooltip-content">
+    <dl>
       <dd>
         네이버 월간 검색수는 전일 포함 이전 30일 간 네이버를 이용한 사용자가 PC 및 모바일에서 해당 키워드를 검색한 횟수입니다.
       </dd>
@@ -1864,7 +1864,7 @@ const tooltipContents = {
 
   // 3개월간 변동을
   fluctuation3months: `
-    <dl class="tooltip-content">
+    <dl>
       <dd>
         3개월 변동은 최근 달의 데이터를 그보다 2개월 전의 데이터와 비교하여 3개월 동안의 검색 동향 변화를 표시합니다.
       </dd>
@@ -1876,7 +1876,7 @@ const tooltipContents = {
 
   // 6개월간 변동을
   fluctuation6months: `
-    <dl class="tooltip-content">
+    <dl>
       <dd>
         6개월 변동은 최근 달의 데이터를 그보다 5개월 전의 데이터와 비교하여 6개월 동안의 검색 동향 변화를 표시합니다.
       </dd>
@@ -1891,7 +1891,7 @@ const tooltipContents = {
 
   // 월 평균 클릭률
   averageClickThroughRate: `
-    <dl class="tooltip-content">
+    <dl>
       <dd>
         최근 한 달간 해당 키워드로 네이버 통합검색 영역에 노출된 광고가 받은 평균 클릭률을 의미합니다. 
       </dd>
@@ -1903,7 +1903,7 @@ const tooltipContents = {
 
   // 월 평균 노출 광고수
   averageAdsPerMonth: `
-    <dl class="tooltip-content">
+    <dl>
       <dd>
         최근 한 달간 사용자가 해당 키워드를 검색했을 때,  PC통합검색영역에 도출된 평균 광고 개수입니다.
       </dd>
@@ -1916,7 +1916,7 @@ const tooltipContents = {
   /* 자동입찰 */
   // 입찰
   bidding: `
-    <dl class="tooltip-content">
+    <dl>
       <dt>입찰은 입찰 프로세스 진행 상황에 따라 대기, 성공, 실패가 있습니다.</dt>
       <dd>대기는 입찰이 한 번도 실행되지 않은 초기 상태입니다.</dd>
       <dd>성공은 희망 순위에 도달하였거나, 설정한 값을 기준으로 입찰 프로세스가 진행되어 정상적으로 종료된 상태입니다.</dd>
@@ -1990,6 +1990,54 @@ const tooltipContents = {
     </dl>
     `,
 
+  // 기본입찰가
+  baseBidPrice2: `
+    <dl class="tooltip-content">
+      <dd>
+        기본입찰가는 입찰가 변경의 기본이 되는 입찰가로 네이버에서 제공하는 권장 입찰가 및 데이터를 사용합니다.
+      </dd>
+      <dd>
+        네이버 권장 입찰가는 과거 데이터를 기반으로 추정한 데이터입니다. 사용자에게 기준이 될 수 있는 가격을 제시할 뿐 노출순위를 보장하지 않습니다.
+      </dd>
+    </dl>
+  `,
+
+  // 최소입찰가
+  lowestBidPrice: `
+    <dl>
+      <dd>
+        최소입찰가는 사용자가 설정하는 입찰가 변경 가능 범위의 최소치로 일반적으로 입찰가는 최소입찰가보다 작을 수 없고, 산출 입찰가(사용자 설정 옵션 미사용 시 기본입찰가)가
+        최소입찰가보다 작으면 최소입찰가로 입찰가가 변경됩니다.
+      </dd>
+      <dd>
+        최소입찰가로 평균 클릭 비용 사용 시 평균 클릭 비용이 입찰가 최소치보다 작으면 최소입찰가는 자동으로 입찰가 최소치로 조정됩니다.
+      </dd>
+      <dd>
+        최소입찰가로 평균 클릭 비용 사용 시 최소입찰가 우선 적용 체크박스를 체크하면 최소입찰가가 최대입찰가보다 큰 경우 최소입찰가를 입찰가로 변경할 수 있습니다. 체크박스를 체크하지
+        않으면 최대입찰가와 산출 입찰가(사용자 설정 옵션 미사용 시 기본입찰가) 중 더 작은 값으로 입찰가가 변경됩니다.
+      </dd>
+    </dl>
+  `,
+
+  // 사용자 설정 옵션
+  customizationOptions: `
+    <div>
+      사용자 설정 옵션은 선택사항으로 기본입찰가에 사용자가 원하는 조합의 옵션을 부여하여 세부적인 입찰가 설정이 가능합니다.
+    </div>
+  `,
+
+  // 평균값
+  averagePrice: `
+    <dl>
+      <dd>
+        사용자 설정 옵션은 선택사항으로 기본입찰가에 사용자가 원하는 조합의 옵션을 부여하여 세부적인 입찰가 설정이 가능합니다.
+      </dd>
+      <dd>
+        선택한 데이터 값이 0이면 평균을 구하지 않고 기본입찰가를 사용합니다.
+      </dd>
+    </dl>
+  `,  
+
   // 입찰설정
   bidSettings: `
     <dl>
@@ -1997,6 +2045,19 @@ const tooltipContents = {
       <dd>레귤러 입찰은 하루 3번 정해진 시간에 입찰이 진행되며, 원하는 순위에 도달하기 위해 입찰가를 조정하는 것이 아니라 입찰가를 원하는 입찰가로 변경합니다.</dd>
     </dl>
     `,
+
+  // 입찰대상
+  biddingTarget2: `
+    <dl>
+      <dd>
+        입찰대상은 네이버 권장 입찰가를 데이터 성격에 따라 구분한 기준입니다.
+      </dd>
+      <dd>
+        PC 데이터를 원하면 PC 기준, 모바일 데이터를 원하면 모바일 기준, 사용자 키워드의 과거 데이터를 원하면 나의 데이터 기준을 선택하고 각 기준에 맞는 기본입찰가를 선택할 수
+        있습니다.
+      </dd>
+    </dl>
+  `,
 
   // 입찰목표
   biddingTarget: `
@@ -2063,6 +2124,21 @@ const tooltipContents = {
       <dd>입찰가감액은 입찰가 조정 단위로, 필수 입력 항목입니다. 미사용 시 0원을 입력하세요.</dd>
     </dl>
     `,
+
+  // 가감액 옵션
+  additionAndSubtraction3: `
+    <dl>
+      <dd>
+        가감액 옵션 사용 시 기본입찰가 또는 평균값(평균값 옵션 사용 시)에 가감할 금액을 설정할 수 있습니다.
+      </dd>
+      <dd>
+        가감액은 최근 통합검색 평균 노출 순위의 유무에 따라 나누어 입력합니다.
+      </dd>
+      <dd>
+        가감액을 %로 설정하신 경우 평균값 옵션을 사용하더라도 기본입찰가를 기준으로 %가 계산됩니다.
+      </dd>
+    </dl>
+  `
 };
 
 document.addEventListener("DOMContentLoaded", () => {
