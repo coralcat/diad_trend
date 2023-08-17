@@ -68,7 +68,7 @@
     <div class="   ">
       <menu>
         <i class="ico-ranking" onclick="location.href='tracking.html'"></i>
-        <a href='tracking.html'">스토어</a>
+        <a href='tracking.html'">데이터 트래킹</a>
       </menu>
       <ul>
         <li class="gmarket ">
@@ -225,10 +225,9 @@
             Regular
             <nav>
               <ul>
-                <li data-title="타입">
-                  E (제공 키워드 500개, 잔여 키워드 300개)
+                <li data-title="개수">
+                  제한 없음
                 </li>
-                <li data-title="등급">레드(입찰주기 10분)</li>
                 <li data-title="기간">
                   <span class="tag d-day">24</span>
                   2023-03-03 ~ 2023-04-01
@@ -252,7 +251,7 @@
     </div>
   </header>
   <div class="tab-content content-11st-focus-click is-active" data-tab="eleventh">
-    <section class="section-account">
+    <section class="section-aside">
       <h2>3scoltd</h2>
       <div class="sync">
         <div class="selectbox">
@@ -277,78 +276,154 @@
           <div class="price">3,529,904</div>
         </li>
       </ul>
-      <ul class="details-bidding">
-        <li>
-          <div>전체</div>
-          <strong class="times">1,885</strong>
-        </li>
-        <li>
-          <div>
-            입찰실행
-            <div data-tooltip="bidProceed"></div>
-          </div>
-          <strong class="times">189</strong>
-        </li>
-        <li>
-          <div>
-            입찰대기
-            <div data-tooltip="bidWaiting"></div>
-          </div>
-          <strong class="times">385</strong>
-        </li>
-        <li>
-          <div>
-            입찰진행
-            <div data-tooltip="biddingInProgress"></div>
-          </div>
-          <strong class="times">45</strong>
-        </li>
-        <li>
-          <div>
-            목표달성
-            <div data-tooltip="goalAchieved"></div>
-          </div>
-          <strong class="times">51</strong>
-        </li>
-        <li>
-          <div>
-            최대입찰가도달
-            <div data-tooltip="maximumBid"></div>
-          </div>
-          <strong class="times">33</strong>
-        </li>
-        <li>
-          <div>
-            입찰불가
-            <div data-tooltip="unableToBid"></div>
-          </div>
-          <strong class="times">27</strong>
-        </li>
-
-        <li>
-          <div>
-            입찰실패
-            <div data-tooltip="bidFailed"></div>
-          </div>
-          <strong class="times">24</strong>
-        </li>
-      </ul>
-      <small>※ 건수를 클릭하면 해당 리스트만 불러옵니다.</small>
-      <div class="accounts">
-        <h3>계정별 입찰 현황</h3>
-        <ul class="details-accounts">
+      <div class="details bidding">
+        <div class="selector">
+          <input
+            id="account-powerlink-all"
+            type="radio"
+            name="accountTabs-powerlink"
+            checked>
+          <label for="account-powerlink-all">전체</label>
+          <input
+            id="account-powerlink-live"
+            type="radio"
+            name="accountTabs-powerlink">
+          <label for="account-powerlink-live">라이브</label>
+          <input
+            id="account-powerlink-regular"
+            type="radio"
+            name="accountTabs-powerlink">
+          <label for="account-powerlink-regular">레귤러</label>
+        </div>
+        <ul>
           <li>
-            <div>3scoltd</div>
+            <div>전체</div>
+            <strong class="times">1,885</strong>
+          </li>
+          <li>
             <div>
-              <strong class="times"></strong>
-              <small class="percent"></small>
+              입찰실행
+              <div data-tooltip="bidProceed"></div>
+            </div>
+            <strong class="times">189</strong>
+          </li>
+          <li>
+            <div>
+              입찰대기
+              <div data-tooltip="bidWaiting"></div>
+            </div>
+            <strong class="times">385</strong>
+          </li>
+          <li>
+            <div>
+              입찰진행
+              <div data-tooltip="biddingInProgress"></div>
+            </div>
+            <strong class="times">45</strong>
+          </li>
+          <li>
+            <div>
+              목표달성
+              <div data-tooltip="goalAchieved"></div>
+            </div>
+            <strong class="times">51</strong>
+          </li>
+          <li>
+            <div>
+              최대입찰가도달
+              <div data-tooltip="maximumBid"></div>
+            </div>
+            <strong class="times">33</strong>
+          </li>
+          <li>
+            <div>
+              입찰불가
+              <div data-tooltip="unableToBid"></div>
+            </div>
+            <strong class="times">27</strong>
+          </li>
+
+          <li>
+            <div>
+              입찰실패
+              <div data-tooltip="bidFailed"></div>
+            </div>
+            <strong class="times">24</strong>
+          </li>
+        </ul>
+        <small>※ 건수를 클릭하면 해당 리스트만 불러옵니다.</small>
+      </div>
+      <div class="details accounts">
+        <h3>계정별 입찰 현황</h3>
+        <ul data-empty="입찰 현황이 없습니다.">
+          <li>
+            <header>
+              <div class="account">3scoltd</div>
+              <div><strong class="times">10</strong></div>
+            </header>
+            <div class="filters">
+              <div>라이브</div>
+              <div>69/300(23%)</div>
+            </div>
+            <div class="filters">
+              <div>레귤러</div>
+              <div class="times">121</div>
             </div>
           </li>
           <li>
-            <div>cjlion2004</div>
-            <div>
-              <strong class="times"></strong>
-              <small class="percent"></small>
+            <header>
+              <div class="account">bokdanjie</div>
+              <div><strong class="times">0</strong></div>
+            </header>
+            <div class="filters">
+              <div>라이브</div>
+              <div>69/300(23%)</div>
+            </div>
+            <div class="filters">
+              <div>레귤러</div>
+              <div class="times">121</div>
+            </div>
+          </li>
+          <li>
+            <header>
+              <div class="account">briall</div>
+              <div><strong class="times">4</strong></div>
+            </header>
+            <div class="filters">
+              <div>라이브</div>
+              <div>69/300(23%)</div>
+            </div>
+            <div class="filters">
+              <div>레귤러</div>
+              <div class="times">121</div>
+            </div>
+          </li>
+          <li>
+            <header>
+              <div class="account">cjlion2004</div>
+              <div><strong class="times">0</strong></div>
+            </header>
+            <div class="filters">
+              <div>라이브</div>
+              <div>69/300(23%)</div>
+            </div>
+            <div class="filters">
+              <div>레귤러</div>
+              <div class="times">121</div>
+            </div>
+          </li>
+          <li>
+            <header>
+              <div class="account">cnp0920</div>
+              <div><strong class="times">0</strong></div>
+            </header>
+            <div class="filters">
+              <div>라이브</div>
+              <div>69/300(23%)</div>
+            </div>
+            <div class="filters">
+              <div>레귤러</div>
+              <div class="times">121</div>
             </div>
           </li>
         </ul>
@@ -962,7 +1037,7 @@
     </section>
   </div>
   <div class="tab-content content-11st-brand-search" data-tab="eleventh">
-    <section class="section-account">
+    <section class="section-aside">
       <h2>bokdanji</h2>
       <div class="sync">
         <div class="selectbox">
@@ -986,73 +1061,114 @@
           <div class="price">1,894,071</div>
         </li>
       </ul>
-      <ul class="details-bidding">
-        <li>
-          <div>전체</div>
-          <strong class="times">1,885</strong>
-        </li>
-        <li>
-          <div>
-            입찰실행
-            <div data-tooltip="bidProceed"></div>
-          </div>
-          <strong class="times">189</strong>
-        </li>
-        <li>
-          <div>
-            입찰대기
-            <div data-tooltip="bidWaiting"></div>
-          </div>
-          <strong class="times">385</strong>
-        </li>
-        <li>
-          <div>
-            입찰진행
-            <div class="tooltip">
-              <div data-tooltip="biddingInProgress"></div>
-            </div>
-          </div>
-          <strong class="times">45</strong>
-        </li>
-        <li>
-          <div>
-            목표달성
-            <div data-tooltip="goalAchieved"></div>
-          </div>
-          <strong class="times">51</strong>
-        </li>
-        <li>
-          <div>
-            최대입찰가도달
-            <div data-tooltip="maximumBid"></div>
-          </div>
-          <strong class="times">33</strong>
-        </li>
-        <li>
-          <div>
-            입찰불가
-            <div data-tooltip="unableToBid"></div>
-          </div>
-          <strong class="times">27</strong>
-        </li>
-
-        <li>
-          <div>
-            입찰실패
-            <div data-tooltip="bidFailed"></div>
-          </div>
-          <strong class="times">24</strong>
-        </li>
-      </ul>
-      <small>※ 건수를 클릭하면 해당 리스트만 불러옵니다.</small>
-      <div class="accounts">
-        <h3>계정별 입찰 현황</h3>
-        <ul class="details-accounts">
+      <div class="details bidding">
+        <div class="selector">
+          <input
+            id="account-powerlink-all"
+            type="radio"
+            name="accountTabs-powerlink"
+            checked>
+          <label for="account-powerlink-all">전체</label>
+          <input
+            id="account-powerlink-live"
+            type="radio"
+            name="accountTabs-powerlink">
+          <label for="account-powerlink-live">라이브</label>
+          <input
+            id="account-powerlink-regular"
+            type="radio"
+            name="accountTabs-powerlink">
+          <label for="account-powerlink-regular">레귤러</label>
+        </div>
+        <ul>
           <li>
-            <div>bokdanji</div>
+            <div>전체</div>
+            <strong class="times">1,885</strong>
+          </li>
+          <li>
             <div>
-              <strong class="times"></strong>
-              <small class="percent"></small>
+              입찰실행
+              <div data-tooltip="bidProceed"></div>
+            </div>
+            <strong class="times">189</strong>
+          </li>
+          <li>
+            <div>
+              입찰대기
+              <div data-tooltip="bidWaiting"></div>
+            </div>
+            <strong class="times">385</strong>
+          </li>
+          <li>
+            <div>
+              입찰진행
+              <div class="tooltip">
+                <div data-tooltip="biddingInProgress"></div>
+              </div>
+            </div>
+            <strong class="times">45</strong>
+          </li>
+          <li>
+            <div>
+              목표달성
+              <div data-tooltip="goalAchieved"></div>
+            </div>
+            <strong class="times">51</strong>
+          </li>
+          <li>
+            <div>
+              최대입찰가도달
+              <div data-tooltip="maximumBid"></div>
+            </div>
+            <strong class="times">33</strong>
+          </li>
+          <li>
+            <div>
+              입찰불가
+              <div data-tooltip="unableToBid"></div>
+            </div>
+            <strong class="times">27</strong>
+          </li>
+
+          <li>
+            <div>
+              입찰실패
+              <div data-tooltip="bidFailed"></div>
+            </div>
+            <strong class="times">24</strong>
+          </li>
+        </ul>
+        <small>※ 건수를 클릭하면 해당 리스트만 불러옵니다.</small>
+      </div>
+      <div class="details accounts">
+        <h3>계정별 입찰 현황</h3>
+        <ul data-empty="입찰 현황이 없습니다.">
+          <li>
+            <header>
+              <div class="account">bokdanjie</div>
+              <div><strong class="times">7</strong></div>
+            </header>
+            <div class="filters">
+              <div>라이브</div>
+              <div>69/300(23%)</div>
+            </div>
+            <div class="filters">
+              <div>레귤러</div>
+              <div class="times">121</div>
+            </div>
+          </li>
+          <li>
+            <header>
+              <div class="account">ickdhc</div>
+              <div><strong class="times">0</strong></div>
+            </header>
+            <div class="filters">
+              <div>라이브</div>
+              <div>69/300(23%)</div>
+            </div>
+            <div class="filters">
+              <div>레귤러</div>
+              <div class="times">121</div>
             </div>
           </li>
         </ul>
@@ -7537,15 +7653,6 @@
                 <div class="price">
                   <input type="number">
                 </div>
-                <div class="checkbox">
-                  <input id="check-lowest-price" type="checkbox" />
-                  <label for="check-lowest-price">
-                    평균 클릭 비용 선택 시 최소입찰가가 최대입찰가보다 큰 경우 최소입찰가로 입찰
-                  </label>
-                </div>
-                <div>
-                  체크하지 않으면 산출 입찰가(기본입찰가)와 최대입찰가 중 작은 입찰가로 입찰가가 변경됩니다.
-                </div>
               </div>
             </li>
           </ul>
@@ -7764,15 +7871,6 @@
                 </div>
                 <div class="price">
                   <input type="number">
-                </div>
-                <div class="checkbox">
-                  <input id="check-lowest-price" type="checkbox" />
-                  <label for="check-lowest-price">
-                    평균 클릭 비용 선택 시 최소입찰가가 최대입찰가보다 큰 경우 최소입찰가로 입찰
-                  </label>
-                </div>
-                <div>
-                  체크하지 않으면 산출 입찰가(기본입찰가)와 최대입찰가 중 작은 입찰가로 입찰가가 변경됩니다.
                 </div>
               </div>
             </li>
@@ -8019,15 +8117,6 @@
                 </div>
               </li>
             </ul>
-            <div>
-              <div class="checkbox">
-                <input id="check-calculate-average-price" name="select-item" type="checkbox">
-                <label for="check-calculate-average-price">평균 클릭 비용 선택 시 최소입찰가가 최대입찰가보다 큰 경우 최소입찰가로 입찰</label>
-              </div>
-              <small>
-                체크하지 않으면 산출 입찰가(기본입찰가)와 최대입찰가 중 작은 입찰가로 입찰가가 변경됩니다.
-              </small>
-            </div>
             <ul class="row">
               <li></li>
               <li>최대입찰가</li>
