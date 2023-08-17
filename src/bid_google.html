@@ -28,10 +28,9 @@
               Regular
               <nav>
                 <ul>
-                  <li data-title="타입">
-                    E (제공 키워드 500개, 잔여 키워드 300개)
+                  <li data-title="개수">
+                    제한 없음
                   </li>
-                  <li data-title="등급">레드(입찰주기 10분)</li>
                   <li data-title="기간">
                     <span class="tag d-day">24</span>
                     2023-03-03 ~ 2023-04-01
@@ -47,7 +46,7 @@
     </div>
   </header>
   <div class="wrapper">
-    <section class="section-account">
+    <section class="section-aside">
       <h2>4506521631</h2>
       <div class="sync">
         <div class="selectbox">
@@ -68,52 +67,89 @@
           <div class="times">1,409</div>
         </li>
       </ul>
-      <ul class="details-bidding">
-        <li>
-          <div>전체</div>
-          <div class="times">
-            <strong>1,409</strong>
-          </div>
-        <li>
-          <div>입찰실행</div>
-          <div class="times"></div>
-        </li>
-        <li>
-          <div>
-            입찰성공
-            <div data-tooltip="biddingSuccess"></div>
-          </div>
-          <div class="times"></div>
-        </li>
-        <li>
-          <div>입찰실패
-            <div data-tooltip="bidFailedGoogle"></div>
-          </div>
-          <div class="times"></div>
-        </li>
-        <li>
-          <div>최대입찰가도달
-            <div data-tooltip="maximumBid2"></div>
-          </div>
-          <div class="times"></div>
-        </li>
-      </ul>
-      <small>※ 건수를 클릭하면 해당 리스트만 불러옵니다.</small>
-      <div class="accounts">
-        <h3>계정별 입찰 현황</h3>
-        <ul class="details-accounts">
+      <div class="details bidding">
+        <div class="selector">
+          <input 
+            id="account-powerlink-all" 
+            type="radio" 
+            name="accountTabs-powerlink"
+            checked
+          >
+          <label for="account-powerlink-all">전체</label>
+          <input 
+            id="account-powerlink-live" 
+            type="radio" 
+            name="accountTabs-powerlink"
+          >
+          <label for="account-powerlink-live">라이브</label>
+          <input 
+            id="account-powerlink-regular" 
+            type="radio" 
+            name="accountTabs-powerlink"
+          >
+          <label for="account-powerlink-regular">레귤러</label>
+        </div>
+        <ul>
           <li>
-            <div>3scoltd</div>
+            <div>전체</div>
+            <div class="times">
+              <strong>1,409</strong>
+            </div>
+          <li>
+            <div>입찰실행</div>
+            <div class="times"></div>
+          </li>
+          <li>
             <div>
-              <strong class="times"></strong>
-              <small class="percent"></small>
+              입찰성공
+              <div data-tooltip="biddingSuccess"></div>
+            </div>
+            <div class="times"></div>
+          </li>
+          <li>
+            <div>입찰실패
+              <div data-tooltip="bidFailedGoogle"></div>
+            </div>
+            <div class="times"></div>
+          </li>
+          <li>
+            <div>최대입찰가도달
+              <div data-tooltip="maximumBid2"></div>
+            </div>
+            <div class="times"></div>
+          </li>
+        </ul>
+        <small>※ 건수를 클릭하면 해당 리스트만 불러옵니다.</small>
+      </div>
+      <div class="details accounts">
+        <h3>계정별 입찰 현황</h3>
+        <ul data-empty="입찰 현황이 없습니다.">
+          <li>
+            <header>
+              <div class="account">2988915152</div>
+              <div><strong class="times">0</strong></div>
+            </header>
+            <div class="filters">
+              <div>라이브</div>
+              <div>69/300(23%)</div>
+            </div>
+            <div class="filters">
+              <div>레귤러</div>
+              <div class="times">121</div>
             </div>
           </li>
           <li>
-            <div>cjlion2004</div>
-            <div>
-              <strong class="times"></strong>
-              <small class="percent"></small>
+            <header>
+              <div class="account">4506521631</div>
+              <div><strong class="times">9</strong></div>
+            </header>
+            <div class="filters">
+              <div>라이브</div>
+              <div>69/300(23%)</div>
+            </div>
+            <div class="filters">
+              <div>레귤러</div>
+              <div class="times">121</div>
             </div>
           </li>
         </ul>

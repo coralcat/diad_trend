@@ -173,9 +173,10 @@ body {
   }
 
   h3 {
-    font-size: clamp(15px, 1.1vw, 17px);
-    gap: 3px;
     flex-wrap: wrap;
+    gap: 3px;
+    font-size: clamp(15px, 1.1vw, 17px);
+    font-weight: 500;
 
     .tooltip {
       margin-left: 0;
@@ -394,6 +395,10 @@ header {
   justify-content: space-between;
   box-sizing: border-box;
 
+  &[data-brand] {
+    justify-content: flex-start;
+  }
+
   a {
     display: flex;
   }
@@ -535,10 +540,10 @@ aside {
 
 .price {
   flex-wrap: nowrap !important;
-  flex-direction: row-reverse;
 
   &::after {
     content: "\20A9";
+    order: -1;
   }
 
   input {
@@ -655,23 +660,23 @@ aside {
       color: $main-color;
       box-shadow: 0 0 0 1px inset;
     }
+  }
 
-    + label {
-      display: flex;
-      align-items: center;
-      border: 1px solid #e3e6e9;
-      margin-right: 0;
-      border-radius: 3px;
-      padding: 0.35rem 0.75rem;
-      min-height: 32px;
-      transition: 0.25s background-color;
-      word-break: keep-all;
-      cursor: pointer;
+  label {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e3e6e9;
+    margin-right: 0;
+    border-radius: 3px;
+    padding: 0.35rem 0.75rem;
+    min-height: 32px;
+    transition: 0.25s background-color;
+    word-break: keep-all;
+    cursor: pointer;
 
-      &::before,
-      &::after {
-        content: none !important;
-      }
+    &::before,
+    &::after {
+      content: none !important;
     }
   }
 }
@@ -1385,21 +1390,6 @@ input[type="radio"] {
     justify-content: space-between;
     gap: 0.5rem;
     position: relative;
-
-    &[data-brand] {
-      border: 0;
-      background-color: #f3f6f9;
-
-      &::before {
-        position: absolute;
-        top: 0.75rem;
-        left: 0.75rem;
-      }
-
-      > * {
-        padding-left: 2vw;
-      }
-    }
 
     > * {
       display: flex;
@@ -2539,7 +2529,7 @@ input[type="radio"] {
   z-index: 3000;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -142,11 +142,10 @@ $secondary-color: #f2f1ff;
 
       .row {
         > :first-child {
-          flex: 0 0 120px;
+          flex: 0 0 150px;
           justify-content: flex-start;
-          align-items: flex-start;
+          align-items: center;
           gap: 0;
-          padding-top: 15px;
         }
 
         .inputs {
@@ -154,7 +153,6 @@ $secondary-color: #f2f1ff;
           border-bottom: 1px solid #e3e6e9;
           padding: 0.5rem 0 !important;
           gap: 0.5rem;
-          text-align: left;
 
           > div {
             width: 100%;
@@ -228,6 +226,7 @@ $secondary-color: #f2f1ff;
 
       div {
         flex: 1 1 auto;
+        width: 70px;
         /* text-align: center;
         justify-content: center; */
       }
@@ -610,8 +609,6 @@ $secondary-color: #f2f1ff;
           &:nth-of-type(2),
           &:nth-of-type(3) {
             flex: 0 0 100px;
-            display: flex;
-            justify-content: center;
           }
         }
       }
