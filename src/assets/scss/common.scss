@@ -446,7 +446,6 @@ main {
    Aside
    ===================================================== */
 aside {
-  background-color: white;
   flex-grow: 0;
   flex-shrink: 0;
   flex-direction: column;
@@ -981,6 +980,10 @@ aside {
     align-items: center;
     gap: 3px;
     line-height: normal;
+
+    &:last-child {
+      flex: 0 0 auto
+    }
   }
 
   ul {
@@ -989,15 +992,17 @@ aside {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    flex-direction: row;
     gap: 5px;
   }
 
-  .title {
+  .filters {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     gap: 5px;
+
+    > div {
+      gap: 3px
+    }
   }
 }
 
@@ -1303,7 +1308,7 @@ input[type="radio"] {
     align-items: center;
     border: 1px solid #e3e6e9;
     border-radius: 3px;
-    width: 100%;
+    min-width: fit-content;
     height: clamp(30px, 4vh, 36px);
     padding: 0 1.5rem 0 0.5rem;
     font: 500 14px/1 "Pretendard";
@@ -1371,6 +1376,7 @@ input[type="radio"] {
   flex-wrap: wrap;
   gap: 0.75rem;
   overflow-y: auto;
+  max-width: 100%;
 
   &.content {
     article {
@@ -1386,7 +1392,6 @@ input[type="radio"] {
     border: 1px solid #e3e6e9;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: space-between;
     gap: 0.5rem;
     position: relative;
@@ -2097,6 +2102,13 @@ input[type="radio"] {
   height: auto;
 }
 
+.ico-update {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='svg-icon' viewBox='0 0 1024 1024' fill='slategray' version='1.1'%3E%3Cpath d='M896 431.786667h-289.28l116.906667-120.32c-116.48-115.2-305.066667-119.466667-421.546667-4.266667a293.845333 293.845333 0 0 0 0 418.133333c116.48 115.2 305.066667 115.2 421.546667 0 58.026667-57.6 87.04-124.586667 87.04-209.066666h85.333333c0 84.48-37.546667 194.133333-112.64 268.373333-149.76 148.48-392.96 148.48-542.72 0-149.333333-148.053333-150.613333-388.693333-0.853333-536.746667a383.445333 383.445333 0 0 1 539.733333 0L896 128v303.786667M533.333333 341.333333v181.333334l149.333334 88.746666-30.72 51.626667L469.333333 554.666667V341.333333h64z' fill=''/%3E%3C/svg%3E");
+  background-size: 16px 16px;
+  background-position: left;
+  padding-left: 1.25rem;
+}
+
 .ico-edit {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3E%3C/svg%3E");
   background-size: 20px 20px;
@@ -2125,6 +2137,7 @@ input[type="radio"] {
     width: 14px;
     height: 14px;
     display: inline-block;
+    cursor: pointer;
     transition: 0.25s;
   }
 }
@@ -2439,6 +2452,29 @@ input[type="radio"] {
       box-shadow:
         -18px 0 0 0 $emoji-black-color,
         18px 0 0 0 $emoji-black-color;
+    }
+  }
+}
+
+.swiper {
+  flex: 0 0 auto;
+  overflow-y: hidden;
+  padding-bottom: 1.5rem;
+
+  article {
+    flex: 0 0 auto;
+    width: 100%
+  }
+
+  &-pagination {
+    top: auto !important;
+    bottom: 0 !important;
+    line-height: 1;
+
+    &-bullet {
+      background-color: $main-color;
+      width: 6px;
+      height: 6px;
     }
   }
 }

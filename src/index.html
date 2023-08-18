@@ -656,55 +656,333 @@
       {% include "account.html" %}
     </header>
     <div class="wrapper">
-      <div class="sections">
-        <section class="section-monitoring">
+      <aside class="sections">
+        <section class="section-monitoring" onclick="location.href='bidding.html'">
           <header>
-            <h2 data-brand="gmarket">
-              판매량 추적 모니터링
-            </h2>
-            <small>최근 업데이트 2023.04.01</small>
+            <h2>자동입찰 모니터링</h2>
+          </header>
+          <div class="articles swiper" data-empty="데이터가 없습니다.">
+            <div class="swiper-wrapper">
+              <article class="swiper-slide">
+                <h4> 입찰실행 중 <strong>목표도달</strong></h4>
+                <div class="progress">
+                  <progress value="0" max="69" data-value="37" data-title="도달"></progress>
+                  <div class="filters">
+                    <small class="times">0</small>
+                    <small class="times" data-title="총 입찰실행">69</small>
+                  </div>
+                </div>
+              </article>
+              <article class="swiper-slide">
+                <h4> 입찰: 실패 중 <strong>최대 입찰가 도달</strong></h4>
+                <div class="progress"><progress value="0" max="33" data-value="28" data-title="도달"></progress>
+                  <div class="filters">
+                    <small class="times">0</small>
+                    <small class="times" data-title="총 입찰: 실패">33</small>
+                  </div>
+                </div>
+              </article>
+              <article class="swiper-slide">
+                <h4> 입찰: 실패 중 <strong>입찰실패</strong></h4>
+                <div class="progress"><progress value="0" max="33" data-value="28" data-title="실패"></progress>
+                  <div class="filters">
+                    <small class="times">0</small>
+                    <small class="times" data-title="총 입찰: 실패">33</small>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </section>
+        <section class="section-money">
+          <header>
+            <h2>자동입찰 비즈머니</h2><small>최근 업데이트 2023.04.01 07:00</small>
           </header>
           <div class="articles" data-empty="데이터가 없습니다.">
             <article>
+              <header data-brand="naver">
+                <h3>검색광고</h3>
+              </header>
+              <ul>
+                <li>
+                  <div>bokdanjie</div><strong class="price">4,479,813</strong>
+                </li>
+                <li>
+                  <div>briall</div><strong class="price">1,494,515</strong>
+                </li>
+                <li>
+                  <div>cheum</div><strong class="price">164,587</strong>
+                </li>
+                <li>
+                  <div>ckdhc</div><strong class="price">5,002,808</strong>
+                </li>
+                <li>
+                  <div>coolicecm1</div><strong class="price">195,033</strong>
+                </li>
+                <li>
+                  <div>ecpartners</div><strong class="price">2,238,514</strong>
+                </li>
+                <li>
+                  <div>rwhit</div><strong class="price">6,139,669</strong>
+                </li>
+                <li>
+                  <div>ssy863555</div><strong class="price">554,138</strong>
+                </li>
+                <li>
+                  <div>sy967967</div><strong class="price">1,728,018</strong>
+                </li>
+              </ul>
+            </article>
+            <article>
+              <header data-brand="naver">
+                <h3>쇼핑검색광고</h3>
+              </header>
+              <ul>
+                <li>
+                  <div>bokdanjie_S</div><strong class="price">190,980</strong>
+                </li>
+                <li>
+                  <div>nshopping1_P</div><strong class="price">252,409</strong>
+                </li>
+                <li>
+                  <div>playz_D</div><strong class="price">292,453</strong>
+                </li>
+                <li>
+                  <div>dsc323796_G</div><strong class="price">1,504</strong>
+                </li>
+                <li>
+                  <div>thesix_G</div><strong class="price">231</strong>
+                </li>
+                <li>
+                  <div>sj_gift_Z</div><strong class="price">175,600</strong>
+                </li>
+                <li>
+                  <div>1460592</div><strong class="price">549</strong>
+                </li>
+                <li>
+                  <div>samdamall_U</div><strong class="price">6,414,895</strong>
+                </li>
+                <li>
+                  <div>esellers_Q</div><strong class="price">3,694,355</strong>
+                </li>
+                <li>
+                  <div>gabiacns2_G</div><strong class="price">34,669,506</strong>
+                </li>
+                <li>
+                  <div>ecpartners_G</div><strong class="price">466,337</strong>
+                </li>
+              </ul>
+            </article>
+            <article>
+              <header data-brand="naver">
+                <h3>파워컨텐츠</h3>
+              </header>
+              <ul>
+                <li>
+                  <div>joosawng_F</div><strong class="price">1,725</strong>
+                </li>
+                <li>
+                  <div>gojp_Z</div><strong class="price">630,357</strong>
+                </li>
+                <li>
+                  <div>sleepspa_O</div><strong class="price">130,830</strong>
+                </li>
+                <li>
+                  <div>gabia_E</div><strong class="price">29,243,322</strong>
+                </li>
+                <li>
+                  <div>mobalcj_S</div><strong class="price">6,682,747</strong>
+                </li>
+                <li>
+                  <div>rehobothmain_H</div><strong class="price">581,518</strong>
+                </li>
+                <li>
+                  <div>pc_Q</div><strong class="price">157,856</strong>
+                </li>
+              </ul>
+            </article>
+            <article>
+              <header data-brand="eleventh">
+                <h3>포커스클릭</h3>
+              </header>
+              <ul>
+                <li>
+                  <div>cjlion2004</div><strong class="price">5,048,048</strong>
+                </li>
+                <li>
+                  <div>3scoltd</div><strong class="price">3,529,904</strong>
+                </li>
+                <li>
+                  <div>bokdanjie</div><strong class="price">6,438,081</strong>
+                </li>
+                <li>
+                  <div>cnp0920</div><strong class="price">1,916,603</strong>
+                </li>
+                <li>
+                  <div>briall</div><strong class="price">442,870</strong>
+                </li>
+              </ul>
+            </article>
+            <article>
+              <header data-brand="eleventh">
+                <h3>브랜드검색</h3>
+              </header>
+              <ul>
+                <li>
+                  <div>bokdanjie</div><strong class="price">6,537,314</strong>
+                </li>
+                <li>
+                  <div>ickdhc</div><strong class="price">16,137,118</strong>
+                </li>
+              </ul>
+            </article>
+            <article>
+              <header data-brand="gmarket">
+                <h3>구글 검색광고</h3>
+              </header>
+              <ul>
+                <li>
+                  <div>4506521631</div><strong class="price">0</strong>
+                </li>
+                <li>
+                  <div>4063236327</div><strong class="price">0</strong>
+                </li>
+                <li>
+                  <div>2988915152</div><strong class="price">0</strong>
+                </li>
+              </ul>
+            </article>
+            <article>
+              <header data-brand="auction">
+                <h3>이베이 파워클릭</h3>
+              </header>
+              <ul>
+                <li>
+                  <div>bokdanjie</div><strong class="price">4,479,813</strong>
+                </li>
+                <li>
+                  <div>briall</div><strong class="price">1,494,515</strong>
+                </li>
+                <li>
+                  <div>cheum</div><strong class="price">164,587</strong>
+                </li>
+                <li>
+                  <div>ckdhc</div><strong class="price">5,002,808</strong>
+                </li>
+                <li>
+                  <div>coolicecm1</div><strong class="price">195,033</strong>
+                </li>
+                <li>
+                  <div>ecpartners</div><strong class="price">2,238,514</strong>
+                </li>
+                <li>
+                  <div>rwhit</div><strong class="price">6,139,669</strong>
+                </li>
+                <li>
+                  <div>ssy863555</div><strong class="price">554,138</strong>
+                </li>
+                <li>
+                  <div>sy967967</div><strong class="price">1,728,018</strong>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </aside>
+      <div class="sections">
+        <section>
+          <header>
+            <h2 data-brand="naver"> 순위 추적 </h2><small data-title="최근 업데이트">2023.04.01</small>
+          </header>
+          <div class="articles">
+            <article>
+              <h4> 최근 24시간 <strong>순위 변동</strong> 소재 </h4>
+              <div class="progress">
+                <progress value="0" max="69" data-value="59" data-title="변동"></progress>
+                <div class="filters">
+                  <div>
+                    <small class="times" data-title="변동">59</small>( <small class="times" data-title="상승">39</small> |
+                      <small class="times" data-title="하락">20</small>)
+                  </div>
+                  <small class="times" data-title="총">69</small>
+                </div>
+              </div>
+            </article>
+            <article>
+              <h4> 최근 7일 간 <strong>순위 40위 안 유지</strong>소재 </h4>
+              <div class="progress"><progress value="0" max="69" data-value="10" data-title="40위 안"></progress>
+                <ul>
+                  <li><small class="times">0</small></li>
+                  <li data-title="총"><small class="times">69</small></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="section-chart">
+          <header>
+            <h2>순위 분포</h2>
+            <div class="filters">
+              <strong class="times" data-title="전체">98</strong>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">업데이트: 2023.04.01 09:00</option>
+                </select>
+              </div>
+            </div>
+          </header>
+          <div class="chart-container">
+            <div id="rankingChart" class="chart"></div>
+          </div>
+        </section>
+        <section>
+          <header>
+            <h2 data-brand="naver">최저가 추적</h2>
+            <small>2023.04.01 09:00</small>
+          </header>
+          <div class="articles">
+            <article>
               <h4>
-                최근 업데이트 시
-                <strong>일간 판매량 0인 상품</strong>
+                최근 24시간
+                <strong>최저가 변동</strong> 소재
               </h4>
               <div class="progress">
-                <progress 
-                  value="0" 
-                  max="480" 
-                  data-value="160"
-                  data-title="판매량 없음"
-                />
+                <progress
+                  value="0"
+                  max="69"
+                  data-value="59"
+                  data-title="변동" />
                 <ul>
-                  <li>
-                    <small class="times">0</small>
+                  <li data-title="변동">
+                    <small class="times">59</small>
+                    (
+                    <small class="times" data-title="상승">39</small> |
+                    <small class="times" data-title="하락">20</small>)
                   </li>
                   <li data-title="총">
-                    <small class="times">480</small>
+                    <small class="times">69</small>
                   </li>
                 </ul>
               </div>
             </article>
             <article>
               <h4>
-                전주 같은 요일 대비
-                <strong>일간 판매량 감소 상품</strong>
+                최근 7일 간
+                <strong>최저가 변동</strong>소재
               </h4>
               <div class="progress">
-                <progress 
-                  value="0" 
-                  max="480" 
-                  data-value="160"
-                  data-title="감소"
-                />
+                <progress
+                  value="0"
+                  max="69"
+                  data-value="59"
+                  data-title="변동" />
                 <ul>
                   <li>
-                    <small class="times">0</small>
+                    <strong class="times">0</strong>
                   </li>
                   <li data-title="총">
-                    <small class="times">480</small>
+                    <strong class="times">69</strong>
                   </li>
                 </ul>
               </div>
@@ -713,216 +991,28 @@
         </section>
         <section class="section-chart">
           <header>
-            <h2>그룹별 주간 판매량</h2>
-            <div class="selectbox">
-              <select name="" id="">
-                <option value="">전체</option>
-              </select>
-            </div>
+            <h2>
+              최근 7일 간 그룹별 같은 업데이트 시간 대비 최저가 변동률
+              <div data-tooltip="" />
+            </h2>
           </header>
-          <div class="chart-container" data-empty="데이터가 없습니다.">
-            <div id="chartdiv" class="chart"></div>
-          </div>
-        </section>
-        <section class="section-article">
-          <header>
-            <h2>주간 판매 상위 상품</h2>
-            <div class="inputs">
-              <div class="selectbox">
-                <select name="" id="">
-                  <option value="">
-                    그룹: 전체</option>
-                </select>
-              </div>
-              <div class="selectbox">
-                <select name="" id="">
-                  <option value="">마켓: 전체</option>
-                </select>
-              </div>
-              <div class="selectbox">
-                <select name="" id="">
-                  <option value="">기준: 판매량</option>
-                </select>
-              </div>
-              <div class="selectbox">
-                <select name="" id="">
-                  <option value="">2023.04.01 ~ 2023.04.31</option>
-                </select>
-              </div>
-            </div>
-          </header>
-          <div class="list">
-            <ul class="row title">
-              <li>그룹</li>
-              <li>코드</li>
-              <li class="col-title">상품명</li>
-              <li>마켓</li>
-              <li>판매량</li>
-              <li>판매액(추정)</li>
-            </ul>
-            <div class="rows" data-empty="데이터가 없습니다.">
-              <ul class="row">
-                <li title="그룹">그룹A</li>
-                <li title="코드">0000000000</li>
-                <li title="상품명" class="col-title">갤럭시 S22 울트라 노트20/노∙∙∙</li>
-                <li title="마켓">G</li>
-                <li title="판매량">196</li>
-                <li title="판매액(추정)">
-                  <div class="price">3,900,400</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li title="그룹">그룹A</li>
-                <li title="코드">0000000000</li>
-                <li title="상품명" class="col-title">S22 노트20/노트10/S21/S20/∙∙∙</li>
-                <li title="마켓">G</li>
-                <li title="판매량">157</li>
-                <li title="판매액(추정)">
-                  <div class="price">3,124,300</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li title="그룹">그룹B</li>
-                <li title="코드">0000000000</li>
-                <li title="상품명" class="col-title">핸드폰 갤럭시S22울트라 S21∙∙∙</li>
-                <li title="마켓">G</li>
-                <li title="판매량">140</li>
-                <li title="판매액(추정)">
-                  <div class="price">1,386,000</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li title="그룹">그룹C</li>
-                <li title="코드">A000000000</li>
-                <li title="상품명" class="col-title">[까미또] 갤럭시S22 S21 S20 ∙∙∙</li>
-                <li title="마켓">A</li>
-                <li title="판매량">130</li>
-                <li title="판매액(추정)">
-                  <div class="price">743,600</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li title="그룹">그룹C</li>
-                <li title="코드">A000000000</li>
-                <li title="상품명" class="col-title">[레드울프] S22 노트20 S20S1∙∙∙</li>
-                <li title="마켓">A</li>
-                <li title="판매량">110</li>
-                <li title="판매액(추정)">
-                  <div class="price">2,189,000</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li title="그룹">그룹C</li>
-                <li title="코드">A000000000</li>
-                <li title="상품명" class="col-title">갤럭시 S22 울트라 노트20 노∙∙∙</li>
-                <li title="마켓">A</li>
-                <li title="판매량">90</li>
-                <li title="판매액(추정)">
-                  <div class="price">1,791,400</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li title="그룹">그룹E</li>
-                <li title="코드">0000000000</li>
-                <li title="상품명" class="col-title">휴대폰케이스 전문샵 / 우체국∙∙∙</li>
-                <li title="마켓">G</li>
-                <li title="판매량">52</li>
-                <li title="판매액(추정)">
-                  <div class="price">514,800</div>
-                </li>
-              </ul>
-              <ul class="row">
-                <li title="그룹">그룹D</li>
-                <li title="코드">0000000000</li>
-                <li title="상품명" class="col-title">42까지 가죽 남성벨트 정장 남∙∙∙</li>
-                <li title="마켓">G</li>
-                <li title="판매량">30</li>
-                <li title="판매액(추정)">
-                  <div class="price">285,000</div>
-                </li>
-              </ul>
-            </div>
+          <div class="chart-container">
+            <div id="lowestPriceChart" class="chart"></div>
           </div>
         </section>
       </div>
       <div class="sections">
         <section class="section-article">
           <header>
-            <h2>자동입찰 비즈머니</h2>
-            <small>최근 업데이트 2023.04.01 07:00</small>
+            <h2>네이버 검색광고</h2>
           </header>
-          <div class="articles" data-empty="데이터가 없습니다.">
-            <article data-brand="naver">
-              <header>
-                <h4>검색광고</h4>
-                <div class="inputs">
-                  <strong>gabiacns_E</strong>
-                  <div class="price">310,718</div>
-                </div>
-              </header>
-            </article>
-            <article data-brand="naver">
-              <header>
-                <h4>쇼핑검색광고</h4>
-                <div class="inputs">
-                  <strong>gabiacns_T</strong>
-                  <div class="price">2,214,842</div>
-                </div>
-              </header>
-            </article>
-            <article data-brand="naver">
-              <header>
-                <h4>파워컨텐츠</h4>
-                <div class="inputs">
-                  <strong>gabiacns_X</strong>
-                  <div class="price">4,332</div>
-                </div>
-              </header>
-            </article>
-            <article data-brand="eleventh">
-              <header>
-                <h4>포커스클릭</h4>
-                <div class="inputs">
-                  <strong>gabiacns_A</strong>
-                  <div class="price">3,582,263</div>
-                </div>
-              </header>
-            </article>
-            <article data-brand="eleventh">
-              <header>
-                <h4>브랜드검색</h4>
-                <div class="inputs">
-                  <strong>cnsdiad_01</strong>
-                  <div class="price">2,770,384</div>
-                </div>
-              </header>
-            </article>
-            <article data-brand="gmarket">
-              <header>
-                <h4>G마켓 파워클릭</h4>
-                <div class="inputs">
-                  <strong>gabiacns_G</strong>
-                  <div class="price">59,284</div>
-                </div>
-              </header>
-            </article>
-            <article data-brand="auction">
-              <header>
-                <h4>옥션 파워클릭</h4>
-                <div class="inputs">
-                  <strong>gabiacns_A</strong>
-                  <div class="price">21,877</div>
-                </div>
-              </header>
-            </article>
+          <div class="wrapper">
+            <div id="naverPieChart" class="chart"></div>
           </div>
         </section>
-        <section class="section-monitoring">
-          <header>
-            <div class="inputs">
-              <h2>자동입찰 모니터링</h2>
-              <a href="">자동입찰 바로가기</a>
-            </div>
+        <section class="section-issues">
+          <header class="list-header">
+            <h2>입찰 이슈관리</h2>
             <div class="inputs">
               <div class="selectbox">
                 <select name="" id="">
@@ -936,296 +1026,56 @@
               </div>
             </div>
           </header>
-          <div class="articles" data-empty="데이터가 없습니다.">
+          <div class="articles">
             <article>
-              <h4>
-                입찰실행 중
-                <strong>목표도달</strong>
-              </h4>
-              <div class="progress">
-                <progress 
-                  value="0" 
-                  max="69" 
-                  data-value="37"
-                  data-title="도달"
-                />
-                <ul>
-                  <li>
-                    <small class="times">0</small>
-                  </li>
-                  <li data-title="총 입찰실행">
-                    <small class="times">69</small>
-                  </li>
-                </ul>
+              <header data-brand="naver">
+                <h4>2023.04.01 07:00:00</h4>
+              </header>
+              <div class="texts">
+                <p>
+                  검색광고 계정 gabiacns_01
+                  <strong>비즈머니 잔액 5,000원 미만</strong>
+                  입니다.
+                </p>
+                <p>충전이 필요합니다.</p>
               </div>
             </article>
             <article>
-              <h4>
-                입찰: 실패 중
-                <strong>최대 입찰가 도달</strong>
-              </h4>
-
-              <div class="progress">
-                <progress 
-                  value="0" 
-                  max="33" 
-                  data-value="28" 
-                  data-title="도달"
-                />
-                <ul>
-                  <li>
-                    <small class="times">0</small>
-                  </li>
-                  <li data-title="총 입찰: 실패">
-                    <small class="times">33</small>
-                  </li>
-                </ul>
+              <header data-brand="naver">
+                <h4>2023.04.01 07:00:00</h4>
+              </header>
+              <div class="texts">
+                <p>
+                  PC_파워링크 〉 케이스_갤럭시 〉 <strong>#갤럭시노트9케이스 (PC일반) 최대 입찰가(입찰한도)</strong> 에 도달했습니다.
+                </p>
+                <p>확인이 필요합니다.</p>
               </div>
             </article>
             <article>
-              <h4>
-                입찰: 실패 중
-                <strong>입찰실패</strong>
-              </h4>
-              <div class="progress">
-                <progress 
-                  value="0"
-                  max="33"
-                  data-value="28"
-                  data-title="실패"
-                />
-                <ul>
-                  <li>
-                    <small class="times">0</small>
-                  </li>
-                  <li data-title="총 입찰: 실패">
-                    <small class="times">33</small>
-                  </li>
-                </ul>
+              <header data-brand="gmarket">
+                <h4>2023.04.01 07:00:00</h4>
+              </header>
+              <div class="texts">
+                <p>
+                  <strong>G마켓 비즈머니 잔액 5,000원 미만</strong>입니다.
+                </p>
+                <p>충전이 필요합니다.</p>
+              </div>
+            </article>
+            <article>
+              <header data-brand="eleventh">
+                <h4>2023.04.01 07:00:00</h4>
+              </header>
+              <div class="texts">
+                <p>
+                  <strong>비즈머니 잔액 5,000원 미만</strong>입니다
+                </p>
+                <p>충전이 필요합니다.</p>
               </div>
             </article>
           </div>
         </section>
       </div>
-    </div>
-  </div>
-  <div class="tab-content" data-tab="dashboard">
-    <div class="sections">
-      <section>
-        <header>
-          <h2 data-brand="naver">순위 추적</h2>
-          <small data-title="최근 업데이트">2023.04.01</small>
-        </header>
-        <div class="articles">
-          <article>
-            <h4>
-              최근 24시간
-              <strong>순위 변동</strong> 소재
-            </h4>
-            <div class="progress">
-              <progress 
-                value="0"
-                max="69"
-                data-value="59"
-                data-title="변동"
-              />
-              <ul>
-                <li data-title="변동">
-                  <small class="times">59</small>(
-                  <small class="times" data-title="상승">39</small> |
-                  <small class="times" data-title="하락">20</small>)
-                </li>
-                <li data-title="총">
-                  <small class="times">69</small>
-                </li>
-              </ul>
-            </div>
-          </article>
-          <article>
-            <h4>
-              최근 7일 간
-              <strong>순위 40위 안 유지</strong>소재
-            </h4>
-            <div class="progress">
-              <progress 
-                value="0" 
-                max="69" 
-                data-value="10" 
-                data-title="40위 안"
-              />
-              <ul>
-                <li>
-                  <small class="times">0</small>
-                </li>
-                <li data-title="총">
-                  <small class="times">69</small>
-                </li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </section>
-      <section class="section-chart">
-        <header>
-          <h2>순위 분포</h2>
-          <div class="filters">
-            <strong class="times" data-title="전체">98</strong>
-            <div class="selectbox">
-              <select name="" id="">
-                <option value="">업데이트: 2023.04.01 09:00</option>
-              </select>
-            </div>
-          </div>
-        </header>
-        <div class="chart-container">
-          <div id="rankingChart" class="chart"></div>
-        </div>
-      </section>
-      <section>
-        <header>
-          <h2 data-brand="naver">최저가 추적</h2>
-          <small>2023.04.01 09:00</small>
-        </header>
-        <div class="articles">
-          <article>
-            <h4>
-              최근 24시간
-              <strong>최저가 변동</strong> 소재
-            </h4>
-            <div class="progress">
-              <progress 
-                value="0" 
-                max="69" 
-                data-value="59" 
-                data-title="변동"
-              />
-              <ul>
-                <li data-title="변동">
-                  <small class="times">59</small>
-                  (
-                  <small class="times" data-title="상승">39</small> |
-                  <small class="times" data-title="하락">20</small>)
-                </li>
-                <li data-title="총">
-                  <small class="times">69</small>
-                </li>
-              </ul>
-            </div>
-          </article>
-          <article>
-            <h4>
-              최근 7일 간
-              <strong>최저가 변동</strong>소재
-            </h4>
-            <div class="progress">
-              <progress                 
-                value="0" 
-                max="69"                 
-                data-value="59" 
-                data-title="변동"
-              />
-              <ul>
-                <li>
-                  <strong class="times">0</strong>
-                </li>
-                <li data-title="총">
-                  <strong class="times">69</strong>
-                </li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </section>
-      <section class="section-chart">
-        <header>
-          <h2>
-            최근 7일 간 그룹별 같은 업데이트 시간 대비 최저가 변동률
-            <div data-tooltip="" />
-          </h2>
-        </header>
-        <div class="chart-container">
-          <div id="lowestPriceChart" class="chart"></div>
-        </div>
-      </section>
-    </div>
-    <div class="sections">
-      <section class="section-article">
-        <header>
-          <h2>네이버 검색광고</h2>
-        </header>
-        <div class="wrapper">
-          <div id="naverPieChart" class="chart"></div>
-        </div>
-      </section>
-      <section class="section-issues">
-        <header class="list-header">
-          <h2>입찰 이슈관리</h2>
-          <div class="inputs">
-            <div class="selectbox">
-              <select name="" id="">
-                <option value="">매체: 전체</option>
-              </select>
-            </div>
-            <div class="selectbox">
-              <select name="" id="">
-                <option value="">계정: 전체</option>
-              </select>
-            </div>
-          </div>
-        </header>
-        <div class="articles">
-          <article data-brand="naver">
-            <header>
-              <h4>2023.04.01 07:00:00</h4>
-              <a href="">확인하기</a>
-            </header>
-            <div class="texts">
-              <p>
-                검색광고 계정 gabiacns_01
-                <strong>비즈머니 잔액 5,000원 미만</strong>
-                입니다.
-              </p>
-              <p>충전이 필요합니다.</p>
-            </div>
-          </article>
-          <article data-brand="naver">
-            <header>
-              <h4>2023.04.01 07:00:00</h4>
-              <a href="">확인하기</a>
-            </header>
-            <div class="texts">
-              <p>
-                PC_파워링크 〉 케이스_갤럭시 〉 <strong>#갤럭시노트9케이스 (PC일반) 최대 입찰가(입찰한도)</strong> 에 도달했습니다.
-              </p>
-              <p>확인이 필요합니다.</p>
-            </div>
-          </article>
-          <article data-brand="gmarket">
-            <header>
-              <h4>2023.04.01 07:00:00</h4>
-              <a href="">확인하기</a>
-            </header>
-            <div class="texts">
-              <p>
-                <strong>G마켓 비즈머니 잔액 5,000원 미만</strong>입니다.
-              </p>
-              <p>충전이 필요합니다.</p>
-            </div>
-          </article>
-          <article data-brand="eleventh">
-            <header>
-              <h4>2023.04.01 07:00:00</h4>
-              <a href="">확인하기</a>
-            </header>
-            <div class="texts">
-              <p>
-                <strong>비즈머니 잔액 5,000원 미만</strong>입니다
-              </p>
-              <p>충전이 필요합니다.</p>
-            </div>
-          </article>
-        </div>
-      </section>
     </div>
   </div>
   <div class="tab-content" data-tab="dashboard">
@@ -1248,12 +1098,11 @@
             </header>
             <div class="progress">
               <small>2023.04.01 ~ 2023.04.31</small>
-              <progress 
-                value="0" 
-                max="100" 
+              <progress
+                value="0"
+                max="100"
                 data-value="14"
-                data-title="잔여"
-              />
+                data-title="잔여" />
               <ul>
                 <li>
                   <small class="times">0</small>
@@ -1276,12 +1125,11 @@
             </header>
             <div class="progress">
               <small>2023.04.01 ~ 2023.04.31</small>
-              <progress 
-                value="0" 
-                max="30" 
-                data-value="27" 
-                data-title="잔여"
-              />
+              <progress
+                value="0"
+                max="30"
+                data-value="27"
+                data-title="잔여" />
               <ul>
                 <li>
                   <small class="times">0</small>
@@ -1304,12 +1152,11 @@
             </header>
             <div class="progress">
               <small>2023.04.01 ~ 2023.04.31</small>
-              <progress 
-                value="0" 
-                max="300" 
-                data-value="20" 
-                data-title="잔여"
-              />
+              <progress
+                value="0"
+                max="300"
+                data-value="20"
+                data-title="잔여" />
               <ul>
                 <li>
                   <small class="times">0</small>
@@ -1332,12 +1179,11 @@
             </header>
             <div class="progress">
               <small>2023.04.01 ~ 2023.04.31</small>
-              <progress 
-                value="0" 
-                max="100" 
-                data-value="63" 
-                data-title="잔여"
-              />
+              <progress
+                value="0"
+                max="100"
+                data-value="63"
+                data-title="잔여" />
               <ul>
                 <li>
                   <small class="times">0</small>
@@ -1368,12 +1214,11 @@
             </header>
             <div class="progress">
               <small>2023.04.01 ~ 2023.04.31</small>
-              <progress 
-                value="0" 
-                max="100" 
-                data-value="75" 
-                data-title="잔여"
-              />
+              <progress
+                value="0"
+                max="100"
+                data-value="75"
+                data-title="잔여" />
               <ul>
                 <li>
                   <small class="times">0</small>
@@ -1396,12 +1241,11 @@
             </header>
             <div class="progress">
               <small>2023.04.01 ~ 2023.04.31</small>
-              <progress 
-                value="0" 
-                max="100" 
-                data-value="71" 
-                data-title="잔여"
-              />
+              <progress
+                value="0"
+                max="100"
+                data-value="71"
+                data-title="잔여" />
               <ul>
                 <li>
                   <small class="times">0</small>
@@ -1424,12 +1268,11 @@
             </header>
             <div class="progress">
               <small>2023.04.01 ~ 2023.04.31</small>
-              <progress 
-                value="0" 
-                max="90" 
-                data-value="58" 
-                data-title="잔여"
-              />
+              <progress
+                value="0"
+                max="90"
+                data-value="58"
+                data-title="잔여" />
               <ul>
                 <li>
                   <small class="times">0</small>
@@ -1452,12 +1295,11 @@
             </header>
             <div class="progress">
               <small>2023.04.01 ~ 2023.04.31</small>
-              <progress 
-                value="0" 
-                max="90" 
-                data-value="58" 
-                data-title="잔여"
-              />
+              <progress
+                value="0"
+                max="90"
+                data-value="58"
+                data-title="잔여" />
               <ul>
                 <li>
                   <small class="times">0</small>
@@ -1480,12 +1322,11 @@
             </header>
             <div class="progress">
               <small>2023.04.01 ~ 2023.04.31</small>
-              <progress 
-                value="0" 
-                max="90" 
-                data-value="58" 
-                data-title="잔여"
-              />
+              <progress
+                value="0"
+                max="90"
+                data-value="58"
+                data-title="잔여" />
               <ul>
                 <li>
                   <small class="times">0</small>
@@ -1562,29 +1403,25 @@
       <section class="section-article">
         <header>
           <h2>공지사항</h2>
-            <a
-              class="more"
-              :href="$goToService('Customer/NoticeList?Category=All')"
-              target="_blank"
-            >
-              더보기
-            </a>
+          <a
+            class="more"
+            :href="$goToService('Customer/NoticeList?Category=All')"
+            target="_blank">
+            더보기
+          </a>
         </header>
         <div class="articles content">
           <article
             v-for="(item, index) in $store.state.serviceInfo.noticeInfo"
             :key="index"
-            @click="$onclickGoToService('Customer/NoticeView?Idx=' + item.idx + '&Category=Normal', null)"
-          >
+            @click="$onclickGoToService('Customer/NoticeView?Idx=' + item.idx + '&Category=Normal', null)">
             <header
-              v-if="item.category == 'NORMAL'"
-            >
+              v-if="item.category == 'NORMAL'">
               <h4>[일반] {{ item.title }}</h4>
               <small>{{ item.cdate }}</small>
             </header>
             <header
-              v-if="item.category == 'TIP'"
-            >
+              v-if="item.category == 'TIP'">
               <h4>[판매TIP] {{ item.title }}</h4>
               <small>{{ item.cdate }}</small>
             </header>
