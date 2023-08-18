@@ -12,7 +12,9 @@
   <link rel="preload" href="assets/fonts/NanumSquareNeoOTF-bRg.otf" as="font" crossorigin>
   <link rel="preload" href="assets/fonts/NanumSquareNeoOTF-cBd.otf" as="font" crossorigin>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" />
+  <link rel="stylesheet" type="text/css" href="assets/lib/swiper-bundle.min.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+  <script src="assets/lib/swiper-bundle.min.js"></script>
   <script src="assets/lib/amcharts/index.js"></script>
   <script src="assets/lib/amcharts/responsive.js"></script>
   <script src="assets/lib/amcharts/xy.js"></script>
@@ -232,36 +234,37 @@
     </div>
   </header>
   <div class="tab-content is-active content-naver-power-link" data-tab="naver">
-    <section class="section-aside">
-      <h2>samda_C</h2>
-      <div class="sync">
-        <div class="selectbox">
-          <select name="sync-account" id="">
-            <option value="">samda_C</option>
-            <option value="">bokdanji_H</option>
-            <option value="">gabiacns2_L</option>
-            <option value="">hearkorea_N</option>
-            <option value="">mastered_A</option>
-            <option value="">plays_U</option>
-          </select>
+    <aside class="sections">
+      <section>
+        <!-- <h2>samda_C</h2> -->
+        <div class="sync">
+          <div class="selectbox">
+            <select name="sync-account" id="">
+              <option value="">samda_C</option>
+              <option value="">bokdanji_H</option>
+              <option value="">gabiacns2_L</option>
+              <option value="">hearkorea_N</option>
+              <option value="">mastered_A</option>
+              <option value="">plays_U</option>
+            </select>
+          </div>
+          <button class="ico-sync" type="button"></button>
         </div>
-        <button class="ico-sync" type="button"></button>
-      </div>
-      <ul class="details-sync">
-        <li class="center">
-          <div>동기화 시간</div>
-          <div>2022-04-26 오후 3:53:21</div>
-        </li>
-        <li>
-          <div>동기화 건수</div>
-          <div class="times">9,206</div>
-        </li>
-        <li>
-          <div>비즈머니</div>
-          <div class="price">5,904,921</div>
-        </li>
-      </ul>
-      <div class="details bidding">
+        <ul>
+          <li>
+            <div class="ico-update">2022-04-26 오후 3:53:21</div>
+          </li>
+          <li>
+            <div>동기화 건수</div>
+            <div class="times">9,206</div>
+          </li>
+          <li>
+            <div>비즈머니</div>
+            <div class="price">5,904,921</div>
+          </li>
+        </ul>
+      </section>
+      <section>
         <div class="selector">
           <input
             id="account-powerlink-all"
@@ -280,7 +283,7 @@
             name="accountTabs-powerlink">
           <label for="account-powerlink-regular">레귤러</label>
         </div>
-        <ul>
+        <ul class="bidding">
           <li>
             <div>전체</div>
             <strong class="times">1,885</strong>
@@ -351,10 +354,10 @@
           </li>
         </ul>
         <small>※ 건수를 클릭하면 해당 리스트만 불러옵니다.</small>
-      </div>
-      <div class="details accounts">
+      </section>
+      <section>
         <h3>계정별 입찰 현황</h3>
-        <ul data-empty="입찰 현황이 없습니다.">
+        <ul class="accounts" data-empty="입찰 현황이 없습니다.">
           <li>
             <header>
               <div class="account">bokdanji_H</div>
@@ -468,8 +471,8 @@
             </div>
           </li>
         </ul>
-      </div>
-    </section>
+      </section>
+    </aside>
     <section>
       <header>
         <div class="title">
@@ -1124,36 +1127,36 @@
     </section>
   </div>
   <div class="tab-content content-naver-shopping-items" data-tab="naver">
-    <section class="section-aside">
-      <h2>samda_C</h2>
-      <div class="sync">
-        <div class="selectbox">
-          <select name="sync-account" id="">
-            <option value="">samda_C</option>
-            <option value="">bokdanji_H</option>
-            <option value="">gabiacns2_L</option>
-            <option value="">hearkorea_N</option>
-            <option value="">mastered_A</option>
-            <option value="">plays_U</option>
-          </select>
+    <aside class="sections">
+      <section>
+        <div class="sync">
+          <div class="selectbox">
+            <select name="sync-account" id="">
+              <option value="">samda_C</option>
+              <option value="">bokdanji_H</option>
+              <option value="">gabiacns2_L</option>
+              <option value="">hearkorea_N</option>
+              <option value="">mastered_A</option>
+              <option value="">plays_U</option>
+            </select>
+          </div>
+          <button class="ico-sync" type="button"></button>
         </div>
-        <button class="ico-sync" type="button"></button>
-      </div>
-      <ul class="details-sync">
-        <li class="center">
-          <div>동기화 시간</div>
-          <div>2022-04-26 오후 3:53:21</div>
-        </li>
-        <li>
-          <div>동기화 건수</div>
-          <div class="times">9,206</div>
-        </li>
-        <li>
-          <div>비즈머니</div>
-          <div class="price">5,904,921</div>
-        </li>
-      </ul>
-      <div class="details bidding">
+        <ul>
+          <li>
+            <div class="ico-update">2022-04-26 오후 3:53:21</div>
+          </li>
+          <li>
+            <div>동기화 건수</div>
+            <div class="times">9,206</div>
+          </li>
+          <li>
+            <div>비즈머니</div>
+            <div class="price">5,904,921</div>
+          </li>
+        </ul>
+      </section>
+      <section>
         <div class="selector">
           <input
             id="account-powerlink-all"
@@ -1172,7 +1175,7 @@
             name="accountTabs-powerlink">
           <label for="account-powerlink-regular">레귤러</label>
         </div>
-        <ul class="details-bidding">
+        <ul class="bidding">
           <li>
             <div>전체</div>
             <strong class="times">1,885</strong>
@@ -1243,10 +1246,10 @@
           </li>
         </ul>
         <small>※ 건수를 클릭하면 해당 리스트만 불러옵니다.</small>
-      </div>
-      <div class="details accounts">
+      </section>
+      <section>
         <h3>계정별 입찰 현황</h3>
-        <ul data-empty="입찰 현황이 없습니다.">
+        <ul class="accounts" data-empty="입찰 현황이 없습니다.">
           <li>
             <header>
               <div class="account">bokdanjie_S</div>
@@ -1360,8 +1363,8 @@
             </div>
           </li>
         </ul>
-      </div>
-    </section>
+      </section>
+    </aside>
     <section>
       <header>
         <div class="title">
@@ -2161,36 +2164,37 @@
     </section>
   </div>
   <div class="tab-content content-naver-shopping-brands" data-tab="naver">
-    <section class="section-aside">
-      <h2>samda_C</h2>
-      <div class="sync">
-        <div class="selectbox">
-          <select name="sync-account" id="">
-            <option value="">samda_C</option>
-            <option value="">bokdanji_H</option>
-            <option value="">gabiacns2_L</option>
-            <option value="">hearkorea_N</option>
-            <option value="">mastered_A</option>
-            <option value="">plays_U</option>
-          </select>
+    <aside class="sections">
+      <section>
+        <!-- <h2>samda_C</h2> -->
+        <div class="sync">
+          <div class="selectbox">
+            <select name="sync-account" id="">
+              <option value="">samda_C</option>
+              <option value="">bokdanji_H</option>
+              <option value="">gabiacns2_L</option>
+              <option value="">hearkorea_N</option>
+              <option value="">mastered_A</option>
+              <option value="">plays_U</option>
+            </select>
+          </div>
+          <button class="ico-sync" type="button"></button>
         </div>
-        <button class="ico-sync" type="button"></button>
-      </div>
-      <ul class="details-sync">
-        <li class="center">
-          <div>동기화 시간</div>
-          <div>2022-04-26 오후 3:53:21</div>
-        </li>
-        <li>
-          <div>동기화 건수</div>
-          <div class="times">9,206</div>
-        </li>
-        <li>
-          <div>비즈머니</div>
-          <div class="price">5,904,921</div>
-        </li>
-      </ul>
-      <div class="details bidding">
+        <ul>
+          <li>
+            <div class="ico-update">2022-04-26 오후 3:53:21</div>
+          </li>
+          <li>
+            <div>동기화 건수</div>
+            <div class="times">9,206</div>
+          </li>
+          <li>
+            <div>비즈머니</div>
+            <div class="price">5,904,921</div>
+          </li>
+        </ul>
+      </section>
+      <section>
         <div class="selector">
           <input
             id="account-powerlink-all"
@@ -2209,7 +2213,7 @@
             name="accountTabs-powerlink">
           <label for="account-powerlink-regular">레귤러</label>
         </div>
-        <ul>
+        <ul class="bidding">
           <li>
             <div>전체</div>
             <strong class="times">1,885</strong>
@@ -2280,10 +2284,10 @@
           </li>
         </ul>
         <small>※ 건수를 클릭하면 해당 리스트만 불러옵니다.</small>
-      </div>
-      <div class="details accounts">
+      </section>
+      <section>
         <h3>계정별 입찰 현황</h3>
-        <ul data-empty="입찰 현황이 없습니다.">
+        <ul class="accounts" data-empty="입찰 현황이 없습니다.">
           <li>
             <header>
               <div class="account">bokdanji_H</div>
@@ -2397,8 +2401,8 @@
             </div>
           </li>
         </ul>
-      </div>
-    </section>
+      </section>
+    </aside>
     <section>
       <header>
         <div class="title">
@@ -3074,36 +3078,37 @@
     </section>
   </div>
   <div class="tab-content content-naver-power-contents" data-tab="naver">
-    <section class="section-aside">
-      <h2>samda_C</h2>
-      <div class="sync">
-        <div class="selectbox">
-          <select name="sync-account" id="">
-            <option value="">samda_C</option>
-            <option value="">bokdanji_H</option>
-            <option value="">gabiacns2_L</option>
-            <option value="">hearkorea_N</option>
-            <option value="">mastered_A</option>
-            <option value="">plays_U</option>
-          </select>
+    <aside class="sections">
+      <section>
+        <!-- <h2>samda_C</h2> -->
+        <div class="sync">
+          <div class="selectbox">
+            <select name="sync-account" id="">
+              <option value="">samda_C</option>
+              <option value="">bokdanji_H</option>
+              <option value="">gabiacns2_L</option>
+              <option value="">hearkorea_N</option>
+              <option value="">mastered_A</option>
+              <option value="">plays_U</option>
+            </select>
+          </div>
+          <button class="ico-sync" type="button"></button>
         </div>
-        <button class="ico-sync" type="button"></button>
-      </div>
-      <ul class="details-sync">
-        <li class="center">
-          <div>동기화 시간</div>
-          <div>2022-04-26 오후 3:53:21</div>
-        </li>
-        <li>
-          <div>동기화 건수</div>
-          <div class="times">9,206</div>
-        </li>
-        <li>
-          <div>비즈머니</div>
-          <div class="price">5,904,921</div>
-        </li>
-      </ul>
-      <div class="details bidding">
+        <ul>
+          <li>
+            <div class="ico-update">2022-04-26 오후 3:53:21</div>
+          </li>
+          <li>
+            <div>동기화 건수</div>
+            <div class="times">9,206</div>
+          </li>
+          <li>
+            <div>비즈머니</div>
+            <div class="price">5,904,921</div>
+          </li>
+        </ul>
+      </section>
+      <section>
         <div class="selector">
           <input
             id="account-powerlink-all"
@@ -3122,7 +3127,7 @@
             name="accountTabs-powerlink">
           <label for="account-powerlink-regular">레귤러</label>
         </div>
-        <ul>
+        <ul class="bidding">
           <li>
             <div>전체</div>
             <strong class="times">1,885</strong>
@@ -3186,13 +3191,13 @@
           </li>
         </ul>
         <small>※ 건수를 클릭하면 해당 리스트만 불러옵니다.</small>
-      </div>
-      <div class="details accounts">
+      </section>
+      <section>
         <h3>계정별 입찰 현황</h3>
-        <ul data-empty="입찰 현황이 없습니다.">
+        <ul class="accounts" data-empty="입찰 현황이 없습니다.">
           <li>
             <header>
-              <div>gabia_E</div>
+              <div class="account">gabia_E</div>
               <div><strong class="times">2</strong></div>
             </header>
             <div class="filters">
@@ -3206,7 +3211,7 @@
           </li>
           <li>
             <header>
-              <div>gojp_Z</div>
+              <div class="account">gojp_Z</div>
               <div><strong class="times">16</strong></div>
             </header>
             <div class="filters">
@@ -3220,7 +3225,7 @@
           </li>
           <li>
             <header>
-              <div>joosawng_F</div>
+              <div class="account">joosawng_F</div>
               <div><strong class="times">0</strong></div>
             </header>
             <div class="filters">
@@ -3234,7 +3239,7 @@
           </li>
           <li>
             <header>
-              <div>mobalcj_S</div>
+              <div class="account">mobalcj_S</div>
               <div><strong class="times">0</strong></div>
             </header>
             <div class="filters">
@@ -3248,7 +3253,7 @@
           </li>
           <li>
             <header>
-              <div>pc_Q</div>
+              <div class="account">pc_Q</div>
               <div><strong class="times">3</strong></div>
             </header>
             <div class="filters">
@@ -3262,7 +3267,7 @@
           </li>
           <li>
             <header>
-              <div>rehobothmain_H</div>
+              <div class="account">rehobothmain_H</div>
               <div><strong class="times">0</strong></div>
             </header>
             <div class="filters">
@@ -3276,7 +3281,7 @@
           </li>
           <li>
             <header>
-              <div>sleepspa_O</div>
+              <div class="account">sleepspa_O</div>
               <div><strong class="times">0</strong></div>
             </header>
             <div class="filters">
@@ -3289,8 +3294,8 @@
             </div>
           </li>
         </ul>
-      </div>
-    </section>
+      </section>
+    </aside>
     <section>
       <header>
         <div class="title">

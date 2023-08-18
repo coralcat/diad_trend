@@ -12,7 +12,9 @@
   <link rel="preload" href="assets/fonts/NanumSquareNeoOTF-bRg.otf" as="font" crossorigin>
   <link rel="preload" href="assets/fonts/NanumSquareNeoOTF-cBd.otf" as="font" crossorigin>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" />
+  <link rel="stylesheet" type="text/css" href="assets/lib/swiper-bundle.min.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+  <script src="assets/lib/swiper-bundle.min.js"></script>
   <script src="assets/lib/amcharts/index.js"></script>
   <script src="assets/lib/amcharts/responsive.js"></script>
   <script src="assets/lib/amcharts/xy.js"></script>
@@ -246,54 +248,51 @@
     </div>
   </header>
   <div class="wrapper">
-    <section class="section-aside">
-      <h2>3scoltd</h2>
-      <div class="sync">
-        <div class="selectbox">
-          <select name="sync-account" id="">
-            <option value="">3scoltd</option>
-            <option value="">cjlion2004</option>
-          </select>
-        </div>
-        <button class="ico-sync" type="button"></button>
-      </div>
-      <ul class="details-sync">
-        <li class="center">
-          <div>동기화 시간</div>
-          <div>2022-12-07 오전 10:06:38</div>
-        </li>
-        <li>
-          <div>동기화 건수</div>
-          <div class="times">144</div>
-        </li>
-        <li>
-          <div>비즈머니</div>
-          <div class="price">3,529,904</div>
-        </li>
-      </ul>
-      <div class="details bidding">
-        <div class="selector">
-          <input 
-            id="account-powerlink-all" 
-            type="radio" 
-            name="accountTabs-powerlink"
-            checked
-          >
-          <label for="account-powerlink-all">전체</label>
-          <input 
-            id="account-powerlink-live" 
-            type="radio" 
-            name="accountTabs-powerlink"
-          >
-          <label for="account-powerlink-live">라이브</label>
-          <input 
-            id="account-powerlink-regular" 
-            type="radio" 
-            name="accountTabs-powerlink"
-          >
-          <label for="account-powerlink-regular">레귤러</label>
+    <aside class="sections">
+      <section>
+        <div class="sync">
+          <div class="selectbox">
+            <select name="sync-account" id="">
+              <option value="">3scoltd</option>
+              <option value="">cjlion2004</option>
+            </select>
+          </div>
+          <button class="ico-sync" type="button"></button>
         </div>
         <ul>
+          <li>
+            <div class="ico-update">2022-12-07 오전 10:06:38</div>
+          </li>
+          <li>
+            <div>동기화 건수</div>
+            <div class="times">144</div>
+          </li>
+          <li>
+            <div>비즈머니</div>
+            <div class="price">3,529,904</div>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <div class="selector">
+          <input
+            id="account-powerlink-all"
+            type="radio"
+            name="accountTabs-powerlink"
+            checked>
+          <label for="account-powerlink-all">전체</label>
+          <input
+            id="account-powerlink-live"
+            type="radio"
+            name="accountTabs-powerlink">
+          <label for="account-powerlink-live">라이브</label>
+          <input
+            id="account-powerlink-regular"
+            type="radio"
+            name="accountTabs-powerlink">
+          <label for="account-powerlink-regular">레귤러</label>
+        </div>
+        <ul class="bidding">
           <li>
             <div>전체</div>
             <div class="times">
@@ -321,10 +320,10 @@
           </li>
         </ul>
         <small>※ 건수를 클릭하면 해당 리스트만 불러옵니다.</small>
-      </div>
-      <div class="details accounts">
+      </section>
+      <section>
         <h3>계정별 입찰 현황</h3>
-        <ul data-empty="입찰 현황이 없습니다.">
+        <ul class="accounts" data-empty="입찰 현황이 없습니다.">
           <li>
             <header>
               <div class="account">bokdanjie</div>
@@ -452,8 +451,8 @@
             </div>
           </li>
         </ul>
-      </div>
-    </section>
+      </section>
+    </aside>
     <section>
       <header>
         <div class="title">
