@@ -1130,9 +1130,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  const mutationObserver = new MutationObserver(mutations => {
-    mutations.forEach(mutation => {
-      containerMutated();
+  const mutationObserver = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      
+      if ((mutation.target.className != "checkbox") && (mutation.target.className != "lists")) {
+        containerMutated()
+      }
     });
   });
 
