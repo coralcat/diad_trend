@@ -1130,9 +1130,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  const mutationObserver = new MutationObserver(mutations => {
-    mutations.forEach(mutation => {
-      containerMutated();
+  const mutationObserver = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      
+      if ((mutation.target.className != "checkbox") && (mutation.target.className != "lists")) {
+        containerMutated()
+      }
     });
   });
 
@@ -1979,6 +1982,14 @@ const tooltipContents = {
     </dl>
     `,
 
+  // 하향입찰 (팝업)
+  biddingDown2: `
+    <dl>
+      <dd>하향입찰은 가장 낮은 금액으로 원하는 순위에 노출 가능하게 합니다.</dd>
+      <dd>입력한 횟수 동안 현재순위를 확인하여 순위를 유지하면 바로 아래 순위가 될 때까지 입찰가감액의 감액만큼 입찰가를 하향 조정합니다.</dd>
+    </dl>
+    `,
+
   // 최소입찰가미만
   minimumBid: `레귤러 설정에서 최소입찰가를 설정한 경우<br />
       산출 입찰가가 최소입찰가보다 작은 상태입니다.
@@ -2007,6 +2018,15 @@ const tooltipContents = {
     </dl>
     `,
 
+  // 입찰기본가 (팝업)
+  baseBidPrice2: `
+    <dl>
+      <dd>입찰기본가는 입찰가를 원하는 금액으로 빠르게 조정하기 위해 설정하는 금액입니다.</dd>
+      <dd>순위 확인이 되지 않고 입력한 입찰기본가가 현재 입찰가보다 클 때 입찰기본가로 입찰가를 변경합니다.</dd>
+      <dd>입찰기본가는 최대입찰가보다 클 수 없고, 선택 입력 항목입니다.</dd>
+    </dl>
+  `,
+
   // 기본입찰가
   baseBidPrice2: `
     <dl class="tooltip-content">
@@ -2016,6 +2036,15 @@ const tooltipContents = {
       <dd>
         네이버 권장 입찰가는 과거 데이터를 기반으로 추정한 데이터입니다. 사용자에게 기준이 될 수 있는 가격을 제시할 뿐 노출순위를 보장하지 않습니다.
       </dd>
+    </dl>
+  `,
+
+  // 최종 입찰가
+  finalBidPrice: `
+    <dl class="tooltip-content">
+      <dd>최종 입찰가는 레귤러 (부분)설정 완료 시 산출된 또는 입찰 시 변경한 입찰가입니다.</dd>
+      <dd>최종 입찰가는 산출 입찰가, 최소입찰가, 최대입찰가 대소관계에 따라 최종 결정됩니다.</dd>
+      <dd>평균 클릭 비용을 최소입찰가로 사용할 때 최소입찰가 우선 적용 체크박스 체크 시 최소입찰가가 최대입찰가보다 큰 경우 최소입찰가로 입찰가를 변경합니다.</dd>
     </dl>
   `,
 
@@ -2048,7 +2077,7 @@ const tooltipContents = {
         선택한 데이터 값이 0이면 평균을 구하지 않고 기본입찰가를 사용합니다.
       </dd>
     </dl>
-  `,  
+  `,
 
   // 입찰설정
   bidSettings: `
@@ -2150,7 +2179,7 @@ const tooltipContents = {
         가감액을 %로 설정하신 경우 평균값 옵션을 사용하더라도 기본입찰가를 기준으로 %가 계산됩니다.
       </dd>
     </dl>
-  `
+  `,
 };
 
 document.addEventListener("DOMContentLoaded", () => {
