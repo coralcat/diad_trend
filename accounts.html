@@ -32,7 +32,7 @@
       <nav>
         <ul>
           <li>
-            <div href="#" class="username" target="_blank">
+            <div href="#" class="account" target="_blank">
               <menu>coralcat</menu>
               <ul>
                 <li onclick="location.href='accounts.html'">계정 설정</li>
@@ -157,7 +157,7 @@
   </nav>
   <ul class="account">
     <li>
-      <button class="username" title="계정설정" onclick="location.href='accounts.html'">coralcat</button>
+      <button class="account" title="계정설정" onclick="location.href='accounts.html'">coralcat</button>
     </li>
     <li>
       <button class="ico-cog" title="알람설정" onclick="location.href='settings.html'"></button>
@@ -170,9 +170,8 @@
   <header class="content-header">
     <h1>
       <span>계정 관리</span>
-      <div data-tooltip="" />
     </h1>
-    <div href="#" class="username" target="_blank">
+    <div href="#" class="account" target="_blank">
   <menu>coralcat</menu>
   <nav>
     <ul>
@@ -200,7 +199,7 @@
         </div>
       </div>
     </header>
-    <div class="list">
+    <ul class="list" data-empty="등록하신 계정이 없습니다.">
       <ul class="row title">
         <li class="col-check">
           <div class="checkbox">
@@ -220,7 +219,7 @@
           수정일
         </li>
       </ul>
-      <div class="rows" data-empty="등록하신 계정이 없습니다.">
+      <div class="rows" >
         <ul class="row">
           <li class="col-check">
             <div class="checkbox">
@@ -235,7 +234,7 @@
             포커스클릭
           </li>
           <li title="계정 아이디">
-            <button class="username" data-modal="editAccount">3scoltd (3scoltd)</button>
+            <button class="account" data-modal="editAccount">3scoltd (3scoltd)</button>
           </li>
           <li title="상태">
             <div class="tag type-text">연결완료</div>
@@ -264,7 +263,7 @@
             포커스클릭
           </li>
           <li title="계정 아이디">
-            <button class="username" data-modal="editAccount">3scoltd (3scoltd)</button>
+            <button class="account" data-modal="editAccount">3scoltd (3scoltd)</button>
           </li>
           <li title="상태">
             <div class="tag type-text">연결완료</div>
@@ -293,7 +292,7 @@
             포커스클릭
           </li>
           <li title="계정 아이디">
-            <button class="username" data-modal="editAccount">3scoltd (3scoltd)</button>
+            <button class="account" data-modal="editAccount">3scoltd (3scoltd)</button>
           </li>
           <li title="상태">
             <div class="tag type-text">연결완료</div>
@@ -322,7 +321,7 @@
             포커스클릭
           </li>
           <li title="계정 아이디">
-            <button class="username" data-modal="editAccount">3scoltd (3scoltd)</button>
+            <button class="account" data-modal="editAccount">3scoltd (3scoltd)</button>
           </li>
           <li title="상태">
             <div class="tag type-text">연결완료</div>
@@ -351,7 +350,7 @@
             포커스클릭
           </li>
           <li title="계정 아이디">
-            <button class="username" data-modal="editAccount">3scoltd (3scoltd)</button>
+            <button class="account" data-modal="editAccount">3scoltd (3scoltd)</button>
           </li>
           <li title="상태">
             <div class="tag type-text">연결완료</div>
@@ -380,7 +379,7 @@
             포커스클릭
           </li>
           <li title="계정 아이디">
-            <button class="username" data-modal="editAccount">3scoltd (3scoltd)</button>
+            <button class="account" data-modal="editAccount">3scoltd (3scoltd)</button>
           </li>
           <li title="상태">
             <div class="tag type-text">연결완료</div>
@@ -409,7 +408,7 @@
             포커스클릭
           </li>
           <li title="계정 아이디">
-            <button class="username" data-modal="editAccount">3scoltd (3scoltd)</button>
+            <button class="account" data-modal="editAccount">3scoltd (3scoltd)</button>
           </li>
           <li title="상태">
             <div class="tag type-text">연결완료</div>
@@ -438,7 +437,7 @@
             포커스클릭
           </li>
           <li title="계정 아이디">
-            <button class="username" data-modal="editAccount">3scoltd (3scoltd)</button>
+            <button class="account" data-modal="editAccount">3scoltd (3scoltd)</button>
           </li>
           <li title="상태">
             <div class="tag type-text">연결완료</div>
@@ -467,7 +466,7 @@
             포커스클릭
           </li>
           <li title="계정 아이디">
-            <button class="username" data-modal="editAccount">3scoltd (3scoltd)</button>
+            <button class="account" data-modal="editAccount">3scoltd (3scoltd)</button>
           </li>
           <li title="상태">
             <div class="tag type-text">연결완료</div>
@@ -483,7 +482,7 @@
           </li>
         </ul>
       </div>
-    </div>
+    </ul>
     <footer class="section-footer">
       <div class="pagination">
         <button onclick="" type="button">
@@ -510,7 +509,7 @@
   </section>
 </main>
 
-<div id="editAccount" class="modal modal-list">
+<div id="editAccount" class="modal">
   <div class="dialog">
     <header class="modal-header">
       <h3>계정 상세</h3>
@@ -519,51 +518,50 @@
     <div class="modal-content">
       <header>
         <h3>3scoltd</h3>
-        <button class="btn-grayscale ico-delete" data-modal="deleteAccount"></button>
+        <button class="btn-remove" data-modal="deleteAccount"></button>
       </header>
-      <div class="list">
-        <ul class="row">
-          <li>매체</li>
-          <li>
+      <ul class="list edit accounts">
+        <li>
+          <div>매체</div>
+          <div>
             11번가
-          </li>
-        </ul>
-        <ul class="row">
-          <li>광고상품</li>
-          <li>포커스클릭</li>
-        </ul>
-        <ul class="row">
-          <li>비밀번호</li>
-          <li>
+          </div>
+        </li>
+        <li>
+          <div>광고상품</div>
+          <div>포커스클릭</div>
+        </li>
+        <li>
+          <div>비밀번호</div>
+          <div>
             <input type="password" value="12345">
-          </li>
-        </ul>
-      </div>
+          </div>
+        </li>
+      </ul>
     </div>
     <footer class="buttons">
-      <button class="btn-cancel close" type="button">취소</button>
       <button class="btn-submit" data-modal="editAccount" type="button">수정</button>
     </footer>
   </div>
 </div>
 
-<div id="accountNaver" class="modal modal-list">
+<div id="accountNaver" class="modal">
   <div class="dialog">
     <header class="modal-header">
       <h3>계정 추가</h3>
       <div class="close"></div>
     </header>
     <div class="modal-content">
-      <div class="list">
-        <ul class="row">
-          <li>매체</li>
-          <li>
+      <ul class="list edit accounts">
+        <li>
+          <div>매체</div>
+          <div>
             네이버
-          </li>
-        </ul>
-        <ul class="row">
-          <li>광고상품</li>
-          <li>
+          </div>
+        </li>
+        <li>
+          <div>광고상품</div>
+          <div>
             <div class="selectbox">
               <select name="" id="">
                 <option value="">파워링크</option>
@@ -572,129 +570,126 @@
                 <option value="">파워컨텐츠</option>
               </select>
             </div>
-          </li>
-        </ul>
-        <ul class="row">
-          <li>계정 이름</li>
-          <li>
+          </div>
+        </li>
+        <li>
+          <div>계정 이름</div>
+          <div>
             <input type="text" value="">
-          </li>
-        </ul>
-        <ul class="row">
-          <li>CUSTOMER_ID</li>
-          <li>
+          </div>
+        </li>
+        <li>
+          <div>CUSTOMER_ID</div>
+          <div>
             <input type="text" />
-          </li>
-        </ul>
-        <ul class="row">
-          <li>액세스 라이센스</li>
-          <li>
+          </div>
+        </li>
+        <li>
+          <div>액세스 라이센스</div>
+          <div>
             <input type="text">
-          </li>
-        </ul>
-        <ul class="row">
-          <li>비밀키</li>
-          <li>
+          </div>
+        </li>
+        <li>
+          <div>비밀키</div>
+          <div>
             <input type="password" value="">
-          </li>
-        </ul>
-      </div>
+          </div>
+        </li>
+      </ul>
     </div>
     <footer class="buttons">
-      <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" data-modal="apply" type="button">추가</button>
+      <button class="btn-submit" data-modal="apply" type="button">적용</button>
     </footer>
   </div>
 </div>
 
-<div id="accountEleventh" class="modal modal-list">
+<div id="accountEleventh" class="modal">
   <div class="dialog">
     <header class="modal-header">
       <h3>계정 추가</h3>
       <div class="close"></div>
     </header>
     <div class="modal-content">
-      <div class="list">
-        <ul class="row">
-          <li>매체</li>
-          <li>
+      <ul class="list edit accounts">
+        <li>
+          <div>매체</div>
+          <div>
             11번가
-          </li>
-        </ul>
-        <ul class="row">
-          <li>광고상품</li>
-          <li>
+          </div>
+        </li>
+        <li>
+          <div>광고상품</div>
+          <div>
             <div class="selectbox">
               <select name="" id="">
                 <option value="">포커스클릭</option>
                 <option value="">브랜드검색</option>
               </select>
             </div>
-          </li>
-        </ul>
-        <ul class="row">
-          <li>계정 아이디</li>
-          <li>
+          </div>
+        </li>
+        <li>
+          <div>계정 아이디</div>
+          <div>
             <input type="text" value="">
-          </li>
-        </ul>
-        <ul class="row">
-          <li>비밀번호</li>
-          <li>
+          </div>
+        </li>
+        <li>
+          <div>비밀번호</div>
+          <div>
             <input type="password" value="">
-          </li>
-        </ul>
-      </div>
+          </div>
+        </li>
+      </ul>
     </div>
     <footer class="buttons">
-      <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" data-modal="apply" type="button">추가</button>
+      <button class="btn-submit" data-modal="apply" type="button">적용</button>
     </footer>
   </div>
 </div>
 
-<div id="accountGmarket" class="modal modal-list">
+<div id="accountGmarket" class="modal">
   <div class="dialog">
     <header class="modal-header">
       <h3>계정 추가</h3>
       <div class="close"></div>
     </header>
     <div class="modal-content">
-      <div class="list">
-        <ul class="row">
-          <li>매체</li>
-          <li>
+      <ul class="list edit accounts">
+        <li>
+          <div>매체</div>
+          <div>
             지마켓
-          </li>
-        </ul>
-        <ul class="row">
-          <li>광고상품</li>
-          <li>
+          </div>
+        </li>
+        <li>
+          <div>광고상품</div>
+          <div>
             파워클릭
-          </li>
-        </ul>
-        <ul class="row">
-          <li>계정 아이디</li>
-          <li>
+          </div>
+        </li>
+        <li>
+          <div>계정 아이디</div>
+          <div>
             <input type="text" value="">
-          </li>
-        </ul>
-        <ul class="row">
-          <li>비밀번호</li>
-          <li>
+          </div>
+        </li>
+        <li>
+          <div>비밀번호</div>
+          <div>
             <input type="password" value="">
-          </li>
-        </ul>
-      </div>
+          </div>
+        </li>
+      </ul>
     </div>
     <footer class="buttons">
-      <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" data-modal="apply" type="button">추가</button>
+      <button class="btn-submit" data-modal="apply" type="button">적용</button>
     </footer>
   </div>
 </div>
 
-<div id="accountGoogle" class="modal modal-list">
+<div id="accountGoogle" class="modal">
   <div class="dialog">
     <header class="modal-header">
       <h3>계정 추가</h3>
@@ -708,37 +703,37 @@
         </div>
       </section>
       <section>
-        <div class="list">
-          <ul class="row">
-            <li>매체</li>
-            <li>
+        <ul class="list edit accounts">
+          <li>
+            <div>매체</div>
+            <div>
               구글
-            </li>
-          </ul>
-          <ul class="row">
-            <li>광고상품</li>
-            <li>
+            </div>
+          </li>
+          <li>
+            <div>광고상품</div>
+            <div>
               검색광고
-            </li>
-          </ul>
-          <ul class="row">
-            <li>고객ID</li>
-            <li>
+            </div>
+          </li>
+          <li>
+            <div>고객ID</div>
+            <div>
               <input type="text" value="" placeholder="'-'없이 입력해주세요.">
-            </li>
-          </ul>
-          <ul class="row">
-            <li>메모</li>
-            <li>
+            </div>
+          </li>
+          <li>
+            <div>메모</div>
+            <div>
               <input type="password" value="" placeholder="(선택입력) 계정 메모를 입력해주세요.">
-            </li>
-          </ul>
-        </div>
+            </div>
+          </li>
+        </ul>
       </section>
     </div>
     <footer class="buttons">
       <button class="btn-cancel close" type="button">취소</button>
-      <button class="btn-submit" data-modal="apply" type="button">추가</button>
+      <button class="btn-submit" data-modal="apply" type="button">적용</button>
     </footer>
   </div>
 </div>
