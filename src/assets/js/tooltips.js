@@ -1,3 +1,5 @@
+/** @format */
+
 const tooltipContents = {
   serviceExpiration: `서비스 이용기간이 만료되었습니다. 만료 후 7일 이내로 서비스를 연장하지 않으면 데이터가 삭제됩니다. 삭제된 데이터는 복구되지 않으니, 서비스 이용 시 유의하시기 바랍니다.`,
   // 상세검색 - 키워드
@@ -748,18 +750,30 @@ const tooltipContents = {
       </dd>
     </dl>
   `,
+  //최근 7일 간 그룹별 같은 업데이트 시간 대비 최저가 변동률
+  lowestPriceChangePercentage: `
+    <dl>
+      <dd>
+        전체 및 그룹별 최저가는 총액 기준으로 변동률을 계산합니다.
+      </dd>
+      <dd>
+        비교 시점 동안 일부 또는 전체 데이터가 없는 상품(소재)은 총액에 반영되지 않습니다.
+      </dd>
+    </dl>
+  `,
+  //연결요청
+  connectFor: `연결요청 상태에서는 구글 애즈 > 도구 및 설정 > 액세스 보안에서 관리자 계정의 초대를 수락하셔야 계정 연결이 완료됩니다.`,
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  const loader = document.querySelector(".spinner-loader");
   const container = document.querySelector(".container");
   const tooltip = document.createElement("div");
   tooltip.classList.add("tooltip");
   container.appendChild(tooltip);
 
-  const mutationObserver = new MutationObserver(mutations => {
+  const mutationObserver = new MutationObserver((mutations) => {
     const tooltipIcons = document.querySelectorAll("[data-tooltip]");
-    const showTooltip = event => {
+    const showTooltip = (event) => {
       const tooltipData = event.target.dataset.tooltip;
       for (const property in tooltipContents) {
         tooltipData === `${property}` && (tooltip.innerHTML = `${tooltipContents[property]}`);
@@ -775,21 +789,53 @@ document.addEventListener("DOMContentLoaded", () => {
         tooltip.style.setProperty("--tooltip-position", `30px`);
       }
     };
-    tooltipIcons.forEach(icon => {
+    tooltipIcons.forEach((icon) => {
       icon.addEventListener("mouseenter", showTooltip);
       icon.addEventListener("mouseout", () => {
         tooltip.classList.remove("is-active");
       });
     });
-    const sections = document.querySelectorAll("main section");
-    sections.forEach(section => {
-      mutationObserver.observe(section, {
-        childList: true,
+
+    // 목록 데이터 감지
+    const lists = document.querySelectorAll(".list");
+    lists[0] &&
+      lists.forEach((list) => {
+        mutationObserver.observe(list, {
+          childList: true,
+          characterData: true,
+        });
       });
+
+    // 탭 이동 감지
+    const tabContents = document.querySelectorAll(".tab-content");
+    tabContents[0] &&
+      tabContents.forEach((content) => {
+        mutationObserver.observe(content, {
+          childList: true,
+          characterData: true,
+        });
+      });
+
+    // 팝업 감지
+    const visibleModals = document.querySelectorAll(".modal");
+    visibleModals[0] &&
+      visibleModals.forEach((modal) => {
+        mutationObserver.observe(modal, {
+          childList: true,
+          subtree: true,
+          characterData: true,
+        });
+      });
+
+    // 컨테이너 감지
+    mutationObserver.observe(container, {
+      childList: true,
+      attributes: true,
     });
   });
 
-  mutationObserver.observe(container, {
+  mutationObserver.observe(document.children[0], {
     childList: true,
+    attributes: true,
   });
 });

@@ -33,18 +33,15 @@ $secondary-color: #f2f1ff;
           }
         }
         &:nth-of-type(2):checked {
-
           ~ .options:nth-of-type(2) {
             display: flex;
           }
         }
         &:nth-of-type(3):checked {
-
           ~ .options:nth-of-type(3) {
             display: flex;
           }
         }
-
       }
 
       .options {
@@ -147,6 +144,38 @@ $secondary-color: #f2f1ff;
     gap: 0.5rem;
     border: 0;
     padding: 0;
+
+    &.edit {
+
+      &.accounts {
+
+        input {
+          width: 100%
+        }
+
+        div {
+          &:first-of-type {
+            flex: 1
+          }
+
+          &:last-of-type {
+            flex: 2
+          }
+        }
+      }
+
+      li {
+        border: 0;
+        min-height: 36px;
+      }
+
+      input {
+        flex: 1 1 auto;
+        background-color: transparent;
+        border: 1px solid #e3e6e9;
+        padding-right: 3.5rem;
+      }
+    }
 
     &.list-form {
       padding: 0.5rem;
@@ -403,21 +432,6 @@ $secondary-color: #f2f1ff;
   &-confirm {
     .dialog {
       width: 400px;
-    }
-  }
-
-  &-edit {
-    .list {
-      li {
-        border: 0;
-      }
-
-      input {
-        flex: 1 1 auto;
-        background-color: transparent;
-        border: 1px solid #e3e6e9;
-        padding-right: 3.5rem;
-      }
     }
   }
 
@@ -998,22 +1012,22 @@ $secondary-color: #f2f1ff;
 
         > div {
           padding: 0 !important;
-  
+
           &:empty {
             &::after {
               content: none;
             }
           }
-  
+
           &:nth-of-type(1) {
             flex: 0 0 auto;
             width: 100px;
           }
-  
+
           &:nth-of-type(2) {
             width: 100%;
           }
-  
+
           &:nth-of-type(3) {
             flex: 0 0 auto;
             width: auto;

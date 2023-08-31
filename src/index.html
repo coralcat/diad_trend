@@ -1,140 +1,5 @@
 {% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('index')}}
-<script type="text/javascript">
-  am5.ready(function () {
-    var root = am5.Root.new("chartdiv");
-    root.setThemes([
-      am5themes_Animated.new(root)
-    ]);
-    var chart = root.container.children.push(am5xy.XYChart.new(root, {
-      panX: false,
-      panY: false,
-      wheelX: "panX",
-      wheelY: "zoomX",
-      layout: root.verticalLayout
-    }));
 
-    var legend = chart.children.push(
-      am5.Legend.new(root, {
-        centerX: am5.p50,
-        x: am5.p50
-      })
-    );
-
-    var data = [{
-      "group": "그룹A",
-      "date1": 3,
-      "date2": 3,
-      "date3": 1,
-      "now": 3,
-    }, {
-      "group": "그룹B",
-      "date1": 5,
-      "date2": 11,
-      "date3": 5,
-      "now": 6,
-    }, {
-      "group": "그룹C",
-      "date1": 181,
-      "date2": 255,
-      "date3": 271,
-      "now": 183,
-    }, {
-      "group": "그룹D",
-      "date1": 4,
-      "date2": 6,
-      "date3": 7,
-      "now": 5,
-    }, {
-      "group": "그룹E",
-      "date1": 2,
-      "date2": 10,
-      "date3": 5,
-      "now": 6,
-    }, {
-      "group": "그룹F",
-      "date1": 120,
-      "date2": 201,
-      "date3": 89,
-      "now": 127,
-    }, {
-      "group": "그룹G",
-      "date1": 120,
-      "date2": 78,
-      "date3": 98,
-      "now": 85,
-    }]
-
-    var xRenderer = am5xy.AxisRendererX.new(root, {
-      cellStartLocation: 0.1,
-      cellEndLocation: 0.9
-    })
-
-    var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
-      categoryField: "group",
-      renderer: xRenderer,
-      tooltip: am5.Tooltip.new(root, {})
-    }));
-
-    xRenderer.grid.template.setAll({
-      location: 1
-    })
-
-    xAxis.data.setAll(data);
-
-    var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
-      renderer: am5xy.AxisRendererY.new(root, {
-        strokeOpacity: 0.1
-      })
-    }));
-
-
-    // Add series
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-    function makeSeries(name, fieldName) {
-      var series = chart.series.push(am5xy.ColumnSeries.new(root, {
-        name: name,
-        xAxis: xAxis,
-        yAxis: yAxis,
-        valueYField: fieldName,
-        categoryXField: "group"
-      }));
-
-      series.columns.template.setAll({
-        tooltipText: "{name}, {categoryX}:{valueY}",
-        width: am5.percent(90),
-        tooltipY: 0,
-        strokeOpacity: 0
-      });
-
-      series.data.setAll(data);
-
-      series.appear();
-
-      series.bullets.push(function () {
-        return am5.Bullet.new(root, {
-          locationY: 0,
-          sprite: am5.Label.new(root, {
-            text: "{valueY}",
-            fill: root.interfaceColors.get("alternativeText"),
-            centerY: 0,
-            centerX: am5.p50,
-            populateText: true
-          })
-        });
-      });
-
-      legend.data.push(series);
-    }
-
-    makeSeries("2023.01.02~2023.01.08", "date1");
-    makeSeries("2023.01.09~2023.01.15", "date2");
-    makeSeries("2023.01.16~2023.01.22", "date3");
-    makeSeries("2023.01.23~2023.01.25(진행중)", "now");
-
-    chart.appear(1000, 100);
-
-  }); // end am5.ready()
-</script>
 <script>
   am5.ready(function () {
     var root = am5.Root.new("rankingChart");
@@ -646,53 +511,312 @@
   }); // end am5.ready()
 </script>
 <main class="content-dashboard">
-  <div class="tab-content" data-tab="dashboard">
+  <div class="tab-content is-active" data-tab="dashboard">
     <header class="content-header">
       <ul class="tabs">
-        <li data-tab="dashboard" class="is-active">
-          나의 다이애드
-        </li>
+        <li data-tab="dashboard" class="is-active"> 나의 다이애드 </li>
       </ul>
-      {% include "account.html" %}
+      <div href="#" class="account" target="_blank">
+        <menu>esellers_m01</menu>
+        <nav>
+          <ul>
+            <li> 알림 설정 </li>
+            <li> 로그아웃 </li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <div class="wrapper">
-      <aside class="sections">
-        <section class="section-monitoring" onclick="location.href='bidding.html'">
+      <aside style="--delay: 0ms;">
+        <section class="section-monitoring">
           <header>
-            <h2>자동입찰 모니터링</h2>
+            <h2> 자동입찰 모니터링 </h2>
+            <div class="inputs">
+              <div class="selectbox"><select id="selectAdProductSite" name="">
+                  <option value="ALL"> 매체: 전체 </option>
+                  <option value="Keyword"> 네이버 검색광고 </option>
+                  <option value="Shopping"> 네이버 쇼핑검색광고 </option>
+                  <option value="Power"> 네이버 파워컨텐츠 </option>
+                  <option value="Focus"> 11번가 포커스클릭 </option>
+                  <option value="Branding"> 11번가 브랜드검색 </option>
+                  <option value="PowerClick"> 지마켓 파워클릭 </option>
+                  <option value="Search"> 구글 검색광고 </option>
+                </select></div>
+              <div class="selectbox"><select id="adProductPerAccount" name="">
+                  <option value=""> 계정: 전체 </option>
+                </select></div>
+            </div>
           </header>
-          <div class="articles swiper" data-empty="데이터가 없습니다.">
-            <div class="swiper-wrapper">
-              <article class="swiper-slide">
-                <h4> 입찰실행 중 <strong>목표도달</strong></h4>
-                <div class="progress">
-                  <progress value="0" max="69" data-value="37" data-title="도달"></progress>
-                  <div class="filters">
-                    <small class="times">0</small>
-                    <small class="times" data-title="총 입찰실행">69</small>
+          <div class="swiper horizontal swiper-initialized swiper-horizontal swiper-backface-hidden"
+            data-empty="데이터가 없습니다.">
+            <div class="articles swiper-wrapper" id="swiper-wrapper-9169edd105200101f3" aria-live="polite">
+              <article class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 3"
+                data-swiper-slide-index="0" style="width: 304px; margin-right: 15px;">
+                <header>
+                  <h4> 입찰실행 중 <strong>목표도달</strong></h4><span class="tag red percent">낮음 14</span>
+                </header>
+                <div class="progress"><progress max="83" data-value="12" data-title="도달" value="0"
+                    style="--progressDelay: 00s; --progressPercent: 0; --progressColor: linear-gradient(135deg, orangered 40%, coral);"></progress>
+                  <div class="filters"><small class="times">0</small><small class="times" data-title="총 입찰실행">83</small>
                   </div>
                 </div>
               </article>
-              <article class="swiper-slide">
-                <h4> 입찰: 실패 중 <strong>최대 입찰가 도달</strong></h4>
-                <div class="progress"><progress value="0" max="33" data-value="28" data-title="도달"></progress>
+              <article class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 3"
+                data-swiper-slide-index="1" style="width: 304px; margin-right: 15px;">
+                <header>
+                  <h4> 입찰: 실패 중 <strong>최대 입찰가 도달</strong></h4><span class="tag red percent">낮음 15</span>
+                </header>
+                <div class="progress"><progress max="47" data-value="7" data-title="도달" value="0"
+                    style="--progressDelay: 00.5s; --progressPercent: 0; --progressColor: linear-gradient(135deg, orangered 40%, coral);"></progress>
+                  <div class="filters"><small class="times">0</small><small class="times"
+                      data-title="총 입찰: 실패">47</small></div>
+                </div>
+              </article>
+              <article class="swiper-slide" role="group" aria-label="3 / 3" data-swiper-slide-index="2"
+                style="width: 304px; margin-right: 15px;">
+                <header>
+                  <h4> 입찰: 실패 중 <strong>입찰실패</strong></h4><span class="tag red percent">낮음 13</span>
+                </header>
+                <div class="progress"><progress max="47" data-value="6" data-title="실패" value="0"
+                    style="--progressDelay: 01s; --progressPercent: 0; --progressColor: linear-gradient(135deg, orangered 40%, coral);"></progress>
+                  <div class="filters"><small class="times">0</small><small class="times"
+                      data-title="총 입찰: 실패">47</small></div>
+                </div>
+              </article>
+            </div>
+            <nav
+              class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
+              <span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button"
+                aria-label="Go to slide 1" aria-current="true"></span><span class="swiper-pagination-bullet"
+                tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet"
+                tabindex="0" role="button" aria-label="Go to slide 3"></span></nav><span class="swiper-notification"
+              aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive"
+              aria-atomic="true"></span>
+          </div>
+        </section>
+        <section class="section-tracking">
+          <header>
+            <h3 data-brand="naver"> 순위 추적 </h3><small data-title="최근 업데이트">2023-08-31 15:00</small>
+          </header>
+          <div class="swiper horizontal swiper-initialized swiper-horizontal swiper-backface-hidden"
+            data-empty="데이터가 없습니다.">
+            <div class="articles swiper-wrapper" id="swiper-wrapper-37003573e5978f43" aria-live="polite">
+              <article class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 2"
+                data-swiper-slide-index="0" style="width: 304px; margin-right: 15px;">
+                <header>
+                  <h4> 최근 24시간 <strong>순위 변동</strong> 소재 </h4><span class="tag red percent">낮음 17</span>
+                </header>
+                <div class="progress"><progress max="6" data-value="1" data-title="변동" value="0"
+                    style="--progressDelay: 01.5s; --progressPercent: 0; --progressColor: linear-gradient(135deg, orangered 40%, coral);"></progress>
                   <div class="filters">
-                    <small class="times">0</small>
-                    <small class="times" data-title="총 입찰: 실패">33</small>
+                    <div><small class="times">0</small></div><small class="times" data-title="총">6</small>
                   </div>
                 </div>
               </article>
-              <article class="swiper-slide">
-                <h4> 입찰: 실패 중 <strong>입찰실패</strong></h4>
-                <div class="progress"><progress value="0" max="33" data-value="28" data-title="실패"></progress>
-                  <div class="filters">
-                    <small class="times">0</small>
-                    <small class="times" data-title="총 입찰: 실패">33</small>
+              <article class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 2"
+                data-swiper-slide-index="1" style="width: 304px; margin-right: 15px;">
+                <header>
+                  <h4> 최근 7일 간 <strong>순위 40위 안 유지</strong>소재 </h4><span class="tag green percent">높음 82</span>
+                </header>
+                <div class="progress"><progress max="17" data-value="14" data-title="40위 안" value="0"
+                    style="--progressDelay: 02s; --progressPercent: calc(82% - 84.4219px); --progressColor: linear-gradient(135deg, #5048d7 40%, darkturquoise);"></progress>
+                  <div class="filters"><small class="times">0</small><small class="times" data-title="총">17</small>
                   </div>
                 </div>
               </article>
             </div>
-            <div class="swiper-pagination"></div>
+            <nav
+              class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
+              <span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button"
+                aria-label="Go to slide 1" aria-current="true"></span><span class="swiper-pagination-bullet"
+                tabindex="0" role="button" aria-label="Go to slide 2"></span></nav><span class="swiper-notification"
+              aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive"
+              aria-atomic="true"></span>
+          </div>
+        </section>
+        <section class="section-tracking">
+          <header>
+            <h3 data-brand="naver"> 최저가 추적 </h3><small>2023-08-31 15:00</small>
+          </header>
+          <div class="swiper horizontal swiper-initialized swiper-horizontal swiper-backface-hidden"
+            data-empty="데이터가 없습니다.">
+            <div class="articles swiper-wrapper" id="swiper-wrapper-0d6e61c9d849b5c2" aria-live="polite">
+              <article class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 2"
+                data-swiper-slide-index="0" style="width: 304px; margin-right: 15px;">
+                <header>
+                  <h4> 최근 24시간 <strong>최저가 변동</strong> 소재 </h4><span class="tag red percent">낮음 27</span>
+                </header>
+                <div class="progress"><progress max="11" data-value="3" data-title="변동" value="0"
+                    style="--progressDelay: 02.5s; --progressPercent: calc(27% - 59px); --progressColor: linear-gradient(135deg, coral 40%, orange);"></progress>
+                  <div class="filters">
+                    <div><small class="times">0</small></div><small class="times" data-title="총">11</small>
+                  </div>
+                </div>
+              </article>
+              <article class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 2"
+                data-swiper-slide-index="1" style="width: 304px; margin-right: 15px;">
+                <header>
+                  <h4> 최근 7일 간 <strong>최저가 변동</strong>소재 </h4><span class="tag red percent">낮음 46</span>
+                </header>
+                <div class="progress"><progress max="13" data-value="6" data-title="변동" value="0"
+                    style="--progressDelay: 03s; --progressPercent: calc(46% - 58.9844px); --progressColor: linear-gradient(135deg, #5048d7 40%, #5048d7);"></progress>
+                  <div class="filters">
+                    <div><small class="times">0</small></div><small class="times" data-title="총">13</small>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <nav
+              class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
+              <span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button"
+                aria-label="Go to slide 1" aria-current="true"></span><span class="swiper-pagination-bullet"
+                tabindex="0" role="button" aria-label="Go to slide 2"></span></nav><span class="swiper-notification"
+              aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive"
+              aria-atomic="true"></span>
+          </div>
+        </section>
+      </aside>
+      <div class="sections" style="--delay: 150ms;">
+        <section class="section-chart">
+          <header>
+            <h2>순위 분포</h2>
+            <div class="filters"><strong class="times" data-title="전체">34</strong>
+              <div class="selectbox"><select id="rankUpdateTimeSelect" name="">
+                  <option value="2023-08-31 15:00">2023-08-31 15:00</option>
+                  <option value="2023-08-31 12:00">2023-08-31 12:00</option>
+                  <option value="2023-08-31 09:00">2023-08-31 09:00</option>
+                  <option value="2023-08-31 06:00">2023-08-31 06:00</option>
+                  <option value="2023-08-31 03:00">2023-08-31 03:00</option>
+                  <option value="2023-08-31 00:00">2023-08-31 00:00</option>
+                  <option value="2023-08-30 21:00">2023-08-30 21:00</option>
+                  <option value="2023-08-30 18:00">2023-08-30 18:00</option>
+                  <option value="2023-08-30 15:00">2023-08-30 15:00</option>
+                </select></div>
+            </div>
+          </header>
+          <div class="chart-container">
+            <div id="rankingChart" class="chart"></div>
+          </div>
+        </section>
+        <section class="section-chart">
+          <header>
+            <h2> 최근 7일 간 그룹별 같은 업데이트 시간 대비 최저가 변동률 <div data-tooltip="lowestPriceChangePercentage"></div>
+            </h2>
+          </header>
+          <div class="chart-container">
+            <div id="lowestPriceChart" class="chart"></div>
+          </div>
+        </section>
+        <section class="section-issues bid">
+          <header class="list-header">
+            <h2>입찰 이슈관리</h2>
+            <div class="inputs">
+              <div class="selectbox"><select id="" name="">
+                  <option value=""> 매체: 전체 </option>
+                </select></div>
+              <div class="selectbox"><select id="" name="">
+                  <option value=""> 계정: 전체 </option>
+                </select></div>
+            </div>
+          </header>
+          <div class="articles">
+            <article>
+              <header data-brand="naver">
+                <h4>2023.04.01 07:00:00</h4>
+              </header>
+              <div class="texts">
+                <p> 검색광고 계정 gabiacns_01 <strong>비즈머니 잔액 5,000원 미만</strong> 입니다. </p>
+                <p>충전이 필요합니다.</p>
+              </div>
+            </article>
+            <article>
+              <header data-brand="naver">
+                <h4>2023.04.01 07:00:00</h4>
+              </header>
+              <div class="texts">
+                <p> PC_파워링크 〉 케이스_갤럭시 〉 <strong>#갤럭시노트9케이스 (PC일반) 최대 입찰가(입찰한도)</strong> 에 도달했습니다. </p>
+                <p>확인이 필요합니다.</p>
+              </div>
+            </article>
+            <article>
+              <header data-brand="gmarket">
+                <h4>2023.04.01 07:00:00</h4>
+              </header>
+              <div class="texts">
+                <p><strong>G마켓 비즈머니 잔액 5,000원 미만</strong>입니다. </p>
+                <p>충전이 필요합니다.</p>
+              </div>
+            </article>
+            <article>
+              <header data-brand="eleventh">
+                <h4>2023.04.01 07:00:00</h4>
+              </header>
+              <div class="texts">
+                <p><strong>비즈머니 잔액 5,000원 미만</strong>입니다 </p>
+                <p>충전이 필요합니다.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+      <aside style="--delay: 300ms;">
+        <section class="section-chart">
+          <header>
+            <h2>입찰실행 건<strong>입찰결과</strong></h2>
+            <div class="inputs">
+              <div class="selectbox"><select id="selectAdProduct_biddingResult" name=""><!-- <option value="ALL">
+                매체: 전체
+              </option> -->
+                  <option value="Keyword"> 네이버 검색광고 </option>
+                  <option value="Shopping"> 네이버 쇼핑검색광고 </option>
+                  <option value="Power"> 네이버 파워컨텐츠 </option>
+                  <option value="Focus"> 11번가 포커스클릭 </option>
+                  <option value="Branding"> 11번가 브랜드검색 </option>
+                  <option value="PowerClick"> 지마켓 파워클릭 </option>
+                  <option value="Search"> 구글 검색광고 </option>
+                </select></div>
+              <div class="selectbox"><select id="adProductPerAccount_biddingResult" name="">
+                  <option value="ALL"> 계정: 전체 </option>
+                  <option value="gabiacns2_L">gabiacns2_L</option>
+                  <option value="plays_U">plays_U</option>
+                  <option value="samda_C">samda_C</option>
+                  <option value="hearkorea_N">hearkorea_N</option>
+                  <option value="esellers_R">esellers_R</option>
+                  <option value="bokdanji_H">bokdanji_H</option>
+                  <option value="mastered_A">mastered_A</option>
+                  <option value="drcody3651_C">drcody3651_C</option>
+                </select></div>
+            </div>
+          </header>
+          <div class="articles swiper horizontal swiper-initialized swiper-horizontal swiper-backface-hidden">
+            <div class="swiper-wrapper" id="swiper-wrapper-d98fe991711710750" aria-live="polite">
+              <article class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 3"
+                data-swiper-slide-index="0" style="width: 304px; margin-right: 15px;">
+                <div id="naverPieChart" class="chart"></div>
+              </article>
+              <article class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 3"
+                data-swiper-slide-index="1" style="width: 304px; margin-right: 15px;"><canvas id="biddingResultPieChart"
+                  class="chart" width="278" height="139"
+                  style="display: block; box-sizing: border-box; height: 139px; width: 278px;"></canvas></article>
+              <article class="swiper-slide" role="group" aria-label="3 / 3" data-swiper-slide-index="2"
+                style="width: 304px; margin-right: 15px;"><canvas id="failPieChart" class="chart" width="278"
+                  height="139" style="display: block; box-sizing: border-box; height: 139px; width: 278px;"></canvas>
+              </article>
+            </div>
+            <nav
+              class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
+              <span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button"
+                aria-label="Go to slide 1" aria-current="true"></span><span class="swiper-pagination-bullet"
+                tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet"
+                tabindex="0" role="button" aria-label="Go to slide 3"></span></nav><span class="swiper-notification"
+              aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive"
+              aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive"
+              aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive"
+              aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive"
+              aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive"
+              aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive"
+              aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive"
+              aria-atomic="true"></span>
           </div>
         </section>
         <section class="section-money">
@@ -704,779 +828,527 @@
               <header data-brand="naver">
                 <h3>검색광고</h3>
               </header>
-              <ul>
-                <li>
-                  <div>bokdanjie</div><strong class="price">4,479,813</strong>
-                </li>
-                <li>
-                  <div>briall</div><strong class="price">1,494,515</strong>
-                </li>
-                <li>
-                  <div>cheum</div><strong class="price">164,587</strong>
-                </li>
-                <li>
-                  <div>ckdhc</div><strong class="price">5,002,808</strong>
-                </li>
-                <li>
-                  <div>coolicecm1</div><strong class="price">195,033</strong>
-                </li>
-                <li>
-                  <div>ecpartners</div><strong class="price">2,238,514</strong>
-                </li>
-                <li>
-                  <div>rwhit</div><strong class="price">6,139,669</strong>
-                </li>
-                <li>
-                  <div>ssy863555</div><strong class="price">554,138</strong>
-                </li>
-                <li>
-                  <div>sy967967</div><strong class="price">1,728,018</strong>
-                </li>
-              </ul>
+              <div class="swiper vertical swiper-initialized swiper-vertical swiper-backface-hidden">
+                <ul class="swiper-wrapper" id="swiper-wrapper-4f19e1357b3ecf11" aria-live="off"
+                  style="transition-duration: 0ms; transform: translate3d(0px, -62px, 0px);">
+                  <li class="swiper-slide" role="group" aria-label="1 / 8" data-swiper-slide-index="0"
+                    style="height: 31px;">
+                    <div>briall</div><strong class="price">1,494,515</strong>
+                  </li>
+                  <li class="swiper-slide swiper-slide-prev" role="group" aria-label="2 / 8" data-swiper-slide-index="1"
+                    style="height: 31px;">
+                    <div>cheum</div><strong class="price">164,587</strong>
+                  </li>
+                  <li class="swiper-slide swiper-slide-active" role="group" aria-label="3 / 8"
+                    data-swiper-slide-index="2" style="height: 31px;">
+                    <div>ckdhc</div><strong class="price">5,002,808</strong>
+                  </li>
+                  <li class="swiper-slide swiper-slide-next" role="group" aria-label="4 / 8" data-swiper-slide-index="3"
+                    style="height: 31px;">
+                    <div>coolicecm1</div><strong class="price">195,033</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="5 / 8" data-swiper-slide-index="4"
+                    style="height: 31px;">
+                    <div>ecpartners</div><strong class="price">2,238,514</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="6 / 8" data-swiper-slide-index="5"
+                    style="height: 31px;">
+                    <div>rwhit</div><strong class="price">6,139,669</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="7 / 8" data-swiper-slide-index="6"
+                    style="height: 31px;">
+                    <div>ssy863555</div><strong class="price">554,138</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="8 / 8" data-swiper-slide-index="7"
+                    style="height: 31px;">
+                    <div>sy967967</div><strong class="price">1,728,018</strong>
+                  </li>
+                </ul>
+                <nav class="swiper-pagination"></nav><span class="swiper-notification" aria-live="assertive"
+                  aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive"
+                  aria-atomic="true"></span>
+              </div>
             </article>
             <article>
               <header data-brand="naver">
                 <h3>쇼핑검색광고</h3>
               </header>
-              <ul>
-                <li>
-                  <div>bokdanjie_S</div><strong class="price">190,980</strong>
-                </li>
-                <li>
-                  <div>nshopping1_P</div><strong class="price">252,409</strong>
-                </li>
-                <li>
-                  <div>playz_D</div><strong class="price">292,453</strong>
-                </li>
-                <li>
-                  <div>dsc323796_G</div><strong class="price">1,504</strong>
-                </li>
-                <li>
-                  <div>thesix_G</div><strong class="price">231</strong>
-                </li>
-                <li>
-                  <div>sj_gift_Z</div><strong class="price">175,600</strong>
-                </li>
-                <li>
-                  <div>1460592</div><strong class="price">549</strong>
-                </li>
-                <li>
-                  <div>samdamall_U</div><strong class="price">6,414,895</strong>
-                </li>
-                <li>
-                  <div>esellers_Q</div><strong class="price">3,694,355</strong>
-                </li>
-                <li>
-                  <div>gabiacns2_G</div><strong class="price">34,669,506</strong>
-                </li>
-                <li>
-                  <div>ecpartners_G</div><strong class="price">466,337</strong>
-                </li>
-              </ul>
+              <div class="swiper vertical swiper-initialized swiper-vertical">
+                <ul class="swiper-wrapper" id="swiper-wrapper-9413cb59a67a82d9" aria-live="off"
+                  style="transition-duration: 0ms; transform: translate3d(0px, -62px, 0px);">
+                  <li class="swiper-slide" role="group" aria-label="1 / 11" data-swiper-slide-index="0"
+                    style="height: 31px;">
+                    <div>bokdanjie_S</div><strong class="price">190,980</strong>
+                  </li>
+                  <li class="swiper-slide swiper-slide-prev" role="group" aria-label="2 / 11"
+                    data-swiper-slide-index="1" style="height: 31px;">
+                    <div>nshopping1_P</div><strong class="price">252,409</strong>
+                  </li>
+                  <li class="swiper-slide swiper-slide-active" role="group" aria-label="3 / 11"
+                    data-swiper-slide-index="2" style="height: 31px;">
+                    <div>playz_D</div><strong class="price">292,453</strong>
+                  </li>
+                  <li class="swiper-slide swiper-slide-next" role="group" aria-label="4 / 11"
+                    data-swiper-slide-index="3" style="height: 31px;">
+                    <div>dsc323796_G</div><strong class="price">1,504</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="5 / 11" data-swiper-slide-index="4"
+                    style="height: 31px;">
+                    <div>thesix_G</div><strong class="price">231</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="6 / 11" data-swiper-slide-index="5"
+                    style="height: 31px;">
+                    <div>sj_gift_Z</div><strong class="price">175,600</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="7 / 11" data-swiper-slide-index="6"
+                    style="height: 31px;">
+                    <div>1460592</div><strong class="price">549</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="8 / 11" data-swiper-slide-index="7"
+                    style="height: 31px;">
+                    <div>samdamall_U</div><strong class="price">6,414,895</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="9 / 11" data-swiper-slide-index="8"
+                    style="height: 31px;">
+                    <div>esellers_Q</div><strong class="price">3,694,355</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="10 / 11" data-swiper-slide-index="9"
+                    style="height: 31px;">
+                    <div>gabiacns2_G</div><strong class="price">34,669,506</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="11 / 11" data-swiper-slide-index="10"
+                    style="height: 31px;">
+                    <div>ecpartners_G</div><strong class="price">466,337</strong>
+                  </li>
+                </ul>
+                <nav class="swiper-pagination"></nav><span class="swiper-notification" aria-live="assertive"
+                  aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive"
+                  aria-atomic="true"></span>
+              </div>
             </article>
             <article>
               <header data-brand="naver">
                 <h3>파워컨텐츠</h3>
               </header>
-              <ul>
-                <li>
-                  <div>joosawng_F</div><strong class="price">1,725</strong>
-                </li>
-                <li>
-                  <div>gojp_Z</div><strong class="price">630,357</strong>
-                </li>
-                <li>
-                  <div>sleepspa_O</div><strong class="price">130,830</strong>
-                </li>
-                <li>
-                  <div>gabia_E</div><strong class="price">29,243,322</strong>
-                </li>
-                <li>
-                  <div>mobalcj_S</div><strong class="price">6,682,747</strong>
-                </li>
-                <li>
-                  <div>rehobothmain_H</div><strong class="price">581,518</strong>
-                </li>
-                <li>
-                  <div>pc_Q</div><strong class="price">157,856</strong>
-                </li>
-              </ul>
+              <div class="swiper vertical swiper-initialized swiper-vertical swiper-backface-hidden">
+                <ul class="swiper-wrapper" id="swiper-wrapper-9b5ac8c16236bd56" aria-live="off"
+                  style="transition-duration: 0ms; transform: translate3d(0px, -62px, 0px);">
+                  <li class="swiper-slide" role="group" aria-label="1 / 7" data-swiper-slide-index="0"
+                    style="height: 31px;">
+                    <div>joosawng_F</div><strong class="price">1,725</strong>
+                  </li>
+                  <li class="swiper-slide swiper-slide-prev" role="group" aria-label="2 / 7" data-swiper-slide-index="1"
+                    style="height: 31px;">
+                    <div>gojp_Z</div><strong class="price">630,357</strong>
+                  </li>
+                  <li class="swiper-slide swiper-slide-active" role="group" aria-label="3 / 7"
+                    data-swiper-slide-index="2" style="height: 31px;">
+                    <div>sleepspa_O</div><strong class="price">130,830</strong>
+                  </li>
+                  <li class="swiper-slide swiper-slide-next" role="group" aria-label="4 / 7" data-swiper-slide-index="3"
+                    style="height: 31px;">
+                    <div>gabia_E</div><strong class="price">29,243,322</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="5 / 7" data-swiper-slide-index="4"
+                    style="height: 31px;">
+                    <div>mobalcj_S</div><strong class="price">6,682,747</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="6 / 7" data-swiper-slide-index="5"
+                    style="height: 31px;">
+                    <div>rehobothmain_H</div><strong class="price">581,518</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="7 / 7" data-swiper-slide-index="6"
+                    style="height: 31px;">
+                    <div>pc_Q</div><strong class="price">157,856</strong>
+                  </li>
+                </ul><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span
+                  class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+              </div>
             </article>
             <article>
               <header data-brand="eleventh">
                 <h3>포커스클릭</h3>
               </header>
-              <ul>
-                <li>
-                  <div>cjlion2004</div><strong class="price">5,048,048</strong>
-                </li>
-                <li>
-                  <div>3scoltd</div><strong class="price">3,529,904</strong>
-                </li>
-                <li>
-                  <div>bokdanjie</div><strong class="price">6,438,081</strong>
-                </li>
-                <li>
-                  <div>cnp0920</div><strong class="price">1,916,603</strong>
-                </li>
-                <li>
-                  <div>briall</div><strong class="price">442,870</strong>
-                </li>
-              </ul>
+              <div class="swiper vertical swiper-initialized swiper-vertical swiper-backface-hidden">
+                <ul class="swiper-wrapper" id="swiper-wrapper-95e93f80c5315610c" aria-live="off"
+                  style="transition-duration: 0ms; transform: translate3d(0px, -62px, 0px);">
+                  <li class="swiper-slide" role="group" aria-label="1 / 5" data-swiper-slide-index="0"
+                    style="height: 31px;">
+                    <div>cjlion2004</div><strong class="price">5,048,048</strong>
+                  </li>
+                  <li class="swiper-slide swiper-slide-prev" role="group" aria-label="2 / 5" data-swiper-slide-index="1"
+                    style="height: 31px;">
+                    <div>3scoltd</div><strong class="price">3,529,904</strong>
+                  </li>
+                  <li class="swiper-slide swiper-slide-active" role="group" aria-label="3 / 5"
+                    data-swiper-slide-index="2" style="height: 31px;">
+                    <div>bokdanjie</div><strong class="price">6,438,081</strong>
+                  </li>
+                  <li class="swiper-slide swiper-slide-next" role="group" aria-label="4 / 5" data-swiper-slide-index="3"
+                    style="height: 31px;">
+                    <div>cnp0920</div><strong class="price">1,916,603</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="5 / 5" data-swiper-slide-index="4"
+                    style="height: 31px;">
+                    <div>briall</div><strong class="price">442,870</strong>
+                  </li>
+                </ul>
+                <nav class="swiper-pagination"></nav><span class="swiper-notification" aria-live="assertive"
+                  aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive"
+                  aria-atomic="true"></span>
+              </div>
             </article>
             <article>
               <header data-brand="eleventh">
                 <h3>브랜드검색</h3>
               </header>
-              <ul>
-                <li>
-                  <div>bokdanjie</div><strong class="price">6,537,314</strong>
-                </li>
-                <li>
-                  <div>ickdhc</div><strong class="price">16,137,118</strong>
-                </li>
-              </ul>
+              <div class="swiper vertical swiper-initialized swiper-vertical swiper-backface-hidden">
+                <ul class="swiper-wrapper" id="swiper-wrapper-81ca1040a1db14bb6" aria-live="off">
+                  <li class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 2"
+                    data-swiper-slide-index="0" style="height: 31px;">
+                    <div>bokdanjie</div><strong class="price">6,537,314</strong>
+                  </li>
+                  <li class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 2" data-swiper-slide-index="1"
+                    style="height: 31px;">
+                    <div>ickdhc</div><strong class="price">37,123,055</strong>
+                  </li>
+                </ul>
+                <nav class="swiper-pagination"></nav><span class="swiper-notification" aria-live="assertive"
+                  aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive"
+                  aria-atomic="true"></span>
+              </div>
             </article>
             <article>
               <header data-brand="gmarket">
                 <h3>구글 검색광고</h3>
               </header>
-              <ul>
-                <li>
-                  <div>4506521631</div><strong class="price">0</strong>
-                </li>
-                <li>
-                  <div>4063236327</div><strong class="price">0</strong>
-                </li>
-                <li>
-                  <div>2988915152</div><strong class="price">0</strong>
-                </li>
-              </ul>
+              <div class="swiper vertical swiper-initialized swiper-vertical swiper-backface-hidden">
+                <ul class="swiper-wrapper" id="swiper-wrapper-95a9c65fd48a10b5" aria-live="off">
+                  <li class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 3"
+                    data-swiper-slide-index="0" style="height: 31px;">
+                    <div>4506521631</div><strong class="price">0</strong>
+                  </li>
+                  <li class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 3" data-swiper-slide-index="1"
+                    style="height: 31px;">
+                    <div>4063236327</div><strong class="price">0</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="3 / 3" data-swiper-slide-index="2"
+                    style="height: 31px;">
+                    <div>2988915152</div><strong class="price">0</strong>
+                  </li>
+                </ul>
+                <nav class="swiper-navigation"></nav><span class="swiper-notification" aria-live="assertive"
+                  aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive"
+                  aria-atomic="true"></span>
+              </div>
             </article>
             <article>
               <header data-brand="auction">
-                <h3>이베이 파워클릭</h3>
+                <h3>지마켓 파워클릭</h3>
               </header>
-              <ul>
-                <li>
-                  <div>bokdanjie</div><strong class="price">4,479,813</strong>
-                </li>
-                <li>
-                  <div>briall</div><strong class="price">1,494,515</strong>
-                </li>
-                <li>
-                  <div>cheum</div><strong class="price">164,587</strong>
-                </li>
-                <li>
-                  <div>ckdhc</div><strong class="price">5,002,808</strong>
-                </li>
-                <li>
-                  <div>coolicecm1</div><strong class="price">195,033</strong>
-                </li>
-                <li>
-                  <div>ecpartners</div><strong class="price">2,238,514</strong>
-                </li>
-                <li>
-                  <div>rwhit</div><strong class="price">6,139,669</strong>
-                </li>
-                <li>
-                  <div>ssy863555</div><strong class="price">554,138</strong>
-                </li>
-                <li>
-                  <div>sy967967</div><strong class="price">1,728,018</strong>
-                </li>
-              </ul>
+              <div class="swiper vertical swiper-initialized swiper-vertical swiper-backface-hidden">
+                <ul class="swiper-wrapper" id="swiper-wrapper-1d592e3f9d6664ec" aria-live="off"
+                  style="transition-duration: 0ms; transform: translate3d(0px, -62px, 0px);">
+                  <li class="swiper-slide" role="group" aria-label="1 / 8" data-swiper-slide-index="0"
+                    style="height: 31px;">
+                    <div>briall</div><strong class="price">1,494,515</strong>
+                  </li>
+                  <li class="swiper-slide swiper-slide-prev" role="group" aria-label="2 / 8" data-swiper-slide-index="1"
+                    style="height: 31px;">
+                    <div>cheum</div><strong class="price">164,587</strong>
+                  </li>
+                  <li class="swiper-slide swiper-slide-active" role="group" aria-label="3 / 8"
+                    data-swiper-slide-index="2" style="height: 31px;">
+                    <div>ckdhc</div><strong class="price">5,002,808</strong>
+                  </li>
+                  <li class="swiper-slide swiper-slide-next" role="group" aria-label="4 / 8" data-swiper-slide-index="3"
+                    style="height: 31px;">
+                    <div>coolicecm1</div><strong class="price">195,033</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="5 / 8" data-swiper-slide-index="4"
+                    style="height: 31px;">
+                    <div>ecpartners</div><strong class="price">2,238,514</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="6 / 8" data-swiper-slide-index="5"
+                    style="height: 31px;">
+                    <div>rwhit</div><strong class="price">6,139,669</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="7 / 8" data-swiper-slide-index="6"
+                    style="height: 31px;">
+                    <div>ssy863555</div><strong class="price">554,138</strong>
+                  </li>
+                  <li class="swiper-slide" role="group" aria-label="8 / 8" data-swiper-slide-index="7"
+                    style="height: 31px;">
+                    <div>sy967967</div><strong class="price">1,728,018</strong>
+                  </li>
+                </ul>
+                <nav class="swiper-pagination"></nav><span class="swiper-notification" aria-live="assertive"
+                  aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive"
+                  aria-atomic="true"></span>
+              </div>
             </article>
           </div>
         </section>
       </aside>
-      <div class="sections">
-        <section>
+    </div>
+  </div><!-- <middle-board /> -->
+  <div class="tab-content" data-tab="dashboard">
+    <div class="wrapper">
+      <aside style="--delay: 0ms;">
+        <section class="section-bidding">
           <header>
-            <h2 data-brand="naver"> 순위 추적 </h2><small data-title="최근 업데이트">2023.04.01</small>
+            <h2>자동입찰 이용 현황</h2><a href="https://localhost:49166/Mypage/PaymentHistoryView" target="_blank">서비스 이용 내역
+              보기</a>
           </header>
           <div class="articles">
             <article>
-              <h4> 최근 24시간 <strong>순위 변동</strong> 소재 </h4>
-              <div class="progress">
-                <progress value="0" max="69" data-value="59" data-title="변동"></progress>
-                <div class="filters">
-                  <div>
-                    <small class="times" data-title="변동">59</small>( <small class="times" data-title="상승">39</small> |
-                      <small class="times" data-title="하락">20</small>)
-                  </div>
-                  <small class="times" data-title="총">69</small>
+              <header data-brand="naver">
+                <h4> 네이버 <span class="type">E</span><span class="grade black">B</span><small>(제한없음)</small></h4><span
+                  class="d-day">329</span>
+              </header>
+              <div class="progress"><small>2023-08-01 ~ 2024-07-25</small><progress max="500" data-value="465"
+                  data-title="잔여" value="0"
+                  style="--progressDelay: 03.5s; --progressPercent: calc(93% - 75.125px); --progressColor: linear-gradient(135deg, #5048d7 40%, darkturquoise);"></progress>
+                <div class="filters"><small class="times">0</small><small class="times" data-title="제공량">500</small>
                 </div>
               </div>
             </article>
             <article>
-              <h4> 최근 7일 간 <strong>순위 40위 안 유지</strong>소재 </h4>
-              <div class="progress"><progress value="0" max="69" data-value="10" data-title="40위 안"></progress>
-                <ul>
-                  <li><small class="times">0</small></li>
-                  <li data-title="총"><small class="times">69</small></li>
-                </ul>
+              <header data-brand="eleventh">
+                <h4> 11번가 <span>A</span><span class="grade black">B</span><small>(제한없음)</small></h4><span
+                  class="d-day">122</span>
+              </header>
+              <div class="progress"><small>2023-06-22 ~ 2023-12-31</small><progress max="30" data-value="9"
+                  data-title="잔여" value="0"
+                  style="--progressDelay: 04s; --progressPercent: calc(30% - 58.9844px); --progressColor: linear-gradient(135deg, #5048d7 40%, #5048d7);"></progress>
+                <div class="filters"><small class="times">21</small><small class="times" data-title="제공량">30</small>
+                </div>
+              </div>
+            </article>
+            <article>
+              <header data-brand="gmarket">
+                <h4> 지마켓 <span class="type">E</span><span class="grade purple">P</span><small>(3분)</small></h4><span
+                  class="d-day">6</span>
+              </header>
+              <div class="progress"><small>2023-06-09 ~ 2023-09-06</small><progress max="500" data-value="482"
+                  data-title="잔여" value="0"
+                  style="--progressDelay: 04.5s; --progressPercent: calc(96% - 74.9062px); --progressColor: linear-gradient(135deg, #5048d7 40%, darkturquoise);"></progress>
+                <div class="filters"><small class="times">0</small><small class="times" data-title="제공량">500</small>
+                </div>
+              </div>
+            </article>
+            <article>
+              <header data-brand="google">
+                <h4> 구글 <span class="type">E</span><span class="grade red">R</span><small>(10분)</small></h4><span
+                  class="d-day">154</span>
+              </header>
+              <div class="progress"><small>2023-06-29 ~ 2024-02-01</small><progress max="500" data-value="491"
+                  data-title="잔여" value="0"
+                  style="--progressDelay: 05s; --progressPercent: calc(98% - 73.0625px); --progressColor: linear-gradient(135deg, #5048d7 40%, darkturquoise);"></progress>
+                <div class="filters"><small class="times">0</small><small class="times" data-title="제공량">500</small>
+                </div>
               </div>
             </article>
           </div>
         </section>
-        <section class="section-chart">
+        <section class="section-data-tracking">
           <header>
-            <h2>순위 분포</h2>
-            <div class="filters">
-              <strong class="times" data-title="전체">98</strong>
-              <div class="selectbox">
-                <select name="" id="">
-                  <option value="">업데이트: 2023.04.01 09:00</option>
-                </select>
-              </div>
-            </div>
+            <h2>데이터 트래킹 이용 현황</h2><a href="https://localhost:49166/Mypage/PaymentHistoryView" target="_blank">서비스 이용 내역
+              보기</a>
           </header>
-          <div class="chart-container">
-            <div id="rankingChart" class="chart"></div>
-          </div>
-        </section>
-        <section>
-          <header>
-            <h2 data-brand="naver">최저가 추적</h2>
-            <small>2023.04.01 09:00</small>
-          </header>
-          <div class="articles">
-            <article>
-              <h4>
-                최근 24시간
-                <strong>최저가 변동</strong> 소재
-              </h4>
+          <div class="articles"><!-- <article data-brand="gmarket">               ====> 웨이브 추후 구현
+              <header>
+                <h4>
+                  지마켓 판매량 추적
+                  <span class="type">G</span>
+                  <span class="grade">K</span>
+                  <small>(전월(D-30))</small>
+                </h4>
+                <span class="d-day">45</span>
+              </header>
               <div class="progress">
-                <progress
-                  value="0"
-                  max="69"
-                  data-value="59"
-                  data-title="변동" />
-                <ul>
-                  <li data-title="변동">
-                    <small class="times">59</small>
-                    (
-                    <small class="times" data-title="상승">39</small> |
-                    <small class="times" data-title="하락">20</small>)
-                  </li>
-                  <li data-title="총">
-                    <small class="times">69</small>
-                  </li>
-                </ul>
-              </div>
-            </article>
-            <article>
-              <h4>
-                최근 7일 간
-                <strong>최저가 변동</strong>소재
-              </h4>
-              <div class="progress">
-                <progress
-                  value="0"
-                  max="69"
-                  data-value="59"
-                  data-title="변동" />
+                <small>2023.04.01 ~ 2023.04.31</small>
+                <progress 
+                  value="0" 
+                  max="100" 
+                  data-value="75" 
+                  data-title="잔여"
+                />
                 <ul>
                   <li>
-                    <strong class="times">0</strong>
+                    <small class="times">0</small>
                   </li>
-                  <li data-title="총">
-                    <strong class="times">69</strong>
+                  <li data-title="제공량">
+                    <small class="times">100</small>
                   </li>
                 </ul>
               </div>
+            </article> -->
+            <article>
+              <header data-brand="naver">
+                <h4> 네이버 순위 추적 <span class="type">G</span><!-- <span class="grade"></span>
+                  <small>(전월(D-30))</small> --></h4><span class="d-day">395</span>
+              </header>
+              <div class="progress"><small>2023-05-18 ~ 2024-09-29</small><progress max="100" data-value="77"
+                  data-title="잔여" value="0"
+                  style="--progressDelay: 05.5s; --progressPercent: calc(77% - 65.6875px); --progressColor: linear-gradient(135deg, #5048d7 40%, dodgerblue);"></progress>
+                <div class="filters"><small class="times">0</small><small class="times" data-title="제공량">100</small>
+                </div>
+              </div>
+            </article>
+            <article>
+              <header data-brand="naver">
+                <h4> 네이버 최저가 추적 <span class="type">F</span><!-- <span class="grade">K</span>
+                  <small /> --></h4><span class="d-day">393</span>
+              </header>
+              <div class="progress"><small>2022-07-23 ~ 2024-09-27</small><progress max="90" data-value="59"
+                  data-title="잔여" value="0"
+                  style="--progressDelay: 06s; --progressPercent: calc(65% - 66.875px); --progressColor: linear-gradient(135deg, #5048d7 40%, dodgerblue);"></progress>
+                <div class="filters"><small class="times">0</small><small class="times" data-title="제공량">90</small>
+                </div>
+              </div>
+            </article>
+            <article>
+              <header data-brand="naver">
+                <h4> 네이버 순위 추적 (M) <span class="type"></span><span class="grade"></span><small></small></h4>
+              </header>
+              <div> 서비스 기간이 만료되었거나 서비스 정보가 존재하지 않습니다. </div>
+            </article>
+            <article>
+              <header data-brand="naver">
+                <h4> 네이버 최저가 추적 (M) <span class="type"></span><span class="grade"></span><small></small></h4>
+              </header>
+              <div> 서비스 기간이 만료되었거나 서비스 정보가 존재하지 않습니다. </div>
             </article>
           </div>
         </section>
-        <section class="section-chart">
-          <header>
-            <h2>
-              최근 7일 간 그룹별 같은 업데이트 시간 대비 최저가 변동률
-              <div data-tooltip="" />
-            </h2>
-          </header>
-          <div class="chart-container">
-            <div id="lowestPriceChart" class="chart"></div>
-          </div>
-        </section>
-      </div>
-      <div class="sections">
-        <section class="section-article">
-          <header>
-            <h2>네이버 검색광고</h2>
-          </header>
-          <div class="wrapper">
-            <div id="naverPieChart" class="chart"></div>
-          </div>
-        </section>
+      </aside>
+      <div class="sections" style="--delay: 150ms;">
         <section class="section-issues">
           <header class="list-header">
-            <h2>입찰 이슈관리</h2>
+            <h2>추적 이슈관리</h2>
             <div class="inputs">
-              <div class="selectbox">
-                <select name="" id="">
-                  <option value="">매체: 전체</option>
-                </select>
-              </div>
-              <div class="selectbox">
-                <select name="" id="">
-                  <option value="">계정: 전체</option>
-                </select>
-              </div>
+              <div class="selectbox"><select id="" name="">
+                  <option value=""> 기능: 전체 </option>
+                </select></div>
             </div>
           </header>
           <div class="articles">
-            <article>
-              <header data-brand="naver">
-                <h4>2023.04.01 07:00:00</h4>
-              </header>
-              <div class="texts">
-                <p>
-                  검색광고 계정 gabiacns_01
-                  <strong>비즈머니 잔액 5,000원 미만</strong>
-                  입니다.
-                </p>
-                <p>충전이 필요합니다.</p>
-              </div>
-            </article>
-            <article>
-              <header data-brand="naver">
-                <h4>2023.04.01 07:00:00</h4>
-              </header>
-              <div class="texts">
-                <p>
-                  PC_파워링크 〉 케이스_갤럭시 〉 <strong>#갤럭시노트9케이스 (PC일반) 최대 입찰가(입찰한도)</strong> 에 도달했습니다.
-                </p>
-                <p>확인이 필요합니다.</p>
-              </div>
-            </article>
             <article>
               <header data-brand="gmarket">
                 <h4>2023.04.01 07:00:00</h4>
               </header>
               <div class="texts">
-                <p>
-                  <strong>G마켓 비즈머니 잔액 5,000원 미만</strong>입니다.
-                </p>
-                <p>충전이 필요합니다.</p>
+                <p> 판매량 추적전일 대비 판매량 증가가 <strong>판매량 증가가 가장 높은 그룹은 옥션_메인_비교 (+153)</strong>이고 <strong>가장 낮은 그룹은 옥션_아나시스 외
+                    1건(-1)</strong> 입니다. </p>
               </div>
             </article>
             <article>
-              <header data-brand="eleventh">
+              <header data-brand="naver">
                 <h4>2023.04.01 07:00:00</h4>
               </header>
               <div class="texts">
-                <p>
-                  <strong>비즈머니 잔액 5,000원 미만</strong>입니다
-                </p>
+                <p> 순위 추적 상품명 <strong>록시땅 핸드크림 시어버터 3종 트리오세트</strong> 키워드 <strong>핸드크림선물 지난 2일간 400위 안에 도달하지 못해 갱신
+                    중단되었습니다.</strong></p>
+                <p>확인이 필요합니다.</p>
+              </div>
+            </article>
+            <article>
+              <header data-brand="naver">
+                <h4>2023.04.01 07:00:00</h4>
+              </header>
+              <div class="texts">
+                <p> 최저가 추적 상품명 <strong>오아 무선 접이식 블루투스 키보드 지난 2일간 갱신에 실패하여 갱신 중단 되었습니다.</strong> 확인이 필요합니다. </p>
                 <p>충전이 필요합니다.</p>
               </div>
             </article>
           </div>
         </section>
       </div>
-    </div>
-  </div>
-  <div class="tab-content" data-tab="dashboard">
-    <div class="sections">
-      <section class="section-article">
-        <header>
-          <h2>자동입찰 이용 현황</h2>
-          <a href="">서비스 이용내역 보기</a>
-        </header>
-        <div class="articles">
-          <article data-brand="naver">
-            <header>
-              <h4>
-                네이버
-                <span class="type">C</span>
-                <span class="grade">K</span>
-                <small>(제한없음)</small>
-              </h4>
-              <span class="tag d-day">183</span>
-            </header>
-            <div class="progress">
-              <small>2023.04.01 ~ 2023.04.31</small>
-              <progress
-                value="0"
-                max="100"
-                data-value="14"
-                data-title="잔여" />
-              <ul>
-                <li>
-                  <small class="times">0</small>
-                </li>
-                <li data-title="제공량">
-                  <small class="times">100</small>
-                </li>
-              </ul>
-            </div>
-          </article>
-          <article data-brand="eleventh">
-            <header>
-              <h4>
-                11번가
-                <span class="type">A</span>
-                <span class="grade blue">B</span>
-                <small>(제한없음)</small>
-              </h4>
-              <span class="tag d-day">45</span>
-            </header>
-            <div class="progress">
-              <small>2023.04.01 ~ 2023.04.31</small>
-              <progress
-                value="0"
-                max="30"
-                data-value="27"
-                data-title="잔여" />
-              <ul>
-                <li>
-                  <small class="times">0</small>
-                </li>
-                <li data-title="제공량">
-                  <small class="times">30</small>
-                </li>
-              </ul>
-            </div>
-          </article>
-          <article data-brand="gmarket">
-            <header>
-              <h4>
-                지마켓
-                <span class="type">D</span>
-                <span class="grade purple">P</span>
-                <small>(제한없음)</small>
-              </h4>
-              <span class="tag d-day">13</span>
-            </header>
-            <div class="progress">
-              <small>2023.04.01 ~ 2023.04.31</small>
-              <progress
-                value="0"
-                max="300"
-                data-value="20"
-                data-title="잔여" />
-              <ul>
-                <li>
-                  <small class="times">0</small>
-                </li>
-                <li data-title="제공량">
-                  <small class="times">300</small>
-                </li>
-              </ul>
-            </div>
-          </article>
-          <article data-brand="google">
-            <header>
-              <h4>
-                구글
-                <span class="type">G</span>
-                <span class="grade red">R</span>
-                <small>(10분)</small>
-              </h4>
-              <span class="tag d-day">45</span>
-            </header>
-            <div class="progress">
-              <small>2023.04.01 ~ 2023.04.31</small>
-              <progress
-                value="0"
-                max="100"
-                data-value="63"
-                data-title="잔여" />
-              <ul>
-                <li>
-                  <small class="times">0</small>
-                </li>
-                <li data-title="제공량">
-                  <small class="times">100</small>
-                </li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </section>
-      <section class="section-article">
-        <header>
-          <h2>데이터 트래킹 이용 현황</h2>
-          <a href="">서비스 이용내역 보기</a>
-        </header>
-        <div class="articles">
-          <article data-brand="gmarket">
-            <header>
-              <h4>
-                지마켓 판매량 추적
-                <span class="type">G</span>
-                <span class="grade">K</span>
-                <small>(전월(D-30))</small>
-              </h4>
-              <span class="tag d-day">45</span>
-            </header>
-            <div class="progress">
-              <small>2023.04.01 ~ 2023.04.31</small>
-              <progress
-                value="0"
-                max="100"
-                data-value="75"
-                data-title="잔여" />
-              <ul>
-                <li>
-                  <small class="times">0</small>
-                </li>
-                <li data-title="제공량">
-                  <small class="times">100</small>
-                </li>
-              </ul>
-            </div>
-          </article>
-          <article data-brand="naver">
-            <header>
-              <h4>
-                네이버 순위 추적
-                <span class="type">G</span>
-                <span class="grade">K</span>
-                <small>(전월(D-30))</small>
-              </h4>
-              <span class="tag d-day">640</span>
-            </header>
-            <div class="progress">
-              <small>2023.04.01 ~ 2023.04.31</small>
-              <progress
-                value="0"
-                max="100"
-                data-value="71"
-                data-title="잔여" />
-              <ul>
-                <li>
-                  <small class="times">0</small>
-                </li>
-                <li data-title="제공량">
-                  <small class="times">100</small>
-                </li>
-              </ul>
-            </div>
-          </article>
-          <article data-brand="naver">
-            <header>
-              <h4>
-                네이버 최저가 추적
-                <span class="type">G</span>
-                <span class="grade">K</span>
-                <small></small>
-              </h4>
-              <span class="tag d-day">638</span>
-            </header>
-            <div class="progress">
-              <small>2023.04.01 ~ 2023.04.31</small>
-              <progress
-                value="0"
-                max="90"
-                data-value="58"
-                data-title="잔여" />
-              <ul>
-                <li>
-                  <small class="times">0</small>
-                </li>
-                <li data-title="제공량">
-                  <small class="times">90</small>
-                </li>
-              </ul>
-            </div>
-          </article>
-          <article data-brand="naver">
-            <header>
-              <h4>
-                네이버 순위 추적 M
-                <span class="type"></span>
-                <span class="grade"></span>
-                <small></small>
-              </h4>
-              <span class="tag d-day">640</span>
-            </header>
-            <div class="progress">
-              <small>2023.04.01 ~ 2023.04.31</small>
-              <progress
-                value="0"
-                max="90"
-                data-value="58"
-                data-title="잔여" />
-              <ul>
-                <li>
-                  <small class="times">0</small>
-                </li>
-                <li data-title="제공량">
-                  <small class="times">90</small>
-                </li>
-              </ul>
-            </div>
-          </article>
-          <article data-brand="naver">
-            <header>
-              <h4>
-                네이버 최저가 추적 M
-                <span class="type"></span>
-                <span class="grade"></span>
-                <small></small>
-              </h4>
-              <span class="tag d-day">638</span>
-            </header>
-            <div class="progress">
-              <small>2023.04.01 ~ 2023.04.31</small>
-              <progress
-                value="0"
-                max="90"
-                data-value="58"
-                data-title="잔여" />
-              <ul>
-                <li>
-                  <small class="times">0</small>
-                </li>
-                <li data-title="제공량">
-                  <small class="times">90</small>
-                </li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </section>
-    </div>
-    <div class="sections">
-      <section class="section-issues">
-        <header class="list-header">
-          <h2>추적 이슈관리</h2>
-          <div class="inputs">
-            <div class="selectbox">
-              <select name="" id="">
-                <option value="">기능: 전체</option>
-              </select>
-            </div>
+      <div class="sections boards" style="--delay: 300ms;">
+        <section class="section-article">
+          <header>
+            <h2>공지사항</h2><a class="more" href="https://localhost:49166/Customer/NoticeList?Category=All"
+              target="_blank"> 더보기 </a>
+          </header>
+          <div class="articles content">
+            <article>
+              <header>
+                <h4>[일반] TEST</h4><small>2022-11-18</small>
+              </header><!--v-if-->
+            </article>
+            <article>
+              <header>
+                <h4>[일반] 개인정보 취급방침 개정 안내</h4><small>2022-11-18</small>
+              </header><!--v-if-->
+            </article>
+            <article>
+              <header>
+                <h4>[일반] 링크확인</h4><small>2022-11-15</small>
+              </header><!--v-if-->
+            </article>
+            <article>
+              <header>
+                <h4>[일반] testestset</h4><small>2022-11-15</small>
+              </header><!--v-if-->
+            </article>
+            <article>
+              <header>
+                <h4>[일반] 11월 15일, 온라인 뉴스 클리핑입니다.</h4><small>2022-11-15</small>
+              </header><!--v-if-->
+            </article>
           </div>
-        </header>
-        <div class="articles">
-          <article data-brand="gmarket">
-            <header>
-              <h4>2023.04.01 07:00:00</h4>
-              <a href="">확인하기</a>
-            </header>
-            <div class="texts">
-              <p>
-                판매량 추적전일 대비 판매량 증가가
-                <strong>판매량 증가가 가장 높은 그룹은 옥션_메인_비교 (+153)</strong>이고
-                <strong>가장 낮은 그룹은 옥션_아나시스 외 1건(-1)</strong>
-                입니다.
-              </p>
-            </div>
-          </article>
-          <article data-brand="naver">
-            <header>
-              <h4>2023.04.01 07:00:00</h4>
-              <a href="">확인하기</a>
-            </header>
-            <div class="texts">
-              <p>
-                순위 추적 상품명
-                <strong>록시땅 핸드크림 시어버터 3종 트리오세트</strong>
-                키워드
-                <strong>핸드크림선물 지난 2일간 400위 안에 도달하지 못해 갱신 중단되었습니다.</strong>
-              </p>
-              <p>확인이 필요합니다.</p>
-            </div>
-          </article>
-          <article data-brand="naver">
-            <header>
-              <h4>2023.04.01 07:00:00</h4>
-              <a href="">확인하기</a>
-            </header>
-            <div class="texts">
-              <p>
-                최저가 추적 상품명
-                <strong>오아 무선 접이식 블루투스 키보드 지난 2일간 갱신에 실패하여 갱신 중단 되었습니다.</strong>
-                확인이 필요합니다.
-              </p>
-              <p>충전이 필요합니다.</p>
-            </div>
-          </article>
-        </div>
-      </section>
-    </div>
-    <div class="sections">
-      <section class="section-article">
-        <header>
-          <h2>공지사항</h2>
-          <a
-            class="more"
-            :href="$goToService('Customer/NoticeList?Category=All')"
-            target="_blank">
-            더보기
-          </a>
-        </header>
-        <div class="articles content">
-          <article
-            v-for="(item, index) in $store.state.serviceInfo.noticeInfo"
-            :key="index"
-            @click="$onclickGoToService('Customer/NoticeView?Idx=' + item.idx + '&Category=Normal', null)">
-            <header
-              v-if="item.category == 'NORMAL'">
-              <h4>[일반] {{ item.title }}</h4>
-              <small>{{ item.cdate }}</small>
-            </header>
-            <header
-              v-if="item.category == 'TIP'">
-              <h4>[판매TIP] {{ item.title }}</h4>
-              <small>{{ item.cdate }}</small>
-            </header>
-          </article>
-        </div>
-      </section>
-      <section class="section-article">
-        <header>
-          <h2>매뉴얼</h2>
-          <a href="">더보기</a>
-        </header>
-        <div class="articles">
-          <article>
-            <header>
-              <h4>[일반] 다이애드TREND 변경사항 안내</h4>
-              <small>2023.04.01</small>
-            </header>
-          </article>
-          <article>
-            <header>
-              <h4>[일반] 다이애드TREND 변경사항 안내</h4>
-              <small>2023.04.01</small>
-            </header>
-          </article>
-          <article>
-            <header>
-              <h4>[일반] 다이애드TREND 변경사항 안내</h4>
-              <small>2023.04.01</small>
-            </header>
-          </article>
-          <article>
-            <header>
-              <h4>[일반] 다이애드TREND 변경사항 안내</h4>
-              <small>2023.04.01</small>
-            </header>
-          </article>
-        </div>
-      </section>
-      <section class="section-article">
-        <header>
-          <h2>다이애드 캘린더 - 오늘</h2>
-          <a href="">더보기</a>
-        </header>
-        <div class="articles content">
-          <article>
-            <header>
-              <h4>[일반] 다이애드TREND 변경사항 안내</h4>
-              <small>2023.04.01</small>
-            </header>
-            <p>지마켓 빅세일</p>
-          </article>
-        </div>
-      </section>
+        </section>
+        <section class="section-article">
+          <header>
+            <h2>매뉴얼</h2><a class="more" href="https://blog.diad.co.kr/manual" target="_blank">더보기</a>
+          </header>
+          <div class="articles">
+            <article>
+              <header>
+                <h4 style="cursor: pointer;"> 서비스 신청은 어떻게 하나요? </h4>
+              </header>
+            </article>
+            <article>
+              <header>
+                <h4 style="cursor: pointer;"> 상품 순위 추적 시작하기 </h4>
+              </header>
+            </article>
+            <article>
+              <header>
+                <h4 style="cursor: pointer;"> 최저가 추적 시작하기 </h4>
+              </header>
+            </article>
+            <article>
+              <header>
+                <h4 style="cursor: pointer;"> 키워드 트렌드 시작하기 </h4>
+              </header>
+            </article>
+            <article>
+              <header>
+                <h4 style="cursor: pointer;"> 서비스 요금은 얼마인가요? </h4>
+              </header>
+            </article>
+          </div>
+        </section><!-- <section class="section-article">
+          <header>
+            <h2>다이애드 캘린더 - 오늘</h2>
+            <a href="">더보기</a>
+          </header>
+          <div class="articles content">
+            <article>
+              <header>
+                <h4>[일반] 다이애드TREND 변경사항 안내</h4>
+                <small>2023.04.01</small>
+              </header>
+              <p>지마켓 빅세일</p>
+            </article>
+          </div>
+        </section> -->
+      </div>
     </div>
   </div>
   <div class="scroll-down"></div>
+  <div class="scroll-to-top"></div>
 </main>
 {% endblock %}
