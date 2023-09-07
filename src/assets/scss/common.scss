@@ -507,14 +507,14 @@ aside {
 
 [data-brand] {
   &::before {
-    width: clamp(24px, 1.5vw, 30px);
+    width: clamp(20px, 1.5vw, 24px);
     aspect-ratio: 1;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: "Poppins";
-    font-size: clamp(13px, 1vw, 15px);
+    font-size: clamp(12px, 1vw, 14px);
   }
 
   &[data-brand="naver"]::before {
@@ -1470,7 +1470,7 @@ article {
   flex: 1 1 auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.5rem;
   overflow-y: auto;
   max-width: 100%;
 

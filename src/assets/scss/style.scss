@@ -3269,7 +3269,12 @@ main {
 
         .articles {
           flex-wrap: nowrap;
-          overflow-x: auto;
+        }
+      }
+
+      &.tracking {
+        .articles {
+          flex-wrap: wrap;
         }
       }
 
@@ -3310,7 +3315,7 @@ main {
       li {
         height: auto !important;
         font-size: 13px;
-        padding: 0.5rem;
+        padding: 5px 0;
 
         :first-child {
           font-family: "Poppins";
@@ -3319,7 +3324,7 @@ main {
 
       ul {
         padding: 0;
-        height: auto;
+        align-items: flex-start
       }
 
       article {
@@ -3337,7 +3342,7 @@ main {
 
       .swiper {
         width: 100%;
-        height: 93px;
+        height: 75px;
       }
     }
 
@@ -3441,7 +3446,7 @@ main {
 
       &.boards {
         flex: 0 0 auto;
-        width: min(400px, 100%);
+        width: min(450px, 100%);
 
         section {
           flex: 0 0 auto;
