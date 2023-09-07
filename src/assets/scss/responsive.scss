@@ -4,12 +4,8 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
 @media screen and (max-width: 1600px) {
   .content-bidding {
-
-
     &.main {
-
       .list {
-
         li {
           flex: 0 0 auto;
           min-width: 100px;
@@ -43,8 +39,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
   }
 
   :is([class$="details"]) {
-    flex-direction: column;
-
     &.sample {
       flex-wrap: nowrap;
 
@@ -186,7 +180,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
         display: flex;
       }
 
-      .top-banner {
+      .notification {
         font-size: 14px;
         padding: 0.5rem;
       }
@@ -254,16 +248,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     }
   }
 
-  .filters {
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    margin-top: 0 !important;
-  }
-
-  .container {
-    flex-direction: column;
-  }
-
   main {
     overflow-y: auto !important;
     gap: 0.5rem;
@@ -275,10 +259,52 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       padding: 0;
     }
 
+    aside {
+      min-width: 300px;
+      position: relative;
+      padding: 0 .75rem;
+
+      section {
+        background-color: white;
+        border-radius: 0.5rem;
+      }
+
+      .filters {
+        flex-wrap: nowrap;
+        padding: 0;
+
+        > div {
+          width: auto;
+        }
+      }
+    }
+
     .sections {
-      gap: 0.5rem;
+      gap: 1.5rem;
       flex-wrap: wrap;
     }
+  }
+
+  .swiper {
+    gap: 0 !important;
+
+    &-wrapper {
+      gap: 0 !important;
+    }
+
+    .articles {
+      justify-content: flex-start !important;
+    }
+  }
+
+  .filters {
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin-top: 0 !important;
+  }
+
+  .container {
+    flex-direction: column;
   }
 
   .list {
@@ -288,7 +314,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
         width: 100%;
 
         &.sticky {
-
           li {
             background-color: transparent;
           }
@@ -297,7 +322,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     }
 
     .row {
-
       &.checked {
         background-color: $secondary-color;
         box-shadow: 0 0 0 1px inset $main-color;
@@ -307,7 +331,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       }
     }
   }
-  
+
   .modal {
     header {
       padding: 0;
@@ -490,12 +514,17 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       max-width: 100%;
     }
   }
+  
+  .section-content {
+    flex-direction: column;
+  }
 
   .section-main {
-    padding: 0 1rem;
+    padding: 0;
 
     header {
       background-color: transparent;
+      padding: 0 1rem;
     }
 
     article {
@@ -506,12 +535,14 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       flex-basis: auto;
       padding: 0.5rem;
       gap: 5px;
+      width: calc(100% - 2rem);
     }
 
     .articles {
       width: 100%;
       flex-wrap: nowrap;
       scroll-snap-type: x mandatory;
+      justify-content: center;
 
       article {
         scroll-snap-align: start;
@@ -563,7 +594,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
         gap: 1rem;
       }
 
-      .username {
+      .account {
         border: 0;
         color: white;
         display: flex;
@@ -656,6 +687,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     .tab-content {
       gap: 0 !important;
       overflow: unset;
+      width: 100% !important;
     }
   }
 
@@ -679,7 +711,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       flex-wrap: wrap;
     }
 
-    .username {
+    .account {
       display: none !important;
     }
 
@@ -847,7 +879,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
         position: relative;
         gap: 5px;
         min-width: auto !important;
-        min-height: 32px;
+        min-height: 30px;
 
         &::before {
           content: attr(title);
@@ -924,24 +956,30 @@ $secondary-color: rgba(118, 130, 248, 0.1);
   }
 
   .content-dashboard {
+
+    aside {
+      width: 100%;
+      transform: unset;
+    }
+
+    section {
+      
+      &.section-issues {
+        article {
+          background-color: white
+        }
+      }
+    }
+
     .tab-content {
       padding: 0;
       gap: 1rem !important;
 
-      .articles {
-        flex-wrap: nowrap;
-        position: relative;
-        scroll-snap-type: x mandatory;
+      .sections {
+        width: 100%;
 
-        article {
-          scroll-snap-align: start;
-          width: 240px;
-          flex: 0 0 auto;
-          background-color: white;
-
-          &[data-brand] {
-            width: 100%;
-          }
+        section {
+          margin-bottom: 0;
         }
       }
     }
@@ -1166,7 +1204,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
         .buttons {
           width: 100%;
 
-          .btn-main {
+          button:last-child {
             position: fixed;
             left: 0;
             bottom: 0;
@@ -1174,6 +1212,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
             justify-content: center;
             width: 100%;
             height: 54px;
+            color: white;
             background-color: #333639 !important;
             font-size: 17px;
             z-index: 100;
@@ -1201,6 +1240,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     .filters {
       flex-wrap: wrap;
       flex-direction: column-reverse;
+      padding: 0;
 
       .filters {
         flex-direction: row;
@@ -1281,19 +1321,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
   }
 
   :is([class$="details"]) {
-    display: block;
-    overflow-y: auto;
-
-    section {
-      &:not(.section-main) {
-        background-color: transparent;
-      }
-    }
-
-    .content-header {
-      .title {
-      }
-    }
+    justify-content: center;
 
     > .wrapper {
       height: fit-content;
@@ -1441,9 +1469,8 @@ $secondary-color: rgba(118, 130, 248, 0.1);
   }
 
   .content-keyword-trend-details {
-    .content-header {
-      gap: 0;
-      position: relative;
+    > header {
+      padding: .5rem 1rem 0;
     }
 
     .layout {
@@ -1451,19 +1478,12 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     }
 
     section:not(.section-main) {
-      background-color: transparent;
-      border-radius: 0 !important;
-      box-shadow: 0 0 0;
-
       &.section-article {
         background-color: white;
         border-radius: 0;
       }
     }
 
-    .tab-content {
-      padding-top: 0;
-    }
     .section-main {
       background-color: white;
       border-radius: 0.5rem;
