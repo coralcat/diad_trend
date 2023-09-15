@@ -527,7 +527,7 @@
       </div>
     </header>
     <div class="wrapper">
-      <aside style="--delay: 0ms;">
+      <aside>
         <section class="section-monitoring">
           <header>
             <h2> 자동입찰 모니터링 </h2>
@@ -555,8 +555,8 @@
                 <header>
                   <h4> 입찰실행 중 <strong>목표도달</strong></h4><span class="tag red percent">낮음 14</span>
                 </header>
-                <div class="progress"><progress max="83" data-value="12" data-title="도달" value="0"
-                    style="--progressDelay: 00s; --progressPercent: 0; --progressColor: linear-gradient(135deg, orangered 40%, coral);"></progress>
+                <div class="progress">
+                  <progress max="83" data-value="12" data-title="도달" value="0"></progress>
                   <div class="filters"><small class="times">0</small><small class="times" data-title="총 입찰실행">83</small>
                   </div>
                 </div>
@@ -566,8 +566,8 @@
                 <header>
                   <h4> 입찰: 실패 중 <strong>최대 입찰가 도달</strong></h4><span class="tag red percent">낮음 15</span>
                 </header>
-                <div class="progress"><progress max="47" data-value="7" data-title="도달" value="0"
-                    style="--progressDelay: 00.5s; --progressPercent: 0; --progressColor: linear-gradient(135deg, orangered 40%, coral);"></progress>
+                <div class="progress">
+                  <progress max="47" data-value="7" data-title="도달" value="0"></progress>
                   <div class="filters"><small class="times">0</small><small class="times"
                       data-title="총 입찰: 실패">47</small></div>
                 </div>
@@ -765,8 +765,8 @@
           </div>
         </section>
       </div>
-      <aside style="--delay: 300ms;">
-        <section class="section-chart">
+      <aside>
+        <section class="section-monitoring">
           <header>
             <h2>입찰실행 건<strong>입찰결과</strong></h2>
             <div class="inputs">
@@ -1101,7 +1101,7 @@
   </div><!-- <middle-board /> -->
   <div class="tab-content" data-tab="dashboard">
     <div class="wrapper">
-      <aside style="--delay: 0ms;">
+      <div class="sections">
         <section class="section-bidding">
           <header>
             <h2>자동입찰 이용 현황</h2><a href="https://localhost:49166/Mypage/PaymentHistoryView" target="_blank">서비스 이용 내역
@@ -1110,48 +1110,85 @@
           <div class="articles">
             <article>
               <header data-brand="naver">
-                <h3> 네이버 <span class="type">E</span><span class="grade black">B</span><small>(제한없음)</small></h3><span
-                  class="d-day">329</span>
+                <h3>네이버</h3>
+                <span class="d-day">329</span>
               </header>
-              <div class="progress"><small>2023-08-01 ~ 2024-07-25</small><progress max="500" data-value="465"
-                  data-title="잔여" value="0"
-                  style="--progressDelay: 03.5s; --progressPercent: calc(93% - 75.125px); --progressColor: linear-gradient(135deg, #5048d7 40%, darkturquoise);"></progress>
+              <ul class="details">
+                <li data-title="타입">
+                  <span class="tag">라이브</span>
+                  <span class="service-type">C</span>
+                  <span class="grade">K</span>(제한없음)
+                </li>
+                <li data-title="기간">
+                  2023-08-01 ~ 2024-07-25
+                </li>
+              </ul>
+              <div class="progress">
+                <progress max="500" data-value="465"
+                  data-title="잔여" value="0"></progress>
                 <div class="filters"><small class="times">0</small><small class="times" data-title="제공량">500</small>
                 </div>
               </div>
             </article>
             <article>
               <header data-brand="eleventh">
-                <h3> 11번가 <span>A</span><span class="grade black">B</span><small>(제한없음)</small></h3><span
-                  class="d-day">122</span>
+                <h3>11번가</h3>
+                <span class="d-day">122</span>
               </header>
-              <div class="progress"><small>2023-06-22 ~ 2023-12-31</small><progress max="30" data-value="9"
-                  data-title="잔여" value="0"
-                  style="--progressDelay: 04s; --progressPercent: calc(30% - 58.9844px); --progressColor: linear-gradient(135deg, #5048d7 40%, #5048d7);"></progress>
+              <ul class="details">
+                <li data-title="타입">
+                  <span class="tag">라이브</span>
+                  <span class="service-type">C</span>
+                  <span class="grade blue">B</span>
+                </li>
+                <li data-title="기간">
+                  2023-08-01 ~ 2024-07-25
+                </li>
+              </ul>
+              <div class="progress">
+                <progress max="30" data-value="9" data-title="잔여" value="0"></progress>
                 <div class="filters"><small class="times">21</small><small class="times" data-title="제공량">30</small>
                 </div>
               </div>
             </article>
             <article>
               <header data-brand="gmarket">
-                <h3> 지마켓 <span class="type">E</span><span class="grade purple">P</span><small>(3분)</small></h3><span
-                  class="d-day">6</span>
+                <h3>지마켓</h3>
+                <span class="d-day">6</span>
               </header>
-              <div class="progress"><small>2023-06-09 ~ 2023-09-06</small><progress max="500" data-value="482"
-                  data-title="잔여" value="0"
-                  style="--progressDelay: 04.5s; --progressPercent: calc(96% - 74.9062px); --progressColor: linear-gradient(135deg, #5048d7 40%, darkturquoise);"></progress>
+              <ul class="details">
+                <li data-title="타입">
+                  <span class="tag">라이브</span>
+                  <span class="service-type">E</span>
+                  <span class="grade purple">P</span>
+                </li>
+                <li data-title="기간">
+                  2023-08-01 ~ 2024-07-25
+                </li>
+              </ul>
+              <div class="progress">
+                <progress max="500" data-value="482" data-title="잔여" value="0"></progress>
                 <div class="filters"><small class="times">0</small><small class="times" data-title="제공량">500</small>
                 </div>
               </div>
             </article>
             <article>
               <header data-brand="google">
-                <h3> 구글 <span class="type">E</span><span class="grade red">R</span><small>(10분)</small></h3><span
-                  class="d-day">154</span>
+                <h3>구글</h3>
+                <span class="d-day">154</span>
               </header>
-              <div class="progress"><small>2023-06-29 ~ 2024-02-01</small><progress max="500" data-value="491"
-                  data-title="잔여" value="0"
-                  style="--progressDelay: 05s; --progressPercent: calc(98% - 73.0625px); --progressColor: linear-gradient(135deg, #5048d7 40%, darkturquoise);"></progress>
+              <ul class="details">
+                <li data-title="타입">
+                  <span class="tag">라이브</span>
+                  <span class="service-type">E</span>
+                  <span class="grade red">R</span>
+                </li>
+                <li data-title="기간">
+                  2023-08-01 ~ 2024-07-25
+                </li>
+              </ul>
+              <div class="progress">
+                <progress max="500" data-value="491" data-title="잔여" value="0"></progress>
                 <div class="filters"><small class="times">0</small><small class="times" data-title="제공량">500</small>
                 </div>
               </div>
@@ -1163,18 +1200,25 @@
             <h2>데이터 트래킹 이용 현황</h2><a href="https://localhost:49166/Mypage/PaymentHistoryView" target="_blank">서비스 이용 내역
               보기</a>
           </header>
-          <div class="articles"><!-- <article data-brand="gmarket">               ====> 웨이브 추후 구현
-              <header>
-                <h4>
+          <div class="articles">
+            <article>
+              <header data-brand="gmarket">
+                <h3>
                   지마켓 판매량 추적
-                  <span class="type">G</span>
-                  <span class="grade">K</span>
-                  <small>(전월(D-30))</small>
-                </h4>
-                <span class="d-day">45</span>
+                </h3>
+                <span class="d-day">395</span>
               </header>
+              <ul class="details">
+                <li data-title="타입">
+                  <span class="tag">추적</span>
+                  <span class="service-type">G</span>
+                  <span class="grade">K</span>(전월(D-30))
+                </li>
+                <li data-title="기간">
+                  2023-08-01 ~ 2024-07-25
+                </li>
+              </ul>
               <div class="progress">
-                <small>2023.04.01 ~ 2023.04.31</small>
                 <progress 
                   value="0" 
                   max="100" 
@@ -1190,47 +1234,77 @@
                   </li>
                 </ul>
               </div>
-            </article> -->
+            </article>
             <article>
               <header data-brand="naver">
-                <h3> 네이버 순위 추적 <span class="type">G</span><!-- <span class="grade"></span>
-                  <small>(전월(D-30))</small> --></h3><span class="d-day">395</span>
+                <h3> 네이버 순위 추적</h3>
+                <span class="d-day">395</span>
               </header>
-              <div class="progress"><small>2023-05-18 ~ 2024-09-29</small><progress max="100" data-value="77"
-                  data-title="잔여" value="0"
-                  style="--progressDelay: 05.5s; --progressPercent: calc(77% - 65.6875px); --progressColor: linear-gradient(135deg, #5048d7 40%, dodgerblue);"></progress>
+              <ul class="details">
+                <li data-title="타입">
+                  <span class="tag">추적</span>
+                  <span class="service-type">G</span>
+                </li>
+                <li data-title="기간">
+                  2023-08-01 ~ 2024-07-25
+                </li>
+              </ul>
+              <div class="progress">
+                <progress max="100" data-value="77" data-title="잔여" value="0"></progress>
                 <div class="filters"><small class="times">0</small><small class="times" data-title="제공량">100</small>
                 </div>
               </div>
             </article>
             <article>
               <header data-brand="naver">
-                <h3> 네이버 최저가 추적 <span class="type">F</span><!-- <span class="grade">K</span>
-                  <small /> --></h3><span class="d-day">393</span>
+                <h3> 네이버 순위 추적</h3>
+                <span class="d-day">395</span>
               </header>
-              <div class="progress"><small>2022-07-23 ~ 2024-09-27</small><progress max="90" data-value="59"
-                  data-title="잔여" value="0"
-                  style="--progressDelay: 06s; --progressPercent: calc(65% - 66.875px); --progressColor: linear-gradient(135deg, #5048d7 40%, dodgerblue);"></progress>
+              <ul class="details">
+                <li data-title="타입">
+                  <span class="tag">알림</span>
+                </li>
+                <li data-title="기간">
+                  2023-08-01 ~ 2024-07-25
+                </li>
+              </ul>
+            </article>
+            <article>
+              <header data-brand="naver">
+                <h3> 네이버 최저가 추적 </h3>
+                <span class="d-day">393</span>
+              </header>
+              <ul class="details">
+                <li data-title="타입">
+                  <span class="tag">추적</span>
+                </li>
+                <li data-title="기간">
+                  2023-08-01 ~ 2024-07-25
+                </li>
+              </ul>
+              <div class="progress">
+                <progress max="90" data-value="59"
+                  data-title="잔여" value="0"></progress>
                 <div class="filters"><small class="times">0</small><small class="times" data-title="제공량">90</small>
                 </div>
               </div>
             </article>
             <article>
               <header data-brand="naver">
-                <h3> 네이버 순위 추적 (M) <span class="type"></span><span class="grade"></span><small></small></h3>
+                <h3> 네이버 최저가 추적 </h3>
+                <span class="d-day">393</span>
               </header>
-              <div> 서비스 기간이 만료되었거나 서비스 정보가 존재하지 않습니다. </div>
-            </article>
-            <article>
-              <header data-brand="naver">
-                <h3> 네이버 최저가 추적 (M) <span class="type"></span><span class="grade"></span><small></small></h3>
-              </header>
-              <div> 서비스 기간이 만료되었거나 서비스 정보가 존재하지 않습니다. </div>
+              <ul class="details">
+                <li data-title="타입">
+                  <span class="tag">알림</span>
+                </li>
+                <li data-title="기간">
+                  2023-08-01 ~ 2024-07-25
+                </li>
+              </ul>
             </article>
           </div>
         </section>
-      </aside>
-      <div class="sections">
         <section class="section-issues tracking">
           <header class="list-header">
             <h2>추적 이슈관리</h2>
@@ -1276,8 +1350,8 @@
           </div>
         </section>
       </div>
-      <div class="sections boards" style="--delay: 300ms;">
-        <section class="section-article">
+      <aside>
+        <section>
           <header>
             <h2>공지사항</h2><a class="more" href="https://localhost:49166/Customer/NoticeList?Category=All"
               target="_blank"> 더보기 </a>
@@ -1286,35 +1360,35 @@
             <article>
               <header>
                 <h4>[일반] TEST</h4><small>2022-11-18</small>
-              </header><!--v-if-->
+              </header>
             </article>
             <article>
               <header>
                 <h4>[일반] 개인정보 취급방침 개정 안내</h4><small>2022-11-18</small>
-              </header><!--v-if-->
+              </header>
             </article>
             <article>
               <header>
                 <h4>[일반] 링크확인</h4><small>2022-11-15</small>
-              </header><!--v-if-->
+              </header>
             </article>
             <article>
               <header>
                 <h4>[일반] testestset</h4><small>2022-11-15</small>
-              </header><!--v-if-->
+              </header>
             </article>
             <article>
               <header>
                 <h4>[일반] 11월 15일, 온라인 뉴스 클리핑입니다.</h4><small>2022-11-15</small>
-              </header><!--v-if-->
+              </header>
             </article>
           </div>
         </section>
-        <section class="section-article">
+        <section>
           <header>
             <h2>매뉴얼</h2><a class="more" href="https://blog.diad.co.kr/manual" target="_blank">더보기</a>
           </header>
-          <div class="articles">
+          <div class="articles content">
             <article>
               <header>
                 <h4 style="cursor: pointer;"> 서비스 신청은 어떻게 하나요? </h4>
@@ -1356,7 +1430,7 @@
             </article>
           </div>
         </section> -->
-      </div>
+      </aside>
     </div>
   </div>
   <div class="scroll-down"></div>

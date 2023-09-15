@@ -115,7 +115,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       min-height: auto;
       overflow: unset;
 
-      * {
+      *:not(.swiper-pagination-bullet) {
         opacity: 1 !important;
         visibility: visible !important;
       }
@@ -343,6 +343,15 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       }
     }
 
+    &.section-bidding,
+    &.section-data-tracking {
+      padding: 1rem 0;
+
+      > header {
+        padding: 0 1rem
+      }
+    }
+
     .wrapper {
       flex-wrap: wrap;
       max-width: 100%;
@@ -355,6 +364,9 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     &.small {
       .swiper-slide {
         flex: 0 0 auto;
+        width: calc(100% - 2rem);
+        background-color: white;
+        border: 0;
       }
     }
 

@@ -161,8 +161,8 @@ body {
   }
 
   h2 {
-    font-family: "NanumSquareR";
-    font-size: clamp(15px, 1.1vw, 17px);
+    font-family: "NanumSquareB";
+    font-size: clamp(14px, 1.1vw, 15px);
 
     .tooltip {
       &::before {
@@ -173,9 +173,10 @@ body {
   }
 
   h3 {
+    font-family: "NanumSquareR";
     flex-wrap: wrap;
     gap: 3px;
-    font-size: clamp(16px, 1.1vw, 17px);
+    font-size: clamp(15px, 1.1vw, 16px);
     font-weight: 500;
 
     .tooltip {
@@ -637,11 +638,10 @@ aside {
 
 .d-day {
   background-color: transparent;
-  border: 1px solid rgba(118, 130, 248, 0.5);
-  padding: 2px 6px;
-  color: $main-color;
+  border: 1px solid #c3c6c9;
+  padding: 2px 0.5rem;
   border-radius: 30px;
-  font-size: 12px;
+  font-size: 13px;
 
   &::before {
     content: "D-";
@@ -1106,19 +1106,17 @@ progress {
     content: attr(data-title) " " attr(data-value) "건" !important;
     opacity: 0;
     position: absolute;
-    top: -1.65rem;
+    top: -2rem;
     left: var(--progressPercent);
     width: var(--width);
     background: var(--progressColor);
     border-radius: 3px;
     margin-right: 0 !important;
-    padding: 3px 6px;
-    font-size: 13px;
+    padding: 5px .5rem;
     line-height: 1;
     font-weight: 500;
     color: $main-color;
-    border: 1px solid #e3e3e9;
-    background: transparent;
+    background: white;
     transition: left 1.25s;
     transition-delay: var(--progressDelay);
     animation: fadeInOpacity 2s forwards;
@@ -1475,8 +1473,36 @@ article {
   max-width: 100%;
 
   &.content {
+    gap: 0;
+    border-top: 1px solid #333;
+
+    header {
+      flex-wrap: nowrap;
+
+      h4 {
+        display: block;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      small {
+        flex: 0 0 auto;
+        width: 80px;
+        justify-content: flex-end;
+      }
+    }
+
     article {
       width: 100%;
+      border: 0;
+      border-radius: 0;
+      border-bottom: 1px solid #e3e6e9;
+
+      &:last-of-type {
+        border-color: #c3c6c9;
+      }
+
     }
   }
 
@@ -1488,6 +1514,7 @@ article {
     border: 1px solid #e3e6e9;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 0.5rem;
 
@@ -1498,7 +1525,11 @@ article {
     }
 
     button {
-      height: clamp(24px, 4vh, 30px);
+      height: clamp(24px, 4vh, 32px);
+      background: #434649;
+      color: white;
+      align-self: center;
+      padding: 0 2rem;
     }
 
     .title {
@@ -2581,7 +2612,7 @@ article {
   }
 
   &-slide {
-    height: fit-content !important;
+    // height: fit-content !important;
   }
 
   &-pagination {
