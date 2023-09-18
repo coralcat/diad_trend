@@ -54,9 +54,7 @@
         </svg>
       </div>
     </header>
-    
-
-
+      
 <aside class="aside">
   <div class="buttons">
     <a href="index.html" class="logo"></a>
@@ -179,15 +177,12 @@
   </ul>
 </aside>
 
-<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.8/index.global.min.js'></script>
-<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/web-component@6.1.8/index.global.min.js'></script>
-<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.8/index.global.min.js'></script>
-<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/list@6.1.8/index.global.min.js"></script>
-<main class="content-calendar">
+<main class="content-ads google new">
   <header class="content-header">
     <div class="title">
       <h1>
-        다이애드 캘린더
+        <span>구글 입점광고</span>
+        <div data-tooltip=""></div>
       </h1>
       <div href="#" class="account" target="_blank">
   <menu>coralcat</menu>
@@ -200,91 +195,16 @@
   </nav>
 </div>
     </div>
-    <div class="title">
-      <ul class="tabs main-tabs">
-        <li data-tab="calendar" class="is-active">
-          달력 보기
-        </li>
-        <li data-tab="calendar">
-          목록 보기
-        </li>
-      </ul>
-      <button class="btn-main">
-        이벤트 추가
-      </button>
-    </div>
   </header>
-  <div class="tab-content is-active" data-tab="calendar">
+  <div class="wrapper">
     <section>
-      <full-calendar id="calendar" />
-    </section>
-  </div>
-  <div class="tab-content" data-tab="calendar">
-    <section>
-      <list id="list" />
+      <h3>다이애드 구글 광고 서비스는 처음이세요?</h3>
+      <div class="buttons">
+        <button onclick="location.href='ads_google_new_02.html'">구글 판매자 센터 시작하기</button>
+      </div>
     </section>
   </div>
 </main>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const calendarEl = document.querySelector("full-calendar");
-    calendarEl.options = {
-      headerToolbar: {
-        left: "title",
-        center: "",
-        right: "dayGridMonth, listMonth"
-      },
-      events: [
-        {
-          title: "전체 회의",
-          start: "2023-07-14",
-          end: "2023-07-14",
-          color: "#5048d7"
-        },
-        {
-          title: "키워드 검색광고 관리",
-          start: "2023-07-20",
-          end: "2023-07-22",
-          color: "#5048d7"
-        },
-        {
-          title: "매체별 광고현황 보고서 작성",
-          start: "2023-07-18",
-          end: "2023-07-21",
-          color: "#7682f8"
-        },
-      ],
-      eventColor: "#7682f8",
-    }
-
-    var listEl = document.querySelector("list");
-    listEl.options = {
-      headerToolbar: {
-        left: "title",
-        center: "",
-        right: "dayGridMonth, listMonth"
-      },
-      events: [
-        {
-          title: "전체 회의",
-          start: "2023-07-14",
-          end: "2023-07-14",
-        },
-        {
-          title: "키워드 검색광고 관리",
-          start: "2023-07-20",
-          end: "2023-07-22",
-        },
-        {
-          title: "매체별 광고현황 보고서 작성",
-          start: "2023-07-18",
-          end: "2023-07-21",
-        },
-      ],
-      eventColor: "#7682f8"
-    }
-  })
-</script>
 
   </div>
 </body>
