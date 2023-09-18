@@ -346,7 +346,7 @@ body {
     }
 
     &:read-only {
-      background-color: rgba(#f3f6f9, 0.5);
+      background-color: rgba(#f3f6f9, 0.5) !important;
     }
 
     &:focus {
@@ -1455,6 +1455,7 @@ input[type="radio"] {
    Article
    ===================================================== */
 article {
+  word-break: keep-all;
   position: relative;
 
   .d-day {
@@ -1498,6 +1499,7 @@ article {
       border: 0;
       border-radius: 0;
       border-bottom: 1px solid #e3e6e9;
+      padding: 1rem 5px;
 
       &:last-of-type {
         border-color: #c3c6c9;
@@ -1526,10 +1528,15 @@ article {
 
     button {
       height: clamp(24px, 4vh, 32px);
-      background: #434649;
-      color: white;
+      background: $secondary-color;
+      color: $main-color;
       align-self: center;
       padding: 0 2rem;
+
+      &:hover {
+        background-color: $main-color;
+        color: white;
+      }
     }
 
     .title {

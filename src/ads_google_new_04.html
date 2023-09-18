@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('ads')}}
+<main class="content-ads google new">
+  <header class="content-header">
+    <div class="title">
+      <h1>
+        <span>구글 입점광고</span>
+        <div data-tooltip=""></div>
+      </h1>
+      {% include "account.html" %}
+    </div>
+  </header>
+  <div class="wrapper">
+    <section class="section-inputs">
+      <header>
+        <h2>구글 판매자 센터 계정 생성이 완료되었습니다.</h2>
+      </header>
+      <div class="caution">
+        <p>
+          구글 판매자 센터 서비스를 원활하게 이용하시려면 웹사이트 인증 - 전화번호 인증 - 배송 정보 등록을 완료하세요.
+        </p>
+        <p>
+          구글 쇼핑 광고 서비스를 이용하시려면 <a href="https://ads.google.com" target="_blank">Google Ads 계정을 생성</a>하세요.
+        </p>
+      </div>
+      <div class="buttons">
+        <button onclick="location.href='ads_google.html'">판메자 센터로 가기</button>
+      </div>
+    </section>
+  </div>
+</main>
+{% endblock %}
