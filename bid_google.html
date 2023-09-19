@@ -159,7 +159,7 @@
     </a>
     <a class="" href="keyword.html">
       <i class="ico-trend"></i>
-      <span>키워드 트렌드</span>
+      <span>키워드 분석</span>
     </a>
     <a class="" href="settings.html">
       <i class="ico-alarm"></i>
@@ -1506,7 +1506,7 @@
   </div>
 </div>
 
-<div id="googleAdsWebsite" class="modal" title="웹사이트 인증 및 소유권 주장">
+<div id="googleWebsite" class="modal" title="웹사이트 인증 및 소유권 주장">
   <div class="dialog">
     <header class="modal-header">
       <h3>웹사이트 인증 및 소유권 주장</h3>
@@ -1547,12 +1547,12 @@
       </section>
     </div>
     <footer class="buttons">
-      <button data-modal="googleAdsWebsite2" type="button">다음</button>
+      <button data-modal="googleWebsite2" type="button">다음</button>
     </footer>
   </div>
 </div>
 
-<div id="googleAdsWebsite2" class="modal" title="웹사이트 인증 및 소유권 주장 - HTML 태그 추가">
+<div id="googleWebsite2" class="modal" title="웹사이트 인증 및 소유권 주장 - HTML 태그 추가">
   <div class="dialog">
     <header class="modal-header">
       <h3>웹사이트 인증 및 소유권 주장</h3>
@@ -1596,12 +1596,12 @@
     </div>
     <footer class="buttons">
       <button class="close" type="button">이전</button>
-      <button data-modal="googleAdsWebsite3" type="button">웹사이트 인증</button>
+      <button data-modal="googleWebsite3" type="button">웹사이트 인증</button>
     </footer>
   </div>
 </div>
 
-<div id="googleAdsWebsite3" class="modal" title="웹사이트 인증 및 소유권 주장 - 완료">
+<div id="googleWebsite3" class="modal" title="웹사이트 인증 및 소유권 주장 - 완료">
   <div class="dialog">
     <header class="modal-header">
       <h3>웹사이트 인증 및 소유권 주장</h3>
@@ -1639,6 +1639,269 @@
     </div>
     <footer class="buttons">
       <button class="close" type="button">확인</button>
+    </footer>
+  </div>
+</div>
+
+<div id="googlePhoneNumber" class="modal" title="전화번호 인증">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>전화번호 인증</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section>
+        <header>
+          <h4>인증코드 전송 방식</h4>
+        </header>
+        <div class="caution">
+          <p>
+            Google에서 전화번호를 사용하여 쇼핑몰의 소유자임을 확인합니다.
+          </p>
+          <p>
+            유선 전화번호는 음성통화 방식을 이용하시면 전화번호를 인증할 수 있습니다.</p>
+        </div>
+        <div class="selector">
+          <input id="sms" type="radio" name="googlePhoneNumber" />
+          <label for="sms">
+            <h5>문자 메시지</h5>
+            <p>
+              입력하신 전화번호로 인증 코드가 포함된 문자 메시지가 전송됩니다.
+            </p>
+          </label>
+          <input id="voices" type="radio" name="googlePhoneNumber" />
+          <label for="voices">
+            <h5>음성통화</h5>
+            <p>
+              입력하신 전화번호로 자동 음성 메시지가 포함된 음성 통화가 발신됩니다.
+            </p>
+          </label>
+        </div>
+      </section>
+      <section class="section-agreement">
+        <ul class="list">
+          <li class="row">
+            <div class="checkbox">
+              <input id="check-google-01" type="checkbox" name="google-ads-agreement">
+              <label for="check-google-01">
+                <span class="tag">필수</span> 개인정보 수집 및 이용 동의
+              </label>
+            </div>
+            <a href="https://support.google.com/merchants/answer/6149970?hl=ko" target="_blank"></a>
+          </li>
+          <li class="row">
+            <div class="checkbox">
+              <input id="check-google-02" type="checkbox" name="google-ads-agreement">
+              <label for="check-google-02">
+                <span class="tag">필수</span> 개인정보 제 3자 제공 동의
+              </label>
+            </div>
+            <a href="https://billing.google.com/payments/u/0/paymentsinfofinder?style=:md" target="_blank"></a>
+          </li>
+          <li class="row title">
+            <div class="checkbox">
+              <input id="check-google" class="check-all" type="checkbox" name="google-ads-agreement">
+              <label for="check-google">
+                <strong>전체동의</strong>
+                약관 및 정책을 모두 확인하였고, 내용에 동의합니다.
+              </label>
+            <svg width="15px" height="10px">
+                <polyline points="1,5 6,9 14,1"></polyline>
+              </svg></div>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <ul class="list form">
+          <li>
+            <div>전화번호</div>
+            <div>
+              <input type="number" placeholder="'-'' 없이 입력해 주세요." />
+              <button>인증코드 요청</button>
+            </div>
+          </li>
+          <li>
+            <div>인증코드</div>
+            <div>
+              <input type="number" placeholder="Google에서 전송한 인증 코드 6자리를 입력하세요." />
+              <small class="message">잘못된 인증 코드입니다. 다시 시도해 주세요.
+              </small>
+            </div>
+          </li>
+          <li>
+            <div></div>
+            <div>
+              <small>
+                <span>인증코드를 받지 못하셨나요?</span>
+                <strong>00:30</strong>초 후 재전송 가능합니다.
+                <button>재전송</button>
+              </small>
+              <small class="message">인증번호 발송 횟수를 초과하였습니다. 4시간 후에 다시 시도해 주세요.
+              </small>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+    <footer class="buttons">
+      <button class="close" type="button">인증완료</button>
+    </footer>
+  </div>
+</div>
+
+<div id="googleShipping" class="modal" title="배송 정보 등록">
+  <div class="dialog">
+    <header class="modal-header">
+      <h3>배송 정보 등록</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section>
+        <ul class="list form">
+          <li>
+            <div>
+              <span class="tag">필수</span>
+              이름
+            </div>
+            <div>
+              <input type="text" placeholder="" />
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              배송비
+            </div>
+            <div class="selector">
+              <input id="differentialShippingCost" name="shippingCost" type="radio" />
+              <label for="differentialShippingCost">차등 배송비</label>
+              <input id="fixedShippingCost" name="shippingCost" type="radio" />
+              <label for="fixedShippingCost">고정 배송비</label>
+              <input id="freeShipping" name="shippingCost" type="radio" />
+              <label for="freeShipping">무료</label>
+              <div>
+                <div class="price">
+                  <input type="number">
+                  <span>\ 0 이상</span>
+                  <input type="number">
+                  <span>미만 + </span>
+                  <input type="number">
+                  <span>\ 이상</span>
+                </div>
+              </div>
+              <div class="price">
+                <input type="number">
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>예상 배송 시간</div>
+            <div>
+              예상 배송 시간은 주문 시간, 상품 준비 시간, 운송 시간, 공휴일 등을 고려하여 계산됩니다.
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="선택"></span>
+              주문 마감 시간
+              <div data-tooltip=""></div>
+            </div>
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="">시간 선택</option>
+                <option value="">00:00</option>
+                <option value="">01:00</option>
+                <option value="">02:00</option>
+                <option value="">03:00</option>
+                <option value="">04:00</option>
+                <option value="">05:00</option>
+                <option value="">06:00</option>
+                <option value="">07:00</option>
+                <option value="">08:00</option>
+                <option value="">09:00</option>
+                <option value="">10:00</option>
+                <option value="">11:00</option>
+                <option value="">12:00</option>
+                <option value="">13:00</option>
+                <option value="">14:00</option>
+                <option value="">15:00</option>
+                <option value="">16:00</option>
+                <option value="">17:00</option>
+                <option value="">18:00</option>
+                <option value="">19:00</option>
+                <option value="">20:00</option>
+                <option value="">21:00</option>
+                <option value="">22:00</option>
+                <option value="">23:00</option>
+                <option value="">24:00</option>
+              </select>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              상품 준비 시간
+              <div data-tooltip=""></div>
+            </div>
+            <div>
+              <input type="number" />
+              <span>~</span>
+              <input type="number" />
+              <span>일</span>
+              <div class="selector">
+                처리일
+                <input id="prepareMonday" name="" type="checkbox" />
+                <label for="prepareMonday">월요일</label>
+                <input id="prepareTuesday" name="" type="checkbox" />
+                <label for="prepareTuesday">화요일</label>
+                <input id="prepareWednesday" name="" type="checkbox" />
+                <label for="prepareWednesday">수요일</label>
+                <input id="prepareThursday" name="" type="checkbox" />
+                <label for="prepareThursday">목요일</label>
+                <input id="prepareFriday" name="" type="checkbox" />
+                <label for="prepareFriday">금요일</label>
+                <input id="prepareSaturday" name="" type="checkbox" />
+                <label for="prepareSaturday">토요일</label>
+                <input id="prepareSunday" name="" type="checkbox" />
+                <label for="prepareSunday">일요일</label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              운송 시간
+              <div data-tooltip=""></div>
+            </div>
+            <div>
+              <input type="number" />
+              <span>~</span>
+              <input type="number" />
+              <span>일</span>
+              <div class="selector">
+                발송일
+                <input id="shippingMonday" name="" type="checkbox" />
+                <label for="shippingMonday">월요일</label>
+                <input id="shippingTuesday" name="" type="checkbox" />
+                <label for="shippingTuesday">화요일</label>
+                <input id="shippingWednesday" name="" type="checkbox" />
+                <label for="shippingWednesday">수요일</label>
+                <input id="shippingThursday" name="" type="checkbox" />
+                <label for="shippingThursday">목요일</label>
+                <input id="shippingFriday" name="" type="checkbox" />
+                <label for="shippingFriday">금요일</label>
+                <input id="shippingSaturday" name="" type="checkbox" />
+                <label for="shippingSaturday">토요일</label>
+                <input id="shippingSunday" name="" type="checkbox" />
+                <label for="shippingSunday">일요일</label>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+    <footer class="buttons">
+      <button class="close" type="button">인증완료</button>
     </footer>
   </div>
 </div>
