@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('ads')}}
-<main class="content-ads google new">
+<main class="content-ads google">
   <header class="content-header">
     <div class="title">
       <h1>
@@ -9,13 +9,153 @@
       {% include "account.html" %}
     </div>
   </header>
-  <div class="wrapper">
-    <section>
-      <h3>다이애드 구글 광고 서비스는 처음이세요?</h3>
-      <div class="buttons">
-        <button onclick="location.href='ads_google_new_02.html'">구글 판매자 센터 시작하기</button>
+  <section class="section-main">
+    <header>
+      <div class="inputs">
+        <h2>https://www.diad.co.kr</h2>
+        <div class="buttons">
+          <button onclick="location.href='ads_google_details.html'">상세</button>
+          <button>해제</button>
+        </div>
       </div>
+      <small>등록일 2023.06.01</small>
+    </header>
+  </section>
+  <div class="sections">
+    <section>
+      <header>
+        <h2>판매자 센터</h2>
+      </header>
+      <div class="account">
+        <h4>
+          <small>123456789</small>
+          다이애드
+        </h4>
+        <span class="tag">대기</span>
+      </div>
+      <ul class="list">
+        <li class="row">
+          <div>
+            <span class="tag">필수</span>
+            웹사이트 인증
+          </div>
+          <button data-modal="googleAdsWebsite">인증하기</button>
+        </li>
+        <li class="row">
+          <div>
+            <span class="tag">필수</span>
+            전화번호 인증
+          </div>
+          <button>인증하기</button>
+        </li>
+        <li class="row">
+          <div>
+            <span class="tag">필수</span>
+            배송 정보 등록
+          </div>
+          <button>인증하기</button>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <header>
+        <h2>상품 피드</h2>
+        <div class="filters">
+          <span data-title="업로드">0</span>
+          <span data-title="마지막 업로드">0</span>
+        </div>
+      </header>
+      <div class="account">
+        <button>연동하기</button>
+      </div>
+      <header>
+        <div class="filters">
+          <span data-title="총 상품"></span>
+          <span data-title="업데이트"></span>
+        </div>
+      </header>
+      <ul class="list">
+        <li class="row">
+          <div>활성</div>
+          <div>0</div>
+        </li>
+        <li class="row">
+          <div>비승인</div>
+          <div>0</div>
+        </li>
+        <li class="row">
+          <div>대기</div>
+          <div>0</div>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <header>
+        <h2>구글 애즈</h2>
+      </header>
+      <div class="account">
+        <button>생성하기</button>
+      </div>
+      <ul class="list">
+        <li class="row">
+          <div>
+            <span class="tag">필수</span>
+            전환
+          </div>
+          <button>관리하기</button>
+        </li>
+        <li class="row">
+          <div>
+            <span class="tag">필수</span>
+            액세스 초대 수락
+          </div>
+          <button>수락하기</button>
+        </li>
+        <li class="row">
+          <div>
+            <span class="tag">필수</span>
+            결제 설정
+          </div>
+          <button>설정하기</button>
+        </li>
+      </ul>
     </section>
   </div>
+  <section>
+    <header>
+      <h2>
+        무료 목록 현황
+        <button>자세히 보기</button>
+      </h2>
+      <div class="filters">
+        <span data-title="무료 목록 기준"></span>
+        <span data-title="일자"></span>
+      </div>
+    </header>
+    <ul class="list">
+      <li class="row">
+        <div>노출수</div>
+        <div>
+          0
+          <span class="tag percent"></span>
+        </div>
+      </li>
+      <li class="row">
+        <div>클릭수</div>
+        <div>
+          0
+          <span class="tag percent"></span>
+        </div>
+      </li>
+      <li class="row">
+        <div>클릭률(CTR)</div>
+        <div>
+          0
+          <span class="tag percent"></span>
+        </div>
+      </li>
+    </ul>
+  </section>
 </main>
+{% include "modals.html" %}
 {% endblock %}

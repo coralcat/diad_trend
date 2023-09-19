@@ -324,6 +324,36 @@ main aside,
   }
 }
 
+.caution {
+  background-color: #f7f8f9;
+  width: 100%;
+  border-radius: .5rem;
+  padding: 1rem;
+  color: slategray;
+  padding-left: 2.5rem;
+  font-size: 14px;
+  line-height: 1.5;
+  word-break: keep-all;
+  position: relative;
+
+  &::before {
+    content: "!";
+    position: absolute;
+    left: 1rem;
+    top: 1.2rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid $primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    line-height: 1;
+    color: $primary-color;
+  }
+}
+
 .item-mid {
   margin-bottom: 0.25rem;
   color: $main-color;
@@ -6259,8 +6289,94 @@ main {
         color: $main-color;
       }
     }
+
+    .account {
+      flex: 1 1 auto;
+      display: flex;
+      gap: .5rem;
+      align-items: center;
+      justify-content: center;
+      background: #f7f8f9;
+      padding: 0.75rem;
+      border-radius: 0.5rem;;
+
+      button {
+        background-color: #434649;
+        color: white;
+      }
+    }
   }
+
+  .section-inputs {
+
+    .list {
+      input {
+        flex: 1 1 auto;
+      }
+
+      .row {
+        gap: 1rem;
+        div {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          &:first-of-type {
+            flex: 0 0 auto;
+            width: 140px;
+          }
+
+          &:last-of-type {
+            flex: 1 1 auto;
+          }
+        }
+      }
+    }
+  }
+
+  .sections{ 
+    flex-wrap: nowrap;
+
+    section {
+      flex-basis: 0;
+    }
+  }
+
   &.google {
+
+    .buttons:not(header div) {
+      button {
+        font-size: 110%;
+        padding: 1.25rem 3rem;
+
+        &:first-of-type {
+          border: 1px solid #e3e6e9;
+        }
+
+        &:last-of-type {
+          background-color: #5048d7;
+          color: white;
+          border: 0;
+        }
+      }
+    }
+
+    .tag {
+      min-width: 32px !important;
+      justify-content: center !important;
+    }
+
+    .list {
+      gap: 0.5rem;
+      border: 0;
+      width: 100%;
+
+      li {
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
     &.new {
       section {
         flex: 0 0 auto;
@@ -6273,13 +6389,14 @@ main {
         font-size: 15px;
       }
 
-      .wrapper {
-        align-items: center;
+      .list {
+        li {
+          padding: 0.25rem 0;
+        }
       }
 
-      .tag {
-        min-width: 32px;
-        justify-content: center;
+      .wrapper {
+        align-items: center;
       }
 
       .checkbox {
@@ -6290,63 +6407,6 @@ main {
         label {
           flex: 1 1 auto;
           gap: 0.5rem;
-        }
-      }
-
-      .caution {
-        background-color: #f7f8f9;
-        width: 100%;
-        border-radius: .5rem;
-        padding: 1rem;
-        color: slategray;
-        padding-left: 2.5rem;
-        font-size: 14px;
-        position: relative;
-
-        &::before {
-          content: "!";
-          position: absolute;
-          left: 1rem;
-          top: 1.2rem;
-          width: 16px;
-          height: 16px;
-          border-radius: 50%;
-          border: 1px solid $primary-color;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 11px;
-          line-height: 1;
-          color: $primary-color;
-        }
-      }
-
-      .buttons {
-        button {
-          font-size: 110%;
-          padding: 1.25rem 3rem;
-
-          &:first-of-type {
-            border: 1px solid #e3e6e9;
-          }
-
-          &:last-of-type {
-            background-color: #5048d7;
-            color: white;
-            border: 0;
-          }
-        }
-      }
-
-      .list {
-        gap: 0.5rem;
-        border: 0;
-        width: 100%;
-
-        li {
-          padding: 0.25rem 0;
-          justify-content: space-between;
-          align-items: center;
         }
       }
 
@@ -6375,32 +6435,6 @@ main {
             &:hover:not(.title) {
               background-color: #f3f6f9;
               border-color: #f3f6f9;
-            }
-          }
-        }
-      }
-
-      .section-inputs {
-        .list {
-          input {
-            flex: 1 1 auto;
-          }
-
-          .row {
-            gap: 1rem;
-            div {
-              display: flex;
-              align-items: center;
-              gap: 5px;
-
-              &:first-of-type {
-                flex: 0 0 auto;
-                width: 140px;
-              }
-
-              &:last-of-type {
-                flex: 1 1 auto;
-              }
             }
           }
         }
