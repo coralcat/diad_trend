@@ -28,13 +28,13 @@
         </li>
       </ul>
     </div>
-    <div class="{% if currentPage == 'ads_google' %}is-active{% endif %} {% if currentPage == 'sales' %}is-active{% endif %}">
+    <div class="{% if currentPage == 'ads' %}is-active{% endif %} {% if currentPage == 'ads_google' %}is-active{% endif %}">
       <menu>
         <i class="ico-ranking" onclick="location.href='ads_google_new.html'"></i>
         <a href='ads_google_new.html'">입점광고</a>
       </menu>
       <ul>
-        <li class="gmarket {% if currentPage == 'sales' %}is-active{% endif %}">
+        <li class="gmarket {% if currentPage == 'ads_google' %}is-active{% endif %}">
           <a href='ads_google_new.html'">구글</a>
         </li>
       </ul>
@@ -103,7 +103,7 @@
     </a>
     <a class="{% if currentPage == 'keyword' %}is-active{% endif %}" href="keyword.html">
       <i class="ico-trend"></i>
-      <span>키워드 트렌드</span>
+      <span>키워드 분석</span>
     </a>
     <a class="{% if currentPage == 'settings' %}is-active{% endif %}" href="settings.html">
       <i class="ico-alarm"></i>

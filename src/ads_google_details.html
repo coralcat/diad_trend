@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('ads')}}
+{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('ads_google')}}
 <main class="content-ads google">
   <header class="content-header">
     <div class="title">
@@ -19,97 +19,103 @@
         </div>
       </div>
     </header>
+    <div class="articles">
+      <article>
+        <header>
+          <h2>판매자 센터</h2>
+        </header>
+        <div class="account">
+          <h4>
+            <small>123456789</small>
+            다이애드
+          </h4>
+          <span class="tag">대기</span>
+        </div>
+        <ul class="list form">
+          <li>
+            <div>
+              <span class="tag">필수</span>
+              웹사이트 인증
+            </div>
+            <div>
+              <div class="checkbox">
+                <input type="checkbox" id="googleWebsite" checked disabled />
+                <label for="googleWebsite">https://www.diad.co.kr</label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag">필수</span>
+              전화번호 인증
+            </div>
+            <div>
+              <div class="checkbox">
+                <input type="checkbox" id="googleWebsite" checked disabled />
+                <label for="googleWebsite">010-1234-1234</label>
+              </div>
+              <button data-modal="googlePhoneNumber">수정</button>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag">필수</span>
+              배송 정보 등록
+            </div>
+            <button data-modal="googleShipping">등록하기</button>
+          </li>
+        </ul>
+      </article>
+      <article>
+        <header>
+          <h2>상품 피드</h2>
+        </header>
+        <div class="account">
+          <button>연동하기</button>
+        </div>
+      </article>
+      <article>
+        <header>
+          <h2>구글 애즈</h2>
+        </header>
+        <div class="account">
+          <button>생성하기</button>
+        </div>
+        <ul class="list">
+          <li>
+            <div>
+              <span class="tag">필수</span>
+              전환
+            </div>
+            <button>관리하기</button>
+          </li>
+          <li>
+            <div>
+              <span class="tag">필수</span>
+              액세스 초대 수락
+            </div>
+            <button>수락하기</button>
+          </li>
+          <li>
+            <div>
+              <span class="tag">필수</span>
+              결제 설정
+            </div>
+            <button>설정하기</button>
+          </li>
+        </ul>
+      </article>
+    </div>
   </section>
   <div class="sections">
     <section>
-      <header>
-        <h2>판매자 센터</h2>
-      </header>
-      <div class="account">
-        <h4>
-          <small>123456789</small>
-          다이애드
-        </h4>
-        <span class="tag">대기</span>
-      </div>
-      <ul class="list">
-        <li class="row">
-          <div>
-            <span class="tag">필수</span>
-            웹사이트 인증
-          </div>
-          <div>
-            <div class="checkbox">
-              <input type="checkbox" id="googleWebsite" checked disabled />
-              <label for="googleWebsite">https://www.diad.co.kr</label>
-            </div>
-          </div>
-        </li>
-        <li class="row">
-          <div>
-            <span class="tag">필수</span>
-            전화번호 인증
-          </div>
-          <button data-modal="googlePhoneNumber">인증하기</button>
-        </li>
-        <li class="row">
-          <div>
-            <span class="tag">필수</span>
-            배송 정보 등록
-          </div>
-          <button>인증하기</button>
-        </li>
-      </ul>
-    </section>
-    <section>
-      <header>
-        <h2>상품 피드</h2>
-      </header>
-      <div class="account">
-        <button>연동하기</button>
-      </div>
-    </section>
-    <section>
-      <header>
-        <h2>구글 애즈</h2>
-      </header>
-      <div class="account">
-        <button>생성하기</button>
-      </div>
-      <ul class="list">
-        <li class="row">
-          <div>
-            <span class="tag">필수</span>
-            전환
-          </div>
-          <button>관리하기</button>
-        </li>
-        <li class="row">
-          <div>
-            <span class="tag">필수</span>
-            액세스 초대 수락
-          </div>
-          <button>수락하기</button>
-        </li>
-        <li class="row">
-          <div>
-            <span class="tag">필수</span>
-            결제 설정
-          </div>
-          <button>설정하기</button>
-        </li>
-      </ul>
-    </section>
-  </div>
-  <div class="sections">
-    <section class="section-inputs">
       <header>
         <h2>
           비즈니스 정보
         </h2>
       </header>
-      <ul class="list">
-        <li class="row">
+      <ul class="list form">
+        <li>
           <div>
             <span class="tag">필수</span>
             상점명
@@ -121,32 +127,32 @@
             </small>
           </div>
         </li>
-        <li class="row">
+        <li>
           <div>
             <span class="tag">필수</span>
             비즈니스 주소
           </div>
         </li>
-        <li class="row">
+        <li>
           <div>우편번호</div>
           <div>
             <input type="text" placeholder="13494" readonly />
             <button>우편번호 검색</button>
           </div>
         </li>
-        <li class="row inputs">
+        <li>
           <div>시/도</div>
           <div>
             <input type="text" placeholder="경기도" readonly />
           </div>
         </li>
-        <li class="row inputs">
+        <li>
           <div>시/군/구</div>
           <div>
             <input type="text" placeholder="성남시" readonly />
           </div>
         </li>
-        <li class="row inputs">
+        <li>
           <div>상세주소</div>
           <div>
             <input type="text" placeholder="대왕판교로 670 (유스페이스2)" readonly />
@@ -155,15 +161,15 @@
         </li>
       </ul>
     </section>
-    <section class="section-inputs">
+    <section>
       <ul class="list">
-        <li class="row">
+        <li>
           <div>
             <h2>고객 서비스</h2>
           </div>
           <div>고객 서비스 연락처</div>
         </li>
-        <li class="row">
+        <li>
           <div>
             <span class="tag">선택</span>
             대표 이메일
@@ -172,7 +178,7 @@
             <input type="email" value="diad@gabiacns.com" />
           </div>
         </li>
-        <li class="row">
+        <li>
           <div>
             <span class="tag">선택</span>
             대표 전화번호
@@ -181,7 +187,7 @@
             <input type="tel" value="16444527" />
           </div>
         </li>
-        <li class="row">
+        <li>
           <div>
             <span class="tag">필수</span>
             사업자등록번호

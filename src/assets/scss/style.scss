@@ -327,7 +327,7 @@ main aside,
 .caution {
   background-color: #f7f8f9;
   width: 100%;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   padding: 1rem;
   color: slategray;
   padding-left: 2.5rem;
@@ -1794,6 +1794,70 @@ main {
     }
   }
 
+  &.form {
+    gap: 0.75rem !important;
+
+    input {
+      flex: 1;
+      width: 100%;
+    }
+
+    li {
+      border: 0 !important;
+      border-bottom: 1px solid #f1f2f3 !important;
+      padding: 0 0 0.75rem !important;
+
+      &:first-of-type {
+        border-top: 1px solid #f1f2f3 !important;
+        padding-top: 0.75rem !important;
+      }
+
+      div {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+      }
+
+      > :first-child {
+        flex: 0 0 auto !important;
+        width: 140px;
+      }
+
+      > :last-child {
+        flex: 1 1 auto;
+        gap: 5px;
+        flex-wrap: wrap;
+
+        .message {
+          color: orangered;
+          width: 100%;
+        }
+      }
+    }
+
+    .tag {
+      min-width: 32px !important;
+    }
+
+    .row {
+      gap: 1rem;
+      div {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        &:first-of-type {
+          flex: 0 0 auto;
+          width: 140px;
+        }
+
+        &:last-of-type {
+          flex: 1 1 auto;
+        }
+      }
+    }
+  }
+
   &[data-empty] {
     position: relative;
 
@@ -1823,6 +1887,10 @@ main {
     }
   }
 
+  li {
+    display: flex;
+  }
+
   .toggle-switch {
     order: -1;
     scale: 0.8;
@@ -1838,8 +1906,8 @@ main {
     }
   }
 
-  .tag:not(.list-product .tag) {
-    justify-content: flex-end;
+  .tag {
+    justify-content: center;
     border: 1px solid;
     background-color: transparent;
     padding: 0 4px;
@@ -1853,7 +1921,6 @@ main {
 
     &::before {
       line-height: 1;
-      transform: scale(0.75);
     }
 
     &.type-bg {
@@ -1861,14 +1928,20 @@ main {
       border: 0;
 
       &.up {
+        justify-content: flex-end;
+        transform: scale(0.75);
         background-color: #ff3333;
       }
 
       &.down {
+        justify-content: flex-end;
+        transform: scale(0.75);
         background-color: #2156f5;
       }
 
       &.same {
+        justify-content: flex-end;
+        transform: scale(0.75);
         display: flex;
       }
     }
@@ -1876,7 +1949,6 @@ main {
     &.type-text {
       background-color: transparent !important;
       border: 1px solid;
-      justify-content: center;
       height: 22px;
       color: lightseagreen;
       font-size: 13px;
@@ -2093,6 +2165,7 @@ main {
     &:not(.title) {
       .col-title {
         justify-content: flex-start;
+        flex-wrap: nowrap;
       }
     }
 
@@ -6279,11 +6352,8 @@ main {
 }
 
 .content-ads {
-
   section {
-
     header {
-
       button {
         background-color: $secondary-color;
         color: $main-color;
@@ -6293,12 +6363,13 @@ main {
     .account {
       flex: 1 1 auto;
       display: flex;
-      gap: .5rem;
+      gap: 0.5rem;
       align-items: center;
       justify-content: center;
-      background: #f7f8f9;
+      background: white;
       padding: 0.75rem;
-      border-radius: 0.5rem;;
+      border-radius: 0.5rem;
+      width: 100%;
 
       button {
         background-color: #434649;
@@ -6307,34 +6378,7 @@ main {
     }
   }
 
-  .section-inputs {
-
-    .list {
-      input {
-        flex: 1 1 auto;
-      }
-
-      .row {
-        gap: 1rem;
-        div {
-          display: flex;
-          align-items: center;
-          gap: 5px;
-
-          &:first-of-type {
-            flex: 0 0 auto;
-            width: 140px;
-          }
-
-          &:last-of-type {
-            flex: 1 1 auto;
-          }
-        }
-      }
-    }
-  }
-
-  .sections{ 
+  .sections {
     flex-wrap: nowrap;
 
     section {
@@ -6343,10 +6387,8 @@ main {
   }
 
   &.google {
-
     .buttons:not(header div) {
       button {
-        font-size: 110%;
         padding: 1.25rem 3rem;
 
         &:first-of-type {
