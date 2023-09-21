@@ -261,31 +261,35 @@
         <header>
           <h2>상품 피드</h2>
           <div class="filters">
-            <span data-title="업로드">0</span>
-            <span data-title="마지막 업로드">0</span>
+            <span data-title="업로드: ">매주 월요일 00:00</span>
+            <span data-title="마지막 업로드: ">2023.08.21</span>
           </div>
         </header>
         <div class="account">
-          <button data-modal="productFeed">연동하기</button>
+          <h4>피드1</h4>
+          <button onclick="location.href='ads_google_product_feed.html'">보기</button>
         </div>
+        <!-- <div class="account">
+          <button data-modal="productFeed">연동하기</button>
+        </div> -->
         <header>
           <div class="filters">
-            <span data-title="총 상품"></span>
-            <span data-title="업데이트"></span>
+            <span data-title="총 상품">3,538</span>
+            <span data-title="업데이트">2023-08-21 15:00</span>
           </div>
         </header>
         <ul class="list form">
           <li>
             <div>활성</div>
-            <div>0</div>
+            <div>3,508</div>
           </li>
           <li>
             <div>비승인</div>
-            <div>0</div>
+            <div>15</div>
           </li>
           <li>
             <div>대기</div>
-            <div>0</div>
+            <div>15</div>
           </li>
         </ul>
       </article>
@@ -1123,6 +1127,7 @@
     </header>
     <div class="modal-content">
       <section>
+        <small class="asterisk">표시는 필수입력사항입니다.</small>
         <ul class="list form">
           <li>
             <div class="asterisk">
@@ -1198,7 +1203,6 @@
           </li>
           <li>
             <div>
-              <span class="tag" data-title="선택"></span>
               주문 마감 시간
               <div data-tooltip=""></div>
             </div>
@@ -1389,7 +1393,7 @@
         </div>
       </header>
       <section>
-        <span class="asterisk">표시는 필수입력사항입니다.</span>
+        <small class="asterisk">표시는 필수입력사항입니다.</small>
         <ul class="list form">
           <li>
             <div class="asterisk">
@@ -1696,7 +1700,9 @@
         </ul>
       </section>
       <section>
-        <h3>상품 피드 판매자 센터 업로드 일정</h3>
+        <header>
+          <h4>상품 피드 판매자 센터 업로드 일정</h4>
+        </header>
         <ul class="list form">
           <li>
             <div>업로드 빈도</div>
