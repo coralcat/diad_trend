@@ -378,8 +378,8 @@ $secondary-color: #f2f1ff;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      min-height: 30px;
-      border: 1px solid #e3e6e9;
+      min-height: 36px;
+      border: 1px solid #e7e8e9;
       border-radius: 3px;
       flex-direction: row;
       justify-content: space-between;
@@ -1259,6 +1259,11 @@ $secondary-color: #f2f1ff;
   }
 
   &-shipping {
+
+    .dialog {
+      width: min(720px,100%);
+    }
+
     .shipping-cost {
       .options {
         display: none;
