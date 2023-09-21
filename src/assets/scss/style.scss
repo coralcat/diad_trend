@@ -329,8 +329,11 @@ main aside,
   width: 100%;
   border-radius: 0.5rem;
   padding: 1rem;
-  color: slategray;
   padding-left: 2.5rem;
+  flex-direction: column;
+  align-items: flex-start !important;
+  gap: 0.5rem !important;
+  color: slategray;
   font-size: 14px;
   line-height: 1.5;
   word-break: keep-all;
@@ -1796,13 +1799,14 @@ main {
 
   &.form {
     gap: 0.75rem !important;
+    max-height: none !important;
 
     input {
       flex: 1;
       width: 100%;
     }
 
-    li {
+    > li {
       border: 0 !important;
       border-bottom: 1px solid #f1f2f3 !important;
       padding: 0 0 0.75rem !important;
@@ -1816,11 +1820,13 @@ main {
         display: flex;
         align-items: center;
         gap: 3px;
+        line-height: 1;
       }
 
       > :first-child {
         flex: 0 0 auto !important;
         width: 140px;
+        padding-left: .75rem;
       }
 
       > :last-child {
@@ -1871,6 +1877,7 @@ main {
   }
 
   button {
+    padding: 0;
     text-decoration: underline;
     text-underline-position: under;
     color: #4f47d5;
@@ -1885,10 +1892,19 @@ main {
       min-height: auto;
       padding: 0;
     }
+
+    &:disabled {
+      background-color: transparent !important;
+      text-decoration: none;
+    }
   }
 
   li {
     display: flex;
+  }
+
+  .buttons {
+    gap: 1rem;
   }
 
   .toggle-switch {
@@ -6371,6 +6387,16 @@ main {
       border-radius: 0.5rem;
       width: 100%;
 
+      small {
+        line-height: unset;
+        color: #838689;
+        font-family: "Poppins";
+      }
+
+      h4 {
+        flex: 1 1 auto;
+      }
+
       button {
         background-color: #434649;
         color: white;
@@ -6387,36 +6413,14 @@ main {
   }
 
   &.google {
-    .buttons:not(header div) {
-      button {
-        padding: 1.25rem 3rem;
-
-        &:first-of-type {
-          border: 1px solid #e3e6e9;
-        }
-
-        &:last-of-type {
-          background-color: #5048d7;
-          color: white;
-          border: 0;
-        }
-      }
-    }
-
     .tag {
       min-width: 32px !important;
       justify-content: center !important;
     }
 
     .list {
-      gap: 0.5rem;
-      border: 0;
       width: 100%;
-
-      li {
-        justify-content: space-between;
-        align-items: center;
-      }
+      border: 0;
     }
 
     &.new {
@@ -6431,7 +6435,25 @@ main {
         font-size: 15px;
       }
 
+      .buttons:not(header div) {
+        button {
+          padding: 1.25rem 3rem;
+
+          &:first-of-type {
+            border: 1px solid #e3e6e9;
+          }
+
+          &:last-of-type {
+            background-color: #5048d7;
+            color: white;
+            border: 0;
+          }
+        }
+      }
+
       .list {
+        gap: 0.5rem;
+
         li {
           padding: 0.25rem 0;
         }
@@ -6455,7 +6477,9 @@ main {
       .section-agreement {
         .list {
           li {
-            padding: 0.75rem 0.5rem;
+            padding: 0.5rem;
+            align-items: center;
+
             &:not(.title) {
               border: 1px solid #e3e6e9;
               border-radius: 0.5rem;

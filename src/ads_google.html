@@ -8,6 +8,14 @@
       </h1>
       {% include "account.html" %}
     </div>
+    <ul class="tabs main-tabs">
+      <li data-tab="sub-menu">대시보드</li>
+      <li data-tab="sub-menu" class="is-active">계정+</li>
+      <li data-tab="sub-menu">피드+</li>
+      <li data-tab="sub-menu">캠페인</li>
+      <li data-tab="sub-menu">리포트</li>
+      <li data-tab="sub-menu">설정</li>
+    </ul>
   </header>
   <section class="section-main">
     <header>
@@ -32,27 +40,33 @@
           </h4>
           <span class="tag">대기</span>
         </div>
-        <ul class="list">
+        <ul class="list form">
           <li>
             <div>
               <span class="tag" data-title="필수"></span>
               웹사이트 인증
             </div>
-            <button data-modal="googleWebsite">인증하기</button>
+            <div>
+              <button data-modal="googleWebsite">인증하기</button>
+            </div>
           </li>
           <li>
             <div>
               <span class="tag" data-title="필수"></span>
               전화번호 인증
             </div>
-            <button data-modal="googlePhoneNumber" disabled>인증완료</button>
+            <div>
+              <button data-modal="googlePhoneNumber" disabled>인증완료</button>
+            </div>
           </li>
           <li>
             <div>
               <span class="tag" data-title="필수"></span>
               배송 정보 등록
             </div>
-            <button data-modal="googleShipping">등록하기</button>
+            <div>
+              <button data-modal="googleShipping">등록하기</button>
+            </div>
           </li>
         </ul>
       </article>
@@ -65,7 +79,7 @@
           </div>
         </header>
         <div class="account">
-          <button>연동하기</button>
+          <button data-modal="productFeed">연동하기</button>
         </div>
         <header>
           <div class="filters">
@@ -73,7 +87,7 @@
             <span data-title="업데이트"></span>
           </div>
         </header>
-        <ul class="list">
+        <ul class="list form">
           <li>
             <div>활성</div>
             <div>0</div>
@@ -93,29 +107,35 @@
           <h2>구글 애즈</h2>
         </header>
         <div class="account">
-          <button>생성하기</button>
+          <button data-modal="googleAds">생성하기</button>
         </div>
-        <ul class="list">
+        <ul class="list form">
           <li>
             <div>
               <span class="tag">필수</span>
               전환
             </div>
-            <button>관리하기</button>
+            <div>
+              <button onclick="location.href='ads_google_conversion.html'">관리하기</button>
+            </div>
           </li>
           <li>
             <div>
               <span class="tag">필수</span>
               액세스 초대 수락
             </div>
-            <button>수락하기</button>
+            <div>
+              <button data-modal="accessInvitaion">수락하기</button>
+            </div>
           </li>
           <li>
             <div>
               <span class="tag">필수</span>
               결제 설정
             </div>
-            <button>설정하기</button>
+            <div>
+              <button>설정하기</button>
+            </div>
           </li>
         </ul>
       </article>

@@ -1,0 +1,230 @@
+{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('ads_google')}}
+<main class="content-ads google">
+  <header class="content-header">
+    <div class="title">
+      <h1>
+        <span>전환</span>
+        <div data-tooltip=""></div>
+      </h1>
+      {% include "account.html" %}
+    </div>
+    <ul class="tabs main-tabs">
+      <li data-tab="sub-menu">대시보드</li>
+      <li data-tab="sub-menu" class="is-active">계정+</li>
+      <li data-tab="sub-menu">피드+</li>
+      <li data-tab="sub-menu">캠페인</li>
+      <li data-tab="sub-menu">리포트</li>
+      <li data-tab="sub-menu">설정</li>
+    </ul>
+  </header>
+  <section class="section-main">
+    <dl class="caution">
+      <dd>전환 추적 태그를 웹사이트에 삽입하여 캠페인을 통해 발생한 전환 성과를 추적하고 캠페인의 실적과 광고 노출 효과를 향상시킬 수 있습니다.
+      </dd>
+      <dd>웹사이트에 전환 추적을 설정하려면 페이지에서 사용하는 코드에 Google 태그와 이벤트 스니펫을 직접 삽입해 주세요.
+      </dd>
+      <dd>Google 태그가 이벤트 스니펫 앞에 위치하도록 태그 삽입 순서를 지켜주세요.</dd>
+      <dd>한 개 이상의 전환 태그를 삽입할 경우 전환 성과는 삽입된 전환 액션들의 합을 제공하며, 전환 액션 개별 추적 기능은 제공하지 않습니다.</dd>
+      <dd>다이애드는 전환 추적 태그가 사용자의 웹사이트에 정상적으로 삽입되었는지를 확인할 수 없습니다.</dd>
+      <dd>전환 추적 태그 삽입 후 다이애드에서 등록버튼을 눌러 등록상태를 바꾸어 주세요.</dd>
+    </dl>
+  </section>
+  <section>
+    <header>
+      <h3>전환 액션</h3>
+      <div class="filters">
+        <small>최근 30일 2023년 8월 6일 ~ 2023년 9월 4일
+        </small>
+        <button data-modal="conversionAction">전환 액션 생성</button>
+      </div>
+    </header>
+    
+    <div class="list">
+      <ul class="row title">
+        <li class="ico-sort">전환 목표</li>
+        <li class="ico-sort">추적 이벤트</li>
+        <li class="ico-sort">전환 액션</li>
+        <li class="ico-sort">액션 최적화</li>
+        <li class="ico-sort">모든 전환</li>
+        <li class="ico-sort">모든 전환 가치</li>
+        <li class="ico-sort">관리</li>
+      </ul>
+      <ul class="row">
+        <li title="전환 목표">
+          페이지 조회
+        </li>
+        <li title="추적 이벤트">
+          페이지 로드
+        </li>
+        <li title="전환 액션">
+          페이지 조회 기본
+          <span class="tag">운영중</span>
+        </li>
+        <li title="액션 최적화">
+          기본
+        </li>
+        <li title="모든 전환">
+          12.83
+        </li>
+        <li title="모든 전환 가치">
+          843,326.68
+        </li>
+        <li title="관리">
+          <div class="buttons">
+            <button disabled>등록완료</button>
+            <button data-modal="conversionTag">태그</button>
+            <button>설정</button>
+            <button>삭제</button>
+          </div>
+        </li>
+      </ul>
+      <ul class="row">
+        <li title="전환 목표">
+          회원가입
+        </li>
+        <li title="추적 이벤트">
+          페이지 로드
+        </li>
+        <li title="전환 액션">
+          회원가입 기본
+          <span class="tag">운영중</span>
+        </li>
+        <li title="액션 최적화">
+          기본
+        </li>
+        <li title="모든 전환">
+          14.00
+        </li>
+        <li title="모든 전환 가치">
+          939,980.00
+        </li>
+        <li title="관리">
+          <div class="buttons">
+            <button>등록</button>
+            <button data-modal="conversionTag">태그</button>
+            <button>설정</button>
+            <button>삭제</button>
+          </div>
+        </li>
+      </ul>
+      <ul class="row">
+        <li title="전환 목표">
+          장바구니 담기
+        </li>
+        <li title="추적 이벤트">
+          페이지 로드
+        </li>
+        <li title="전환 액션">
+          페이지 조회 기본
+          <span class="tag">운영중</span>
+        </li>
+        <li title="액션 최적화">
+          기본
+        </li>
+        <li title="모든 전환">
+          12.83
+        </li>
+        <li title="모든 전환 가치">
+          843,326.68
+        </li>
+        <li title="관리">
+          <div class="buttons">
+            <button>등록</button>
+            <button data-modal="conversionTag">태그</button>
+            <button>설정</button>
+            <button>삭제</button>
+          </div>
+        </li>
+      </ul>
+      <ul class="row">
+        <li title="전환 목표">
+          페이지 조회
+        </li>
+        <li title="추적 이벤트">
+          페이지 로드
+        </li>
+        <li title="전환 액션">
+          페이지 조회 기본
+          <span class="tag">운영중</span>
+        </li>
+        <li title="액션 최적화">
+          기본
+        </li>
+        <li title="모든 전환">
+          12.83
+        </li>
+        <li title="모든 전환 가치">
+          843,326.68
+        </li>
+        <li title="관리">
+          <div class="buttons">
+            <button>등록</button>
+            <button data-modal="conversionTag">태그</button>
+            <button>설정</button>
+            <button>삭제</button>
+          </div>
+        </li>
+      </ul>
+      <ul class="row">
+        <li title="전환 목표">
+          페이지 조회
+        </li>
+        <li title="추적 이벤트">
+          페이지 로드
+        </li>
+        <li title="전환 액션">
+          페이지 조회 기본
+          <span class="tag">운영중</span>
+        </li>
+        <li title="액션 최적화">
+          기본
+        </li>
+        <li title="모든 전환">
+          12.83
+        </li>
+        <li title="모든 전환 가치">
+          843,326.68
+        </li>
+        <li title="관리">
+          <div class="buttons">
+            <button>등록</button>
+            <button data-modal="conversionTag">태그</button>
+            <button>설정</button>
+            <button>삭제</button>
+          </div>
+        </li>
+      </ul>
+      <ul class="row">
+        <li title="전환 목표">
+          페이지 조회
+        </li>
+        <li title="추적 이벤트">
+          페이지 로드
+        </li>
+        <li title="전환 액션">
+          페이지 조회 기본
+          <span class="tag">운영중</span>
+        </li>
+        <li title="액션 최적화">
+          기본
+        </li>
+        <li title="모든 전환">
+          12.83
+        </li>
+        <li title="모든 전환 가치">
+          843,326.68
+        </li>
+        <li title="관리">
+          <div class="buttons">
+            <button>등록</button>
+            <button data-modal="conversionTag">태그</button>
+            <button>설정</button>
+            <button>삭제</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+{% include "modals.html" %}
+{% endblock %}

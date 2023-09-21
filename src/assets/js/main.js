@@ -523,8 +523,10 @@ const containerMutated = () => {
     // 조회 목록화면에 상품 선택시 누르는 버튼들
     if (event.target.closest(".filters")) {
       const listItem = document.querySelector(".list");
-      const checkboxes = listItem.querySelectorAll("input[type='checkbox']:checked");
-      if (checkboxes.length === 0) {
+      const checkboxes = listItem.querySelectorAll("input[type='checkbox']");
+      const checked = listItem.querySelectorAll("input[type='checkbox']:checked");
+      if (checkboxes.length != 0 && checked.length === 0) {
+        console.log(checkboxes);
         const customModal = document.getElementById(modalData);
         customModal && customModal.classList.remove("is-active");
         validateMessage("소재를 선택해주세요.");
@@ -1179,7 +1181,6 @@ const containerMutated = () => {
 
 const mutationObserver = new MutationObserver(mutations => {
   mutations.forEach(mutation => {
-    console.log(mutation)
     if (
       mutation.target.className != "checkbox" &&
       mutation.target.className != "lists" &&
