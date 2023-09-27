@@ -853,222 +853,226 @@
         <span>상품 최저가 리포트</span>
       </h1>
     </div>
-    <section class="section-main">
-      <div class="information">
-        <div class="image">
-          <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
-        </div>
-        <div>
-          1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도...
-        </div>
-        <div class="categories">
-          <span>식품</span>
-          <span>음료</span>
-          <span>커피</span>
-          <span>원두/생두</span>
-        </div>
-        <ul class="details">
-          <li class="row">
-            <div>MID</div>
-            <div>12126547821</div>
-          </li>
-          <li class="row">
-            <div>판매가</div>
-            <div class="price">9,900</div>
-          </li>
-          <li class="row">
-            <div>브랜드</div>
-            <div>커피창고</div>
-          </li>
-          <li class="row">
-            <div>제조사</div>
-            <div>주식회사 커피창고</div>
-          </li>
-        </ul>
-        <a href="https://search.shopping.naver.com/gate.nhn?id=12126547821" class="right-arrow" target="_blank">가격비교
-          상품페이지로 이동</a>
-      </div>
-    </section>
   </header>
-  <div class="sections">
-    <section id="sectionChart" class="section-chart">
-      <header>
-        <div class="title">
-          <h2>
-            <span>최저가 차트</span>
-            <div class="tooltip">
-              <div data-tooltip="lowestPriceChart"></div>
-            </div>
-          </h2>
-          <div class="buttons">
-            <button class="ico-download" type="button">엑셀다운</button>
+  <div class="wrapper">
+    <aside>
+      <section class="section-main">
+        <div class="information">
+          <div class="image">
+            <img src="https://shopping-phinf.pstatic.net/main_1212654/12126547821.9.jpg?type=f160" alt="" />
           </div>
-        </div>
-        <div class="filters">
           <div>
-            <div class="selector">
-              <input type="radio" id="select-1day" name="keyword-chart" checked />
-              <label for="select-1day">1일</label>
-              <input type="radio" id="select-1week" name="keyword-chart" />
-              <label for="select-1week">1주</label>
-              <input type="radio" id="select-1month" name="keyword-chart" />
-              <label for="select-1month">1개월</label>
-              <input type="radio" id="select-6months" name="keyword-chart" />
-              <label for="select-6months">6개월</label>
-              <input type="radio" id="select-1year" name="keyword-chart" />
-              <label for="select-1year">1년</label>
-            </div>
-            <div class="calendar">
-              <input type="text" id="lowestPriceChartFrom" name="" autocomplete="off" />
-              <span>~</span>
-              <input type="text" id="lowestPriceChartTo" name="" autocomplete="off" />
-            </div>
-            <button class="btn-main ico-search" type="button"></button>
+            1kg 커피창고 에티오피아 예가체프 케냐AA 콜롬비아 수프리모 과테말라 안티구아 브라질 세하도...
           </div>
-        </div>
-      </header>
-      <div class="chart-container" data-empty="데이터 갱신 전입니다.">
-        <div id="priceChart" class="chart"></div>
-      </div>
-    </section>
-    <section>
-      <header>
-        <div class="title">
-          <h2>
-            <span>일별 최저가</span>
-            <div class="tooltip">
-              <div data-tooltip="dailyLowestPrice"></div>
-            </div>
-          </h2>
-          <div class="buttons">
-            <button class="ico-download" type="button">엑셀다운</button>
+          <div class="categories">
+            <span>식품</span>
+            <span>음료</span>
+            <span>커피</span>
+            <span>원두/생두</span>
           </div>
+          <ul class="details">
+            <li class="row">
+              <div>MID</div>
+              <div>12126547821</div>
+            </li>
+            <li class="row">
+              <div>판매가</div>
+              <div class="price">9,900</div>
+            </li>
+            <li class="row">
+              <div>브랜드</div>
+              <div>커피창고</div>
+            </li>
+            <li class="row">
+              <div>제조사</div>
+              <div>주식회사 커피창고</div>
+            </li>
+          </ul>
+          <a href="https://search.shopping.naver.com/gate.nhn?id=12126547821" class="right-arrow" target="_blank">가격비교
+            상품페이지로 이동</a>
         </div>
-        <div class="filters">
-          <div>
-            <div class="selector">
-              <input type="radio" id="daily-select-1week" name="daily-lowest-price-chart" checked />
-              <label for="daily-select-1week">1주</label>
-              <input type="radio" id="daily-select-1month" name="daily-lowest-price-chart" />
-              <label for="daily-select-1month">1개월</label>
-              <input type="radio" id="daily-select-6months" name="daily-lowest-price-chart" />
-              <label for="daily-select-6months">6개월</label>
-              <input type="radio" id="daily-select-1year" name="daily-lowest-price-chart" />
-              <label for="daily-select-1year">1년</label>
+      </section>
+    </aside>
+    <div class="sections">
+      <section id="sectionChart" class="section-chart">
+        <header>
+          <div class="title">
+            <h2>
+              <span>최저가 차트</span>
+              <div class="tooltip">
+                <div data-tooltip="lowestPriceChart"></div>
+              </div>
+            </h2>
+            <div class="buttons">
+              <button class="ico-download" type="button">엑셀다운</button>
             </div>
-            <div class="calendar">
-              <input type="text" id="dailyLowestPriceChartFrom" name="" autocomplete="off" />
-              <span>~</span>
-              <input type="text" id="dailyLowestPriceChartTo" name="" autocomplete="off" />
-            </div>
-            <button class="btn-main ico-search" type="button"></button>
           </div>
+          <div class="filters">
+            <div>
+              <div class="selector">
+                <input type="radio" id="select-1day" name="keyword-chart" checked />
+                <label for="select-1day">1일</label>
+                <input type="radio" id="select-1week" name="keyword-chart" />
+                <label for="select-1week">1주</label>
+                <input type="radio" id="select-1month" name="keyword-chart" />
+                <label for="select-1month">1개월</label>
+                <input type="radio" id="select-6months" name="keyword-chart" />
+                <label for="select-6months">6개월</label>
+                <input type="radio" id="select-1year" name="keyword-chart" />
+                <label for="select-1year">1년</label>
+              </div>
+              <div class="calendar">
+                <input type="text" id="lowestPriceChartFrom" name="" autocomplete="off" />
+                <span>~</span>
+                <input type="text" id="lowestPriceChartTo" name="" autocomplete="off" />
+              </div>
+              <button class="btn-main ico-search" type="button"></button>
+            </div>
+          </div>
+        </header>
+        <div class="chart-container" data-empty="데이터 갱신 전입니다.">
+          <div id="priceChart" class="chart"></div>
         </div>
-      </header>
-      <div class="list list-daily-lowest-price">
-        <ul class="row title">
-          <li class="ico-sort">날짜</li>
-          <li class="col-chart ico-sort">차트</li>
-          <li class="ico-sort">평균</li>
-          <li class="ico-sort">전일대비</li>
-          <li class="ico-sort">등락율</li>
-          <li class="ico-sort">고가</li>
-          <li class="ico-sort">저가</li>
-        </ul>
-        <ul class="row failed">
-          <li>2022-03-01</li>
-          <li class="col-chart">
-            <a href="#sectionChart">
-              <div id="priceChart2" class="chart"></div>
-            </a>
-          </li>
-          <li title="평균">
-            <div class="price"></div>
-          </li>
-          <li title="전일대비">
-            <div class="tag"></div>
-          </li>
-          <li title="등락율">
-            <div class="percent"></div>
-          </li>
-          <li title="고가">
-            <div class="price"></div>
-          </li>
-          <li title="저가">
-            <div class="price"></div>
-          </li>
-        </ul>
-        <ul class="row">
-          <li>2022-02-28</li>
-          <li class="col-chart">
-            <a href="#sectionChart">
-              <div id="priceChart3" class="chart"></div>
-            </a>
-          </li>
-          <li title="평균">
-            <div class="price">9,800</div>
-          </li>
-          <li title="전일대비">
-            <div class="tag type-bg down">90</div>
-          </li>
-          <li title="등락율">
-            <div class="percent down">0.91</div>
-          </li>
-          <li title="고가">
-            <div class="price">9,920</div>
-          </li>
-          <li title="저가">
-            <div class="price">9,880</div>
-          </li>
-        </ul>
-        <ul class="row">
-          <li>2022-02-27</li>
-          <li class="col-chart">
-            <a href="#sectionChart">
-              <div id="priceChart4" class="chart"></div>
-            </a>
-          </li>
-          <li title="평균">
-            <div class="price">9,890</div>
-          </li>
-          <li title="전일대비">
-            <div class="tag type-bg same"></div>
-          </li>
-          <li title="등락율">
-            <div class="percent up">0.00</div>
-          </li>
-          <li title="고가">
-            <div class="price">9,920</div>
-          </li>
-          <li title="저가">
-            <div class="price">9,880</div>
-          </li>
-        </ul>
-        <ul class="row">
-          <li>2022-02-26</li>
-          <li class="col-chart">
-            <a href="#sectionChart">
-              <div id="priceChart5" class="chart"></div>
-            </a>
-          </li>
-          <li title="평균">
-            <div class="price">9,890</div>
-          </li>
-          <li title="전일대비">
-            <div class="tag type-bg down">100</div>
-          </li>
-          <li title="등락율">
-            <div class="percent down">1.00</div>
-          </li>
-          <li title="고가">
-            <div class="price">9,880</div>
-          </li>
-          <li title="저가">
-            <div class="price">9,920</div>
-          </li>
-        </ul>
-      </div>
-    </section>
+      </section>
+      <section>
+        <header>
+          <div class="title">
+            <h2>
+              <span>일별 최저가</span>
+              <div class="tooltip">
+                <div data-tooltip="dailyLowestPrice"></div>
+              </div>
+            </h2>
+            <div class="buttons">
+              <button class="ico-download" type="button">엑셀다운</button>
+            </div>
+          </div>
+          <div class="filters">
+            <div>
+              <div class="selector">
+                <input type="radio" id="daily-select-1week" name="daily-lowest-price-chart" checked />
+                <label for="daily-select-1week">1주</label>
+                <input type="radio" id="daily-select-1month" name="daily-lowest-price-chart" />
+                <label for="daily-select-1month">1개월</label>
+                <input type="radio" id="daily-select-6months" name="daily-lowest-price-chart" />
+                <label for="daily-select-6months">6개월</label>
+                <input type="radio" id="daily-select-1year" name="daily-lowest-price-chart" />
+                <label for="daily-select-1year">1년</label>
+              </div>
+              <div class="calendar">
+                <input type="text" id="dailyLowestPriceChartFrom" name="" autocomplete="off" />
+                <span>~</span>
+                <input type="text" id="dailyLowestPriceChartTo" name="" autocomplete="off" />
+              </div>
+              <button class="btn-main ico-search" type="button"></button>
+            </div>
+          </div>
+        </header>
+        <div class="list list-daily-lowest-price">
+          <ul class="row title">
+            <li class="ico-sort">날짜</li>
+            <li class="col-chart ico-sort">차트</li>
+            <li class="ico-sort">평균</li>
+            <li class="ico-sort">전일대비</li>
+            <li class="ico-sort">등락율</li>
+            <li class="ico-sort">고가</li>
+            <li class="ico-sort">저가</li>
+          </ul>
+          <ul class="row failed">
+            <li>2022-03-01</li>
+            <li class="col-chart">
+              <a href="#sectionChart">
+                <div id="priceChart2" class="chart"></div>
+              </a>
+            </li>
+            <li title="평균">
+              <div class="price"></div>
+            </li>
+            <li title="전일대비">
+              <div class="tag"></div>
+            </li>
+            <li title="등락율">
+              <div class="percent"></div>
+            </li>
+            <li title="고가">
+              <div class="price"></div>
+            </li>
+            <li title="저가">
+              <div class="price"></div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li>2022-02-28</li>
+            <li class="col-chart">
+              <a href="#sectionChart">
+                <div id="priceChart3" class="chart"></div>
+              </a>
+            </li>
+            <li title="평균">
+              <div class="price">9,800</div>
+            </li>
+            <li title="전일대비">
+              <div class="tag type-bg down">90</div>
+            </li>
+            <li title="등락율">
+              <div class="percent down">0.91</div>
+            </li>
+            <li title="고가">
+              <div class="price">9,920</div>
+            </li>
+            <li title="저가">
+              <div class="price">9,880</div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li>2022-02-27</li>
+            <li class="col-chart">
+              <a href="#sectionChart">
+                <div id="priceChart4" class="chart"></div>
+              </a>
+            </li>
+            <li title="평균">
+              <div class="price">9,890</div>
+            </li>
+            <li title="전일대비">
+              <div class="tag type-bg same"></div>
+            </li>
+            <li title="등락율">
+              <div class="percent up">0.00</div>
+            </li>
+            <li title="고가">
+              <div class="price">9,920</div>
+            </li>
+            <li title="저가">
+              <div class="price">9,880</div>
+            </li>
+          </ul>
+          <ul class="row">
+            <li>2022-02-26</li>
+            <li class="col-chart">
+              <a href="#sectionChart">
+                <div id="priceChart5" class="chart"></div>
+              </a>
+            </li>
+            <li title="평균">
+              <div class="price">9,890</div>
+            </li>
+            <li title="전일대비">
+              <div class="tag type-bg down">100</div>
+            </li>
+            <li title="등락율">
+              <div class="percent down">1.00</div>
+            </li>
+            <li title="고가">
+              <div class="price">9,880</div>
+            </li>
+            <li title="저가">
+              <div class="price">9,920</div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
   </div>
 </main>
 {% endblock %}

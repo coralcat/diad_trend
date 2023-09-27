@@ -408,7 +408,7 @@ $secondary-color: #f2f1ff;
       }
 
       .col-keyword {
-        min-width: 220px;
+        min-width: 180px;
       }
 
       .keyword {
@@ -722,6 +722,19 @@ $secondary-color: #f2f1ff;
     }
   }
 
+  &.change-details {
+
+    .list {
+
+      li {
+
+        > :first-child {
+          flex: 0 0 80px
+        }
+      }
+    }
+  }
+
   &-location,
   &-sync {
     .dialog {
@@ -786,6 +799,18 @@ $secondary-color: #f2f1ff;
       li {
         &:last-of-type {
           flex: 1 1 auto;
+        }
+      }
+    }
+
+    .list {
+
+      li {
+
+        div {
+          width: 84px;
+          text-align: center;
+          justify-content: center;
         }
       }
     }
@@ -861,14 +886,14 @@ $secondary-color: #f2f1ff;
 
   &-history {
     .dialog {
-      width: min(960px, 50vw);
+      width: min(1200px, 60vw);
     }
 
     .list {
-      .row {
-        li {
-          justify-content: center;
-        }
+      div {
+        width: 80px;
+        justify-content: center;
+        display: flex;
       }
     }
   }
