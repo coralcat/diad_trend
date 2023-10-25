@@ -93,18 +93,6 @@ const containerMutated = () => {
   /* =====================================================
     Checkbox
   ===================================================== */
-  // 체크박스 애니메이션 효과
-  document.querySelectorAll(".checkbox").forEach(checkbox => {
-    if (!checkbox.querySelector("svg")) {
-      checkbox.insertAdjacentHTML(
-        "beforeend",
-        `<svg width="15px" height="10px">
-            <polyline points="1,5 6,9 14,1"></polyline>
-          </svg>`,
-      );
-    }
-  });
-
   // 체크박스 모두 체크
   const checkAll = document.querySelectorAll(".check-all");
   checkAll.forEach(all => {
@@ -118,19 +106,18 @@ const containerMutated = () => {
     all.addEventListener("click", handleCheckAll);
   });
 
-  // 목록 체크박스 효과
-  const listCheckboxes = document.querySelectorAll(".list input[type='checkbox']");
+/*   // 목록 체크박스 효과
+  const listCheckboxes = document.querySelectorAll(".list .checkbox input[type='checkbox']:not(.modal input)");
   listCheckboxes.forEach(check => {
     const handleListCheckboxes = event => {
+      event.target.checked
+        ? event.target.closest(".row").classList.add("checked")
+        : event.target.closest(".row").classList.remove("checked");
       if (check.classList.contains("check-all")) {
         const rows = event.target.closest(".list").querySelectorAll(".row:not(.title)");
         rows.forEach(row => {
           event.target.checked ? row.classList.add("checked") : row.classList.remove("checked");
         });
-      } else {
-        event.target.checked
-          ? event.target.closest(".row").classList.add("checked")
-          : event.target.closest(".row").classList.remove("checked");
       }
     };
     check.addEventListener("change", handleListCheckboxes);
@@ -244,6 +231,18 @@ const containerMutated = () => {
           tabContents[1].classList.add("is-active");
         }
       };
+
+      const handleKeyboard = event => {
+        if (tabContents[0].classList.contains("is-active") && event.key === "ArrowDown") {
+          tabContents[0].classList.remove("is-active");
+          tabContents[1].classList.add("is-active");
+        } else if (tabContents[0].classList.contains("is-active") && event.key === "ArrowUp") {
+          tabContents[0].classList.remove("is-active");
+          tabContents[1].classList.add("is-active");
+        }
+      };
+
+      document.addEventListener("keydown", handleKeyboard);
       scrollDown.addEventListener("click", handleTabContents);
     }
   }
@@ -257,12 +256,15 @@ const containerMutated = () => {
     input.addEventListener("keyup", event => {
       const container = event.target.closest(".input");
       const clear = container.querySelector(".x");
-      clear.classList.add("is-active");
 
-      clear.addEventListener("click", () => {
-        clear.classList.remove("is-active");
-        input.value = "";
-      });
+      if(clear) {
+        clear.classList.add("is-active");
+  
+        clear.addEventListener("click", () => {
+          clear.classList.remove("is-active");
+          input.value = "";
+        });
+      }
     });
   });
 
@@ -523,10 +525,8 @@ const containerMutated = () => {
     // 조회 목록화면에 상품 선택시 누르는 버튼들
     if (event.target.closest(".filters")) {
       const listItem = document.querySelector(".list");
-      const checkboxes = listItem.querySelectorAll("input[type='checkbox']");
-      const checked = listItem.querySelectorAll("input[type='checkbox']:checked");
-      if (checkboxes.length != 0 && checked.length === 0) {
-        console.log(checkboxes);
+      const checkboxes = listItem.querySelectorAll("input[type='checkbox']:checked");
+      if (checkboxes.length === 0) {
         const customModal = document.getElementById(modalData);
         customModal && customModal.classList.remove("is-active");
         validateMessage("소재를 선택해주세요.");
@@ -894,7 +894,7 @@ const containerMutated = () => {
         });
       };
 
-      validateFilters();
+      //validateFilters();
     });
   });
 
@@ -1060,7 +1060,7 @@ const containerMutated = () => {
       delay += `${index * 0.5}s`;
       progress.style.setProperty("--progressDelay", delay);
       progress.style.setProperty("--progressPercent", 0);
-      (progress.value != null) && (progress.value = progress.dataset.value);
+      progress.value != null && (progress.value = progress.dataset.value);
       const max = progress.max;
       const current = progress.dataset.value;
       const currentWidth = window.getComputedStyle(progress, "::before").width;
@@ -1091,11 +1091,14 @@ const containerMutated = () => {
   let horizontalSwiper = new Swiper(".swiper.horizontal", {
     spaceBetween: 15,
     speed: 1000,
-    autoplay: false,
     loop: true,
+    hashNavigation: {
+      watchState: true,
+    },
     pagination: {
       el: ".swiper.horizontal .swiper-pagination",
       clickable: true,
+      type: "fraction",
     },
   });
 
@@ -1104,6 +1107,9 @@ const containerMutated = () => {
       slidesPerView: 3,
       spaceBetween: 0,
       speed: 1000,
+      hashNavigation: {
+        watchState: true,
+      },
       autoplay: {
         delay: 6000,
         disableOnInteraction: true,
@@ -1132,6 +1138,9 @@ const containerMutated = () => {
       slidesPerView: "auto",
       centeredSlides: true,
       speed: 1000,
+      hashNavigation: {
+        watchState: true,
+      },
       autoplay: {
         delay: 4000,
         disableOnInteraction: true,
@@ -1148,7 +1157,7 @@ const containerMutated = () => {
   breakpointChecker();
 
   // 목록 데이터 감지
-  const lists = document.querySelectorAll(".list");
+  const lists = document.querySelectorAll(".list:not(.section-related-keyword .list)");
   lists[0] &&
     lists.forEach(list => {
       mutationObserver.observe(list, {
@@ -1175,7 +1184,22 @@ const containerMutated = () => {
         childList: true,
         subtree: true,
         characterData: true,
+        attributes: true
       });
+    });
+
+  // 컨테이너 감지
+  mutationObserver.observe(container, {
+    childList: true,
+    attributes: true,
+  });
+
+  // 로더 감지
+  const loader = document.querySelector(".spinner-loader");
+  loader &&
+    mutationObserver.observe(loader, {
+      childList: true,
+      subtree: true,
     });
 };
 
@@ -1183,7 +1207,7 @@ const mutationObserver = new MutationObserver(mutations => {
   mutations.forEach(mutation => {
     if (
       mutation.target.className != "checkbox" &&
-      mutation.target.className != "lists" &&
+      mutation.target.className != "list pinned" &&
       mutation.previousSibling &&
       mutation.previousSibling.className != "row"
     ) {

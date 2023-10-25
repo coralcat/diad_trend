@@ -34,11 +34,16 @@
           <h2>판매자 센터</h2>
         </header>
         <div class="account">
-          <h4>
-            <small>123456789</small>
-            다이애드
-          </h4>
-          <span class="tag">대기</span>
+          <div class="information">
+            <!-- <span class="tag">활성</span>
+            <span class="tag">정지</span> -->
+            <span class="tag pending" data-tooltip="googlePending">대기</span>
+            <h4>
+              <small>123456789</small>
+              다이애드
+            </h4>
+          </div>
+          <button data-modal="accountIssues">계정 이슈</button>
         </div>
         <ul class="list form">
           <li>
@@ -79,7 +84,9 @@
           </div>
         </header>
         <div class="account">
-          <h4>피드1</h4>
+          <div class="information">
+            <h4>피드1</h4>
+          </div>
           <button onclick="location.href='ads_google_product_feed.html'">보기</button>
         </div>
         <!-- <div class="account">
@@ -144,41 +151,81 @@
         </ul>
       </article>
     </div>
-  </section>
-  <section>
-    <header>
-      <h2>
-        무료 목록 현황
-        <button>자세히 보기</button>
-      </h2>
-      <div class="filters">
-        <span data-title="무료 목록 기준"></span>
-        <span data-title="일자"></span>
+    <div class="free">
+      <header>
+        <h2>
+          무료 목록 현황
+          <button>자세히 보기</button>
+        </h2>
+        <div class="filters">
+          <span data-title="무료 목록 기준"></span>
+          <span data-title="일자"></span>
+        </div>
+      </header>
+      <div class="list">
+        <ul class="row title">
+          <li>
+            <div>노출수</div>
+          </li>
+          <li>
+            <div>클릭수</div>
+          </li>
+          <li>
+            <div>클릭률(CTR)</div>
+          </li>
+          <li>
+            <div>전환수</div>
+          </li>
+          <li>
+            <div>전환율</div>
+          </li>
+          <li>
+            <div>전환가치</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>
+            <div>
+              0
+              <span class="tag percent"></span>
+            </div>
+          </li>
+          <li>
+            <div>
+              0
+              <span class="tag percent"></span>
+            </div>
+          </li>
+          <li>
+            <div>
+              0
+              <span class="tag percent"></span>
+            </div>
+          </li>
+          <li>
+            <div>
+              0
+              <span class="tag percent"></span>
+            </div>
+          </li>
+          <li>
+            <div>
+              0
+              <span class="tag percent"></span>
+            </div>
+          </li>
+          <li>
+            <div>
+              0
+              <span class="tag percent"></span>
+            </div>
+          </li>
+        </ul>
       </div>
-    </header>
-    <ul class="list">
-      <li>
-        <div>노출수</div>
-        <div>
-          0
-          <span class="tag percent"></span>
-        </div>
-      </li>
-      <li>
-        <div>클릭수</div>
-        <div>
-          0
-          <span class="tag percent"></span>
-        </div>
-      </li>
-      <li>
-        <div>클릭률(CTR)</div>
-        <div>
-          0
-          <span class="tag percent"></span>
-        </div>
-      </li>
-    </ul>
+    </div>
+  </section>
+  <section class="section-add">
+    <i class="plus"></i>
   </section>
 </main>
 {% include "modals.html" %}

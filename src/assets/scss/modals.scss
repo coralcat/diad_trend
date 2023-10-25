@@ -8,7 +8,25 @@ $secondary-color: #f2f1ff;
     &:not([type="radio"], [type="checkbox"]) {
       background-color: #f3f6f9;
       border: 1px solid #f3f6f9;
-      height: 32px;
+      min-height: 32px;
+    }
+  }
+
+  .checkbox {
+
+    label {
+
+      &::before {
+        width: 18px;
+        height: 18px;
+        margin-right: 5px;
+      }
+
+      &::after {
+        height: 5px;
+        width: 9px;
+        left: 6px
+      }
     }
   }
 
@@ -47,7 +65,7 @@ $secondary-color: #f2f1ff;
         width: 100%;
         padding: 0.5rem;
         justify-content: flex-start;
-        border: 1px solid #e3e6e9;
+        background-color: #f3f6f9;
         border-radius: 0.5rem;
 
         div {
@@ -61,7 +79,7 @@ $secondary-color: #f2f1ff;
   dl {
     display: flex;
     flex-direction: column;
-    font-size: 13px;
+    font-size: 14px;
 
     &.caution {
       dd {
@@ -289,6 +307,19 @@ $secondary-color: #f2f1ff;
       padding: 0.5rem;
       gap: 0;
 
+      .asterisk {
+
+        &::before {
+          top: calc(50% - 10px);
+          left: -8px;
+          font-size: 13px;
+        }
+      }
+
+      input[type="number"] {
+        text-align: right;
+      }
+
       fieldset {
         padding: 0.5rem;
 
@@ -312,9 +343,19 @@ $secondary-color: #f2f1ff;
         border: 0;
         padding: 0.5rem 0;
         justify-content: flex-start;
+
+        .price {
+          justify-content: flex-end;
+        }
       }
 
       .row {
+        border-bottom: 1px solid #eee;
+
+        &:first-of-type {
+          border-top: 1px solid #eee;
+        }
+
         > :first-child {
           flex: 0 0 150px;
           justify-content: flex-start;
@@ -324,15 +365,19 @@ $secondary-color: #f2f1ff;
       }
 
       .inputs {
-        border-top: 1px solid #e3e6e9;
-        border-bottom: 1px solid #e3e6e9;
-        padding: 0.5rem 0 !important;
         gap: 0.5rem;
         width: 100%;
+        justify-content: flex-start;
+
+        input[type="number"] {
+          max-width: 30%;
+          text-align: right;
+        }
 
         > div {
           width: 100%;
           margin-left: 0;
+          justify-content: flex-start;
 
           div:first-of-type {
             text-align: right;
@@ -377,7 +422,7 @@ $secondary-color: #f2f1ff;
     li {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 5px 0.5rem;
       min-height: 36px;
       border: 1px solid #e7e8e9;
       border-radius: 3px;
@@ -1118,6 +1163,11 @@ $secondary-color: #f2f1ff;
         border-radius: 3px;
         font-size: 13px;
 
+        &::before {
+          background-color: transparent;
+          border-color: transparent;
+        }
+
         &::after {
           width: 12px;
           height: 7px;
@@ -1126,6 +1176,11 @@ $secondary-color: #f2f1ff;
 
         &:is(input:checked + label) {
           border-color: rgba(80, 72, 215, 0.5);
+
+          &::before {
+            background-color: transparent;
+            border-color: transparent;
+          }
 
           &::after {
             border-color: $main-color;
@@ -1357,6 +1412,20 @@ $secondary-color: #f2f1ff;
             display: flex;
           }
         }
+      }
+    }
+  }
+
+  &-account-issues {
+    
+    .modal-content {
+      header {
+        background-color: #f3f6f9;
+        padding: .5rem;
+      }
+
+      .tag {
+        background-color: orangered;
       }
     }
   }
