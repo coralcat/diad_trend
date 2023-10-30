@@ -17,207 +17,212 @@
       <li data-tab="sub-menu">설정</li>
     </ul>
   </header>
-  <section class="section-main">
-    <header>
-      <div class="inputs">
-        <h2>https://www.diad.co.kr</h2>
-        <div class="buttons">
-          <button onclick="">수정</button>
-          <button>해제</button>
-        </div>
-      </div>
-    </header>
-    <div class="articles">
-      <article>
+  <div class="wrapper">
+    <aside>
+      <section class="section-main">
         <header>
-          <h2>판매자 센터</h2>
+          <div class="url">
+            <input type="text" value="https://www.diad.co.kr">
+            <div class="buttons">
+              <button onclick="">수정</button>
+              <button>삭제</button>
+            </div>
+          </div>
         </header>
-        <div class="account">
-          <h4>
-            <small>123456789</small>
-            다이애드
-          </h4>
-          <span class="tag">대기</span>
+        <div class="articles">
+          <article>
+            <header>
+              <h2>판매자 센터</h2>
+            </header>
+            <div class="account">
+              <div class="information">
+                <!-- <span class="tag">활성</span>
+                <span class="tag">정지</span> -->
+                <span class="tag pending" data-tooltip="googlePending">대기</span>
+                <h4>
+                  <small>123456789</small>
+                  다이애드
+                </h4>
+              </div>
+              <button data-modal="accountIssues">계정 이슈</button>
+            </div>
+            <ul class="list form">
+              <li>
+                <div>
+                  <span class="tag">필수</span>
+                  웹사이트 인증
+                </div>
+                <div>
+                  <div class="checkbox">
+                    <input type="checkbox" id="googleWebsite" checked disabled />
+                    <label for="googleWebsite">https://www.diad.co.kr</label>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span class="tag">필수</span>
+                  전화번호 인증
+                </div>
+                <div>
+                  <div class="checkbox">
+                    <input type="checkbox" id="googleWebsite" checked disabled />
+                    <label for="googleWebsite">010-1234-1234</label>
+                  </div>
+                  <button data-modal="googlePhoneNumber">수정</button>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span class="tag">필수</span>
+                  배송 정보 등록
+                </div>
+                <div>
+                  <button data-modal="googleShipping">등록</button>
+                </div>
+              </li>
+            </ul>
+          </article>
+          <article>
+            <header>
+              <h2>상품 피드</h2>
+            </header>
+            <div class="account">
+              <button data-modal="productFeed">연동하기</button>
+            </div>
+          </article>
+          <article>
+            <header>
+              <h2>구글 애즈</h2>
+            </header>
+            <div class="account">
+              <button data-modal="googleAds">생성하기</button>
+            </div>
+            <ul class="list form">
+              <li>
+                <div>
+                  <span class="tag">필수</span>
+                  전환
+                </div>
+                <div>
+                  <button onclick="location.href='ads_google_conversion.html'">관리</button>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span class="tag">필수</span>
+                  액세스 초대 수락
+                </div>
+                <div>
+                  <div class="checkbox">
+                    <input type="checkbox" id="googleWebsite" checked disabled />
+                    <label for="googleWebsite">abc123@gmail.com</label>
+                  </div>
+                  <button data-modal="accessInvitaion">수락</button>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span class="tag">필수</span>
+                  결제 설정
+                </div>
+                <div>
+                  <button>설정</button>
+                </div>
+              </li>
+            </ul>
+          </article>
         </div>
+      </section>
+    </aside>
+    <div class="sections">
+      <section>
+        <header>
+          <h2>
+            비즈니스 정보
+          </h2>
+        </header>
         <ul class="list form">
           <li>
             <div>
               <span class="tag">필수</span>
-              웹사이트 인증
+              상점명
             </div>
-            <div>
-              <div class="checkbox">
-                <input type="checkbox" id="googleWebsite" checked disabled />
-                <label for="googleWebsite">https://www.diad.co.kr</label>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div>
-              <span class="tag">필수</span>
-              전화번호 인증
-            </div>
-            <div>
-              <div class="checkbox">
-                <input type="checkbox" id="googleWebsite" checked disabled />
-                <label for="googleWebsite">010-1234-1234</label>
-              </div>
-              <button data-modal="googlePhoneNumber">수정</button>
+            <div class="inputs">
+              <input type="text" value="다이애드" />
+              <small>
+                상점명 수정 시 변경된 상점명은 연동된 상품 피드의 다음 업데이트 일정 이후부터 반영됩니다.
+              </small>
             </div>
           </li>
           <li>
             <div>
               <span class="tag">필수</span>
-              배송 정보 등록
+              비즈니스 주소
+            </div>
+          </li>
+          <li>
+            <div>우편번호</div>
+            <div>
+              <input type="text" placeholder="13494" readonly />
+              <button>우편번호 검색</button>
+            </div>
+          </li>
+          <li>
+            <div>시/도</div>
+            <div>
+              <input type="text" placeholder="경기도" readonly />
+            </div>
+          </li>
+          <li>
+            <div>시/군/구</div>
+            <div>
+              <input type="text" placeholder="성남시" readonly />
+            </div>
+          </li>
+          <li>
+            <div>상세주소</div>
+            <div>
+              <input type="text" placeholder="대왕판교로 670 (유스페이스2)" readonly />
+              <input type="text" placeholder="Behd 322, 323호" />
+            </div>
+          </li>
+          <li>
+            <div>
+              <h2>고객 서비스</h2>
+            </div>
+            <div>고객 서비스 연락처</div>
+          </li>
+          <li>
+            <div>
+              <span class="tag">선택</span>
+              대표 이메일
             </div>
             <div>
-              <button data-modal="googleShipping">등록하기</button>
+              <input type="email" value="diad@gabiacns.com" />
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag">선택</span>
+              대표 전화번호
+            </div>
+            <div>
+              <input type="tel" value="16444527" />
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag">필수</span>
+              사업자등록번호
+            </div>
+            <div>
+              <input type="number" value="1138618829" />
             </div>
           </li>
         </ul>
-      </article>
-      <article>
-        <header>
-          <h2>상품 피드</h2>
-        </header>
-        <div class="account">
-          <button data-modal="productFeed">연동하기</button>
-        </div>
-      </article>
-      <article>
-        <header>
-          <h2>구글 애즈</h2>
-        </header>
-        <div class="account">
-          <button data-modal="googleAds">생성하기</button>
-        </div>
-        <ul class="list form">
-          <li>
-            <div>
-              <span class="tag">필수</span>
-              전환
-            </div>
-            <div>
-              <button onclick="location.href='ads_google_conversion.html'">관리하기</button>
-            </div>
-          </li>
-          <li>
-            <div>
-              <span class="tag">필수</span>
-              액세스 초대 수락
-            </div>
-            <div>
-              <div class="checkbox">
-                <input type="checkbox" id="googleWebsite" checked disabled />
-                <label for="googleWebsite">abc123@gmail.com</label>
-              </div>
-              <button data-modal="accessInvitaion">수정</button>
-            </div>
-          </li>
-          <li>
-            <div>
-              <span class="tag">필수</span>
-              결제 설정
-            </div>
-            <div>
-              <button>설정하기</button>
-            </div>
-          </li>
-        </ul>
-      </article>
+      </section>
     </div>
-  </section>
-  <div class="sections">
-    <section>
-      <header>
-        <h2>
-          비즈니스 정보
-        </h2>
-      </header>
-      <ul class="list form">
-        <li>
-          <div>
-            <span class="tag">필수</span>
-            상점명
-          </div>
-          <div class="inputs">
-            <input type="text" value="다이애드" />
-            <small>
-              상점명 수정 시 변경된 상점명은 연동된 상품 피드의 다음 업데이트 일정 이후부터 반영됩니다. 
-            </small>
-          </div>
-        </li>
-        <li>
-          <div>
-            <span class="tag">필수</span>
-            비즈니스 주소
-          </div>
-        </li>
-        <li>
-          <div>우편번호</div>
-          <div>
-            <input type="text" placeholder="13494" readonly />
-            <button>우편번호 검색</button>
-          </div>
-        </li>
-        <li>
-          <div>시/도</div>
-          <div>
-            <input type="text" placeholder="경기도" readonly />
-          </div>
-        </li>
-        <li>
-          <div>시/군/구</div>
-          <div>
-            <input type="text" placeholder="성남시" readonly />
-          </div>
-        </li>
-        <li>
-          <div>상세주소</div>
-          <div>
-            <input type="text" placeholder="대왕판교로 670 (유스페이스2)" readonly />
-            <input type="text" placeholder="Behd 322, 323호" />
-          </div>
-        </li>
-      </ul>
-    </section>
-    <section>
-      <ul class="list form">
-        <li>
-          <div>
-            <h2>고객 서비스</h2>
-          </div>
-          <div>고객 서비스 연락처</div>
-        </li>
-        <li>
-          <div>
-            <span class="tag">선택</span>
-            대표 이메일
-          </div>
-          <div>
-            <input type="email" value="diad@gabiacns.com" />
-          </div>
-        </li>
-        <li>
-          <div>
-            <span class="tag">선택</span>
-            대표 전화번호
-          </div>
-          <div>
-            <input type="tel" value="16444527" />
-          </div>
-        </li>
-        <li>
-          <div>
-            <span class="tag">필수</span>
-            사업자등록번호
-          </div>
-          <div>
-            <input type="number" value="1138618829" />
-          </div>
-        </li>
-      </ul>
-    </section>
   </div>
   <div class="buttons">
     <button onclick="history.back()">이전화면</button>

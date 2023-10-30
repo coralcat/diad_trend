@@ -1841,7 +1841,6 @@ main {
       padding: 0 0 0.75rem !important;
 
       &:first-of-type {
-        border-top: 1px solid #f1f2f3 !important;
         padding-top: 0.75rem !important;
       }
 
@@ -1855,7 +1854,6 @@ main {
       > :first-child {
         flex: 0 0 auto !important;
         width: 140px;
-        padding-left: 0.75rem;
       }
 
       > :last-child {
@@ -1864,7 +1862,8 @@ main {
         flex-wrap: wrap;
 
         .message {
-          color: orangered;
+          font-size: 13px;
+          color: coral;
           width: 100%;
         }
       }
@@ -1940,7 +1939,7 @@ main {
   }
 
   .buttons {
-    gap: 1rem;
+    gap: .5rem !important;
   }
 
   .toggle-switch {
@@ -6437,11 +6436,64 @@ main {
 }
 
 .content-ads {
+
+  aside {
+    width: 400px;
+
+    .url {
+      input {
+        flex: 1 1 auto;
+      }
+    }
+
+
+    .checkbox {
+
+      label {
+
+        &::before {
+          width: 15px;
+          height: 15px;
+        }
+
+        &::after {
+          width: 7px;
+          height: 4px;
+          top: calc(50% - 1px);
+          left: 5px;
+          border-width: 1px;
+        }
+      }
+    }
+
+    .list {
+      padding: 0;
+
+      &.form {
+
+        li {
+          padding: 5px 0 !important
+        }
+      }
+    }
+  }
   section {
     header {
       button {
         background-color: $secondary-color;
         color: $main-color;
+      }
+
+      .url {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+    
+        h2, input {
+          font-size: 16px;
+          font-family: 'Poppins';
+        }
       }
     }
 
