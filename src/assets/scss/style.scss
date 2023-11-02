@@ -457,10 +457,6 @@ section {
   background-color: white;
   box-shadow: 0 6px 12px -4px #e3e6e9;
 
-  > header {
-    min-height: 32px;
-  }
-
   header {
     width: 100%;
     align-items: center;
@@ -468,23 +464,12 @@ section {
     gap: 0.5rem;
 
     a {
-      color: $main-color;
-
-      &::after {
-        content: "";
-        display: inline-flex;
-        border: 1px solid #333;
-        border-left: none;
-        border-bottom: none;
-        transform: rotate(45deg);
-        width: 6px;
-        height: 6px;
-        margin-left: 0.15rem;
-      }
-
-      &:hover {
-        text-decoration: underline;
-      }
+      background: linear-gradient(45deg, #5048d7 50%, #7682f8);
+      padding: 5px 0.5rem;
+      color: white;
+      border-radius: 3px;
+      font-size: 11px;
+      font-family: 'NanumSquareR';
     }
 
     .title {
@@ -1624,6 +1609,7 @@ main {
   max-width: 100%;
   height: 100%;
   max-height: 30vh;
+  min-height: 200px;
 
   canvas {
     width: 100% !important;
@@ -1908,7 +1894,7 @@ main {
     padding: 0;
     text-decoration: underline;
     text-underline-position: under;
-    color: #838689;
+    color: black;
     font-family: "NanumSquareR";
     font-size: 13px;
     transition: color 0.25s;
@@ -2100,6 +2086,7 @@ main {
 
       &::before {
         content: "\25B2";
+        transform: scale(0.75);
       }
     }
 
@@ -2109,6 +2096,7 @@ main {
 
       &::before {
         content: "\25BC";
+        transform: scale(0.75);
       }
     }
 
@@ -2241,6 +2229,7 @@ main {
     }
 
     li {
+      width: 100px;
       background-color: white;
       border-bottom: 1px solid #e3e6e9;
       flex: 1 1 auto;
@@ -2251,7 +2240,6 @@ main {
       justify-content: center;
       text-align: center;
       gap: 3px;
-      width: 20%;
       min-height: 36px;
       padding: 0.5rem;
       word-break: keep-all;
@@ -2784,8 +2772,8 @@ main {
         cursor: pointer;
 
         &::before {
-          background-color: transparent;
-          border-color: transparent;
+          background-color: transparent !important;
+          border-color: transparent !important;
         }
 
         &::after {
@@ -4071,6 +4059,7 @@ main {
     }
   }
   .sections {
+    flex: 0 0 auto;
     overflow: hidden;
     flex-wrap: nowrap;
 
@@ -4150,6 +4139,7 @@ main {
 
       .tag-failed {
         display: flex;
+        width: 100% !important;
       }
     }
 
@@ -4343,8 +4333,12 @@ main {
       width: 100%;
       justify-content: center;
       padding: 1.25rem 0;
-      background: #333 !important;
+      background-color: #333;
       color: white;
+
+      &:hover {
+        background-color: $main-color;
+      }
     }
   }
 
@@ -4479,8 +4473,7 @@ main {
     gap: 1rem;
 
     article {
-      flex: 1 1 auto;
-      width: 50%;
+      flex: 1;
       display: flex;
       flex-direction: column;
       gap: 0.75rem;

@@ -86,7 +86,7 @@ const containerMutated = () => {
     main.addEventListener("scroll", handleScrollToTop);
 
     scrollToTop.addEventListener("click", () => {
-      main.scrollTo({top: 0, behavior: "smooth"});
+      main.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 
@@ -106,26 +106,26 @@ const containerMutated = () => {
     all.addEventListener("click", handleCheckAll);
   });
 
-/*   // 목록 체크박스 효과
-  const listCheckboxes = document.querySelectorAll(".list .checkbox input[type='checkbox']:not(.modal input)");
-  listCheckboxes.forEach(check => {
-    const handleListCheckboxes = event => {
-      event.target.checked
-        ? event.target.closest(".row").classList.add("checked")
-        : event.target.closest(".row").classList.remove("checked");
-      if (check.classList.contains("check-all")) {
-        const rows = event.target.closest(".list").querySelectorAll(".row:not(.title)");
-        rows.forEach(row => {
-          event.target.checked ? row.classList.add("checked") : row.classList.remove("checked");
-        });
-      }
-    };
-    check.addEventListener("change", handleListCheckboxes);
-  });
-
-  /* =====================================================
-    Toggle
-  ===================================================== */
+  /*   // 목록 체크박스 효과
+    const listCheckboxes = document.querySelectorAll(".list .checkbox input[type='checkbox']:not(.modal input)");
+    listCheckboxes.forEach(check => {
+      const handleListCheckboxes = event => {
+        event.target.checked
+          ? event.target.closest(".row").classList.add("checked")
+          : event.target.closest(".row").classList.remove("checked");
+        if (check.classList.contains("check-all")) {
+          const rows = event.target.closest(".list").querySelectorAll(".row:not(.title)");
+          rows.forEach(row => {
+            event.target.checked ? row.classList.add("checked") : row.classList.remove("checked");
+          });
+        }
+      };
+      check.addEventListener("change", handleListCheckboxes);
+    });
+  
+    /* =====================================================
+      Toggle
+    ===================================================== */
   const toggles = document.querySelectorAll("[data-toggle]");
   const handleToggle = event => {
     event.stopPropagation();
@@ -257,9 +257,9 @@ const containerMutated = () => {
       const container = event.target.closest(".input");
       const clear = container.querySelector(".x");
 
-      if(clear) {
+      if (clear) {
         clear.classList.add("is-active");
-  
+
         clear.addEventListener("click", () => {
           clear.classList.remove("is-active");
           input.value = "";
@@ -1089,7 +1089,8 @@ const containerMutated = () => {
   Swiper Sliders
   ===================================================== */
   let horizontalSwiper = new Swiper(".swiper.horizontal", {
-    spaceBetween: 15,
+    spaceBetween: 10,
+    slidesPerView: 1,
     speed: 1000,
     loop: true,
     hashNavigation: {
@@ -1100,6 +1101,15 @@ const containerMutated = () => {
       clickable: true,
       type: "fraction",
     },
+
+    breakpoints: {
+      640: {
+        slidesPerView: 1.15,
+      },
+      641: {
+        slidesPerView: 1,
+      }
+    }
   });
 
   setTimeout(() => {
@@ -1134,7 +1144,7 @@ const containerMutated = () => {
 
   const enableSwiper = () => {
     smallSwiper = new Swiper(".swiper.small", {
-      spaceBetween: 15,
+      spaceBetween: 10,
       slidesPerView: "auto",
       centeredSlides: true,
       speed: 1000,

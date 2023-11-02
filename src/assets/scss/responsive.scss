@@ -129,6 +129,11 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 }
 
 @media screen and (max-width: 960px) {
+
+  .col-long {
+    flex: 1 1 auto !important;
+  }
+
   .section-main {
     .section-content {
       .report {
@@ -187,6 +192,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
     h3 {
       white-space: nowrap;
+      font-family: "NanumSquareB";
     }
 
     .scroll-to-top {
@@ -237,7 +243,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     overflow-y: auto !important;
     gap: 0.5rem;
     overflow: hidden;
-    padding: 0;
+    padding: 0 0 1rem !important;
     position: relative;
 
     &.mutated {
@@ -245,13 +251,23 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     }
 
     aside {
-      min-width: 300px;
+      width: 100%;
       position: relative;
       padding: 0 0.75rem;
+
+      ul {
+        margin: 0 .75rem;
+        padding: .75rem !important
+      }
 
       section {
         background-color: white;
         border-radius: 0.5rem;
+        padding: .75rem 0;
+
+        > *:not(a, button) {
+          padding: 0 .75rem;
+        }
       }
 
       .filters {
@@ -272,7 +288,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
   section {
     background-color: transparent;
-    padding: 0 1rem 1rem;
+    padding: 1rem;
     gap: 0.5rem;
     box-shadow: 0 0 0;
     border-radius: 0;
@@ -358,8 +374,13 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     }
   }
 
+  .articles {
+    padding: 0 1rem;
+  }
+
   .swiper {
     gap: 0 !important;
+    padding: 0 1rem 1rem !important;
 
     &.small {
       .swiper-slide {
@@ -370,7 +391,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       }
 
       .swiper-wrapper {
-        flex-wrap: nowrap;
+        flex-wrap: nowrap !important;
       }
     }
 
@@ -379,14 +400,14 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     }
 
     .articles {
+      padding: 0 !important;
       justify-content: flex-start !important;
     }
   }
 
   .filters {
-    border-radius: 0.5rem;
-    padding: 0.5rem;
     margin-top: 0 !important;
+    border: 0 !important;
 
     > div {
       width: 100%;
@@ -413,7 +434,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       label {
         flex: 1 1 auto;
         justify-content: center;
-        padding: 0.35rem;
+        padding: 0.35rem 0.75rem;
         max-width: fit-content;
       }
     }
@@ -928,7 +949,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     }
 
     .title {
-      padding: 0.75rem 1rem 0;
+      padding: 1rem 1rem 0;
     }
 
     .sections {
@@ -962,6 +983,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     > .wrapper {
       flex-direction: column !important;
       padding: 0 !important;
+      overflow: unset;
     }
 
     .tab-content {
@@ -981,6 +1003,14 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       &.section-issues {
         article {
           background-color: white;
+        }
+
+        &.bid {
+          padding: 1rem 0;
+
+          > * {
+            padding: 0 1rem;
+          }
         }
       }
 
@@ -1341,12 +1371,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
   }
 
   :is([class$="details"]) {
-    justify-content: center;
-
-    > .wrapper {
-      height: fit-content;
-    }
-
     .buttons {
       :not(.ico-download) {
         display: none;
@@ -1429,7 +1453,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     }
 
     .keyword-chart {
-      padding: 1rem;
       background-color: white;
     }
 
@@ -1460,6 +1483,10 @@ $secondary-color: rgba(118, 130, 248, 0.1);
           }
         }
       }
+    }
+
+    .ranking-fluctuations article {
+      flex: 1 1 auto;
     }
   }
 
@@ -1827,7 +1854,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
             padding-bottom: 1rem;
             justify-content: flex-start;
             .keyword {
-              font-size: 17px;
+              font-size: 15px;
             }
           }
 
