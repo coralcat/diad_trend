@@ -4,6 +4,12 @@ $primary-color: #7682f8;
 $secondary-color: #f2f1ff;
 
 .modal {
+
+  h3 {
+    font-family: "NanumSquareB";
+    font-size: clamp(15px, 2.5vw, 16px);
+  }
+
   input {
     &:not([type="radio"], [type="checkbox"]) {
       background-color: #f3f6f9;
@@ -13,19 +19,16 @@ $secondary-color: #f2f1ff;
   }
 
   .checkbox {
-
     label {
-
       &::before {
         width: 18px;
         height: 18px;
-        margin-right: 5px;
       }
 
       &::after {
         height: 5px;
         width: 9px;
-        left: 6px
+        left: 6px;
       }
     }
   }
@@ -118,7 +121,6 @@ $secondary-color: #f2f1ff;
     border-radius: 0;
     background-color: transparent;
     box-shadow: 0 0 0;
-    overflow: hidden;
   }
 
   header {
@@ -268,7 +270,6 @@ $secondary-color: #f2f1ff;
 
   .list {
     flex: 1 1 auto;
-    max-height: 360px;
     gap: 0.5rem;
     border: 0;
     padding: 0;
@@ -308,7 +309,6 @@ $secondary-color: #f2f1ff;
       gap: 0;
 
       .asterisk {
-
         &::before {
           top: calc(50% - 10px);
           left: -8px;
@@ -316,15 +316,24 @@ $secondary-color: #f2f1ff;
         }
       }
 
-      input[type="number"] {
+      input[type="number"],
+      input[id*="price"],
+      input[id*="Price"] {
+        max-width: 120px;
         text-align: right;
       }
 
       fieldset {
-        padding: 0.5rem;
+        padding: 0;
+        border: 0;
+        margin-top: 2rem;
 
         legend {
           font-size: 14px;
+          text-align: left;
+          padding: 0;
+          margin-bottom: 5px;
+          font-family: "NanumSquareB";
         }
 
         ul {
@@ -334,8 +343,7 @@ $secondary-color: #f2f1ff;
         }
 
         .inputs {
-          border: 1px solid #e3e6e9;
-          padding: 0.5rem !important;
+          border-top: 1px solid #eee;
         }
       }
 
@@ -343,9 +351,10 @@ $secondary-color: #f2f1ff;
         border: 0;
         padding: 0.5rem 0;
         justify-content: flex-start;
+        gap: 5px .5rem;
 
-        .price {
-          justify-content: flex-end;
+        > div {
+          justify-content: flex-start;
         }
       }
 
@@ -357,20 +366,24 @@ $secondary-color: #f2f1ff;
         }
 
         > :first-child {
-          flex: 0 0 150px;
+          flex: 0 0 130px;
           justify-content: flex-start;
           align-items: center;
-          gap: 0;
+          gap: 3px;
+        }
+
+        .tag {
+          min-width: auto;
         }
       }
 
       .inputs {
-        gap: 0.5rem;
+        gap: 5px 0.5rem;
         width: 100%;
         justify-content: flex-start;
 
         input[type="number"] {
-          max-width: 30%;
+          max-width: 120px;
           text-align: right;
         }
 
@@ -444,7 +457,7 @@ $secondary-color: #f2f1ff;
         flex: 1 1 auto;
       }
 
-      > :first-child {
+      > div:first-child {
         flex: 1 1 auto;
 
         label {
@@ -452,12 +465,12 @@ $secondary-color: #f2f1ff;
         }
       }
 
-      .col-keyword {
-        min-width: 180px;
+      [title="키워드"] {
+        width: 200px !important;
       }
 
       .keyword {
-        border: 0;
+        display: flex !important
       }
 
       .count {
@@ -492,7 +505,7 @@ $secondary-color: #f2f1ff;
     }
 
     + .caution {
-      padding-top: 0.5rem;
+      margin-top: 0.5rem;
     }
   }
 
@@ -524,7 +537,7 @@ $secondary-color: #f2f1ff;
   }
 
   .modal-header {
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 1rem;
     border-bottom: 1px solid #e3e6e9;
 
     &.no-title {
@@ -768,13 +781,10 @@ $secondary-color: #f2f1ff;
   }
 
   &.change-details {
-
     .list {
-
       li {
-
         > :first-child {
-          flex: 0 0 80px
+          flex: 0 0 80px;
         }
       }
     }
@@ -849,9 +859,7 @@ $secondary-color: #f2f1ff;
     }
 
     .list {
-
       li {
-
         div {
           width: 84px;
           text-align: center;
@@ -969,6 +977,35 @@ $secondary-color: #f2f1ff;
   }
 
   &-advanced {
+    &.part {
+      h5 {
+        width: 120px;
+      }
+
+      .dialog {
+        width: min(1000px, 60vw);
+      }
+
+      .advanced-search {
+        flex-direction: column;
+        gap: 1.5rem;
+
+        li {
+          flex-direction: row !important;
+        }
+
+        ul {
+          border-right: 0 !important;
+          padding-bottom: 0 !important;
+          flex: 0 0 auto !important;
+        }
+      }
+    }
+
+    footer {
+      justify-content: flex-end;
+    }
+
     section {
       overflow: unset;
 
@@ -1060,6 +1097,7 @@ $secondary-color: #f2f1ff;
           > div {
             display: flex;
             flex-wrap: wrap;
+            gap: 0.5rem;
           }
 
           .ranking {
@@ -1107,10 +1145,15 @@ $secondary-color: #f2f1ff;
 
       + .caution {
         flex: 0 0 auto;
-        width: min(400px, 100%);
+        width: min(450px, 100%);
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-start;
+
+        p {
+          line-height: 1.25;
+          font-size: 13px;
+        }
 
         .impact {
           color: orangered;
@@ -1133,6 +1176,12 @@ $secondary-color: #f2f1ff;
   }
 
   &-sortable {
+    &#selectColumns_google {
+      li {
+        width: calc(100% / 5 - 7px);
+      }
+    }
+
     li:nth-of-type(1),
     li:nth-of-type(2),
     li:nth-of-type(3),
@@ -1212,8 +1261,9 @@ $secondary-color: #f2f1ff;
       li {
         user-select: none;
         flex: 0 0 auto;
-        width: calc(100% / 5 - 7px);
+        width: calc(100% / 7 - 7px);
         position: relative;
+        min-width: 120px;
 
         &.over {
           &::before {
@@ -1240,15 +1290,18 @@ $secondary-color: #f2f1ff;
   }
 
   &-calculate-bid-price {
-    [data-title] {
-    }
 
+    .filters {
+
+      strong {
+        color: $main-color
+      }
+    }
     .bid-price {
-      background-color: $secondary-color;
+      background-color: #f3f6f9;
       padding: 0.5rem;
       border-radius: 3px;
-      color: slategray;
-      border: 0;
+      gap: 0;
 
       input {
         background-color: white;
@@ -1269,12 +1322,12 @@ $secondary-color: #f2f1ff;
 
       &.result {
         gap: 0;
-        background-color: #f3f6f9;
-        border-top: 1px solid #e3e6e9;
-        border-bottom: 1px solid #e3e6e9;
+        background-color: $secondary-color;
+        border-radius: 0.5rem;
 
         .price {
-          font-size: 17px;
+          font-size: 15px;
+          color: $main-color;
         }
 
         .row {
@@ -1301,6 +1354,9 @@ $secondary-color: #f2f1ff;
           &:nth-of-type(1) {
             flex: 0 0 auto;
             width: 100px;
+            display: flex;
+            align-items: center;
+            gap: 3px;
           }
 
           &:nth-of-type(2) {
@@ -1339,9 +1395,8 @@ $secondary-color: #f2f1ff;
   }
 
   &-shipping {
-
     .dialog {
-      width: min(720px,100%);
+      width: min(720px, 100%);
     }
 
     .shipping-cost {
@@ -1391,6 +1446,11 @@ $secondary-color: #f2f1ff;
   }
 
   &-conversion {
+
+    .dialog {
+      width: min(710px,100%);
+    }
+    
     .conversion-value {
       .options {
         display: none;
@@ -1417,11 +1477,10 @@ $secondary-color: #f2f1ff;
   }
 
   &-account-issues {
-    
     .modal-content {
       header {
         background-color: #f3f6f9;
-        padding: .5rem;
+        padding: 0.5rem;
       }
 
       .tag {

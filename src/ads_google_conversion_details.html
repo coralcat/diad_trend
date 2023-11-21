@@ -1,0 +1,164 @@
+{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('ads_google')}}
+<main class="content-ads google">
+  <header class="content-header">
+    <div class="title">
+      <h1>
+        <button class="btn-back" onclick="history.back()"></button>
+        <input type="text" value="페이지 조회 [기본]">
+        <button class="btn-remove"></button>
+      </h1>
+      {% include "account.html" %}
+    </div>
+    <ul class="tabs main-tabs">
+      <li data-tab="sub-menu" class="is-active">기본 정보</li>
+      <li data-tab="sub-menu">태그</li>
+    </ul>
+    <div class="buttons">
+      <button class="btn-main">저장</button>
+    </div>
+  </header>
+  <section>
+    <ul class="list form">
+      <li>
+        <div>
+          <span class="tag" data-title="필수"></span>
+          전환 목표
+        </div>
+        <div>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">페이지 조회</option>
+              <option value="">회원가입</option>
+              <option value="">장바구니 담기</option>
+              <option value="">결제 시작</option>
+              <option value="">구매 완료</option>
+              <option value="">기타</option>
+            </select>
+          </div>
+          <div class="selector goal">
+            입찰 최적화에 사용 여부
+            <div data-tooltip=""></div>
+            <input id="defaultConversionGoal" name="ConversionGoal" type="radio" checked />
+            <label for="defaultConversionGoal">사용 (기본 액션)</label>
+            <input id="subConversionGoal" name="ConversionGoal" type="radio" />
+            <label for="subConversionGoal">미사용 (보조 액션)</label>
+          </div>
+          <div class="caution">
+            <p>기본 액션은 입찰 최적화에 사용되면, 성과는 ‘전환수’에서 확인 가능합니다.</p>
+            <p>보조 액션은 입찰 최적화에 사용되지 않고, 성과는 ‘모든 전환수’에서만 확인 가능합니다.</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span class="tag" data-title="필수"></span>
+          추적 이벤트
+          <div data-tooltip="trackingEvent"></div>
+        </div>
+        <div>
+          <input id="pageLoad" type="radio" name="trackingEvent" checked />
+          <label for="pageLoad">페이지 로드</label>
+          <input id="click" type="radio" name="trackingEvent" />
+          <label for="click">클릭</label>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span class="tag" data-title="필수"></span>
+          전환 가치
+          <div data-tooltip="conversionValue"></div>
+        </div>
+        <div class="conversion-value">
+          <input id="same" type="radio" name="conversionValues" checked />
+          <label for="same">모든 전환 동일</label>
+          <input id="different" type="radio" name="conversionValues" />
+          <label for="different">전환별 다름</label>
+          <input id="notUsed" type="radio" name="conversionValues" />
+          <label for="notUsed">사용하지 않음</label>
+          <div class="options">
+            전환 가치
+            <span class="price">
+              <input type="number" />
+            </span>
+          </div>
+          <div class="options">
+            전환 가치 기본값
+            <span class="price">
+              <input type="number" />
+            </span>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span class="tag" data-title="필수"></span>
+          상호작용 당 전환 횟수
+        </div>
+        <div>
+          <input id="everytime" type="radio" name="conversionTimes" checked />
+          <label for="everytime">
+            매회
+            <small>각 상호작용이 모두 가치가 있을 때 (예: 구매) 권장</small>
+          </label>
+          <input id="once" type="radio" name="conversionTimes" />
+          <label for="once">
+            1회
+            <small>첫 번째 상호작용만 가치가 있을 때 (예: 가입) 권장</small>
+          </label>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span class="tag" data-title="필수"></span>
+          클릭 추적 기간
+          <div data-tooltip=""></div>
+        </div>
+        <div>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">30일</option>
+            </select>
+          </div>
+          <small>
+            <span class="tag" data-title="Tip"></span>
+              기간은 7일 이상을 사용하는 것을 권장합니다.
+          </small>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span class="tag" data-title="필수"></span>
+          조회 추적 기간
+          <div data-tooltip=""></div>
+        </div>
+        <div>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">1일</option>
+            </select>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span class="tag" data-title="필수"></span>
+          기여 분석
+          <div data-tooltip=""></div>
+        </div>
+        <div>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">데이터 기반</option>
+            </select>
+          </div>
+          <small>
+            <span class="tag" data-title="Tip"></span>
+              정확한 전환 기여 분석을 원하시면 데이터 기반 모델을 권장합니다.
+          </small>
+        </div>
+      </li>
+    </ul>
+  </section>
+</main>
+{% include "modals.html" %}
+{% endblock %}

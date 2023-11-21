@@ -8,14 +8,10 @@
       </h1>
       {% include "account.html" %}
     </div>
-    <ul class="tabs main-tabs">
-      <li data-tab="sub-menu">대시보드</li>
-      <li data-tab="sub-menu" class="is-active">계정+</li>
-      <li data-tab="sub-menu">피드+</li>
-      <li data-tab="sub-menu">캠페인</li>
-      <li data-tab="sub-menu">리포트</li>
-      <li data-tab="sub-menu">설정</li>
-    </ul>
+    <button class="btn-back" onclick="history.back()">이전페이지</button>
+    <div class="buttons">
+      <button class="btn-main">저장</button>
+    </div>
   </header>
   <div class="wrapper">
     <aside>
@@ -49,7 +45,7 @@
             <ul class="list form">
               <li>
                 <div>
-                  <span class="tag">필수</span>
+                  <span class="tag" data-title="필수"></span>
                   웹사이트 인증
                 </div>
                 <div>
@@ -61,7 +57,7 @@
               </li>
               <li>
                 <div>
-                  <span class="tag">필수</span>
+                  <span class="tag" data-title="필수"></span>
                   전화번호 인증
                 </div>
                 <div>
@@ -74,7 +70,7 @@
               </li>
               <li>
                 <div>
-                  <span class="tag">필수</span>
+                  <span class="tag" data-title="필수"></span>
                   배송 정보 등록
                 </div>
                 <div>
@@ -101,7 +97,7 @@
             <ul class="list form">
               <li>
                 <div>
-                  <span class="tag">필수</span>
+                  <span class="tag" data-title="필수"></span>
                   전환
                 </div>
                 <div>
@@ -110,7 +106,7 @@
               </li>
               <li>
                 <div>
-                  <span class="tag">필수</span>
+                  <span class="tag" data-title="필수"></span>
                   액세스 초대 수락
                 </div>
                 <div>
@@ -123,7 +119,7 @@
               </li>
               <li>
                 <div>
-                  <span class="tag">필수</span>
+                  <span class="tag" data-title="필수"></span>
                   결제 설정
                 </div>
                 <div>
@@ -145,7 +141,7 @@
         <ul class="list form">
           <li>
             <div>
-              <span class="tag">필수</span>
+              <span class="tag" data-title="필수"></span>
               상점명
             </div>
             <div class="inputs">
@@ -157,7 +153,7 @@
           </li>
           <li>
             <div>
-              <span class="tag">필수</span>
+              <span class="tag" data-title="필수"></span>
               비즈니스 주소
             </div>
           </li>
@@ -213,7 +209,7 @@
           </li>
           <li>
             <div>
-              <span class="tag">필수</span>
+              <span class="tag" data-title="필수"></span>
               사업자등록번호
             </div>
             <div>
@@ -223,10 +219,6 @@
         </ul>
       </section>
     </div>
-  </div>
-  <div class="buttons">
-    <button onclick="history.back()">이전화면</button>
-    <button>저장</button>
   </div>
 </main>
 {% include "modals.html" %}
