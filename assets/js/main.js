@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const asideHandler = document.querySelector(".aside-handler");
   const handleAside = () => {
-    if (matchMedia("screen and (max-width: 640px)").matches) {
+    if (window.matchMedia("screen and (max-width: 640px)").matches) {
       aside.classList.remove("is-active");
       hamburgMenu.classList.remove("is-active");
     } else {
@@ -49,9 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
       document.documentElement.style.setProperty("--vh", `${vh}px`);
 
       if (aside) {
-        matchMedia("screen and (max-width: 1280px)").matches && aside.classList.add("icons-only");
-        matchMedia("screen and (max-width: 640px)").matches && aside.classList.remove("icons-only");
-        matchMedia("screen and (min-width: 1281px)").matches && aside.classList.remove("icons-only");
+        window.matchMedia("screen and (max-width: 1280px)").matches && aside.classList.add("icons-only");
+        window.matchMedia("screen and (max-width: 640px)").matches && aside.classList.remove("icons-only");
+        window.matchMedia("screen and (min-width: 1281px)").matches && aside.classList.remove("icons-only");
       }
     });
   });
@@ -66,6 +66,14 @@ scrollToTop.classList.add("scroll-to-top");
 const containerMutated = () => {
   const container = document.querySelector(".container");
   const main = document.querySelector("main");
+
+  // 마이너스 금액
+  const prices = document.querySelectorAll(".section-money .price");
+  prices.forEach(price => {
+    if(price.textContent.includes("-")) {
+      price.style.color = "orangered"
+    }
+  })
 
   // 스크롤 맨 위로
   if (main) {
@@ -97,7 +105,7 @@ const containerMutated = () => {
   const checkAll = document.querySelectorAll(".check-all");
   checkAll.forEach(all => {
     const handleCheckAll = event => {
-      const inputName = event.target.getAttribute("name");
+      const inputName = event.currentTarget.getAttribute("name");
       const checkboxes = document.getElementsByName(inputName);
       checkboxes.forEach(checkbox => {
         checkbox.checked = all.checked;
@@ -110,45 +118,19 @@ const containerMutated = () => {
   const listCheckboxes = document.querySelectorAll(".list .checkbox input[type='checkbox']:not(.modal input)");
   listCheckboxes.forEach(check => {
     const handleListCheckboxes = event => {
-      event.target.checked
-        ? event.target.closest(".row").classList.add("checked")
-        : event.target.closest(".row").classList.remove("checked");
+      event.currentTarget.checked
+        ? event.currentTarget.closest(".row").classList.add("checked")
+        : event.currentTarget.closest(".row").classList.remove("checked");
       if (check.classList.contains("check-all")) {
-        const rows = event.target.closest(".list").querySelectorAll(".row:not(.title)");
+        const rows = event.currentTarget.closest(".list").querySelectorAll(".row:not(.title)");
         rows.forEach(row => {
-          event.target.checked ? row.classList.add("checked") : row.classList.remove("checked");
+          event.currentTarget.checked ? row.classList.add("checked") : row.classList.remove("checked");
         });
       }
     };
     check.addEventListener("change", handleListCheckboxes);
   });
-
-  /* =====================================================
-    Toggle
-  ===================================================== */
-  const toggles = document.querySelectorAll("[data-toggle]");
-  const handleToggle = event => {
-    event.stopPropagation();
-    const toggleName = event.target.dataset.toggle;
-    const toggles = document.querySelectorAll(`[data-toggle='${toggleName}']`);
-    toggles.forEach(toggle => {
-      toggle.classList.toggle("is-active");
-    });
-  };
-  toggles.forEach(toggle => {
-    toggle.addEventListener("click", handleToggle);
-  });
-
-  /* =====================================================
-    Accordion
-  ===================================================== */
-  const accordion = document.querySelector(".accordion");
-  const handleAccordion = event => {
-    event.target.closest("li").classList.contains("is-active")
-      ? event.target.closest("li").classList.remove("is-active")
-      : event.target.closest("li").classList.add("is-active");
-  };
-  accordion && accordion.addEventListener("click", handleAccordion);
+ */
 
   /* =====================================================
     Tab Menu
@@ -156,10 +138,10 @@ const containerMutated = () => {
   const tabs = document.querySelectorAll(".tabs li");
   const showTabContent = event => {
     event.stopPropagation();
-    const tabName = event.target.dataset.tab;
+    const tabName = event.currentTarget.dataset.tab;
     const tabs = document.querySelectorAll(`[data-tab='${tabName}']`);
     const tabContents = document.querySelectorAll(`.tab-content[data-tab='${tabName}']`);
-    let menuIndex = [...tabs].indexOf(event.target);
+    let menuIndex = [...tabs].indexOf(event.currentTarget);
 
     tabs.forEach(tab => {
       [...tabs].indexOf(tab) === menuIndex ? tab.classList.add("is-active") : tab.classList.remove("is-active");
@@ -188,7 +170,7 @@ const containerMutated = () => {
     const anchors = document.querySelectorAll("a[href^='#']");
     anchors.forEach(anchor => {
       const smoothScrolling = event => {
-        event.target.getAttribute("href").scrollIntoView({
+        event.currentTarget.getAttribute("href").scrollIntoView({
           behavior: "smooth",
         });
       };
@@ -198,7 +180,7 @@ const containerMutated = () => {
 
   // 메인 대시보드 스크롤 효과
   if (main && main.classList.contains("content-dashboard")) {
-    if (matchMedia("screen and (min-width: 1280px)").matches) {
+    if (window.matchMedia("screen and (min-width: 1280px)").matches) {
       const tabContents = document.querySelectorAll(".tab-content");
 
       tabContents.forEach(content => {
@@ -254,7 +236,7 @@ const containerMutated = () => {
   const inputs = document.querySelectorAll(".input input");
   inputs.forEach(input => {
     input.addEventListener("keyup", event => {
-      const container = event.target.closest(".input");
+      const container = event.currentTarget.closest(".input");
       const clear = container.querySelector(".x");
 
       if(clear) {
@@ -320,12 +302,12 @@ const containerMutated = () => {
   const controllers = document.querySelectorAll(".toggle-controller");
   controllers.forEach((controller) => {
     controller.addEventListener("click", (event) => {
-      const toggleName = event.target.dataset.toggle;
+      const toggleName = event.currentTarget.dataset.toggle;
       const toggles = document.getElementsByName(toggleName);
 
       if (!controller.classList.contains("is-active")) {
         dataToggles.forEach((toggle) => {
-          event.target.dataset.toggle === toggle.dataset.toggle && (toggle.classList = controller.classList);
+          event.currentTarget.dataset.toggle === toggle.dataset.toggle && (toggle.classList = controller.classList);
         });
       }
     });
@@ -347,7 +329,7 @@ const containerMutated = () => {
 
     select.forEach(button => {
       button.addEventListener("click", event => {
-        if (event.target === select[0]) {
+        if (event.currentTarget === select[0]) {
           detail1.classList.add("is-active");
           detail2.classList.remove("is-active");
         } else {
@@ -356,7 +338,7 @@ const containerMutated = () => {
 
           const toggles = detail2.querySelectorAll(".toggle-switch");
           const inputDisabled = event => {
-            const row = event.target.closest(".row");
+            const row = event.currentTarget.closest(".row");
             const checked = row.querySelector("input:checked");
             const inputs = row.querySelector(".inputs");
             checked ? inputs.classList.add("is-active") : inputs.classList.remove("is-active");
@@ -387,16 +369,16 @@ const containerMutated = () => {
 
     const changeFilters = event => {
       initialize();
-      if (event.target.id === "checkNaverList") {
-        if (event.target.checked === true) {
+      if (event.currentTarget.id === "checkNaverList") {
+        if (event.currentTarget.checked === true) {
           checkGoogle.checked === true ? list.classList.add("all") : list.classList.add("naver");
         } else if (checkGoogle.checked === true) {
           list.classList.add("google");
         } else {
           list.classList.add("all");
         }
-      } else if (event.target.id === "checkGoogleList") {
-        if (event.target.checked === true) {
+      } else if (event.currentTarget.id === "checkGoogleList") {
+        if (event.currentTarget.checked === true) {
           checkNaver.checked === true ? list.classList.add("all") : list.classList.add("google");
         } else if (checkNaver.checked === true) {
           list.classList.add("naver");
@@ -417,7 +399,7 @@ const containerMutated = () => {
   if (pagination[0]) {
     pagination.forEach(pages => {
       const scrollingToTop = event => {
-        const wrapper = event.target.closest(".tab-content");
+        const wrapper = event.currentTarget.closest(".tab-content");
         wrapper.querySelector(".list").scrollTop = 0;
       };
       pages.addEventListener("click", scrollingToTop);
@@ -468,7 +450,7 @@ const containerMutated = () => {
 
   const openModal = event => {
     event.preventDefault();
-    const modalData = event.target.dataset.modal;
+    const modalData = event.currentTarget.dataset.modal;
     const targetModal = document.getElementById(modalData);
     if (targetModal) {
       targetModal.classList.add("is-active");
@@ -501,7 +483,7 @@ const containerMutated = () => {
     };
 
     // Modal in Modal
-    const currentModal = event.target.closest(".modal");
+    const currentModal = event.currentTarget.closest(".modal");
     const validateMessage = message => {
       alertModalContent.innerText = message;
       alertModal.classList.add("is-active");
@@ -516,14 +498,14 @@ const containerMutated = () => {
     // 상품 순위 추적: 상품등록팝업 - 조회
     if (modalData === "searchItem") {
       if (currentModal.querySelector("input").value === "") {
-        validateMessage("상품 URL을 입력해주세요.");
+        validateMessage("상품 URL을 입력해 주세요.");
       } else {
         document.querySelector(".search-item").classList.add("is-active");
       }
     }
 
     // 조회 목록화면에 상품 선택시 누르는 버튼들
-    if (event.target.closest(".filters")) {
+    if (event.currentTarget.closest(".filters")) {
       const listItem = document.querySelector(".list");
       const checkboxes = listItem.querySelectorAll("input[type='checkbox']:checked");
       if (checkboxes.length === 0) {
@@ -539,7 +521,7 @@ const containerMutated = () => {
     // 키워드등록/편집: 키워드추가
     if (modalData === "createKeyword") {
       if (currentModal.querySelector("input").value === "") {
-        validateMessage("키워드를 입력해주세요.");
+        validateMessage("키워드를 입력해 주세요.");
       } else {
         openAlertModal();
       }
@@ -548,7 +530,7 @@ const containerMutated = () => {
     // 키워드 트렌드 조회
     if (modalData === "searchKeyword") {
       if (currentModal.querySelector("input").value === "") {
-        validateMessage("키워드를 입력해주세요.");
+        validateMessage("키워드를 입력해 주세요.");
       }
     }
 
@@ -570,7 +552,7 @@ const containerMutated = () => {
     // 상품 순위 추적: 그룹편집팝업 - 그룹추가
     if (modalData === "createGroup") {
       if (currentModal.querySelector("input").value === "") {
-        validateMessage("그룹명을 입력해주세요.");
+        validateMessage("그룹명을 입력해 주세요.");
       } else {
         openAlertModal();
       }
@@ -593,7 +575,7 @@ const containerMutated = () => {
     // 최저가 알림: 상품등록팝업 - 다음단계
     if (modalData === "createItemStep2") {
       if (currentModal.querySelector("input").value === "") {
-        validateMessage("상품명을 입력해주세요.");
+        validateMessage("상품명을 입력해 주세요.");
       } else {
         document.querySelector(".create-item-step2").classList.add("is-active");
       }
@@ -602,7 +584,7 @@ const containerMutated = () => {
     // 최저가 알림: 상품등록팝업 - 조회
     if (modalData === "createItemStep3") {
       if (currentModal.querySelector("input").value === "") {
-        validateMessage("상품 URL을 입력해주세요.");
+        validateMessage("상품 URL을 입력해 주세요.");
       } else {
         document.querySelector(".create-item-step3").classList.add("is-active");
       }
@@ -615,7 +597,7 @@ const containerMutated = () => {
     }
 
     if (modalData === "advancedSearch") {
-      const advancedSearch = event.target.closest(".advanced-search");
+      const advancedSearch = event.currentTarget.closest(".advanced-search");
       if (advancedSearch.querySelector("textarea").value === "") {
         validateMessage("검색할 조건이 없습니다.");
       } else {
@@ -641,7 +623,7 @@ const containerMutated = () => {
 
   // Close Modal
   const closeModal = event => {
-    const modal = event.target.closest(".modal");
+    const modal = event.currentTarget.closest(".modal");
     modal.classList.remove("is-active");
     modal.classList.contains("modal-apply");
 
@@ -687,9 +669,9 @@ const containerMutated = () => {
 
     checkAll &&
       checkAll.addEventListener("click", event => {
-        const checkboxes = event.target.closest(".modal-content").querySelectorAll("input[type='checkbox']");
+        const checkboxes = event.currentTarget.closest(".modal-content").querySelectorAll("input[type='checkbox']");
 
-        event.target.checked = !event.target.checked;
+        event.currentTarget.checked = !event.currentTarget.checked;
         checkboxes.forEach(checkbox => {
           checkbox.checked = !checkbox.checked;
         });
@@ -706,11 +688,19 @@ const containerMutated = () => {
           const pinned = modal.querySelectorAll(".ico-pin.is-active");
           pinned.forEach(pin => pin.closest("li").classList.add("pinned"));
 
+
+          // 이미 핀이 설정되어 있는 경우
+          if([...pinned][0]) {
+            pinned.forEach(pinned => {
+              pinned.closest("li").querySelector("input").disabled = true
+            })
+          }
+
           // 핀을 클릭하면
           const handleCheckPinned = event => {
-            const currentModal = event.target.closest(".modal-sortable");
+            const currentModal = event.currentTarget.closest(".modal-sortable");
             const lists = currentModal.querySelectorAll(".inputs li");
-            const targetList = event.target.closest("li");
+            const targetList = event.currentTarget.closest("li");
             const targetIndex = [...lists].indexOf(targetList);
 
             // 6번째 이상의 리스트에서는 핀해제 및 아이콘 숨김
@@ -722,7 +712,7 @@ const containerMutated = () => {
             });
 
             // 내가 누른 핀이 활성화되는 경우
-            if (event.target.classList.contains("is-active")) {
+            if (event.currentTarget.classList.contains("is-active")) {
               // 해당 리스트 고정
               targetList.classList.add("pinned");
 
@@ -757,6 +747,7 @@ const containerMutated = () => {
           pins.forEach(pin => {
             pin.addEventListener("click", handleCheckPinned);
           });
+          
         });
       }
     }, 100);
@@ -778,30 +769,30 @@ const containerMutated = () => {
           subSelectors.forEach(sub => {
             const initialize = () => sub.classList.remove("is-active");
             const checkSelect = () => {
-              if (event.target.classList.contains("select-word") && sub.classList.contains("selector-word")) {
+              if (event.currentTarget.classList.contains("select-word") && sub.classList.contains("selector-word")) {
                 sub.classList.add("is-active");
               }
               if (
-                (event.target.classList.contains("select-category") && sub.classList.contains("selector-category")) ||
+                (event.currentTarget.classList.contains("select-category") && sub.classList.contains("selector-category")) ||
                 sub.classList.contains("selector-word")
               ) {
                 sub.classList.add("is-active");
               }
 
               if (
-                event.target.classList.contains("select-number") &&
+                event.currentTarget.classList.contains("select-number") &&
                 (sub.classList.contains("selector-device") || sub.classList.contains("selector-number"))
               ) {
                 sub.classList.add("is-active");
                 subSelectors[0].classList.remove("is-active");
 
                 const devices = document.querySelectorAll(".selector-device [class*='select']");
-                if (event.target.closest(".select-monthly-search")) {
+                if (event.currentTarget.closest(".select-monthly-search")) {
                   devices.forEach(device => {
                     device.style.display = "flex";
                   });
                 }
-                if (event.target.closest(".select-monthly-search2")) {
+                if (event.currentTarget.closest(".select-monthly-search2")) {
                   devices.forEach(device => {
                     if (device.classList.contains("select-google")) {
                       device.style.display = "flex";
@@ -811,7 +802,7 @@ const containerMutated = () => {
                     }
                   });
                 }
-                if (event.target.closest(".select-monthly-click")) {
+                if (event.currentTarget.closest(".select-monthly-click")) {
                   devices.forEach(device => {
                     if (
                       device.classList.contains("select-naver-pc") ||
@@ -842,11 +833,11 @@ const containerMutated = () => {
     Filters: 키워드 트렌드 > 연관 키워드 필터링
   ===================================================== */
 
-  const searchButtons = document.querySelectorAll(".content-keyword-trend-details .search button");
+  const searchButtons = document.querySelectorAll(".section-related-keyword .search button");
 
   searchButtons.forEach(button => {
     button.addEventListener("click", event => {
-      const content = event.target.closest(".tab-content");
+      const content = event.currentTarget.closest(".tab-content");
       const searchInput = content.querySelector(".search input");
       const clearInput = content.querySelector(".x");
       const selectedFilters = content.querySelector(".selected-filters");
@@ -859,7 +850,7 @@ const containerMutated = () => {
           clearInput.classList.remove("is-active");
         } else {
           alertModal.classList.add("is-active");
-          alertModalContent.innerText = "검색어를 입력해주세요.";
+          alertModalContent.innerText = "검색어를 입력해 주세요.";
         }
       };
 
@@ -889,7 +880,7 @@ const containerMutated = () => {
         const closes = selectedFilters.querySelectorAll(".x");
         closes.forEach(close => {
           close.addEventListener("click", event => {
-            event.target.parentElement.remove();
+            event.currentTarget.parentElement.remove();
           });
         });
       };
@@ -903,8 +894,8 @@ const containerMutated = () => {
     menu.closest("div").querySelector("ul") && menu.closest("menu").classList.add("more");
     menu.addEventListener("click", event => {
       event.stopPropagation();
-      if (!event.target.classList.contains("ico-link")) {
-        event.target.closest("div").classList.toggle("is-active");
+      if (!event.currentTarget.classList.contains("ico-link")) {
+        event.currentTarget.closest("div").classList.toggle("is-active");
       }
     });
   });
@@ -951,7 +942,7 @@ const containerMutated = () => {
       const inputs = search.querySelectorAll("input[type='text'], input[type='number'], textarea");
       const checkboxes = search.querySelectorAll("input[type='checkbox']");
       const selections = search.querySelectorAll(".select input:first-of-type");
-
+      const selectboxes = search.querySelectorAll(".selectbox select");
       //초기화
       const initialize = () => {
         inputs.forEach(input => {
@@ -964,6 +955,11 @@ const containerMutated = () => {
 
         selections.forEach(select => {
           select.checked = true;
+        });
+
+        selectboxes.forEach(select => {
+          select[0].selected = true;
+          select.value = select[0].value;
         });
       };
 
@@ -979,7 +975,7 @@ const containerMutated = () => {
       options &&
         options.forEach(option => {
           const choose = event => {
-            event.target.dataset.select === "yes"
+            event.currentTarget.dataset.select === "yes"
               ? calendar.classList.add("is-active")
               : calendar.classList.remove("is-active");
           };
@@ -1007,7 +1003,7 @@ const containerMutated = () => {
     button.onclick = () => input.click();
 
     input.addEventListener("change", event => {
-      file = event.target.files[0];
+      file = event.currentTarget.files[0];
       uploadSection.classList.add("active");
       showFile();
     });
@@ -1053,6 +1049,9 @@ const containerMutated = () => {
     };
   }
 
+  /* =====================================================
+  Swiper Sliders
+  ===================================================== */
   setTimeout(() => {
     const progresses = document.querySelectorAll("progress");
     progresses.forEach((progress, index) => {
@@ -1060,9 +1059,9 @@ const containerMutated = () => {
       delay += `${index * 0.5}s`;
       progress.style.setProperty("--progressDelay", delay);
       progress.style.setProperty("--progressPercent", 0);
-      progress.value != null && (progress.value = progress.dataset.value);
+      // progress.value != null && (progress.value = progress.dataset.value);
       const max = progress.max;
-      const current = progress.dataset.value;
+      const current = progress.value;
       const currentWidth = window.getComputedStyle(progress, "::before").width;
       const percent = `calc(${parseInt((100 * current) / max)}% - ${currentWidth})`;
       progress.style.setProperty("--progressPercent", percent);
@@ -1074,6 +1073,7 @@ const containerMutated = () => {
         progress.style.setProperty("--progressPercent", 0);
         progress.style.setProperty("--progressColor", "linear-gradient(135deg, orangered 40%, coral)");
       } else if (parseInt((100 * current) / max) < 30) {
+        progress.style.setProperty("--progressPercent", 0);
         progress.style.setProperty("--progressColor", "linear-gradient(135deg, coral 40%, orange)");
       } else if (parseInt((100 * current) / max) > 80) {
         progress.style.setProperty("--progressColor", "linear-gradient(135deg, #5048d7 40%, darkturquoise)");
@@ -1104,7 +1104,7 @@ const containerMutated = () => {
 
   setTimeout(() => {
     let verticalSwiper = new Swiper(".swiper.vertical", {
-      slidesPerView: 3,
+      slidesPerView: 1,
       spaceBetween: 0,
       speed: 1000,
       hashNavigation: {
@@ -1135,7 +1135,7 @@ const containerMutated = () => {
   const enableSwiper = () => {
     smallSwiper = new Swiper(".swiper.small", {
       spaceBetween: 15,
-      slidesPerView: "auto",
+      slidesPerView: 1,
       centeredSlides: true,
       speed: 1000,
       hashNavigation: {
@@ -1155,6 +1155,20 @@ const containerMutated = () => {
 
   breakpoint.addListener(breakpointChecker);
   breakpointChecker();
+
+  // // 모바일에서 입찰 정보 5개까지만 보이기
+  // const bidRows = document.querySelectorAll(".content-bidding .list .row");
+  // console.log(bidRows);
+
+  // bidRows.forEach(row => {
+  //   const lists = row.querySelectorAll("li");
+  //   console.log(lists);
+  //   if(lists.length > 5) {
+  //     lists.forEach(list => {
+  //       list.style.display = "none"
+  //     })
+  //   }
+  // })
 
   // 목록 데이터 감지
   const lists = document.querySelectorAll(".list:not(.section-related-keyword .list)");
@@ -1189,10 +1203,11 @@ const containerMutated = () => {
     });
 
   // 컨테이너 감지
-  mutationObserver.observe(container, {
-    childList: true,
-    attributes: true,
-  });
+  container &&
+    mutationObserver.observe(container, {
+      childList: true,
+      attributes: true,
+    });
 
   // 로더 감지
   const loader = document.querySelector(".spinner-loader");
@@ -1508,28 +1523,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-/** @format */
-
 const tooltipContents = {
   serviceExpiration: `서비스 이용기간이 만료되었습니다. 만료 후 7일 이내로 서비스를 연장하지 않으면 데이터가 삭제됩니다. 삭제된 데이터는 복구되지 않으니, 서비스 이용 시 유의하시기 바랍니다.`,
   // 상세검색 - 키워드
   advancedSearchKeyword: `
     <dl>
       <dd>복수검색은 줄 바꿈(엔터키)으로 구분합니다.</dd>
-      <dd>예시:</dd>
-      <dd>키워드</dd>
-      <dd>상품</dd>
+      <dd>예시: 키워드 <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;상품</dd>
+    </dl>
+`, // 상세검색 - 쇼핑/몰ID
+  advancedSearchShopping: `
+    <dl>
+      <dd>복수검색은 줄 바꿈(엔터키)으로 구분합니다.</dd>
     </dl>
     `,
   // 상세검색 - 타겟URL
   advancedSearchTargetUrl: `
    <dl>
      <dd>복수검색은 줄 바꿈(엔터키)으로 구분합니다.</dd>
-     <dd>예시:</dd>
-     <dd>www.example1.com</dd>
-     <dd>www.example2.com</dd>
+     <dd>예시: www.example1.com <br> &nbsp; &nbsp; &nbsp; &nbsp; www.example2.com</dd>
    </dl>
-   `,   
+   `,
   // 상세검색 - MID
   advancedSearchMID: `
     <dl>
@@ -1543,16 +1557,16 @@ const tooltipContents = {
   fluctuationRange: `
     <dl>
       <dd>최저가 변동폭을 검색합니다.</dd>
-      <dd>특정 값을 검색할 경우 이상·이하 입력 칸에 같은 값을 입력해주세요.</dd>
+      <dd>특정 값을 검색할 경우 이상·이하 입력 칸에 같은 값을 입력해 주세요.</dd>
     </dl>
     `,
 
   // 상세검색 - 순위
   rank: `
     <dl>
-      <dd>순위 범위를 전체순위(1~401위)로 입력해주세요.</dd>
-      <dd>400위 밖을 검색할 경우 ‘이상’ 입력 칸에 401을 입력해주세요.</dd>
-      <dd>특정 값을 순위로 검색할 경우 위아래 입력 칸에 같은 값을 입력해주세요.</dd>
+      <dd>순위 범위를 전체순위(1~401위)로 입력해 주세요.</dd>
+      <dd>400위 밖을 검색할 경우 ‘이상’ 입력 칸에 401을 입력해 주세요.</dd>
+      <dd>특정 값을 순위로 검색할 경우 위아래 입력 칸에 같은 값을 입력해 주세요.</dd>
     </dl>
     `,
 
@@ -2037,7 +2051,7 @@ const tooltipContents = {
   // 입찰대기
   bidWaiting: `입찰이 한 번도 실행되지 않은 초기 상태입니다.`,
   // 입찰진행
-  biddingInProgress: `입찰이 진행되고 있는 상태로, 입찰가가 상승 중인 상태입니다.`,
+  biddingInProgress: `입찰이 진행되고 있는 상태로, 입찰가가 조정 중인 상태입니다.`,
   // 목표달성
   goalAchieved: `목표달성은 사용자가 설정한 목표에 도달한 상태입니다.`,
   // 최대입찰가도달
@@ -2133,7 +2147,6 @@ const tooltipContents = {
     <dl class="tooltip-content">
       <dd>최종 입찰가는 레귤러 (부분)설정 완료 시 산출된 또는 입찰 시 변경한 입찰가입니다.</dd>
       <dd>최종 입찰가는 산출 입찰가, 최소입찰가, 최대입찰가 대소관계에 따라 최종 결정됩니다.</dd>
-      <dd>평균 클릭 비용을 최소입찰가로 사용할 때 최소입찰가 우선 적용 체크박스 체크 시 최소입찰가가 최대입찰가보다 큰 경우 최소입찰가로 입찰가를 변경합니다.</dd>
     </dl>
   `,
 
@@ -2158,14 +2171,9 @@ const tooltipContents = {
 
   // 평균값
   averagePrice: `
-    <dl>
-      <dd>
-        사용자 설정 옵션은 선택사항으로 기본입찰가에 사용자가 원하는 조합의 옵션을 부여하여 세부적인 입찰가 설정이 가능합니다.
-      </dd>
-      <dd>
-        선택한 데이터 값이 0이면 평균을 구하지 않고 기본입찰가를 사용합니다.
-      </dd>
-    </dl>
+    <div>
+      선택한 데이터 값이 0이면 평균을 구하지 않고 기본입찰가를 사용합니다.
+    </div>
   `,
 
   // 입찰설정
@@ -2212,6 +2220,13 @@ const tooltipContents = {
       <dd>타겟 URL은 타겟이 되는 URL를 지정하여 해당 URL 위치 바로 위나 아래를 목표로 입찰을 진행합니다.</dd>
     </dl>
     `,
+  // 구글가감액(팝업)
+  googlePlusMinusCheck: `
+    <dl>
+      <dd>가감액 입력 시 예상 입찰가에 가감액을 계산한 금액이 최대CPC로 설정됩니다.</dd>
+      <dd>입찰한도 적용 시 예상 입찰가에 가감액을 계산한 금액이 기준이 됩니다.</dd>
+    </dl>
+    `,
 
   // 현재순위
   biddingCurrentRank: `
@@ -2248,11 +2263,10 @@ const tooltipContents = {
 
   // 가감액
   additionAndSubtraction2: `
-    <dl>
-      <dd>입찰가감액은 입찰가 조정 단위로, 필수 입력 항목입니다. 미사용 시 0원을 입력하세요.</dd>
-    </dl>
+    <div>
+      입찰가감액은 입찰가 조정 단위로, 필수 입력 항목입니다. 미사용 시 0원을 입력하세요.
+    </div>
     `,
-
   // 가감액 옵션
   additionAndSubtraction3: `
     <dl>
@@ -2267,6 +2281,57 @@ const tooltipContents = {
       </dd>
     </dl>
   `,
+  // 가감액 옵션
+  additionAndSubtraction4: `
+    <dl>
+      <dd>
+        입력한 입찰가감액만큼 입찰금액 기준으로 + 또는 - 처리 후 입찰 진행합니다.
+      </dd>
+      <dd>
+        필수 입력 항목으로, 미사용 시 0원을 입력하세요.
+      </dd>
+    </dl>
+  `,
+  // 가감액 옵션
+  additionAndSubtraction5: `
+    <dl>
+      <dd>
+        입찰가감액은 입찰가 조정 단위입니다.
+      </dd>
+      <dd>
+        필수 입력 항목으로, 미사용 시 0원을 입력하세요.
+      </dd>
+    </dl>
+  `,
+  // 구글 - 가감액
+  additionAndSubtraction_google: `
+    <dl>
+      <dd>가감액 입력 시 예상 입찰가에 가감액을 계산한 금액이 최대CPC로 설정됩니다.</dd>
+      <dd>입찰한도 적용 시 예상 입찰가에 가감액을 계산한 금액이 기준이 됩니다.</dd>
+    </dl>
+    `,
+  additionAndSubtraction_google_1: `
+    <dl>
+      <dd>검색어가 키워드와 정확히 일치하는 경우 위치에 상관없이 광고가 검색결과의 첫 페이지에 게재되는 데 필요할 것으로 예상되는 클릭당비용(CPC) 입찰가입니다.</dd>
+      <dd>예상 입찰가는 각 키워드에 대한 품질평가점수와 광고주들 사이의 경쟁 정도를 감안하여 산정됩니다.</dd>
+      <dd>입찰가가 첫 페이지 예상 입찰가와 일치한다고 해서 반드시 광고가 첫 페이지에 게재되는 것은 아닙니다.</dd>
+    </dl>
+    `,
+  additionAndSubtraction_google_2: `
+    <dl>
+      <dd>검색어가 키워드와 정확히 일치하는 경우 검색결과의 상단에서 첫 번째 광고 게재순위에 광고가 게재될 가능성이 높은 클릭당비용(CPC) 입찰가입니다.</dd>
+      <dd>예상 입찰가는 각 키워드에 대한 품질평가점수와 광고주들 사이의 경쟁 정도를 감안하여 산정됩니다.</dd>
+      <dd>최상위 게재 예상 입찰가와 일치한다고 해서 반드시 광고가 첫 번째 위치에 게재되는 것은 아닙니다.</dd>
+    </dl>
+    `,
+  additionAndSubtraction_google_3: `
+    <dl>
+      <dd>검색어가 키워드와 정확히 일치하는 경우 검색결과의 첫 페이지에 광고가 게재되는 데 필요할 것으로 예상되는 CPC 입찰가입니다.</dd>
+      <dd>예상 입찰가는 각 키워드에 대한 품질평가점수와 광고주들 사이의 경쟁 정도를 감안하여 산정됩니다.</dd>
+      <dd>페이지 상단 예상 입찰가와 일치한다고 해서 반드시 광고가 첫 페이지 상단에 게재되는 것은 아닙니다.</dd>
+    </dl>
+    `,
+
   //최근 7일 간 그룹별 같은 업데이트 시간 대비 최저가 변동률
   lowestPriceChangePercentage: `
     <dl>
@@ -2289,7 +2354,60 @@ const tooltipContents = {
   googleAdsBusiness: `기업회원은 회원 / 세금계산서 정보에 등록된 회사명(상점명), 사업장 주소(비즈니스 주소), 사업자등록번호를 가져옵니다. 가져온 정보는 수정 가능합니다.`,
 
   // 구글 대기
-  googlePending: `웹사이트 인증, 전화번호 인증, 배송 정보 등록을 완료하세요.`
+  googlePending: `웹사이트 인증, 전화번호 인증, 배송 정보 등록을 완료하세요.`,
+
+  // 구글 라이브고급부분설정 첫페이지 예상 입찰가
+  firstPage: `
+    <dl>
+      <dd>검색어가 키워드와 정확히 일치하는 경우 위치에 상관없이 광고가 검색결과의 첫 페이지에 게재되는 데 필요할 것으로 예상되는 클릭당비용(CPC) 입찰가입니다. </dd>
+      <dd>예상 입찰가는 각 키워드에 대한 품질평가점수와 광고주들 사이의 경쟁 정도를 감안하여 산정됩니다.</dd>
+      <dd>입찰가가 첫 페이지 예상 입찰가와 일치한다고 해서 반드시 광고가 첫 페이지에 게재되는 것은 아닙니다.</dd>
+    </dl>
+  `,
+
+  // 구글 라이브고급부분설정 첫 게재위치 예상 입찰가
+  firstlocated: `
+    <dl>
+      <dd>검색어가 키워드와 정확히 일치하는 경우 검색결과의 상단에서 첫 번째 광고 게재순위에 광고가 게재될 가능성이 높은 클릭당비용(CPC) 입찰가입니다. </dd>
+      <dd>예상 입찰가는 각 키워드에 대한 품질평가점수와 광고주들 사이의 경쟁 정도를 감안하여 산정됩니다.</dd>
+      <dd>최상위 게재 예상 입찰가와 일치한다고 해서 반드시 광고가 첫 번째 위치에 게재되는 것은 아닙니다.</dd>
+    </dl>
+  `,
+
+  // 구글 라이브고급부분설정 페이지 상단 예상 입찰가
+  topOfPage: `
+    <dl>
+      <dd>검색어가 키워드와 정확히 일치하는 경우 검색결과의 첫 페이지에 광고가 게재되는 데 필요할 것으로 예상되는 CPC 입찰가입니다.</dd>
+      <dd>예상 입찰가는 각 키워드에 대한 품질평가점수와 광고주들 사이의 경쟁 정도를 감안하여 산정됩니다. </dd>
+      <dd>페이지 상단 예상 입찰가와 일치한다고 해서 반드시 광고가 첫 페이지 상단에 게재되는 것은 아닙니다.</dd>
+    </dl>
+  `,
+
+  // 구글 전환 액션 생성 - 추적 이벤트
+  trackingEvent: `
+    <dl>
+      <dd>
+        페이지 로드 전환을 추적하려면 전환 후 고객에게 표시되는 페이지에 이벤트 스니펫 코드를 삽입합니다.
+      </dd>
+      <dd>
+        클릭 전환을 추적하려면 클릭수를 추적할 텍스트 링크, 버튼 또는 버튼 이미지가 있는 페이지에 이벤트 스니펫 코드를 삽입합니다.
+      </dd>
+    </dl>
+  `,
+  // 구글 전환 액션 생성 - 전환 가치
+  conversionValue: `
+    <dl>
+      <dd>
+        광고 효과 측정 시 전환 발생에 부여할 금전적 가치를 입력합니다.<br />
+        예시: 전환 목표가 ‘구매’인 경우 고객이 구매 시 평균적으로 결제하는 금액인 ‘객단가’로 볼 수 있습니다.
+      </dd>
+      <dd>전환별 가치를 동일하게 부여할 경우 ‘모든 전환 가치 동일’, 전환별 가치를 다르게 부여할 경우 ‘전환별 가치 다름’을 선택해 주세요.</dd>
+      <dd>
+        금전적 가치가 없는 전환 액션을 생성하시려면 ‘통화를 설정하지 않음’을 선택해 주세요.<br />
+        예시: 핵심성과지표, KPI
+      </dd>
+    </dl>
+  `
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -2317,9 +2435,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
     tooltipIcons.forEach((icon) => {
+
+      icon.setAttribute("title", "")
       icon.addEventListener("mouseenter", showTooltip);
       icon.addEventListener("mouseout", () => {
         tooltip.classList.remove("is-active");
+        tooltip.textContent = ""
       });
     });
 

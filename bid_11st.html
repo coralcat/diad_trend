@@ -2492,7 +2492,7 @@
             <div class="checkbox">
               <input id="check-google-01" type="checkbox" name="google-ads-agreement">
               <label for="check-google-01">
-                <span class="tag">필수</span> 개인정보 수집 및 이용 동의
+                <span class="tag" data-title="필수"></span> 개인정보 수집 및 이용 동의
               </label>
             </div>
             <a href="https://support.google.com/merchants/answer/6149970?hl=ko" target="_blank"></a>
@@ -2501,7 +2501,7 @@
             <div class="checkbox">
               <input id="check-google-02" type="checkbox" name="google-ads-agreement">
               <label for="check-google-02">
-                <span class="tag">필수</span> 개인정보 제 3자 제공 동의
+                <span class="tag" data-title="필수"></span> 개인정보 제 3자 제공 동의
               </label>
             </div>
             <a href="https://billing.google.com/payments/u/0/paymentsinfofinder?style=:md" target="_blank"></a>
@@ -2769,26 +2769,26 @@
         <ul class="list">
           <li class="row">
             <div class="checkbox">
-              <input id="check-google-01" type="checkbox" name="google-ads-agreement">
-              <label for="check-google-01">
-                <span class="tag">필수</span> 개인정보 수집 및 이용 동의
+              <input id="check-google-ads-01" type="checkbox" name="google-ads-agreement">
+              <label for="check-google-ads-01">
+                <span class="tag" data-title="필수"></span> 개인정보 수집 및 이용 동의
               </label>
             </div>
             <a href="#" data-modal="privacyPolicy"></a>
           </li>
           <li class="row">
             <div class="checkbox">
-              <input id="check-google-02" type="checkbox" name="google-ads-agreement">
-              <label for="check-google-02">
-                <span class="tag">필수</span> 개인정보 제 3자 제공 동의
+              <input id="check-google-ads-02" type="checkbox" name="google-ads-agreement">
+              <label for="check-google-ads-02">
+                <span class="tag" data-title="필수"></span> 개인정보 제 3자 제공 동의
               </label>
             </div>
             <a href="#" data-modal="privacyPolicy2"></a>
           </li>
           <li class="row title">
             <div class="checkbox">
-              <input id="check-google" class="check-all" type="checkbox" name="google-ads-agreement">
-              <label for="check-google">
+              <input id="check-google-ads" class="check-all" type="checkbox" name="google-ads-agreement">
+              <label for="check-google-ads">
                 <strong>전체동의</strong>
                 약관 및 정책을 모두 확인하였고, 내용에 동의합니다.
               </label>
@@ -2809,7 +2809,7 @@
       </section>
     </div>
     <footer class="buttons">
-      <button class="close" type="button">인증완료</button>
+      <button class="close" type="button">생성</button>
     </footer>
   </div>
 </div>
@@ -2829,25 +2829,31 @@
         </div>
       </header>
       <section>
-        <small class="asterisk">표시는 필수입력사항입니다.</small>
         <ul class="list form">
           <li>
-            <div class="asterisk">
+            <div>
+              <span class="tag" data-title="필수"></span>
               전환 이름
             </div>
             <div>
               <input type="text" placeholder="" />
-              <small>0 / 30</small>
+              <small>0 / 100</small>
             </div>
           </li>
           <li>
-            <div class="asterisk">
+            <div>
+              <span class="tag" data-title="필수"></span>
               전환 목표
             </div>
             <div>
               <div class="selectbox">
                 <select name="" id="">
-                  <option value="">구매</option>
+                  <option value="">페이지 조회</option>
+                  <option value="">회원가입</option>
+                  <option value="">장바구니 담기</option>
+                  <option value="">결제 시작</option>
+                  <option value="">구매 완료</option>
+                  <option value="">기타</option>
                 </select>
               </div>
               <div class="selector goal">
@@ -2865,8 +2871,10 @@
             </div>
           </li>
           <li>
-            <div class="asterisk">
+            <div>
+              <span class="tag" data-title="필수"></span>
               추적 이벤트
+              <div data-tooltip="trackingEvent"></div>
             </div>
             <div>
               <input id="pageLoad" type="radio" name="trackingEvent" checked />
@@ -2876,9 +2884,10 @@
             </div>
           </li>
           <li>
-            <div class="asterisk">
+            <div>
+              <span class="tag" data-title="필수"></span>
               전환 가치
-              <div data-tooltip=""></div>
+              <div data-tooltip="conversionValue"></div>
             </div>
             <div class="conversion-value">
               <input id="same" type="radio" name="conversionValues" checked />
@@ -2889,20 +2898,29 @@
               <label for="notUsed">사용하지 않음</label>
               <div class="options">
                 전환 가치
-                <span class="price">
-                  <input type="number" />
-                </span>
+                <input type="number" />
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="대한민국 (원)"></option>
+                    <option value="통화를 설정하지"></option>
+                  </select>
+                </div>
               </div>
               <div class="options">
-                전환 가치 기본값
-                <span class="price">
-                  <input type="number" />
-                </span>
+                전환 가치
+                <input type="number" />
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="대한민국 (원)"></option>
+                    <option value="통화를 설정하지 않음"></option>
+                  </select>
+                </div>
               </div>
             </div>
           </li>
           <li>
-            <div class="asterisk">
+            <div>
+              <span class="tag" data-title="필수"></span>
               상호작용 당 전환 횟수
             </div>
             <div>
@@ -2919,7 +2937,8 @@
             </div>
           </li>
           <li>
-            <div class="asterisk">
+            <div>
+              <span class="tag" data-title="필수"></span>
               클릭 추적 기간
               <div data-tooltip=""></div>
             </div>
@@ -2929,10 +2948,15 @@
                   <option value="">30일</option>
                 </select>
               </div>
+              <small>
+                <span class="tag" data-title="Tip"></span>
+                기간은 7일 이상을 사용하는 것을 권장합니다.
+              </small>
             </div>
           </li>
           <li>
-            <div class="asterisk">
+            <div>
+              <span class="tag" data-title="필수"></span>
               조회 추적 기간
               <div data-tooltip=""></div>
             </div>
@@ -2945,7 +2969,8 @@
             </div>
           </li>
           <li>
-            <div class="asterisk">
+            <div>
+              <span class="tag" data-title="필수"></span>
               기여 분석
               <div data-tooltip=""></div>
             </div>
@@ -2955,6 +2980,10 @@
                   <option value="">데이터 기반</option>
                 </select>
               </div>
+              <small>
+                <span class="tag" data-title="Tip"></span>
+                정확한 전환 기여 분석을 원하시면 데이터 기반 모델을 권장합니다.
+              </small>
             </div>
           </li>
         </ul>
