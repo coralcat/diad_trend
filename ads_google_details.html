@@ -378,7 +378,7 @@
           </li>
           <li>
             <div>
-              <span class="tag">선택</span>
+              <span class="tag" data-title="선택" />
               대표 이메일
             </div>
             <div>
@@ -387,7 +387,7 @@
           </li>
           <li>
             <div>
-              <span class="tag">선택</span>
+              <span class="tag" data-title="선택" />
               대표 전화번호
             </div>
             <div>
@@ -1460,9 +1460,9 @@
               <div class="selector goal">
                 입찰 최적화에 사용 여부
                 <div data-tooltip=""></div>
-                <input id="defaultConversionGoal" name="ConversionGoal" type="radio" checked />
+                <input id="defaultConversionGoal" name="newConversionGoal" type="radio" checked />
                 <label for="defaultConversionGoal">사용 (기본 액션)</label>
-                <input id="subConversionGoal" name="ConversionGoal" type="radio" />
+                <input id="subConversionGoal" name="newConversionGoal" type="radio" />
                 <label for="subConversionGoal">미사용 (보조 액션)</label>
               </div>
               <div class="caution">
@@ -1478,9 +1478,9 @@
               <div data-tooltip="trackingEvent"></div>
             </div>
             <div>
-              <input id="pageLoad" type="radio" name="trackingEvent" checked />
+              <input id="pageLoad" type="radio" name="newTrackingEvent" checked />
               <label for="pageLoad">페이지 로드</label>
-              <input id="click" type="radio" name="trackingEvent" />
+              <input id="click" type="radio" name="newTrackingEvent" />
               <label for="click">클릭</label>
             </div>
           </li>
@@ -1491,11 +1491,11 @@
               <div data-tooltip="conversionValue"></div>
             </div>
             <div class="conversion-value">
-              <input id="same" type="radio" name="conversionValues" checked />
+              <input id="same" type="radio" name="newConversionValues" checked />
               <label for="same">모든 전환 동일</label>
-              <input id="different" type="radio" name="conversionValues" />
+              <input id="different" type="radio" name="newConversionValues" />
               <label for="different">전환별 다름</label>
-              <input id="notUsed" type="radio" name="conversionValues" />
+              <input id="notUsed" type="radio" name="newConversionValues" />
               <label for="notUsed">사용하지 않음</label>
               <div class="options">
                 전환 가치
@@ -1503,7 +1503,7 @@
                 <div class="selectbox">
                   <select name="" id="">
                     <option value="대한민국 (원)"></option>
-                    <option value="통화를 설정하지"></option>
+                    <option value="통화를 설정하지 않음"></option>
                   </select>
                 </div>
               </div>
@@ -1525,12 +1525,12 @@
               상호작용 당 전환 횟수
             </div>
             <div>
-              <input id="everytime" type="radio" name="conversionTimes" checked />
+              <input id="everytime" type="radio" name="newConversionTimes" checked />
               <label for="everytime">
                 매회
                 <small>각 상호작용이 모두 가치가 있을 때 (예: 구매) 권장</small>
               </label>
-              <input id="once" type="radio" name="conversionTimes" />
+              <input id="once" type="radio" name="newConversionTimes" />
               <label for="once">
                 1회
                 <small>첫 번째 상호작용만 가치가 있을 때 (예: 가입) 권장</small>
