@@ -115,7 +115,7 @@
           <input type="number" value="30" />일
           <small>
             <span class="tag" data-title="Tip"></span>
-              기간은 7일 이상을 사용하는 것을 권장합니다.
+            기간은 7일 이상을 사용하는 것을 권장합니다.
           </small>
         </div>
       </li>
@@ -143,15 +143,61 @@
           </div>
           <small>
             <span class="tag" data-title="Tip"></span>
-              정확한 전환 기여 분석을 원하시면 데이터 기반 모델을 권장합니다.
+            정확한 전환 기여 분석을 원하시면 데이터 기반 모델을 권장합니다.
           </small>
         </div>
       </li>
     </ul>
   </section>
-  <section class="tab-content" data-tab="sub-menu">
-    test
-  </section>
+  <div class="tab-content" data-tab="sub-menu">
+    <section data-tab="sub-menu" style="flex: 0 0 auto;">
+      <header>
+        <div class="inputs">
+          <h2>Google 태그</h2>
+          <span class="selector">
+            <input id="not-installed" type="radio" name="googleTag" checked>
+            <label for="not-installed" data-tab="codes">Google 태그가 설치되어 있지 않음</label>
+            <input id="installed" type="radio" name="googleTag">
+            <label for="installed" data-tab="codes">다른 Google 제품 또는 다른 Google Ads 계정의 Google 태그가 이미 설치되어 있음</label>
+          </span>
+        </div>
+        <button class="ico-copy"></button>
+      </header>
+      <textarea class="codes is-active" rows="9" data-tab="codes" readonly>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11304375904"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'AW-11304375904');
+</script></textarea>
+      <textarea class="codes" rows="9" data-tab="codes" readonly>
+gtag('config', 'AW-11304375904');
+      </textarea>
+      <div class="caution">태그를 복사한 후 웹사이트에서 모든 페이지의
+
+        <head></head> 태그 사이에 붙여 넣으세요. 여러 액션을 추적 중인 경우에도 계정당 한 번만 Google 태그를 설치하면 됩니다.
+      </div>
+    </section>
+    <section data-tab="sub-menu" style="flex: 0 0 auto;">
+      <header>
+        <h2>이벤트 스니펫</h2>
+        <button class="ico-copy"></button>
+      </header>
+      <textarea class="codes" rows="4" readonly>
+<!-- Event snippet for 페이지 조회 기본 conversion page -->
+<script>
+  gtag('event', 'conversion', { 'send_to': 'AW-11304375904/buEQCOid09wYEOCsrI4q' });
+</script></textarea>
+      <div class="caution">
+        스니펫을 복사한 후, 추적할 페이지(전환을 완료하면 고객에게 표시되는 페이지)의
+
+        <head></head> 태그 사이, Google 태그 바로 다음에 붙여 넣으세요.
+      </div>
+    </section>
+  </div>
 </main>
 {% include "modals.html" %}
 {% endblock %}

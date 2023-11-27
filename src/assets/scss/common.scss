@@ -423,6 +423,15 @@ body {
     &:focus {
       border-color: $primary-color;
     }
+
+    &.codes {
+      background-color: #333639;
+      border: 0;
+      padding: 1rem;
+      line-height: 1.5;
+      color: #e3e6e9;
+      font-weight: 400;
+    }
   }
 
   label {
@@ -769,25 +778,29 @@ aside {
     background: linear-gradient(90deg, #01c73c 30%, #63a7ce, #8183da);
   }
 
-  &[data-title="Tip"] {
+  &[data-title] {
     height: 18px !important;
     font-size: 11px !important;
+  }
+
+  &[data-title="Tip"] {
     background-color: orange !important;
     margin-right: 3px;
   }
 
+  &[data-title="활성"],
   &[data-title="필수"] {
-    height: 18px !important;
-    font-size: 11px !important;
     color: $primary-color;
   }
 
   &[data-title="선택"] {
-    height: 18px !important;
-    font-size: 11px !important;
     color: #a3a6a9 !important;
     background: transparent;
     border: 1px solid;
+  }
+
+  &[data-title="중지"] {
+    color: orange;
   }
 }
 
@@ -858,8 +871,8 @@ aside {
   input[type="checkbox"] {
     display: none !important;
 
-    &:disabled + label{
-      opacity: .75;
+    &:disabled + label {
+      opacity: 0.75;
     }
 
     &:checked + label {

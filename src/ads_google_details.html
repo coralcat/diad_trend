@@ -3,12 +3,13 @@
   <header class="content-header">
     <div class="title">
       <h1>
-        <span>구글 입점광고</span>
-        <div data-tooltip=""></div>
+        <button class="btn-back" onclick="history.back()"></button>
+        <input type="text" value="https://www.diad.co.kr">
+        <button class="btn-remove"></button>
       </h1>
       {% include "account.html" %}
     </div>
-    <button class="btn-back" onclick="history.back()">이전페이지</button>
+    <div></div>
     <div class="buttons">
       <button class="btn-main">저장</button>
     </div>
@@ -16,15 +17,6 @@
   <div class="wrapper">
     <aside>
       <section class="section-main">
-        <header>
-          <div class="url">
-            <input type="text" value="https://www.diad.co.kr">
-            <div class="buttons">
-              <button onclick="">수정</button>
-              <button>삭제</button>
-            </div>
-          </div>
-        </header>
         <div class="articles">
           <article>
             <header>
@@ -115,6 +107,7 @@
                     <label for="googleWebsite">abc123@gmail.com</label>
                   </div>
                   <button data-modal="accessInvitaion">수락</button>
+                  <button data-modal="accessAuthorization">수락 완료</button>
                 </div>
               </li>
               <li>
