@@ -168,7 +168,6 @@ $secondary-color: #f2f1ff;
   }
 
   .selector {
-    flex-wrap: nowrap;
     gap: 0.5rem !important;
 
     h5 {
@@ -176,12 +175,8 @@ $secondary-color: #f2f1ff;
     }
 
     label {
-      flex-direction: column;
       text-align: center;
       justify-content: center;
-
-      &:hover {
-      }
     }
   }
 
@@ -304,9 +299,10 @@ $secondary-color: #f2f1ff;
       }
     }
 
+    &.form,
     &.list-form {
       padding: 0.5rem;
-      gap: 0;
+      gap: 0 !important;
 
       .asterisk {
         &::before {
@@ -314,6 +310,10 @@ $secondary-color: #f2f1ff;
           left: -8px;
           font-size: 13px;
         }
+      }
+
+      header {
+        padding: 0
       }
 
       input[type="number"],
@@ -366,7 +366,7 @@ $secondary-color: #f2f1ff;
         }
 
         > :first-child {
-          flex: 0 0 130px;
+          flex: 0 0 120px;
           justify-content: flex-start;
           align-items: center;
           gap: 3px;
@@ -382,6 +382,10 @@ $secondary-color: #f2f1ff;
         width: 100%;
         justify-content: flex-start;
 
+        input[type="url"] {
+          width: 100%;
+        }
+
         input[type="number"] {
           max-width: 120px;
           text-align: right;
@@ -389,11 +393,10 @@ $secondary-color: #f2f1ff;
 
         > div {
           width: 100%;
-          margin-left: 0;
-          justify-content: flex-start;
 
           div:first-of-type {
             text-align: right;
+            flex-wrap: wrap;
           }
         }
 
@@ -432,12 +435,16 @@ $secondary-color: #f2f1ff;
       }
     }
 
+    .toggle-switch {
+      scale: 1;
+    }
+
     li {
       display: flex;
       align-items: center;
       gap: 5px 0.5rem;
       min-height: 36px;
-      border: 1px solid #e7e8e9;
+      border: 1px solid #eee;
       border-radius: 3px;
       flex-direction: row;
       justify-content: space-between;
@@ -682,6 +689,16 @@ $secondary-color: #f2f1ff;
     padding: 0.75rem;
     border-radius: 0.25rem;
     background-color: #f3f6f9;
+  }
+
+  .section-advanced-search {
+
+    ul {
+      &:first-of-type {
+        flex: 0 0 auto;
+        max-width: 315px;
+      }
+    }
   }
 
   &-confirm {
@@ -1149,11 +1166,8 @@ $secondary-color: #f2f1ff;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-
-        p {
-          line-height: 1.25;
-          font-size: 13px;
-        }
+        line-height: 1.25;
+        font-size: 13px;
 
         .impact {
           color: orangered;

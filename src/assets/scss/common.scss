@@ -165,10 +165,9 @@ body {
     }
 
     input {
-      font-family: "NanumSquareB";
-      font-size: clamp(17px, 1.25vw, 20px);
-      line-height: 32px;
-      height: auto;
+      font-family: "NanumSquareB" !important;
+      font-size: clamp(17px, 1.25vw, 20px) !important;
+      height: auto !important;
     }
   }
 
@@ -228,7 +227,7 @@ body {
   }
 
   button {
-    height: clamp(28px, 4vh, 32px);
+    height: 32px;
     padding: 0 0.75rem;
     user-select: none;
     display: flex;
@@ -458,7 +457,7 @@ header {
   button {
     &.ico-search {
       aspect-ratio: 1;
-      height: 36px;
+      height: 32px;
     }
   }
 
@@ -780,13 +779,15 @@ aside {
   &[data-title="필수"] {
     height: 18px !important;
     font-size: 11px !important;
-    color: #4285f4;
+    color: $primary-color;
   }
 
   &[data-title="선택"] {
     height: 18px !important;
     font-size: 11px !important;
     color: #a3a6a9 !important;
+    background: transparent;
+    border: 1px solid;
   }
 }
 
@@ -846,11 +847,20 @@ aside {
 
   &.sub {
     display: none;
+
+    label {
+      min-width: 32px;
+      justify-content: center;
+    }
   }
 
   input[type="radio"],
   input[type="checkbox"] {
     display: none !important;
+
+    &:disabled + label{
+      opacity: .75;
+    }
 
     &:checked + label {
       background-color: white;
@@ -869,7 +879,7 @@ aside {
     box-shadow: 0 0 0 1px inset #e3e6e9;
     margin-right: 0;
     border-radius: 3px;
-    padding: 0.35rem 0.75rem;
+    padding: 0.35rem 0.5rem;
     min-height: 32px;
     transition: 0.25s background-color;
     word-break: keep-all;
@@ -1019,7 +1029,7 @@ aside {
     background-color: #434649;
     transform: translateY(7px);
     transition: 0.25s;
-    min-width: 120px;
+    min-width: 80px;
     border-radius: 0.5rem;
     z-index: 100;
 
@@ -1388,7 +1398,6 @@ progress {
       flex: 0 0 auto;
       content: "";
       border-radius: 50%;
-      margin-right: 3px;
       width: 20px;
       height: 20px;
       border: 1px solid #ddd;
@@ -1534,7 +1543,7 @@ input[type="radio"] {
     border: 1px solid #e3e6e9;
     border-radius: 3px;
     min-width: fit-content;
-    height: clamp(28px, 4vh, 32px);
+    height: 32px;
     padding: 0 1.5rem 0 0.5rem;
     font: 500 14px/1.5 "Pretendard";
     background-color: white;
@@ -1893,8 +1902,7 @@ article {
 
   &:is(.modal-confirm, .modal-alert) {
     .dialog {
-      min-width: 25rem;
-      max-width: 25rem;
+      width: min(400px, 100%);
       min-height: 10rem;
       gap: 0.75rem;
       word-break: keep-all;
@@ -1913,8 +1921,7 @@ article {
   }
 
   .dialog {
-    width: min(640px, 100%);
-    max-width: 100%;
+    width: min(600px, 100%);
     max-height: calc(100% - 2rem);
     background-color: white;
     border-radius: 0.5rem;
@@ -1954,7 +1961,7 @@ article {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.5rem;
     overflow-y: auto;
   }
 }

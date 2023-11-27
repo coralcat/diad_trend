@@ -263,8 +263,7 @@ main aside,
 }
 
 .keyword {
-  min-height: 30px;
-  max-width: 100%;
+  width: fit-content !important;
   display: flex;
   flex-wrap: nowrap !important;
   align-items: center;
@@ -274,12 +273,19 @@ main aside,
   text-align: left;
   font-size: 13px;
   font-family: "NanumSquareB";
-  transition: 0.25s;
+  border-radius: 3px;
+  padding: .5rem;
+  transition: background-color .25s;
 
   &::before {
     content: "#";
     font-size: 13px;
     color: $main-color;
+  }
+
+  &:hover {
+    background-color: white;
+    border: 1px solid $primary-color;
   }
 
   @at-root {
@@ -345,7 +351,7 @@ main aside,
   align-items: flex-start !important;
   gap: 0.5rem !important;
   color: slategray;
-  font-size: clamp(12px, 2.5vw, 14px);
+  font-size: clamp(12px, 2.5vw, 13px);
   font-weight: 400;
   line-height: 1.5;
   word-break: keep-all;
@@ -366,6 +372,15 @@ main aside,
     font-size: 11px;
     line-height: 1;
     color: $primary-color;
+  }
+
+  strong {
+    color: #636669;
+
+    span {
+      color: $main-color;
+      font-size: 14px;
+    }
   }
 }
 
@@ -474,7 +489,7 @@ section {
     .title {
       button {
         justify-content: center;
-        height: clamp(28px, 4vh, 32px);
+        height: 32px;
         padding: 0 0.75vw;
         background-color: $secondary-color;
         color: $main-color;
@@ -1488,6 +1503,7 @@ main {
     input[type="text"],
     input[type="number"] {
       width: 100%;
+      max-width: 120px;
       flex-basis: 30px;
       justify-self: flex-end;
       text-align: right;
@@ -1758,7 +1774,7 @@ main {
         overflow-x: hidden;
         position: sticky;
         left: 0;
-        z-index: 76;
+        z-index: 78;
 
         li {
           background-color: #fafbfc;
@@ -1798,11 +1814,6 @@ main {
     gap: 0.75rem !important;
     max-height: none !important;
 
-    input {
-      flex: 1;
-      width: 100%;
-    }
-
     > li {
       border: 0 !important;
       border-bottom: 1px solid #f1f2f3 !important;
@@ -1817,6 +1828,10 @@ main {
         align-items: center;
         gap: 3px;
         line-height: 1;
+
+        &.options {
+          width: 100%;
+        }
       }
 
       > :first-child {
@@ -2109,6 +2124,11 @@ main {
       li {
         background-color: #f1f2fe !important;
       }
+
+      .keyword {
+        background-color: white;
+        border: 1px solid $primary-color;
+      }
     }
 
     &.title {
@@ -2285,7 +2305,7 @@ main {
           gap: 0.5rem;
 
           select {
-            width: 140px;
+            width: 180px;
           }
 
           button {
@@ -2340,7 +2360,6 @@ main {
   }
 
   &:not(.list-advanced-settings) {
-
     [title="입찰상태"],
     [title="하양입찰"],
     [title="성별설정"],
@@ -2349,13 +2368,17 @@ main {
       flex: 0 0 auto !important;
       width: 70px !important;
     }
-  
+
+    [title="매체"] {
+      flex: 0 0 auto !important;
+    }
+
     [title="광고상품"],
     [title="입찰예정가"] {
       flex: 0 0 auto !important;
       width: 140px !important;
     }
-  
+
     [title="소재ID"],
     [title="광고그룹"],
     [title="캠페인"],
@@ -2364,33 +2387,48 @@ main {
       flex: 0 0 auto !important;
       width: 180px !important;
     }
-  
+
     [title="지역설정"] {
       flex: 0 0 auto !important;
       width: 240px !important;
+
+      div {
+        text-overflow: ellipsis;
+        width: 100%;
+        overflow: hidden;
+        text-align: center;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        line-height: 1.5;
+        word-break: break-all;
+      }
     }
-  
+
     [title="키워드"],
     [title="연관 키워드"],
-    [title="계정선택"],
     [title*="URL"],
     [title="상품명"],
     [title="희망키워드"],
     [title="입찰목표"] {
       flex: 0 0 auto !important;
       width: 270px !important;
-  
+
       div:not(.selectbox, .accounts) {
         display: block !important;
         text-overflow: ellipsis;
         width: 100%;
         overflow: hidden;
-        line-height: 30px;
         text-align: center;
         white-space: nowrap;
       }
     }
-  
+
+    [title="계정선택"] {
+      flex: 0 0 auto !important;
+      width: 300px !important;
+    }
+
     [title="상품"] {
       flex: 0 0 auto !important;
       width: 450px !important;
@@ -2714,10 +2752,9 @@ main {
       &:not(:last-child) {
         &::after {
           content: "|";
-          padding-left: 1rem;
           color: #ddd;
           position: absolute;
-          right: -0.75rem;
+          right: -0.5rem;
           top: 50%;
           transform: translateY(-50%);
         }
@@ -3593,7 +3630,7 @@ main {
       &::after {
         content: "";
         background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='%23a3a6a9' d='M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z'/%3E%3C/svg%3E")
-          center; 
+          center;
         position: absolute;
         top: 1rem;
         right: 1rem;
@@ -6839,6 +6876,13 @@ main {
         &:hover {
           opacity: 1;
         }
+      }
+    }
+
+    .section-agreement {
+
+      .list {
+        border-top: 0;
       }
     }
   }

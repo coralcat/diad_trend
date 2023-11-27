@@ -314,8 +314,23 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     header {
       button {
         min-width: 36px;
+      }
 
-        &.ico-download {
+      .selector {
+        margin-top: .5rem;
+      }
+
+      .buttons {
+        justify-content: center;
+        width: 100%;
+
+        button {
+          flex: 1 1 auto;
+          padding: 0.5rem;
+          max-width: 120px;
+        }
+
+        + div {
           display: none;
         }
       }
@@ -323,17 +338,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       .title {
         :empty:not(button) {
           display: none;
-        }
-
-        .buttons {
-          button {
-            flex: 1 1 auto;
-            padding: 0.5rem;
-
-            &.btn-main {
-              display: none;
-            }
-          }
         }
       }
     }
@@ -417,13 +421,14 @@ $secondary-color: rgba(118, 130, 248, 0.1);
   }
 
   .filters {
-    margin-top: 0 !important;
+    padding-top: 0 !important;
     border: 0 !important;
 
     > div {
       width: 100%;
       flex-wrap: wrap;
       min-height: auto;
+      justify-content: center;
     }
 
     .selected-filters:empty {
@@ -439,8 +444,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     }
 
     .selector {
-      justify-content: flex-start !important;
-      font-size: 13px;
 
       label {
         flex: 1 1 auto;
@@ -463,15 +466,10 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       flex-wrap: nowrap;
       width: 100%;
       gap: 0;
-      justify-content: space-around;
 
       > * {
-        flex: 1 1 25%;
-        padding: 0 !important;
-        margin: 0 !important;
+        flex: 1 1 auto;
         color: slategray !important;
-        background-color: transparent;
-        font-size: 14px;
         justify-content: center;
 
       }
@@ -704,8 +702,17 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     .list {
       flex-direction: column;
       flex-wrap: nowrap;
-      max-height: 40vh !important;
       padding-bottom: 0;
+
+      &.list-form {
+
+        .row {
+
+          > :first-child {
+            flex-basis: 90px;
+          }
+        }
+      }
 
       .row {
         width: 100%;

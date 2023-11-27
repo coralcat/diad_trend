@@ -17,7 +17,7 @@
       <button class="btn-main">저장</button>
     </div>
   </header>
-  <section>
+  <section class="tab-content is-active" data-tab="sub-menu">
     <ul class="list form">
       <li>
         <div>
@@ -35,7 +35,7 @@
               <option value="">기타</option>
             </select>
           </div>
-          <div class="selector goal">
+          <div class="goal">
             입찰 최적화에 사용 여부
             <div data-tooltip=""></div>
             <input id="defaultConversionGoal" name="ConversionGoal" type="radio" checked />
@@ -77,15 +77,13 @@
           <label for="notUsed">사용하지 않음</label>
           <div class="options">
             전환 가치
-            <span class="price">
-              <input type="number" />
-            </span>
-          </div>
-          <div class="options">
-            전환 가치 기본값
-            <span class="price">
-              <input type="number" />
-            </span>
+            <input type="number" />
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="">대한민국 (원)</option>
+                <option value="">통화를 설정하지 않음</option>
+              </select>
+            </div>
           </div>
         </div>
       </li>
@@ -94,7 +92,7 @@
           <span class="tag" data-title="필수"></span>
           상호작용 당 전환 횟수
         </div>
-        <div>
+        <div class="selector">
           <input id="everytime" type="radio" name="conversionTimes" checked />
           <label for="everytime">
             매회
@@ -111,14 +109,10 @@
         <div>
           <span class="tag" data-title="필수"></span>
           클릭 추적 기간
-          <div data-tooltip=""></div>
+          <div data-tooltip="clickTrackingPeriod"></div>
         </div>
         <div>
-          <div class="selectbox">
-            <select name="" id="">
-              <option value="">30일</option>
-            </select>
-          </div>
+          <input type="number" value="30" />일
           <small>
             <span class="tag" data-title="Tip"></span>
               기간은 7일 이상을 사용하는 것을 권장합니다.
@@ -129,14 +123,10 @@
         <div>
           <span class="tag" data-title="필수"></span>
           조회 추적 기간
-          <div data-tooltip=""></div>
+          <div data-tooltip="viewTrackingPeriod"></div>
         </div>
         <div>
-          <div class="selectbox">
-            <select name="" id="">
-              <option value="">1일</option>
-            </select>
-          </div>
+          <input type="number" value="1" />일
         </div>
       </li>
       <li>
@@ -158,6 +148,9 @@
         </div>
       </li>
     </ul>
+  </section>
+  <section class="tab-content" data-tab="sub-menu">
+    test
   </section>
 </main>
 {% include "modals.html" %}

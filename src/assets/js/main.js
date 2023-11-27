@@ -114,7 +114,7 @@ const containerMutated = () => {
     all.addEventListener("click", handleCheckAll);
   });
 
-/*   // 목록 체크박스 효과
+   // 목록 체크박스 효과
   const listCheckboxes = document.querySelectorAll(".list .checkbox input[type='checkbox']:not(.modal input)");
   listCheckboxes.forEach(check => {
     const handleListCheckboxes = event => {
@@ -130,7 +130,6 @@ const containerMutated = () => {
     };
     check.addEventListener("change", handleListCheckboxes);
   });
- */
 
   /* =====================================================
     Tab Menu
@@ -663,20 +662,20 @@ const containerMutated = () => {
   }
 
   // 계정 동기화 전체 체크
-  const syncModal = document.querySelector(".modal-sync");
-  if (syncModal) {
-    const checkAll = syncModal.querySelector("header .check-all");
+  // const syncModal = document.querySelector(".modal-sync");
+  // if (syncModal) {
+  //   const checkAll = syncModal.querySelector("header .check-all");
 
-    checkAll &&
-      checkAll.addEventListener("click", event => {
-        const checkboxes = event.currentTarget.closest(".modal-content").querySelectorAll("input[type='checkbox']");
+  //   checkAll &&
+  //     checkAll.addEventListener("click", event => {
+  //       const checkboxes = event.currentTarget.closest(".modal-content").querySelectorAll("input[type='checkbox']");
 
-        event.currentTarget.checked = !event.currentTarget.checked;
-        checkboxes.forEach(checkbox => {
-          checkbox.checked = !checkbox.checked;
-        });
-      });
-  }
+  //       event.currentTarget.checked = !event.currentTarget.checked;
+  //       checkboxes.forEach(checkbox => {
+  //         checkbox.checked = !checkbox.checked;
+  //       });
+  //     });
+  // }
 
   // 목록화면 - 사용자 지정 보기
   const eye = document.querySelector(".ico-eye");
@@ -769,30 +768,30 @@ const containerMutated = () => {
           subSelectors.forEach(sub => {
             const initialize = () => sub.classList.remove("is-active");
             const checkSelect = () => {
-              if (event.currentTarget.classList.contains("select-word") && sub.classList.contains("selector-word")) {
+              if (event.target.classList.contains("select-word") && sub.classList.contains("selector-word")) {
                 sub.classList.add("is-active");
               }
               if (
-                (event.currentTarget.classList.contains("select-category") && sub.classList.contains("selector-category")) ||
+                (event.target.classList.contains("select-category") && sub.classList.contains("selector-category")) ||
                 sub.classList.contains("selector-word")
               ) {
                 sub.classList.add("is-active");
               }
 
               if (
-                event.currentTarget.classList.contains("select-number") &&
+                event.target.classList.contains("select-number") &&
                 (sub.classList.contains("selector-device") || sub.classList.contains("selector-number"))
               ) {
                 sub.classList.add("is-active");
                 subSelectors[0].classList.remove("is-active");
 
                 const devices = document.querySelectorAll(".selector-device [class*='select']");
-                if (event.currentTarget.closest(".select-monthly-search")) {
+                if (event.target.closest(".select-monthly-search")) {
                   devices.forEach(device => {
                     device.style.display = "flex";
                   });
                 }
-                if (event.currentTarget.closest(".select-monthly-search2")) {
+                if (event.target.closest(".select-monthly-search2")) {
                   devices.forEach(device => {
                     if (device.classList.contains("select-google")) {
                       device.style.display = "flex";
@@ -802,7 +801,7 @@ const containerMutated = () => {
                     }
                   });
                 }
-                if (event.currentTarget.closest(".select-monthly-click")) {
+                if (event.target.closest(".select-monthly-click")) {
                   devices.forEach(device => {
                     if (
                       device.classList.contains("select-naver-pc") ||
@@ -964,7 +963,7 @@ const containerMutated = () => {
       };
 
       // 초기화
-      const clear = search.querySelector(".clear");
+      const clear = search.querySelector(".ico-refresh");
       clear && clear.addEventListener("click", initialize);
 
       // 등록일 사용여부
@@ -1170,13 +1169,67 @@ const containerMutated = () => {
   //   }
   // })
 
+  // 부분 설정 팝업에서 비활성화 관리
+  const modalPartial = document.querySelectorAll(".modal.partial");
+  if(modalPartial) {
+    modalPartial.forEach(modal => {
+      const checkboxes = modal.querySelectorAll(".row li:first-of-type .checkbox input");
+      checkboxes.forEach(checkbox => {
+
+        // 체크박스로 disabled 제어
+        const handleChangeDisabled = (event) => {
+          const row = event.target.closest(".row")
+          const inputs = row.querySelectorAll("li:last-of-type input");
+
+          const handleInputDisabled = (status) => {
+            inputs.forEach(input => {
+              input.disabled = status
+            })
+          }
+
+          // 체크박스가 체크되어 있는 경우
+          if(checkbox.checked) {
+            const toggle = row.querySelector(".toggle-switch input");
+
+            // 해당 row에 토글 스위치가 있는 경우
+            if(toggle) {
+
+              // 토글 스위치를 제외하기 위해 inputs 재정의
+              const inputs = row.querySelectorAll("li:last-of-type input:not(.toggle-switch input)")
+              const handleInputDisabled2 = (status) => {
+                inputs.forEach(input => {
+                  input.disabled = status
+                })
+              }
+
+              toggle.checked
+                ? handleInputDisabled2(false)
+                : handleInputDisabled2(true);
+
+              // 토글로 뒤에 오는 input값들의 disabled를 제어할 수 있도록 handleChangeDisabled 재정의
+              const handleChangeDisabled2 = (event) => {
+
+                event.target.checked
+                  ? handleInputDisabled2(false)
+                  : handleInputDisabled2(true);
+              }
+              toggle.addEventListener("change", handleChangeDisabled2)
+            }
+          } else {
+            handleInputDisabled(true);
+          }
+        }
+        checkbox.addEventListener("change", handleChangeDisabled)
+      })
+    })
+  }
+
   // 목록 데이터 감지
   const lists = document.querySelectorAll(".list:not(.section-related-keyword .list)");
   lists[0] &&
     lists.forEach(list => {
       mutationObserver.observe(list, {
         childList: true,
-        characterData: true,
       });
     });
 
@@ -1191,38 +1244,29 @@ const containerMutated = () => {
     });
 
   // 팝업 감지
-  const visibleModals = document.querySelectorAll(".modal");
-  visibleModals[0] &&
-    modals.forEach(modal => {
-      mutationObserver.observe(modal, {
-        childList: true,
-        subtree: true,
-        characterData: true,
-        attributes: true
-      });
-    });
+  mutationObserver.observe(document.querySelector(".modals"), {
+    childList: true,
+    attributes: true,
+  })
 
   // 컨테이너 감지
-  container &&
-    mutationObserver.observe(container, {
-      childList: true,
-      attributes: true,
-    });
+  mutationObserver.observe(container, {
+    childList: true,
+    attributes: true,
+  });
 
   // 로더 감지
   const loader = document.querySelector(".spinner-loader");
-  loader &&
-    mutationObserver.observe(loader, {
-      childList: true,
-      subtree: true,
-    });
+  mutationObserver.observe(loader, {
+    childList: true,
+    subtree: true,
+  });
 };
 
 const mutationObserver = new MutationObserver(mutations => {
   mutations.forEach(mutation => {
     if (
       mutation.target.className != "checkbox" &&
-      mutation.target.className != "list pinned" &&
       mutation.previousSibling &&
       mutation.previousSibling.className != "row"
     ) {
