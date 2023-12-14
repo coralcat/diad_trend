@@ -576,13 +576,10 @@ const tooltipContents = {
   //입찰예정가
   bidPrice: `
     <dl>
-      <dd>레귤러 설정 시 사용자가 선택한 기본입찰가와 최종 입찰(예정)가가 표시됩니다. 
+      <dd>레귤러 설정 시 사용자가 선택한 기본입찰가가 표기됩니다. 
       </dd>
-      <dd>입찰예정가는 기본입찰가, 사용자 설정 옵션, 최소입찰가, 최대입찰가를 종합적으로 판단하여 최종적으로 입찰을 수행할 가격입니다.
-      </dd>
-      <dd>입찰예정가는 (부분)설정 완료 또는 입찰 시 업데이트 됩니다. 설정 완료 시 업데이트된 입찰예정가는 실제 입찰 시에는 호출되는 데이터에 따라 달라질 수 있습니다.
-      </dd>
-      <dd>사용자 설정 옵션으로 가감액을 입력했다면 최근 통합검색 평균 노출 순위가 있는 경우와 없는 경우로 나누어 산출된 입찰가 2가지가 표시됩니다</dd>
+      <dd>입찰예정가 클릭 시 입찰가 산출내역을 확인할 수 있습니다.</dd>
+      <dd>입찰예정가에서 확인한 산출내역은 (부분)설정 완료 또는 입찰성공 시 업데이트 됩니다. 설정 완료 시 업데이트 된 산출내역은 실제 입찰 시 달라질 수 있습니다.</dd>
     </dl>
     `,
 
@@ -655,7 +652,7 @@ const tooltipContents = {
   bidSettings: `
     <dl>
       <dd>라이브 입찰은 사용자가 설정한 입찰주기마다 입찰이 진행됩니다.</dd>
-      <dd>레귤러 입찰은 하루 3번 정해진 시간에 입찰이 진행되며, 원하는 순위에 도달하기 위해 입찰가를 조정하는 것이 아니라 입찰가를 원하는 입찰가로 변경합니다.</dd>
+      <dd>레귤러 입찰은 하루 3번 정해진 시간(07:00, 15:00, 23:00)에 입찰이 진행되며, 원하는 순위에 도달하기 위해 입찰가를 조정하는 것이 아니라 입찰가를 원하는 입찰가로 변경합니다.</dd>
     </dl>
     `,
 
@@ -731,8 +728,8 @@ const tooltipContents = {
   additionAndSubtraction: `
     <dl>
       <dd>입찰가감액은 입찰가 조정 단위로, 필수 입력 항목입니다. 미사용 시 0원을 입력하세요.</dd>
-      <dd>가액은 입찰가 상승 시에 적용되면, (현재순위 - 희망(목표)순위) * 가액만큼 입찰가가 조정됩니다.</dd>
-      <dd>감액은 입찰가 하락 시나 하향입찰 시 적용되며, 감액만큼만 입찰가가 조정됩니다.</dd>
+      <dd>입찰가감액은 입찰가 조정 시 {(현재순위 - 희망(목표)순위) * 가액 또는 감액}만큼 입찰가가 조정됩니다.</dd>
+      <dd>하향입찰 시 감액만큼만 입찰가가 조정됩니다.</dd>
     </dl>
     `,
 
@@ -912,13 +909,36 @@ document.addEventListener("DOMContentLoaded", () => {
       tooltip.classList.add("is-active");
       tooltip.style.top = `${event.clientY + 10}px`;
 
-      if (window.innerWidth - event.clientX < tooltip.offsetWidth) {
-        tooltip.style.left = `${event.clientX - tooltip.offsetWidth + 60}px`;
-        tooltip.style.setProperty("--tooltip-position", `${tooltip.offsetWidth - 60}px`);
+      if (matchMedia("screen and (max-width: 640px)").matches) {
+
+        if (event.clientX < window.innerWidth / 2) {
+          tooltip.style.left = "1rem";
+        } else {
+          tooltip.style.left = "auto";
+          tooltip.style.right = "1rem";
+        }
+
+        if (window.innerHeight - event.clientY < 100) {
+          tooltip.style.top = "auto";
+          tooltip.style.bottom = `${window.innerHeight - event.clientY + 25}px`;
+        } else {
+          tooltip.style.bottom = "auto"
+        }
       } else {
-        tooltip.style.left = `${event.clientX - 30}px`;
-        tooltip.style.setProperty("--tooltip-position", `30px`);
+
+        if (window.innerWidth - event.clientX < tooltip.offsetWidth) {
+          tooltip.style.left = `${event.clientX - tooltip.offsetWidth + 60}px`;
+          tooltip.style.setProperty("--tooltip-position", `${tooltip.offsetWidth - 60}px`);
+        } else {
+          tooltip.style.left = `${event.clientX - 30}px`;
+          tooltip.style.setProperty("--tooltip-position", `30px`);
+        }
       }
+
+      const main = document.querySelector("main")
+      main.addEventListener("scroll", () => {
+        tooltip.classList.remove("is-active")
+      })
     };
     tooltipIcons.forEach((icon) => {
 
@@ -929,6 +949,24 @@ document.addEventListener("DOMContentLoaded", () => {
         tooltip.textContent = ""
       });
     });
+
+
+    // 헤더 감지
+    const headers = document.querySelectorAll("section > header");
+    headers.forEach(header => {
+      mutationObserver.observe(header, {
+        childList: true,
+        attributes: true,
+      })
+    })
+
+    // 어사이드 감지
+    const aside = document.querySelector("main aside");
+    aside &&
+      mutationObserver.observe(aside, {
+        childList: true,
+        subtree: true
+      });
 
     // 목록 데이터 감지
     const lists = document.querySelectorAll(".list");
@@ -951,15 +989,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
     // 팝업 감지
-    const visibleModals = document.querySelectorAll(".modal");
-    visibleModals[0] &&
-      visibleModals.forEach((modal) => {
-        mutationObserver.observe(modal, {
-          childList: true,
-          subtree: true,
-          characterData: true,
-        });
-      });
+    mutationObserver.observe(document.querySelector(".modals"), {
+      childList: true,
+      attributes: true,
+    });
 
     // 컨테이너 감지
     mutationObserver.observe(container, {
