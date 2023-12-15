@@ -117,7 +117,6 @@ body {
 
   small {
     font-size: 13px;
-    line-height: 1.25;
     display: inline-flex;
     align-items: center;
     font-family: "Pretendard";
@@ -163,15 +162,14 @@ body {
     }
 
     input {
-      font-family: "NanumSquareB" !important;
-      font-size: clamp(17px, 1.25vw, 20px) !important;
+      font-size: clamp(16px, 1.25vw, 20px) !important;
       height: auto !important;
     }
   }
 
   h2 {
     font-family: "NanumSquareB";
-    font-size: 15px;
+    font-size: clamp(14px, 2.5vw, 15px);
     min-height: 28px;
     gap: 3px;
 
@@ -202,6 +200,8 @@ body {
   }
 
   h5 {
+    display: flex;
+    gap: 3px;
     font-size: 14px;
     font-weight: normal;
   }
@@ -309,7 +309,7 @@ body {
     flex: 1 1 auto;
     border-radius: 0.5rem;
     border: 1px solid #ddd;
-    padding: 0.75rem;
+    padding: 5px 0.75rem 0.75rem;
     height: fit-content;
 
     legend {
@@ -615,11 +615,16 @@ aside {
   color: #434649 !important;
 }
 
-:is(.price, .percent, .times, .rank) {
+:is(.price, .percent, .cases, .rank, .minutes, .times) {
   display: flex;
-  align-items: center;
+  align-items: center !important;
   gap: 2px !important;
+
   line-height: normal;
+
+  &::after {
+    font-size: 90%;
+  }
 
   &:empty:not([data-title]) {
     text-decoration: none !important;
@@ -647,7 +652,6 @@ aside {
   &::after {
     content: "\20A9";
     order: -1;
-    font-size: 90%;
   }
 
   input {
@@ -658,14 +662,12 @@ aside {
 .percent {
   &::after {
     content: "%";
-    font-size: 90%;
   }
 }
 
-.times {
+.cases {
   &::after {
     content: "건";
-    font-size: 90%;
   }
 
   + .percent {
@@ -679,6 +681,18 @@ aside {
 .rank {
   &::after {
     content: "위";
+  }
+}
+
+.minutes {
+  &::after {
+    content: "분";
+  }
+}
+
+.times {
+  &::after {
+    content: "회";
   }
 }
 
@@ -739,35 +753,41 @@ aside {
   padding: 2px 3px;
   font-size: 12px;
   line-height: normal;
-  gap: 3px;
-  
+  gap: 3px !important;
+
   &[data-title] {
     height: 18px !important;
     font-size: 11px !important;
   }
 
+  &[data-title="중간"] {
+    color: rgb(255, 165, 0);
+    border-color: rgba(255, 165, 0, 0.15);
+    font-size: 13px !important;
+    height: auto !important;
+  }
+
+  &[data-title="높음"],
   &[data-title="상승"] {
     border-color: rgba(255, 0, 0, 0.15);
     color: #ff3333;
-    font-size: 14px !important;
+    font-size: 13px !important;
     height: auto !important;
-    padding: 2px;
   }
 
   &[data-title="하락"] {
     border-color: rgba(65, 105, 225, 0.15);
     color: #2156f5;
-    font-size: 14px !important;
+    font-size: 13px !important;
     height: auto !important;
-    padding: 2px;
   }
 
+  &[data-title="낮음"],
   &[data-title="유지"] {
     border-color: #e3e6e9;
     color: slategray;
-    font-size: 14px !important;
+    font-size: 13px !important;
     height: auto !important;
-    padding: 2px;
   }
 
   &.type-bg {
@@ -818,33 +838,6 @@ aside {
     &.blue {
       border-color: rgba(65, 105, 225, 0.15);
       color: #2156f5;
-    }
-
-    &.high {
-      border-color: rgba(255, 0, 0, 0.15);
-
-      &::after {
-        content: "높음";
-        color: #ff3333;
-      }
-    }
-
-    &.medium {
-      border-color: rgba(255, 165, 0, 0.15);
-
-      &::after {
-        content: "중간";
-        color: rgb(255, 165, 0);
-      }
-    }
-
-    &.low {
-      border-color: #e3e6e9;
-
-      &::after {
-        content: "낮음";
-        color: lightslategray;
-      }
     }
   }
 
@@ -897,6 +890,7 @@ aside {
   &.pending {
     border: 0;
     background-color: orange !important;
+    color: white;
   }
 
   &.green {
@@ -935,8 +929,11 @@ aside {
   }
 
   &[data-title="Tip"] {
+    justify-content: center;
     background-color: orange !important;
     margin-right: 3px;
+    border: 0;
+    color: white;
   }
 
   &[data-title="최저가"] {
@@ -1019,10 +1016,9 @@ aside {
     background-color: #f3f6f9;
     padding: 4px;
     border-radius: 3px;
-    
+
     input[type="radio"],
     input[type="checkbox"] {
-
       &:checked + label {
         font-weight: 600;
         color: black;
@@ -1055,7 +1051,7 @@ aside {
     &:checked + label {
       background-color: white;
       color: $main-color;
-      box-shadow: 0 0 0 1px inset #e3e6e9 !important;
+      box-shadow: 0 0 0 1px inset #5048d7 !important;
     }
 
     + label {
@@ -1082,7 +1078,7 @@ aside {
 
   .tag {
     border: 0;
-    background: rgba(255,255,255,.5);
+    background: rgba(255, 255, 255, 0.5);
     color: slategray;
     padding: 2px 4px;
   }
@@ -1578,14 +1574,13 @@ progress {
 
     &:disabled {
       + label {
-
         &::before {
           background-color: #e4e5e6;
           border-color: #e4e5e6;
         }
 
         &::after {
-          border-color: #C3C6C9;
+          border-color: #c3c6c9;
         }
       }
     }
@@ -1898,13 +1893,13 @@ article {
     .list {
       button {
         padding: 0 0.5rem;
-        height: clamp(24px, 4vh, 28px);
+        height: clamp(20px, 4vh, 24px);
       }
 
       li {
         > :last-child {
           justify-content: flex-end;
-          height: clamp(24px, 4vh, 28px);
+          height: clamp(20px, 4vh, 24px);
         }
       }
     }
@@ -2045,7 +2040,7 @@ input.toggle-switch {
     display: inline-block;
     margin: 5px 0;
     cursor: pointer;
-  
+
     &::before {
       content: "";
       display: block;
@@ -2099,7 +2094,7 @@ input.toggle-switch {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: .75rem;
+    padding: 0.75rem;
     gap: 1rem;
 
     > div {

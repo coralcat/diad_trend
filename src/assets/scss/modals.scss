@@ -269,9 +269,14 @@ $secondary-color: #f2f1ff;
     border: 0;
     padding: 0;
 
+    &:is(ul) {
+      gap: .5rem
+    }
+
     &.edit {
       &.accounts {
         input {
+          padding-right: 0;
           width: 100%;
         }
 
@@ -989,11 +994,6 @@ $secondary-color: #f2f1ff;
         display: flex;
         justify-content: space-between;
         align-items: center;
-
-        .times {
-          margin-left: 0.5rem;
-          color: $main-color;
-        }
       }
     }
 
@@ -1525,6 +1525,8 @@ $secondary-color: #f2f1ff;
 
       .tag {
         background-color: orangered;
+        color: white;
+        border: 0;
       }
     }
   }

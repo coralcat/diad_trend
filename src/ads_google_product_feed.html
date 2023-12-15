@@ -3,19 +3,16 @@
   <header class="content-header">
     <div class="title">
       <h1>
+        <button class="btn-back" onclick="history.back()"></button>
         <span>피드1</span>
         <div data-tooltip=""></div>
+        <div class="filters">
+          <small data-title="무료 목록 기준" class="tag"></small>
+          <small>2023-08-20 ( ↔ 2023-08-19 )</small>
+        </div>
       </h1>
       {% include "account.html" %}
     </div>
-    <ul class="tabs main-tabs">
-      <li data-tab="sub-menu">대시보드</li>
-      <li data-tab="sub-menu" class="is-active">계정+</li>
-      <li data-tab="sub-menu">피드+</li>
-      <li data-tab="sub-menu">캠페인</li>
-      <li data-tab="sub-menu">리포트</li>
-      <li data-tab="sub-menu">설정</li>
-    </ul>
   </header>
   <section class="section-main">
     <dl class="caution">
@@ -27,64 +24,116 @@
       </dd>
       <dd>쇼핑몰 URL이 변경된 경우 상품 정보를 변경된 도메인에 맞게 수정해야 합니다.</dd>
       <dd>
-        구글 쇼핑은 최초 계정 검수 후 상품의 품질 검수를 주기적으로 진행하고 있습니다. 계정 승인이후에도 상품 품질에 이상이 있고 28일 내 개선하지 않을 시 (주요 위반 사유 : 오버레이 이미지, 재고 정보 불일치, 상품 가격 불일치) 상품이 중지되고, 계정이 정지될 수 있습니다.
+        구글 쇼핑은 최초 계정 검수 후 상품의 품질 검수를 주기적으로 진행하고 있습니다. 계정 승인이후에도 상품 품질에 이상이 있고 28일 내 개선하지 않을 시 (주요 위반 사유 : 오버레이 이미지, 전환수 정보 불일치, 상품 가격 불일치) 상품이 중지되고, 계정이 정지될 수 있습니다.
         <a href="https://support.google.com/merchants/answer/6149970?hl=ko">구글 쇼핑 품질 정책 자세히 보기</a>
       </dd>
     </dl>
   </section>
+  <section class="section-feeds">
+    <header>
+      <h2>피드 실적</h2>
+      <div class="filters">
+        <span data-title="무료 목록 기준" class="tag"></span>
+        <span>2023-08-20 ( ↔ 2023-08-19 )</span>
+      </div>
+    </header>
+    <ul>
+      <li data-title="노출수">
+        <span class="cases">241,321</span>
+        <span class="percent up">21.22</span>
+      </li>
+      <li data-title="클릭수">
+        <span class="cases">241,321</span>
+        <span class="percent up">21.22</span>
+      </li>
+      <li data-title="클릭률(CTR)">
+        <span class="percent">10.00</span>
+        <div>
+          <span class="percent">0.0</span>p
+        </div>
+      </li>
+      <li data-title="전환수">
+        <span class="cases">241,321</span>
+        <span class="percent up">21.22</span>
+      </li>
+      <li data-title="전환율">
+        <span class="percent">10.00</span>
+        <div>
+          <span class="percent up">0.0</span>p
+        </div>
+      </li>
+      <li data-title="전환가치">
+        <span class="cases">321.00</span>
+        <span class="percent up">21.22</span>
+      </li>
+    </ul>
+  </section>
   <section>
     <header>
-      <h3>
-        상품 리스트
-        <small>상품명을 클릭하면 상품의 상세 정보를 확인할 수 있습니다.</small>
-      </h3>
+      <h2>
+        상품 목록
+      </h2>
       <div class="filters">
         <button data-modal="productFeed">피드 수정하러 가기</button>
       </div>
     </header>
     
-    <div class="list">
-      <ul class="row title">
-        <li class="ico-sort">이미지</li>
-        <li class="ico-sort">상품명</li>
-        <li class="ico-sort">ID</li>
-        <li class="ico-sort">승인상태</li>
-        <li class="ico-sort">가격</li>
-        <li class="ico-sort">클릭</li>
-        <li class="ico-sort">클릭 가능성</li>
-        <li class="ico-sort">조건</li>
-        <li class="ico-sort">재고</li>
-        <li class="ico-sort">노출 위치</li>
-        <li class="ico-sort">상태</li>
-        <li class="ico-sort">관리</li>
-      </ul>
-      <ul class="row">
-        <li title="이미지">
-        </li>
-        <li title="상품명">
-        </li>
-        <li title="ID">
-        </li>
-        <li title="승인상태">
-        </li>
-        <li title="가격">
-        </li>
-        <li title="클릭">
-        </li>
-        <li title="클릭 가능성">
-        </li>
-        <li title="조건">
-        </li>
-        <li title="재고">
-        </li>
-        <li title="노출 위치">
-        </li>
-        <li title="상태">
-        </li>
-        <li title="관리">
-        </li>
-      </ul>
-    </div>
+    <ul class="list">
+      <li class="row title">
+        <div title="상품명" class="ico-sort">상품명</div>
+        <div title="ID" class="ico-sort">ID</div>
+        <div title="가격" class="ico-sort">가격</div>
+        <div title="승인상태" class="ico-sort">승인상태</div>
+        <div title="상품 이슈" class="ico-sort">상품 이슈</div>
+        <div title="클릭수" class="ico-sort">클릭수</div>
+        <div title="노출수" class="ico-sort">노출수</div>
+        <div title="클릭률(CTR)" class="ico-sort">클릭률(CTR)</div>
+        <div title="전환수" class="ico-sort">전환수</div>
+        <div title="전환율" class="ico-sort">전환율</div>
+        <div title="전환가치" class="ico-sort">전환가치</div>
+      </li>
+      <li class="row">
+        <div class="item" title="상품명" oncdivck="location.href='ads_google_feed_details.html'">
+          <div class="image">
+            <img src="" alt="">
+          </div>
+          <strong>
+            유기농 다이애드 비누 90g 12개 sfsf fa ff sf s df fdsdf s dfs fs fds fds dfsf ds fds dfsfd df  sdfs dfsdf ds fsd fs dfs dfs df sdfs dfs df dfs dfs df sdfs df
+          </strong>
+        </div>
+        <div title="ID">
+          00000
+        </div>
+        <div title="가격">
+          <span class="price">13,900</span>
+        </div>
+        <div title="승인상태">
+          활성
+        </div>
+        <div title="상품 이슈">
+          초기 검토 대기중
+          <button class="ico-notes"></button>
+        </div>
+        <div title="클릭수">
+          <span class="cases">1,051</span>
+        </div>
+        <div title="노출수">
+          <span class="cases">99,085</span>
+        </div>
+        <div title="클릭률(CTR)">
+          <span class="percent">1.06</span>
+        </div>
+        <div title="전환수">
+          <span class="cases">3.00</span>
+        </div>
+        <div title="전환율">
+          <span class="percent">0.20</span>
+        </div>
+        <div title="전환가치">
+          206,600.00
+        </div>
+      </li>
+    </ul>
   </section>
 </main>
 {% include "modals.html" %}

@@ -449,6 +449,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
   .filters {
     padding-top: 0 !important;
     border: 0 !important;
+    min-height: auto;
 
     > div {
       width: 100%;
@@ -527,10 +528,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       }
     }
 
-    ul {
-      gap: 3px
-    }
-
     .accounts {
       select {
         min-width: 150px;
@@ -548,7 +545,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
     .price,
     .percent,
-    .times,
+    .cases,
     .page {
       order: 2;
     }
@@ -572,7 +569,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       position: relative;
       overflow: hidden;
 
-      &::after {
+      &:not(.modal .row)::after {
         content: "";
         width: 100%;
         height: 4rem;
@@ -630,7 +627,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
         
         li {
           &:last-of-type {
-            grid-column: 4/11;
             display: flex;
             justify-content: center;
             background: #f3f6f9;
@@ -663,7 +659,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
         position: relative;
         gap: 5px;
         min-width: auto !important;
-        min-height: 24px;
+        min-height: 28px;
         transition: .25s;
 
         &::before {
@@ -780,6 +776,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
   .modal {
     header {
       padding: 0;
+      min-height: auto !important;
     }
 
     .modal-content {
@@ -805,7 +802,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
       .row {
         width: 100%;
-        padding: 0;
+        padding: 0 .5rem;
         box-shadow: 0 0 0;
         gap: 0.5rem;
 
@@ -1047,6 +1044,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     &.is-active {
       right: 0;
       box-shadow: 0 3px 6px 3px rgba(0, 0, 0, 0.1);
+      z-index: 300 !important;
     }
   }
 
@@ -1076,9 +1074,19 @@ $secondary-color: rgba(118, 130, 248, 0.1);
   }
 
   .content-header {
-    padding-top: 0.75rem;
     justify-content: center;
     gap: 0.5rem;
+    position: sticky;
+    top: 0;
+    align-items: flex-end;
+    background: #eff3f7;
+    z-index: 115;
+    min-height: 45px;
+    border-bottom: 1px solid #e3e6e9;
+
+    h1 {
+      line-height: 42px;
+    }
 
     header {
       background-color: transparent;
@@ -1097,6 +1105,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       flex-wrap: wrap;
     }
 
+    .filters,
     .account {
       display: none !important;
     }
@@ -1110,7 +1119,6 @@ $secondary-color: rgba(118, 130, 248, 0.1);
     .tabs {
       padding: 0 1rem;
       width: 100%;
-      border-bottom: 1px solid #ddd;
       overflow-x: auto;
 
       li {
