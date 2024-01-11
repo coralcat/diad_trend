@@ -74,6 +74,7 @@ html {
     opacity: 1 !important;
     visibility: visible !important;
     z-index: 50 !important;
+    max-height: 9999px !important;
   }
 
   .container {
@@ -155,15 +156,28 @@ body {
     font-size: clamp(17px, 1.25vw, 20px);
     line-height: 32px;
 
+    button {
+      background-color: #434649;
+      color: white;
+      height: 24px;
+      padding: 0 0.5rem;
+    }
+
+    input {
+      font-size: clamp(16px, 1.25vw, 20px) !important;
+      height: auto !important;
+    }
+
     [data-tooltip] {
       &::before {
         width: clamp(20px, 1vw, 24px);
       }
     }
 
-    input {
-      font-size: clamp(16px, 1.25vw, 20px) !important;
-      height: auto !important;
+    .filters {
+      strong {
+        font-size: 13px;
+      }
     }
   }
 
@@ -451,6 +465,7 @@ header {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.5rem;
+  height: fit-content;
   box-sizing: border-box;
 
   &[data-brand] {
@@ -788,6 +803,14 @@ aside {
     color: slategray;
     font-size: 13px !important;
     height: auto !important;
+  }
+
+  &.up {
+    color: #ff3333;
+  }
+
+  &.down {
+    color: #2156f5;
   }
 
   &.type-bg {

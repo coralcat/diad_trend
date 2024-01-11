@@ -7,8 +7,11 @@
         <span>피드1</span>
         <div data-tooltip=""></div>
         <div class="filters">
-          <small data-title="무료 목록 기준" class="tag"></small>
-          <small>2023-08-20 ( ↔ 2023-08-19 )</small>
+          <small data-title="업로드" class="tag"></small>
+          <strong>매일 00:00</strong>
+          <small data-title="마지막 업로드" class="tag"></small>
+          <strong>2023-08-21</strong>
+          <button data-modal="itemFeedsUploadSchedule">수정</button>
         </div>
       </h1>
       {% include "account.html" %}
@@ -35,16 +38,17 @@
       <div class="filters">
         <span data-title="무료 목록 기준" class="tag"></span>
         <span>2023-08-20 ( ↔ 2023-08-19 )</span>
+        <button data-toggle="showFeedsChart"></button>
       </div>
     </header>
     <ul>
       <li data-title="노출수">
         <span class="cases">241,321</span>
-        <span class="percent up">21.22</span>
+        <span class="percent tag up">21.22</span>
       </li>
       <li data-title="클릭수">
         <span class="cases">241,321</span>
-        <span class="percent up">21.22</span>
+        <span class="percent tag up">21.22</span>
       </li>
       <li data-title="클릭률(CTR)">
         <span class="percent">10.00</span>
@@ -54,86 +58,161 @@
       </li>
       <li data-title="전환수">
         <span class="cases">241,321</span>
-        <span class="percent up">21.22</span>
+        <span class="percent tag up">21.22</span>
       </li>
       <li data-title="전환율">
         <span class="percent">10.00</span>
         <div>
-          <span class="percent up">0.0</span>p
+          <span class="percent">0.0</span>p
         </div>
       </li>
       <li data-title="전환가치">
         <span class="cases">321.00</span>
-        <span class="percent up">21.22</span>
+        <span class="percent tag up">21.22</span>
       </li>
     </ul>
+    <article data-toggle="showFeedsChart">
+      <header>
+        <div class="title">
+          <h4>실적 그래프</h4>
+          <div class="filters">
+            <span data-title="무료 목록 기준" class="tag"></span>
+            <span>2023-09-01 ~ 2023-09-30</span>
+            <button class="btn-download">다운로드</button>
+          </div>
+        </div>
+        <div class="checkboxes">
+          <div class="checkbox">
+            <input id="check-feed-01" type="checkbox" />
+            <label for="check-feed-01">클릭수</label>
+          </div>
+          <div class="checkbox">
+            <input id="check-feed-02" type="checkbox" />
+            <label for="check-feed-02">노출수</label>
+          </div>
+          <div class="checkbox">
+            <input id="check-feed-03" type="checkbox" />
+            <label for="check-feed-03">클릭률(CTR)</label>
+          </div>
+          <div class="checkbox">
+            <input id="check-feed-04" type="checkbox" />
+            <label for="check-feed-04">전환수</label>
+          </div>
+          <div class="checkbox">
+            <input id="check-feed-05" type="checkbox" />
+            <label for="check-feed-05">전환율</label>
+          </div>
+          <div class="checkbox">
+            <input id="check-feed-06" type="checkbox" />
+            <label for="check-feed-06">전환가치</label>
+          </div>
+        </div>
+      </header>
+      <div class="chart">
+
+      </div>
+    </article>
   </section>
   <section>
     <header>
-      <h2>
-        상품 목록
-      </h2>
+      <div class="title">
+        <h2>
+          상품 목록
+        </h2>
+        <div class="filters">
+          <button data-modal="productFeed">이슈진단</button>
+          <button class="ico-eye" data-modal=""></button>
+          <button class="ico-eye" data-modal=""></button>
+        </div>
+      </div>
       <div class="filters">
-        <button data-modal="productFeed">피드 수정하러 가기</button>
+        <div class="selector">
+          <input type="radio" id="list-all" name="listTabs-power-link" checked="">
+          <label for="list-all">전체 
+            <span class="tag">4</span>
+          </label>
+          <input type="radio" id="list-live-normal" name="listTabs-power-link">
+          <label for="list-live-normal">활성 
+            <span class="tag">2</span>
+          </label>
+          <input type="radio" id="list-live-advanced" name="listTabs-power-link">
+          <label for="list-live-advanced">
+            대기
+            <span class="tag">0</span>
+          </label>
+          <input type="radio" id="list-regular-normal" name="listTabs-power-link">
+          <label for="list-regular-normal">
+            비승인
+            <span class="tag">2</span>
+          </label>
+        </div>
+        <div class="filters">
+          <span data-title="무료 목록 기준" class="tag"></span>
+          <span>2023-08-20</span>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="100개씩 보기">100개씩 보기</option>
+            </select>
+          </div>
+        </div>
       </div>
     </header>
-    
-    <ul class="list">
-      <li class="row title">
-        <div title="상품명" class="ico-sort">상품명</div>
-        <div title="ID" class="ico-sort">ID</div>
-        <div title="가격" class="ico-sort">가격</div>
-        <div title="승인상태" class="ico-sort">승인상태</div>
-        <div title="상품 이슈" class="ico-sort">상품 이슈</div>
-        <div title="클릭수" class="ico-sort">클릭수</div>
-        <div title="노출수" class="ico-sort">노출수</div>
-        <div title="클릭률(CTR)" class="ico-sort">클릭률(CTR)</div>
-        <div title="전환수" class="ico-sort">전환수</div>
-        <div title="전환율" class="ico-sort">전환율</div>
-        <div title="전환가치" class="ico-sort">전환가치</div>
-      </li>
-      <li class="row">
-        <div class="item" title="상품명" oncdivck="location.href='ads_google_feed_details.html'">
+    <div class="list">
+      <ul class="row title">
+        <li title="상품명" class="ico-sort">상품명</li>
+        <li title="ID" class="ico-sort">ID</li>
+        <li title="가격" class="ico-sort">가격</li>
+        <li title="승인상태" class="ico-sort">승인상태</li>
+        <li title="상품 이슈" class="ico-sort">상품 이슈</li>
+        <li title="클릭수" class="ico-sort">클릭수</li>
+        <li title="노출수" class="ico-sort">노출수</li>
+        <li title="클릭률(CTR)" class="ico-sort">클릭률(CTR)</li>
+        <li title="전환수" class="ico-sort">전환수</li>
+        <li title="전환율" class="ico-sort">전환율</li>
+        <li title="전환가치" class="ico-sort">전환가치</li>
+      </ul>
+      <ul class="row">
+        <li class="item" title="상품명" onclick="location.href='ads_google_feed_details.html'">
           <div class="image">
             <img src="" alt="">
           </div>
           <strong>
             유기농 다이애드 비누 90g 12개 sfsf fa ff sf s df fdsdf s dfs fs fds fds dfsf ds fds dfsfd df  sdfs dfsdf ds fsd fs dfs dfs df sdfs dfs df dfs dfs df sdfs df
           </strong>
-        </div>
-        <div title="ID">
+        </li>
+        <li title="ID">
           00000
-        </div>
-        <div title="가격">
+        </li>
+        <li title="가격">
           <span class="price">13,900</span>
-        </div>
-        <div title="승인상태">
+        </li>
+        <li title="승인상태">
           활성
-        </div>
-        <div title="상품 이슈">
+        </li>
+        <li title="상품 이슈">
           초기 검토 대기중
           <button class="ico-notes"></button>
-        </div>
-        <div title="클릭수">
+        </li>
+        <li title="클릭수">
           <span class="cases">1,051</span>
-        </div>
-        <div title="노출수">
+        </li>
+        <li title="노출수">
           <span class="cases">99,085</span>
-        </div>
-        <div title="클릭률(CTR)">
+        </li>
+        <li title="클릭률(CTR)">
           <span class="percent">1.06</span>
-        </div>
-        <div title="전환수">
+        </li>
+        <li title="전환수">
           <span class="cases">3.00</span>
-        </div>
-        <div title="전환율">
+        </li>
+        <li title="전환율">
           <span class="percent">0.20</span>
-        </div>
-        <div title="전환가치">
+        </li>
+        <li title="전환가치">
           206,600.00
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </section>
 </main>
 {% include "modals.html" %}

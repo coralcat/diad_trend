@@ -78,8 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // Modal in Modal
       const currentModal = event.currentTarget.closest(".modal");
       const validateMessage = message => {
-        alertModalContent.innerText = message;
-        alertModal.classList.add("is-active");
+        alertModalContent && (alertModalContent.innerText = message);
+        alertModal && alertModal.classList.add("is-active");
       };
     
       // 적용, 완료
