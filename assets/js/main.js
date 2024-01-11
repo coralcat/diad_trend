@@ -485,27 +485,35 @@ const mutationObserver = new MutationObserver(mutations => {
       });
 
       // 알림 서비스 설정 전체해제 (다른 데에서도 재사용 가능)
-      /*     const dataToggles = document.querySelectorAll("[data-toggle]");
-        const controllers = document.querySelectorAll(".toggle-controller");
-        controllers.forEach((controller) => {
-          controller.addEventListener("click", (event) => {
+      const dataToggles = document.querySelectorAll("[data-toggle]");
+      const controllers = document.querySelectorAll(".toggle-controller");
+      controllers.forEach((controller) => {
+        controller.addEventListener("click", (event) => {
+          const toggleName = event.currentTarget.dataset.toggle;
+          const toggles = document.getElementsByName(toggleName);
+    
+          if (!controller.classList.contains("is-active")) {
+            dataToggles.forEach((toggle) => {
+              event.currentTarget.dataset.toggle === toggle.dataset.toggle && (toggle.classList = controller.classList);
+            });
+          }
+        });
+      });
+
+      dataToggles.forEach((toggle) => {
+        if (!toggle.classList.contains(".controller")) {
+          toggle.addEventListener("click", (event) => {
+            console.log(event.currentTarget)
             const toggleName = event.currentTarget.dataset.toggle;
-            const toggles = document.getElementsByName(toggleName);
-      
-            if (!controller.classList.contains("is-active")) {
-              dataToggles.forEach((toggle) => {
-                event.currentTarget.dataset.toggle === toggle.dataset.toggle && (toggle.classList = controller.classList);
-              });
-            }
+            console.log(toggleName)
+            const toggles = document.querySelectorAll(`[data-toggle='${toggleName}']`);
+            console.log(toggles)
+            toggles.forEach(toggle => {
+              toggle.classList.toggle("is-active")
+            })
           });
-          dataToggles.forEach((toggle) => {
-            if (!toggle.classList.contains(".controller")) {
-              toggle.addEventListener("click", () => {
-                toggle.classList.contains("is-active") && controller.classList.add("is-active");
-              });
-            }
-          });
-        }); */
+        }
+      });
 
       // 알림 매체 설정 disabled 처리
       const changeAlarmInformation = document.querySelector(".content-settings .change-information");
@@ -1156,8 +1164,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // Modal in Modal
       const currentModal = event.currentTarget.closest(".modal");
       const validateMessage = message => {
-        alertModalContent.innerText = message;
-        alertModal.classList.add("is-active");
+        alertModalContent && (alertModalContent.innerText = message);
+        alertModal && alertModal.classList.add("is-active");
       };
     
       // 적용, 완료

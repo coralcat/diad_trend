@@ -178,7 +178,7 @@
 </aside>
 
 <style>
-  .chart > div {
+  .chart>div {
     height: 100%;
   }
 </style>
@@ -943,9 +943,9 @@
           <div style="flex: 1 1 auto;">
             <header>
               <h2>순위 분포</h2>
-              <div class="filters"><button class="ico-refresh"> 초기화 </button><strong class="times"
+              <div class="filters"><button class="ico-refresh"> 초기화 </button><strong class="cases"
                   data-title="전체">21</strong>
-                <div class="selectbox"><select id="rankUpdateTimeSelect" name="">
+                <div class="selectbox"><select id="rankUpdatecaseselect" name="">
                     <option value="2023-11-20 15:00">2023-11-20 15:00</option>
                     <option value="2023-11-20 12:00">2023-11-20 12:00</option>
                     <option value="2023-11-20 09:00">2023-11-20 09:00</option>
@@ -1022,47 +1022,100 @@
                 </select></div>
             </div>
           </header>
-          <div class="swiper small">
-            <div class="articles swiper-wrapper">
+          <div class="swiper issues">
+            <div class="articles swiper-wrapper" data-empty="입찰 이슈가 없습니다.">
               <article class="swiper-slide">
-                <header data-brand="naver">
-                  <h4>2023.04.01 07:00:00</h4>
-                </header>
                 <div class="texts">
-                  <p> 검색광고 계정 gabiacns_01 <strong>비즈머니 잔액 5,000원 미만</strong> 입니다. </p>
-                  <p>충전이 필요합니다.</p>
-                </div>
+                  <header data-brand="eleventh">
+                    <h4> 11번가 브랜드검색 </h4>
+                  </header>
+                  <p><strong class="account"></strong> bokdanjie 계정의 비즈머니 잔액이 5,000원 미만 입니다.
+                    충전이 필요합니다.</p>
+                </div><small>2023.12.15 12:24:13</small>
               </article>
               <article class="swiper-slide">
-                <header data-brand="naver">
-                  <h4>2023.04.01 07:00:00</h4>
-                </header>
                 <div class="texts">
-                  <p> PC_파워링크 〉 케이스_갤럭시 〉 <strong>#갤럭시노트9케이스 (PC일반) 최대 입찰가(입찰한도)</strong> 에 도달했습니다. </p>
-                  <p>확인이 필요합니다.</p>
-                </div>
+                  <header data-brand="eleventh">
+                    <h4> 11번가 포커스클릭 </h4>
+                  </header>
+                  <p><strong class="account"></strong> bokdanjie 계정의 비즈머니 잔액이 5,000원 미만 입니다.
+                    충전이 필요합니다.</p>
+                </div><small>2023.12.15 12:24:13</small>
               </article>
               <article class="swiper-slide">
-                <header data-brand="gmarket">
-                  <h4>2023.04.01 07:00:00</h4>
-                </header>
                 <div class="texts">
-                  <p><strong>G마켓 비즈머니 잔액 5,000원 미만</strong>입니다. </p>
-                  <p>충전이 필요합니다.</p>
-                </div>
+                  <header data-brand="eleventh">
+                    <h4> 11번가 포커스클릭 </h4>
+                  </header>
+                  <p><strong class="account"></strong> cjlion2004 계정의 비즈머니 잔액이 5,000원 미만 입니다.
+                    충전이 필요합니다.</p>
+                </div><small>2023.12.15 12:24:13</small>
               </article>
               <article class="swiper-slide">
-                <header data-brand="eleventh">
-                  <h4>2023.04.01 07:00:00</h4>
-                </header>
                 <div class="texts">
-                  <p><strong>비즈머니 잔액 5,000원 미만</strong>입니다 </p>
-                  <p>충전이 필요합니다.</p>
-                </div>
+                  <header data-brand="naver">
+                    <h4> 네이버 파워링크 </h4>
+                  </header>
+                  <p><strong class="account"></strong> bokdanji_H 계정의 비즈머니 잔액이 5,000원 미만 입니다.
+                    충전이 필요합니다.</p>
+                </div><small>2023.12.15 12:24:13</small>
+              </article>
+              <article class="swiper-slide">
+                <div class="texts">
+                  <header data-brand="naver">
+                    <h4> 네이버 파워링크 </h4>
+                  </header>
+                  <p><strong class="account"></strong> esellers_R 계정의 비즈머니 잔액이 5,000원 미만 입니다.
+                    충전이 필요합니다.</p>
+                </div><small>2023.12.15 12:24:13</small>
+              </article>
+              <article class="swiper-slide">
+                <div class="texts">
+                  <header data-brand="naver">
+                    <h4> 네이버 파워링크 </h4>
+                  </header>
+                  <p><strong class="account"></strong> samda_C 계정의 비즈머니 잔액이 5,000원 미만 입니다.
+                    충전이 필요합니다.</p>
+                </div><small>2023.12.15 12:24:13</small>
+              </article>
+              <article class="swiper-slide">
+                <div class="texts">
+                  <header data-brand="naver">
+                    <h4> 네이버 파워컨텐츠 </h4>
+                  </header>
+                  <p><strong class="account"></strong> gojp_Z 계정의 비즈머니 잔액이 5,000원 미만 입니다.
+                    충전이 필요합니다.</p>
+                </div><small>2023.12.15 12:24:13</small>
+              </article>
+              <article class="swiper-slide">
+                <div class="texts">
+                  <header data-brand="naver">
+                    <h4> 네이버 파워컨텐츠 </h4>
+                  </header>
+                  <p><strong class="account"></strong> joosawng_F 계정의 비즈머니 잔액이 5,000원 미만 입니다.
+                    충전이 필요합니다.</p>
+                </div><small>2023.12.15 12:24:13</small>
+              </article>
+              <article class="swiper-slide">
+                <div class="texts">
+                  <header data-brand="naver">
+                    <h4> 네이버 쇼핑검색 상품형 </h4>
+                  </header>
+                  <p><strong class="account"></strong> 1460592 계정의 비즈머니 잔액이 5,000원 미만 입니다.
+                    충전이 필요합니다.</p>
+                </div><small>2023.12.15 12:24:13</small>
+              </article>
+              <article class="swiper-slide">
+                <div class="texts">
+                  <header data-brand="naver">
+                    <h4> 네이버 쇼핑검색 상품형 </h4>
+                  </header>
+                  <p><strong class="account"></strong> nshopping1_P 계정의 비즈머니 잔액이 5,000원 미만 입니다.
+                    충전이 필요합니다.</p>
+                </div><small>2023.12.15 12:24:13</small>
               </article>
             </div>
-            <nav class="swiper-pagination"></nav>
-          </div>
+            <div class="swiper-pagination " />
         </section>
       </div>
       <aside>
@@ -1095,7 +1148,7 @@
                 </header>
                 <div class="progress">
                   <progress max="83" data-value="12" data-title="도달" value="0"></progress>
-                  <div class="filters"><small class="times">0</small><small class="times" data-title="총 입찰실행">83</small>
+                  <div class="filters"><small class="cases">0</small><small class="cases" data-title="총 입찰실행">83</small>
                   </div>
                 </div>
               </article>
@@ -1106,7 +1159,7 @@
                 </header>
                 <div class="progress">
                   <progress max="47" data-value="7" data-title="도달" value="0"></progress>
-                  <div class="filters"><small class="times">0</small><small class="times"
+                  <div class="filters"><small class="cases">0</small><small class="cases"
                       data-title="총 입찰: 실패">47</small></div>
                 </div>
               </article>
@@ -1117,7 +1170,7 @@
                 </header>
                 <div class="progress"><progress max="47" data-value="6" data-title="실패" value="0"
                     style="--progressDelay: 01s; --progressPercent: 0; --progressColor: linear-gradient(135deg, orangered 40%, coral);"></progress>
-                  <div class="filters"><small class="times">0</small><small class="times"
+                  <div class="filters"><small class="cases">0</small><small class="cases"
                       data-title="총 입찰: 실패">47</small></div>
                 </div>
               </article>
@@ -1223,7 +1276,7 @@
               <div class="progress">
                 <progress max="500" data-value="465"
                   data-title="잔여" value="0"></progress>
-                <div class="filters"><small class="times">0</small><small class="times" data-title="제공량">500</small>
+                <div class="filters"><small class="cases">0</small><small class="cases" data-title="제공량">500</small>
                 </div>
               </div>
             </article>
@@ -1244,7 +1297,7 @@
               </ul>
               <div class="progress">
                 <progress max="30" data-value="9" data-title="잔여" value="0"></progress>
-                <div class="filters"><small class="times">21</small><small class="times" data-title="제공량">30</small>
+                <div class="filters"><small class="cases">21</small><small class="cases" data-title="제공량">30</small>
                 </div>
               </div>
             </article>
@@ -1265,7 +1318,7 @@
               </ul>
               <div class="progress">
                 <progress max="500" data-value="482" data-title="잔여" value="0"></progress>
-                <div class="filters"><small class="times">0</small><small class="times" data-title="제공량">500</small>
+                <div class="filters"><small class="cases">0</small><small class="cases" data-title="제공량">500</small>
                 </div>
               </div>
             </article>
@@ -1286,7 +1339,7 @@
               </ul>
               <div class="progress">
                 <progress max="500" data-value="491" data-title="잔여" value="0"></progress>
-                <div class="filters"><small class="times">0</small><small class="times" data-title="제공량">500</small>
+                <div class="filters"><small class="cases">0</small><small class="cases" data-title="제공량">500</small>
                 </div>
               </div>
             </article>
@@ -1323,10 +1376,10 @@
                   data-title="잔여" />
                 <ul>
                   <li>
-                    <small class="times">0</small>
+                    <small class="cases">0</small>
                   </li>
                   <li data-title="제공량">
-                    <small class="times">100</small>
+                    <small class="cases">100</small>
                   </li>
                 </ul>
               </div>
@@ -1347,7 +1400,7 @@
               </ul>
               <div class="progress">
                 <progress max="100" data-value="77" data-title="잔여" value="0"></progress>
-                <div class="filters"><small class="times">0</small><small class="times" data-title="제공량">100</small>
+                <div class="filters"><small class="cases">0</small><small class="cases" data-title="제공량">100</small>
                 </div>
               </div>
             </article>
@@ -1381,7 +1434,7 @@
               <div class="progress">
                 <progress max="90" data-value="59"
                   data-title="잔여" value="0"></progress>
-                <div class="filters"><small class="times">0</small><small class="times" data-title="제공량">90</small>
+                <div class="filters"><small class="cases">0</small><small class="cases" data-title="제공량">90</small>
                 </div>
               </div>
             </article>
