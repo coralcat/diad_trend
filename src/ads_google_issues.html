@@ -1,0 +1,177 @@
+{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('ads_google')}}
+<main class="content-google-ads">
+  <header class="content-header">
+    <div class="title">
+      <h1>
+        <button class="btn-back" onclick="history.back()"></button>
+        <span>이슈진단</span>
+        <small>피드1</small>
+      </h1>
+      {% include "account.html" %}
+    </div>
+    <div class="title">
+      <ul class="tabs main-tabs">
+        <li data-tab="sub-menu" class="is-active">상품</li>
+        <li data-tab="sub-menu">계정</li>
+      </ul>
+      <div class="filters">
+        <small data-title="일자">2023-08-20</small>
+        <div class="selectbox">
+          <select name="" id="">
+            <option value="">위치 : 무료 목록</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="tab-content is-active" data-tab="sub-menu">
+
+    <section class="section-feeds">
+      <header>
+        <h2>총 상품</h2>
+      </header>
+      <ul>
+        <li data-title="총 상품">
+          <span class="cases">1,200</span>
+          <span class="percent">100.00</span>
+        </li>
+        <li data-title="활성">
+          <span class="cases">1,000</span>
+          <span class="percent">83.33</span>
+        </li>
+        <li data-title="대기">
+          <span class="cases">150</span>
+          <div>
+            <span class="percent">12.5</span>
+          </div>
+        </li>
+        <li data-title="비승인">
+          <span class="cases">50</span>
+          <span class="percent">4.17</span>
+        </li>
+      </ul>
+    </section>
+    <section class="section-main">
+      <dl class="caution">
+        <dd>
+          경고를 받은 제품은 Google에 계속 표시되지만 실적이 제한될 수 있습니다. 경고가 해결되지 않으면 비승인될 수 있습니다..
+        </dd>
+        <dd>
+          비승인된 제품은 Google에 표시되지 않습니다. 제품을 다시 승인 받으려면 먼저 제품 수준의 문제를 해결해야 합니다.
+        </dd>
+      </dl>
+    </section>
+    <section>
+      <header>
+        <div class="title">
+          <h2>
+            이슈 목록
+          </h2>
+          <div class="filters">
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="100개씩 보기">100개씩 보기</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="list">
+        <ul class="row title">
+          <li title="이슈" class="ico-sort">이슈</li>
+          <li title="상세" class="ico-sort">상세</li>
+          <li title="상품" class="ico-sort">상품</li>
+        </ul>
+        <ul class="row">
+          <li class="" title="이슈" onclick="location.href=''">
+            <span class="tag" data-title="비승인"></span>
+            <a href="" class="ico-link">초기 검토 대기중</a>
+          </li>
+          <li title="상세">
+            검토가 완료될 때까지 영업일 기준 최대 3일이 소요될 수 있으니 기다려 주세요.
+          </li>
+          <li title="상품">
+            <span class="cases">50</span>
+            <button onclick="location.href='ads_google_issue_details.html'">보기</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="" title="이슈" onclick="location.href=''">
+            <span class="tag" data-title="비승인"></span>
+            <a href="" class="ico-link">소유권 주장이 취소된 웹사이트입니다.</a>
+          </li>
+          <li title="상세">
+            판매자 센터에서 웹사이트 소유권을 주장하세요.
+          </li>
+          <li title="상품">
+            <span class="cases">50</span>
+            <button onclick="location.href='ads_google_issue_details.html'">보기</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="" title="이슈" onclick="location.href=''">
+            <span class="tag" data-title="경고"></span>
+            <a href="" class="ico-link">값이 누락되었습니다. [설명]</a>
+          </li>
+          <li title="상세">
+            속성을 추가하여 광고 실적을 개선하세요.
+          </li>
+          <li title="상품">
+            <span class="cases">50</span>
+            <button onclick="location.href='ads_google_issue_details.html'">보기</button>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+  <div class="tab-content" data-tab="sub-menu">
+    <section>
+      <header>
+        <div class="title">
+          <h2>
+            이슈 목록
+          </h2>
+          <div class="filters">
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="100개씩 보기">100개씩 보기</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="list">
+        <ul class="row title">
+          <li title="이슈" class="ico-sort">이슈</li>
+        </ul>
+        <ul class="row">
+          <li class="" title="이슈">
+            <a href="" class="ico-link">
+              <span class="tag" data-title="정지"></span>
+              고급 무료 목록을 사용할 수 없는 계정입니다.
+            </a>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="" title="이슈">
+            <a href="" class="ico-link">
+              <span class="tag" data-title="정지"></span>
+              정책 위반으로 인해 계정이 정지됨: 광고용 사이트
+            </a>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="" title="이슈">
+            <a href="" class="ico-link">
+              <span class="tag" data-title="경고"></span>
+              값이 누락되어 정책 위반으로 인해 계정이 정지됨: 온라인 구매 없음 - 배송 문제
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+</main>
+{% include "modals.html" %}
+{% endblock %}

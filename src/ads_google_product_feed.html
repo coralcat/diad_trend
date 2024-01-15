@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('ads_google')}}
-<main class="content-ads google">
+<main class="content-google-ads">
   <header class="content-header">
     <div class="title">
       <h1>
@@ -120,9 +120,61 @@
           상품 목록
         </h2>
         <div class="filters">
-          <button data-modal="productFeed">이슈진단</button>
-          <button class="ico-eye" data-modal=""></button>
-          <button class="ico-eye" data-modal=""></button>
+          <button data-modal="productFeed" onclick="location.href='ads_google_issues.html'">이슈진단</button>
+          <button class="ico-filter" data-toggle="filters"></button>
+          <button class="ico-column"></button>
+        </div>
+      </div>
+      <div class="filters" data-toggle="filters">
+        <div>
+          <div class="selectbox selector main">
+            <select name="" id="">
+              <option class="select-word" value="">상품명</option>
+              <option class="select-word" value="">ID</option>
+              <option class="select-number" value="">가격</option>
+              <option class="select-word" value="">카테고리</option>
+              <option class="select-word" value="">브랜드</option>
+              <option class="select-word" value="">조건</option>
+              <option class="select-word" value="">상품 유형</option>
+              <option class="select-word" value="">맞춤라벨 0</option>
+              <option class="select-word" value="">맞춤라벨 1</option>
+              <option class="select-word" value="">맞춤라벨 2</option>
+              <option class="select-word" value="">맞춤라벨 3</option>
+              <option class="select-word" value="">맞춤라벨 4</option>
+              <option class="select-number" value="">클릭수</option>
+              <option class="select-number" value="">노출수</option>
+              <option class="select-number" value="">클릭률(CTR)</option>
+              <option class="select-number" value="">전환수</option>
+              <option class="select-number" value="">전환율</option>
+              <option class="select-number" value="">전환가치</option>
+            </select>
+          </div>
+          <div class="selector selector-word sub">
+            <input type="radio" id="selectMatch" name="filterGoogle">
+            <label for="selectMatch">일치</label>
+            <input type="radio" id="selectInclude" name="filterGoogle" checked="">
+            <label for="selectInclude">포함</label>
+            <input type="radio" id="selectExcept" name="filterGoogle">
+            <label for="selectExcept">제외</label>
+          </div>
+          <div class="selector selector-number sub">
+            <input type="radio" id="select-less-than" name="filterOperaters" checked="">
+            <label for="select-less-than">&lt;</label>
+            <input type="radio" id="select-greater-than" name="filterOperaters">
+            <label for="select-greater-than">&gt;</label>
+            <input type="radio" id="select-less-equal" name="filterOperaters">
+            <label for="select-less-equal">&lt;=</label>
+            <input type="radio" id="select-greater-equal" name="filterOperaters">
+            <label for="select-greater-equal">&gt;=</label>
+            <input type="radio" id="select-equal" name="filterOperaters">
+            <label for="select-equal">=</label>
+          </div>
+        </div>
+        <div>
+          <div class="search">
+            <input type="search">
+            <button type="button"></button>
+          </div>
         </div>
       </div>
       <div class="filters">
@@ -164,6 +216,15 @@
         <li title="가격" class="ico-sort">가격</li>
         <li title="승인상태" class="ico-sort">승인상태</li>
         <li title="상품 이슈" class="ico-sort">상품 이슈</li>
+        <li title="카테고리" class="optional ico-sort">카테고리</li>
+        <li title="브랜드" class="optional ico-sort">브랜드</li>
+        <li title="조건" class="optional ico-sort">조건</li>
+        <li title="상품 유형" class="optional ico-sort">상품 유형</li>
+        <li title="맞춤라벨 0" class="optional ico-sort">맞춤라벨 0</li>
+        <li title="맞춤라벨 1" class="optional ico-sort">맞춤라벨 1</li>
+        <li title="맞춤라벨 2" class="optional ico-sort">맞춤라벨 2</li>
+        <li title="맞춤라벨 3" class="optional ico-sort">맞춤라벨 3</li>
+        <li title="맞춤라벨 4" class="optional ico-sort">맞춤라벨 4</li>
         <li title="클릭수" class="ico-sort">클릭수</li>
         <li title="노출수" class="ico-sort">노출수</li>
         <li title="클릭률(CTR)" class="ico-sort">클릭률(CTR)</li>
@@ -193,6 +254,25 @@
           초기 검토 대기중
           <button class="ico-notes"></button>
         </li>
+        <li class="optional" title="카테고리">
+          가정/원예 용품 > 생활용품 > 가정용 세제 > 주방 세제/비누
+        </li>
+        <li class="optional" title="브랜드">
+          다이애드
+        </li>
+        <li class="optional" title="조건">
+          새 상품
+        </li>
+        <li class="optional" title="상품 유형">
+          화장품/미용 > 클렌징 > 클렌징비누
+        </li>
+        <li class="optional" title="맞춤라벨 0">
+          겨울
+        </li>
+        <li class="optional" title="맞춤라벨 1"></li>
+        <li class="optional" title="맞춤라벨 2"></li>
+        <li class="optional" title="맞춤라벨 3"></li>
+        <li class="optional" title="맞춤라벨 4"></li>
         <li title="클릭수">
           <span class="cases">1,051</span>
         </li>

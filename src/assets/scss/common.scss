@@ -193,6 +193,11 @@ body {
         height: 18px;
       }
     }
+
+    .filters {
+      font-size: 13px;
+      margin-left: 1rem;
+    }
   }
 
   h3 {
@@ -1011,6 +1016,7 @@ aside {
     flex: 0 0 auto;
     aspect-ratio: 1;
     padding: 0;
+    background-color: transparent !important;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' fill='%235048d7' /%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: center;
@@ -1043,8 +1049,8 @@ aside {
     input[type="radio"],
     input[type="checkbox"] {
       &:checked + label {
-        font-weight: 600;
-        color: black;
+        font-weight: 500;
+        color: $main-color;
         box-shadow: none;
       }
     }
@@ -2965,6 +2971,12 @@ input.toggle-switch {
 .ico-eye {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cpath d='M20.188 10.9343C20.7044 11.5613 20.7044 12.4387 20.188 13.0657C18.7679 14.7899 15.6357 18 11.9999 18C8.3642 18 5.23199 14.7899 3.8119 13.0657C3.29545 12.4387 3.29545 11.5613 3.8119 10.9343C5.23199 9.21014 8.3642 6 11.9999 6C15.6357 6 18.7679 9.21014 20.188 10.9343Z' stroke='%235b54c6' stroke-width='2'%3E%3C/path%3E%3Cpath d='M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z' stroke='%235b54c6' stroke-width='2'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
   background-size: 24px 24px;
+  background-position: center;
+}
+
+.ico-column {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' fill='%235b54c6' width='24'%3E%3Cpath d='M121-280v-400q0-33 23.5-56.5T201-760h559q33 0 56.5 23.5T840-680v400q0 33-23.5 56.5T760-200H201q-33 0-56.5-23.5T121-280Zm79 0h133v-400H200v400Zm213 0h133v-400H413v400Zm213 0h133v-400H626v400Z'/%3E%3C/svg%3E");
+  background-size: 18px 18px;
   background-position: center;
 }
 

@@ -1,3 +1,12 @@
+const expandListColumns = () => {
+  const columnIcon = document.querySelector("ico-column");
+  columnIcon &&
+    columnIcon.addEventListener("click", (event) => {
+      const list = event.target.closest("section").querySelector(".list");
+      list.classList.toggle("expand")
+    })
+}
+
 // 상세검색 초기화
 const handleAdvancedSearch = () => {
   const advancedSearch = document.querySelectorAll(".advanced-search");
@@ -485,7 +494,7 @@ const mutationObserver = new MutationObserver(mutations => {
       });
 
       // 알림 서비스 설정 전체해제 (다른 데에서도 재사용 가능)
-      const dataToggles = document.querySelectorAll("[data-toggle]");
+      const dataToggles = document.querySelectorAll("button[data-toggle]");
       const controllers = document.querySelectorAll(".toggle-controller");
       controllers.forEach((controller) => {
         controller.addEventListener("click", (event) => {
@@ -1045,6 +1054,8 @@ const mutationObserver = new MutationObserver(mutations => {
     if (mutation.target.classList.contains("list")) {
       handleAdvancedSearch();
       checkedRowEffects();
+      expandListColumns();
+      console.log("YA")
     }
 
     // 팝업 감지했을 때 실행 이벤트

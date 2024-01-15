@@ -1,0 +1,75 @@
+{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('ads_google')}}
+<main class="content-google-ads issues">
+  <header class="content-header">
+    <div class="title">
+      <h1>
+        <button class="btn-back" onclick="history.back()"></button>
+        <span>이슈진단</span>
+        <small>피드1</small>
+      </h1>
+      {% include "account.html" %}
+    </div>
+  </header>
+  <section>
+    <header>
+      <div class="title">
+        <h2>
+          상품 목록
+          <div class="filters">
+            <small data-title="비승인" class="tag"></small>
+            <strong>이슈: 초기 검토 대기중</strong>
+          </div>
+        </h2>
+        <div class="filters">
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="100개씩 보기">100개씩 보기</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="list">
+      <ul class="row title">
+        <li title="상품명" class="ico-sort">상품명</li>
+        <li title="ID" class="ico-sort">ID</li>
+        <li title="승인상태" class="ico-sort">승인상태</li>
+      </ul>
+      <ul class="row">
+        <li class="" title="상품명" onclick="location.href=''">
+          유기농 다이애드 비누 90g 12개
+        </li>
+        <li title="ID">
+          000000
+        </li>
+        <li title="승인상태">
+          비승인
+        </li>
+      </ul>
+      <ul class="row">
+        <li class="" title="상품명" onclick="location.href=''">
+          유기농 다이애드 비누 90g 12개
+        </li>
+        <li title="ID">
+          000000
+        </li>
+        <li title="승인상태">
+          비승인
+        </li>
+      </ul>
+      <ul class="row">
+        <li class="" title="상품명" onclick="location.href=''">
+          유기농 다이애드 비누 90g 12개
+        </li>
+        <li title="ID">
+          000000
+        </li>
+        <li title="승인상태">
+          비승인
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+{% include "modals.html" %}
+{% endblock %}
