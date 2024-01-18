@@ -1530,4 +1530,14 @@ $secondary-color: #f2f1ff;
       }
     }
   }
+
+  &-issues {
+
+    .list {
+
+      a {
+        gap: .5rem;
+      }
+    }
+  }
 }

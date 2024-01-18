@@ -297,6 +297,7 @@ body {
       aspect-ratio: 1;
       padding: 0;
       justify-content: center;
+      background-color: transparent;
 
       &::before {
         content: "";
@@ -526,6 +527,10 @@ aside {
   flex-direction: column;
   transition: width 0.25s;
 
+  h3 {
+    width: 100%;
+  }
+
   ul {
     flex-direction: column;
 
@@ -628,6 +633,154 @@ aside {
   border-radius: 0.5rem;
   color: white;
   font-family: "Roboto";
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: 36px;
+  line-height: 1;
+
+  &[data-toggle] {
+    display: none;
+  }
+
+  > div,
+  > ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .buttons {
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0;
+
+    > * {
+      &:not(.selectbox:last-of-type) {
+        margin: 0 0.5rem;
+        padding: 0 0.75rem;
+        position: relative;
+        border-radius: 0.35rem;
+      }
+
+      &:not(:last-child) {
+        &::after {
+          content: "|";
+          color: #ddd;
+          position: absolute;
+          right: -0.65rem;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    button {
+      padding: 0;
+      background-color: transparent;
+      color: #333;
+      border-radius: 0;
+      transition: 0.4s;
+
+      &:last-of-type {
+        &::after {
+          content: none;
+        }
+      }
+
+      &:hover {
+        color: $main-color;
+      }
+
+      .checkbox {
+        input {
+          &:checked {
+            + label {
+              &::before {
+                background-color: white;
+              }
+
+              &:after {
+                border-color: $main-color;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .selectbox {
+      display: flex;
+      align-items: center;
+      padding: 0 !important;
+
+      &:last-of-type {
+        select {
+          border-radius: 0.25rem;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  .checkboxes {
+    display: flex;
+    gap: 0.5rem;
+    height: 100%;
+
+    .checkbox {
+      display: flex;
+
+      label {
+        height: 36px;
+        border: 1px solid #e3e6e9;
+        align-items: center;
+        display: flex;
+        gap: 3px;
+        padding: 0 0.5rem 0px 5px;
+        border-radius: 3px;
+        transition: 0.25s;
+        cursor: pointer;
+
+        &::before {
+          background-color: transparent !important;
+          border-color: transparent !important;
+        }
+
+        &::after {
+          width: 12px;
+          height: 7px;
+          left: 0.75rem;
+        }
+      }
+
+      input {
+        &:hover,
+        &:checked {
+          border-color: $primary-color;
+
+          + label {
+            color: $main-color;
+            border-color: $primary-color;
+
+            &::after {
+              border-color: $main-color;
+            }
+          }
+        }
+      }
+
+      svg {
+        left: 10px;
+        stroke: $main-color;
+      }
+    }
+  }
 }
 
 .account {
@@ -980,7 +1133,8 @@ aside {
     border: 1px solid;
   }
 
-  &[data-title="중지"] {
+  &[data-title="중지"], 
+  &[data-title="경고"] {
     color: orange;
   }
 }
@@ -1951,6 +2105,14 @@ article {
   }
 }
 
+ul.list {
+  li {
+    display: flex;
+    padding: .5rem;
+    border-bottom: 1px solid #eee
+  }
+}
+
 .tab-content {
   flex: 1 1 auto;
   display: none;
@@ -2778,6 +2940,7 @@ input.toggle-switch {
 .ico-link {
   &::after {
     content: "";
+    flex: 0 0 auto;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='slategray' d='M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z'/%3E%3C/svg%3E")
       center;
     background-size: 100%;
@@ -2978,6 +3141,7 @@ input.toggle-switch {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' fill='%235b54c6' width='24'%3E%3Cpath d='M121-280v-400q0-33 23.5-56.5T201-760h559q33 0 56.5 23.5T840-680v400q0 33-23.5 56.5T760-200H201q-33 0-56.5-23.5T121-280Zm79 0h133v-400H200v400Zm213 0h133v-400H413v400Zm213 0h133v-400H626v400Z'/%3E%3C/svg%3E");
   background-size: 18px 18px;
   background-position: center;
+  aspect-ratio: 1;
 }
 
 .ico-upload {
