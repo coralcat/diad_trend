@@ -16,17 +16,19 @@
       <li data-tab="sub-menu">리포트</li>
       <li data-tab="sub-menu">설정</li>
     </ul>
+    <strong data-title="총" class="cases">1</strong>
   </header>
-  <section class="section-main">
+  <section class="section-account expires-soon">
     <header>
       <div class="url">
-        <h2>https://www.diad.co.kr</h2>
-        <div class="buttons">
-          <button onclick="location.href='ads_google_details.html'">상세</button>
-          <button>해제</button>
-        </div>
+        <h2>
+          <a href="ads_google_details.html">
+            https://www.diad.co.kr
+          </a>
+        </h2>
+        <button class="btn-remove"></button>
       </div>
-      <small>등록일 2023.06.01</small>
+      <strong data-title="등록일: ">2023.06.01</strong>
     </header>
     <div class="articles">
       <article>
@@ -36,7 +38,7 @@
         <div class="account">
           <div class="information">
             <!-- <span class="tag">활성</span>
-            <span class="tag">정지</span> -->
+              <span class="tag">정지</span> -->
             <span class="tag pending" data-tooltip="googlePending">대기</span>
             <h4>
               <small>123456789</small>
@@ -45,7 +47,7 @@
           </div>
           <button data-modal="accountIssues">계정 이슈</button>
         </div>
-        <ul class="list form">
+        <ul>
           <li>
             <div>
               <span class="tag" data-title="필수"></span>
@@ -90,26 +92,26 @@
           <button onclick="location.href='ads_google_product_feed.html'">보기</button>
         </div>
         <!-- <div class="account">
-          <button data-modal="productFeed">연동하기</button>
-        </div> -->
+            <button data-modal="productFeed">연동하기</button>
+          </div> -->
         <header>
           <div class="filters">
-            <span data-title="총 상품">3,538</span>
-            <span data-title="업데이트">2023-08-21 15:00</span>
+            <strong data-title="총 상품: " class="cases">3,538</strong>
+            <strong data-title="업데이트: ">2023-08-21 15:00</strong>
           </div>
         </header>
-        <ul class="list form">
+        <ul>
           <li>
             <div>활성</div>
-            <div>3,508</div>
+            <div class="cases">3,508</div>
           </li>
           <li>
             <div>비승인</div>
-            <div>15</div>
+            <div class="cases">15</div>
           </li>
           <li>
             <div>대기</div>
-            <div>15</div>
+            <div class="cases">15</div>
           </li>
         </ul>
       </article>
@@ -120,7 +122,7 @@
         <div class="account">
           <button data-modal="googleAds">생성하기</button>
         </div>
-        <ul class="list form">
+        <ul>
           <li>
             <div>
               <span class="tag" data-title="필수"></span>
@@ -150,69 +152,276 @@
           </li>
         </ul>
       </article>
-    </div>
-    <div class="free">
-      <header>
-        <h2>
-          무료 목록 현황
-          <button>자세히 보기</button>
-        </h2>
-        <div class="filters">
-          <span data-title="무료 목록 기준" class="tag"></span>
-          <span>2023-08-20 ( ↔ 2023-08-19 )</span>
-        </div>
-      </header>
-      <div class="list">
+      <article class="free">
+        <header>
+          <h2>
+            <a href="">무료 목록 현황</a>
+          </h2>
+          <div class="filters">
+            <span data-title="무료 목록 기준" class="tag"></span>
+            <span class="date">2023-08-20 ( ↔ 2023-08-19 )</span>
+          </div>
+        </header>
         <ul class="row title">
           <li>
             <div>노출수</div>
+            <div>
+              <strong class="cases">241,321</strong>
+              <span class="percent up">21.22</span>
+            </div>
           </li>
           <li>
             <div>클릭수</div>
+            <div>
+              <strong class="cases">24,132</strong>
+              <span class="percent down">3.15</span>
+            </div>
           </li>
           <li>
             <div>클릭률(CTR)</div>
+            <div>
+              <strong class="percent">10.00</strong>
+              <div>
+                <span class="percent">0.0</span>p
+              </div>
+            </div>
           </li>
           <li>
             <div>전환수</div>
+            <div>
+              <strong class="cases">241,321</strong>
+              <span class="percent up">21.22</span>
+            </div>
           </li>
           <li>
             <div>전환율</div>
+            <div>
+              <strong class="percent">10.00</strong>
+              <div>
+                <span class="percent">0.0</span>p
+              </div>
+            </div>
           </li>
           <li>
             <div>전환가치</div>
+            <div>
+              <strong class="cases">241,321.00</strong>
+              <span class="percent up">21.22</span>
+            </div>
           </li>
         </ul>
-        <ul class="row">
-          <li>
-            <span class="cases">241,321</span>
-            <span class="percent up">21.22</span>
-          </li>
-          <li>
-            <span class="cases">24,132</span>
-            <span class="percent down">3.15</span>
-          </li>
-          <li>
-            <span class="percent">10.00</span>
-            <span class="percent">0.0</span>p
-          </li>
-          <li>
-            <span class="cases">241,321</span>
-            <span class="percent up">21.22</span>
-          </li>
-          <li>
-            <span class="percent">10.00</span>
-            <span class="percent">0.0</span>p
-          </li>
-          <li>
-            <span class="cases">241,321.00</span>
-            <span class="percent up">21.22</span>
-          </li>
-        </ul>
+      </article>
+    </div>
+    <div class="expires">
+      <div>
+        <h3>
+          <span class="tag d-day">7</span>
+          2023.09.27 삭제 예정
+        </h3>
+        <div class="buttons">
+          <button>즉시 삭제하기</button>
+          <button class="btn-main">다시 사용하기</button>
+        </div>
       </div>
     </div>
   </section>
-  <section class="section-add">
+  <section class="section-account">
+    <header>
+      <div class="url">
+        <h2>
+          <a href="ads_google_details.html">
+            https://www.diad.co.kr
+          </a>
+        </h2>
+        <button class="btn-remove"></button>
+      </div>
+      <strong data-title="등록일: ">2023.06.01</strong>
+    </header>
+    <div class="articles">
+      <article>
+        <header>
+          <h2>판매자 센터</h2>
+        </header>
+        <div class="account">
+          <div class="information">
+            <!-- <span class="tag">활성</span>
+              <span class="tag">정지</span> -->
+            <span class="tag pending" data-tooltip="googlePending">대기</span>
+            <h4>
+              <small>123456789</small>
+              다이애드
+            </h4>
+          </div>
+          <button data-modal="accountIssues">계정 이슈</button>
+        </div>
+        <ul>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              웹사이트 인증
+            </div>
+            <div>
+              <button data-modal="googleWebsite">인증하기</button>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              전화번호 인증
+            </div>
+            <div>
+              <button data-modal="googlePhoneNumber" disabled>인증완료</button>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              배송 정보 등록
+            </div>
+            <div>
+              <button data-modal="googleShipping">등록하기</button>
+            </div>
+          </li>
+        </ul>
+      </article>
+      <article>
+        <header>
+          <h2>상품 피드</h2>
+          <div class="filters">
+            <strong data-title="업로드: ">매주 월요일 00:00</strong>
+            <strong data-title="마지막 업로드: ">2023.08.21</strong>
+          </div>
+        </header>
+        <div class="account">
+          <div class="information">
+            <h4>피드1</h4>
+          </div>
+          <button onclick="location.href='ads_google_product_feed.html'">보기</button>
+        </div>
+        <!-- <div class="account">
+            <button data-modal="productFeed">연동하기</button>
+          </div> -->
+        <header>
+          <div class="filters">
+            <strong data-title="총 상품: " class="cases">3,538</strong>
+            <strong data-title="업데이트: ">2023-08-21 15:00</strong>
+          </div>
+        </header>
+        <ul>
+          <li>
+            <div>활성</div>
+            <div class="cases">3,508</div>
+          </li>
+          <li>
+            <div>비승인</div>
+            <div class="cases">15</div>
+          </li>
+          <li>
+            <div>대기</div>
+            <div class="cases">15</div>
+          </li>
+        </ul>
+      </article>
+      <article>
+        <header>
+          <h2>구글 애즈</h2>
+        </header>
+        <div class="account">
+          <button data-modal="googleAds">생성하기</button>
+        </div>
+        <ul CLASS="LIST
+          ">
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              전환
+            </div>
+            <div>
+              <button onclick="location.href='ads_google_conversion.html'">관리하기</button>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              액세스 초대 수락
+            </div>
+            <div>
+              <button data-modal="accessInvitaion">수락하기</button>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              결제 설정
+            </div>
+            <div>
+              <button>설정하기</button>
+            </div>
+          </li>
+        </ul>
+      </article>
+      <article class="free">
+        <header>
+          <h2>
+            <a href="">무료 목록 현황</a>
+          </h2>
+          <div class="filters">
+            <span data-title="무료 목록 기준" class="tag"></span>
+            <span class="date">2023-08-20 ( ↔ 2023-08-19 )</span>
+          </div>
+        </header>
+        <ul class="row title">
+          <li>
+            <div>노출수</div>
+            <div>
+              <strong class="cases">241,321</strong>
+              <span class="percent up">21.22</span>
+            </div>
+          </li>
+          <li>
+            <div>클릭수</div>
+            <div>
+              <strong class="cases">24,132</strong>
+              <span class="percent down">3.15</span>
+            </div>
+          </li>
+          <li>
+            <div>클릭률(CTR)</div>
+            <div>
+              <strong class="percent">10.00</strong>
+              <div>
+                <span class="percent">0.0</span>p
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>전환수</div>
+            <div>
+              <strong class="cases">241,321</strong>
+              <span class="percent up">21.22</span>
+            </div>
+          </li>
+          <li>
+            <div>전환율</div>
+            <div>
+              <strong class="percent">10.00</strong>
+              <div>
+                <span class="percent">0.0</span>p
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>전환가치</div>
+            <div>
+              <strong class="cases">241,321.00</strong>
+              <span class="percent up">21.22</span>
+            </div>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </section>
+  <section class="section-add" onclick="location.href='ads_google_new.html'">
     <i class="plus"></i>
   </section>
 </main>

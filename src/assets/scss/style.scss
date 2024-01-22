@@ -1,7 +1,7 @@
 $main-color: #5048d7;
 $trend-color: #5b54c6;
 $primary-color: #7682f8;
-$secondary-color: rgba(91, 84, 198, 0.1);
+$secondary-color: rgb(80, 72, 215, 0.1);
 $violet-medium-color: rgb(214, 217, 253);
 
 main aside,
@@ -67,6 +67,7 @@ main aside,
 
     > *:first-child {
       display: flex;
+      align-items: center;
       gap: 3px;
       color: lightslategray;
       white-space: nowrap;
@@ -106,7 +107,6 @@ main aside,
       background-color: #e3eaf2;
 
       li {
-
         &:not(:last-of-type) {
           border-bottom: 1px solid #f3f6f9;
           padding-bottom: 0.5rem;
@@ -492,7 +492,7 @@ section {
       gap: 0.5rem;
     }
 
-    a {
+    a:not(h2 a) {
       background: linear-gradient(45deg, #5048d7 50%, #7682f8);
       padding: 5px 0.5rem;
       color: white;
@@ -1330,6 +1330,14 @@ main {
       }
     }
   }
+
+  .buttons {
+    button {
+      background-color: white;
+      border: 1px solid #d3d6d9;
+      border-radius: 0.25rem;
+    }
+  }
 }
 
 .advanced-search {
@@ -1845,6 +1853,7 @@ main {
   }
 
   &.form {
+    flex: 0 0 auto !important;
     gap: 0.65rem !important;
     max-height: none !important;
 
@@ -2002,7 +2011,43 @@ main {
   }
 
   li {
+    flex: 1 1 auto;
     display: flex;
+    align-items: center;
+    gap: 3px;
+    min-height: 36px;
+    padding: 0.5rem 5px;
+    border-bottom: 1px solid #e7e8e9;
+    word-break: keep-all;
+    line-height: 1.25;
+    transition: background-color 0.25s;
+
+    &:empty {
+      &::after {
+        content: "-";
+      }
+    }
+
+    &[title="키워드"]::before {
+      content: none !important;
+    }
+
+    &.date {
+      justify-content: flex-end;
+    }
+
+    &.button {
+      justify-content: center !important;
+
+      button {
+        font-size: 13px;
+        height: 100%;
+        padding: 0.25rem 2rem;
+        background-color: #e3e6e9;
+        border: 1px solid #ddd;
+        border-radius: 2px;
+      }
+    }
   }
 
   .accounts {
@@ -2060,6 +2105,12 @@ main {
 
   .row {
     transition: background-color 0.25s;
+
+    &:hover {
+      li {
+        background-color: $secondary-color;
+      }
+    }
 
     &:empty {
       display: flex;
@@ -2191,64 +2242,8 @@ main {
 
     li {
       width: 100px;
-      background-color: white;
-      border-bottom: 1px solid #e7e8e9;
-      flex: 1 1 auto;
-      display: flex;
-      align-items: center;
       justify-content: center;
       text-align: center;
-      gap: 3px;
-      min-height: 36px;
-      padding: 0.5rem 5px;
-      word-break: keep-all;
-      line-height: 1.25;
-      transition: background-color 0.25s;
-
-      &:empty {
-        &::after {
-          content: "-";
-        }
-      }
-
-      &[title="키워드"]::before {
-        content: none !important;
-      }
-
-      &.date {
-        justify-content: flex-end;
-      }
-
-      &.button {
-        justify-content: center !important;
-
-        button {
-          font-size: 13px;
-          height: 100%;
-          padding: 0.25rem 2rem;
-          background-color: #e3e6e9;
-          border: 1px solid #ddd;
-          border-radius: 2px;
-        }
-      }
-
-      .percent {
-        &.up {
-          color: #ff3333;
-
-          &::before {
-            content: "+";
-          }
-        }
-
-        &.down {
-          color: #2156f5;
-
-          &::before {
-            content: "-";
-          }
-        }
-      }
 
       > div {
         display: flex;
@@ -6496,8 +6491,45 @@ main {
 }
 
 .content-google-ads {
+  .filters {
+    min-height: 24px;
+  }
+
+  .ico-filter {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24px' viewBox='0 0 24 24' width='24px' fill='%235b54c6'%3E%3Cg%3E%3Cpath d='M0,0h24 M24,24H0' fill='none'/%3E%3Cpath d='M4.25,5.61C6.27,8.2,10,13,10,13v6c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1v-6c0,0,3.72-4.8,5.74-7.39 C20.25,4.95,19.78,4,18.95,4H5.04C4.21,4,3.74,4.95,4.25,5.61z'/%3E%3Cpath d='M0,0h24v24H0V0z' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 18px 18px;
+    background-position: center;
+    aspect-ratio: 1;
+
+    &::before {
+      content: none;
+    }
+
+    &.is-active {
+      background-color: $main-color;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24px' viewBox='0 0 24 24' width='24px' fill='white'%3E%3Cg%3E%3Cpath d='M0,0h24 M24,24H0' fill='none'/%3E%3Cpath d='M4.25,5.61C6.27,8.2,10,13,10,13v6c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1v-6c0,0,3.72-4.8,5.74-7.39 C20.25,4.95,19.78,4,18.95,4H5.04C4.21,4,3.74,4.95,4.25,5.61z'/%3E%3Cpath d='M0,0h24v24H0V0z' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+    }
+  }
+
+  .ico-link {
+    gap: 5px;
+  }
+
   aside {
     width: 420px;
+
+    li {
+      padding-bottom: .75rem
+    }
+
+    ul {
+      background-color: transparent;
+      padding: 0;
+    }
+
+    section {
+      padding: .75rem
+    }
 
     .url {
       input {
@@ -6532,7 +6564,21 @@ main {
       }
     }
   }
+
   section {
+    
+    button {
+      flex: 0 0 auto;
+      padding: 0 0.5rem;
+      height: clamp(20px,4vh,24px);
+      background: rgba(80,72,215,.1);
+      color: #5048d7;
+      align-self: center;
+      text-decoration: none;
+      font-size: 12px;
+      line-height: normal;
+    }
+
     header {
       button {
         background-color: $secondary-color;
@@ -6543,23 +6589,45 @@ main {
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        padding: 5px 0;
 
         h2,
         input {
-          font-size: 16px;
+          font-size: 17px;
           font-family: "Poppins";
         }
       }
     }
+  
+    li {
+      flex: 1 1 auto;
+      min-height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #eee;
+    }
+
+    ul:not(.list ul) {
+      flex: 1 1 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+  
+      [title="상품명"] {
+        flex: 0 0 auto !important;
+        width: 450px !important;
+        cursor: pointer;
+      }
+    }
 
     .account {
-      flex: 1 1 auto;
       display: flex;
       gap: 0.5rem;
       align-items: center;
       justify-content: center;
-      background: white;
-      padding: 0.5rem;
+      background: #f3f6f9;
+      padding: 0.75rem;
       border-radius: 0.5rem;
       width: 100%;
 
@@ -6578,6 +6646,7 @@ main {
 
       button {
         padding: 0 1rem;
+        height: clamp(24px,4vh,32px);
         font-family: "NanumSquareR";
         font-size: 12px;
       }
@@ -6590,39 +6659,6 @@ main {
     section {
       flex-basis: 0;
     }
-  }
-
-  article {
-    .list {
-      width: 100%;
-      border: 0;
-
-      button {
-        background: #434649;
-        color: white;
-        font-size: 11px;
-      }
-    }
-  }
-
-  .ico-filter {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24px' viewBox='0 0 24 24' width='24px' fill='%235b54c6'%3E%3Cg%3E%3Cpath d='M0,0h24 M24,24H0' fill='none'/%3E%3Cpath d='M4.25,5.61C6.27,8.2,10,13,10,13v6c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1v-6c0,0,3.72-4.8,5.74-7.39 C20.25,4.95,19.78,4,18.95,4H5.04C4.21,4,3.74,4.95,4.25,5.61z'/%3E%3Cpath d='M0,0h24v24H0V0z' fill='none'/%3E%3C/g%3E%3C/svg%3E");
-    background-size: 18px 18px;
-    background-position: center;
-    aspect-ratio: 1;
-
-    &::before {
-      content: none;
-    }
-
-    &.is-active {
-      background-color: $main-color;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24px' viewBox='0 0 24 24' width='24px' fill='white'%3E%3Cg%3E%3Cpath d='M0,0h24 M24,24H0' fill='none'/%3E%3Cpath d='M4.25,5.61C6.27,8.2,10,13,10,13v6c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1v-6c0,0,3.72-4.8,5.74-7.39 C20.25,4.95,19.78,4,18.95,4H5.04C4.21,4,3.74,4.95,4.25,5.61z'/%3E%3Cpath d='M0,0h24v24H0V0z' fill='none'/%3E%3C/g%3E%3C/svg%3E");
-    }
-  }
-
-  .ico-link {
-    gap: 5px;
   }
 
   [data-toggle="extends"] {
@@ -6649,8 +6685,75 @@ main {
   }
 
   .free {
+    flex: 0 0 auto;
+    height: 100%;
+    width: 320px;
+
     header {
-      margin: 0.5rem 0;
+      justify-content: center;
+    }
+
+    li {
+      color: slategray;
+      border: 0;
+
+      strong {
+        color: #434649;
+      }
+
+      div {
+        display: flex;
+
+        &:last-of-type {
+          :last-of-type {
+            flex: 0 0 auto;
+            width: 60px;
+            justify-content: flex-end;
+          }
+        }
+      }
+    }
+
+    ul {
+      background-color: #f3f6f9;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+    }
+  }
+
+  .section-account {
+    .expires {
+      display: none;
+    }
+
+    &.expires-soon {
+      position: relative;
+
+      .expires {
+        border-radius: 0.5rem;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.75);
+        z-index: 110;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h3 {
+          justify-content: center;
+        }
+
+        > div {
+          box-shadow: 0px 3px 10px 5px rgba(100,110, 120, .1);
+          border-radius: 0.5rem;
+          padding: 1rem 2rem;
+          background-color: white;
+        }
+      }
     }
   }
 
@@ -6660,6 +6763,7 @@ main {
     align-items: center;
     justify-content: center;
     height: 100%;
+    min-height: 8rem;
 
     .plus {
       opacity: 0.5;
@@ -6752,6 +6856,10 @@ main {
   }
 
   &.new {
+    input {
+      flex: 1 1 auto;
+    }
+
     section {
       flex: 0 0 auto;
       align-items: center;
@@ -6763,7 +6871,7 @@ main {
       max-width: 800px;
 
       &.section-join-us {
-        padding: 3rem 1.5rem;
+        padding: 15vh 1.5rem;
         width: 100%;
         gap: 1.5rem;
       }
@@ -6771,7 +6879,7 @@ main {
       &.section-help {
         background: linear-gradient(130deg, #5048d7, #4285f4);
         color: #fff;
-        padding: 1rem;
+        padding: 0.75rem;
         width: 100%;
         flex-direction: row;
         justify-content: flex-start;
@@ -6897,11 +7005,9 @@ main {
   }
 
   &-feed-details {
-
     .list {
-
       span {
-        flex:0 0 auto;
+        flex: 0 0 auto;
         width: 150px;
       }
 

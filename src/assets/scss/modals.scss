@@ -674,7 +674,8 @@ $secondary-color: #f2f1ff;
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 3px;
+    color: #434649;
 
     header {
       a {

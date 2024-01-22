@@ -16,112 +16,108 @@
   </header>
   <div class="wrapper">
     <aside>
-      <section class="section-main">
-        <div class="articles">
-          <article>
-            <header>
-              <h2>판매자 센터</h2>
-            </header>
-            <div class="account">
-              <div class="information">
-                <!-- <span class="tag">활성</span>
+      <section class="section-account">
+        <header>
+          <h2>판매자 센터</h2>
+        </header>
+        <div class="account">
+          <div class="information">
+            <!-- <span class="tag">활성</span>
                 <span class="tag">정지</span> -->
-                <span class="tag pending" data-tooltip="googlePending">대기</span>
-                <h4>
-                  <small>123456789</small>
-                  다이애드
-                </h4>
-              </div>
-              <button data-modal="accountIssues">계정 이슈</button>
-            </div>
-            <ul class="list form">
-              <li>
-                <div>
-                  <span class="tag" data-title="필수"></span>
-                  웹사이트 인증
-                </div>
-                <div>
-                  <div class="checkbox">
-                    <input type="checkbox" id="googleWebsite" checked disabled />
-                    <label for="googleWebsite">https://www.diad.co.kr</label>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <span class="tag" data-title="필수"></span>
-                  전화번호 인증
-                </div>
-                <div>
-                  <div class="checkbox">
-                    <input type="checkbox" id="googleWebsite" checked disabled />
-                    <label for="googleWebsite">010-1234-1234</label>
-                  </div>
-                  <button data-modal="googlePhoneNumber">수정</button>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <span class="tag" data-title="필수"></span>
-                  배송 정보 등록
-                </div>
-                <div>
-                  <button data-modal="googleShipping">등록</button>
-                </div>
-              </li>
-            </ul>
-          </article>
-          <article>
-            <header>
-              <h2>상품 피드</h2>
-            </header>
-            <div class="account">
-              <button data-modal="productFeed">연동하기</button>
-            </div>
-          </article>
-          <article>
-            <header>
-              <h2>구글 애즈</h2>
-            </header>
-            <div class="account">
-              <button data-modal="googleAds">생성하기</button>
-            </div>
-            <ul class="list form">
-              <li>
-                <div>
-                  <span class="tag" data-title="필수"></span>
-                  전환
-                </div>
-                <div>
-                  <button onclick="location.href='ads_google_conversion.html'">관리</button>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <span class="tag" data-title="필수"></span>
-                  액세스 초대 수락
-                </div>
-                <div>
-                  <div class="checkbox">
-                    <input type="checkbox" id="googleWebsite" checked disabled />
-                    <label for="googleWebsite">abc123@gmail.com</label>
-                  </div>
-                  <button data-modal="accessInvitaion">수락</button>
-                  <button data-modal="accessAuthorization">수락 완료</button>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <span class="tag" data-title="필수"></span>
-                  결제 설정
-                </div>
-                <div>
-                  <button>설정</button>
-                </div>
-              </li>
-            </ul>
-          </article>
+            <span class="tag pending" data-tooltip="googlePending">대기</span>
+            <h4>
+              <small>123456789</small>
+              다이애드
+            </h4>
+          </div>
+          <button data-modal="accountIssues">계정 이슈</button>
         </div>
+        <ul>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              웹사이트 인증
+            </div>
+            <div>
+              <div class="checkbox">
+                <input type="checkbox" id="googleWebsite" checked disabled />
+                <label for="googleWebsite">https://www.diad.co.kr</label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              전화번호 인증
+            </div>
+            <div>
+              <div class="checkbox">
+                <input type="checkbox" id="googleWebsite" checked disabled />
+                <label for="googleWebsite">010-1234-1234</label>
+              </div>
+              <button data-modal="googlePhoneNumber">수정</button>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              배송 정보 등록
+            </div>
+            <div>
+              <button data-modal="googleShipping">등록</button>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section class="section-account">
+        <header>
+          <h2>상품 피드</h2>
+        </header>
+        <div class="account">
+          <button data-modal="productFeed">연동하기</button>
+        </div>
+      </section>
+      <section class="section-account">
+        <header>
+          <h2>구글 애즈</h2>
+        </header>
+        <div class="account">
+          <button data-modal="googleAds">생성하기</button>
+        </div>
+        <ul>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              전환
+            </div>
+            <div>
+              <button onclick="location.href='ads_google_conversion.html'">관리</button>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              액세스 초대 수락
+            </div>
+            <div>
+              <div class="checkbox">
+                <input type="checkbox" id="googleWebsite" checked disabled />
+                <label for="googleWebsite">abc123@gmail.com</label>
+              </div>
+              <button data-modal="accessInvitaion">수락</button>
+              <button data-modal="accessAuthorization">수락 완료</button>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              결제 설정
+            </div>
+            <div>
+              <button>설정</button>
+            </div>
+          </li>
+        </ul>
       </section>
     </aside>
     <div class="sections">
@@ -184,7 +180,7 @@
           </li>
           <li>
             <div>
-              <span class="tag" data-title="선택" />
+              <span class="tag" data-title="선택"></span>
               대표 이메일
             </div>
             <div>
@@ -193,7 +189,7 @@
           </li>
           <li>
             <div>
-              <span class="tag" data-title="선택" />
+              <span class="tag" data-title="선택"></span>
               대표 전화번호
             </div>
             <div>
