@@ -309,13 +309,14 @@
         <div class="filters">
           <button data-modal="productFeed" onclick="location.href='ads_google_issues.html'">이슈진단</button>
           <button class="ico-filter" data-toggle="filters"></button>
-          <button class="ico-column"></button>
+          <button class="ico-column" data-toggle="extends"></button>
         </div>
       </div>
       <div class="filters" data-toggle="filters">
         <div>
           <div class="selectbox selector main">
             <select name="" id="">
+              <option value="">선택하세요</option>
               <option class="select-word" value="">상품명</option>
               <option class="select-word" value="">ID</option>
               <option class="select-number" value="">가격</option>
@@ -396,7 +397,7 @@
         </div>
       </div>
     </header>
-    <div class="list">
+    <div class="list" data-toggle="extends">
       <ul class="row title">
         <li title="상품명" class="ico-sort">상품명</li>
         <li title="ID" class="ico-sort">ID</li>
@@ -439,7 +440,7 @@
         </li>
         <li title="상품 이슈">
           초기 검토 대기중
-          <button class="ico-notes"></button>
+          <button class="ico-notes" data-modal="itemIssues"></button>
         </li>
         <li class="optional" title="카테고리">
           가정/원예 용품 > 생활용품 > 가정용 세제 > 주방 세제/비누
@@ -7930,6 +7931,48 @@
                 </div>
               </li>
             </ul>
+          </div>
+        </section>
+      </div>
+      <footer class="buttons">
+        <button type="button">저장</button>
+      </footer>
+    </div>
+  </div>
+  
+  <div id="itemIssues" class="modal modal-issues" title="상품 이슈">
+    <div class="dialog">
+      <header class="modal-header">
+        <h3>상품 이슈</h3>
+        <div class="close"></div>
+      </header>
+      <div class="modal-content">
+        <header>
+          <div class="caution">
+            구글 쇼핑 광고 및 무료 등록정보 정책을 위반하는 콘텐츠나 행위가 있을 경우 상품이 비승인될 수 있습니다. 상품에 발생한 이슈를 확인하여 이슈에 맞는 조치가 필요합니다.
+          </div>
+        </header>
+        <section>
+          <ul class="list">
+            <li>
+              <a href="" class="ico-link">
+                <span class="tag" data-title="비승인"></span>
+                
+                초기 검토 대기중 : 검토가 완료될 때까지 영업일 기준 최대 3일이 소요될 수 있으니 기다려 주세요.
+              </a>
+            </li>
+            <li>
+              <a href="" class="ico-link">
+                <span class="tag" data-title="경고"></span>
+                값 누락 [설명] : 속성을 추가하여 광고 실적을 개선하세요.
+              </a>
+            </li>
+            <li>
+              <a href="" class="ico-link">
+                <span class="tag" data-title="비승인"></span>
+                값 누락 [설명] : 속성을 추가하여 광고 실적을 개선하세요.
+              </a>
+            </li>
           </div>
         </section>
       </div>

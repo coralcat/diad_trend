@@ -69,7 +69,7 @@ const checkedRowEffects = () => {
   const listCheckboxes = document.querySelectorAll(".list:not(.list-form) .checkbox input[type='checkbox']");
   listCheckboxes.forEach(check => {
     const handleListCheckboxes = event => {
-      if(event.target.closest(".row")) {
+      if (event.target.closest(".row")) {
         event.target.checked
           ? event.target.closest(".row").classList.add("checked")
           : event.target.closest(".row").classList.remove("checked");
@@ -308,7 +308,7 @@ const mutationObserver = new MutationObserver(mutations => {
         main.addEventListener("scroll", handleScrollToTop);
 
         scrollToTop.addEventListener("click", () => {
-          main.scrollTo({top: 0, behavior: "smooth"});
+          main.scrollTo({ top: 0, behavior: "smooth" });
         });
       }
 
@@ -500,7 +500,7 @@ const mutationObserver = new MutationObserver(mutations => {
         controller.addEventListener("click", (event) => {
           const toggleName = event.currentTarget.dataset.toggle;
           const toggles = document.getElementsByName(toggleName);
-    
+
           if (!controller.classList.contains("is-active")) {
             dataToggles.forEach((toggle) => {
               event.currentTarget.dataset.toggle === toggle.dataset.toggle && (toggle.classList = controller.classList);
@@ -512,11 +512,8 @@ const mutationObserver = new MutationObserver(mutations => {
       dataToggles.forEach((toggle) => {
         if (!toggle.classList.contains(".controller")) {
           toggle.addEventListener("click", (event) => {
-            console.log(event.currentTarget)
             const toggleName = event.currentTarget.dataset.toggle;
-            console.log(toggleName)
             const toggles = document.querySelectorAll(`[data-toggle='${toggleName}']`);
-            console.log(toggles)
             toggles.forEach(toggle => {
               toggle.classList.toggle("is-active")
             })
@@ -618,61 +615,102 @@ const mutationObserver = new MutationObserver(mutations => {
         selectors.forEach(mainSelector => {
           const subSelectors = mainSelector.parentElement.querySelectorAll(".selector.sub");
           const selects = mainSelector.querySelectorAll("input");
+          const selectbox = mainSelector.querySelector("select");
           // selects[0].checked = true;
           // subSelectors[0].classList.add("is-active");
 
-          selects.forEach(selected => {
-            selected.addEventListener("click", event => {
+          // 라디오버튼 형태
+          if (selects[0]) {
+            selects.forEach(selected => {
+              selected.addEventListener("click", event => {
+                subSelectors.forEach(sub => {
+                  const initialize = () => sub.classList.remove("is-active");
+                  const checkSelect = () => {
+                    if (event.target.classList.contains("select-word") && sub.classList.contains("selector-word")) {
+                      sub.classList.add("is-active");
+                    }
+                    if (
+                      (event.target.classList.contains("select-category") &&
+                        sub.classList.contains("selector-category")) ||
+                      sub.classList.contains("selector-word")
+                    ) {
+                      sub.classList.add("is-active");
+                    }
+
+                    if (
+                      event.target.classList.contains("select-number") &&
+                      (sub.classList.contains("selector-device") || sub.classList.contains("selector-number"))
+                    ) {
+                      sub.classList.add("is-active");
+                      subSelectors[0].classList.remove("is-active");
+
+                      const devices = document.querySelectorAll(".selector-device [class*='select']");
+                      if (event.target.closest(".select-monthly-search")) {
+                        devices.forEach(device => {
+                          device.style.display = "flex";
+                        });
+                      }
+                      if (event.target.closest(".select-monthly-search2")) {
+                        devices.forEach(device => {
+                          if (device.classList.contains("select-google")) {
+                            device.style.display = "flex";
+                            device.querySelector("input").checked = true;
+                          } else {
+                            device.style.display = "none";
+                          }
+                        });
+                      }
+                      if (event.target.closest(".select-monthly-click")) {
+                        devices.forEach(device => {
+                          if (
+                            device.classList.contains("select-naver-pc") ||
+                            device.classList.contains("select-naver-mobile")
+                          ) {
+                            device.style.display = "flex";
+                            device.querySelector("input").checked = true;
+                          } else {
+                            device.style.display = "none";
+                          }
+                        });
+                      }
+                    }
+                  };
+
+                  initialize();
+                  checkSelect();
+                  sub.addEventListener("change", () => {
+                    initialize();
+                    checkSelect();
+                  });
+                });
+              });
+            });
+          }
+
+          // 셀렉트박스 형태
+          if (selectbox) {
+            selectbox.addEventListener("change", event => {
+              console.dir(event.target.selectedOptions[0].className)
               subSelectors.forEach(sub => {
                 const initialize = () => sub.classList.remove("is-active");
                 const checkSelect = () => {
-                  if (event.target.classList.contains("select-word") && sub.classList.contains("selector-word")) {
+                  if (event.target.selectedOptions[0].className == "select-word" && sub.classList.contains("selector-word")) {
                     sub.classList.add("is-active");
                   }
                   if (
-                    (event.target.classList.contains("select-category") &&
+                    (event.target.selectedOptions[0].className == "select-category" &&
                       sub.classList.contains("selector-category")) ||
                     sub.classList.contains("selector-word")
                   ) {
-                    sub.classList.add("is-active");
+                    sub.classList.add("is-active2");
                   }
 
                   if (
-                    event.target.classList.contains("select-number") &&
+                    event.target.selectedOptions[0].className == "select-number" &&
                     (sub.classList.contains("selector-device") || sub.classList.contains("selector-number"))
                   ) {
                     sub.classList.add("is-active");
                     subSelectors[0].classList.remove("is-active");
-
-                    const devices = document.querySelectorAll(".selector-device [class*='select']");
-                    if (event.target.closest(".select-monthly-search")) {
-                      devices.forEach(device => {
-                        device.style.display = "flex";
-                      });
-                    }
-                    if (event.target.closest(".select-monthly-search2")) {
-                      devices.forEach(device => {
-                        if (device.classList.contains("select-google")) {
-                          device.style.display = "flex";
-                          device.querySelector("input").checked = true;
-                        } else {
-                          device.style.display = "none";
-                        }
-                      });
-                    }
-                    if (event.target.closest(".select-monthly-click")) {
-                      devices.forEach(device => {
-                        if (
-                          device.classList.contains("select-naver-pc") ||
-                          device.classList.contains("select-naver-mobile")
-                        ) {
-                          device.style.display = "flex";
-                          device.querySelector("input").checked = true;
-                        } else {
-                          device.style.display = "none";
-                        }
-                      });
-                    }
                   }
                 };
 
@@ -684,7 +722,7 @@ const mutationObserver = new MutationObserver(mutations => {
                 });
               });
             });
-          });
+          }
         });
       }
       /* =====================================================
@@ -904,7 +942,7 @@ const mutationObserver = new MutationObserver(mutations => {
           },
         });
       }, 500);
-      
+
       setTimeout(() => {
         let verticalSwiper = new Swiper(".swiper.vertical", {
           slidesPerView: 1,
