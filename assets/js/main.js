@@ -85,6 +85,25 @@ const checkedRowEffects = () => {
   });
 };
 
+// 리스트 추가 및 삭제
+const listAddRemove = () => {
+  console.log("YAA")
+  const plus = document.querySelectorAll(".list .list-add .plus");
+  const minus = document.querySelector.querySelectorAll(".list .btn-minus")
+
+  plus.forEach(plus => {
+    plus.addEventListener("click", (event) => {
+
+    })
+  })
+
+  minus.forEach(minus => {
+    minus.addEventListener("click", (event) => {
+      event.target.closest("li").remove()
+    })
+  })
+}
+
 // 목록화면 - 사용자 지정 보기
 const rearrangeColumns = () => {
   const eye = document.querySelector(".ico-eye");
@@ -280,6 +299,22 @@ const mutationObserver = new MutationObserver(mutations => {
             });
         }
       }
+
+      const copyButtons = document.querySelectorAll(".btn-copy");
+
+      copyButtons[0] &&
+        copyButtons.forEach(button => {
+          const copySourcecode = (event) => {
+            const code = event.target.closest("section").querySelector(".code");
+            window.navigator.clipboard.writeText(code.textContent)
+            button.nextElementSibling.classList.add("is-active")
+
+            setTimeout(() => {
+              button.nextElementSibling.classList.remove("is-active")
+            }, 2000)
+          }
+          button.addEventListener("click",copySourcecode)
+        })
 
       // 마이너스 금액
       const prices = document.querySelectorAll(".section-money .price");
@@ -1093,13 +1128,15 @@ const mutationObserver = new MutationObserver(mutations => {
       handleAdvancedSearch();
       checkedRowEffects();
       expandListColumns();
-      console.log("YA")
+      listAddRemove()
     }
 
     // 팝업 감지했을 때 실행 이벤트
     if (mutation.target.className === "modals") {
+      console.log("HET")
       rearrangeColumns();
       checkedRowEffects();
+      listAddRemove();
     }
   });
 
@@ -2337,7 +2374,22 @@ const tooltipContents = {
   // 구글 전환 액션 상세 - 조회 추적 기간
   viewTrackingPeriod: `
     잠재고객이 광고를 보고 광고와 상호작용하지 않았다가 나중에 전환할 수 있습니다. 이를 기록할 수 있는 기간입니다. (광고와의 상호작용이 아니라 광고의 노출 후 발생하는 전환입니다.)
-  `
+  `,
+
+  // 구글 배송 정보 등록 - 주문 마감 시간
+  shippingCutoffTime: `
+    당일 발송 주문 마감 시간
+  `,
+  readyToShip: `
+  <dl>
+    <dd>주문 마감 시간부터 상품 발송까지 걸리는 시간</dd>
+    <dd>'0일차'의 경우 마감 시간 전에 주문이 접수되면 '당일', 마감 이후에 접수되면 다음 영업일을 의미</dd>
+    <dd>모든 상품 준비 시간은 마감 시간과 관련해 주문이 접수된 시간과 관계없이 '0일차'부터 계산</dd>
+  </dl>
+  `,
+  deliveryTime: `
+    상품 발송 후 배송완료까지 걸리는 시간
+  `,
 };
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -183,7 +183,7 @@
       <h1>
         <button class="btn-back" onclick="history.back()"></button>
         <span>이슈진단</span>
-        <small>피드1</small>
+        <small class="tag">피드1</small>
       </h1>
       <div href="#" class="account" target="_blank">
   <menu>coralcat</menu>
@@ -603,7 +603,7 @@
       <footer class="buttons"><button class="btn-main"> 키워드 적용 </button></footer>
     </div>
   </div>
-  
+
   <div id="failed" class="modal modal-failed" title="실패결과">
     <div class="dialog">
       <header class="modal-header">
@@ -630,7 +630,7 @@
       </div>
     </div>
   </div>
-  
+
   <div id="selectColumns" class="modal modal-sortable" title="사용자지정보기">
     <div class="dialog">
       <header class="modal-header">
@@ -647,7 +647,8 @@
             </li>
             <li>
               <div class="checkbox"><input id="select_TenderSuccess" type="checkbox" name="powerLinkSelectColumn"><label
-                  for="select_TenderSuccess">입찰</label></div><button id="fixed_TenderSuccess" name="powerLinkSelectFixed"
+                  for="select_TenderSuccess">입찰</label></div><button id="fixed_TenderSuccess"
+                name="powerLinkSelectFixed"
                 class="ico-pin toggle"></button>
             </li>
             <li>
@@ -662,11 +663,13 @@
             </li>
             <li>
               <div class="checkbox"><input id="select_TenderResult" type="checkbox" name="powerLinkSelectColumn"><label
-                  for="select_TenderResult">입찰결과</label></div><button id="fixed_TenderResult" name="powerLinkSelectFixed"
+                  for="select_TenderResult">입찰결과</label></div><button id="fixed_TenderResult"
+                name="powerLinkSelectFixed"
                 class="ico-pin toggle"></button>
             </li>
             <li>
-              <div class="checkbox"><input id="select_TenderInterval" type="checkbox" name="powerLinkSelectColumn"><label
+              <div class="checkbox"><input id="select_TenderInterval" type="checkbox"
+                  name="powerLinkSelectColumn"><label
                   for="select_TenderInterval">입찰주기</label></div><button id="fixed_TenderInterval"
                 name="powerLinkSelectFixed" class="ico-pin toggle"></button>
             </li>
@@ -689,13 +692,15 @@
                 class="ico-pin toggle"></button>
             </li>
             <li>
-              <div class="checkbox"><input id="select_BaseTenderPrice" type="checkbox" name="powerLinkSelectColumn"><label
+              <div class="checkbox"><input id="select_BaseTenderPrice" type="checkbox"
+                  name="powerLinkSelectColumn"><label
                   for="select_BaseTenderPrice">입찰기본가</label></div><button id="fixed_BaseTenderPrice"
                 name="powerLinkSelectFixed"
                 class="ico-pin toggle"></button>
             </li>
             <li>
-              <div class="checkbox"><input id="select_MaxTenderPrice" type="checkbox" name="powerLinkSelectColumn"><label
+              <div class="checkbox"><input id="select_MaxTenderPrice" type="checkbox"
+                  name="powerLinkSelectColumn"><label
                   for="select_MaxTenderPrice">최대입찰가</label></div><button id="fixed_MaxTenderPrice"
                 name="powerLinkSelectFixed" class="ico-pin toggle"></button>
             </li>
@@ -720,7 +725,8 @@
                 name="powerLinkSelectFixed" class="ico-pin toggle"></button>
             </li>
             <li>
-              <div class="checkbox"><input id="select_DownTenderCount" type="checkbox" name="powerLinkSelectColumn"><label
+              <div class="checkbox"><input id="select_DownTenderCount" type="checkbox"
+                  name="powerLinkSelectColumn"><label
                   for="select_DownTenderCount">하향입찰</label></div><button id="fixed_DownTenderCount"
                 name="powerLinkSelectFixed"
                 class="ico-pin toggle"></button>
@@ -793,7 +799,7 @@
       </footer>
     </div>
   </div>
-  
+
   <div id="searchGroup" class="modal modal-lookup" title="분류조회">
     <div class="dialog">
       <header class="modal-header">
@@ -823,7 +829,7 @@
       <footer class="buttons"><button type="button"> 적용 </button></footer>
     </div>
   </div>
-  
+
   <div id="editCategories" class="modal" title="분류편집">
     <div class="dialog">
       <header class="modal-header">
@@ -863,7 +869,7 @@
       <footer class="buttons"><button type="button"> 저장 </button></footer>
     </div>
   </div>
-  
+
   <div id="googleWebsite" class="modal" title="웹사이트 인증 및 소유권 주장">
     <div class="dialog">
       <header class="modal-header">
@@ -909,7 +915,7 @@
       </footer>
     </div>
   </div>
-  
+
   <div id="googleWebsite2" class="modal" title="웹사이트 인증 및 소유권 주장 - HTML 태그 추가">
     <div class="dialog">
       <header class="modal-header">
@@ -937,13 +943,15 @@
           </div>
           <header>
             <div>HTML 태그</div>
-            <button class="btn-copy"></button>
+            <button class="btn-copy" title="코드 복사하기"></button>
+            <div class="copied">소스코드를 복사하였습니다.</div>
           </header>
           <div class="code">
             &lt;meta name="google-site-verification" content="…" /&gt;
           </div>
           <p>
-            HTML 태그를 복사해 사이트 홈페이지 첫 번째 <code><body></code> 섹션 앞의 <code><head></code> 섹션 안에 붙여 넣어주세요. HTML 태그 추가 완료 후 웹사이트
+            HTML 태그를 복사해 사이트 홈페이지 첫 번째 <code><body></code> 섹션 앞의 <code><head></code> 섹션 안에 붙여 넣어주세요. HTML 태그 추가 완료 후
+            웹사이트
             인증을 클릭하세요.
           </p>
           <div class="caution">
@@ -960,7 +968,7 @@
       </footer>
     </div>
   </div>
-  
+
   <div id="googleWebsite3" class="modal" title="웹사이트 인증 및 소유권 주장 - 완료">
     <div class="dialog">
       <header class="modal-header">
@@ -986,12 +994,14 @@
         <section class="section">
           <div class="alert">
             이미 다른 판매자 센터 계정에서 해당 웹사이트의 소유권을 주장하여 생성된 계정에 웹사이트 소유권을 주장할 수 없습니다. 웹사이트 소유권 주장을 완료하여야 서비스를 원활하게 이용하실 수 있습니다.
-            웹사이트 소유권 주장을 완료하시려면 마케팅 센터 내 광고문의 또는 운영팀 (1644-4527 / diad@gabiacns.com)에 문의해 주시기 바랍니다. 문의 시 생성된 판매자 센터 계정 ID를
+            웹사이트 소유권 주장을 완료하시려면 마케팅 센터 내 광고문의 또는 운영팀 (1644-4527 / diad@gabiacns.com)에 문의해 주시기 바랍니다. 문의 시 생성된 판매자 센터 계정
+            ID를
             함께 남겨주세요.
           </div>
           <div class="caution">
             <p>
-              웹사이트 소유권 주장 및 상품 승인을 유지하려면 사이트 홈페이지에서 HTML 태그를 삭제하지 마세요. 태그는 Google에서 웹사이트를 식별하는 데 도움이 되는 마커 역할을 하며 웹사이트에 대한
+              웹사이트 소유권 주장 및 상품 승인을 유지하려면 사이트 홈페이지에서 HTML 태그를 삭제하지 마세요. 태그는 Google에서 웹사이트를 식별하는 데 도움이 되는 마커 역할을 하며 웹사이트에
+              대한
               권한을 부여하지는 않습니다.
             </p>
             <p>
@@ -1005,8 +1015,8 @@
       </footer>
     </div>
   </div>
-  
-  <div id="googlePhoneNumber" class="modal" title="전화번호 인증">
+
+  <div id="googlePhoneNumber" class="modal modal-authentication" title="전화번호 인증">
     <div class="dialog">
       <header class="modal-header">
         <h3>전화번호 인증</h3>
@@ -1026,14 +1036,14 @@
           </div>
           <div class="selector">
             <input id="sms" type="radio" name="googlePhoneNumber" />
-            <label for="sms" style="flex: 1 1 auto">
+            <label class="sms" for="sms">
               <h5>문자 메시지</h5>
               <p>
                 입력하신 전화번호로 인증 코드가 포함된 문자 메시지가 전송됩니다.
               </p>
             </label>
             <input id="voices" type="radio" name="googlePhoneNumber" />
-            <label for="voices" style="flex: 1 1 auto">
+            <label class="voices" for="voices">
               <h5>음성통화</h5>
               <p>
                 입력하신 전화번호로 자동 음성 메시지가 포함된 음성 통화가 발신됩니다.
@@ -1050,7 +1060,7 @@
                   <span class="tag" data-title="필수"></span> 개인정보 수집 및 이용 동의
                 </label>
               </div>
-              <a href="https://support.google.com/merchants/answer/6149970?hl=ko" target="_blank"></a>
+              <a href="#" target="_blank" data-modal="privacyPolicy"></a>
             </li>
             <li class="row">
               <div class="checkbox">
@@ -1059,7 +1069,7 @@
                   <span class="tag" data-title="필수"></span> 개인정보 제 3자 제공 동의
                 </label>
               </div>
-              <a href="https://billing.google.com/payments/u/0/paymentsinfofinder?style=:md" target="_blank"></a>
+              <a href="#" target="_blank" data-modal="privacyPolicy2"></a>
             </li>
             <li class="row title">
               <div class="checkbox">
@@ -1087,11 +1097,6 @@
                 <input type="number" placeholder="Google에서 전송한 인증 코드 6자리를 입력하세요." />
                 <small class="message">잘못된 인증 코드입니다. 다시 시도해 주세요.
                 </small>
-              </div>
-            </li>
-            <li>
-              <div></div>
-              <div>
                 <small>
                   <span>인증코드를 받지 못하셨나요?</span>
                   <strong>00:30</strong>초 후 재전송 가능합니다.
@@ -1109,7 +1114,7 @@
       </footer>
     </div>
   </div>
-  
+
   <div id="googleShipping" class="modal modal-shipping" title="배송 정보 등록">
     <div class="dialog">
       <header class="modal-header">
@@ -1118,10 +1123,10 @@
       </header>
       <div class="modal-content">
         <section>
-          <small class="asterisk">표시는 필수입력사항입니다.</small>
           <ul class="list form">
             <li>
-              <div class="asterisk">
+              <div>
+                <span class="tag" data-title="필수"></span>
                 이름
               </div>
               <div>
@@ -1129,7 +1134,8 @@
               </div>
             </li>
             <li>
-              <div class="asterisk">
+              <div>
+                <span class="tag" data-title="필수"></span>
                 배송비
               </div>
               <div class="selector shipping-cost">
@@ -1143,27 +1149,53 @@
                   <ul>
                     <li>
                       <div>
-                        <div>
-                          <span class="price">0</span> 이상
-                        </div>
-                        <div>
+                        <div class="inputs">
+                          <span class="price">
+                            0 이상
+                          </span>
                           <span class="price">
                             <input type="number" value="30000">
+                            미만
                           </span>
-                          미만
                         </div>
-                      </div>
-                      <div>
                         <span class="price">
                           <input type="number" value="2500">
                         </span>
                       </div>
+                      <div class="buttons">
+                      </div>
                     </li>
                     <li>
                       <div>
-                        <span class="price">30000</span> 이상
+                        <div class="inputs">
+                          <span class="price">
+                            <input type="number" value="3000">
+                            이상
+                          </span>
+                          <span class="price">
+                            <input type="number" value="20000">
+                            미만
+                          </span>
+                        </div>
+                        <span class="price">
+                          <input type="number" value="2500">
+                        </span>
                       </div>
+                      <div class="buttons">
+                        <button class="btn-minus"></button>
+                      </div>
+                    </li>
+                    <li class="list-add">
+                      <button class="plus"></button>
+                    </li>
+                    <li>
                       <div>
+                        <div class="inputs">
+                          <span class="price">
+                            <input type="number" value="30000">
+                            이상
+                          </span>
+                        </div>
                         <span class="price">
                           <input type="number" value="2500">
                         </span>
@@ -1195,43 +1227,46 @@
             <li>
               <div>
                 주문 마감 시간
-                <div data-tooltip=""></div>
+                <div data-tooltip="shippingCutoffTime"></div>
               </div>
-              <div class="selectbox">
-                <select name="" id="">
-                  <option value="">시간 선택</option>
-                  <option value="">00:00</option>
-                  <option value="">01:00</option>
-                  <option value="">02:00</option>
-                  <option value="">03:00</option>
-                  <option value="">04:00</option>
-                  <option value="">05:00</option>
-                  <option value="">06:00</option>
-                  <option value="">07:00</option>
-                  <option value="">08:00</option>
-                  <option value="">09:00</option>
-                  <option value="">10:00</option>
-                  <option value="">11:00</option>
-                  <option value="">12:00</option>
-                  <option value="">13:00</option>
-                  <option value="">14:00</option>
-                  <option value="">15:00</option>
-                  <option value="">16:00</option>
-                  <option value="">17:00</option>
-                  <option value="">18:00</option>
-                  <option value="">19:00</option>
-                  <option value="">20:00</option>
-                  <option value="">21:00</option>
-                  <option value="">22:00</option>
-                  <option value="">23:00</option>
-                  <option value="">24:00</option>
-                </select>
+              <div>
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="">시간 선택</option>
+                    <option value="">00:00</option>
+                    <option value="">01:00</option>
+                    <option value="">02:00</option>
+                    <option value="">03:00</option>
+                    <option value="">04:00</option>
+                    <option value="">05:00</option>
+                    <option value="">06:00</option>
+                    <option value="">07:00</option>
+                    <option value="">08:00</option>
+                    <option value="">09:00</option>
+                    <option value="">10:00</option>
+                    <option value="">11:00</option>
+                    <option value="">12:00</option>
+                    <option value="">13:00</option>
+                    <option value="">14:00</option>
+                    <option value="">15:00</option>
+                    <option value="">16:00</option>
+                    <option value="">17:00</option>
+                    <option value="">18:00</option>
+                    <option value="">19:00</option>
+                    <option value="">20:00</option>
+                    <option value="">21:00</option>
+                    <option value="">22:00</option>
+                    <option value="">23:00</option>
+                    <option value="">24:00</option>
+                  </select>
+                </div>
               </div>
             </li>
             <li>
-              <div class="asterisk">
+              <div>
+                <span class="tag" data-title="필수"></span>
                 상품 준비 시간
-                <div data-tooltip=""></div>
+                <div data-tooltip="readyToShip"></div>
               </div>
               <div>
                 <input type="number" />
@@ -1241,26 +1276,27 @@
                 <div class="selector">
                   처리일
                   <input id="prepareMonday" name="" type="checkbox" />
-                  <label for="prepareMonday">월요일</label>
+                  <label for="prepareMonday">월</label>
                   <input id="prepareTuesday" name="" type="checkbox" />
-                  <label for="prepareTuesday">화요일</label>
+                  <label for="prepareTuesday">화</label>
                   <input id="prepareWednesday" name="" type="checkbox" />
-                  <label for="prepareWednesday">수요일</label>
+                  <label for="prepareWednesday">수</label>
                   <input id="prepareThursday" name="" type="checkbox" />
-                  <label for="prepareThursday">목요일</label>
+                  <label for="prepareThursday">목</label>
                   <input id="prepareFriday" name="" type="checkbox" />
-                  <label for="prepareFriday">금요일</label>
+                  <label for="prepareFriday">금</label>
                   <input id="prepareSaturday" name="" type="checkbox" />
-                  <label for="prepareSaturday">토요일</label>
+                  <label for="prepareSaturday">토</label>
                   <input id="prepareSunday" name="" type="checkbox" />
-                  <label for="prepareSunday">일요일</label>
+                  <label for="prepareSunday">일</label>
                 </div>
               </div>
             </li>
             <li>
-              <div class="asterisk">
+              <div>
+                <span class="tag" data-title="필수"></span>
                 운송 시간
-                <div data-tooltip=""></div>
+                <div data-tooltip="deliveryTime"></div>
               </div>
               <div>
                 <input type="number" />
@@ -1270,19 +1306,19 @@
                 <div class="selector">
                   발송일
                   <input id="shippingMonday" name="" type="checkbox" />
-                  <label for="shippingMonday">월요일</label>
+                  <label for="shippingMonday">월</label>
                   <input id="shippingTuesday" name="" type="checkbox" />
-                  <label for="shippingTuesday">화요일</label>
+                  <label for="shippingTuesday">화</label>
                   <input id="shippingWednesday" name="" type="checkbox" />
-                  <label for="shippingWednesday">수요일</label>
+                  <label for="shippingWednesday">수</label>
                   <input id="shippingThursday" name="" type="checkbox" />
-                  <label for="shippingThursday">목요일</label>
+                  <label for="shippingThursday">목</label>
                   <input id="shippingFriday" name="" type="checkbox" />
-                  <label for="shippingFriday">금요일</label>
+                  <label for="shippingFriday">금</label>
                   <input id="shippingSaturday" name="" type="checkbox" />
-                  <label for="shippingSaturday">토요일</label>
+                  <label for="shippingSaturday">토</label>
                   <input id="shippingSunday" name="" type="checkbox" />
-                  <label for="shippingSunday">일요일</label>
+                  <label for="shippingSunday">일</label>
                 </div>
               </div>
             </li>
@@ -1294,7 +1330,7 @@
       </footer>
     </div>
   </div>
-  
+
   <div id="googleAds" class="modal" title="구글 애즈 계정 생성">
     <div class="dialog">
       <header class="modal-header">
@@ -1309,7 +1345,8 @@
           </header>
           <div class="caution">
             <p>
-              결제 설정은 사용자가 액세스 권한을 부여 받은 구글 이메일 계정으로 직접 구글 애즈에 접속하여 이루어집니다. 입력하신 구글 이메일 계정으로 결제 프로필을 생성하게 되며, 구글에서 사용된 광고비는
+              결제 설정은 사용자가 액세스 권한을 부여 받은 구글 이메일 계정으로 직접 구글 애즈에 접속하여 이루어집니다. 입력하신 구글 이메일 계정으로 결제 프로필을 생성하게 되며, 구글에서 사용된
+              광고비는
               다이애드를 통해 사용자에게 청구되지 않습니다.
             </p>
             <p>
@@ -1368,7 +1405,7 @@
       </footer>
     </div>
   </div>
-  
+
   <div id="conversionAction" class="modal modal-conversion" title="전환 액션 생성">
     <div class="dialog">
       <header class="modal-header">
@@ -1549,7 +1586,7 @@
       </footer>
     </div>
   </div>
-  
+
   <div id="conversionTag" class="modal modal-conversion" title="전환 추적 태그 등록">
     <div class="dialog">
       <header class="modal-header">
@@ -1583,7 +1620,7 @@
       </footer>
     </div>
   </div>
-  
+
   <div id="accessInvitaion" class="modal" title="액세스 초대 수락">
     <div class="dialog">
       <header class="modal-header">
@@ -1616,7 +1653,7 @@
       </footer>
     </div>
   </div>
-  
+
   <div id="accessAuthorization" class="modal" title="액세스 권한 부여">
     <div class="dialog">
       <header class="modal-header">
@@ -1694,7 +1731,7 @@
       </footer>
     </div>
   </div>
-  
+
   <div id="googleAdsPayment" class="modal" title="결제 설정">
     <div class="dialog">
       <header class="modal-header">
@@ -1724,11 +1761,11 @@
         </section>
       </div>
       <footer class="buttons">
-        <button class="close" type="button">액세스 초대 수락 완료</button>
+        <button class="close" type="button">결제 설정 완료</button>
       </footer>
     </div>
   </div>
-  
+
   <div id="productFeed" class="modal" title="상품 피드 연동">
     <div class="dialog">
       <header class="modal-header">
@@ -1804,73 +1841,16 @@
           <ul class="list form">
             <li>
               <div>업로드 빈도</div>
-              <div>
-                <div class="selector">
-                  <input id="upload-everyday" type="radio" name="upload-frequency" checked>
-                  <label for="upload-everyday">매일</label>
-                  <input id="upload-everweek" type="radio" name="upload-frequency">
-                  <label for="upload-everweek">매주</label>
-                  <input id="upload-everymonth" type="radio" name="upload-frequency">
-                  <label for="upload-everymonth">매월</label>
-                </div>
-                <div class="options">
-                  <div class="selectbox">
-                    <select name="" id="">
-                      <option value="">월요일</option>
-                      <option value="">화요일</option>
-                      <option value="">수요일</option>
-                      <option value="">목요일</option>
-                      <option value="">금요일</option>
-                      <option value="">토요일</option>
-                      <option value="">일요일</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="options">
-                  <div class="selectbox">
-                    <select name="" id="">
-                      <option value="">1일</option>
-                      <option value="">2일</option>
-                      <option value="">3일</option>
-                      <option value="">4일</option>
-                      <option value="">5일</option>
-                      <option value="">6일</option>
-                      <option value="">7일</option>
-                      <option value="">8일</option>
-                      <option value="">9일</option>
-                      <option value="">10일</option>
-                      <option value="">11일</option>
-                      <option value="">12일</option>
-                      <option value="">13일</option>
-                      <option value="">14일</option>
-                      <option value="">15일</option>
-                      <option value="">16일</option>
-                      <option value="">17일</option>
-                      <option value="">18일</option>
-                      <option value="">19일</option>
-                      <option value="">20일</option>
-                      <option value="">21일</option>
-                      <option value="">22일</option>
-                      <option value="">23일</option>
-                      <option value="">24일</option>
-                      <option value="">25일</option>
-                      <option value="">26일</option>
-                      <option value="">27일</option>
-                      <option value="">28일</option>
-                      <option value="">29일</option>
-                      <option value="">30일</option>
-                      <option value="">31일</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
+              <div>매일</div>
             </li>
             <li>
               <div>업로드 시간</div>
-              <div class="selectbox">
-                <select name="" id="">
-                  <option value="">00:00</option>
-                </select>
+              <div>
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="">00:00</option>
+                  </select>
+                </div>
               </div>
             </li>
           </ul>
@@ -1881,7 +1861,7 @@
       </footer>
     </div>
   </div>
-  
+
   <div id="privacyPolicy" class="modal" title="개인정보 수집 및 이용 동의">
     <div class="dialog small">
       <header class="modal-header">
@@ -1908,7 +1888,7 @@
       </footer>
     </div>
   </div>
-  
+
   <div id="privacyPolicy2" class="modal" title="개인정보 제 3자 제공 동의">
     <div class="dialog small">
       <header class="modal-header">
@@ -1940,7 +1920,7 @@
       </footer>
     </div>
   </div>
-  
+
   <div id="uploadAnExcelFile" class="modal modal-upload" title="주문통계(엑셀업로드)">
     <div class="dialog">
       <header class="modal-header">
@@ -1973,7 +1953,7 @@
       </footer>
     </div>
   </div>
-  
+
   <div id="uploadAnExcelFile2" class="modal modal-advanced" title="주문통계2(엑셀업로드)">
     <div class="dialog">
       <header class="modal-header">
@@ -2500,7 +2480,7 @@
       </footer>
     </div>
   </div>
-  
+
   <div id="settingsLiveNormal" class="modal" title="라이브일반설정">
     <div class="dialog">
       <header class="modal-header">
@@ -2544,7 +2524,8 @@
                 <div data-tooltip="biddingTargetModal"></div>
               </li>
               <li class="inputs">
-                <input class="input-ranking" id="input-ranking-live-normal" type="radio" name="bidding-target-live-normal"
+                <input class="input-ranking" id="input-ranking-live-normal" type="radio"
+                  name="bidding-target-live-normal"
                   checked>
                 <label for="input-ranking-live-normal">희망순위</label>
                 <input class="input-target" id="target-url-live-normal" type="radio" name="bidding-target-live-normal">
@@ -2619,7 +2600,7 @@
       <footer class="buttons"><button type="button"> 입찰적용 </button></footer>
     </div>
   </div>
-  
+
   <div id="settingsLiveNormalType2" class="modal" title="라이브일반설정">
     <div class="dialog">
       <header class="modal-header">
@@ -2664,7 +2645,8 @@
                 성별/연령
               </li>
               <li>
-                <input class="input-ranking" id="input-gender-age-live-normal" type="radio" name="gender-age-live-normal"
+                <input class="input-ranking" id="input-gender-age-live-normal" type="radio"
+                  name="gender-age-live-normal"
                   checked>
                 <label for="input-gender-age-live-normal">ON</label>
                 <input class="input-target" id="target-url-live-normal" type="radio" name="gender-age-live-normal">
@@ -2730,7 +2712,7 @@
       <footer class="buttons"><button type="button"> 입찰적용 </button></footer>
     </div>
   </div>
-  
+
   <div id="settingsLiveNormalPart" class="modal" title="일반부분설정">
     <div class="dialog">
       <header class="modal-header">
@@ -2892,7 +2874,7 @@
       <footer class="buttons"><button type="button"> 입찰적용 </button></footer>
     </div>
   </div>
-  
+
   <div id="settingsLiveAdvanced" class="modal modal-advanced" title="라이브 고급설정">
     <div class="dialog">
       <header class="modal-header">
@@ -3942,7 +3924,7 @@
       <footer class="buttons"><button type="button"> 입찰적용 </button></footer>
     </div>
   </div>
-  
+
   <div id="settingsLiveAdvancedType2" class="modal modal-advanced" title="라이브 고급설정">
     <div class="dialog">
       <header class="modal-header">
@@ -4975,7 +4957,7 @@
       <footer class="buttons"><button type="button"> 입찰적용 </button></footer>
     </div>
   </div>
-  
+
   <div id="settingsLiveAdvancedPart" class="modal modal-advanced" title="고급부분설정">
     <div class="dialog">
       <header class="modal-header">
@@ -6036,7 +6018,7 @@
       <footer class="buttons"><button type="button"> 입찰적용 </button></footer>
     </div>
   </div>
-  
+
   <div id="biddingHistory" class="modal modal-history" title="입찰이력조회">
     <div class="dialog">
       <header class="modal-header">
@@ -6166,7 +6148,7 @@
       </div>
     </div>
   </div>
-  
+
   <div id="setLocation" class="modal modal-location" title="지역 설정">
     <div class="dialog">
       <header class="modal-header">
@@ -6245,7 +6227,7 @@
                     value="grp-a001-01-000000016727943"><label for="cityUserCheck_4">테스트용그룹</label></div><span
                   class="located">미설정</span>
               </li>
-  
+
             </ul>
             <ul class="list">
               <li class="row title">
@@ -6263,7 +6245,7 @@
                     value="grp-a001-01-000000013489635"><label for="cityUserCheck_6">차키_간접</label></div><span
                   class="located">미설정</span>
               </li>
-  
+
             </ul>
             <ul class="list">
               <li class="row title">
@@ -6422,7 +6404,7 @@
                     <polyline points="1,5 6,9 14,1"></polyline>
                   </svg></div><span class="located">미설정</span>
               </li>
-  
+
             </ul>
             <ul class="list">
               <li class="row title">
@@ -6430,7 +6412,7 @@
                     class="check-all" value="cmp-a001-01-000000003403467"><label
                     for="citySettingCheckAll_3">레드울프#모바일</label></div>
               </li>
-  
+
               <li class="row">
                 <div class="checkbox"><input id="cityUserCheck_34" type="checkbox" name="citySettingCheck"
                     value="grp-a001-01-000000017659620"><label for="cityUserCheck_34">지갑형#_모바일1</label></div><span
@@ -6586,7 +6568,7 @@
                     <polyline points="1,5 6,9 14,1"></polyline>
                   </svg></div><span class="located">미설정</span>
               </li>
-  
+
             </ul>
             <ul class="list">
               <li class="row title">
@@ -6826,7 +6808,7 @@
                     value="grp-a001-01-000000026401704"><label for="cityUserCheck_105">세부_갤럭시20</label></div><span
                   class="located">미설정</span>
               </li>
-  
+
             </ul>
             <ul class="list">
               <li class="row title">
@@ -6834,7 +6816,7 @@
                     class="check-all" value="cmp-a001-01-000000003845623"><label
                     for="citySettingCheckAll_6">3.자사몰_벨트</label></div>
               </li>
-  
+
               <li class="row">
                 <div class="checkbox"><input id="cityUserCheck_106" type="checkbox" name="citySettingCheck"
                     value="grp-a001-01-000000019843923"><label for="cityUserCheck_106">M.1 매출키워드</label></div><span
@@ -6866,7 +6848,7 @@
                     class="check-all" value="cmp-a001-01-000000003970080"><label for="citySettingCheckAll_7">4.
                     자사몰_스마트키</label></div>
               </li>
-  
+
               <li class="row">
                 <div class="checkbox"><input id="cityUserCheck_110" type="checkbox" name="citySettingCheck"
                     value="grp-a001-01-000000020481807"><label for="cityUserCheck_110">M1.자상호</label></div><span
@@ -6914,7 +6896,7 @@
       <footer class="buttons"><button type="button"> 적용 </button></footer>
     </div>
   </div>
-  
+
   <div id="setGenderAge" class="modal modal-gender-age" title="성별/연령 설정">
     <div class="dialog">
       <header class="modal-header">
@@ -7037,7 +7019,7 @@
       </footer>
     </div>
   </div>
-  
+
   <div id="settingsRegularNormal" class="modal" title="레귤러 일반설정">
     <div class="dialog">
       <header class="modal-header">
@@ -7125,7 +7107,8 @@
               </li>
             </ul>
             <ul class="row">
-              <li class="asterisk">
+              <li>
+                <span class="tag" data-title="필수"></span>
                 최대입찰가
               </li>
               <li>
@@ -7245,7 +7228,7 @@
       <footer class="buttons"><button type="button"> 입찰적용 </button></footer>
     </div>
   </div>
-  
+
   <div id="settingsRegularNormalPart" class="modal" title="레귤러 일반부분설정">
     <div class="dialog">
       <header class="modal-header">
@@ -7345,7 +7328,8 @@
               </li>
             </ul>
             <ul class="row">
-              <li class="asterisk">
+              <li>
+                <span class="tag" data-title="필수"></span>
                 <div class="checkbox">
                   <input id="check-regular-live-normal-part-03" name="select-item" type="checkbox">
                   <label for="check-regular-live-normal-part-03">최대입찰가</label>
@@ -7470,7 +7454,7 @@
       <footer class="buttons"><button type="button"> 입찰적용 </button></footer>
     </div>
   </div>
-  
+
   <div id="calculateBidPrice" class="modal modal-calculate-bid-price" title="입찰가 산출내역">
     <div class="dialog">
       <header class="modal-header">
@@ -7622,7 +7606,7 @@
       <footer class="buttons"><button type="button"> 입찰적용 </button></footer>
     </div>
   </div>
-  
+
   <div id="managementTemplates" class="modal modal-management-templates" title="고급 설정 템플릿 관리">
     <div class="dialog">
       <header class="modal-header">
@@ -7701,7 +7685,8 @@
           </li>
         </ul>
       </div>
-      <footer class="buttons"><button class="btn-sub" type="button"> 복사 </button><button class="btn-sub" type="button"> 추가
+      <footer class="buttons"><button class="btn-sub" type="button"> 복사 </button><button class="btn-sub" type="button">
+          추가
         </button><button type="button"> 수정 </button></footer>
     </div>
   </div>
@@ -7719,12 +7704,12 @@
         <ul class="list">
           <li class="row">
             <a href="" class="ico-link">
-                <span class="tag warning">경고</span>
-                고급 무료 목록을 사용할 수 없는 계정입니다.
+              <span class="tag warning">경고</span>
+              고급 무료 목록을 사용할 수 없는 계정입니다.
             </a>
           </li>
           <li>
-  
+
             <a href="" class="ico-link">
               <div>
                 <span class="tag">정지</span>
@@ -7747,7 +7732,7 @@
       </footer>
     </div>
   </div>
-  
+
   <div id="itemFeedsUploadSchedule" class="modal" title="상품 피드 업로드 일정">
     <div class="dialog">
       <header class="modal-header">
@@ -7811,7 +7796,7 @@
       </footer>
     </div>
   </div>
-  
+
   <div id="itemIssues" class="modal modal-issues" title="상품 이슈">
     <div class="dialog">
       <header class="modal-header">
@@ -7829,7 +7814,7 @@
             <li>
               <a href="" class="ico-link">
                 <span class="tag" data-title="비승인"></span>
-                
+
                 초기 검토 대기중 : 검토가 완료될 때까지 영업일 기준 최대 3일이 소요될 수 있으니 기다려 주세요.
               </a>
             </li>
@@ -7845,14 +7830,14 @@
                 값 누락 [설명] : 속성을 추가하여 광고 실적을 개선하세요.
               </a>
             </li>
-          </div>
-        </section>
       </div>
-      <footer class="buttons">
-        <button type="button">저장</button>
-      </footer>
+      </section>
     </div>
+    <footer class="buttons">
+      <button type="button">저장</button>
+    </footer>
   </div>
+</div>
 </div>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.10.2/Sortable.min.js'></script>
