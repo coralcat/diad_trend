@@ -85,6 +85,25 @@ const checkedRowEffects = () => {
   });
 };
 
+// 리스트 추가 및 삭제
+const listAddRemove = () => {
+  console.log("YAA")
+  const plus = document.querySelectorAll(".list .list-add .plus");
+  const minus = document.querySelector.querySelectorAll(".list .btn-minus")
+
+  plus.forEach(plus => {
+    plus.addEventListener("click", (event) => {
+
+    })
+  })
+
+  minus.forEach(minus => {
+    minus.addEventListener("click", (event) => {
+      event.target.closest("li").remove()
+    })
+  })
+}
+
 // 목록화면 - 사용자 지정 보기
 const rearrangeColumns = () => {
   const eye = document.querySelector(".ico-eye");
@@ -280,6 +299,22 @@ const mutationObserver = new MutationObserver(mutations => {
             });
         }
       }
+
+      const copyButtons = document.querySelectorAll(".btn-copy");
+
+      copyButtons[0] &&
+        copyButtons.forEach(button => {
+          const copySourcecode = (event) => {
+            const code = event.target.closest("section").querySelector(".code");
+            window.navigator.clipboard.writeText(code.textContent)
+            button.nextElementSibling.classList.add("is-active")
+
+            setTimeout(() => {
+              button.nextElementSibling.classList.remove("is-active")
+            }, 2000)
+          }
+          button.addEventListener("click",copySourcecode)
+        })
 
       // 마이너스 금액
       const prices = document.querySelectorAll(".section-money .price");
@@ -1093,13 +1128,15 @@ const mutationObserver = new MutationObserver(mutations => {
       handleAdvancedSearch();
       checkedRowEffects();
       expandListColumns();
-      console.log("YA")
+      listAddRemove()
     }
 
     // 팝업 감지했을 때 실행 이벤트
     if (mutation.target.className === "modals") {
+      console.log("HET")
       rearrangeColumns();
       checkedRowEffects();
+      listAddRemove();
     }
   });
 

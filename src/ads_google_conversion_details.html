@@ -37,9 +37,8 @@
           </div>
           <div class="goal">
             입찰 최적화에 사용 여부
-            <div data-tooltip=""></div>
             <input id="defaultConversionGoal" name="ConversionGoal" type="radio" checked />
-            <label for="defaultConversionGoal">사용 (기본 액션)</label>
+            <label for="defaultConversionGoal" style="margin-left: 1rem;">사용 (기본 액션)</label>
             <input id="subConversionGoal" name="ConversionGoal" type="radio" />
             <label for="subConversionGoal">미사용 (보조 액션)</label>
           </div>
@@ -92,7 +91,7 @@
           <span class="tag" data-title="필수"></span>
           상호작용 당 전환 횟수
         </div>
-        <div class="selector">
+        <div>
           <input id="everytime" type="radio" name="conversionTimes" checked />
           <label for="everytime">
             매회
@@ -173,9 +172,6 @@
 
   gtag('config', 'AW-11304375904');
 </script></textarea>
-      <textarea class="codes" rows="9" data-tab="codes" readonly>
-gtag('config', 'AW-11304375904');
-      </textarea>
       <div class="caution">태그를 복사한 후 웹사이트에서 모든 페이지의
 
         <head></head> 태그 사이에 붙여 넣으세요. 여러 액션을 추적 중인 경우에도 계정당 한 번만 Google 태그를 설치하면 됩니다.

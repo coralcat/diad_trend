@@ -94,7 +94,7 @@ $secondary-color: #f2f1ff;
       }
 
       dt {
-        margin-top: 1rem;
+        margin-top: 0.5rem;
         font-size: 13px;
         font-weight: 600;
       }
@@ -120,6 +120,10 @@ $secondary-color: #f2f1ff;
     border-radius: 0;
     background-color: transparent;
     box-shadow: 0 0 0;
+
+    &:not(:last-of-type) {
+      padding-bottom: 1rem;
+    }
   }
 
   header {
@@ -158,9 +162,9 @@ $secondary-color: #f2f1ff;
   .alert {
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='orangered' d='M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 9h-2V5h2v6zm0 4h-2v-2h2v2z'/%3E%3C/svg%3E")
       no-repeat left 0.8rem top 0.8rem;
-    background-size: 1.5rem;
+    background-color: rgba(255, 69, 0, 0.1);
+    background-size: 20px;
     color: orangered;
-    border: 1px solid;
     padding: 0.75rem 0.75rem 0.75rem 3rem;
     border-radius: 0.5rem;
     word-break: keep-all;
@@ -270,7 +274,7 @@ $secondary-color: #f2f1ff;
     padding: 0;
 
     &:is(ul) {
-      gap: .5rem
+      gap: 0.5rem;
     }
 
     &.edit {
@@ -449,6 +453,38 @@ $secondary-color: #f2f1ff;
       justify-content: space-between;
       padding: 0 0.5rem;
       position: relative;
+  
+      &.list-add {
+        background-color: #f3f6f9;
+    
+        .plus {
+          cursor: pointer;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          transition: 0.25s;
+
+          &::before {
+            content: "";
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: transparent;
+            background-image: linear-gradient(#838689 0 0), linear-gradient(#838689 0 0);
+            background-position: center;
+            background-size: 50% 2px, 2px 50%;
+            background-repeat: no-repeat;
+          }
+        }
+    
+        &:hover {
+          background-color: $secondary-color;
+
+          .plus::before {
+            background-image: linear-gradient($main-color 0 0), linear-gradient($main-color 0 0)
+          }
+        }
+      }
 
       &.title {
         border: 0;
@@ -600,7 +636,7 @@ $secondary-color: #f2f1ff;
   }
 
   .section-done {
-    border: 1px solid #d3d6d9;
+    background-color: #f3f6f9;
     padding: 0.75rem;
     border-radius: 0.5rem;
 
@@ -1462,8 +1498,28 @@ $secondary-color: #f2f1ff;
           padding: 0;
 
           > div {
+            &:first-of-type {
+              justify-content: space-between;
+            }
+          }
+        }
+
+        .buttons {
+          flex: 0 0 auto;
+          width: 30px;
+          justify-content: center;
+        }
+
+        .inputs {
+          gap: 1rem;
+
+          > *:first-of-type {
             flex: 0 0 auto;
-            gap: 1rem;
+            width: 120px
+          }
+
+          input {
+            width: 80px;
           }
         }
       }
@@ -1533,12 +1589,28 @@ $secondary-color: #f2f1ff;
   }
 
   &-issues {
-
     .list {
-
       a {
-        gap: .5rem;
+        gap: 0.5rem;
       }
+    }
+  }
+
+  &-authentication {
+    .selector {
+      margin: 0.75rem;
+      flex-wrap: nowrap;
+
+      label {
+        flex: 1 1 auto;
+        flex-direction: column;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+      }
+    }
+
+    .list.form > li > :first-child {
+      width: 100px;
     }
   }
 }
