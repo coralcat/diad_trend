@@ -497,6 +497,10 @@ $secondary-color: #f2f1ff;
 
       div {
         flex: 1 1 auto;
+
+        &[title=입찰시각]{
+          white-space: nowrap;
+        }
       }
 
       > div:first-child {
@@ -575,6 +579,7 @@ $secondary-color: #f2f1ff;
     }
 
     .modal-header {
+      min-height: 2rem;
       border-bottom: 0;
       z-index: 100;
     }
@@ -601,6 +606,11 @@ $secondary-color: #f2f1ff;
 
       .checkbox {
         align-items: center;
+      }
+
+      &.impact{
+        justify-content: flex-start;
+        gap: 20px;
       }
     }
   }
@@ -1370,12 +1380,16 @@ $secondary-color: #f2f1ff;
   }
 
   &-calculate-bid-price {
+    .dialog{
+      width: min(700px, 100%);
+    }
     .filters {
       strong {
         color: $main-color;
       }
     }
     .bid-price {
+      flex: none;
       background-color: #f3f6f9;
       padding: 0.5rem;
       border-radius: 3px;
@@ -1435,10 +1449,6 @@ $secondary-color: #f2f1ff;
             display: flex;
             align-items: center;
             gap: 3px;
-          }
-
-          &:nth-of-type(2) {
-            width: 100%;
           }
 
           &:nth-of-type(3) {

@@ -134,6 +134,7 @@ body {
     text-decoration: underline;
     text-underline-offset: 3px;
     transition: 0.4s;
+    cursor: pointer;
 
     &:is(:hover, :focus, .active) {
       outline: none;
@@ -265,6 +266,7 @@ body {
     &:disabled {
       color: darkgray !important;
       background-color: #e3e6e9 !important;
+      box-shadow: none !important;
       cursor: default;
     }
 
@@ -308,7 +310,7 @@ body {
       background-position: center;
       background-size: 50%;
       width: 32px;
-      height: 32px;
+      height: 32px !important;
       display: inline-block;
       transition: 0.25s;
 
@@ -623,6 +625,11 @@ aside {
   h3 {
     width: 100%;
   }
+  
+  header:has(a) h3{
+    width: auto;
+  }
+  
 
   ul {
     flex-direction: column;

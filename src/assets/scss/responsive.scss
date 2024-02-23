@@ -2390,4 +2390,26 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       }
     }
   }
+
+  .content-google-ads {
+
+    .section-account {
+      background-color: white;
+
+      .articles {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 1rem;
+
+        article {
+          flex: 0 0 auto;
+          width: auto;
+          min-width: 60vw;
+          max-width: 80vw;
+          scroll-snap-align: start;
+        }
+      }
+    }
+  }
 }
