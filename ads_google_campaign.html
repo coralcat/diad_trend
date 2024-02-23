@@ -197,418 +197,170 @@
     </div>
     <ul class="tabs main-tabs">
       <li data-tab="sub-menu">대시보드</li>
-      <li data-tab="sub-menu" class="is-active">계정+</li>
+      <li onclick="location.href='ads_google.html'" data-tab="sub-menu">계정+</li>
       <li data-tab="sub-menu">피드+</li>
-      <li onclick="location.href='ads_google_campaign.html'" data-tab="sub-menu">캠페인</li>
+      <li data-tab="sub-menu" class="is-active">캠페인</li>
       <li data-tab="sub-menu">리포트</li>
       <li data-tab="sub-menu">설정</li>
     </ul>
     <strong data-title="총" class="cases">1</strong>
   </header>
-  <section class="section-account expires-soon">
+  <section class="section-main">
     <header>
-      <div class="url">
-        <h2>
-          <a href="ads_google_details.html">
-            https://www.diad.co.kr
-          </a>
-        </h2>
-        <button class="btn-remove"></button>
+      <div class="title">
+        <h2>계정별 현황</h2>
       </div>
-      <strong data-title="등록일: ">2023.06.01</strong>
     </header>
-    <div class="articles">
-      <article>
-        <header>
-          <h2>판매자 센터</h2>
-        </header>
-        <div class="account">
-          <div class="information">
-            <!-- <span class="tag">활성</span>
-              <span class="tag">정지</span> -->
-            <span class="tag pending" data-tooltip="googlePending">대기</span>
-            <h4>
-              <small>123456789</small>
-              다이애드
-            </h4>
+    <div class="list" data-toggle="extends">
+      <ul class="row title">
+        <li title="계정" class="ico-sort">계정</li>
+        <li title="캠페인 수 (On/전체)" class="ico-sort">캠페인 수 (On/전체)</li>
+        <li title="총 예산" class="ico-sort">총 예산</li>
+        <li title="광고비용" class="ico-sort">광고비용</li>
+      </ul>
+      <ul class="row">
+        <li title="계정">
+          <div class="">
+            <span>123-456-7890</span>
+            <span>diad-230800001-다이애드</span>
           </div>
-          <button data-modal="accountIssues">계정 이슈</button>
-        </div>
-        <ul>
-          <li>
-            <div>
-              <span class="tag" data-title="필수"></span>
-              웹사이트 인증
-            </div>
-            <div>
-              <button data-modal="googleWebsite">인증하기</button>
-            </div>
-          </li>
-          <li>
-            <div>
-              <span class="tag" data-title="필수"></span>
-              전화번호 인증
-            </div>
-            <div>
-              <button data-modal="googlePhoneNumber" disabled>인증완료</button>
-            </div>
-          </li>
-          <li>
-            <div>
-              <span class="tag" data-title="필수"></span>
-              배송 정보 등록
-            </div>
-            <div>
-              <button data-modal="googleShipping">등록하기</button>
-            </div>
-          </li>
-        </ul>
-      </article>
-      <article class="feeds">
-        <header>
-          <h2>상품 피드</h2>
-          <div class="filters">
-            <strong data-title="업로드: ">매주 월요일 00:00</strong>
-            <strong data-title="마지막 업로드: ">2023.08.21</strong>
+          <span class="tag">활성</span>
+        </li>
+        <li title="캠페인 수 (On/전체)">
+          1/1
+          <button>보기</button>
+        </li>
+        <li title="총 예산">
+          <span class="price">20,000 / 일</span>
+        </li>
+        <li title="광고비용">
+          <span class="price">266,355</span>
+        </li>
+      </ul>
+      <ul class="row">
+        <li title="계정">
+          <div class="">
+            <span>123-456-7890</span>
+            <span>diad-230800002-가비아씨엔에스</span>
           </div>
-        </header>
-        <div class="account">
-          <div class="information">
-            <h4>피드1</h4>
-          </div>
-          <button onclick="location.href='ads_google_feed.html'">보기</button>
-        </div>
-        <!-- <div class="account">
-            <button data-modal="productFeed">연동하기</button>
-          </div> -->
-        <header>
-          <div class="filters">
-            <strong data-title="총 상품: " class="cases">3,538</strong>
-            <strong data-title="업데이트: ">2023-08-21 15:00</strong>
-          </div>
-        </header>
-        <ul>
-          <li>
-            <div>활성</div>
-            <div class="cases">3,508</div>
-          </li>
-          <li>
-            <div>비승인</div>
-            <div class="cases">15</div>
-          </li>
-          <li>
-            <div>대기</div>
-            <div class="cases">15</div>
-          </li>
-        </ul>
-      </article>
-      <article>
-        <header>
-          <h2>구글 애즈</h2>
-        </header>
-        <div class="account">
-          <button data-modal="googleAds">생성하기</button>
-        </div>
-        <ul>
-          <li>
-            <div>
-              <span class="tag" data-title="필수"></span>
-              전환
-            </div>
-            <div>
-              <button onclick="location.href='ads_google_conversion.html'">관리하기</button>
-            </div>
-          </li>
-          <li>
-            <div>
-              <span class="tag" data-title="필수"></span>
-              액세스 초대 수락
-            </div>
-            <div>
-              <button data-modal="accessInvitaion">수락하기</button>
-            </div>
-          </li>
-          <li>
-            <div>
-              <span class="tag" data-title="필수"></span>
-              결제 설정
-            </div>
-            <div>
-              <button>설정하기</button>
-            </div>
-          </li>
-        </ul>
-      </article>
-      <article class="free">
-        <header>
-          <h2>
-            <a href="">무료 목록 현황</a>
-          </h2>
-          <div class="filters">
-            <span data-title="무료 목록 기준" class="tag"></span>
-            <span class="date">2023-08-20 ( ↔ 2023-08-19 )</span>
-          </div>
-        </header>
-        <ul class="row title">
-          <li>
-            <div>노출수</div>
-            <div>
-              <strong class="cases">241,321</strong>
-              <span class="percent up">21.22</span>
-            </div>
-          </li>
-          <li>
-            <div>클릭수</div>
-            <div>
-              <strong class="cases">24,132</strong>
-              <span class="percent down">3.15</span>
-            </div>
-          </li>
-          <li>
-            <div>클릭률(CTR)</div>
-            <div>
-              <strong class="percent">10.00</strong>
-              <div>
-                <span class="percent">0.0</span>p
-              </div>
-            </div>
-          </li>
-          <li>
-            <div>전환수</div>
-            <div>
-              <strong class="cases">241,321</strong>
-              <span class="percent up">21.22</span>
-            </div>
-          </li>
-          <li>
-            <div>전환율</div>
-            <div>
-              <strong class="percent">10.00</strong>
-              <div>
-                <span class="percent">0.0</span>p
-              </div>
-            </div>
-          </li>
-          <li>
-            <div>전환가치</div>
-            <div>
-              <strong class="cases">241,321.00</strong>
-              <span class="percent up">21.22</span>
-            </div>
-          </li>
-        </ul>
-      </article>
+          <span class="tag">활성</span>
+        </li>
+        <li title="캠페인 수 (On/전체)">
+          0/2
+          <button>보기</button>
+        </li>
+        <li title="총 예산">
+          <span class="price">20,000 / 일</span>
+        </li>
+        <li title="광고비용">
+          <span class="price">266,355</span>
+        </li>
+      </ul>
     </div>
-    <div class="expires">
-      <div>
-        <h3>
-          <span class="tag d-day">7</span>
-          2023.09.27 삭제 예정
-        </h3>
-        <div class="buttons">
-          <button>즉시 삭제하기</button>
-          <button class="btn-main">다시 사용하기</button>
-        </div>
-      </div>
-    </div>
+    <dl class="caution">
+      <dd>
+        다이애드에서 생성한 광고만 확인 가능하며, 다이애드 외부에서 생성한 광고나 설정한 값은 다이애드에서 확인하실 수 없습니다.
+      </dd>
+      <dd>
+        결제 프로필 생성, 결제 설정, 광고비 충전, 잔액 확인 등 광고비 결제 관련 내용은 다이애드가 아닌 Google Ads에서 진행 가능합니다.
+      </dd>
+      <dd>캠페인 삭제는 정지 상태에서만 가능합니다.</dd>
+    </dl>
   </section>
-  <section class="section-account">
+  <section>
     <header>
-      <div class="url">
+      <div class="title">
         <h2>
-          <a href="ads_google_details.html">
-            https://www.diad.co.kr
-          </a>
+          캠페인 목록
         </h2>
-        <button class="btn-remove"></button>
+        <div class="filters">
+          <button onclick="location.href='ads_google_campaign_new.html'">캠페인 생성</button>
+        </div>
       </div>
-      <strong data-title="등록일: ">2023.06.01</strong>
+      <div class="filters">
+        <div class="selector">
+          <input type="radio" id="list-all" name="listTabs-power-link" checked="">
+          <label for="list-all">전체
+            <span class="tag">4</span>
+          </label>
+          <input type="radio" id="list-live-normal" name="listTabs-power-link">
+          <label for="list-live-normal">활성
+            <span class="tag">2</span>
+          </label>
+          <input type="radio" id="list-live-advanced" name="listTabs-power-link">
+          <label for="list-live-advanced">
+            대기
+            <span class="tag">0</span>
+          </label>
+          <input type="radio" id="list-regular-normal" name="listTabs-power-link">
+          <label for="list-regular-normal">
+            비승인
+            <span class="tag">2</span>
+          </label>
+        </div>
+        <div class="filters">
+          <span data-title="무료 목록 기준" class="tag"></span>
+          <span>2023-08-20</span>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="100개씩 보기">100개씩 보기</option>
+            </select>
+          </div>
+        </div>
+      </div>
     </header>
-    <div class="articles">
-      <article>
-        <header>
-          <h2>판매자 센터</h2>
-        </header>
-        <div class="account">
-          <div class="information">
-            <!-- <span class="tag">활성</span>
-              <span class="tag">정지</span> -->
-            <span class="tag pending" data-tooltip="googlePending">대기</span>
-            <h4>
-              <small>123456789</small>
-              다이애드
-            </h4>
+    <div class="list" data-toggle="extends">
+      <ul class="row title">
+        <li title="캠페인" class="ico-sort">캠페인</li>
+        <li title="유형" class="ico-sort">유형</li>
+        <li title="On/Off" class="ico-sort">On/Off</li>
+        <li title="상태" class="ico-sort">상태</li>
+        <li title="일 예산" class="ico-sort">일 예산</li>
+        <li title="시작일" class="  ico-sort">시작일</li>
+        <li title="종료일" class="  ico-sort">종료일</li>
+        <li title="구글 애즈" class=" ico-sort">구글 애즈</li>
+        <li title="판매자센터" class="  ico-sort">판매자센터</li>
+        <li title="쇼핑몰 URL" class="  ico-sort">쇼핑몰 URL</li>
+        <li title="등록일시" class="  ico-sort">등록일시</li>
+      </ul>
+      <ul class="row">
+        <li title="캠페인">
+          <div>1234567890</div>
+          <div>김마켓_구글쇼핑표준_230822</div>
+        </li>
+        <li title="유형">
+          표준
+        </li>
+        <li title="On/Off">
+          <div class="toggle-switch">
+            <input id="toggle-state" type="checkbox">
+            <label for="toggle-state"></label>
           </div>
-          <button data-modal="accountIssues">계정 이슈</button>
-        </div>
-        <ul>
-          <li>
-            <div>
-              <span class="tag" data-title="필수"></span>
-              웹사이트 인증
-            </div>
-            <div>
-              <button data-modal="googleWebsite">인증하기</button>
-            </div>
-          </li>
-          <li>
-            <div>
-              <span class="tag" data-title="필수"></span>
-              전화번호 인증
-            </div>
-            <div>
-              <button data-modal="googlePhoneNumber" disabled>인증완료</button>
-            </div>
-          </li>
-          <li>
-            <div>
-              <span class="tag" data-title="필수"></span>
-              배송 정보 등록
-            </div>
-            <div>
-              <button data-modal="googleShipping">등록하기</button>
-            </div>
-          </li>
-        </ul>
-      </article>
-      <article class="feeds">
-        <header>
-          <h2>상품 피드</h2>
-          <div class="filters">
-            <strong data-title="업로드: ">매주 월요일 00:00</strong>
-            <strong data-title="마지막 업로드: ">2023.08.21</strong>
-          </div>
-        </header>
-        <div class="account">
-          <div class="information">
-            <h4>피드1</h4>
-          </div>
-          <button onclick="location.href='ads_google_feed.html'">보기</button>
-        </div>
-        <!-- <div class="account">
-            <button data-modal="productFeed">연동하기</button>
-          </div> -->
-        <header>
-          <div class="filters">
-            <strong data-title="총 상품: " class="cases">3,538</strong>
-            <strong data-title="업데이트: ">2023-08-21 15:00</strong>
-          </div>
-        </header>
-        <ul>
-          <li>
-            <div>활성</div>
-            <div class="cases">3,508</div>
-          </li>
-          <li>
-            <div>비승인</div>
-            <div class="cases">15</div>
-          </li>
-          <li>
-            <div>대기</div>
-            <div class="cases">15</div>
-          </li>
-        </ul>
-      </article>
-      <article>
-        <header>
-          <h2>구글 애즈</h2>
-        </header>
-        <div class="account">
-          <button data-modal="googleAds">생성하기</button>
-        </div>
-        <ul>
-          <li>
-            <div>
-              <span class="tag" data-title="필수"></span>
-              전환
-            </div>
-            <div>
-              <button onclick="location.href='ads_google_conversion.html'">관리하기</button>
-            </div>
-          </li>
-          <li>
-            <div>
-              <span class="tag" data-title="필수"></span>
-              액세스 초대 수락
-            </div>
-            <div>
-              <button data-modal="accessInvitaion">수락하기</button>
-            </div>
-          </li>
-          <li>
-            <div>
-              <span class="tag" data-title="필수"></span>
-              결제 설정
-            </div>
-            <div>
-              <button data-modal="googleAdsPayment">설정하기</button>
-            </div>
-          </li>
-        </ul>
-      </article>
-      <article class="free">
-        <header>
-          <h2>
-            <a href="">무료 목록 현황</a>
-          </h2>
-          <div class="filters">
-            <span data-title="무료 목록 기준" class="tag"></span>
-            <span class="date">2023-08-20 ( ↔ 2023-08-19 )</span>
-          </div>
-        </header>
-        <ul class="row title">
-          <li>
-            <div>노출수</div>
-            <div>
-              <strong class="cases">241,321</strong>
-              <span class="percent up">21.22</span>
-            </div>
-          </li>
-          <li>
-            <div>클릭수</div>
-            <div>
-              <strong class="cases">24,132</strong>
-              <span class="percent down">3.15</span>
-            </div>
-          </li>
-          <li>
-            <div>클릭률(CTR)</div>
-            <div>
-              <strong class="percent">10.00</strong>
-              <div>
-                <span class="percent">0.0</span>p
-              </div>
-            </div>
-          </li>
-          <li>
-            <div>전환수</div>
-            <div>
-              <strong class="cases">241,321</strong>
-              <span class="percent up">21.22</span>
-            </div>
-          </li>
-          <li>
-            <div>전환율</div>
-            <div>
-              <strong class="percent">10.00</strong>
-              <div>
-                <span class="percent">0.0</span>p
-              </div>
-            </div>
-          </li>
-          <li>
-            <div>전환가치</div>
-            <div>
-              <strong class="cases">241,321.00</strong>
-              <span class="percent up">21.22</span>
-            </div>
-          </li>
-        </ul>
-      </article>
+        </li>
+        <li title="상태">
+          운영
+        </li>
+        <li title="일 예산">
+          <span class="price">20,000</span>
+        </li>
+        <li title="시작일">
+          2024.02.23
+        </li>
+        <li title="종료일">
+          2024.06.30
+        </li>
+        <li title="구글 애즈">
+          <div>123-456-7890</div>
+          <div>diad-230800001-다이애드</div>
+        </li>
+        <li title="판매자센터">
+          <div>123456789</div>
+          <div>다이애드</div>
+        </li>
+        <li title="쇼핑몰 URL">https://www.diad.co.kr</li>
+        <li title="등록일시">2024.02.23 14:47</li>
+      </ul>
     </div>
-  </section>
-  <section class="section-add" onclick="location.href='ads_google_new.html'">
-    <i class="plus"></i>
   </section>
 </main>
 <div class="modals">
