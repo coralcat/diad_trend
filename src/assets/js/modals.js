@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const modalData = event.currentTarget.dataset.modal;
       const targetModal = document.getElementById(modalData);
       if (targetModal) {
+        console.log(targetModal)
         targetModal.classList.add("is-active");
         const modalButton = targetModal.querySelector("[data-modal]");
         modalButton &&
