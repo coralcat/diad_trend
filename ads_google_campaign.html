@@ -177,7 +177,7 @@
   </ul>
 </aside>
 
-<main class="content-google-ads">
+<main class="content-google-ads campaign">
   <header class="content-header">
     <div class="title">
       <h1>
@@ -220,8 +220,8 @@
       </ul>
       <ul class="row">
         <li title="계정">
-          <div class="">
-            <span>123-456-7890</span>
+          <div class="account">
+            <small>123-456-7890</small>
             <span>diad-230800001-다이애드</span>
           </div>
           <span class="tag">활성</span>
@@ -239,8 +239,8 @@
       </ul>
       <ul class="row">
         <li title="계정">
-          <div class="">
-            <span>123-456-7890</span>
+          <div class="account">
+            <small>123-456-7890</small>
             <span>diad-230800002-가비아씨엔에스</span>
           </div>
           <span class="tag">활성</span>
@@ -274,33 +274,29 @@
           캠페인 목록
         </h2>
         <div class="filters">
-          <button onclick="location.href='ads_google_campaign_new.html'">캠페인 생성</button>
+          <button data-modal="addCampaign">캠페인 생성</button>
         </div>
       </div>
       <div class="filters">
-        <div class="selector">
-          <input type="radio" id="list-all" name="listTabs-power-link" checked="">
-          <label for="list-all">전체
-            <span class="tag">4</span>
-          </label>
-          <input type="radio" id="list-live-normal" name="listTabs-power-link">
-          <label for="list-live-normal">활성
-            <span class="tag">2</span>
-          </label>
-          <input type="radio" id="list-live-advanced" name="listTabs-power-link">
-          <label for="list-live-advanced">
-            대기
-            <span class="tag">0</span>
-          </label>
-          <input type="radio" id="list-regular-normal" name="listTabs-power-link">
-          <label for="list-regular-normal">
-            비승인
-            <span class="tag">2</span>
-          </label>
+        <div class="accounts">
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">계정선택</option>
+              <option value="">diad-230800001-다이애드</option>
+              <option value="">diad-230800002-가비아씨엔에스</option>
+            </select>
+          </div>
         </div>
-        <div class="filters">
-          <span data-title="무료 목록 기준" class="tag"></span>
-          <span>2023-08-20</span>
+        <div class="filters" data-title="선택 관리">
+          <div class="selector">
+            <input type="checkbox" id="selected-on" name="selected-on-off" checked="">
+            <label for="selected-on">On</label>
+            <input type="checkbox" id="selected-off" name="selected-on-off">
+            <label for="selected-off">Off</label>
+            <input type="checkbox" id="selected-remove" name="selected-on-off">
+            <label for="selected-remove">삭제</label>
+          </div>
+          <span class="cases" data-title="총">5</span>
           <div class="selectbox">
             <select name="" id="">
               <option value="100개씩 보기">100개씩 보기</option>
@@ -7835,6 +7831,38 @@
             </li>
       </div>
       </section>
+      <footer class="buttons">
+        <button type="button">저장</button>
+      </footer>
+    </div>
+  </div>
+
+  <div id="addCampaign" class="modal modal-campaign is-active" title="캠페인 생성">
+    <div class="dialog">
+      <header class="modal-header">
+        <h3>어떤 캠페인을 생성할까요?</h3>
+        <div class="close"></div>
+      </header>
+      <div class="modal-content">
+        <section>
+          <div class="selector">
+            <div class="checkbox">
+              <input id="standard-ads" type="radio">
+              <label for="standard-ads">
+                <small>쇼핑 검색 광고만 하고 싶어요!</small>
+                <h3>표준 쇼핑 광고</h3>
+              </label>
+            </div>
+            <div class="checkbox">
+              <input id="maximize-ads" type="radio">
+              <label for="maximize-ads">
+                <small>쇼핑 검색 뿐만 아니라 다양한 Google 광고 채널에 노출하고 싶어요!</small>
+                <h3>실적최대화 쇼핑 광고</h3>
+              </label>
+            </div>
+          </div>
+        </section>
+      </div>
       <footer class="buttons">
         <button type="button">저장</button>
       </footer>
