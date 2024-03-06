@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modalButton &&
           modalButton.addEventListener("click", () => {
             setTimeout(() => {
-              targetModal.querySelector("input").value = "";
+              targetModal.querySelector("input") && (targetModal.querySelector("input").value = "");
             }, 500);
           });
       }

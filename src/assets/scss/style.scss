@@ -2116,7 +2116,7 @@ main {
 
     &:not(.title):hover {
       li {
-        background-color: #EDECFB !important;
+        background-color: #edecfb !important;
       }
     }
 
@@ -2409,7 +2409,7 @@ main {
         white-space: nowrap;
       }
     }
-    
+
     [title="입찰목표"] {
       width: 170px !important;
     }
@@ -2512,8 +2512,8 @@ main {
             line-height: 1C;
           }
         }
-        
-        li[title=입찰목표]{
+
+        li[title="입찰목표"] {
           word-break: break-all;
         }
       }
@@ -2771,7 +2771,7 @@ main {
       }
     }
   }
-  
+
   .ico-filter {
     aspect-ratio: unset !important;
     background-position: left !important;
@@ -5193,11 +5193,11 @@ main {
         strong {
           align-items: center;
           max-width: 100%;
-          white-space:nowrap;
-          
-          [data-tooltip]{
+          white-space: nowrap;
+
+          [data-tooltip] {
             display: inline-flex;
-            top: -.4em;
+            top: -0.4em;
           }
         }
 
@@ -6545,13 +6545,14 @@ main {
 }
 
 .content-google-ads {
+  [title="캠페인"] {
+    width: 250px !important;
+    flex-wrap: nowrap !important;
+  }
 
   &.conversion {
-
     .list {
-
       span {
-
         &:first-of-type {
           flex: 0 0 auto;
           width: 140px;
@@ -6635,7 +6636,6 @@ main {
   }
 
   section {
-
     header {
       button {
         background-color: $secondary-color;
@@ -6674,7 +6674,7 @@ main {
         padding: 0 0.5rem;
         color: $main-color;
         font-size: 12px;
-        background: transparent;
+        background-color: transparent;
         text-decoration: underline;
         text-underline-offset: 3px;
         font-family: "NanumSquareR";
@@ -6840,14 +6840,11 @@ main {
   }
 
   .section-account {
-
     article {
-
       &.feeds {
-
         li {
           flex-direction: column;
-          gap: .5rem;
+          gap: 0.5rem;
           border: 0;
 
           .cases {
@@ -6859,8 +6856,8 @@ main {
           align-items: center;
           flex-direction: row;
           border: 1px solid #e3e6e9;
-          padding: .75rem;
-          border-radius: .5rem;
+          padding: 0.75rem;
+          border-radius: 0.5rem;
 
           strong {
             color: $main-color;
@@ -7177,9 +7174,71 @@ main {
   }
 
   &.campaign {
+    &.new {
+      section {
+        flex: 1 1 auto;
+        width: 100%;
+        max-width: none;
+      }
+    }
+
+    .campaigns {
+      .campaign {
+        position: absolute;
+        top: 5px;
+        left: 100%;
+        background-color: white;
+        border: 1px solid #e3e6e9;
+        border-radius: 0.5rem;
+        white-space: nowrap;
+      }
+
+      [title="캠페인"] {
+        input {
+          &[type="checkbox"] {
+            display: none;
+            &:checked {
+              ~ .campaign {
+                opacity: 1;
+                visibility: visible;
+                max-height: 999px;
+                z-index: 1;
+              }
+            }
+
+            ~ .campaign {
+              opacity: 0;
+              visibility: hidden;
+              max-height: 0;
+              padding: 1rem;
+              transition: opacity 0.25s;
+            }
+          }
+        }
+
+        .ico-more {
+          flex: 0 0 auto;
+          width: 20px;
+          aspect-ratio: 1;
+        }
+      }
+
+      li {
+        flex: 0 0 auto;
+        position: relative;
+      }
+
+      ul {
+        &:hover {
+          .ico-more {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+    }
 
     .section-main {
-     
       .account {
         background: transparent;
         padding: 0;

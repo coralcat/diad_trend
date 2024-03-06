@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('ads_google')}}
+<main class="content-google-ads campaign new">
+  <header class="content-header">
+    <div class="title">
+      <h1>
+        <span>구글 입점광고</span>
+        <div data-tooltip=""></div>
+      </h1>
+      {% include "account.html" %}
+    </div>
+    <ul class="tabs main-tabs">
+      <li data-tab="sub-menu">대시보드</li>
+      <li onclick="location.href='ads_google.html'" data-tab="sub-menu">계정+</li>
+      <li data-tab="sub-menu">피드+</li>
+      <li data-tab="sub-menu" class="is-active">캠페인</li>
+      <li data-tab="sub-menu">리포트</li>
+      <li data-tab="sub-menu">설정</li>
+    </ul>
+    <strong data-title="총" class="cases">1</strong>
+  </header>
+  <section>
+    <h2>
+      등록된 캠페인이 없습니다. 캠페인을 생성해 보세요!
+    </h2>
+    <div class="buttons">
+      <button data-modal="addCampaign">캠페인 생성</button>
+    </div>
+  </section>
+</main>
+{% include "modals.html" %}
+{% endblock %}

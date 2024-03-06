@@ -906,6 +906,16 @@ const tooltipContents = {
   deliveryTime: `
     상품 발송 후 배송완료까지 걸리는 시간
   `,
+
+  // 구글 광고그룹 상태
+  adsGroupStatus: `
+    표준 캠페인은 광고그룹, 실적최대화 캠페인은 애셋그룹 상태입니다.
+  `,
+
+  // 구글 광고 상태
+  adsStatus: `
+    표준 캠페인의 광고 상태로 실적최대화 캠페인은 해당 없습니다.
+  `
 };
 
 document.addEventListener("DOMContentLoaded", () => {

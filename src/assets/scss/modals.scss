@@ -453,10 +453,10 @@ $secondary-color: #f2f1ff;
       justify-content: space-between;
       padding: 0 0.5rem;
       position: relative;
-  
+
       &.list-add {
         background-color: #f3f6f9;
-    
+
         .plus {
           cursor: pointer;
           width: 100%;
@@ -472,16 +472,18 @@ $secondary-color: #f2f1ff;
             background-color: transparent;
             background-image: linear-gradient(#838689 0 0), linear-gradient(#838689 0 0);
             background-position: center;
-            background-size: 50% 2px, 2px 50%;
+            background-size:
+              50% 2px,
+              2px 50%;
             background-repeat: no-repeat;
           }
         }
-    
+
         &:hover {
           background-color: $secondary-color;
 
           .plus::before {
-            background-image: linear-gradient($main-color 0 0), linear-gradient($main-color 0 0)
+            background-image: linear-gradient($main-color 0 0), linear-gradient($main-color 0 0);
           }
         }
       }
@@ -498,7 +500,7 @@ $secondary-color: #f2f1ff;
       div {
         flex: 1 1 auto;
 
-        &[title=입찰시각]{
+        &[title="입찰시각"] {
           white-space: nowrap;
         }
       }
@@ -608,7 +610,7 @@ $secondary-color: #f2f1ff;
         align-items: center;
       }
 
-      &.impact{
+      &.impact {
         justify-content: flex-start;
         gap: 20px;
       }
@@ -1380,7 +1382,7 @@ $secondary-color: #f2f1ff;
   }
 
   &-calculate-bid-price {
-    .dialog{
+    .dialog {
       width: min(700px, 100%);
     }
     .filters {
@@ -1525,7 +1527,7 @@ $secondary-color: #f2f1ff;
 
           > *:first-of-type {
             flex: 0 0 auto;
-            width: 120px
+            width: 120px;
           }
 
           input {
@@ -1621,6 +1623,105 @@ $secondary-color: #f2f1ff;
 
     .list.form > li > :first-child {
       width: 100px;
+    }
+  }
+
+  &-campaign {
+    .selector {
+      input {
+        &:checked {
+          + label {
+            &::before {
+            }
+
+            &::after {
+              border-color: white;
+            }
+          }
+        }
+      }
+      label {
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 1rem;
+        display: flex;
+        gap: .5rem;
+        position: relative;
+        line-height: 1;
+        transition: 0.2s color;
+        cursor: pointer;
+
+        &::before,
+        &::after {
+          content: "" !important;
+        }
+
+        &::before {
+          flex: 0 0 auto;
+          box-shadow: 0 0 0 !important;
+          border-radius: 50%;
+          width: 24px;
+          height: 24px;
+          border: 1px solid #ddd !important;
+          background-color: rgba(255, 255, 255, 0.25) !important;
+          transition: 0.2s;
+        }
+
+        &::after {
+          width: 10px;
+          height: 6px;
+          position: absolute;
+          top: calc(50% - 2px);
+          left: 25px;
+          border: 2px solid #e3e6e9;
+          border-top: none;
+          border-right: none;
+          background: transparent;
+          opacity: 1;
+          transform: rotate(-45deg) translateY(-50%);
+        }
+      }
+    }
+
+    .section-ads {
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+      background: $secondary-color;
+      color: $main-color;
+      padding: 0.75rem 1rem 0.75rem 0.75rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 10px;
+        border: 2px solid $main-color;
+        border-left: 0;
+        border-bottom: 0;
+        transform: rotate(45deg);
+      }
+
+      h3 {
+        width: 3rem;
+        aspect-ratio: 1;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h4 {
+        margin-top: 5px;
+      }
+    }
+
+    .modal-content {
+      gap: 0;
     }
   }
 }
