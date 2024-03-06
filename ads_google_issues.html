@@ -181,7 +181,6 @@
   <header class="content-header">
     <div class="title">
       <h1>
-        <button class="btn-back" onclick="history.back()"></button>
         <span>이슈진단</span>
         <small class="tag">피드1</small>
       </h1>
@@ -7838,8 +7837,33 @@
     </div>
   </div>
 
-  <div id="addCampaign" class="modal modal-campaign is-active" title="캠페인 생성">
+  <div id="addCampaign" class="modal modal-campaign" title="캠페인 생성">
     <div class="dialog">
+      <header class="modal-header">
+        <h3>캠페인을 생성할 계정을 선택해 주세요.</h3>
+        <div class="close"></div>
+      </header>
+      <div class="modal-content">
+        <section>
+          <div class="selectbox">
+            <select>
+              <option>
+                <span class="tag">활성</span>
+                diad-230800001-다이애드
+                <span>( 123-456-7890 )</span>
+              </option>
+            </select>
+          </div>
+        </section>
+      </div>
+      <footer class="buttons">
+        <button type="button" data-modal="selectCampaign">다음</button>
+      </footer>
+    </div>
+  </div>
+
+  <div id="selectCampaign" class="modal modal-campaign" title="캠페인 생성">
+    <div class="dialog small">
       <header class="modal-header">
         <h3>어떤 캠페인을 생성할까요?</h3>
         <div class="close"></div>
@@ -7847,27 +7871,52 @@
       <div class="modal-content">
         <section>
           <div class="selector">
-            <div class="checkbox">
-              <input id="standard-ads" type="radio">
-              <label for="standard-ads">
+            <input id="standard-ads" type="radio" name="adsType">
+            <label for="standard-ads">
+              <div>
                 <small>쇼핑 검색 광고만 하고 싶어요!</small>
                 <h3>표준 쇼핑 광고</h3>
-              </label>
-            </div>
-            <div class="checkbox">
-              <input id="maximize-ads" type="radio">
-              <label for="maximize-ads">
+              </div>
+            </label>
+            <input id="maximize-ads" type="radio" name="adsType">
+            <label for="maximize-ads">
+              <div>
                 <small>쇼핑 검색 뿐만 아니라 다양한 Google 광고 채널에 노출하고 싶어요!</small>
                 <h3>실적최대화 쇼핑 광고</h3>
-              </label>
-            </div>
+              </div>
+            </label>
+          </div>
+        </section>
+        <section class="section-ads">
+          <h3>1:1</h3>
+          <div>
+            <small>광고를 잘 하고 싶어요!</small>
+            <small>가비아CNS의 마케팅 전문가와 함께 하세요.</small>
+            <h4>맞춤 광고 대행 서비스</h4>
           </div>
         </section>
       </div>
       <footer class="buttons">
-        <button type="button">저장</button>
+        <button type="button" data-modal="campaignName">다음</button>
       </footer>
     </div>
+  </div>
+</div>
+
+<div id="campaignName" class="modal modal-campaign" title="캠페인 생성">
+  <div class="dialog small">
+    <header class="modal-header">
+      <h3>캠페인 이름을 입력해 주세요.</h3>
+      <div class="close"></div>
+    </header>
+    <div class="modal-content">
+      <section>
+        <input type="text" />
+      </section>
+    </div>
+    <footer class="buttons">
+      <button type="button">다음</button>
+    </footer>
   </div>
 </div>
 </div>
