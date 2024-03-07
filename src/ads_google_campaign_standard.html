@@ -1,0 +1,114 @@
+{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('ads_google')}}
+<main class="content-google-ads settings">
+  <header class="content-header">
+    <div class="title">
+      <h1 data-title="표준 캠페인 생성">
+        <input type="text" value="김마켓_구글쇼핑표준_230822">
+      </h1>
+      <div class="buttons">
+        <button onclick="history.back()">나가기</button>
+        <button class="btn-main">저장</button>
+        <button disabled>캠페인 생성</button>
+      </div>
+    </div>
+  </header>
+  <div class="wrapper">
+    <div class="sections">
+      <section>
+        <h2>
+          상품 설정
+        </h2>
+        <ul class="list form">
+          <li>
+            <div>
+              광고 상품 설정
+              <div data-tooltip="adsSettings"></div>
+            </div>
+            <div style="flex: 1 1 auto">
+              <div class="toggle-switch">
+                <input id="toggle-state" type="checkbox">
+                <label for="toggle-state"></label>
+              </div>
+              <div>
+                선택
+                <span data-title="상품 수">0</span>
+                <span data-title="활성">0</span>
+              </div>
+            </div>
+            <div class="options">
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">조건 유형 선택</option>
+                  <option value="">상품유형</option>
+                  <option value="">맞춤 라벨 0</option>
+                  <option value="">맞춤 라벨 1</option>
+                  <option value="">맞춤 라벨 2</option>
+                  <option value="">맞춤 라벨 3</option>
+                  <option value="">맞춤 라벨 4</option>
+                </select>
+              </div>
+              <div class="search">
+                <input type="search" placeholder="검색어를 입력해 주세요.">
+                <button type="button"></button>
+                <div class="more">
+                  <div>
+                    <ul>
+                      <li>
+                        홈 > 여성 > 드레스 > 맥시 드레스
+                      </li>
+                      <li>상품 수: 54</li>
+                      <li>승인: 54</li>
+                      <li>
+                        <button class="ico-search"></button>
+                        <button class="ico-plus"></button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="tags">
+                <span>
+                  맞춤라벨 1 : 가을
+                  <i class="x"></i>
+                </span>
+                <span>
+                  맞춤라벨 2 : 빅세일
+                  <i class="x"></i>
+                </span>
+                <span>
+                  상품유형 : 전자기기 > 컴퓨터 > 노트북
+                  <i class="x"></i>
+                </span>
+              </div>
+              <div class="caution">
+                현재 조건에 맞는 상품이 없습니다. 캠페인을 저장하더라도 판매자 센터에서 상품 데이터를 업데이트하지 않거나 광고 상품 설정에서 조건을 변경하지 않으면 상품이 포함되지 않습니다.
+              </div>
+            </div>
+          </li>
+        </ul>
+        <h2>
+          캠페인 설정
+        </h2>
+        <ul class="list form">
+          <li>
+            <div>
+              전환목표
+            </div>
+          </li>
+          <li>
+            <div class="accordion">
+              <div class="toggle-switch">
+                <input id="toggle-state" type="checkbox">
+                <label for="toggle-state"></label>
+              </div>
+              전환 목표
+              전환 액션
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</main>
+{% include "modals.html" %}
+{% endblock %}

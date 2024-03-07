@@ -6550,6 +6550,65 @@ main {
     flex-wrap: nowrap !important;
   }
 
+  &.settings {
+    section {
+      padding: 1rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .more {
+      position: absolute;
+      top: 100%;
+      background: white;
+      z-index: 1;
+      padding: 1rem;
+
+      ul {
+        display: flex;
+      }
+    }
+
+    .tags {
+      width: 100% !important;
+
+      span {
+        background-color: white;
+        padding: 0.5rem;
+        color: slategray;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .x {
+        position: relative;
+        top: auto;
+        right: 0;
+        cursor: pointer;
+      }
+    }
+
+    .caution {
+      background-color: white;
+
+      &::before {
+        top: 11px;
+      }
+    }
+
+    .options {
+      width: 100%;
+      background-color: #f3f6f9;
+      padding: 0.75rem;
+
+      .search {
+        flex: 1 1 auto;
+      }
+    }
+  }
+
   &.conversion {
     .list {
       span {
