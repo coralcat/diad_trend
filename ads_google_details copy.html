@@ -181,204 +181,224 @@
   <header class="content-header">
     <div class="title">
       <h1>
-        <input type="text" value="페이지 조회 [기본]">
-        <button class="btn-remove"></button>
+        <input type="text" value="https://www.diad.co.kr">
       </h1>
-      <div href="#" class="account" target="_blank">
-  <menu>coralcat</menu>
-  <nav>
-    <ul>
-      <li onclick="location.href='accounts.html'">계정 설정</li>
-      <li onclick="location.href='settings.html'">알림 설정</li>
-      <li>로그아웃</li>
-    </ul>
-  </nav>
-</div>
-    </div>
-    <ul class="tabs main-tabs">
-      <li data-tab="sub-menu" class="is-active">기본 정보</li>
-      <li data-tab="sub-menu">태그</li>
-    </ul>
-    <div class="buttons">
-      <button class="btn-main">저장</button>
+      <div class="buttons">
+        <button class="">삭제</button>
+        <button class="btn-main">저장</button>
+      </div>
     </div>
   </header>
-  <section class="tab-content is-active" data-tab="sub-menu">
-    <ul class="list form">
-      <li>
-        <div>
-          <span class="tag" data-title="필수"></span>
-          전환 목표
-        </div>
-        <div>
-          <div class="selectbox">
-            <select name="" id="">
-              <option value="">페이지 조회</option>
-              <option value="">회원가입</option>
-              <option value="">장바구니 담기</option>
-              <option value="">결제 시작</option>
-              <option value="">구매 완료</option>
-              <option value="">기타</option>
-            </select>
+  <div class="wrapper">
+    <aside>
+      <section class="section-account">
+        <header>
+          <h2>판매자 센터</h2>
+        </header>
+        <div class="account">
+          <div class="information">
+            <!-- <span class="tag">활성</span>
+                <span class="tag">정지</span> -->
+            <span class="tag pending" data-tooltip="googlePending">대기</span>
+            <h4>
+              <small>123456789</small>
+              다이애드
+            </h4>
           </div>
-          <div class="goal">
-            입찰 최적화에 사용 여부
-            <input id="defaultConversionGoal" name="ConversionGoal" type="radio" checked />
-            <label for="defaultConversionGoal" style="margin-left: 1rem;">사용 (기본 액션)</label>
-            <input id="subConversionGoal" name="ConversionGoal" type="radio" />
-            <label for="subConversionGoal">미사용 (보조 액션)</label>
-          </div>
-          <div class="caution">
-            <p>기본 액션은 입찰 최적화에 사용되면, 성과는 ‘전환수’에서 확인 가능합니다.</p>
-            <p>보조 액션은 입찰 최적화에 사용되지 않고, 성과는 ‘모든 전환수’에서만 확인 가능합니다.</p>
-          </div>
+          <button data-modal="accountIssues">계정 이슈</button>
         </div>
-      </li>
-      <li>
-        <div>
-          <span class="tag" data-title="필수"></span>
-          추적 이벤트
-          <div data-tooltip="trackingEvent"></div>
-        </div>
-        <div>
-          <input id="pageLoad" type="radio" name="trackingEvent" checked />
-          <label for="pageLoad">페이지 로드</label>
-          <input id="click" type="radio" name="trackingEvent" />
-          <label for="click">클릭</label>
-        </div>
-      </li>
-      <li>
-        <div>
-          <span class="tag" data-title="필수"></span>
-          전환 가치
-          <div data-tooltip="conversionValue"></div>
-        </div>
-        <div class="conversion-value">
-          <input id="same" type="radio" name="conversionValues" checked />
-          <label for="same">모든 전환 동일</label>
-          <input id="different" type="radio" name="conversionValues" />
-          <label for="different">전환별 다름</label>
-          <input id="notUsed" type="radio" name="conversionValues" />
-          <label for="notUsed">사용하지 않음</label>
-          <div class="options">
-            전환 가치
-            <input type="number" />
-            <div class="selectbox">
-              <select name="" id="">
-                <option value="">대한민국 (원)</option>
-                <option value="">통화를 설정하지 않음</option>
-              </select>
+        <ul>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              웹사이트 인증
             </div>
-          </div>
+            <div>
+              <div class="checkbox">
+                <input type="checkbox" id="googleWebsite" checked disabled />
+                <label for="googleWebsite">https://www.diad.co.kr</label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              전화번호 인증
+            </div>
+            <div>
+              <div class="checkbox">
+                <input type="checkbox" id="googleWebsite" checked disabled />
+                <label for="googleWebsite">010-1234-1234</label>
+              </div>
+              <button data-modal="googlePhoneNumber">수정</button>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              배송 정보 등록
+            </div>
+            <div class="checkbox">
+              <input type="checkbox" id="shipInformation" checked="" disabled="">
+              <label for="shipInformation">등록완료</label>
+            </div>
+            <article>
+              <div>
+                <span>이름</span>
+                <span>다이애드 배송</span>
+              </div>
+              <div>
+                <span>배송시간</span>
+                <span>운송시간 1~2일, 발송일 월 ~ 토</span>
+                <button data-modal="googleShipping">상세</button>
+              </div>
+              <div>
+                <span>배송비</span>
+                <span>차등 배송비 ( |0 \ ~ 3,000 \ )</span>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </section>
+      <section class="section-account">
+        <header>
+          <h2>상품 피드</h2>
+        </header>
+        <div class="account">
+          <button data-modal="productFeed">연동하기</button>
         </div>
-      </li>
-      <li>
-        <div>
-          <span class="tag" data-title="필수"></span>
-          상호작용 당 전환 횟수
+      </section>
+      <section class="section-account">
+        <header>
+          <h2>구글 애즈</h2>
+        </header>
+        <div class="account">
+          <button data-modal="googleAds">생성하기</button>
         </div>
-        <div>
-          <input id="everytime" type="radio" name="conversionTimes" checked />
-          <label for="everytime">
-            매회
-            <small>각 상호작용이 모두 가치가 있을 때 (예: 구매) 권장</small>
-          </label>
-          <input id="once" type="radio" name="conversionTimes" />
-          <label for="once">
-            1회
-            <small>첫 번째 상호작용만 가치가 있을 때 (예: 가입) 권장</small>
-          </label>
-        </div>
-      </li>
-      <li>
-        <div>
-          <span class="tag" data-title="필수"></span>
-          클릭 추적 기간
-          <div data-tooltip="clickTrackingPeriod"></div>
-        </div>
-        <div>
-          <input type="number" value="30" />일
-          <small>
-            <span class="tag" data-title="Tip"></span>
-            기간은 7일 이상을 사용하는 것을 권장합니다.
-          </small>
-        </div>
-      </li>
-      <li>
-        <div>
-          <span class="tag" data-title="필수"></span>
-          조회 추적 기간
-          <div data-tooltip="viewTrackingPeriod"></div>
-        </div>
-        <div>
-          <input type="number" value="1" />일
-        </div>
-      </li>
-      <li>
-        <div>
-          <span class="tag" data-title="필수"></span>
-          기여 분석
-          <div data-tooltip=""></div>
-        </div>
-        <div>
-          <div class="selectbox">
-            <select name="" id="">
-              <option value="">데이터 기반</option>
-            </select>
-          </div>
-          <small>
-            <span class="tag" data-title="Tip"></span>
-            정확한 전환 기여 분석을 원하시면 데이터 기반 모델을 권장합니다.
-          </small>
-        </div>
-      </li>
-    </ul>
-  </section>
-  <div class="tab-content" data-tab="sub-menu">
-    <section data-tab="sub-menu" style="flex: 0 0 auto;">
-      <header>
-        <div class="inputs">
-          <h2>Google 태그</h2>
-          <span class="selector">
-            <input id="not-installed" type="radio" name="googleTag" checked>
-            <label for="not-installed" data-tab="codes">Google 태그가 설치되어 있지 않음</label>
-            <input id="installed" type="radio" name="googleTag">
-            <label for="installed" data-tab="codes">다른 Google 제품 또는 다른 Google Ads 계정의 Google 태그가 이미 설치되어 있음</label>
-          </span>
-        </div>
-        <button class="btn-copy"></button>
-      </header>
-      <textarea class="codes is-active" rows="9" data-tab="codes" readonly>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11304375904"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
-
-  gtag('config', 'AW-11304375904');
-</script></textarea>
-      <div class="caution">태그를 복사한 후 웹사이트에서 모든 페이지의
-
-        <head></head> 태그 사이에 붙여 넣으세요. 여러 액션을 추적 중인 경우에도 계정당 한 번만 Google 태그를 설치하면 됩니다.
-      </div>
-    </section>
-    <section data-tab="sub-menu" style="flex: 0 0 auto;">
-      <header>
-        <h2>이벤트 스니펫</h2>
-        <button class="btn-copy"></button>
-      </header>
-      <textarea class="codes" rows="4" readonly>
-<!-- Event snippet for 페이지 조회 기본 conversion page -->
-<script>
-  gtag('event', 'conversion', { 'send_to': 'AW-11304375904/buEQCOid09wYEOCsrI4q' });
-</script></textarea>
-      <div class="caution">
-        스니펫을 복사한 후, 추적할 페이지(전환을 완료하면 고객에게 표시되는 페이지)의
-
-        <head></head> 태그 사이, Google 태그 바로 다음에 붙여 넣으세요.
-      </div>
-    </section>
+        <ul>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              전환
+            </div>
+            <div>
+              <button onclick="location.href='ads_google_conversion.html'">관리</button>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              액세스 초대 수락
+            </div>
+            <div>
+              <div class="checkbox">
+                <input type="checkbox" id="googleWebsite" checked disabled />
+                <label for="googleWebsite">abc123@gmail.com</label>
+              </div>
+              <button data-modal="accessInvitaion">수락</button>
+              <button data-modal="accessAuthorization">수락 완료</button>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              결제 설정
+            </div>
+            <div>
+              <button data-modal="googleAdsPayment">설정</button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </aside>
+    <div class="sections">
+      <section>
+        <header>
+          <h2>
+            비즈니스 정보
+          </h2>
+        </header>
+        <ul class="list form">
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              상점명
+            </div>
+            <div>
+              <input type="text" value="다이애드" />
+              <small>
+                상점명 수정 시 변경된 상점명은 연동된 상품 피드의 다음 업데이트 일정 이후부터 반영됩니다.
+              </small>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              비즈니스 주소
+            </div>
+          </li>
+          <li>
+            <div>우편번호</div>
+            <div>
+              <input type="text" placeholder="13494" readonly />
+              <button>우편번호 검색</button>
+            </div>
+          </li>
+          <li>
+            <div>시/도</div>
+            <div>
+              <input type="text" placeholder="경기도" readonly />
+            </div>
+          </li>
+          <li>
+            <div>시/군/구</div>
+            <div>
+              <input type="text" placeholder="성남시" readonly />
+            </div>
+          </li>
+          <li>
+            <div>상세주소</div>
+            <div>
+              <input type="text" placeholder="대왕판교로 670 (유스페이스2)" readonly />
+              <input type="text" placeholder="Behd 322, 323호" />
+            </div>
+          </li>
+          <li>
+            <div>
+              <h2>고객 서비스</h2>
+            </div>
+            <div>고객 서비스 연락처</div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="선택"></span>
+              대표 이메일
+            </div>
+            <div>
+              <input type="email" value="diad@gabiacns.com" />
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="선택"></span>
+              대표 전화번호
+            </div>
+            <div>
+              <input type="tel" value="16444527" />
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="tag" data-title="필수"></span>
+              사업자등록번호
+            </div>
+            <div>
+              <input type="number" value="1138618829" />
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
   </div>
 </main>
 <div class="modals">
@@ -7937,7 +7957,7 @@
       </section>
     </div>
     <footer class="buttons">
-      <button onclick="location.href='ads_google_campaign_standard.html'" type="button">다음</button>
+      <button type="button">다음</button>
     </footer>
   </div>
 </div>

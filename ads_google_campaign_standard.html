@@ -177,208 +177,203 @@
   </ul>
 </aside>
 
-<main class="content-google-ads">
+<main class="content-google-ads settings">
   <header class="content-header">
     <div class="title">
-      <h1>
-        <input type="text" value="페이지 조회 [기본]">
-        <button class="btn-remove"></button>
+      <h1 data-title="표준 캠페인 생성">
+        <input type="text" value="김마켓_구글쇼핑표준_230822">
       </h1>
-      <div href="#" class="account" target="_blank">
-  <menu>coralcat</menu>
-  <nav>
-    <ul>
-      <li onclick="location.href='accounts.html'">계정 설정</li>
-      <li onclick="location.href='settings.html'">알림 설정</li>
-      <li>로그아웃</li>
-    </ul>
-  </nav>
-</div>
-    </div>
-    <ul class="tabs main-tabs">
-      <li data-tab="sub-menu" class="is-active">기본 정보</li>
-      <li data-tab="sub-menu">태그</li>
-    </ul>
-    <div class="buttons">
-      <button class="btn-main">저장</button>
+      <div class="buttons">
+        <button onclick="history.back()">나가기</button>
+        <button class="btn-main">저장</button>
+        <button disabled>캠페인 생성</button>
+      </div>
     </div>
   </header>
-  <section class="tab-content is-active" data-tab="sub-menu">
-    <ul class="list form">
-      <li>
-        <div>
-          <span class="tag" data-title="필수"></span>
-          전환 목표
-        </div>
-        <div>
-          <div class="selectbox">
-            <select name="" id="">
-              <option value="">페이지 조회</option>
-              <option value="">회원가입</option>
-              <option value="">장바구니 담기</option>
-              <option value="">결제 시작</option>
-              <option value="">구매 완료</option>
-              <option value="">기타</option>
-            </select>
-          </div>
-          <div class="goal">
-            입찰 최적화에 사용 여부
-            <input id="defaultConversionGoal" name="ConversionGoal" type="radio" checked />
-            <label for="defaultConversionGoal" style="margin-left: 1rem;">사용 (기본 액션)</label>
-            <input id="subConversionGoal" name="ConversionGoal" type="radio" />
-            <label for="subConversionGoal">미사용 (보조 액션)</label>
-          </div>
-          <div class="caution">
-            <p>기본 액션은 입찰 최적화에 사용되면, 성과는 ‘전환수’에서 확인 가능합니다.</p>
-            <p>보조 액션은 입찰 최적화에 사용되지 않고, 성과는 ‘모든 전환수’에서만 확인 가능합니다.</p>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div>
-          <span class="tag" data-title="필수"></span>
-          추적 이벤트
-          <div data-tooltip="trackingEvent"></div>
-        </div>
-        <div>
-          <input id="pageLoad" type="radio" name="trackingEvent" checked />
-          <label for="pageLoad">페이지 로드</label>
-          <input id="click" type="radio" name="trackingEvent" />
-          <label for="click">클릭</label>
-        </div>
-      </li>
-      <li>
-        <div>
-          <span class="tag" data-title="필수"></span>
-          전환 가치
-          <div data-tooltip="conversionValue"></div>
-        </div>
-        <div class="conversion-value">
-          <input id="same" type="radio" name="conversionValues" checked />
-          <label for="same">모든 전환 동일</label>
-          <input id="different" type="radio" name="conversionValues" />
-          <label for="different">전환별 다름</label>
-          <input id="notUsed" type="radio" name="conversionValues" />
-          <label for="notUsed">사용하지 않음</label>
-          <div class="options">
-            전환 가치
-            <input type="number" />
-            <div class="selectbox">
-              <select name="" id="">
-                <option value="">대한민국 (원)</option>
-                <option value="">통화를 설정하지 않음</option>
-              </select>
+  <div class="wrapper">
+    <div class="sections">
+      <section>
+        <h2>
+          상품 설정
+        </h2>
+        <ul class="list form">
+          <li>
+            <div>
+              광고 상품 설정
+              <span data-tooltip="adsSettings"></span>
             </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div>
-          <span class="tag" data-title="필수"></span>
-          상호작용 당 전환 횟수
-        </div>
-        <div>
-          <input id="everytime" type="radio" name="conversionTimes" checked />
-          <label for="everytime">
-            매회
-            <small>각 상호작용이 모두 가치가 있을 때 (예: 구매) 권장</small>
-          </label>
-          <input id="once" type="radio" name="conversionTimes" />
-          <label for="once">
-            1회
-            <small>첫 번째 상호작용만 가치가 있을 때 (예: 가입) 권장</small>
-          </label>
-        </div>
-      </li>
-      <li>
-        <div>
-          <span class="tag" data-title="필수"></span>
-          클릭 추적 기간
-          <div data-tooltip="clickTrackingPeriod"></div>
-        </div>
-        <div>
-          <input type="number" value="30" />일
-          <small>
-            <span class="tag" data-title="Tip"></span>
-            기간은 7일 이상을 사용하는 것을 권장합니다.
-          </small>
-        </div>
-      </li>
-      <li>
-        <div>
-          <span class="tag" data-title="필수"></span>
-          조회 추적 기간
-          <div data-tooltip="viewTrackingPeriod"></div>
-        </div>
-        <div>
-          <input type="number" value="1" />일
-        </div>
-      </li>
-      <li>
-        <div>
-          <span class="tag" data-title="필수"></span>
-          기여 분석
-          <div data-tooltip=""></div>
-        </div>
-        <div>
-          <div class="selectbox">
-            <select name="" id="">
-              <option value="">데이터 기반</option>
-            </select>
-          </div>
-          <small>
-            <span class="tag" data-title="Tip"></span>
-            정확한 전환 기여 분석을 원하시면 데이터 기반 모델을 권장합니다.
-          </small>
-        </div>
-      </li>
-    </ul>
-  </section>
-  <div class="tab-content" data-tab="sub-menu">
-    <section data-tab="sub-menu" style="flex: 0 0 auto;">
-      <header>
-        <div class="inputs">
-          <h2>Google 태그</h2>
-          <span class="selector">
-            <input id="not-installed" type="radio" name="googleTag" checked>
-            <label for="not-installed" data-tab="codes">Google 태그가 설치되어 있지 않음</label>
-            <input id="installed" type="radio" name="googleTag">
-            <label for="installed" data-tab="codes">다른 Google 제품 또는 다른 Google Ads 계정의 Google 태그가 이미 설치되어 있음</label>
-          </span>
-        </div>
-        <button class="btn-copy"></button>
-      </header>
-      <textarea class="codes is-active" rows="9" data-tab="codes" readonly>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11304375904"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
-
-  gtag('config', 'AW-11304375904');
-</script></textarea>
-      <div class="caution">태그를 복사한 후 웹사이트에서 모든 페이지의
-
-        <head></head> 태그 사이에 붙여 넣으세요. 여러 액션을 추적 중인 경우에도 계정당 한 번만 Google 태그를 설치하면 됩니다.
-      </div>
-    </section>
-    <section data-tab="sub-menu" style="flex: 0 0 auto;">
-      <header>
-        <h2>이벤트 스니펫</h2>
-        <button class="btn-copy"></button>
-      </header>
-      <textarea class="codes" rows="4" readonly>
-<!-- Event snippet for 페이지 조회 기본 conversion page -->
-<script>
-  gtag('event', 'conversion', { 'send_to': 'AW-11304375904/buEQCOid09wYEOCsrI4q' });
-</script></textarea>
-      <div class="caution">
-        스니펫을 복사한 후, 추적할 페이지(전환을 완료하면 고객에게 표시되는 페이지)의
-
-        <head></head> 태그 사이, Google 태그 바로 다음에 붙여 넣으세요.
-      </div>
-    </section>
+            <div style="flex: 1 1 auto">
+              <div class="toggle-switch">
+                <input id="toggle-state" type="checkbox">
+                <label for="toggle-state"></label>
+              </div>
+            </div>
+            <div class="options">
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">조건 유형 선택</option>
+                  <option value="">상품유형</option>
+                  <option value="">맞춤 라벨 0</option>
+                  <option value="">맞춤 라벨 1</option>
+                  <option value="">맞춤 라벨 2</option>
+                  <option value="">맞춤 라벨 3</option>
+                  <option value="">맞춤 라벨 4</option>
+                </select>
+              </div>
+              <div class="search">
+                <input type="search" placeholder="검색어를 입력해 주세요.">
+                <button type="button"></button>
+                <div class="more">
+                  <div>
+                    <ul>
+                      <li>
+                        홈 > 여성 > 드레스 > 맥시 드레스
+                      </li>
+                      <li>상품 수: 54</li>
+                      <li>승인: 54</li>
+                      <li>
+                        <button class="ico-search"></button>
+                        <button class="ico-plus"></button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="tags">
+                <span>
+                  맞춤라벨 1 : 가을
+                  <i class="x"></i>
+                </span>
+                <span>
+                  맞춤라벨 2 : 빅세일
+                  <i class="x"></i>
+                </span>
+                <span>
+                  상품유형 : 전자기기 > 컴퓨터 > 노트북
+                  <i class="x"></i>
+                </span>
+              </div>
+              <div class="caution">
+                현재 조건에 맞는 상품이 없습니다. 캠페인을 저장하더라도 판매자 센터에서 상품 데이터를 업데이트하지 않거나 광고 상품 설정에서 조건을 변경하지 않으면 상품이 포함되지 않습니다.
+              </div>
+            </div>
+          </li>
+        </ul>
+        <h2>
+          캠페인 설정
+        </h2>
+        <ul class="list form">
+          <li>
+            <div>
+              전환목표
+            </div>
+            <div class="accordion">
+              <div>
+                <div class="toggle-switch">
+                  <input id="toggle-state" type="checkbox">
+                  <label for="toggle-state"></label>
+                </div>
+                <span>전환 목표</span>
+                <span>전환 액션</span>
+              </div>
+              <div>
+                <div class="toggle-switch">
+                  <input id="toggle-state-1" type="checkbox">
+                  <label for="toggle-state-1"></label>
+                </div>
+                <span>페이지조회</span>
+                <span>액션 3개</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              입찰전략
+              <span data-tooltip=""></span>
+            </div>
+            <div class="inputs">
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">클릭 수 최대화</option>
+                </select>
+              </div>
+              <div class="input">
+                <span class="tag" data-title="선택"></span>
+                최대 CPC 입찰가 한도
+                <span data-tooltip=""></span>
+                <div class="price">
+                  <input type="text">
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              일 예산
+            </div>
+            <div class="price">
+              <input type="text">
+            </div>
+          </li>
+          <li>
+            <div>
+              광고 위치
+              <span data-tooltip=""></span>
+            </div>
+            <div>
+              <div class="checkbox">
+                <input type="checkbox" id="check-google-1" />
+                <label for="check-google-1">
+                  <span class="tag" data-title="필수"></span>
+                  Google 검색 결과에 광고
+                </label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" id="check-google-2" />
+                <label for="check-google-2">
+                  Google 검색 네트워크의 파트너 사이트에 광고
+                </label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>위치</div>
+            <div>
+              <input id="select-kr" type="radio" />
+              <label for="select-kr">대한민국</label>
+            </div>
+          </li>
+        </ul>
+        <h2>
+          광고 일정
+        </h2>
+        <ul class="list form">
+          <li>
+            <div>시작일</div>
+            <div>
+              <div class="calendar">
+                <input id="contentsFrom" type="text" name="" readonly=""
+                  class="hasDatepicker">
+                <div class="toggle-switch">
+                  <input id="toggle-state-1" type="checkbox">
+                  <label for="toggle-state-1"></label>
+                </div>
+                <input id="contentsTo" type="text" name="" readonly=""
+                  class="hasDatepicker">
+                <button class="btn-main ico-search" type="button"></button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>스케줄러</div>
+            <div class="toggle-switch">
+              <input id="toggle-schedule" type="checkbox">
+              <label for="toggle-schedule"></label>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
   </div>
 </main>
 <div class="modals">
