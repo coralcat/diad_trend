@@ -1,0 +1,77 @@
+{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('ads_google')}}
+<main class="content-google-ads campaign history">
+  <header class="content-header">
+    <div class="title">
+      <h1>
+        <span>변경 이력</span>
+        <div data-tooltip=""></div>
+      </h1>
+      {% include "account.html" %}
+    </div>
+    <ul class="tabs main-tabs">
+      <li onclick="location.href='ads_google_campaign.html'" data-tab="sub-menu" class="is-active">캠페인</li>
+      <li onclick="location.href='ads_google_feed.html'" data-tab="sub-menu">피드+</li>
+    </ul>
+    <strong data-title="총" class="cases">1</strong>
+  </header>
+  <section>
+    <header>
+      <div class="title">
+        <div class="filters">
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">김마켓_구글쇼핑표준_230822</option>
+            </select>
+          </div>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">유형선택</option>
+            </select>
+          </div>
+          <div class="calendar">
+            <input id="contentsFrom" type="text" name="" readonly=""
+              class="hasDatepicker">
+            <span>~</span>
+            <input id="contentsTo" type="text" name="" readonly=""
+              class="hasDatepicker">
+            <button class="btn-main ico-search" type="button"></button>
+          </div>
+        </div>
+        <div class="filters">
+          <span class="cases" data-title="총">5</span>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="100개씩 보기">100개씩 보기</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="list campaigns" data-toggle="extends">
+      <ul class="row title">
+        <li title="캠페인 ID" class="ico-sort">캠페인 ID</li>
+        <li title="캠페인" class="ico-sort">캠페인</li>
+        <li title="유형" class="ico-sort">유형</li>
+        <li title="변경사항" class="ico-sort">변경사항</li>
+        <li title="수정 일시" class="ico-sort">수정 일시</li>
+      </ul>
+      <ul class="row">
+        <li title="캠페인 ID">
+          12345678902
+        </li>
+        <li title="캠페인">
+          김마켓_구글쇼핑표준_230822
+        </li>
+        <li title="유형">
+          캠페인
+        </li>
+        <li title="변경사항">
+          캠페인이 On 설정되었습니다.
+        </li>
+        <li title="수정 일시">2024.02.23 14:47</li>
+      </ul>
+    </div>
+  </section>
+</main>
+{% include "modals.html" %}
+{% endblock %}

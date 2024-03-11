@@ -70,15 +70,15 @@
         </li>
       </ul>
     </div>
-    <dl class="caution">
-      <dd>
-        다이애드에서 생성한 광고만 확인 가능하며, 다이애드 외부에서 생성한 광고나 설정한 값은 다이애드에서 확인하실 수 없습니다.
-      </dd>
-      <dd>
-        결제 프로필 생성, 결제 설정, 광고비 충전, 잔액 확인 등 광고비 결제 관련 내용은 다이애드가 아닌 Google Ads에서 진행 가능합니다.
-      </dd>
-      <dd>캠페인 삭제는 정지 상태에서만 가능합니다.</dd>
-    </dl>
+    <div class="caution">
+      <h3>
+        캠페인 실행 전 확인하세요! Google Ads에서 결제 설정 및 광고비 충전을 해야 광고가 노출됩니다.
+      </h3>
+      <div class="buttons">
+        <button class="btn-sub">광고비 충전 방법</button>
+        <button class="btn-main" onclick="window.open('https://ads.google.com/')">광고비 충전하러 가기</button>
+      </div>
+    </div>
   </section>
   <section>
     <header>
@@ -87,7 +87,7 @@
           캠페인 목록
         </h2>
         <div class="filters">
-          <button>수정 이력</button>
+          <button>이력</button>
           <button onclick="location.href='ads_google_campaign_new.html'">캠페인 생성</button>
         </div>
       </div>
@@ -160,7 +160,7 @@
             <a href="">캠페인 관리</a>
             <a href="">캠페인 삭제</a>
             <a href="">성과 리포트</a>
-            <a href="">수정 이력</a>
+            <a href="ads_google_campaign_history.html">변경 이력</a>
           </div>
         </li>
         <li title="유형">

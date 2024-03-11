@@ -22,17 +22,12 @@
           <li>
             <div>
               광고 상품 설정
-              <div data-tooltip="adsSettings"></div>
+              <span data-tooltip="adsSettings"></span>
             </div>
             <div style="flex: 1 1 auto">
               <div class="toggle-switch">
                 <input id="toggle-state" type="checkbox">
                 <label for="toggle-state"></label>
-              </div>
-              <div>
-                선택
-                <span data-title="상품 수">0</span>
-                <span data-title="활성">0</span>
               </div>
             </div>
             <div class="options">
@@ -94,15 +89,108 @@
             <div>
               전환목표
             </div>
+            <div class="accordion">
+              <div>
+                <div class="toggle-switch">
+                  <input id="toggle-state" type="checkbox">
+                  <label for="toggle-state"></label>
+                </div>
+                <span>전환 목표</span>
+                <span>전환 액션</span>
+              </div>
+              <div>
+                <div class="toggle-switch">
+                  <input id="toggle-state-1" type="checkbox">
+                  <label for="toggle-state-1"></label>
+                </div>
+                <span>페이지조회</span>
+                <span>액션 3개</span>
+              </div>
+            </div>
           </li>
           <li>
-            <div class="accordion">
-              <div class="toggle-switch">
-                <input id="toggle-state" type="checkbox">
-                <label for="toggle-state"></label>
+            <div>
+              입찰전략
+              <span data-tooltip=""></span>
+            </div>
+            <div class="inputs">
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">클릭 수 최대화</option>
+                </select>
               </div>
-              전환 목표
-              전환 액션
+              <div class="input">
+                <span class="tag" data-title="선택"></span>
+                최대 CPC 입찰가 한도
+                <span data-tooltip=""></span>
+                <div class="price">
+                  <input type="text">
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              일 예산
+            </div>
+            <div class="price">
+              <input type="text">
+            </div>
+          </li>
+          <li>
+            <div>
+              광고 위치
+              <span data-tooltip=""></span>
+            </div>
+            <div>
+              <div class="checkbox">
+                <input type="checkbox" id="check-google-1" />
+                <label for="check-google-1">
+                  <span class="tag" data-title="필수"></span>
+                  Google 검색 결과에 광고
+                </label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" id="check-google-2" />
+                <label for="check-google-2">
+                  Google 검색 네트워크의 파트너 사이트에 광고
+                </label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>위치</div>
+            <div>
+              <input id="select-kr" type="radio" />
+              <label for="select-kr">대한민국</label>
+            </div>
+          </li>
+        </ul>
+        <h2>
+          광고 일정
+        </h2>
+        <ul class="list form">
+          <li>
+            <div>시작일</div>
+            <div>
+              <div class="calendar">
+                <input id="contentsFrom" type="text" name="" readonly=""
+                  class="hasDatepicker">
+                <div class="toggle-switch">
+                  <input id="toggle-state-1" type="checkbox">
+                  <label for="toggle-state-1"></label>
+                </div>
+                <input id="contentsTo" type="text" name="" readonly=""
+                  class="hasDatepicker">
+                <button class="btn-main ico-search" type="button"></button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>스케줄러</div>
+            <div class="toggle-switch">
+              <input id="toggle-schedule" type="checkbox">
+              <label for="toggle-schedule"></label>
             </div>
           </li>
         </ul>
