@@ -1,14 +1,15 @@
 {% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('ads_google')}}
-<main class="content-google-ads settings">
+<main class="content-google-ads add">
   <header class="content-header">
     <div class="title">
-      <h1 data-title="표준 캠페인 생성">
+      <h1 data-title="표준 캠페인 관리">
         <input type="text" value="김마켓_구글쇼핑표준_230822">
       </h1>
       <div class="buttons">
-        <button onclick="history.back()">나가기</button>
-        <button class="btn-main">저장</button>
-        <button disabled>캠페인 생성</button>
+        <button>삭제</button>
+        <button disabled>수정</button>
+        <button class="btn-main">변경이력</button>
+        <button class="btn-main">성과 리포트</button>
       </div>
     </div>
   </header>
@@ -24,10 +25,15 @@
               광고 상품 설정
               <span data-tooltip="adsSettings"></span>
             </div>
-            <div style="flex: 1 1 auto">
+            <div style="flex: 1 1 auto; justify-content: space-between;">
               <div class="toggle-switch">
                 <input id="toggle-state" type="checkbox">
                 <label for="toggle-state"></label>
+              </div>
+              <div class="filters">
+                선택
+                <storng class="cases" data-title="상품 수">3,583</storng>
+                <storng class="cases" data-title="활성">3,583</storng>
               </div>
             </div>
             <div class="options">
@@ -46,19 +52,47 @@
                 <input type="search" placeholder="검색어를 입력해 주세요.">
                 <button type="button"></button>
                 <div class="more">
-                  <div>
-                    <ul>
-                      <li>
-                        홈 > 여성 > 드레스 > 맥시 드레스
-                      </li>
-                      <li>상품 수: 54</li>
-                      <li>승인: 54</li>
-                      <li>
-                        <button class="ico-search"></button>
+                  <ul>
+                    <li>
+                      <div class="filters">
+                        <span>
+                          홈 > 여성 > 드레스 > 맥시 드레스
+                        </span>
+                        <span class="cases">상품 수: 54</span>
+                        <span class="cases">승인: 54</span>
+                      </div>
+                      <div class="buttons">
+                        <button onclick="location.href='ads_google_feed.html'" class="ico-search"></button>
                         <button class="ico-plus"></button>
-                      </li>
-                    </ul>
-                  </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="filters">
+                        <span>
+                          홈 > 여성 > 드레스 > 맥시 드레스
+                        </span>
+                        <span class="cases">상품 수: 54</span>
+                        <span class="cases">승인: 54</span>
+                      </div>
+                      <div class="buttons">
+                        <button onclick="location.href='ads_google_feed.html'" class="ico-search"></button>
+                        <button class="ico-plus"></button>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="filters">
+                        <span>
+                          홈 > 여성 > 드레스 > 맥시 드레스
+                        </span>
+                        <span class="cases">상품 수: 54</span>
+                        <span class="cases">승인: 54</span>
+                      </div>
+                      <div class="buttons">
+                        <button onclick="location.href='ads_google_feed.html'" class="ico-search"></button>
+                        <button class="ico-plus"></button>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
               <div class="tags">
@@ -98,13 +132,33 @@
                 <span>전환 목표</span>
                 <span>전환 액션</span>
               </div>
-              <div>
+              <div class="is-active">
                 <div class="toggle-switch">
                   <input id="toggle-state-1" type="checkbox">
                   <label for="toggle-state-1"></label>
                 </div>
                 <span>페이지조회</span>
                 <span>액션 3개</span>
+                <div class="options">
+                  <ul>
+                    <li>
+                      <div>
+                        <span>페이지 조회 [기본]</span>
+                        <span class="tag" data-title="활성"></span>
+                        <span>전환가치</span>
+                      </div>
+                      <span class="price">1</span>
+                    </li>
+                    <li>
+                      <div>
+                        <span>상세 페이지 조회</span>
+                        <span class="tag" data-title="활성"></span>
+                        <span>전환가치</span>
+                      </div>
+                      <span class="price"></span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </li>
@@ -113,11 +167,12 @@
               입찰전략
               <span data-tooltip=""></span>
             </div>
-            <div class="inputs">
-              <div class="selectbox">
-                <select name="" id="">
-                  <option value="">클릭 수 최대화</option>
-                </select>
+            <div class="inputs vertical">
+              <div class="selector">
+                <input type="radio" id="select-1" checked name="biddingStrategy" />
+                <label for="select-1">클릭 수 최대화</label>
+                <input type="radio" id="select-2" name="biddingStrategy" />
+                <label for="select-2">타겟 광고 투자수익(ROAS)</label>
               </div>
               <div class="input">
                 <span class="tag" data-title="선택"></span>
@@ -126,6 +181,9 @@
                 <div class="price">
                   <input type="text">
                 </div>
+              </div>
+              <div class="caution">
+                타겟 광고 투자수익(ROAS) 전략은 지난 30일 동안 판매자 센터 ID당 전환이 15회 이상 발생한 경우에만 사용할 수 있습니다. 가능한 입찰전략을 설정하고 전환 요건 충족 후 입찰전략 재설정이 가능합니다.
               </div>
             </div>
           </li>
@@ -142,7 +200,7 @@
               광고 위치
               <span data-tooltip=""></span>
             </div>
-            <div>
+            <div class="inputs vertical">
               <div class="checkbox">
                 <input type="checkbox" id="check-google-1" />
                 <label for="check-google-1">
@@ -161,7 +219,7 @@
           <li>
             <div>위치</div>
             <div>
-              <input id="select-kr" type="radio" />
+              <input id="select-kr" type="radio" checked />
               <label for="select-kr">대한민국</label>
             </div>
           </li>
@@ -176,14 +234,16 @@
               <div class="calendar">
                 <input id="contentsFrom" type="text" name="" readonly=""
                   class="hasDatepicker">
-                <div class="toggle-switch">
-                  <input id="toggle-state-1" type="checkbox">
-                  <label for="toggle-state-1"></label>
-                </div>
-                <input id="contentsTo" type="text" name="" readonly=""
-                  class="hasDatepicker">
-                <button class="btn-main ico-search" type="button"></button>
               </div>
+            </div>
+            <div class="calendar">
+              종료일
+              <div class="toggle-switch">
+                <input id="toggle-state-1" type="checkbox">
+                <label for="toggle-state-1"></label>
+              </div>
+              <input id="contentsTo" type="text" name="" readonly=""
+                class="hasDatepicker">
             </div>
           </li>
           <li>

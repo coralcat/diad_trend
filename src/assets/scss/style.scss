@@ -1974,7 +1974,7 @@ main {
     }
 
     &.btn-main {
-      background: linear-gradient(45deg, #5048d7 50%, #7682f8);
+      background-image: linear-gradient(45deg, #5048d7 50%, #7682f8);
       padding: 5px 0.5rem;
       color: white;
       border-radius: 3px;
@@ -2722,7 +2722,7 @@ main {
       gap: 0 !important;
       padding: 0.35rem;
       border-radius: 0.25rem;
-      border: 1px solid $violet-medium-color;
+      border: 1px solid $violet-medium-color !important;
       position: relative;
       padding-right: 1.75rem;
       line-height: 1;
@@ -6549,16 +6549,17 @@ main {
     width: 250px !important;
     flex-wrap: nowrap !important;
   }
-  
+
   .accordion {
     flex-direction: column;
     align-items: flex-start !important;
 
     > div {
+      flex-wrap: wrap;
       width: 100%;
       border: 1px solid #e3e6e9;
-      border-radius: .5rem;
-      padding: .75rem;
+      border-radius: 0.5rem;
+      padding: 0.75rem;
       gap: 1rem !important;
       position: relative;
 
@@ -6572,38 +6573,92 @@ main {
         height: 10px;
         display: block;
         position: absolute;
+        top: 1.15rem;
         right: 1rem;
         margin-top: -3px;
+        transition: 0.25s;
+      }
+
+      &.is-active {
+        &::after {
+          transform: rotate(225deg);
+        }
+      }
+    }
+
+    .options {
+      border-radius: 5px;
+      div {
+        gap: 1rem;
+      }
+
+      ul {
+        width: 100%;
       }
     }
   }
 
   &.history {
-
     .list {
-
       li {
-        flex: 1 1 auto !important
+        flex: 1 1 auto !important;
       }
     }
   }
 
-  &.settings {
+  &.add {
     section {
       padding: 1rem;
-      max-width: 860px;
       margin: 0 auto;
+      overflow-y: auto;
     }
 
     .more {
       position: absolute;
-      top: 100%;
-      background: white;
-      z-index: 1;
+      top: calc(100% + 0.5rem);
+      background: #fff;
       padding: 1rem;
+      width: 100%;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      z-index: 1;
+
+      button {
+        width: 24px;
+        height: 24px;
+        background-color: $secondary-color;
+      }
+
+      .buttons {
+        gap: 3px !important;
+      }
+
+      li {
+        border: 1px solid #eee;
+        position: relative;
+        width: 100%;
+        padding: 0.75rem;
+        align-items: center;
+      }
 
       ul {
         display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+      }
+
+      .ico-plus {
+        background-image: linear-gradient($primary-color 0 0), linear-gradient($primary-color 0 0);
+        background-position: center;
+        background-size:
+          50% 2px,
+          2px 50%;
+        background-repeat: no-repeat;
+      }
+
+      .ico-search {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' fill='%237682f8' /%3E%3C/svg%3E") !important;
       }
     }
 
@@ -6628,21 +6683,45 @@ main {
       }
     }
 
-    .caution {
-      background-color: white;
-
-      &::before {
-        top: 11px;
-      }
-    }
-
     .options {
       width: 100%;
       background-color: #f3f6f9;
       padding: 0.75rem;
 
+      .caution {
+        background-color: white;
+
+        &::before {
+          top: 11px;
+        }
+      }
+
       .search {
         flex: 1 1 auto;
+      }
+    }
+
+    .list {
+      &:first-of-type {
+        z-index: 1;
+        overflow: unset;
+      }
+    }
+  }
+
+  &.added {
+    .list {
+      li {
+        min-height: 45px;
+        justify-content: flex-start;
+
+        :first-child {
+          width: 100px;
+        }
+
+        :last-child {
+          font-weight: 600;
+        }
       }
     }
   }

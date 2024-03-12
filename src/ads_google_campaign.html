@@ -16,7 +16,10 @@
       <li data-tab="sub-menu">리포트</li>
       <li data-tab="sub-menu">설정</li>
     </ul>
-    <strong data-title="총" class="cases">1</strong>
+    <div class="buttons">
+      <button class="btn-main">이력</button>
+      <button class="btn-main">설정</button>
+    </div>
   </header>
   <section class="section-main">
     <header>
@@ -86,8 +89,7 @@
         <h2>
           캠페인 목록
         </h2>
-        <div class="filters">
-          <button>이력</button>
+        <div class="buttons">
           <button onclick="location.href='ads_google_campaign_new.html'">캠페인 생성</button>
         </div>
       </div>
@@ -152,7 +154,7 @@
         <li title="캠페인">
           <div>
             <div>1234567890</div>
-            <div>김마켓_구글쇼핑표준_230822</div>
+            <button onclick="location.href='ads_google_campaign_edit.html'">김마켓_구글쇼핑표준_230822</>
           </div>
           <input id="campaign-1" type="checkbox" />
           <label for="campaign-1" class="ico-more"></label>

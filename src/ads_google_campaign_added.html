@@ -1,0 +1,59 @@
+{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('ads_google')}}
+<main class="content-google-ads new added">
+  <header class="content-header">
+    <div class="title">
+      <h1>
+        <span>구글 입점광고</span>
+        <div data-tooltip=""></div>
+      </h1>
+      {% include "account.html" %}
+    </div>
+    <ul class="tabs main-tabs">
+      <li data-tab="sub-menu">대시보드</li>
+      <li data-tab="sub-menu">계정+</li>
+      <li data-tab="sub-menu">피드+</li>
+      <li data-tab="sub-menu" class="is-active">캠페인</li>
+      <li data-tab="sub-menu">리포트</li>
+      <li data-tab="sub-menu">설정</li>
+    </ul>
+  </header>
+  <div class="wrapper">
+    <section>
+      <header>
+        <h1>캠페인 생성 완료</h1>
+      </header>
+      <div class="list form">
+        <ul>
+          <li>
+            <div>캠페인 유형</div>
+            <div>표준</div>
+          </li>
+          <li>
+            <div>캠페인 이름</div>
+            <div>김마켓_구글쇼핑표준_230822</div>
+          </li>
+          <li>
+            <div>입찰전략</div>
+            <div>클릭 수 최대화 / 최대 CPC 입찰가 한도 1,000 원</div>
+          </li>
+          <li>
+            <div>일예산</div>
+            <div>10,000 원</div>
+          </li>
+          <li>
+            <div>시작일</div>
+            <div>2023-09-01</div>
+          </li>
+          <li>
+            <div>종료일</div>
+            <div>없음</div>
+          </li>
+        </ul>
+      </div>
+      <div class="buttons">
+        <button onclick="location.href='ads_google_campaign.html'">캠페인으로 돌아가기</button>
+      </div>
+    </section>
+  </div>
+</main>
+{% endblock %}
