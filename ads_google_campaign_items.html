@@ -180,203 +180,294 @@
 <main class="content-google-ads add">
   <header class="content-header">
     <div class="title">
-      <h1 data-title="표준 캠페인 생성">
+      <h1 data-title="표준 캠페인 관리">
         <input type="text" value="김마켓_구글쇼핑표준_230822">
       </h1>
-      <div class="buttons">
-        <button onclick="history.back()">나가기</button>
-        <button class="btn-main">저장</button>
-        <button disabled>캠페인 생성</button>
-      </div>
+    </div>
+    <ul class="tabs main-tabs">
+      <li onclick="location.href='ads_google_campaign_edit.html'" data-tab="sub-menu">캠페인</li>
+      <li class="is-active" onclick="location.href='ads_google_campaign_items.html'" data-tab="sub-menu">광고상품</li>
+    </ul>
+    <div class="buttons">
+      <button>삭제</button>
+      <button disabled>수정</button>
+      <button class="btn-main">변경이력</button>
+      <button class="btn-main">성과 리포트</button>
     </div>
   </header>
-  <div class="wrapper">
-    <div class="sections">
-      <section>
+  <section class="section-feeds">
+    <header>
+      <h2>피드 실적</h2>
+      <div class="filters">
+        <span data-title="무료 목록 기준" class="tag"></span>
+        <span>2023-08-20 ( ↔ 2023-08-19 )</span>
+        <button data-toggle="showFeedsChart"></button>
+      </div>
+    </header>
+    <ul>
+      <li data-title="노출수">
+        <span class="cases">241,321</span>
+        <span class="percent tag up">21.22</span>
+      </li>
+      <li data-title="클릭수">
+        <span class="cases">241,321</span>
+        <span class="percent tag up">21.22</span>
+      </li>
+      <li data-title="클릭률(CTR)">
+        <span class="percent">10.00</span>
+        <div>
+          <span class="percent">0.0</span>p
+        </div>
+      </li>
+      <li data-title="전환수">
+        <span class="cases">241,321</span>
+        <span class="percent tag up">21.22</span>
+      </li>
+      <li data-title="전환율">
+        <span class="percent">10.00</span>
+        <div>
+          <span class="percent">0.0</span>p
+        </div>
+      </li>
+      <li data-title="전환가치">
+        <span class="cases">321.00</span>
+        <span class="percent tag up">21.22</span>
+      </li>
+    </ul>
+    <article data-toggle="showFeedsChart">
+      <header>
+        <div class="title">
+          <h4>실적 그래프</h4>
+          <div class="filters">
+            <span data-title="무료 목록 기준" class="tag"></span>
+            <span>2023-09-01 ~ 2023-09-30</span>
+            <button class="btn-download">다운로드</button>
+          </div>
+        </div>
+        <div class="checkboxes">
+          <div class="checkbox">
+            <input id="check-feed-01" type="checkbox" />
+            <label for="check-feed-01">클릭수</label>
+          </div>
+          <div class="checkbox">
+            <input id="check-feed-02" type="checkbox" />
+            <label for="check-feed-02">노출수</label>
+          </div>
+          <div class="checkbox">
+            <input id="check-feed-03" type="checkbox" />
+            <label for="check-feed-03">클릭률(CTR)</label>
+          </div>
+          <div class="checkbox">
+            <input id="check-feed-04" type="checkbox" />
+            <label for="check-feed-04">전환수</label>
+          </div>
+          <div class="checkbox">
+            <input id="check-feed-05" type="checkbox" />
+            <label for="check-feed-05">전환율</label>
+          </div>
+          <div class="checkbox">
+            <input id="check-feed-06" type="checkbox" />
+            <label for="check-feed-06">전환가치</label>
+          </div>
+        </div>
+      </header>
+      <div class="chart">
+
+      </div>
+    </article>
+  </section>
+  <section>
+    <header>
+      <div class="title">
         <h2>
-          상품 설정
+          상품 목록
         </h2>
-        <ul class="list form">
-          <li>
-            <div>
-              광고 상품 설정
-              <span data-tooltip="adsSettings"></span>
-            </div>
-            <div style="flex: 1 1 auto">
-              <div class="toggle-switch">
-                <input id="toggle-state" type="checkbox">
-                <label for="toggle-state"></label>
-              </div>
-            </div>
-            <div class="options">
-              <div class="selectbox">
-                <select name="" id="">
-                  <option value="">조건 유형 선택</option>
-                  <option value="">상품유형</option>
-                  <option value="">맞춤 라벨 0</option>
-                  <option value="">맞춤 라벨 1</option>
-                  <option value="">맞춤 라벨 2</option>
-                  <option value="">맞춤 라벨 3</option>
-                  <option value="">맞춤 라벨 4</option>
-                </select>
-              </div>
-              <div class="search">
-                <input type="search" placeholder="검색어를 입력해 주세요.">
-                <button type="button"></button>
-                <div class="more">
-                  <div>
-                    <ul>
-                      <li>
-                        홈 > 여성 > 드레스 > 맥시 드레스
-                      </li>
-                      <li>상품 수: 54</li>
-                      <li>승인: 54</li>
-                      <li>
-                        <button class="ico-search"></button>
-                        <button class="ico-plus"></button>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="tags">
-                <span>
-                  맞춤라벨 1 : 가을
-                  <i class="x"></i>
-                </span>
-                <span>
-                  맞춤라벨 2 : 빅세일
-                  <i class="x"></i>
-                </span>
-                <span>
-                  상품유형 : 전자기기 > 컴퓨터 > 노트북
-                  <i class="x"></i>
-                </span>
-              </div>
-              <div class="caution">
-                현재 조건에 맞는 상품이 없습니다. 캠페인을 저장하더라도 판매자 센터에서 상품 데이터를 업데이트하지 않거나 광고 상품 설정에서 조건을 변경하지 않으면 상품이 포함되지 않습니다.
-              </div>
-            </div>
-          </li>
-        </ul>
-        <h2>
-          캠페인 설정
-        </h2>
-        <ul class="list form">
-          <li>
-            <div>
-              전환목표
-            </div>
-            <div class="accordion">
-              <div>
-                <div class="toggle-switch">
-                  <input id="toggle-state" type="checkbox">
-                  <label for="toggle-state"></label>
-                </div>
-                <span>전환 목표</span>
-                <span>전환 액션</span>
-              </div>
-              <div>
-                <div class="toggle-switch">
-                  <input id="toggle-state-1" type="checkbox">
-                  <label for="toggle-state-1"></label>
-                </div>
-                <span>페이지조회</span>
-                <span>액션 3개</span>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div>
-              입찰전략
-              <span data-tooltip=""></span>
-            </div>
-            <div class="inputs">
-              <div class="selectbox">
-                <select name="" id="">
-                  <option value="">클릭 수 최대화</option>
-                </select>
-              </div>
-              <div class="input">
-                <span class="tag" data-title="선택"></span>
-                최대 CPC 입찰가 한도
-                <span data-tooltip=""></span>
-                <div class="price">
-                  <input type="text">
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div>
-              일 예산
-            </div>
-            <div class="price">
-              <input type="text">
-            </div>
-          </li>
-          <li>
-            <div>
-              광고 위치
-              <span data-tooltip=""></span>
-            </div>
-            <div class="inputs vertical">
-              <div class="checkbox">
-                <input type="checkbox" id="check-google-1" />
-                <label for="check-google-1">
-                  <span class="tag" data-title="필수"></span>
-                  Google 검색 결과에 광고
-                </label>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" id="check-google-2" />
-                <label for="check-google-2">
-                  Google 검색 네트워크의 파트너 사이트에 광고
-                </label>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div>위치</div>
-            <div>
-              <input id="select-kr" type="radio" />
-              <label for="select-kr">대한민국</label>
-            </div>
-          </li>
-        </ul>
-        <h2>
-          광고 일정
-        </h2>
-        <ul class="list form">
-          <li>
-            <div>시작일</div>
-            <div>
-              <div class="calendar">
-                <input id="contentsFrom" type="text" name="" readonly=""
-                  class="hasDatepicker">
-              </div>
-            </div>
-            <div class="calendar">
-              종료일
-              <div class="toggle-switch">
-                <input id="toggle-state-1" type="checkbox">
-                <label for="toggle-state-1"></label>
-              </div>
-              <input id="contentsTo" type="text" name="" readonly=""
-                class="hasDatepicker">
-            </div>
-          </li>
-          <li>
-            <div>스케줄러</div>
-            <div class="toggle-switch">
-              <input id="toggle-schedule" type="checkbox">
-              <label for="toggle-schedule"></label>
-            </div>
-          </li>
-        </ul>
-      </section>
+        <div class="filters">
+          <button data-modal="productFeed" onclick="location.href='ads_google_issues.html'">이슈진단</button>
+          <button class="ico-filter" data-toggle="filters"></button>
+          <button class="ico-column" data-toggle="extends"></button>
+        </div>
+      </div>
+      <div class="filters" data-toggle="filters">
+        <div>
+          <div class="selectbox selector main">
+            <select name="" id="">
+              <option value="">선택하세요</option>
+              <option class="select-word" value="">상품명</option>
+              <option class="select-word" value="">ID</option>
+              <option class="select-number" value="">가격</option>
+              <option class="select-word" value="">카테고리</option>
+              <option class="select-word" value="">브랜드</option>
+              <option class="select-word" value="">조건</option>
+              <option class="select-word" value="">상품 유형</option>
+              <option class="select-word" value="">맞춤라벨 0</option>
+              <option class="select-word" value="">맞춤라벨 1</option>
+              <option class="select-word" value="">맞춤라벨 2</option>
+              <option class="select-word" value="">맞춤라벨 3</option>
+              <option class="select-word" value="">맞춤라벨 4</option>
+              <option class="select-number" value="">클릭수</option>
+              <option class="select-number" value="">노출수</option>
+              <option class="select-number" value="">클릭률(CTR)</option>
+              <option class="select-number" value="">전환수</option>
+              <option class="select-number" value="">전환율</option>
+              <option class="select-number" value="">전환가치</option>
+            </select>
+          </div>
+          <div class="selector selector-word sub">
+            <input type="radio" id="selectMatch" name="filterGoogle">
+            <label for="selectMatch">일치</label>
+            <input type="radio" id="selectInclude" name="filterGoogle" checked="">
+            <label for="selectInclude">포함</label>
+            <input type="radio" id="selectExcept" name="filterGoogle">
+            <label for="selectExcept">제외</label>
+          </div>
+          <div class="selector selector-number sub">
+            <input type="radio" id="select-less-than" name="filterOperaters" checked="">
+            <label for="select-less-than">&lt;</label>
+            <input type="radio" id="select-greater-than" name="filterOperaters">
+            <label for="select-greater-than">&gt;</label>
+            <input type="radio" id="select-less-equal" name="filterOperaters">
+            <label for="select-less-equal">&lt;=</label>
+            <input type="radio" id="select-greater-equal" name="filterOperaters">
+            <label for="select-greater-equal">&gt;=</label>
+            <input type="radio" id="select-equal" name="filterOperaters">
+            <label for="select-equal">=</label>
+          </div>
+        </div>
+        <div>
+          <div class="search">
+            <input type="search">
+            <button type="button"></button>
+          </div>
+        </div>
+      </div>
+      <div class="filters">
+        <div class="selector">
+          <input type="radio" id="list-all" name="listTabs-power-link" checked="">
+          <label for="list-all">전체
+            <span class="tag">4</span>
+          </label>
+          <input type="radio" id="list-live-normal" name="listTabs-power-link">
+          <label for="list-live-normal">활성
+            <span class="tag">2</span>
+          </label>
+          <input type="radio" id="list-live-advanced" name="listTabs-power-link">
+          <label for="list-live-advanced">
+            대기
+            <span class="tag">0</span>
+          </label>
+          <input type="radio" id="list-regular-normal" name="listTabs-power-link">
+          <label for="list-regular-normal">
+            비승인
+            <span class="tag">2</span>
+          </label>
+        </div>
+        <div class="filters">
+          <span data-title="무료 목록 기준" class="tag"></span>
+          <span>2023-08-20</span>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="100개씩 보기">100개씩 보기</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="filters">
+        <div class="selected-filters filter-add">
+          <ul>
+            <li class="ico-filter">
+              <span>상품유형</span><span>일치</span><span>크리스마스 이벤트</span>
+              <div class="x close"></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="list" data-toggle="extends">
+      <ul class="row title">
+        <li title="상품명" class="ico-sort">상품명</li>
+        <li title="ID" class="ico-sort">ID</li>
+        <li title="가격" class="ico-sort">가격</li>
+        <li title="승인상태" class="ico-sort">승인상태</li>
+        <li title="상품 이슈" class="ico-sort">상품 이슈</li>
+        <li title="카테고리" class="optional ico-sort">카테고리</li>
+        <li title="브랜드" class="optional ico-sort">브랜드</li>
+        <li title="조건" class="optional ico-sort">조건</li>
+        <li title="상품 유형" class="optional ico-sort">상품 유형</li>
+        <li title="맞춤라벨 0" class="optional ico-sort">맞춤라벨 0</li>
+        <li title="맞춤라벨 1" class="optional ico-sort">맞춤라벨 1</li>
+        <li title="맞춤라벨 2" class="optional ico-sort">맞춤라벨 2</li>
+        <li title="맞춤라벨 3" class="optional ico-sort">맞춤라벨 3</li>
+        <li title="맞춤라벨 4" class="optional ico-sort">맞춤라벨 4</li>
+        <li title="클릭수" class="ico-sort">클릭수</li>
+        <li title="노출수" class="ico-sort">노출수</li>
+        <li title="클릭률(CTR)" class="ico-sort">클릭률(CTR)</li>
+        <li title="전환수" class="ico-sort">전환수</li>
+        <li title="전환율" class="ico-sort">전환율</li>
+        <li title="전환가치" class="ico-sort">전환가치</li>
+      </ul>
+      <ul class="row">
+        <li class="item" title="상품명" onclick="location.href='ads_google_feed_details.html'">
+          <div class="image">
+            <img src="" alt="">
+          </div>
+          <strong>
+            유기농 다이애드 비누 90g 12개 sfsf fa ff sf s df fdsdf s dfs fs fds fds dfsf ds fds dfsfd df sdfs dfsdf ds fsd fs dfs
+            dfs df sdfs dfs df dfs dfs df sdfs df
+          </strong>
+        </li>
+        <li title="ID">
+          00000
+        </li>
+        <li title="가격">
+          <span class="price">13,900</span>
+        </li>
+        <li title="승인상태">
+          활성
+        </li>
+        <li title="상품 이슈">
+          <button data-modal="itemIssues">초기 검토 대기중</button>
+        </li>
+        <li class="optional" title="카테고리">
+          가정/원예 용품 > 생활용품 > 가정용 세제 > 주방 세제/비누
+        </li>
+        <li class="optional" title="브랜드">
+          다이애드
+        </li>
+        <li class="optional" title="조건">
+          새 상품
+        </li>
+        <li class="optional" title="상품 유형">
+          화장품/미용 > 클렌징 > 클렌징비누
+        </li>
+        <li class="optional" title="맞춤라벨 0">
+          겨울
+        </li>
+        <li class="optional" title="맞춤라벨 1"></li>
+        <li class="optional" title="맞춤라벨 2"></li>
+        <li class="optional" title="맞춤라벨 3"></li>
+        <li class="optional" title="맞춤라벨 4"></li>
+        <li title="클릭수">
+          <span class="cases">1,051</span>
+        </li>
+        <li title="노출수">
+          <span class="cases">99,085</span>
+        </li>
+        <li title="클릭률(CTR)">
+          <span class="percent">1.06</span>
+        </li>
+        <li title="전환수">
+          <span class="cases">3.00</span>
+        </li>
+        <li title="전환율">
+          <span class="percent">0.20</span>
+        </li>
+        <li title="전환가치">
+          206,600.00
+        </li>
+      </ul>
     </div>
-  </div>
+  </section>
 </main>
 <div class="modals">
   <div id="desiredKeyword" class="modal modal-desired-keyword" title="희망키워드">

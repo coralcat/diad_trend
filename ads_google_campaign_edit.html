@@ -183,258 +183,258 @@
       <h1 data-title="표준 캠페인 관리">
         <input type="text" value="김마켓_구글쇼핑표준_230822">
       </h1>
-      <div class="buttons">
-        <button>삭제</button>
-        <button disabled>수정</button>
-        <button class="btn-main">변경이력</button>
-        <button class="btn-main">성과 리포트</button>
-      </div>
+    </div>
+    <ul class="tabs main-tabs">
+      <li onclick="location.href='ads_google_campaign_edit.html'" class="is-active" data-tab="sub-menu">캠페인</li>
+      <li onclick="location.href='ads_google_campaign_items.html'" data-tab="sub-menu">광고상품</li>
+    </ul>
+    <div class="buttons">
+      <button>삭제</button>
+      <button disabled>수정</button>
+      <button class="btn-main">변경이력</button>
+      <button class="btn-main">성과 리포트</button>
     </div>
   </header>
-  <div class="wrapper">
-    <div class="sections">
-      <section>
-        <h2>
-          상품 설정
-        </h2>
-        <ul class="list form">
-          <li>
-            <div>
-              광고 상품 설정
-              <span data-tooltip="adsSettings"></span>
+  <section>
+    <h2>
+      상품 설정
+    </h2>
+    <ul class="list form">
+      <li>
+        <div>
+          광고 상품 설정
+          <span data-tooltip="adsSettings"></span>
+        </div>
+        <div style="flex: 1 1 auto; justify-content: space-between;">
+          <div class="toggle-switch">
+            <input id="toggle-state" type="checkbox">
+            <label for="toggle-state"></label>
+          </div>
+          <div class="filters">
+            선택
+            <storng class="cases" data-title="상품 수">3,583</storng>
+            <storng class="cases" data-title="활성">3,583</storng>
+          </div>
+        </div>
+        <div class="options">
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">조건 유형 선택</option>
+              <option value="">상품유형</option>
+              <option value="">맞춤 라벨 0</option>
+              <option value="">맞춤 라벨 1</option>
+              <option value="">맞춤 라벨 2</option>
+              <option value="">맞춤 라벨 3</option>
+              <option value="">맞춤 라벨 4</option>
+            </select>
+          </div>
+          <div class="search">
+            <input type="search" placeholder="검색어를 입력해 주세요.">
+            <button type="button"></button>
+            <div class="more">
+              <ul>
+                <li>
+                  <div class="filters">
+                    <span>
+                      홈 > 여성 > 드레스 > 맥시 드레스
+                    </span>
+                    <span class="cases">상품 수: 54</span>
+                    <span class="cases">승인: 54</span>
+                  </div>
+                  <div class="buttons">
+                    <button onclick="location.href='ads_google_feed.html'" class="ico-search"></button>
+                    <button class="ico-plus"></button>
+                  </div>
+                </li>
+                <li>
+                  <div class="filters">
+                    <span>
+                      홈 > 여성 > 드레스 > 맥시 드레스
+                    </span>
+                    <span class="cases">상품 수: 54</span>
+                    <span class="cases">승인: 54</span>
+                  </div>
+                  <div class="buttons">
+                    <button onclick="location.href='ads_google_feed.html'" class="ico-search"></button>
+                    <button class="ico-plus"></button>
+                  </div>
+                </li>
+                <li>
+                  <div class="filters">
+                    <span>
+                      홈 > 여성 > 드레스 > 맥시 드레스
+                    </span>
+                    <span class="cases">상품 수: 54</span>
+                    <span class="cases">승인: 54</span>
+                  </div>
+                  <div class="buttons">
+                    <button onclick="location.href='ads_google_feed.html'" class="ico-search"></button>
+                    <button class="ico-plus"></button>
+                  </div>
+                </li>
+              </ul>
             </div>
-            <div style="flex: 1 1 auto; justify-content: space-between;">
-              <div class="toggle-switch">
-                <input id="toggle-state" type="checkbox">
-                <label for="toggle-state"></label>
-              </div>
-              <div class="filters">
-                선택
-                <storng class="cases" data-title="상품 수">3,583</storng>
-                <storng class="cases" data-title="활성">3,583</storng>
-              </div>
+          </div>
+          <div class="tags">
+            <span>
+              맞춤라벨 1 : 가을
+              <i class="x"></i>
+            </span>
+            <span>
+              맞춤라벨 2 : 빅세일
+              <i class="x"></i>
+            </span>
+            <span>
+              상품유형 : 전자기기 > 컴퓨터 > 노트북
+              <i class="x"></i>
+            </span>
+          </div>
+          <div class="caution">
+            현재 조건에 맞는 상품이 없습니다. 캠페인을 저장하더라도 판매자 센터에서 상품 데이터를 업데이트하지 않거나 광고 상품 설정에서 조건을 변경하지 않으면 상품이 포함되지 않습니다.
+          </div>
+        </div>
+      </li>
+    </ul>
+    <h2>
+      캠페인 설정
+    </h2>
+    <ul class="list form">
+      <li>
+        <div>
+          전환목표
+        </div>
+        <div class="accordion">
+          <div>
+            <div class="toggle-switch">
+              <input id="toggle-state" type="checkbox">
+              <label for="toggle-state"></label>
             </div>
+            <span>전환 목표</span>
+            <span>전환 액션</span>
+          </div>
+          <div class="is-active">
+            <div class="toggle-switch">
+              <input id="toggle-state-1" type="checkbox">
+              <label for="toggle-state-1"></label>
+            </div>
+            <span>페이지조회</span>
+            <span>액션 3개</span>
             <div class="options">
-              <div class="selectbox">
-                <select name="" id="">
-                  <option value="">조건 유형 선택</option>
-                  <option value="">상품유형</option>
-                  <option value="">맞춤 라벨 0</option>
-                  <option value="">맞춤 라벨 1</option>
-                  <option value="">맞춤 라벨 2</option>
-                  <option value="">맞춤 라벨 3</option>
-                  <option value="">맞춤 라벨 4</option>
-                </select>
-              </div>
-              <div class="search">
-                <input type="search" placeholder="검색어를 입력해 주세요.">
-                <button type="button"></button>
-                <div class="more">
-                  <ul>
-                    <li>
-                      <div class="filters">
-                        <span>
-                          홈 > 여성 > 드레스 > 맥시 드레스
-                        </span>
-                        <span class="cases">상품 수: 54</span>
-                        <span class="cases">승인: 54</span>
-                      </div>
-                      <div class="buttons">
-                        <button onclick="location.href='ads_google_feed.html'" class="ico-search"></button>
-                        <button class="ico-plus"></button>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="filters">
-                        <span>
-                          홈 > 여성 > 드레스 > 맥시 드레스
-                        </span>
-                        <span class="cases">상품 수: 54</span>
-                        <span class="cases">승인: 54</span>
-                      </div>
-                      <div class="buttons">
-                        <button onclick="location.href='ads_google_feed.html'" class="ico-search"></button>
-                        <button class="ico-plus"></button>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="filters">
-                        <span>
-                          홈 > 여성 > 드레스 > 맥시 드레스
-                        </span>
-                        <span class="cases">상품 수: 54</span>
-                        <span class="cases">승인: 54</span>
-                      </div>
-                      <div class="buttons">
-                        <button onclick="location.href='ads_google_feed.html'" class="ico-search"></button>
-                        <button class="ico-plus"></button>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="tags">
-                <span>
-                  맞춤라벨 1 : 가을
-                  <i class="x"></i>
-                </span>
-                <span>
-                  맞춤라벨 2 : 빅세일
-                  <i class="x"></i>
-                </span>
-                <span>
-                  상품유형 : 전자기기 > 컴퓨터 > 노트북
-                  <i class="x"></i>
-                </span>
-              </div>
-              <div class="caution">
-                현재 조건에 맞는 상품이 없습니다. 캠페인을 저장하더라도 판매자 센터에서 상품 데이터를 업데이트하지 않거나 광고 상품 설정에서 조건을 변경하지 않으면 상품이 포함되지 않습니다.
-              </div>
+              <ul>
+                <li>
+                  <div>
+                    <span>페이지 조회 [기본]</span>
+                    <span class="tag" data-title="활성"></span>
+                    <span>전환가치</span>
+                  </div>
+                  <span class="price">1</span>
+                </li>
+                <li>
+                  <div>
+                    <span>상세 페이지 조회</span>
+                    <span class="tag" data-title="활성"></span>
+                    <span>전환가치</span>
+                  </div>
+                  <span class="price"></span>
+                </li>
+              </ul>
             </div>
-          </li>
-        </ul>
-        <h2>
-          캠페인 설정
-        </h2>
-        <ul class="list form">
-          <li>
-            <div>
-              전환목표
-            </div>
-            <div class="accordion">
-              <div>
-                <div class="toggle-switch">
-                  <input id="toggle-state" type="checkbox">
-                  <label for="toggle-state"></label>
-                </div>
-                <span>전환 목표</span>
-                <span>전환 액션</span>
-              </div>
-              <div class="is-active">
-                <div class="toggle-switch">
-                  <input id="toggle-state-1" type="checkbox">
-                  <label for="toggle-state-1"></label>
-                </div>
-                <span>페이지조회</span>
-                <span>액션 3개</span>
-                <div class="options">
-                  <ul>
-                    <li>
-                      <div>
-                        <span>페이지 조회 [기본]</span>
-                        <span class="tag" data-title="활성"></span>
-                        <span>전환가치</span>
-                      </div>
-                      <span class="price">1</span>
-                    </li>
-                    <li>
-                      <div>
-                        <span>상세 페이지 조회</span>
-                        <span class="tag" data-title="활성"></span>
-                        <span>전환가치</span>
-                      </div>
-                      <span class="price"></span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div>
-              입찰전략
-              <span data-tooltip=""></span>
-            </div>
-            <div class="inputs vertical">
-              <div class="selector">
-                <input type="radio" id="select-1" checked name="biddingStrategy" />
-                <label for="select-1">클릭 수 최대화</label>
-                <input type="radio" id="select-2" name="biddingStrategy" />
-                <label for="select-2">타겟 광고 투자수익(ROAS)</label>
-              </div>
-              <div class="input">
-                <span class="tag" data-title="선택"></span>
-                최대 CPC 입찰가 한도
-                <span data-tooltip=""></span>
-                <div class="price">
-                  <input type="text">
-                </div>
-              </div>
-              <div class="caution">
-                타겟 광고 투자수익(ROAS) 전략은 지난 30일 동안 판매자 센터 ID당 전환이 15회 이상 발생한 경우에만 사용할 수 있습니다. 가능한 입찰전략을 설정하고 전환 요건 충족 후 입찰전략 재설정이 가능합니다.
-              </div>
-            </div>
-          </li>
-          <li>
-            <div>
-              일 예산
-            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          입찰전략
+          <span data-tooltip=""></span>
+        </div>
+        <div class="inputs vertical">
+          <div class="selector">
+            <input type="radio" id="select-1" checked name="biddingStrategy" />
+            <label for="select-1">클릭 수 최대화</label>
+            <input type="radio" id="select-2" name="biddingStrategy" />
+            <label for="select-2">타겟 광고 투자수익(ROAS)</label>
+          </div>
+          <div class="input">
+            <span class="tag" data-title="선택"></span>
+            최대 CPC 입찰가 한도
+            <span data-tooltip=""></span>
             <div class="price">
               <input type="text">
             </div>
-          </li>
-          <li>
-            <div>
-              광고 위치
-              <span data-tooltip=""></span>
-            </div>
-            <div class="inputs vertical">
-              <div class="checkbox">
-                <input type="checkbox" id="check-google-1" />
-                <label for="check-google-1">
-                  <span class="tag" data-title="필수"></span>
-                  Google 검색 결과에 광고
-                </label>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" id="check-google-2" />
-                <label for="check-google-2">
-                  Google 검색 네트워크의 파트너 사이트에 광고
-                </label>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div>위치</div>
-            <div>
-              <input id="select-kr" type="radio" checked />
-              <label for="select-kr">대한민국</label>
-            </div>
-          </li>
-        </ul>
-        <h2>
-          광고 일정
-        </h2>
-        <ul class="list form">
-          <li>
-            <div>시작일</div>
-            <div>
-              <div class="calendar">
-                <input id="contentsFrom" type="text" name="" readonly=""
-                  class="hasDatepicker">
-              </div>
-            </div>
-            <div class="calendar">
-              종료일
-              <div class="toggle-switch">
-                <input id="toggle-state-1" type="checkbox">
-                <label for="toggle-state-1"></label>
-              </div>
-              <input id="contentsTo" type="text" name="" readonly=""
-                class="hasDatepicker">
-            </div>
-          </li>
-          <li>
-            <div>스케줄러</div>
-            <div class="toggle-switch">
-              <input id="toggle-schedule" type="checkbox">
-              <label for="toggle-schedule"></label>
-            </div>
-          </li>
-        </ul>
-      </section>
-    </div>
-  </div>
+          </div>
+          <div class="caution">
+            타겟 광고 투자수익(ROAS) 전략은 지난 30일 동안 판매자 센터 ID당 전환이 15회 이상 발생한 경우에만 사용할 수 있습니다. 가능한 입찰전략을 설정하고 전환 요건 충족 후 입찰전략 재설정이 가능합니다.
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          일 예산
+        </div>
+        <div class="price">
+          <input type="text">
+        </div>
+      </li>
+      <li>
+        <div>
+          광고 위치
+          <span data-tooltip=""></span>
+        </div>
+        <div class="inputs vertical">
+          <div class="checkbox">
+            <input type="checkbox" id="check-google-1" />
+            <label for="check-google-1">
+              <span class="tag" data-title="필수"></span>
+              Google 검색 결과에 광고
+            </label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" id="check-google-2" />
+            <label for="check-google-2">
+              Google 검색 네트워크의 파트너 사이트에 광고
+            </label>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>위치</div>
+        <div>
+          <input id="select-kr" type="radio" checked />
+          <label for="select-kr">대한민국</label>
+        </div>
+      </li>
+    </ul>
+    <h2>
+      광고 일정
+    </h2>
+    <ul class="list form">
+      <li>
+        <div>시작일</div>
+        <div>
+          <div class="calendar">
+            <input id="contentsFrom" type="text" name="" readonly=""
+              class="hasDatepicker">
+          </div>
+        </div>
+        <div class="calendar">
+          종료일
+          <div class="toggle-switch">
+            <input id="toggle-state-1" type="checkbox">
+            <label for="toggle-state-1"></label>
+          </div>
+          <input id="contentsTo" type="text" name="" readonly=""
+            class="hasDatepicker">
+        </div>
+      </li>
+      <li>
+        <div>스케줄러</div>
+        <div class="toggle-switch">
+          <input id="toggle-schedule" type="checkbox">
+          <label for="toggle-schedule"></label>
+        </div>
+      </li>
+    </ul>
+  </section>
 </main>
 <div class="modals">
   <div id="desiredKeyword" class="modal modal-desired-keyword" title="희망키워드">
