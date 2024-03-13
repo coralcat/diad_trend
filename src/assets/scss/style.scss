@@ -2354,7 +2354,6 @@ main {
 
     [title="키워드"],
     [title="연관 키워드"],
-    [title="캠페인"],
     [title="구글 애즈"],
     [title="상품 이슈"],
     [title="희망키워드"] {
@@ -2368,6 +2367,7 @@ main {
       width: 100px !important;
     }
 
+    [title="캠페인"],
     [title="계정선택"] {
       flex: 0 0 auto !important;
       width: 240px !important;
@@ -6698,6 +6698,17 @@ main {
 
       .search {
         flex: 1 1 auto;
+      }
+
+      &.goals {
+
+        div {
+          span {
+            &:first-of-type {
+              width: 150px;
+            }
+          }
+        }
       }
     }
 
