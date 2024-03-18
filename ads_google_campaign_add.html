@@ -187,6 +187,7 @@
         <button onclick="history.back()">나가기</button>
         <button class="btn-main">저장</button>
         <button disabled>캠페인 생성</button>
+        <button onclick="location.href='ads_google_campaign_added.html'" class="btn-main">캠페인 생성</button>
       </div>
     </div>
   </header>
@@ -208,12 +209,12 @@
                 <label for="toggle-state"></label>
               </div>
               <div class="filters">
-                선택
-                <storng class="cases" data-title="상품 수">3,583</storng>
+                <storng class="cases" data-title="선택 상품 수">3,583</storng>
                 <storng class="cases" data-title="활성">3,583</storng>
               </div>
             </div>
-            <div class="options">
+            <!-- 표준캠페인 -->
+            <!-- <div class="options">
               <div class="selectbox">
                 <select name="" id="">
                   <option value="">조건 유형 선택</option>
@@ -288,6 +289,108 @@
               </div>
               <div class="caution">
                 현재 조건에 맞는 상품이 없습니다. 캠페인을 저장하더라도 판매자 센터에서 상품 데이터를 업데이트하지 않거나 광고 상품 설정에서 조건을 변경하지 않으면 상품이 포함되지 않습니다.
+              </div>
+            </div> -->
+            <!-- 실적최대화캠페인 -->
+            <div class="options maximization">
+              <div class="title">
+                <div class="selector">
+                  <input type="radio" id="selected-type" name="selected-tab" checked="">
+                  <label for="selected-type">상품유형</label>
+                  <input type="radio" id="selected-label-0" name="selected-tab">
+                  <label for="selected-label-0">맞춤라벨 0</label>
+                  <input type="radio" id="selected-label-1" name="selected-tab">
+                  <label for="selected-label-1">맞춤라벨 1</label>
+                  <input type="radio" id="selected-label-2" name="selected-tab">
+                  <label for="selected-label-2">맞춤라벨 2</label>
+                  <input type="radio" id="selected-label-3" name="selected-tab">
+                  <label for="selected-label-3">맞춤라벨 3</label>
+                  <input type="radio" id="selected-label-4" name="selected-tab">
+                  <label for="selected-label-4">맞춤라벨 4</label>
+                </div>
+              </div>
+              <div class="search">
+                <input type="search" placeholder="검색어를 입력해 주세요.">
+                <button type="button"></button>
+                <div class="more">
+                  <ul>
+                    <li>
+                      <div class="filters">
+                        <div class="checkbox">
+                          <input type="checkbox" id="check-all" />
+                          <label for="check-all">상품유형</label>
+                        </div>
+                      </div>
+                      <div class="buttons">
+                        <button class="ico-plus"></button>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="filters">
+                        <div class="checkbox">
+                          <input type="checkbox" id="check-1" />
+                          <label for="check-1">
+                            <span>홈 > 여성 > 드레스 > 맥시 드레스</span>
+                            <span class="cases">상품 수: 54</span>
+                            <span class="cases">승인: 54</span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="buttons">
+                        <button onclick="location.href='ads_google_feed.html'" class="ico-search"></button>
+                        <button class="ico-plus"></button>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="filters">
+                        <div class="checkbox">
+                          <input type="checkbox" id="check-2" />
+                          <label for="check-2">
+                            <span>홈 > 여성 > 드레스 > 맥시 드레스</span>
+                            <span class="cases">상품 수: 54</span>
+                            <span class="cases">승인: 54</span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="buttons">
+                        <button onclick="location.href='ads_google_feed.html'" class="ico-search"></button>
+                        <button class="ico-plus"></button>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="filters">
+                        <div class="checkbox">
+                          <input type="checkbox" id="check-3" />
+                          <label for="check-3">
+                            <span>홈 > 여성 > 드레스 > 맥시 드레스</span>
+                            <span class="cases">상품 수: 54</span>
+                            <span class="cases">승인: 54</span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="buttons">
+                        <button onclick="location.href='ads_google_feed.html'" class="ico-search"></button>
+                        <button class="ico-plus"></button>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="filters">
+                <h3>설정 조건</h3>
+                <div class="tags">
+                  <span>
+                    홈 > 여성 > 드레스 > 맥…
+                    <i class="x"></i>
+                  </span>
+                  <span>
+                    크리스마스 이벤트
+                    <i class="x"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="caution">
+                현재 조건에 맞는 상품이 없습니다. 설정 조건을 확인해 주세요
               </div>
             </div>
           </li>
@@ -382,7 +485,7 @@
           </li>
           <li>
             <div>
-              광고 위치
+              에셋 자동 생성
               <span data-tooltip=""></span>
             </div>
             <div class="inputs vertical">
@@ -390,12 +493,33 @@
                 <input type="checkbox" id="check-google-1" />
                 <label for="check-google-1">
                   <span class="tag" data-title="필수"></span>
-                  Google 검색 결과에 광고
+                  텍스트 에셋 자동 생성
                 </label>
               </div>
               <div class="checkbox">
                 <input type="checkbox" id="check-google-2" />
                 <label for="check-google-2">
+                  최종 URL 확장
+                </label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              광고 위치
+              <span data-tooltip=""></span>
+            </div>
+            <div class="inputs vertical">
+              <div class="checkbox">
+                <input type="checkbox" id="check-google-3" />
+                <label for="check-google-3">
+                  <span class="tag" data-title="필수"></span>
+                  Google 검색 결과에 광고
+                </label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" id="check-google-4" />
+                <label for="check-google-4">
                   Google 검색 네트워크의 파트너 사이트에 광고
                 </label>
               </div>
