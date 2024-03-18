@@ -6598,6 +6598,14 @@ main {
     }
   }
 
+  &.items {
+    .list {
+      li {
+        flex: 1 1 auto !important;
+      }
+    }
+  }
+
   &.history {
     .list {
       li {
@@ -6617,7 +6625,7 @@ main {
       position: absolute;
       top: calc(100% + 0.5rem);
       background: #fff;
-      padding: 1rem;
+      padding: .75rem;
       width: 100%;
       border: 1px solid #eee;
       border-radius: 5px;
@@ -6637,8 +6645,9 @@ main {
         border: 1px solid #eee;
         position: relative;
         width: 100%;
-        padding: 0.75rem;
+        padding: 0.5rem;
         align-items: center;
+        border-radius: 5px;
       }
 
       ul {
@@ -6664,6 +6673,7 @@ main {
 
     .tags {
       width: 100% !important;
+      gap: 5px !important;
 
       span {
         background-color: white;
@@ -6688,6 +6698,10 @@ main {
       background-color: #f3f6f9;
       padding: 0.75rem;
 
+      .title {
+        width: 100%;
+      }
+
       .caution {
         background-color: white;
 
@@ -6698,16 +6712,52 @@ main {
 
       .search {
         flex: 1 1 auto;
+        gap: 5px !important;
       }
 
       &.goals {
-
         div {
           span {
             &:first-of-type {
               width: 150px;
             }
           }
+        }
+      }
+
+      &.maximization {
+        align-items: flex-start;
+
+        .tags {
+          flex-direction: column;
+
+          span {
+            width: 100%;
+            justify-content: space-between;
+            border: 1px solid #eee
+          }
+        }
+
+        > .filters {
+          flex-direction: column;
+          height: 100%;
+          background: white;
+          padding: 0.5rem;
+          border-radius: 5px;
+          border: 1px solid #eee;
+        }
+
+        .search {
+          flex-wrap: wrap !important;
+
+          button {
+            top: 2px;
+            transform: none;
+          }
+        }
+
+        .more {
+          position: relative;
         }
       }
     }
@@ -7169,6 +7219,7 @@ main {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
+      border: 0;
 
       &::before {
         width: 100%;
