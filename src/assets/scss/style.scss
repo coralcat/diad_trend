@@ -3411,6 +3411,10 @@ main {
         }
       }
 
+      h3 {
+        width: fit-content;
+      }
+
       li {
         font-size: 13px;
         transition: 0.25s;
@@ -6598,6 +6602,108 @@ main {
     }
   }
 
+  .schedule {
+    flex-direction: column;
+    align-items: flex-start;
+
+    li {
+      gap: 0;
+      padding: 0;
+      border-bottom: 0;
+
+      &:nth-of-type(odd) {
+        background-color: #f3f6f9;
+      }
+
+      &:first-of-type {
+        div {
+          border-right: 0;
+          &:nth-of-type(odd) {
+            flex: 2;
+          }
+
+          &:nth-of-type(even) {
+            flex: 4;
+          }
+        }
+      }
+
+      &:last-of-type {
+        div {
+          border-bottom: 0;
+        }
+      }
+
+      &.title {
+        flex-direction: row;
+      }
+      div {
+        position: relative;
+        display: flex;
+        border-right: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        aspect-ratio: 1;
+        width: 2rem;
+        height: 2rem;
+        justify-content: center;
+        color: slategray;
+        font-size: 13px;
+
+        &:last-of-type {
+          border-right: 0;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          height: 0.75rem;
+          background-color: $primary-color;
+          display: block;
+        }
+
+        &.start {
+          &::before {
+            width: 80%;
+            right: 0;
+            border-radius: 3px 0 0 3px;
+          }
+        }
+
+        &.all {
+          &::before {
+            width: 100%;
+          }
+        }
+
+        &.end {
+          &::before {
+            width: 80%;
+            left: 0;
+            border-radius: 0 3px 3px 0;
+          }
+        }
+      }
+    }
+
+    ul {
+      border: 1px solid #e3e6e9;
+    }
+
+    article {
+      min-height: 100px;
+
+      &:empty {
+        display: flex;
+        align-items: center !important;
+        justify-content: center;
+
+        &::before {
+          content: "등록된 스케줄이 없습니다.";
+        }
+      }
+    }
+  }
+
   &.items {
     .list {
       li {
@@ -6625,9 +6731,9 @@ main {
       position: absolute;
       top: calc(100% + 0.5rem);
       background: #fff;
-      padding: .75rem;
+      padding: 0.75rem;
       width: 100%;
-      border: 1px solid #eee;
+      border: 1px solid #e3e6e9;
       border-radius: 5px;
       z-index: 1;
 
@@ -6734,7 +6840,7 @@ main {
           span {
             width: 100%;
             justify-content: space-between;
-            border: 1px solid #eee
+            border: 1px solid #eee;
           }
         }
 
@@ -6744,7 +6850,7 @@ main {
           background: white;
           padding: 0.5rem;
           border-radius: 5px;
-          border: 1px solid #eee;
+          border: 1px solid #e3e6e9;
         }
 
         .search {

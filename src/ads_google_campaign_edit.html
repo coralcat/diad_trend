@@ -9,7 +9,7 @@
     <ul class="tabs main-tabs">
       <li onclick="location.href='ads_google_campaign_edit.html'" class="is-active" data-tab="sub-menu">캠페인</li>
       <li onclick="location.href='ads_google_campaign_items.html'" data-tab="sub-menu">광고 상품</li>
-      <li class="is-active" onclick="location.href='ads_google_campaign_assets.html'" data-tab="sub-menu">에셋</li>
+      <li onclick="location.href='ads_google_campaign_assets.html'" data-tab="sub-menu">에셋</li>
     </ul>
     <div class="buttons">
       <button>삭제</button>
@@ -186,7 +186,8 @@
             </div>
           </div>
           <div class="caution">
-            타겟 광고 투자수익(ROAS) 전략은 지난 30일 동안 판매자 센터 ID당 전환이 15회 이상 발생한 경우에만 사용할 수 있습니다. 가능한 입찰전략을 설정하고 전환 요건 충족 후 입찰전략 재설정이 가능합니다.
+            타겟 광고 투자수익(ROAS) 전략은 지난 30일 동안 판매자 센터 ID당 전환이 15회 이상 발생한 경우에만 사용할 수 있습니다. 가능한 입찰전략을 설정하고 전환 요건 충족 후 입찰전략
+            재설정이 가능합니다.
           </div>
         </div>
       </li>
@@ -251,9 +252,263 @@
       </li>
       <li>
         <div>스케줄러</div>
-        <div class="toggle-switch">
-          <input id="toggle-schedule" type="checkbox">
-          <label for="toggle-schedule"></label>
+        <div class="inputs vertical">
+          <div class="toggle-switch" data-modal="adsSchedule">
+            <input id="toggle-schedule" type="checkbox">
+            <label for="toggle-schedule"></label>
+          </div>
+          <div class="schedule">
+            <header>
+              <div class="filters">
+                요일
+                <div class="selector">
+                  <input type="checkbox" id="monday" />
+                  <label for="monday">월</label>
+                  <input type="checkbox" id="tuesday" />
+                  <label for="tuesday">화</label>
+                  <input type="checkbox" id="wednesday" />
+                  <label for="wednesday">수</label>
+                  <input type="checkbox" id="thursday" />
+                  <label for="thursday">목</label>
+                  <input type="checkbox" id="friday" />
+                  <label for="friday">금</label>
+                  <input type="checkbox" id="saturday" />
+                  <label for="saturday">토</label>
+                  <input type="checkbox" id="sunday" />
+                  <label for="sunday">일</label>
+                </div>
+              </div>
+              <div class="filters">
+                시간
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="">00:00</option>
+                  </select>
+                </div>
+                ~
+
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="">00:00</option>
+                  </select>
+                </div>
+                <button type="button">등록</button>
+              </div>
+              <div class="caution">
+                동일한 날에 6건 이상의 스케줄을 등록할 수 없습니다.
+              </div>
+            </header>
+            <ul>
+              <li class="title">
+                <div>00:00</div>
+                <div>03:00</div>
+                <div>06:00</div>
+                <div>09:00</div>
+                <div>12:00</div>
+                <div>15:00</div>
+                <div>18:00</div>
+                <div>21:00</div>
+                <div>24:00</div>
+              </li>
+              <li>
+                <div>월</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="start"></div>
+                <div class="all"></div>
+                <div class="all"></div>
+                <div class="all"></div>
+                <div class="end"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </li>
+              <li>
+                <div>화</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </li>
+              <li>
+                <div>수</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </li>
+              <li>
+                <div>목</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="start"></div>
+                <div class="all"></div>
+                <div class="all"></div>
+                <div class="all"></div>
+                <div class="all"></div>
+                <div class="all"></div>
+                <div class="all"></div>
+                <div class="all"></div>
+                <div class="end"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </li>
+              <li>
+                <div>금</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </li>
+              <li>
+                <div>토</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </li>
+              <li>
+                <div>일</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </li>
+            </ul>
+            <article></article>
+          </div>
         </div>
       </li>
     </ul>

@@ -9,15 +9,14 @@
       {% include "account.html" %}
     </div>
     <ul class="tabs main-tabs">
-      <li data-tab="sub-menu">대시보드</li>
-      <li onclick="location.href='ads_google.html'" data-tab="sub-menu">계정+</li>
+      <li onclick="location.href='ads_google.html'" data-tab="sub-menu">계정</li>
       <li data-tab="sub-menu">피드</li>
       <li data-tab="sub-menu" class="is-active">캠페인</li>
       <li data-tab="sub-menu">리포트</li>
       <li data-tab="sub-menu">설정</li>
     </ul>
     <div class="buttons">
-      <button class="btn-main">이력</button>
+      <button class="btn-main" onclick="location.href='ads_google_campaign_history.html'">이력</button>
       <button class="btn-main">설정</button>
     </div>
   </header>
@@ -133,8 +132,10 @@
         <li title="유형" class="ico-sort">유형</li>
         <li title="On/Off" class="ico-sort">On/Off</li>
         <li title="캠페인 상태" class="ico-sort">캠페인 상태</li>
-        <li title="광고그룹 상태" class="ico-sort">광고그룹 상태 <div data-tooltip="adsGroupStatus"></div></li>
-        <li title="광고 상태" class="ico-sort">광고 상태 <div data-tooltip="adsStatus"></div></li>
+        <li title="광고그룹 상태" class="ico-sort">광고그룹 상태 <div data-tooltip="adsGroupStatus"></div>
+        </li>
+        <li title="광고 상태" class="ico-sort">광고 상태 <div data-tooltip="adsStatus"></div>
+        </li>
         <li title="일 예산" class="ico-sort">일 예산</li>
         <li title="시작일" class="ico-sort">시작일</li>
         <li title="종료일" class="ico-sort">종료일</li>
@@ -159,7 +160,7 @@
           <input id="campaign-1" type="checkbox" />
           <label for="campaign-1" class="ico-more"></label>
           <div class="campaign">
-            <a href="">캠페인 관리</a>
+            <a href="ads_google_campaign_edit.html">캠페인 관리</a>
             <a href="">캠페인 삭제</a>
             <a href="">성과 리포트</a>
             <a href="ads_google_campaign_history.html">변경 이력</a>

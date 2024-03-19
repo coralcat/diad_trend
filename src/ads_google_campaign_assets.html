@@ -8,7 +8,7 @@
     </div>
     <ul class="tabs main-tabs">
       <li onclick="location.href='ads_google_campaign_edit.html'" data-tab="sub-menu">캠페인</li>
-      <li class="is-active" onclick="location.href='ads_google_campaign_items.html'" data-tab="sub-menu">광고 상품</li>
+      <li onclick="location.href='ads_google_campaign_items.html'" data-tab="sub-menu">광고 상품</li>
       <li class="is-active" onclick="location.href='ads_google_campaign_assets.html'" data-tab="sub-menu">에셋</li>
     </ul>
     <div class="buttons">
@@ -18,73 +18,30 @@
       <button class="btn-main">성과 리포트</button>
     </div>
   </header>
-  <section class="section-feeds">
-    <header>
-      <h2>
-        상품 상태
-        <div data-tooltip=""></div>
-      </h2>
-      <div class="filters">
-        <strong data-title="일자: ">2023-08-20</strong>
-        <strong data-title="위치: ">쇼핑광고</strong>
-      </div>
-    </header>
-    <ul>
-      <li data-title="총 상품">
-        <span class="cases">1,200</span>
-        <span class="percent">100.00</span>
-      </li>
-      <li data-title="활성">
-        <span class="cases">1,000</span>
-        <span class="percent">83.33</span>
-      </li>
-      <li data-title="대기">
-        <span class="cases">150</span>
-        <div>
-          <span class="percent">12.50</span>
-        </div>
-      </li>
-      <li data-title="비승인">
-        <span class="cases">50</span>
-        <span class="percent">4.17</span>
-      </li>
-    </ul>
-  </section>
   <section>
     <header>
       <div class="title">
-        <div class="selector">
-          <input type="radio" id="list-all" name="listTabs-power-link" checked="">
-          <label for="list-all">전체
-            <span class="tag">1,000,000</span>
-          </label>
-          <input type="radio" id="list-available" name="listTabs-power-link">
-          <label for="list-available">운영 가능
-            <span class="tag">900,000</span>
-          </label>
-          <input type="radio" id="list-unavailable" name="listTabs-power-link">
-          <label for="list-unavailable">운영 불가능
-            <span class="tag">100,000</span>
-          </label>
+        <div>
+          <strong data-title="총" class="cases">0</strong>
         </div>
-        <div class="selectbox">
-          <select name="" id="">
-            <option value="100개씩 보기">100개씩 보기</option>
-          </select>
+        <div class="filters">
+          <div data-title="일시">2024-02-15 06:00</div>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="100개씩 보기">100개씩 보기</option>
+            </select>
+          </div>
         </div>
       </div>
     </header>
-    <div class="list">
+    <div class="list" data-empty="에셋이 없습니다.">
       <ul class="row title">
-        <li title="상품명" class="ico-sort">상품명</li>
-        <li title="ID" class="ico-sort">ID</li>
-        <li title="상품 가격" class="ico-sort">상품 가격</li>
-        <li title="상품 상태" class="ico-sort">상품 상태</li>
-        <li title="광고 운영" class="ico-sort">광고 운영</li>
-        <li title="이슈" class="ico-sort">이슈</li>
+        <li title="에셋" class="ico-sort">에셋</li>
+        <li title="에셋 유형" class="ico-sort">에셋 유형</li>
+        <li title="소스" class="ico-sort">소스</li>
       </ul>
       <ul class="row">
-        <li class="item" title="상품명" onclick="location.href='ads_google_feed_details.html'">
+        <li class="item" title="에셋" onclick="location.href='ads_google_feed_details.html'">
           <div class="image">
             <img src="" alt="">
           </div>
@@ -93,20 +50,11 @@
             dfs df sdfs dfs df dfs dfs df sdfs df
           </strong>
         </li>
-        <li title="ID">
-          00000
-        </li>
-        <li title="상품 가격">
+        <li title="에셋 유형">
           <span class="price">13,900</span>
         </li>
-        <li title="상품 상태">
+        <li title="소스">
           활성
-        </li>
-        <li title="광고 운영">
-          <button data-modal="itemIssues">운영 불가능</button>
-        </li>
-        <li title="이슈">
-          <span class="ico-exclamation">Pending initial review</span>
         </li>
       </ul>
     </div>
