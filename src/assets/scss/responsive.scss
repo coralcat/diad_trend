@@ -158,6 +158,21 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       }
     }
   }
+  
+  .content-keyword-details{
+    .content-header {
+      .inputs {
+        order: 1;
+        position: static;
+        width: 100%;
+        min-height: auto;
+      }
+
+      .tabs{
+        order: 1;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 640px) {
@@ -1803,6 +1818,14 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       }
     }
 
+    .content-header {
+      .search {
+        input{
+          width: 100%;
+        }
+      }
+    }
+    
     .wrapper {
       gap: 1rem;
 

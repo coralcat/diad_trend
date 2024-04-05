@@ -1,0 +1,201 @@
+{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('ads_google')}}
+<main class="content-google-ads reports">
+  <header class="content-header">
+    <ul class="tabs main-tabs">
+      <li data-tab="sub-menu">계정</li>
+      <li data-tab="sub-menu">피드</li>
+      <li onclick="location.href='ads_google_campaign.html'" data-tab="sub-menu">캠페인</li>
+      <li onclick="location.href='ads_google_report.html'" data-tab="sub-menu" class="is-active">리포트</li>
+      <li data-tab="sub-menu">설정</li>
+    </ul>
+  </header>
+  <section class="section-main">
+    <header>
+      <div class="filters">
+        기간
+        <div class="selectbox">
+          <select name="" id="">
+            <option value="">어제</option>
+          </select>
+        </div>
+        <div class="calendar">
+          <input type="text" id="reportFrom" name="" />
+          <span>~</span>
+          <input type="text" id="reportTo" name="" />
+        </div>
+        계정
+        <div class="selectbox">
+          <select name="" id="">
+            <option value="">계정 전체</option>
+          </select>
+        </div>
+        <button class="btn-main ico-search" type="button"></button>
+      </div>
+      <button>엑셀 다운로드</button>
+    </header>
+  </section>
+  <section class="section-overview">
+    <header>
+      <h2>계정 요약</h2>
+    </header>
+    <ul>
+      <li data-title="광고비용">
+        <span class="price">266,663</span>
+        <div>
+          <span class="tag down">6,000 (-12.2%)</span>
+        </div>
+      </li>
+      <li data-title="노출수">
+        <span class="cases">26,655</span>
+        <div>
+          <span class="tag down">6,000 (-12.2%)</span>
+        </div>
+      </li>
+      <li data-title="클릭수">
+        <span class="cases">1,603</span>
+        <div>
+          <span class="tag down">6,000 (-12.2%)</span>
+        </div>
+      </li>
+      <li data-title="클릭률">
+        <span class="percent">6.01</span>
+        <div>
+          <span class="tag up">0.01 (+12.2%p)</span>
+        </div>
+      </li>
+      <li data-title="평균 클릭비용">
+        <span class="price">166</span>
+        <div>
+          <span class="tag down">6,000 (-12.2%)</span>
+        </div>
+      </li>
+      <li data-title="모든 전환수">
+        <span class="price">266,663</span>
+        <div>
+          <span class="tag down">6,000 (-12.2%)</span>
+        </div>
+      </li>
+      <li data-title="모든 전환율">
+        <span class="cases">26,655</span>
+        <div>
+          <span class="tag down">6,000 (-12.2%)</span>
+        </div>
+      </li>
+      <li data-title="모든 전환당 비용">
+        <span class="cases">1,603</span>
+        <div>
+          <span class="tag down">6,000 (-12.2%)</span>
+        </div>
+      </li>
+      <li data-title="모든 전환가치">
+        <span class="percent">6.01</span>
+        <div>
+          <span class="tag up">0.01 (+12.2%)</span>
+        </div>
+      </li>
+      <li data-title="비용당 모든 전환가치">
+        <span class="price">166</span>
+        <div>
+          <span class="tag up">6,000 (+12.2%)</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <div class="list campaigns">
+      <ul class="row title">
+        <li title="캠페인" class="ico-sort">캠페인</li>
+        <li title="유형" class="ico-sort">유형</li>
+        <li title="On/Off" class="ico-sort">On/Off</li>
+        <li title="상태" class="ico-sort">상태</li>
+        <li title="광고비용" class="ico-sort">광고비용</li>
+        <li title="노출수" class="optional ico-sort">노출수</li>
+        <li title="클릭수" class=" ico-sort">클릭수</li>
+        <li title="클릭률" class=" ico-sort">클릭률</li>
+        <li title="평균클릭비용" class=" ico-sort">평균클릭비용</li>
+        <li title="전환수" class=" ico-sort">전환수</li>
+        <li title="전환율" class=" ico-sort">전환율</li>
+        <li title="비용당 전환가치" class=" ico-sort">비용당 전환가치</li>
+        <li title="전환가치" class=" ico-sort">전환가치</li>
+        <li title="전환당 비용" class=" ico-sort">전환당 비용</li>
+        <li title="모든 전환수" class=" ico-sort">모든 전환수</li>
+        <li title="모든 전환율" class=" ico-sort">모든 전환율</li>
+        <li title="모든 전환당 비용" class=" ico-sort">모든 전환당 비용</li>
+        <li title="모든 전환가치" class=" ico-sort">모든 전환가치</li>
+        <li title="비용당 모든 전환가치" class=" ico-sort">모든 가치비용</li>
+      </ul>
+      <ul class="row">
+        <li title="캠페인">
+          <div>
+            <div>1234567890</div>
+            <button onclick="location.href='ads_google_campaign_edit.html'">김마켓_구글쇼핑표준_230822
+            </button>
+          </div>
+          <input id="campaign-1" type="checkbox">
+          <label for="campaign-1" class="ico-more"></label>
+          <div class="campaign">
+            <a href="ads_google_campaign_edit.html">캠페인 관리</a>
+            <a href="">캠페인 삭제</a>
+            <a href="ads_google_campaign_report.html">성과 리포트</a>
+            <a href="ads_google_campaign_history.html">변경 이력</a>
+          </div>
+        </li>
+        <li title="유형">
+          표준
+        </li>
+        <li title="On/Off">
+          <div class="toggle-switch">
+            <input id="toggle-state" type="checkbox">
+            <label for="toggle-state"></label>
+          </div>
+        </li>
+        <li title="상태">
+          진행
+        </li>
+        <li title="광고비용">
+          <div class="price">266,663</div>
+        </li>
+        <li title="노출수">
+          <span class="cases">26,655</span>
+        </li>
+        <li title="클릭수">
+          <span class="cases">1,603</span>
+        </li>
+        <li title="클릭률">
+          <span class="percent">6.01</span>
+        </li>
+        <li title="평균클릭비용">
+          <span class="price">166</span>
+        </li>
+        <li title="전환수">
+          <span class="cases">1,611.92</span>
+        </li>
+        <li title="전환율">
+          <span class="percent">56.50</span>
+        </li>
+        <li title="비용당 전환가치">3.73</li>
+        <li title="전환가치">994,107.12</li>
+        <li title="전환당 비용">
+          <span class="price">164</span>
+        </li>
+        <li title="모든 전환수">
+          1,623.92
+        </li>
+        <li title="모든 전환율">
+          <span class="percent">56.53</span>
+        </li>
+        <li title="모든 전환당 비용">
+          <span class="price">165</span>
+        </li>
+        <li title="모든 전환가치">
+          1,001,607.12
+        </li>
+        <li title="비용당 모든 전환가치">
+          3.76
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+{% include "modals.html" %}
+{% endblock %}

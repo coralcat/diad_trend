@@ -1,0 +1,139 @@
+{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('ads_google')}}
+<main class="content-google-ads report-items">
+  <header class="content-header">
+    <div class="title">
+      <h1 data-title="캠페인 리포트">
+        <div class="tag">김마켓_구글쇼핑실적_230822 | 캠페인 ID : 19401531516</div>
+      </h1>
+    </div>
+    <ul class="tabs main-tabs">
+      <li onclick="location.href='ads_google_campaign_report.html'" data-tab="sub-menu">캠페인</li>
+      <li onclick="location.href='ads_google_campaign_report_items.html'" data-tab="sub-menu" class="is-active">상품</li>
+    </ul>
+  </header>
+  <section>
+    <header>
+      <div class="title">
+        <div class="selector">
+          <input type="radio" id="list-items" name="listTabs-power-link" checked="">
+          <label for="list-items">상품</label>
+          <input type="radio" id="list-categories" name="listTabs-power-link">
+          <label for="list-categories">카테고리</label>
+          <input type="radio" id="list-brands" name="listTabs-power-link">
+          <label for="list-brands">브랜드</label>
+          <input type="radio" id="list-types" name="listTabs-power-link">
+          <label for="list-types">상품유형</label>
+          <input type="radio" id="list-brands" name="listTabs-power-link">
+          <label for="list-brands">맞춤라벨</label>
+        </div>
+        <div class="filters">
+          기간
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">어제</option>
+            </select>
+          </div>
+          <div class="calendar">
+            <input type="text" id="reportFrom" name="" />
+            <span>~</span>
+            <input type="text" id="reportTo" name="" />
+          </div>
+          계정
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">계정 전체</option>
+            </select>
+          </div>
+          <button class="btn-main ico-search" type="button"></button>
+          <button class="btn-sub">엑셀 다운로드</button>
+        </div>
+      </div>
+    </header>
+    <div class="list">
+      <ul class="row title">
+        <li title="상품명" class="ico-sort">상품명</li>
+        <li title="ID" class="ico-sort">ID</li>
+        <li title="가격" class="ico-sort">가격</li>
+        <li title="광고비용" class="ico-sort">광고비용</li>
+        <li title="노출수" class="ico-sort">노출수</li>
+        <li title="클릭수" class="ico-sort">클릭수</li>
+        <li title="클릭률" class="ico-sort">클릭률</li>
+        <li title="평균클릭비용" class="ico-sort">평균클릭비용</li>
+        <li title="전환수" class="ico-sort">전환수</li>
+        <li title="전환율" class="ico-sort">전환율</li>
+        <li title="전환당 비용" class="ico-sort">전환당 비용</li>
+        <li title="전환가치" class="ico-sort">전환가치</li>
+        <li title="비용당 전환가치" class="ico-sort">비용당 전환가치</li>
+        <li title="모든 전환수" class="ico-sort">모든 전환수</li>
+        <li title="모든 전환율" class="ico-sort">모든 전환율</li>
+        <li title="모든 전환당 비용" class="ico-sort">모든 전환당 비용</li>
+        <li title="모든 전환가치" class="ico-sort">모든 전환가치</li>
+        <li title="비용당 모든 전환가치" class="ico-sort">비용당 모든 전환가치</li>
+      </ul>
+      <ul class="row">
+        <li class="item" title="상품명" onclick="location.href='ads_google_feed_details.html'">
+          <div class="image">
+            <img src="" alt="">
+          </div>
+          <strong>
+            유기농 다이애드 비누 90g 12개 sfsf fa ff sf s df fdsdf s dfs fs fds fds dfsf ds fds dfsfd df sdfs dfsdf ds fsd fs dfs
+            dfs df sdfs dfs df dfs dfs df sdfs df
+          </strong>
+        </li>
+        <li title="ID">
+          00000
+        </li>
+        <li title="가격">
+          <span class="price">50,000</span>
+        </li>
+        <li title="광고비용">
+          <span class="price">266,663</span>
+        </li>
+        <li title="노출수">
+          <span class="price">26,655</span>
+        </li>
+        <li title="클릭수">
+          <span class="price">1,603</span>
+        </li>
+        <li title="클릭률">
+          <span class="percent">6.01</span>
+        </li>
+        <li title="평균클릭비용">
+          <span class="price">166</span>
+        </li>
+        <li title="전환수">
+          <span class="price">1,611.92</span>
+        </li>
+        <li title="전환율">
+          <span class="percent">56.50</span>
+        </li>
+        <li title="전환당 비용">
+          <span class="price">164</span>
+        </li>
+        <li title="전환가치">
+          <span>994,107.12</span>
+        </li>
+        <li title="비용당 전환가치">
+          3.73
+        </li>
+        <li title="모든 전환수">
+          1,623.92
+        </li>
+        <li title="모든 전환율">
+          <span class="percent">56.53</span>
+        </li>
+        <li title="모든 전환당 비용">
+          <span class="price">165</span>
+        </li>
+        <li title="모든 전환가치">
+          <span>1,001,607.12</span>
+        </li>
+        <li title="비용당 모든 전환가치">
+          <span>3.76</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+{% include "modals.html" %}
+{% endblock %}
