@@ -177,39 +177,386 @@
   </ul>
 </aside>
 
-<main class="content-google-ads campaign new">
+<main class="content-google-ads reports">
   <header class="content-header">
     <div class="title">
-      <h1>
-        <span>구글 입점광고</span>
-        <div data-tooltip=""></div>
+      <h1 data-title="캠페인 리포트">
+        <div class="tag">김마켓_구글쇼핑실적_230822 | 캠페인 ID : 19401531516</div>
       </h1>
-      <div href="#" class="account" target="_blank">
-  <menu>coralcat</menu>
-  <nav>
-    <ul>
-      <li onclick="location.href='accounts.html'">계정 설정</li>
-      <li onclick="location.href='settings.html'">알림 설정</li>
-      <li>로그아웃</li>
-    </ul>
-  </nav>
-</div>
     </div>
     <ul class="tabs main-tabs">
-      <li onclick="location.href='ads_google.html'" data-tab="sub-menu">계정</li>
-      <li data-tab="sub-menu">피드</li>
-      <li data-tab="sub-menu" class="is-active">캠페인</li>
-      <li onclick="location.href='ads_google_report.html'" data-tab="sub-menu">리포트</li>
-      <li data-tab="sub-menu">설정</li>
+      <li onclick="location.href='ads_google_campaign_report.html'" data-tab="sub-menu" class="is-active">캠페인</li>
+      <li onclick="location.href='ads_google_campaign_report_items.html'" data-tab="sub-menu">상품</li>
     </ul>
-    <strong data-title="총" class="cases">1</strong>
+    <div class="filters">
+      기간
+      <div class="selectbox">
+        <select name="" id="">
+          <option value="">어제</option>
+        </select>
+      </div>
+      <div class="calendar">
+        <input type="text" id="reportFrom" name="" />
+        <span>~</span>
+        <input type="text" id="reportTo" name="" />
+      </div>
+      계정
+      <div class="selectbox">
+        <select name="" id="">
+          <option value="">계정 전체</option>
+        </select>
+      </div>
+      <button class="btn-main ico-search" type="button"></button>
+      <button class="btn-sub">엑셀 다운로드</button>
+    </div>
   </header>
+  <section class="section-overview">
+    <header>
+      <h2>계정 요약</h2>
+    </header>
+    <ul>
+      <li data-title="광고비용">
+        <span class="price">266,663</span>
+        <div>
+          <span class="tag down">6,000 (-12.2%)</span>
+        </div>
+      </li>
+      <li data-title="노출수">
+        <span class="cases">26,655</span>
+        <div>
+          <span class="tag down">6,000 (-12.2%)</span>
+        </div>
+      </li>
+      <li data-title="클릭수">
+        <span class="cases">1,603</span>
+        <div>
+          <span class="tag down">6,000 (-12.2%)</span>
+        </div>
+      </li>
+      <li data-title="클릭률">
+        <span class="percent">6.01</span>
+        <div>
+          <span class="tag up">0.01 (+12.2%p)</span>
+        </div>
+      </li>
+      <li data-title="평균 클릭비용">
+        <span class="price">166</span>
+        <div>
+          <span class="tag down">6,000 (-12.2%)</span>
+        </div>
+      </li>
+      <li data-title="모든 전환수">
+        <span class="price">266,663</span>
+        <div>
+          <span class="tag down">6,000 (-12.2%)</span>
+        </div>
+      </li>
+      <li data-title="모든 전환율">
+        <span class="cases">26,655</span>
+        <div>
+          <span class="tag down">6,000 (-12.2%)</span>
+        </div>
+      </li>
+      <li data-title="모든 전환당 비용">
+        <span class="cases">1,603</span>
+        <div>
+          <span class="tag down">6,000 (-12.2%)</span>
+        </div>
+      </li>
+      <li data-title="모든 전환가치">
+        <span class="percent">6.01</span>
+        <div>
+          <span class="tag up">0.01 (+12.2%)</span>
+        </div>
+      </li>
+      <li data-title="비용당 모든 전환가치">
+        <span class="price">166</span>
+        <div>
+          <span class="tag up">6,000 (+12.2%)</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section class="section-chart">
+    <div class="chart">
+      <h2>성과 그래프</h2>
+    </div>
+  </section>
   <section>
-    <h2>
-      등록된 캠페인이 없습니다. 캠페인을 생성해 보세요!
-    </h2>
-    <div class="buttons">
-      <button data-modal="addCampaign">캠페인 생성</button>
+    <div class="list campaigns">
+      <ul class="row title">
+        <li title="일별" class="col-more ico-sort">
+          <button class="btn-more"></button>
+          일별
+        </li>
+        <li title="광고비용" class="ico-sort">광고비용</li>
+        <li title="노출수" class="optional ico-sort">노출수</li>
+        <li title="클릭수" class=" ico-sort">클릭수</li>
+        <li title="클릭률" class=" ico-sort">클릭률</li>
+        <li title="평균클릭비용" class=" ico-sort">평균클릭비용</li>
+        <li title="전환수" class=" ico-sort">전환수</li>
+        <li title="전환율" class=" ico-sort">전환율</li>
+        <li title="전환당 비용" class=" ico-sort">전환당 비용</li>
+        <li title="전환가치" class=" ico-sort">전환가치</li>
+        <li title="비용당 전환가치" class=" ico-sort">비용당 전환가치</li>
+        <li title="모든 전환수" class=" ico-sort">모든 전환수</li>
+        <li title="모든 전환율" class=" ico-sort">모든 전환율</li>
+        <li title="모든 전환당 비용" class=" ico-sort">모든 전환당 비용</li>
+        <li title="모든 전환가치" class=" ico-sort">모든 전환가치</li>
+        <li title="비용당 모든 전환가치" class=" ico-sort">비용당 모든 전환가치</li>
+      </ul>
+      <ul class="row">
+        <li class="col-more" title="일별">
+          <button class="btn-more"></button>
+          기간 전체
+        </li>
+        <li title="광고비용">
+          <div class="price">266,663</div>
+        </li>
+        <li title="노출수">
+          <span class="cases">26,655</span>
+        </li>
+        <li title="클릭수">
+          <span class="cases">1,603</span>
+        </li>
+        <li title="클릭률">
+          <span class="percent">6.01</span>
+        </li>
+        <li title="평균클릭비용">
+          <span class="price">166</span>
+        </li>
+        <li title="전환수">
+          <span class="cases">1,611.92</span>
+        </li>
+        <li title="전환율">
+          <span class="percent">56.50</span>
+        </li>
+        <li title="전환당 비용">
+          <span class="price">164</span>
+        </li>
+        <li title="전환가치">
+          <span>994,107.12</span>
+        </li>
+        <li title="비용당 전환가치">3.73</li>
+        <li title="모든 전환수">
+          1,623.92
+        </li>
+        <li title="모든 전환율">
+          <span class="percent">56.53</span>
+        </li>
+        <li title="모든 전환당 비용">
+          <span class="price">165</span>
+        </li>
+        <li title="모든 전환가치">
+          1,001,607.12
+        </li>
+        <li title="비용당 모든 전환가치">
+          3.76
+        </li>
+      </ul>
+      <ul class="row">
+        <li class="col-more" title="일별">
+          <button class="btn-more is-active"></button>
+          2024-04-05
+        </li>
+        <li title="광고비용">
+          <div class="price">266,663</div>
+        </li>
+        <li title="노출수">
+          <span class="cases">26,655</span>
+        </li>
+        <li title="클릭수">
+          <span class="cases">1,603</span>
+        </li>
+        <li title="클릭률">
+          <span class="percent">6.01</span>
+        </li>
+        <li title="평균클릭비용">
+          <span class="price">166</span>
+        </li>
+        <li title="전환수">
+          <span class="cases">1,611.92</span>
+        </li>
+        <li title="전환율">
+          <span class="percent">56.50</span>
+        </li>
+        <li title="전환당 비용">
+          <span class="price">164</span>
+        </li>
+        <li title="전환가치">
+          <span>994,107.12</span>
+        </li>
+        <li title="비용당 전환가치">3.73</li>
+        <li title="모든 전환수">
+          1,623.92
+        </li>
+        <li title="모든 전환율">
+          <span class="percent">56.53</span>
+        </li>
+        <li title="모든 전환당 비용">
+          <span class="price">165</span>
+        </li>
+        <li title="모든 전환가치">
+          1,001,607.12
+        </li>
+        <li title="비용당 모든 전환가치">
+          3.76
+        </li>
+      </ul>
+      <ul class="row">
+
+        <li class="more">
+          <ul class="row">
+            <li class="col-more" title="일별">
+              <button class="btn-more is-active"></button>
+              2024-04-05
+            </li>
+            <li title="광고비용">
+              <div class="price">266,663</div>
+            </li>
+            <li title="노출수">
+              <span class="cases">26,655</span>
+            </li>
+            <li title="클릭수">
+              <span class="cases">1,603</span>
+            </li>
+            <li title="클릭률">
+              <span class="percent">6.01</span>
+            </li>
+            <li title="평균클릭비용">
+              <span class="price">166</span>
+            </li>
+            <li title="전환수">
+              <span class="cases">1,611.92</span>
+            </li>
+            <li title="전환율">
+              <span class="percent">56.50</span>
+            </li>
+            <li title="전환당 비용">
+              <span class="price">164</span>
+            </li>
+            <li title="전환가치">
+              <span>994,107.12</span>
+            </li>
+            <li title="비용당 전환가치">3.73</li>
+            <li title="모든 전환수">
+              1,623.92
+            </li>
+            <li title="모든 전환율">
+              <span class="percent">56.53</span>
+            </li>
+            <li title="모든 전환당 비용">
+              <span class="price">165</span>
+            </li>
+            <li title="모든 전환가치">
+              1,001,607.12
+            </li>
+            <li title="비용당 모든 전환가치">
+              3.76
+            </li>
+            <li class="more">
+
+              <ul class="row">
+                <li title="일별">
+                  <button class="btn-more is-active"></button>
+                  2024-04-05
+                </li>
+                <li title="광고비용">
+                  <div class="price">266,663</div>
+                </li>
+                <li title="노출수">
+                  <span class="cases">26,655</span>
+                </li>
+                <li title="클릭수">
+                  <span class="cases">1,603</span>
+                </li>
+                <li title="클릭률">
+                  <span class="percent">6.01</span>
+                </li>
+                <li title="평균클릭비용">
+                  <span class="price">166</span>
+                </li>
+                <li title="전환수">
+                  <span class="cases">1,611.92</span>
+                </li>
+                <li title="전환율">
+                  <span class="percent">56.50</span>
+                </li>
+                <li title="전환당 비용">
+                  <span class="price">164</span>
+                </li>
+                <li title="전환가치">
+                  <span>994,107.12</span>
+                </li>
+                <li title="비용당 전환가치">3.73</li>
+                <li title="모든 전환수">
+                  1,623.92
+                </li>
+                <li title="모든 전환율">
+                  <span class="percent">56.53</span>
+                </li>
+                <li title="모든 전환당 비용">
+                  <span class="price">165</span>
+                </li>
+                <li title="모든 전환가치">
+                  1,001,607.12
+                </li>
+                <li title="비용당 모든 전환가치">
+                  3.76
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="row">
+            <li title="일별">
+              2024-04-05
+            </li>
+            <li title="광고비용">
+              <div class="price">266,663</div>
+            </li>
+            <li title="노출수">
+              <span class="cases">26,655</span>
+            </li>
+            <li title="클릭수">
+              <span class="cases">1,603</span>
+            </li>
+            <li title="클릭률">
+              <span class="percent">6.01</span>
+            </li>
+            <li title="평균클릭비용">
+              <span class="price">166</span>
+            </li>
+            <li title="전환수">
+              <span class="cases">1,611.92</span>
+            </li>
+            <li title="전환율">
+              <span class="percent">56.50</span>
+            </li>
+            <li title="전환당 비용">
+              <span class="price">164</span>
+            </li>
+            <li title="전환가치">
+              <span>994,107.12</span>
+            </li>
+            <li title="비용당 전환가치">3.73</li>
+            <li title="모든 전환수">
+              1,623.92
+            </li>
+            <li title="모든 전환율">
+              <span class="percent">56.53</span>
+            </li>
+            <li title="모든 전환당 비용">
+              <span class="price">165</span>
+            </li>
+            <li title="모든 전환가치">
+              1,001,607.12
+            </li>
+            <li title="비용당 모든 전환가치">
+              3.76
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </section>
 </main>
