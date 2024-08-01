@@ -1,0 +1,128 @@
+{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('ads_items')}}
+<main class="content-items history">
+  <header class="content-header">
+    <h1>이력</h1>
+    <ul class="tabs main-tabs">
+      <li data-tab="sub-menu" onclick="location.href='ads_items.html'">캠페인</li>
+      <li data-tab="sub-menu" class="is-active" onclick="location.href='ads_items_management_1.html'">상품</li>
+    </ul>
+  </header>
+  <div class="wrapper">
+    <section>
+      <header>
+        <div class="title">
+          <div class="filters">
+            <div class="selector">
+              <input id="collectItem" type="radio" name="item" checked />
+              <label for="collectItem">상품 수집</label>
+              <input id="managementItem" type="radio" name="item" />
+              <label for="managementItem">상품 관리</label>
+            </div>
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="">수집 전체</option>
+                <option value="">김마켓 상품피드(https://www.kimmar...)</option>
+              </select>
+            </div>
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="">구분 전체</option>
+              </select>
+            </div>
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="">상태 전체</option>
+              </select>
+            </div>
+            <div class="calendar">
+              <input id="contentsFrom" type="text" name="" readonly="" class="hasDatepicker">
+              <span>~</span>
+              <input id="contentsTo" type="text" name="" readonly="" class="hasDatepicker">
+              <button class="btn-main ico-search" type="button"></button>
+              <button class="ico-refresh"> 초기화 </button>
+            </div>
+          </div>
+          <div class="filters">
+            <span data-title="총" class="cases">1,000</span>
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="">100개씩 보기</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="list" data-toggle="extends">
+        <ul class="row title">
+          <li title="상품 수집" class="ico-sort">상품 수집</li>
+          <li title="구분" class="ico-sort">구분</li>
+          <li title="상태" class="ico-sort">상태</li>
+          <li title="완료" class="ico-sort">완료</li>
+          <li title="신규" class="ico-sort">신규</li>
+          <li title="원본 삭제" class="ico-sort">원본 삭제</li>
+          <li title="업데이트" class="ico-sort">업데이트</li>
+          <li title="소요시간" class="ico-sort">소요시간</li>
+          <li title="수집 시작" class="ico-sort">수집 시작</li>
+          <li title="수집 종료" class="ico-sort">수집 종료</li>
+        </ul>
+        <ul class="row">
+          <li class="item" title="상품 수집" onclick="location.href='ads_item_details.html'">
+            <div>
+              <strong>김마켓 상품피드</strong>
+              <div class="url">https://www.kimmarket.co.kr/mall/naver</div>
+            </div>
+          </li>
+          <li title="구분">최초</li>
+          <li title="상태">수집 중</li>
+          <li title="완료"></li>
+          <li title="신규"></li>
+          <li title="원본 삭제"></li>
+          <li title="업데이트"></li>
+          <li title="소요시간"></li>
+          <li title="수집 시작">2024.04.22 10:17</li>
+          <li title="수집 종료"></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</main>
+{% include "modals.html" %}
+{% endblock %}
+
+<script>
+  let bannerSwiper = new Swiper(".swiper.banner", {
+    spaceBetween: 15,
+    speed: 1000,
+    loop: true,
+    hashNavigation: {
+      watchState: true,
+    },
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    grabCursor: true,
+    pagination: {
+      el: ".swiper.banner .swiper-pagination",
+      clickable: true,
+      type: "fraction",
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 1,
+      },
+      768: {
+        slidesPerView: 1.5,
+      },
+      1024: {
+        slidesPerView: 2.5,
+      },
+      1600: {
+        slidesPerView: 3.5,
+      },
+      1920: {
+        slidesPerView: 4.25,
+      },
+    }
+  });
+</script>

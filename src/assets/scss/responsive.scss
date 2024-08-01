@@ -508,7 +508,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
       gap: 0;
 
       > * {
-        color: slategray !important;
+        color: #636669 !important;
         justify-content: center;
       }
 
@@ -683,7 +683,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
           left: 0;
           min-width: 80px;
           display: flex;
-          color: lightslategray;
+          color: light#636669;
           font-size: 14px;
           z-index: 0;
         }
@@ -1268,7 +1268,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
               &::before {
                 flex-basis: 130px;
                 font-size: 14px;
-                color: lightslategray;
+                color: light#636669;
               }
 
               &:nth-of-type(1) {
@@ -1767,7 +1767,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
           &:nth-of-type(7) {
             padding-top: 1rem;
             justify-content: center;
-            color: slategray;
+            color: #636669;
 
             button {
               gap: 0.5rem;
@@ -2121,7 +2121,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
         :first-of-type {
           flex: 1 1 auto;
-          color: slategray;
+          color: #636669;
           line-height: 1.25;
         }
 

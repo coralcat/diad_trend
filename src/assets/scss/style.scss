@@ -69,7 +69,7 @@ main aside,
       display: flex;
       align-items: center;
       gap: 3px;
-      color: lightslategray;
+      color: light#636669;
       white-space: nowrap;
       line-height: 1;
     }
@@ -132,7 +132,7 @@ main aside,
 
     .filters {
       width: 100%;
-      color: slategray !important;
+      color: #636669 !important;
       min-height: auto;
     }
   }
@@ -204,7 +204,7 @@ main aside,
       gap: 0.5rem;
 
       > *:first-child {
-        color: lightslategray;
+        color: light#636669;
         display: flex;
         line-height: 1;
       }
@@ -238,6 +238,12 @@ main aside,
   padding: 5px;
   border-radius: 5px;
 
+  [data-title] {
+    &::before {
+      color: white;
+    }
+  }
+
   li {
     align-items: center;
     position: relative;
@@ -262,6 +268,7 @@ main aside,
   .dropdown {
     background-color: #434649;
     color: white;
+    border: 0;
 
     nav {
       transform: translateX(-50%) translateY(0);
@@ -364,7 +371,7 @@ main aside,
   flex-direction: column;
   align-items: flex-start !important;
   gap: 0.5rem !important;
-  color: slategray;
+  color: #636669;
   font-size: clamp(12px, 2.5vw, 13px);
   font-weight: 400;
   line-height: 1.5;
@@ -474,8 +481,8 @@ section {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding: 0.5rem;
+  gap: 0.75rem;
+  padding: 0.75rem;
   border-radius: 0.5rem;
   background-color: white;
   box-shadow: 0 6px 12px -4px #e3e6e9;
@@ -613,9 +620,19 @@ section {
       background-color: rgba(255, 0, 56, 0.1);
     }
 
-    &[data-brand="google"]::before {
-      color: #4285f4;
-      background-color: rgba(66, 133, 244, 0.1);
+    &[data-brand="google"] {
+      &::before {
+        color: #4285f4;
+        background-color: rgba(66, 133, 244, 0.1);
+      }
+
+      &.grayscale {
+
+        &::before {
+          color: #636669;
+          background-color: #d3d6d9;
+        }
+      }
     }
 
     &[data-brand="auction"]::before {
@@ -701,7 +718,7 @@ header,
 .aside {
   user-select: none;
   background-color: #232629;
-  width: min(210px, 14vw);
+  width: min(200px, 13vw);
   height: 100%;
   position: sticky;
   left: 0;
@@ -945,6 +962,20 @@ header,
       a {
         &::before {
           content: "G";
+        }
+      }
+    }
+
+    .items {
+      &.is-active {
+        &::after {
+          background-image: linear-gradient(130deg, #5048d7 60%, #4285f4);
+        }
+      }
+
+      a {
+        &::before {
+          content: "I";
         }
       }
     }
@@ -1274,6 +1305,8 @@ main {
       height: 36px;
       padding: 0 1rem;
       background: #333639;
+      position: relative;
+      z-index: 1;
 
       &.btn-sub {
         background-color: #e3e6e9;
@@ -1422,7 +1455,7 @@ main {
 
       small {
         line-height: 2;
-        color: slategray;
+        color: #636669;
         font-size: 11px;
       }
     }
@@ -1759,7 +1792,7 @@ main {
 
     .store,
     .categories {
-      color: slategray;
+      color: #636669;
       font-size: 13px;
       padding-top: 5px;
       display: flex;
@@ -1956,7 +1989,7 @@ main {
               visibility: visible;
               max-height: 999px;
               z-index: 1;
-              gap: .5rem;
+              gap: 0.5rem;
             }
           }
 
@@ -2471,7 +2504,7 @@ main {
       flex: 0 0 auto !important;
       width: 270px !important;
 
-      div:not(.selectbox, .accounts, .image) {
+      div:not(.selectbox, .accounts, .image, .information, .title) {
         display: block !important;
         text-overflow: ellipsis;
         width: 100%;
@@ -2523,7 +2556,7 @@ main {
         left: -2rem;
         transform: translateY(-50%);
         font-size: 12px;
-        color: slategray;
+        color: #636669;
       }
 
       &:nth-of-type(12) {
@@ -2606,7 +2639,7 @@ main {
           &::before {
             content: attr(title);
             white-space: nowrap;
-            color: slategray;
+            color: #636669;
             font-family: "굴림";
             font-size: 11px;
           }
@@ -2759,7 +2792,7 @@ main {
       gap: 0.5rem;
 
       &.created {
-        color: lightslategray;
+        color: light#636669;
 
         li {
           &:not(:last-of-type) {
@@ -3320,7 +3353,7 @@ main {
         transition: 0.25s;
 
         a {
-          color: slategray;
+          color: #636669;
           font-size: 16px;
           padding-right: 3px;
           text-decoration: underline;
@@ -3390,7 +3423,7 @@ main {
 
         &::before {
           width: 27px;
-          color: slategray;
+          color: #636669;
           margin-right: 0;
         }
       }
@@ -3711,7 +3744,7 @@ main {
     gap: 1rem;
 
     h5 {
-      color: lightslategray;
+      color: light#636669;
       display: flex;
       line-height: 1;
       gap: 3px;
@@ -4194,7 +4227,7 @@ main {
 
             &::before {
               width: 30px;
-              color: slategray;
+              color: #636669;
             }
           }
         }
@@ -4421,7 +4454,7 @@ main {
         gap: 2px !important;
 
         > :first-of-type {
-          color: lightslategray;
+          color: light#636669;
         }
 
         > :last-of-type {
@@ -4641,7 +4674,7 @@ main {
               display: flex;
               align-items: center;
               font-size: 12px;
-              color: slategray;
+              color: #636669;
             }
           }
         }
@@ -4759,7 +4792,7 @@ main {
               &::after {
                 width: 32px;
                 height: 32px;
-                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='slategray' d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E")
+                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='%23838689' d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E")
                   center no-repeat;
                 background-size: 70%;
                 background-color: rgba(210, 220, 220, 0.5);
@@ -4814,7 +4847,7 @@ main {
 
             &::before {
               width: 30px;
-              color: slategray;
+              color: #636669;
             }
           }
         }
@@ -5254,7 +5287,7 @@ main {
 
     h5 {
       font-size: 14px;
-      color: slategray;
+      color: #636669;
     }
 
     ul {
@@ -5299,7 +5332,7 @@ main {
           display: flex;
           align-items: center;
           gap: 3px;
-          color: slategray;
+          color: #636669;
           white-space: nowrap;
 
           strong {
@@ -5489,7 +5522,7 @@ main {
           padding: 0.5rem;
           width: 32px;
           height: 32px;
-          background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='slategray' d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E")
+          background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='%23838689' d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E")
             center no-repeat;
           background-size: 70%;
           background-color: rgba(210, 220, 220, 0.25);
@@ -6019,7 +6052,7 @@ main {
               padding: 0.5rem;
               width: 32px;
               height: 32px;
-              background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='slategray' d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E")
+              background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='%23838689' d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E")
                 center no-repeat;
               background-size: 70%;
               background-color: rgba(210, 220, 220, 0.25);
@@ -6120,7 +6153,7 @@ main {
 
         header {
           .ico-link {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'%3E%3Cpath fill='slategray' d='M14 3v2h3.59l-9.83 9.83l1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7Z'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'%3E%3Cpath fill='%23838689' d='M14 3v2h3.59l-9.83 9.83l1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7Z'/%3E%3C/svg%3E");
             display: inline-flex;
             font-size: 12px;
             border: 1px solid #e3e6e9;
@@ -6483,7 +6516,7 @@ main {
     &.section-caution {
       padding: 2rem;
       background-color: #f3f6f9;
-      color: slategray;
+      color: #636669;
       border-radius: 0.5rem;
     }
 

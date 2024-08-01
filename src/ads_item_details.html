@@ -1,0 +1,751 @@
+{% extends "base.html" %} {% block content %} {% import 'aside.html' as menu %} {{menu.active('ads_items')}}
+<main class="content-items details">
+  <header class="content-header">
+    <div class="title">
+      <h1>
+        유기농 다이애드 비누 90g 12개
+      </h1>
+      <div class="filters">
+        <div class="status">
+          <span data-title="연동 건수">D</span>
+          <span data-title="제공" class="cases">10,000</span>
+          <span data-title="사용" class="cases">0</span>
+          <span data-title="잔여" class="cases">10,000</span>
+          <span data-title="이용 기간">2024-05-01 ~ 2024-05-15 ( D-1 )</span>
+          <!-- 서비스 기간이 만료했거나 서비스 정보가 없습니다.
+          <button class="btn-main" onclick="window.open('https://diad.co.kr/Mypage/PaymentView')">서비스 신청하기</button> -->
+        </div>
+        <button class="btn-main" onclick="location.href='ads_items_history.html'">이력</button>
+      </div>
+    </div>
+  </header>
+  <div class="wrapper">
+    <aside>
+      <section>
+        <div class="information">
+          <div class="image"><img src="https://shopping-phinf.pstatic.net/main_8154296/81542967370.15.jpg" alt="메인사진">
+          </div>
+        </div>
+        <ul class="accounts">
+          <li>
+            <h3>
+              <small class="ico-update">2024-03-20 15:00</small>
+            </h3>
+            <div class="filters">
+              <div>연동</div>
+              <strong data-brand="google"></strong>
+            </div>
+            <div class="filters">
+              <div>태그</div>
+              <strong class="tag">신규</strong>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section class="section-tips">
+        <header>
+          <h2>원본 및 사용자 설정 유효성</h2>
+          <small>
+            글자수를 초과하거나 필수 정보가 누락되어도 상품 연동은 진행되나, 연동 시 누락되거나 연동 후에도 상품이 비승인 될 수 있습니다.
+          </small>
+        </header>
+        <dl>
+          <dt>
+            <span class="validate warn"></span>
+            <strong>글자수 초과</strong>
+          </dt>
+          <dd>
+            사용자 설정값이 없어 원본이 광고와 연동되어야 하는 경우 원본이 광고 매체에서 요구하는 글자수를 초과합니다. 사용자 설정값이 있는 속성은 사용자 설정값을 설정하면 되고, 원본만 있는 속성은 원본을 수정해야 합니다.
+          </dd>
+          <dt>
+            <span class="validate invalid"></span>
+            <strong>필수 정보 누락</strong>
+          </dt>
+          <dd>
+            광고 매체에서 필수로 요구하는 속성인데, 원본 또는 사용자 설정값이 모두 누락되어 광고에 연동되는 값이 없습니다. 사용자 설정값이 있는 속성은 사용자 설정값을 설정하면 되고, 원본만 있는 속성은 원본을 수정해야 합니다.
+          </dd>
+        </dl>
+        <dl>
+          <dt>
+            <span class="ico-document"></span>
+            <strong>원본</strong>
+          </dt>
+          <dd>
+            수집한 상품 원본으로 다이애드에서 수정 불가합니다.
+          </dd>
+          <dt>
+            <span class="ico-edit"></span>
+            <strong>사용자 설정</strong>
+          </dt>
+          <dd>
+            사용자 설정값으로 사용자가 설정 작업을 통해 값을 설정할 수 있습니다. 광고 연동 시 사용자 설정값이 원본에 우선합니다.
+          </dd>
+          <dt>
+            <span data-brand="google"></span>
+            <strong>연동 사용</strong>
+          </dt>
+          <dd>
+            사용자 설정값 중 구글에 연동되는 값입니다.
+          </dd>
+          <dt>
+            <span data-brand="google" class="grayscale"></span>
+            <strong>연동 미사용</strong>
+          </dt>
+          <dd>
+            사용자 설정값 중 구글에 연동되지 않는 값입니다.
+          </dd>
+        </dl>
+      </section>
+    </aside>
+    <section>
+      <header>
+        <div class="title">
+          <ul class="tabs main-tabs">
+            <li data-tab="sub-menu" class="is-active">기본 정보</li>
+            <li data-tab="sub-menu">상세 정보</li>
+            <li data-tab="sub-menu">맞춤 정보</li>
+            <li data-tab="sub-menu" onclick="location.href='ads_item_details_image.html'">이미지</li>
+          </ul>
+          <div class="buttons">
+            <button>상품 삭제</button>
+            <button>설정 삭제</button>
+            <button>연동 설정</button>
+            <button>새로고침</button>
+            <button class="btn-main">상품 정보 설정</button>
+          </div>
+        </div>
+        <!-- 기본/상세/맞춤 정보는 레이아웃이 동일하여 하나만 올립니다.-->
+        <div class="tab-content is-active" data-tab="sub">
+          <ul class="list form">
+            <li>
+              <div class="asterisk">
+                ID
+                <span data-tooltip=""></span>
+              </div>
+              <div>
+                <div>
+                  <span class="validate"></span>
+                  <span class="ico-document"></span>
+                  12345
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="asterisk">
+                상품명
+                <span data-tooltip=""></span>
+              </div>
+              <div>
+                <div>
+                  <span class="validate"></span>
+                  <span class="ico-document"></span>
+                  <div>
+                    다이애드 비누 90g 12개
+                  </div>
+                </div>
+                <div>
+                  <span class="validate"></span>
+                  <span class="ico-edit"></span>
+                  <span data-brand="google"></span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                카테고리
+                <span data-tooltip=""></span>
+              </div>
+              <div>
+                <div>
+                  <span class="validate"></span>
+                  <span class="ico-document"></span>
+                  <div>
+                    비누
+                  </div>
+                </div>
+                <div>
+                  <span class="validate"></span>
+                  <span class="ico-edit"></span>
+                  <span data-brand="google"></span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                브랜드
+                <span data-tooltip=""></span>
+                <span class="tag">조건부</span>
+              </div>
+              <div>
+                <div>
+                  <span class="validate"></span>
+                  <span class="ico-document"></span>
+                  <div>
+                    다이애드
+                  </div>
+                </div>
+                <div>
+                  <span class="validate"></span>
+                  <span class="ico-edit"></span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                GTIN
+                <span data-tooltip=""></span>
+                <span class="tag">조건부</span>
+              </div>
+              <div>
+                <div>
+                  <span class="validate"></span>
+                  <span class="ico-document"></span>
+                  <div>
+                    1414100734
+                  </div>
+                </div>
+                <div>
+                  <span class="validate"></span>
+                  <span class="ico-edit"></span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                MPN
+                <span data-tooltip=""></span>
+                <span class="tag">조건부</span>
+              </div>
+              <div>
+                <div>
+                  <span class="validate"></span>
+                  <span class="ico-edit"></span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="asterisk">
+                설명
+                <span data-tooltip=""></span>
+              </div>
+              <div>
+                <div>
+                  <span class="validate invalid"></span>
+                  <span class="ico-edit"></span>
+                  <span data-brand="google"></span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="asterisk">
+                상품 URL
+              </div>
+              <div>
+                <div>
+                  <span class="validate"></span>
+                  <span class="ico-document"></span>
+                  https://www.diad.co.kr
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="asterisk">
+                가격
+              </div>
+              <div>
+                <div>
+                  <span class="validate"></span>
+                  <span class="ico-document"></span>
+                  <span class="price">13,900</span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                할인가
+              </div>
+              <div>
+                <div>
+                  <span class="validate"></span>
+                  <span class="ico-document"></span>
+                  <span class="price">12,500</span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                할인가 적용일
+                <span data-tooltip=""></span>
+              </div>
+              <div>
+                <div>
+                  <span class="validate"></span>
+                  <span class="ico-edit"></span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                배송비
+              </div>
+              <div>
+                <div>
+                  <span class="validate"></span>
+                  <span class="ico-document"></span>
+                  <span class="price">3,000</span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                재고
+                <span data-tooltip=""></span>
+              </div>
+              <div>
+                <div>
+                  <span class="validate"></span>
+                  <span class="ico-edit"></span>
+                  <span>재고 있음</span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="asterisk">
+                상품상태
+                <span data-tooltip=""></span>
+              </div>
+              <div>
+                <div>
+                  <span class="validate"></span>
+                  <span class="ico-document"></span>
+                  <span>신상품</span>
+                </div>
+                <div>
+                  <span class="validate"></span>
+                  <span class="ico-edit"></span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-content" data-tab="sub">
+          <div class="options images">
+            <header>
+              <h3 class="ico-document">
+                원본
+              </h3>
+              <button class="btn-grayscale is-active">선택</button>
+            </header>
+            <ul class="show-select" data-empty="원본에 이미지가 없습니다.">
+              <li>
+                <img src="https://shopping-phinf.pstatic.net/main_8154296/81542967370.15.jpg">
+              </li>
+              <li>
+                <img src="https://fakeimg.pl/100x100/">
+              </li>
+              <li>
+                <img src="https://fakeimg.pl/100x100/">
+              </li>
+              <li>
+                <img src="https://fakeimg.pl/100x100/">
+              </li>
+              <li>
+                <img src="https://fakeimg.pl/100x100/">
+              </li>
+              <li>
+                <img src="https://fakeimg.pl/100x100/">
+              </li>
+              <li>
+                <img src="https://fakeimg.pl/100x100/">
+              </li>
+              <li>
+                <img src="https://fakeimg.pl/100x100/">
+              </li>
+              <li>
+                <img src="https://fakeimg.pl/100x100/">
+              </li>
+              <li>
+                <img src="https://fakeimg.pl/100x100/">
+              </li>
+              <li>
+                <img src="https://fakeimg.pl/100x100/">
+              </li>
+            </ul>
+          </div>
+          <div class="options images">
+            <header>
+              <h3>
+                <i class="ico-edit"></i>
+                <i data-brand="google"></i>
+                사용자 설정 구글
+              </h3>
+              <button class="btn-grayscale">선택</button>
+            </header>
+            <button class="btn-plus"></button>
+          </div>
+        </div>
+      </header>
+    </section>
+    <!-- 상품 연동 설정 버튼 누르면 -->
+    <section class="section-optional">
+      <header>
+        <h2>
+          <span class="ico-hub"></span>
+          상품 연동 설정
+        </h2>
+        <div class="close"></div>
+      </header>
+      <div class="caution">
+        연동하고자 하는 매체가 없는 경우 전체 Off 처리 후 적용하시면 됩니다.
+      </div>
+      <h3>연동 매체</h3>
+      <div class="options">
+        <div class="filters">
+          <span>구글</span>
+          <div class="toggle-switch">
+            <input id="toggle-state-1" type="checkbox">
+            <label for="toggle-state-1"></label>
+          </div>
+        </div>
+      </div>
+      <button class="btn-main">적용</button>
+    </section>
+    <!-- 상품 정보 설정 -->
+    <section class="section-optional" style="display: none;">
+      <header>
+        <h2>상품 정보 설정</h2>
+        <div class="close"></div>
+      </header>
+      <ul class="tabs">
+        <li data-tab="details" class="is-active">상품명</li>
+        <li data-tab="details">카테고리</li>
+        <li data-tab="details">상품 설명</li>
+        <li data-tab="details">기본 정보</li>
+      </ul>
+      <div class="tab-content is-active" data-tab="details">
+        <div class="inputs">
+          <h4>적용 방식</h4>
+          <div class="selector">
+            <input id="test1" type="radio" name="test" checked>
+            <label for="test1">구성하기</label>
+            <input id="test2" type="radio" name="test">
+            <label for="test2">바꾸기</label>
+          </div>
+        </div>
+        <div class="inputs">
+          <h4>적용 매체</h4>
+          <span data-brand="google">구글</span>
+        </div>
+        <div class="inputs myspace">
+          <header>
+            <h4>내 작업 공간</h4>
+            <div class="buttons">
+              <button class="btn-sub">가이드라인</button>
+              <button class="btn-sub">초기화</button>
+            </div>
+          </header>
+          <textarea name="" id="" placeholder="직접 입력과 상품 정보를 사용하여 상품명을 구성해 보세요"></textarea>
+          <div class="checkbox">
+            <input type="checkbox" id="myspace">
+            <label for="myspace">
+              글자수 초과시 자동 삭제
+              <div class="selector">
+                <input type="radio" id="front" name="remove" checked>
+                <label for="front">앞</label>
+                <input type="radio" id="back" name="remove">
+                <label for="back">뒤</label>
+              </div>
+            </label>
+          </div>
+        </div>
+        <ul class="tabs">
+          <li class="is-active">
+            키워드 추천
+            <span data-tooltip="recommendKeywords"></span>
+          </li>
+          <li>상품 정보</li>
+        </ul>
+        <div class="tab-content options">
+          <div class="recommend-keywords">
+            <ul>
+              <li>
+                <strong class="keyword">세수비누</strong>
+                <strong class="cases">
+                  <small>네이버 PC</small>
+                  960
+                </strong>
+                <strong class='cases'>
+                  <small>네이버 MO</small>
+                  4,460
+                </strong>
+                <strong class='cases'>
+                  <small>구글</small>
+                  210
+                </strong>
+                <div class="buttons">
+                  <button class="btn-plus"></button>
+                  <button class="btn-main ico-search"></button>
+                </div>
+              </li>
+              <li>
+                <strong class="keyword">세안비누</strong>
+                <button class="btn-search"></button>
+                <div class="buttons">
+                  <button class="btn-plus"></button>
+                  <button class="btn-main ico-search"></button>
+                </div>
+              </li>
+              <li>
+                <strong class="keyword">대용량비누</strong>
+                <button class="btn-search"></button>
+                <div class="buttons">
+                  <button class="btn-plus"></button>
+                  <button class="btn-main ico-search"></button>
+                </div>
+              </li>
+              <li>
+                <strong class="keyword">오이비누</strong>
+                <button class="btn-search"></button>
+                <div class="buttons">
+                  <button class="btn-plus"></button>
+                  <button class="btn-main ico-search"></button>
+                </div>
+              </li>
+              <li>
+                <strong class="keyword">보태니컬비누</strong>
+                <button class="btn-search"></button>
+                <div class="buttons">
+                  <button class="btn-plus"></button>
+                  <button class="btn-main ico-search"></button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="tab-content options" style="display: none">
+          <div class="inputs directly">
+            <h4>직접 입력</h4>
+            <input type="text" placeholder="입력 후 Enter 키 누르거나 + 버튼 클릭하세요.">
+            <button class="btn-plus"></button>
+          </div>
+          <header>
+            <h4>상품 정보</h4>
+          </header>
+          <ul class="inputs">
+            <li>
+              원본 상품명
+              <button class="btn-plus"></button>
+            </li>
+            <li>
+              구글 상품명
+              <button class="btn-plus"></button>
+            </li>
+            <li>
+              구글 상품 설명
+              <button class="btn-plus"></button>
+            </li>
+            <li>
+              브랜드
+              <button class="btn-plus"></button>
+            </li>
+            <li>
+              성별
+              <button class="btn-plus"></button>
+            </li>
+            <li>
+              연령대
+              <button class="btn-plus"></button>
+            </li>
+            <li>
+              색상
+              <button class="btn-plus"></button>
+            </li>
+            <li>
+              사이즈
+              <button class="btn-plus"></button>
+            </li>
+            <li>
+              소재
+              <button class="btn-plus"></button>
+            </li>
+            <li>
+              패턴
+              <button class="btn-plus"></button>
+            </li>
+          </ul>
+          <button class="btn-main">적용</button>
+        </div>
+      </div>
+      <div class="tab-content" data-tab="details">
+        <input type="text" value="가정/원예 용품 > 생활용품 > 가정용 세제 > 주방 세제/비누
+        ">
+        <div class="options ai">
+          <input type="radio" id="ai" name="searchItem" checked />
+          <label for="ai">
+            AI 자동 매칭
+            <span data-tooltip="ai"></span>
+          </label>
+          <input type="radio" id="search" name="searchItem" />
+          <label for="search" class="inputs">
+            검색 찾기
+            <span data-tooltip="ai"></span>
+            <div class="content">
+              <div class="search">
+                <input type="search">
+                <button class="btn-search"></button>
+              </div>
+              <div class="information">
+                <h4>검색결과</h4>
+                <ul>
+                  <li>가정/원예 용품 > 생활용품 > 가정용 세제 > 주방 세제/<strong>비누</strong></li>
+                  <li>가정/원예 용품 > 욕실 부대용품 > <strong>비누</strong> 케이스</li>
+                  <li>가정/원예 용품 > 욕실 부대용품 > <strong>비누</strong>/로션 디스펜서</li>
+                  <li>건강/미용 > 개인 미용/위생 용품 > 화장품 > 보디 제품 > <strong>비누</strong></li>
+                </ul>
+              </div>
+            </div>
+          </label>
+          <input type="radio" id="search2" name="searchItem" />
+          <label for="search2" class="inputs">
+            선택 찾기
+            <span data-tooltip="ai"></span>
+            <div class="content">
+              <div class="selectbox">
+                <small>카테고리1</small>
+                <select name="" id="">
+                  <option value="">가정/원예 용품</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <small>카테고리2</small>
+                <select name="" id="">
+                  <option value="">생활용품</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <small>카테고리3</small>
+                <select name="" id="">
+                  <option value="">가정용 세제</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <small>카테고리4</small>
+                <select name="" id="">
+                  <option value="">주방 세제/비누</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <small>카테고리5</small>
+                <select name="" id="">
+                  <option value="">가정/원예 용품</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <small>카테고리6</small>
+                <select name="" id="">
+                  <option value="">가정/원예 용품</option>
+                </select>
+              </div>
+              <button class="btn-sub">선택완료</button>
+            </div>
+          </label>
+        </div>
+        <button class="btn-main">적용</button>
+      </div>
+      <div class="tab-content">
+        <div class="checkbox">
+          <input type="checkbox" id="check-all">
+          <label for="check-all">전체</label>
+        </div>
+        <div class="list">
+          <ul>
+            <li>
+              <div class="checkbox">
+                <input type="checkbox" id="check-1">
+                <label for="check-1">
+                  브랜드
+                  <span data-tooltip="brand"></span>
+                  <span class="tag">조건부</span>
+                </label>
+              </div>
+              <div class="input">
+                <input type="text">
+              </div>
+              <small>0 / 70 byte</small>
+            </li>
+            <li>
+              <div class="checkbox">
+                <input type="checkbox" id="check-2">
+                <label for="check-2">
+                  GTIN
+                  <span data-tooltip="brand"></span>
+                  <span class="tag">조건부</span>
+                </label>
+              </div>
+              <div class="input">
+                <input type="text">
+              </div>
+            </li>
+            <li>
+              <div class="checkbox">
+                <input type="checkbox" id="check-3">
+                <label for="check-3">
+                  MPN
+                  <span data-tooltip="brand"></span>
+                  <span class="tag">조건부</span>
+                </label>
+              </div>
+              <div class="input">
+                <input type="text">
+              </div>
+            </li>
+            <li>
+              <div class="checkbox">
+                <input type="checkbox" id="check-4">
+                <label for="check-4">
+                  할인가 적용일
+                  <span data-tooltip="brand"></span>
+                </label>
+              </div>
+              <div class="calendar">
+                <input id="contentsFrom" type="text" name="" readonly=""
+                  class="hasDatepicker">
+              </div>
+            </li>
+            <li>
+              <div class="checkbox">
+                <input type="checkbox" id="check-5">
+                <label for="check-5">
+                  재고
+                  <span data-tooltip="brand"></span>
+                </label>
+              </div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">재고 없음</option>
+                </select>
+              </div>
+            </li>
+            <li>
+              <div class="checkbox">
+                <input type="checkbox" id="check-6">
+                <label for="check-6">
+                  상품 상태
+                  <span data-tooltip="brand"></span>
+                </label>
+              </div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">신상품</option>
+                </select>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <button class="btn-main">적용</button>
+      </div>
+    </section>
+  </div>
+</main>
+{% include "modals.html" %}
+{% endblock %}

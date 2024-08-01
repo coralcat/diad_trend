@@ -1014,7 +1014,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
     // 팝업 감지
-    mutationObserver.observe(document.querySelector(".modals"), {
+    const modals = document.querySelector(".modals")
+    mutationObserver.observe(modals, {
       childList: true,
       attributes: true,
     });

@@ -28,12 +28,15 @@
         </li>
       </ul>
     </div>
-    <div class="{% if currentPage == 'ads' %}is-active{% endif %} {% if currentPage == 'ads_google' %}is-active{% endif %}">
+    <div class="{% if currentPage == 'ads' %}is-active{% endif %} {% if currentPage == 'ads_google' %}is-active{% endif %} {% if currentPage == 'ads_items' %}is-active{% endif %}">
       <menu>
-        <i class="ico-ranking" onclick="location.href='ads_google_new.html'"></i>
-        <a href='ads_google_new.html'">입점광고</a>
+        <i class="ico-ranking" onclick="location.href='ads_items.html'"></i>
+        <a href='ads_items_new.html'">입점광고</a>
       </menu>
       <ul>
+        <li class="items {% if currentPage == 'ads_items' %}is-active{% endif %}">
+          <a href='ads_items_new.html'">상품</a>
+        </li>
         <li class="google {% if currentPage == 'ads_google' %}is-active{% endif %}">
           <a href='ads_google_new.html'">구글</a>
         </li>

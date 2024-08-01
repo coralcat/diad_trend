@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const mutationObserver = new MutationObserver(mutations => {
     const container = document.querySelector(".container");
-    const modals = document.querySelectorAll(".modal:not(.modal-advanced)");
+    const modals = document.querySelector(".modals");
     const alertModal = document.querySelector(".modal-alert");
     const confirmModal = document.querySelector(".modal-confirm");
     const alertModalContent = document.querySelector(".modal-alert .modal-content");
@@ -293,7 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
     // 팝업 감지
-    mutationObserver.observe(document.querySelector(".modals"), {
+    modals && mutationObserver.observe(modals, {
       childList: true,
       attributes: true,
     });

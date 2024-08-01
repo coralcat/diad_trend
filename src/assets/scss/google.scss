@@ -25,7 +25,7 @@ $violet-medium-color: rgb(214, 217, 253);
 
       &::after {
         content: "";
-        border: 1px solid slategray;
+        border: 1px solid #636669;
         border-top: 0;
         border-left: 0;
         transform: rotate(45deg);
@@ -102,7 +102,7 @@ $violet-medium-color: rgb(214, 217, 253);
         width: 2rem;
         height: 2rem;
         justify-content: center;
-        color: slategray;
+        color: #636669;
         font-size: 13px;
 
         &:last-of-type {
@@ -227,15 +227,6 @@ $violet-medium-color: rgb(214, 217, 253);
         width: 100%;
       }
 
-      .ico-plus {
-        background-image: linear-gradient($primary-color 0 0), linear-gradient($primary-color 0 0);
-        background-position: center;
-        background-size:
-          50% 2px,
-          2px 50%;
-        background-repeat: no-repeat;
-      }
-
       .ico-search {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' fill='%237682f8' /%3E%3C/svg%3E") !important;
       }
@@ -248,7 +239,7 @@ $violet-medium-color: rgb(214, 217, 253);
       span {
         background-color: white;
         padding: 0.5rem;
-        color: slategray;
+        color: #636669;
         border-radius: 5px;
         display: flex;
         align-items: center;
@@ -405,7 +396,7 @@ $violet-medium-color: rgb(214, 217, 253);
             width: 10px;
             height: 10px;
             display: inline-block;
-            border: 1px solid slategray;
+            border: 1px solid #636669;
             border-top: 0;
             border-left: 0;
             transform: rotate(45deg);
@@ -585,7 +576,7 @@ $violet-medium-color: rgb(214, 217, 253);
         background: #f3f6f9;
         width: 100%;
         padding: 0.75rem;
-        color: slategray;
+        color: #636669;
         border-radius: 0.5rem;
         align-items: flex-start !important;
 
@@ -705,7 +696,7 @@ $violet-medium-color: rgb(214, 217, 253);
     }
 
     li {
-      color: slategray;
+      color: #636669;
       border: 0;
 
       strong {
@@ -912,6 +903,7 @@ $violet-medium-color: rgb(214, 217, 253);
   }
 
   &.new {
+
     input {
       flex: 1 1 auto;
     }
@@ -929,7 +921,15 @@ $violet-medium-color: rgb(214, 217, 253);
       &.section-join-us {
         padding: 15vh 1.5rem;
         width: 100%;
-        gap: 1.5rem;
+        gap: .5rem;
+
+        button {
+          font-size: clamp(15px, 2.5vw, 16px);
+        }
+
+        h2 {
+          font-size: clamp(18px, 2.5vw, 20px);
+        }
       }
 
       &.section-help {

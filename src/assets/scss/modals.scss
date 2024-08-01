@@ -11,8 +11,48 @@ $secondary-color: #f2f1ff;
 
   input {
     &:not([type="radio"], [type="checkbox"]) {
-      background-color: #f3f6f9;
-      height: 32px;
+      background-color: white;
+      height: 36px;
+    }
+  }
+
+  .filters {
+    min-height: 24px;
+  }
+
+  .options {
+    border: 1px solid #e3e6e9;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    small {
+      color: #939699;
+    }
+  }
+
+  .information {
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: #f3f6f9;
+    color: #708090;
+
+    dl {
+      font-size: 13px;
+    }
+
+    .btn-sub {
+      background: transparent;
+      border: 1px solid #d3d6d9;
+      color: #636669;
+
+      &:hover {
+        border-color: transparent;
+        background-color: $secondary-color;
+        color: $main-color;
+      }
     }
   }
 
@@ -451,7 +491,7 @@ $secondary-color: #f2f1ff;
       border-radius: 3px;
       flex-direction: row;
       justify-content: space-between;
-      padding: 0 0.5rem;
+      padding: 0.5rem;
       position: relative;
 
       &.list-add {
@@ -520,7 +560,7 @@ $secondary-color: #f2f1ff;
       .count {
         flex: 0 0 auto;
         background-color: rgba(112, 128, 144, 0.1);
-        color: slategray;
+        color: #636669;
         border-radius: 50px;
         padding: 3px 10px 3px 0.5rem;
         font-size: 12px;
@@ -1362,7 +1402,7 @@ $secondary-color: #f2f1ff;
             content: "";
             height: 80%;
             width: 2px;
-            background-color: slategray;
+            background-color: #636669;
             display: inline-flex;
             padding: 0 1rem;
           }
@@ -1646,7 +1686,7 @@ $secondary-color: #f2f1ff;
         justify-content: flex-start;
         padding: 1rem;
         display: flex;
-        gap: .5rem;
+        gap: 0.5rem;
         position: relative;
         line-height: 1;
         transition: 0.2s color;
@@ -1722,6 +1762,30 @@ $secondary-color: #f2f1ff;
 
     .modal-content {
       gap: 0;
+    }
+  }
+
+  &-management-collection {
+    .tag {
+      width: 20px !important;
+      aspect-ratio: 1;
+      background-size: 70%;
+    }
+  }
+
+  &-save {
+
+    .list {
+
+      li {
+        > :first-child {
+          flex: 0 0 100px;
+        }
+  
+        > :last-child {
+          flex: 1 1 auto
+        }
+      }
     }
   }
 }
