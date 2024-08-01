@@ -84,16 +84,16 @@
         </li>
       </ul>
     </div>
-    <div class=" is-active ">
+    <div class="  is-active">
       <menu>
         <i class="ico-ranking" onclick="location.href='ads_items.html'"></i>
         <a href='ads_items_new.html'">입점광고</a>
       </menu>
       <ul>
-        <li class="items ">
+        <li class="items is-active">
           <a href='ads_items_new.html'">상품</a>
         </li>
-        <li class="google is-active">
+        <li class="google ">
           <a href='ads_google_new.html'">구글</a>
         </li>
       </ul>
@@ -180,41 +180,699 @@
   </ul>
 </aside>
 
-<main class="content-google-ads campaign new">
+<main class="content-items management">
   <header class="content-header">
-    <div class="title">
-      <h1>
-        <span>구글 입점광고</span>
-        <div data-tooltip=""></div>
-      </h1>
-      <div href="#" class="account" target="_blank">
-  <menu>coralcat</menu>
-  <nav>
-    <ul>
-      <li onclick="location.href='accounts.html'">계정 설정</li>
-      <li onclick="location.href='settings.html'">알림 설정</li>
-      <li>로그아웃</li>
-    </ul>
-  </nav>
-</div>
-    </div>
     <ul class="tabs main-tabs">
-      <li onclick="location.href='ads_google.html'" data-tab="sub-menu">계정</li>
-      <li data-tab="sub-menu">피드</li>
-      <li data-tab="sub-menu" class="is-active">캠페인</li>
-      <li onclick="location.href='ads_google_report.html'" data-tab="sub-menu">리포트</li>
-      <li data-tab="sub-menu">설정</li>
+      <li data-tab="sub-menu" onclick="location.href='ads_items.html'">상품 수집</li>
+      <li data-tab="sub-menu" class="is-active" onclick="location.href='ads_items_management_1.html'">상품 관리</li>
     </ul>
-    <strong data-title="총" class="cases">1</strong>
-  </header>
-  <section>
-    <h2>
-      등록된 캠페인이 없습니다. 캠페인을 생성해 보세요!
-    </h2>
-    <div class="buttons">
-      <button data-modal="addCampaign">캠페인 생성</button>
+    <div class="filters">
+      <div class="status">
+        <span data-title="연동 건수">D</span>
+        <span data-title="제공" class="cases">10,000</span>
+        <span data-title="사용" class="cases">0</span>
+        <span data-title="잔여" class="cases">10,000</span>
+        <span data-title="이용 기간">2024-05-01 ~ 2024-05-15 ( D-1 )</span>
+        <!-- 서비스 기간이 만료했거나 서비스 정보가 없습니다.
+        <button class="btn-main" onclick="window.open('https://diad.co.kr/Mypage/PaymentView')">서비스 신청하기</button> -->
+      </div>
+      <button class="btn-main" onclick="location.href='ads_items_history.html'">이력</button>
     </div>
-  </section>
+  </header>
+  <div class="swiper banner">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        수집 중인 상품에서 별도 작업을 진행하면 원하는 작업 반영이 어려울 수 있습니다. 수집 시간 외 작업을 권장합니다.
+      </div>
+      <div class="swiper-slide">
+        광고에 연동되지 않은 기간이 30일을 초과한 상품은 상품 수집 시간에 자동 삭제됩니다.
+      </div>
+      <div class="swiper-slide">
+        광고 연동 시 연동 상품은 수집이 진행되어 최신 정보로 업데이트되어 연동됩니다.
+      </div>
+      <div class="swiper-slide">
+        원본 또는 사용자 설정값 중 필수 정보가 누락이 되어도 상품 연동은 진행되나, 연동 시 상품이 누락되거나 연동 후 상품이 비승인 될 수 있습니다.
+      </div>
+      <div class="swiper-slide">
+        원본 또는 사용자 설정값 글자수가 초과되어도 상품 연동은 진행되나, 연동 시 상품이 누락되거나 연동 후 상품이 비승인 될 수 있습니다.
+      </div>
+      <div class="swiper-slide">
+        수집된 원본에서 삭제된 상품은 광고에 연동된 데이터 피드와 다이애드에서 삭제됩니다.
+      </div>
+      <div class="swiper-slide">
+        수집 관리에서 DB URL 변경 시 DB URL 내 전체 상품의 수집이 진행됩니다.
+      </div>
+      <div class="swiper-slide">
+        상품 정기 수집 시에는 광고와 연동된 상품만 수집이 진행됩니다.
+      </div>
+      <div class="swiper-slide">
+        DB URL 내 전체 상품 수집이 필요하면 상품 수집 내 상품 수집 버튼을 클릭해 상품 수시 수집을 진행하세요.
+      </div>
+      <div class="swiper-slide">
+        상품 삭제 시 광고에 연동된 데이터 피드와 다이애드에서 상품이 삭제되니, 사용에 유의하시기 바랍니다.
+      </div>
+      <div class="swiper-slide">
+        상품을 삭제하여도 원본인 DB URL에서 상품이 삭제되지 않습니다.
+      </div>
+      <div class="swiper-slide">
+        설정 삭제 시 상품의 사용자 설정값이 모두 삭제되니, 사용에 유의하시기 바랍니다.
+      </div>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="sections">
+      <section class="section-main">
+        <header>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">김마켓 상품</option>
+            </select>
+          </div>
+        </header>
+        <div class="articles">
+          <article>
+            <header>
+              <h2>연동 상품</h2>
+            </header>
+            <ul>
+              <li>
+                <div>
+                  수집 상품
+                </div>
+                <div class="cases">1000</div>
+              </li>
+              <li>
+                <div>연동 상품</div>
+                <div class="cases"></div>
+              </li>
+              <li>
+                <div>미연동 상품</div>
+                <div class="cases">1000</div>
+              </li>
+            </ul>
+          </article>
+          <article>
+            <header>
+              <h2>연동 상품</h2>
+              <div class="filters">
+                <span data-title="총 건수" class="cases">0</span>
+                <span data-title="잔여" class="cases">10,000</span>
+              </div>
+            </header>
+            <ul>
+              <li>
+                <div>광고</div>
+                <div>G</div>
+              </li>
+              <li>
+                <div>사용 연동 건수</div>
+                <div class="cases"></div>
+              </li>
+            </ul>
+          </article>
+        </div>
+        </section>
+        <section>
+        <header>
+          <div class="title">
+            <div class="filters">
+              <div class="selector">
+                <input id="connect-all" type="checkbox">
+                <label for="connect-all">전체</label>
+                <input id="disconnect" type="checkbox">
+                <label for="disconnect">미연동</label>
+                <input id="connect-google" type="checkbox">
+                <label for="connect-google">구글</label>
+              </div>
+              <button class="ico-filter" type="button">필터</button>
+              <button class="ico-filter" type="button">태그</button>
+              <span data-title="선택">0 / </span>
+              <span data-title="전체">1,000</span>
+            </div>
+            <div class="filter-search">
+              <header>
+                <h3>
+                  필터
+                  <span data-tooltip="filterSettings"></span>
+                </h3>
+                <span class="close x"></span>
+              </header>
+              <div class="inputs">
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="">상품명</option>
+                  </select>
+                </div>
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="">전체</option>
+                  </select>
+                </div>
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="">포함</option>
+                  </select>
+                </div>
+                <input type="text">
+                <button class="btn-remove"></button>
+              </div>
+              <div class="inputs">
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="">가격</option>
+                  </select>
+                </div>
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="">=</option>
+                  </select>
+                </div>
+                <input type="text">
+                <button class="btn-remove"></button>
+              </div>
+              <div class="inputs">
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="">재고</option>
+                  </select>
+                </div>
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="">재고 있음</option>
+                  </select>
+                </div>
+                <button class="btn-remove"></button>
+              </div>
+              <div class="inputs">
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="">상품 상태</option>
+                  </select>
+                </div>
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="">전체</option>
+                  </select>
+                </div>
+                <div class="selectbox">
+                  <select name="" id="">
+                    <option value="">새상품</option>
+                  </select>
+                </div>
+                <button class="btn-remove"></button>
+              </div>
+              <button class="btn-add">
+                <i class="ico-plus"></i>
+                조건 추가
+              </button>
+              <footer>
+                <div class="selector">
+                  <input id="filter-or" type="radio" name="filter" checked>
+                  <label for="filter-or">Or</label>
+                  <input id="filter-and" type="radio" name="filter">
+                  <label for="filter-and">And</label>
+                </div>
+                <div class="buttons">
+                  <button class="btn-sub ico-refresh" type="button"></button>
+                  <button class="btn-main" type="button">적용</button>
+                </div>
+              </footer>
+            </div>
+            <div class="filter-tags">
+              <header>
+                <h3>
+                  태그
+                </h3>
+                <span class="close x"></span>
+              </header>
+              <div class="checkboxes">
+                <div class="checkbox">
+                  <input id="tag-1" type="checkbox">
+                  <label for="tag-1">태그 없음</label>
+                </div>
+                <div class="checkbox">
+                  <input id="tag-2" type="checkbox">
+                  <label for="tag-2">신규</label>
+                </div>
+                <div class="checkbox">
+                  <input id="tag-3" type="checkbox">
+                  <label for="tag-3">
+                    필수 정보 누락
+                    <span data-tooltip=""></span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <input id="tag-4" type="checkbox">
+                  <label for="tag-4">
+                    글자수 초과
+                    <span data-tooltip=""></span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <input id="tag-5" type="checkbox">
+                  <label for="tag-5">
+                    구글 카테고리 미매칭
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <input id="tag-6" type="checkbox">
+                  <label for="tag-6">
+                    원본 상품명 업데이트
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <input id="tag-7" type="checkbox">
+                  <label for="tag-7">
+                    원본 대표 이미지 업데이트
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <input id="tag-8" type="checkbox">
+                  <label for="tag-8">
+                    원본 추가 이미지 업데이트
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <input id="tag-9" type="checkbox">
+                  <label for="tag-9">
+                    원본 성인
+                    <span data-tooltip=""></span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <input id="tag-10" type="checkbox">
+                  <label for="tag-10">
+                    사용자 설정 성인
+                    <span data-tooltip=""></span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <input id="tag-11" type="checkbox">
+                  <label for="tag-11">
+                    최근 상품 정보 설정 실패
+                    <span data-tooltip=""></span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <input id="tag-12" type="checkbox">
+                  <label for="tag-12">
+                    5월 이내 자동 삭제 예정
+                    <span data-tooltip=""></span>
+                  </label>
+                </div>
+              </div>
+              <footer>
+                <div class="selector">
+                  <input id="tag-or" type="radio" name="filterTag" checked>
+                  <label for="tag-or">Or</label>
+                  <input id="tag-and" type="radio" name="filterTag">
+                  <label for="tag-and">And</label>
+                </div>
+                <div class="buttons">
+                  <button class="btn-sub ico-refresh" type="button"></button>
+                  <button class="btn-main" type="button">적용</button>
+                </div>
+              </footer>
+            </div>
+            <div class="buttons">
+              <button>엑셀다운</button>
+              <button>새로고침</button>
+              <div class="dropdown">
+                <button class="" type="button">일괄 작업</button>
+                <nav>
+                  <ul>
+                    <li data-modal="settingsLiveNormal">상품 연동 설정</li>
+                    <li data-modal="settingsLiveNormalPart">상품 정보 설정</li>
+                    <li data-modal="settingsLiveAdvanced">
+                      설정 삭제
+                      <span data-tooltip="removeSettings"></span>
+                    </li>
+                    <li data-modal="settingsLiveAdvancedPart">
+                      상품 삭제
+                      <span data-tooltip="removeItem"></span>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">100개씩 보기</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="list" data-toggle="extends">
+          <ul class="row title">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="checkAll" class="check-all" name="select-item" type="checkbox">
+                <label for="checkAll"></label>
+              </div>
+            </li>
+            <li title="상품명" class="ico-sort">상품명</li>
+            <li title="상품 가격" class="ico-sort">상품 가격</li>
+            <li title="재고" class="ico-sort">재고</li>
+            <li title="카테고리" class="ico-sort">카테고리</li>
+            <li title="연동" class="ico-sort">연동</li>
+            <li title="태그" class="ico-sort">태그</li>
+          </ul>
+          <ul class="row">
+            <li class="col-check">
+              <div class="checkbox">
+                <input id="check-01" name="select-item" type="checkbox">
+                <label for="check-01"></label>
+              </div>
+            </li>
+            <li class="item" title="상품명" onclick="location.href='ads_item_details.html'">
+              <div class="image">
+                <img src="https://source.unsplash.com/random/100x100/?coffee/1" alt="">
+              </div>
+              <div class="information">
+                <a class="item-mid" href="https://search.shopping.naver.com/product/12126547821" target="_blank">
+                  12126547821
+                </a>
+                <div class="title">
+                  <span class="tag">원본</span>
+                  다이애드 비누 90g 12개
+                </div>
+                <div>
+                  <span data-brand="google">순수 다이애드 천연 비누 90g 12개</span>
+                </div>
+              </div>
+            </li>
+            <li title="상품 가격">
+              <span class="price">50,000</span>
+            </li>
+            <li title="재고">재고 있음</li>
+            <li title="카테고리">
+              <div class="title" onclick="location.href='rank_details.html'">
+                <span class="tag">원본</span>
+                비누
+              </div>
+              <div class="title" onclick="location.href='rank_details.html'">
+                <span data-brand="google">구글</span>
+                가정/원예 용품 > 생활용품 > 가정용 세제 > 주방 세제/비누
+              </div>
+            </li>
+            <li title="연동">
+              <span data-brand="google"></span>
+            </li>
+            <li title="태그">
+              <span class="tag">신규</span>
+              <span class="tag">필수 정보 누락</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <section class="section-optional">
+      <header>
+        <h2>상품 정보 설정</h2>
+        <div class="close"></div>
+      </header>
+      <ul class="tabs">
+        <li data-tab="details" onclick="location.href='ads_items_management_1.html'">상품명</li>
+        <li data-tab="details" onclick="location.href='ads_items_management_2.html'">카테고리</li>
+        <li data-tab="details" onclick="location.href='ads_items_management_3.html'">상품 설명</li>
+        <li data-tab="details" class="is-active" onclick="location.href='ads_items_management_4.html'">기본 정보</li>
+      </ul>
+      <div class="tab-content" data-tab="details">
+        <div class="inputs">
+          <h4>적용 방식</h4>
+          <div class="selector">
+            <input id="test1" type="radio" name="test" checked>
+            <label for="test1">구성하기</label>
+            <input id="test2" type="radio" name="test">
+            <label for="test2">바꾸기</label>
+          </div>
+        </div>
+        <div class="inputs">
+          <h4>적용 매체</h4>
+          <span data-brand="google">구글</span>
+        </div>
+        <div class="inputs myspace">
+          <header>
+            <h4>내 작업 공간</h4>
+            <div class="buttons">
+              <button class="btn-sub">가이드라인</button>
+              <button class="btn-sub">초기화</button>
+            </div>
+          </header>
+          <textarea name="" id="" placeholder="직접 입력과 상품 정보를 사용하여 상품명을 구성해 보세요"></textarea>
+          <div class="checkbox">
+            <input type="checkbox" id="myspace">
+            <label for="myspace">
+              글자수 초과시 자동 삭제
+              <div class="selector">
+                <input type="radio" id="front" name="remove" checked>
+                <label for="front">앞</label>
+                <input type="radio" id="back" name="remove">
+                <label for="back">뒤</label>
+              </div>
+            </label>
+          </div>
+        </div>
+        <!-- 구성하기의 경우 -->
+        <div class="options">
+          <div class="inputs directly">
+            <h4>직접 입력</h4>
+            <input type="text" placeholder="입력 후 Enter 키 누르거나 + 버튼 클릭하세요.">
+            <button class="btn-plus"></button>
+          </div>
+          <header>
+            <h4>상품 정보</h4>
+          </header>
+          <ul class="inputs">
+            <li>
+              원본 상품명
+              <button class="btn-plus"></button>
+            </li>
+            <li>
+              구글 상품명
+              <button class="btn-plus"></button>
+            </li>
+            <li>
+              구글 상품 설명
+              <button class="btn-plus"></button>
+            </li>
+            <li>
+              브랜드
+              <button class="btn-plus"></button>
+            </li>
+            <li>
+              성별
+              <button class="btn-plus"></button>
+            </li>
+            <li>
+              연령대
+              <button class="btn-plus"></button>
+            </li>
+            <li>
+              색상
+              <button class="btn-plus"></button>
+            </li>
+            <li>
+              사이즈
+              <button class="btn-plus"></button>
+            </li>
+            <li>
+              소재
+              <button class="btn-plus"></button>
+            </li>
+            <li>
+              패턴
+              <button class="btn-plus"></button>
+            </li>
+          </ul>
+          <button class="btn-main">적용</button>
+        </div>
+        <!-- 바꾸기의 경우 -->
+        <div class="options change" style="display: none;">
+          <div class="inputs">
+            <input type="text" placeholder="받는 내용">
+            <span>을/를</span>
+          </div>
+          <div class="inputs">
+            <input type="text" placeholder="바꿀 내용">
+            <span>로 바꿀래요</span>
+          </div>
+          <header>
+            <h4>상품 정보</h4>
+          </header>
+          <button class="btn-main">적용</button>
+        </div>
+      </div>
+      <div class="tab-content" data-tab="details">
+        <input type="text" value="가정/원예 용품 > 생활용품 > 가정용 세제 > 주방 세제/비누
+        ">
+        <div class="options ai">
+          <input type="radio" id="ai" name="searchItem" checked />
+          <label for="ai">
+            AI 자동 매칭
+            <span data-tooltip="ai"></span>
+          </label>
+          <input type="radio" id="search" name="searchItem" />
+          <label for="search" class="inputs">
+            검색 찾기
+            <span data-tooltip="ai"></span>
+            <div class="content">
+              <div class="search">
+                <input type="search">
+                <button class="btn-search"></button>
+              </div>
+              <div class="information">
+                <h4>검색결과</h4>
+                <ul>
+                  <li>가정/원예 용품 > 생활용품 > 가정용 세제 > 주방 세제/<strong>비누</strong></li>
+                  <li>가정/원예 용품 > 욕실 부대용품 > <strong>비누</strong> 케이스</li>
+                  <li>가정/원예 용품 > 욕실 부대용품 > <strong>비누</strong>/로션 디스펜서</li>
+                  <li>건강/미용 > 개인 미용/위생 용품 > 화장품 > 보디 제품 > <strong>비누</strong></li>
+                </ul>
+              </div>
+            </div>
+          </label>
+          <input type="radio" id="search2" name="searchItem" />
+          <label for="search2" class="inputs">
+            선택 찾기
+            <span data-tooltip="ai"></span>
+            <div class="content">
+              <div class="selectbox">
+                <small>카테고리1</small>
+                <select name="" id="">
+                  <option value="">가정/원예 용품</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <small>카테고리2</small>
+                <select name="" id="">
+                  <option value="">생활용품</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <small>카테고리3</small>
+                <select name="" id="">
+                  <option value="">가정용 세제</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <small>카테고리4</small>
+                <select name="" id="">
+                  <option value="">주방 세제/비누</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <small>카테고리5</small>
+                <select name="" id="">
+                  <option value="">가정/원예 용품</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <small>카테고리6</small>
+                <select name="" id="">
+                  <option value="">가정/원예 용품</option>
+                </select>
+              </div>
+              <button class="btn-sub">선택완료</button>
+            </div>
+          </label>
+        </div>
+        <button class="btn-main">적용</button>
+      </div>
+      <div class="tab-content is-active">
+        <div class="checkbox">
+          <input type="checkbox" id="check-all">
+          <label for="check-all">전체</label>
+        </div>
+        <div class="list">
+          <ul>
+            <li>
+              <div class="checkbox">
+                <input type="checkbox" id="check-1">
+                <label for="check-1">
+                  브랜드
+                  <span data-tooltip="brand"></span>
+                  <span class="tag">조건부</span>
+                </label>
+              </div>
+              <div class="input">
+                <input type="text">
+              </div>
+              <small>0 / 70 byte</small>
+            </li>
+            <li>
+              <div class="checkbox">
+                <input type="checkbox" id="check-2">
+                <label for="check-2">
+                  GTIN
+                  <span data-tooltip="brand"></span>
+                  <span class="tag">조건부</span>
+                </label>
+              </div>
+              <div class="input">
+                <input type="text">
+              </div>
+            </li>
+            <li>
+              <div class="checkbox">
+                <input type="checkbox" id="check-3">
+                <label for="check-3">
+                  MPN
+                  <span data-tooltip="brand"></span>
+                  <span class="tag">조건부</span>
+                </label>
+              </div>
+              <div class="input">
+                <input type="text">
+              </div>
+            </li>
+            <li>
+              <div class="checkbox">
+                <input type="checkbox" id="check-4">
+                <label for="check-4">
+                  할인가 적용일
+                  <span data-tooltip="brand"></span>
+                </label>
+              </div>
+              <div class="calendar">
+                <input id="contentsFrom" type="text" name="" readonly=""
+                  class="hasDatepicker">
+              </div>
+            </li>
+            <li>
+              <div class="checkbox">
+                <input type="checkbox" id="check-5">
+                <label for="check-5">
+                  재고
+                  <span data-tooltip="brand"></span>
+                </label>
+              </div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">재고 없음</option>
+                </select>
+              </div>
+            </li>
+            <li>
+              <div class="checkbox">
+                <input type="checkbox" id="check-6">
+                <label for="check-6">
+                  상품 상태
+                  <span data-tooltip="brand"></span>
+                </label>
+              </div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">신상품</option>
+                </select>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <button class="btn-main">적용</button>
+      </div>
+    </section>
+  </div>
 </main>
 <div class="modals">
   <div id="desiredKeyword" class="modal modal-desired-keyword" title="희망키워드">

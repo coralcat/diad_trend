@@ -84,16 +84,16 @@
         </li>
       </ul>
     </div>
-    <div class=" is-active ">
+    <div class="  is-active">
       <menu>
         <i class="ico-ranking" onclick="location.href='ads_items.html'"></i>
         <a href='ads_items_new.html'">입점광고</a>
       </menu>
       <ul>
-        <li class="items ">
+        <li class="items is-active">
           <a href='ads_items_new.html'">상품</a>
         </li>
-        <li class="google is-active">
+        <li class="google ">
           <a href='ads_google_new.html'">구글</a>
         </li>
       </ul>
@@ -180,40 +180,201 @@
   </ul>
 </aside>
 
-<main class="content-google-ads campaign new">
+<main class="content-items add">
   <header class="content-header">
     <div class="title">
       <h1>
-        <span>구글 입점광고</span>
+        <span>상품 수집 등록</span>
         <div data-tooltip=""></div>
       </h1>
-      <div href="#" class="account" target="_blank">
-  <menu>coralcat</menu>
-  <nav>
-    <ul>
-      <li onclick="location.href='accounts.html'">계정 설정</li>
-      <li onclick="location.href='settings.html'">알림 설정</li>
-      <li>로그아웃</li>
-    </ul>
-  </nav>
-</div>
+      <div class="buttons">
+        <button class="" onclick="history.back()">취소</button>
+        <button class="btn-main" onclick="location.href='ads_items.html'">등록하기</button>
+      </div>
     </div>
-    <ul class="tabs main-tabs">
-      <li onclick="location.href='ads_google.html'" data-tab="sub-menu">계정</li>
-      <li data-tab="sub-menu">피드</li>
-      <li data-tab="sub-menu" class="is-active">캠페인</li>
-      <li onclick="location.href='ads_google_report.html'" data-tab="sub-menu">리포트</li>
-      <li data-tab="sub-menu">설정</li>
-    </ul>
-    <strong data-title="총" class="cases">1</strong>
   </header>
   <section>
-    <h2>
-      등록된 캠페인이 없습니다. 캠페인을 생성해 보세요!
-    </h2>
-    <div class="buttons">
-      <button data-modal="addCampaign">캠페인 생성</button>
-    </div>
+    <ul>
+      <li>
+        <h2>상품 수집 이름</h2>
+        <div class="input">
+          <small class="count">
+            <strong>0</strong>
+             / 50
+          </small>
+          <input type="text" placeholder="다이애드에서 사용할 수집 DB URL의 이름을 입력해 주세요.">
+        </div>
+      </li>
+      <li>
+        <h2>상품 수집 DB URL</h2>
+        <div class="information filters">
+          <strong>수집 가능한 DB URL</strong>
+          <button class="btn-sub"> 네이버 EP URL 3.0</button>
+        </div>
+        <input type="url" placeholder="http://, https:// 를 포함하여 정확히 입력해 주세요." />
+      </li>
+      <li>
+        <div class="filters">
+          <h2>상품 정기 수집 기간</h2>
+          <div>
+            매일
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="">00:00</option>
+                <option value="">01:00</option>
+                <option value="">02:00</option>
+              </select>
+            </div>
+            <div class="selectbox">
+              <select name="" id="">
+                <option value="">선택 안함</option>
+                <option value="">00:00</option>
+                <option value="">01:00</option>
+                <option value="">02:00</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="information">
+          <dl>
+            <dd>
+              상품 수집 등록 후 최초 수집 시에는 등록한 DB URL의 모든 상품을 수집합니다. 
+            </dd>
+            <dd>
+              최초 수집 이후 정기 수집 시에는 광고에 연동된 상품만을 수집합니다. 
+            </dd>
+            <dd>
+              상품 정기 수집 시간은 1일 최대 2회 설정 가능합니다.
+            </dd>
+            <dd>
+              광고에 연동되지 않은 기간이 30일을 초과한 상품은 상품 정기 수집 시간에 삭제됩니다.
+            </dd>
+          </dl>
+        </div>
+      </li>
+      <li>
+        <div class="filters">
+          <h2>신규 상품 정보 자동 채우기</h2>
+          <div class="toggles">
+            <div>
+              <div class="tag">G</div>
+              <strong>카테고리</strong>
+              <small>AI 자동 매칭</small>
+              <div class="toggle-switch">
+                <input id="toggle-state" type="checkbox">
+                <label for="toggle-state"></label>
+              </div>
+            </div>
+            <div>
+              <div class="tag">G</div>
+              <strong>상품 설명</strong>
+              <small>원본 상품명으로 채움</small>
+              <div class="toggle-switch">
+                <input id="toggle-state-2" type="checkbox">
+                <label for="toggle-state-2"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="information">
+          <dl>
+            <dd>
+              신규 상품 정보 자동 채우기를 하지 않으면 해당 상품 정보의 사용자 설정값은 빈 값입니다. 최초 수집 이후 별도의 설정 과정을 거치셔야 합니다.  
+            </dd>
+            <dd>
+              수집한 원본에 상품명이 없으면 자동 채우기에 실패합니다.
+            </dd>
+          </dl>
+        </div>
+      </li>
+      <li>
+        <h2>기존 상품 정보 자동 업데이트</h2>
+        <div class="information">
+          <dl>
+            <dd>
+              원본 정보가 업데이트 되었을 때, 다이애드에서 사용자가 별도로 설정한 값이 있는 경우 자동으로 변경된 원본 정보로 사용자 설정값을 업데이트할 것인지 결정할 수 있습니다.
+            </dd>
+            <dd>
+              업데이트된 원본 정보에 값이 없는 경우 자동 업데이트를 사용하여도 기존 상품 정보를 유지합니다.
+            </dd>
+          </dl>
+        </div>
+        <div class="options">
+          <ul>
+            <li>
+              <div class="tag">G</div>
+              <strong>상품명</strong>
+              <div class="toggle-switch">
+                <input id="toggle-state-3" type="checkbox">
+                <label for="toggle-state-3"></label>
+              </div>
+            </li>
+            <li>
+              <div class="tag">G</div>
+              <div>
+                <strong>카테고리</strong>
+                <small>변경된 원본 상품명 기준으로 AI 자동 매칭</small>
+              </div>
+              <div class="toggle-switch">
+                <input id="toggle-state-4" type="checkbox">
+                <label for="toggle-state-4"></label>
+              </div>
+            </li>
+            <li>
+              <div class="tag">G</div>
+              <div>
+                <strong>상품 설명</strong>
+                <small>변경된 원본 상품명으로 채움</small>
+              </div>
+              <div class="toggle-switch">
+                <input id="toggle-state-5" type="checkbox">
+                <label for="toggle-state-5"></label>
+              </div>
+            </li>
+            <li>
+              <div class="tag ico-edit"></div>
+              <strong>브랜드</strong>
+              <div class="toggle-switch">
+                <input id="toggle-state-6" type="checkbox">
+                <label for="toggle-state-6"></label>
+              </div>
+            </li>
+            <li>
+              <div class="tag ico-edit"></div>
+              <strong>상품 상태</strong>
+              <div class="toggle-switch">
+                <input id="toggle-state-7" type="checkbox">
+                <label for="toggle-state-7"></label>
+              </div>
+            </li>
+            <li>
+              <div class="tag ico-edit"></div>
+              <strong>GTIN</strong>
+              <div class="toggle-switch">
+                <input id="toggle-state-8" type="checkbox">
+                <label for="toggle-state-8"></label>
+              </div>
+            </li>
+            <li>
+              <div class="tag ico-edit"></div>
+              <strong>성인</strong>
+              <div class="toggle-switch">
+                <input id="toggle-state-9" type="checkbox">
+                <label for="toggle-state-9"></label>
+              </div>
+            </li>
+            <li>
+              <div class="tag">G</div>
+              <strong>대표/추가 이미지</strong>
+              <div class="toggle-switch">
+                <input id="toggle-state-10" type="checkbox">
+                <label for="toggle-state-10"></label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
   </section>
 </main>
 <div class="modals">

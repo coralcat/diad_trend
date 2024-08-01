@@ -84,12 +84,15 @@
         </li>
       </ul>
     </div>
-    <div class=" is-active">
+    <div class=" is-active ">
       <menu>
-        <i class="ico-ranking" onclick="location.href='ads_google_new.html'"></i>
-        <a href='ads_google_new.html'">입점광고</a>
+        <i class="ico-ranking" onclick="location.href='ads_items.html'"></i>
+        <a href='ads_items_new.html'">입점광고</a>
       </menu>
       <ul>
+        <li class="items ">
+          <a href='ads_items_new.html'">상품</a>
+        </li>
         <li class="google is-active">
           <a href='ads_google_new.html'">구글</a>
         </li>
@@ -880,10 +883,7 @@
             </li>
             <li>
               <div class="checkbox"><input id="select_TenderExpectPrice" type="checkbox"
-                  name="powerLinkSelectColumn"><label for="select_TenderExpectPrice">입찰예정가</label><svg width="15px"
-                  height="10px">
-                  <polyline points="1,5 6,9 14,1"></polyline>
-                </svg></div><button id="fixed_TenderExpectPrice" name="powerLinkSelectFixed"
+                  name="powerLinkSelectColumn"><label for="select_TenderExpectPrice">입찰예정가</label></div><button id="fixed_TenderExpectPrice" name="powerLinkSelectFixed"
                 class="ico-pin toggle"></button>
             </li>
             <li>
@@ -991,9 +991,7 @@
       </div>
       <footer class="modal-footer">
         <div class="checkbox"><input id="checkAllColumns" type="checkbox" class="check-all"
-            name="powerLinkSelectColumn"><label for="checkAllColumns">모두 체크</label><svg width="15px" height="10px">
-            <polyline points="1,5 6,9 14,1"></polyline>
-          </svg></div>
+            name="powerLinkSelectColumn"><label for="checkAllColumns">모두 체크</label></div>
         <div class="buttons"><button class="btn-sub ico-refresh" type="button"></button><button type="button"> 적용
           </button></div>
       </footer>
@@ -8116,6 +8114,203 @@
       </div>
       <footer class="buttons">
         <button onclick="location.href='ads_google_campaign_add.html'" type="button">다음</button>
+      </footer>
+    </div>
+  </div>
+
+  <div id="managementCollection" class="modal modal-management-collection" title="수집 관리">
+    <div class="dialog">
+      <header class="modal-header">
+        <h3>상품 수집 관리</h3>
+        <div class="close"></div>
+      </header>
+      <div class="modal-content">
+        <section>
+          <h4>상품 수집 이름</h4>
+          <div class="input">
+            <input type="text" value="김마켓 상품">
+            <small class="count"><strong>6</strong> / 50</small>
+          </div>
+          </section>
+          <section>
+          <h4>상품 수집 DB URL</h4>
+          <div class="information filters">
+            <strong>수집 가능한 DB URL</strong>
+            <button class="btn-sub"> 네이버 EP URL 3.0</button>
+          </div>
+          <input type="text" value="https://www.kimmarket.co.kr/mall/naver">
+          <div class="information filters">
+            <dl>
+              <dd>DB URL 변경 시 상품 수집이 바로 진행됩니다.</dd>
+            </dl>
+          </div>
+        </section>
+        <section>
+          <h4>상품 정기 수집 시간</h4>
+          <div class="information filters">
+            <dl>
+              <dd>최초 수집 이후 정기 수집 시에는 광고에 연동된 상품만을 수집합니다.</dd>
+              <dd>상품 정기 수집 시간은 1일 최대 2회 설정 가능합니다.</dd>
+              <dd>광고에 연동되지 않은 기간이 30일을 초과한 상품은 상품 정기 수집 시간에 삭제됩니다.</dd>
+            </dl>
+          </div>
+          <div class="filters">
+            매일
+            <div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">00:00</option>
+                  <option value="">01:00</option>
+                  <option value="">02:00</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="">선택 안함</option>
+                  <option value="">00:00</option>
+                  <option value="">01:00</option>
+                  <option value="">02:00</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4>기존 상품 정보 자동 업데이트</h4>
+          <div class="information">
+            <dl>
+              <dd>
+                원본 정보가 업데이트 되었을 때, 다이애드에서 사용자가 별도로 설정한 값이 있는 경우 자동으로 변경된 원본 정보로 사용자 설정값을 업데이트할 것인지 결정할 수 있습니다.
+              </dd>
+              <dd>
+                업데이트된 원본 정보에 값이 없는 경우 자동 업데이트를 사용하여도 기존 상품 정보를 유지합니다.
+              </dd>
+            </dl>
+          </div>
+          <div class="options">
+            <div class="filters">
+              <div>
+                <div class="tag">G</div>
+                <strong>상품명</strong>
+              </div>
+              <div class="toggle-switch">
+                <input id="toggle-state-3" type="checkbox">
+                <label for="toggle-state-3"></label>
+              </div>
+            </div>
+            <div class="filters">
+              <div>
+                <div class="tag">G</div>
+                <strong>카테고리</strong>
+                <small>변경된 원본 상품명 기준으로 AI 자동 매칭</small>
+              </div>
+              <div class="toggle-switch">
+                <input id="toggle-state-4" type="checkbox">
+                <label for="toggle-state-4"></label>
+              </div>
+            </div>
+            <div class="filters">
+              <div>
+                <div class="tag">G</div>
+                <strong>상품 설명</strong>
+                <small>변경된 원본 상품명으로 채움</small>
+              </div>
+              <div class="toggle-switch">
+                <input id="toggle-state-5" type="checkbox">
+                <label for="toggle-state-5"></label>
+              </div>
+            </div>
+            <div class="filters">
+              <div>
+                <div class="tag ico-edit"></div>
+                <strong>브랜드</strong>
+              </div>
+              <div class="toggle-switch">
+                <input id="toggle-state-6" type="checkbox">
+                <label for="toggle-state-6"></label>
+              </div>
+            </div>
+            <div class="filters">
+              <div>
+                <div class="tag ico-edit"></div>
+                <strong>상품 상태</strong>
+              </div>
+              <div class="toggle-switch">
+                <input id="toggle-state-7" type="checkbox">
+                <label for="toggle-state-7"></label>
+              </div>
+            </div>
+            <div class="filters">
+              <div>
+                <div class="tag ico-edit"></div>
+                <strong>GTIN</strong>
+              </div>
+              <div class="toggle-switch">
+                <input id="toggle-state-8" type="checkbox">
+                <label for="toggle-state-8"></label>
+              </div>
+            </div>
+            <div class="filters">
+              <div>
+                <div class="tag ico-edit"></div>
+                <strong>성인</strong>
+              </div>
+              <div class="toggle-switch">
+                <input id="toggle-state-9" type="checkbox">
+                <label for="toggle-state-9"></label>
+              </div>
+            </div>
+            <div class="filters">
+              <div>
+                <div class="tag">G</div>
+                <strong>대표/추가 이미지</strong>
+              </div>
+              <div class="toggle-switch">
+                <input id="toggle-state-10" type="checkbox">
+                <label for="toggle-state-10"></label>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <footer class="buttons">
+        <button type="button">저장하기</button>
+      </footer>
+    </div>
+  </div>
+
+  <div id="saveItemSettings" class="modal modal-save" title="분류조회">
+    <div class="dialog small">
+      <header class="modal-header">
+        <h3>상품 정보 설정</h3>
+        <div class="close"></div>
+      </header>
+      <div class="modal-content">
+        <header>
+          <h4>적용이 완료되었습니다.</h4>
+          <div class="filters">
+            <span data-title="성공" class="cases">90</span>
+            <span data-title="실패" class="cases">10</span>
+          </div>
+        </header>
+        <ul class="list" data-empty="분류를 추가해주세요.">
+          <li class="row">
+            <span>실패사유</span>
+            <strong>상품명 글자수 초과함</strong>
+          </li>
+          <li class="row">
+            <span>건수</span>
+            <strong class="cases">10</strong>
+          </li>
+        </ul>
+        <div class="caution">
+          <p>설정 실패 상품 조회는 태그 조회에서 최근 상품 정보 설정 실패를 조회하셔도 확인 가능합니다.</p>
+          <p>최근 상품 정보 설정 실패는 가장 최근 상품 설정만을 대상으로 합니다.</p>
+        </div>
+      </div>
+      <footer class="buttons">
+        <button class="btn-sub">설정 실패 상품 조회</button>
+        <button type="button">확인</button>
       </footer>
     </div>
   </div>
