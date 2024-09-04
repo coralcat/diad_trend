@@ -5,6 +5,24 @@ $secondary-color: rgb(80, 72, 215, 0.1);
 $violet-medium-color: rgb(214, 217, 253);
 
 .content-ads {
+
+  &.main {
+    section {
+
+      &:nth-of-type(2) {
+
+        .list {
+    
+          li {
+            &:nth-of-type(1) {
+              width: 60px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
   section {
     &:nth-of-type(1) {
       .list {
@@ -36,42 +54,35 @@ $violet-medium-color: rgb(214, 217, 253);
     &:nth-of-type(2) {
       .list {
         li {
-          flex: 0 0 auto;
+
+          &:nth-of-type(1):not(.more) {
+            flex: 0 0 auto;
+            width: 100px;
+          }
 
           &:nth-of-type(2) {
+            flex: 0 0 auto;
             width: 300px;
           }
 
           .btn-more {
             &::before {
               content: "";
-              width: 10px;
-              height: 10px;
+              width: 7px;
+              height: 7px;
               display: inline-block;
-              border: 1px solid #636669;
+              border: 1px solid #838689;
               border-top: 0;
               border-left: 0;
               transform: rotate(45deg);
               margin-top: -3px;
+              margin-right: 3px;
             }
 
             &.is-active {
               &::before {
                 transform: rotate(225deg);
                 margin-top: 3px;
-              }
-            }
-          }
-
-          &.more {
-            gap: 0;
-            padding: 0;
-            width: 100%;
-            background-color: #f3f6f9;
-
-            li {
-              &:last-of-type {
-                border-bottom: 0;
               }
             }
           }
@@ -90,7 +101,7 @@ $violet-medium-color: rgb(214, 217, 253);
         .row {
           &.title {
             display: grid;
-            grid-template-columns: 100px 300px repeat(10, 100px);
+            grid-template-columns: 60px 300px repeat(10, 1fr);
 
             li {
               width: auto;
@@ -105,6 +116,7 @@ $violet-medium-color: rgb(214, 217, 253);
 
               &:nth-of-type(3) {
                 grid-column: 3 / 6;
+                width: auto !important;
               }
 
               &:nth-of-type(4) {
@@ -992,7 +1004,8 @@ $violet-medium-color: rgb(214, 217, 253);
       gap: 1rem;
       overflow-y: auto;
 
-      .btn-main {
+      .btn-main,
+      + .btn-main {
         flex: 0 0 auto;
         height: 36px;
         background-color: #232629 !important;

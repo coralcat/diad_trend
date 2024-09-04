@@ -161,71 +161,352 @@ const rearrangeColumns = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.container');
-
-  // 휴대기기 높이값 변경
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
+  const main = document.querySelector('main');
 
   // 메뉴
   const hamburgMenu = document.querySelector('.hamburg-menu');
   const aside = document.querySelector('.aside');
-  hamburgMenu.addEventListener('click', event => {
-    event.currentTarget.classList.toggle('is-active')
-      ? event.currentTarget.classList.remove('is-active')
-      : event.currentTarget.classList.add('is-active');
-    aside.classList.toggle('is-active') ? aside.classList.remove('is-active') : aside.classList.add('is-active');
-  });
+  const asideHandler = document.querySelector('.aside-handler');
+
+  const toggleMenu = () => {
+    hamburgMenu.classList.toggle('is-active');
+    aside.classList.toggle('is-active');
+  };
 
   if (aside) {
-    hamburgMenu.addEventListener('click', event => {
-      event.currentTarget.classList.toggle('is-active');
-      aside.classList.toggle('is-active');
-    });
+    hamburgMenu.addEventListener('click', toggleMenu);
   } else {
     hamburgMenu.style.display = 'none';
   }
 
-  const asideHandler = document.querySelector('.aside-handler');
   const handleAside = () => {
     if (window.matchMedia('screen and (max-width: 640px)').matches) {
       aside.classList.remove('is-active');
       hamburgMenu.classList.remove('is-active');
     } else {
-      aside.classList.contains('icons-only') ? aside.classList.remove('icons-only') : aside.classList.add('icons-only');
+      aside.classList.toggle('icons-only');
     }
   };
+
   asideHandler.addEventListener('click', handleAside);
 
   /* =====================================================
     브라우저 리사이징 감지
   ===================================================== */
+  const updateViewportHeight = () => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  };
+
+  const updateAsideClass = () => {
+    if (!aside) return;
+    const isNarrowScreen = window.matchMedia('screen and (max-width: 1280px)').matches;
+    const isMobileScreen = window.matchMedia('screen and (max-width: 640px)').matches;
+    const isWideScreen = window.matchMedia('screen and (min-width: 1281px)').matches;
+
+    isNarrowScreen && aside.classList.add('icons-only');
+    (isMobileScreen || isWideScreen) && aside.classList.remove('icons-only');
+  };
+
   const ro = new ResizeObserver(entries => {
     window.requestAnimationFrame(() => {
-      if (!Array.isArray(entries) || !entries.length) {
-        return;
-      }
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-
-      if (aside) {
-        window.matchMedia('screen and (max-width: 1280px)').matches && aside.classList.add('icons-only');
-        window.matchMedia('screen and (max-width: 640px)').matches && aside.classList.remove('icons-only');
-        window.matchMedia('screen and (min-width: 1281px)').matches && aside.classList.remove('icons-only');
-      }
+      if (!entries.length) return;
+      updateViewportHeight();
+      updateAsideClass();
     });
   });
   ro.observe(container);
 
+  const copyButtons = document.querySelectorAll('.btn-copy');
+  const copySourceCode = (event) => {
+    const button = event.currentTarget;
+    const code = button.closest('section').querySelector('.code');
+    navigator.clipboard.writeText(code.textContent).then(() => {
+      const tooltip = button.nextElementSibling;
+      tooltip.classList.add('is-active');
+      setTimeout(() => {
+        tooltip.classList.remove('is-active');
+      }, 2000);
+    }).catch(err => {
+      console.error('Failed to copy text: ', err);
+    });
+  };
+  copyButtons.forEach(button => {
+    button.addEventListener('click', copySourceCode);
+  });
+
+  // 마이너스 금액
+  const prices = document.querySelectorAll('.section-money .price');
+  const stylePrices = (price) => {
+    const text = price.textContent.trim();
+    const numericValue = parseFloat(text.replace(/[^0-9.-]+/g, ''));
+    (text.includes('-') || numericValue < 5000) && (price.style.color = '#939699');
+  };
+  prices.forEach(stylePrices);
+
+
+  /* =====================================================
+    Target Smooth Scroll
+  ===================================================== */
+  const scrollToTop = document.createElement('div');
+  scrollToTop.classList.add('scroll-to-top');
+  if (main) {
+    let lastScrollTop = 0;
+    main.appendChild(scrollToTop);
+
+    const handleScroll = () => {
+      const currentScrollTop = main.scrollTop;
+      if (currentScrollTop > 50) {
+        if (currentScrollTop > lastScrollTop) {
+          scrollToTop.classList.remove('is-active');
+        } else {
+          scrollToTop.classList.add('is-active');
+        }
+        lastScrollTop = currentScrollTop;
+      } else {
+        scrollToTop.classList.remove('is-active');
+      }
+    };
+
+    main.addEventListener('scroll', handleScroll);
+    scrollToTop.addEventListener('click', () => {
+      main.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* =====================================================
+      Checkbox
+    ===================================================== */
+  // 체크박스 모두 체크
+  const handleCheckAll = (event) => {
+    const { checked, name } = event.currentTarget;
+    const checkboxes = document.getElementsByName(name);
+
+    checkboxes.forEach(checkbox => {
+      checkbox.checked = checked;
+    });
+  };
+
+  document.querySelectorAll('.check-all').forEach(checkAll => {
+    checkAll.addEventListener('click', handleCheckAll);
+  });
+
+  /* =====================================================
+    Tab Menu
+  ===================================================== */
+  const showTabContent = (event) => {
+    event.stopPropagation();
+    const tabName = event.currentTarget.dataset.tab;
+    const tabs = document.querySelectorAll(`.tabs li[data-tab='${tabName}']`);
+    const tabContents = document.querySelectorAll(`.tab-content[data-tab='${tabName}']`);
+    const clickedTab = event.currentTarget;
+    const menuIndex = Array.from(tabs).indexOf(event.currentTarget);
+
+    tabs.forEach(tab => tab.classList.toggle('is-active', tab === clickedTab));
+    tabContents.forEach((content, index) => {
+      content.classList.toggle('is-active', index === 0 || index === menuIndex);
+    });
+  };
+
+  document.querySelectorAll('.tabs li').forEach(tab => {
+    tab.addEventListener('click', showTabContent);
+  });
+
+  const handleSmoothScrolling = (event) => {
+    event.preventDefault();
+    const targetId = event.currentTarget.getAttribute('href').slice(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleTabContents = () => {
+    const tabContents = document.querySelectorAll('.tab-content');
+    if (tabContents.length > 1) {
+      const [firstTab, secondTab] = tabContents;
+      if (firstTab.classList.contains('is-active')) {
+        firstTab.classList.remove('is-active');
+        secondTab.classList.add('is-active');
+      }
+    }
+  };
+
+  const handleKeyboardNavigation = (event) => {
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      handleTabContents();
+    }
+  };
+
+  if (main && main.classList.contains('content-lowest-price-details')) {
+    document.querySelectorAll("a[href^='#']").forEach(anchor => {
+      anchor.addEventListener('click', handleSmoothScrolling);
+    });
+  }
+
+  if (main && main.classList.contains('content-dashboard')) {
+    if (window.matchMedia('screen and (min-width: 1280px)').matches) {
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      const observerOptions = {
+        rootMargin: '0px',
+        threshold: 0.75,
+      };
+
+      const observerCallback = (entries) => {
+        entries.forEach(entry => {
+          entry.target.classList.toggle('is-active', entry.intersectionRatio >= 0.75);
+        });
+      };
+
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+      tabContents.forEach(content => {
+        const sections = content.querySelectorAll('.wrapper > *');
+        sections.forEach((section, index) => {
+          section.style.setProperty('--delay', `${index * 150}ms`);
+        });
+        observer.observe(content);
+      });
+
+      const scrollDown = document.querySelector('.scroll-down');
+      document.addEventListener('keydown', handleKeyboardNavigation);
+      if (scrollDown) {
+        scrollDown.addEventListener('click', handleTabContents);
+      }
+    }
+  }
+
+  /* =====================================================
+    Input Search Clear Button
+  ===================================================== */
+  document.querySelectorAll('.input input').forEach(input => {
+    const container = input.closest('.input');
+    const clear = container.querySelector('.x');
+
+    if (clear) {
+      // Show or hide the clear button based on input value
+      input.addEventListener('keyup', () => {
+        clear.classList.toggle('is-active', input.value.length > 0);
+      });
+
+      // Clear the input and hide the clear button on click
+      clear.addEventListener('click', () => {
+        input.value = '';
+        clear.classList.remove('is-active');
+        input.focus();  // Optionally refocus on input after clearing
+      });
+    }
+  });
+
+  // 하이픈 자동 생성 (사업자번호)
+  document.querySelectorAll('.auto-hypen').forEach(input => {
+    input.addEventListener('keyup', event => {
+      const target = event.target;
+      const companyNum = target.value.replace(/[^0-9]/g, '');
+      let formattedNum = '';
+
+      if (companyNum.length > 0) {
+        formattedNum += companyNum.substr(0, 3);
+      }
+      if (companyNum.length > 3) {
+        formattedNum += '-' + companyNum.substr(3, 2);
+      }
+      if (companyNum.length > 5) {
+        formattedNum += '-' + companyNum.substr(5);
+      }
+
+      target.value = formattedNum;
+    });
+  });
+
+  /* =====================================================
+    Layout: 키워드트렌드 리포트 - 쇼핑 유형선택
+  ===================================================== */
+  document.querySelectorAll('.layout').forEach(layout => {
+    const listType = layout.querySelector('.type-list');
+    const list = layout.closest('section').querySelector('.list');
+
+    if (layout.classList.contains('layout-grid')) {
+      const gridType = layout.querySelector('.type-grid');
+
+      const handleListTypeClick = () => {
+        listType.classList.add('is-active');
+        gridType.classList.remove('is-active');
+        list.classList.replace('type-grid', 'type-list');
+      };
+
+      const handleGridTypeClick = () => {
+        gridType.classList.add('is-active');
+        listType.classList.remove('is-active');
+        list.classList.replace('type-list', 'type-grid');
+      };
+
+      listType.addEventListener('click', handleListTypeClick);
+      gridType.addEventListener('click', handleGridTypeClick);
+    }
+
+    if (layout.classList.contains('layout-chart')) {
+      const chartType = layout.querySelector('.type-chart');
+      const chart = layout.closest('section').querySelector('.report');
+
+      list.style.display = 'none';
+
+      const handleListTypeClick = () => {
+        listType.classList.add('is-active');
+        chartType.classList.remove('is-active');
+        list.style.display = 'flex';
+        chart.style.display = 'none';
+      };
+
+      const handleChartTypeClick = () => {
+        chartType.classList.add('is-active');
+        listType.classList.remove('is-active');
+        chart.style.display = 'flex';
+        list.style.display = 'none';
+      };
+
+      listType.addEventListener('click', handleListTypeClick);
+      chartType.addEventListener('click', handleChartTypeClick);
+    }
+  });
+
+  // 알림 서비스 설정 전체해제 (다른 데에서도 재사용 가능)
+  document.querySelectorAll('button[data-toggle]').forEach(toggle => {
+    const toggleName = toggle.dataset.toggle;
+
+    toggle.addEventListener('click', () => {
+      const toggles = document.querySelectorAll(`[data-toggle='${toggleName}']`);
+      toggles.forEach(t => t.classList.toggle('is-active'));
+    });
+  });
+
+  document.querySelectorAll('.toggle-controller').forEach(controller => {
+    controller.addEventListener('click', () => {
+      const toggleName = controller.dataset.toggle;
+      const relatedToggles = document.querySelectorAll(`[data-toggle='${toggleName}']`);
+
+      if (!controller.classList.contains('is-active')) {
+        // Remove 'is-active' class from all toggles that match
+        document.querySelectorAll(`[data-toggle='${toggleName}']`).forEach(toggle => {
+          toggle.classList.remove('is-active');
+        });
+
+        // Add 'is-active' class to the current controller and related toggles
+        controller.classList.add('is-active');
+        relatedToggles.forEach(toggle => {
+          toggle.classList.add('is-active');
+        });
+      }
+    });
+  });
+
   /* =====================================================
       container 내부 요소들 클래스명 변화 감지 (scroll to top 제외)
     ===================================================== */
-  const scrollToTop = document.createElement('div');
-  scrollToTop.classList.add('scroll-to-top');
-  
+
   const mutationObserver = new MutationObserver(mutations => {
-    const container = document.querySelector('.container');
-    const main = document.querySelector('main');
-  
+
     mutations.forEach(mutation => {
       if (
         mutation.target.className != 'checkbox' &&
@@ -235,7 +516,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 모바일에서 목록 컨텐츠 다섯개만 보이기
         if (window.matchMedia('screen and (max-width: 640px)').matches) {
           const lists = document.querySelectorAll('main .list:not(.modal .list)');
-  
+
           if (lists[0]) {
             lists.forEach(list => {
               if (list.querySelector('.more')) {
@@ -251,11 +532,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
               }
             });
-  
+
             const handleContents = event => {
               const row = event.currentTarget.closest('.row');
               const contents = row.querySelectorAll('li');
-  
+
               contents.forEach((content, index) => {
                 // 숨김처리한게 있을때 스타일 제거
                 if (content.hasAttribute('style')) {
@@ -271,7 +552,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
               });
             };
-  
+
             const moreButtons = document.querySelectorAll('.list .more');
             moreButtons[0] &&
               moreButtons.forEach(button => {
@@ -279,296 +560,14 @@ document.addEventListener('DOMContentLoaded', () => {
               });
           }
         }
-  
-        const copyButtons = document.querySelectorAll('.btn-copy');
-  
-        copyButtons[0] &&
-          copyButtons.forEach(button => {
-            const copySourcecode = event => {
-              const code = event.target.closest('section').querySelector('.code');
-              window.navigator.clipboard.writeText(code.textContent);
-              button.nextElementSibling.classList.add('is-active');
-  
-              setTimeout(() => {
-                button.nextElementSibling.classList.remove('is-active');
-              }, 2000);
-            };
-            button.addEventListener('click', copySourcecode);
-          });
-  
-        // 마이너스 금액
-        const prices = document.querySelectorAll('.section-money .price');
-        prices.forEach(price => {
-          if (price.textContent.includes('-') || price.textContent < 5000) {
-            price.style.color = '#939699';
-          }
-        });
-  
-        // 스크롤 맨 위로
-        if (main) {
-          let lastScrollTop = 0;
-          main.appendChild(scrollToTop);
-  
-          const handleScrollToTop = () => {
-            let currentScrollTop = main.scrollTop;
-            if (currentScrollTop > 50) {
-              currentScrollTop > lastScrollTop
-                ? scrollToTop.classList.remove('is-active')
-                : scrollToTop.classList.add('is-active');
-              lastScrollTop = currentScrollTop;
-            } else {
-              scrollToTop.classList.remove('is-active');
-            }
-          };
-          main.addEventListener('scroll', handleScrollToTop);
-  
-          scrollToTop.addEventListener('click', () => {
-            main.scrollTo({ top: 0, behavior: 'smooth' });
-          });
-        }
-  
-        /* =====================================================
-            Checkbox
-          ===================================================== */
-        // 체크박스 모두 체크
-        const checkAll = document.querySelectorAll('.check-all');
-        checkAll.forEach(all => {
-          const handleCheckAll = event => {
-            const inputName = event.currentTarget.getAttribute('name');
-            const checkboxes = document.getElementsByName(inputName);
-            checkboxes.forEach(checkbox => {
-              checkbox.checked = all.checked;
-            });
-          };
-          all.addEventListener('click', handleCheckAll);
-        });
-  
-        /* =====================================================
-            Tab Menu
-          ===================================================== */
-        const tabs = document.querySelectorAll('.tabs li');
-        const showTabContent = event => {
-          event.stopPropagation();
-          const tabName = event.currentTarget.dataset.tab;
-          console.log('tabName')
-          const tabs = document.querySelectorAll(`[data-tab='${tabName}']`);
-          const tabContents = document.querySelectorAll(`.tab-content[data-tab='${tabName}']`);
-          let menuIndex = [...tabs].indexOf(event.currentTarget);
-  
-          tabs.forEach(tab => {
-            [...tabs].indexOf(tab) === menuIndex ? tab.classList.add('is-active') : tab.classList.remove('is-active');
-          });
-  
-          tabContents[0] &&
-            tabContents.forEach(content => {
-              [...tabContents].indexOf(content) === 0 && content.classList.add('is-active');
-              [...tabContents].indexOf(content) === menuIndex
-                ? content.classList.add('is-active')
-                : content.classList.remove('is-active');
-            });
-        };
-  
-        tabs.forEach(tab => {
-          // [...tabs][0].classList.add("is-active");
-          // [...tabContents][0].classList.add("is-active");
-          tab.addEventListener('click', showTabContent);
-        });
-  
-        /* =====================================================
-                Target Smooth Scroll
-              ===================================================== */
-        // 상품 최저가 리포트: 일별 최저가 차트 클릭시
-        if (main && main.classList.contains('content-lowest-price-details')) {
-          const anchors = document.querySelectorAll("a[href^='#']");
-          anchors.forEach(anchor => {
-            const smoothScrolling = event => {
-              event.currentTarget.getAttribute('href').scrollIntoView({
-                behavior: 'smooth',
-              });
-            };
-            anchor.addEventListener('click', smoothScrolling);
-          });
-        }
-  
-        // 메인 대시보드 스크롤 효과
-        if (main && main.classList.contains('content-dashboard')) {
-          if (window.matchMedia('screen and (min-width: 1280px)').matches) {
-            const tabContents = document.querySelectorAll('.tab-content');
-  
-            tabContents.forEach(content => {
-              const callback = entries => {
-                entries.forEach(entry => {
-                  entry.intersectionRatio >= 0.75
-                    ? entry.target.classList.add('is-active')
-                    : entry.target.classList.remove('is-active');
-                });
-              };
-              let options = {
-                rootMargin: '0px',
-                threshold: 0.75,
-              };
-              const observer = new IntersectionObserver(callback, options);
-              const sections = [...content.querySelectorAll('.wrapper > *')];
-              sections.forEach((section, index) => {
-                section.style.setProperty('--delay', `${index * 150}ms`);
-                observer.observe(content);
-              });
-            });
-  
-            const scrollDown = document.querySelector('.scroll-down');
-            const handleTabContents = () => {
-              if (tabContents[0].classList.contains('is-active')) {
-                tabContents[0].classList.remove('is-active');
-                tabContents[1].classList.add('is-active');
-              } else if (tabContents[0].classList.contains('is-active')) {
-                tabContents[0].classList.remove('is-active');
-                tabContents[1].classList.add('is-active');
-              }
-            };
-  
-            const handleKeyboard = event => {
-              if (tabContents[0].classList.contains('is-active') && event.key === 'ArrowDown') {
-                tabContents[0].classList.remove('is-active');
-                tabContents[1].classList.add('is-active');
-              } else if (tabContents[0].classList.contains('is-active') && event.key === 'ArrowUp') {
-                tabContents[0].classList.remove('is-active');
-                tabContents[1].classList.add('is-active');
-              }
-            };
-  
-            document.addEventListener('keydown', handleKeyboard);
-            scrollDown.addEventListener('click', handleTabContents);
-          }
-        }
-  
-        /* =====================================================
-                Input Search Clear Button
-              ===================================================== */
-        // 인풋창에 "x"표시 있을시 clear value
-        const inputs = document.querySelectorAll('.input input');
-        inputs.forEach(input => {
-          input.addEventListener('keyup', event => {
-            const container = event.currentTarget.closest('.input');
-            const clear = container.querySelector('.x');
-  
-            if (clear) {
-              clear.classList.add('is-active');
-  
-              clear.addEventListener('click', () => {
-                clear.classList.remove('is-active');
-                input.value = '';
-              });
-            }
-          });
-        });
-  
-        // 하이픈 자동 생성 (사업자번호)
-        const autoHypen = document.querySelectorAll('.auto-hypen');
-        autoHypen.forEach(input => {
-          input.addEventListener('keyup', event => {
-            const companyNum = $(event.target)
-              .val()
-              .replace(/[^0-9]/g, '');
-            let tempNum = '';
-  
-            if (companyNum.length < 6) {
-              tempNum += companyNum.substr(0, 3);
-              tempNum += '-';
-              tempNum += companyNum.substr(3, 2);
-            } else {
-              tempNum += companyNum.substr(0, 3);
-              tempNum += '-';
-              tempNum += companyNum.substr(3, 2);
-              tempNum += '-';
-              tempNum += companyNum.substr(5);
-            }
-  
-            $(event.target).val(tempNum);
-          });
-        });
-  
-        /* =====================================================
-                Layout: 키워드트렌드 리포트 - 쇼핑 유형선택
-              ===================================================== */
-        const layout = document.querySelectorAll('.layout');
-        layout.forEach(layout => {
-          const listType = layout.querySelector('.type-list');
-          const list = layout.closest('section').querySelector('.list');
-  
-          if (layout.classList.contains('layout-grid')) {
-            const gridType = layout.querySelector('.type-grid');
-  
-            listType.addEventListener('click', () => {
-              listType.classList.add('is-active');
-              gridType.classList.remove('is-active');
-              list.classList.add('type-list');
-              list.classList.remove('type-grid');
-            });
-  
-            gridType.addEventListener('click', () => {
-              gridType.classList.add('is-active');
-              listType.classList.remove('is-active');
-              list.classList.add('type-grid');
-              list.classList.remove('type-list');
-            });
-          }
-  
-          if (layout.classList.contains('layout-chart')) {
-            const chartType = layout.querySelector('.type-chart');
-            const chart = layout.closest('section').querySelector('.report');
-            list.style.display = 'none';
-  
-            listType.addEventListener('click', () => {
-              listType.classList.add('is-active');
-              chartType.classList.remove('is-active');
-              list.style.display = 'flex';
-              chart.style.display = 'none';
-            });
-  
-            chartType.addEventListener('click', () => {
-              chartType.classList.add('is-active');
-              listType.classList.remove('is-active');
-              chart.style.display = 'flex';
-              list.style.display = 'none';
-            });
-          }
-        });
-  
-        // 알림 서비스 설정 전체해제 (다른 데에서도 재사용 가능)
-        const dataToggles = document.querySelectorAll('button[data-toggle]');
-        const controllers = document.querySelectorAll('.toggle-controller');
-        controllers.forEach(controller => {
-          controller.addEventListener('click', event => {
-            const toggleName = event.currentTarget.dataset.toggle;
-            const toggles = document.getElementsByName(toggleName);
-  
-            if (!controller.classList.contains('is-active')) {
-              dataToggles.forEach(toggle => {
-                event.currentTarget.dataset.toggle === toggle.dataset.toggle && (toggle.classList = controller.classList);
-              });
-            }
-          });
-        });
-  
-        dataToggles.forEach(toggle => {
-          if (!toggle.classList.contains('.controller')) {
-            toggle.addEventListener('click', event => {
-              const toggleName = event.currentTarget.dataset.toggle;
-              const toggles = document.querySelectorAll(`[data-toggle='${toggleName}']`);
-              toggles.forEach(toggle => {
-                toggle.classList.toggle('is-active');
-              });
-            });
-          }
-        });
-  
+
         // 알림 매체 설정 disabled 처리
         const changeAlarmInformation = document.querySelector('.content-settings .change-information');
         if (changeAlarmInformation) {
           const select = document.getElementsByName('selectRecieveInformation');
           const detail1 = select[0].closest('.select').querySelector('.details');
           const detail2 = select[1].closest('.select').querySelector('.details');
-  
+
           select.forEach(button => {
             button.addEventListener('click', event => {
               if (event.currentTarget === select[0]) {
@@ -577,7 +576,7 @@ document.addEventListener('DOMContentLoaded', () => {
               } else {
                 detail1.classList.remove('is-active');
                 detail2.classList.add('is-active');
-  
+
                 const toggles = detail2.querySelectorAll('.toggle-switch');
                 const inputDisabled = event => {
                   const row = event.currentTarget.closest('.row');
@@ -590,25 +589,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
               }
             });
-  
+
             if (select[0].checked) {
               detail1.classList.add('is-active');
               detail2.classList.remove('is-active');
             }
           });
         }
-  
+
         // 키워드 트랜드 - 연관 키워드 목록
         const relatedKeywordSection = document.querySelector('.section-related-keyword');
         if (relatedKeywordSection) {
           const checkNaver = document.getElementById('checkNaverList');
           const checkGoogle = document.getElementById('checkGoogleList');
           const list = relatedKeywordSection.querySelector('.list');
-  
+
           const initialize = () => {
             list.classList.remove('all', 'naver', 'google');
           };
-  
+
           const changeFilters = event => {
             initialize();
             if (event.currentTarget.id === 'checkNaverList') {
@@ -629,13 +628,13 @@ document.addEventListener('DOMContentLoaded', () => {
               }
             }
           };
-  
+
           const checkboxes = relatedKeywordSection.querySelectorAll('.filters .checkboxes input');
           checkboxes.forEach(check => {
             check.addEventListener('change', changeFilters);
           });
         }
-  
+
         // 키워드 트렌드 리포트 - 키워드 콘텐츠 스크롤 올리기
         const pagination = document.querySelectorAll('.tab-content .pagination');
         if (pagination[0]) {
@@ -647,7 +646,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pages.addEventListener('click', scrollingToTop);
           });
         }
-  
+
         /* =====================================================
             Filters: 키워드 트렌드 목록 검색에서
           ===================================================== */
@@ -659,7 +658,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const selectbox = mainSelector.querySelector('select');
             // selects[0].checked = true;
             // subSelectors[0].classList.add("is-active");
-  
+
             // 라디오버튼 형태
             if (selects[0]) {
               selects.forEach(selected => {
@@ -677,14 +676,14 @@ document.addEventListener('DOMContentLoaded', () => {
                       ) {
                         sub.classList.add('is-active');
                       }
-  
+
                       if (
                         event.target.classList.contains('select-number') &&
                         (sub.classList.contains('selector-device') || sub.classList.contains('selector-number'))
                       ) {
                         sub.classList.add('is-active');
                         subSelectors[0].classList.remove('is-active');
-  
+
                         const devices = document.querySelectorAll(".selector-device [class*='select']");
                         if (event.target.closest('.select-monthly-search')) {
                           devices.forEach(device => {
@@ -716,7 +715,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                       }
                     };
-  
+
                     initialize();
                     checkSelect();
                     sub.addEventListener('change', () => {
@@ -727,7 +726,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
               });
             }
-  
+
             // 셀렉트박스 형태
             if (selectbox) {
               selectbox.addEventListener('change', event => {
@@ -748,7 +747,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     ) {
                       sub.classList.add('is-active2');
                     }
-  
+
                     if (
                       event.target.selectedOptions[0].className == 'select-number' &&
                       (sub.classList.contains('selector-device') || sub.classList.contains('selector-number'))
@@ -757,7 +756,7 @@ document.addEventListener('DOMContentLoaded', () => {
                       subSelectors[0].classList.remove('is-active');
                     }
                   };
-  
+
                   initialize();
                   checkSelect();
                   sub.addEventListener('change', () => {
@@ -772,16 +771,16 @@ document.addEventListener('DOMContentLoaded', () => {
         /* =====================================================
             Filters: 키워드 트렌드 > 연관 키워드 필터링
           ===================================================== */
-  
+
         const searchButtons = document.querySelectorAll('.section-related-keyword .search button');
-  
+
         searchButtons.forEach(button => {
           button.addEventListener('click', event => {
             const content = event.currentTarget.closest('.tab-content');
             const searchInput = content.querySelector('.search input');
             const clearInput = content.querySelector('.x');
             const selectedFilters = content.querySelector('.selected-filters');
-  
+
             const validateFilters = () => {
               if (searchInput.value !== '') {
                 addSelectedFilters();
@@ -793,29 +792,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 alertModalContent.innerText = '검색어를 입력해 주세요.';
               }
             };
-  
+
             const addSelectedFilters = () => {
               const selectors = content.querySelectorAll('.filters .selector');
               const selected = document.createElement('ul');
               const filter = document.createElement('li');
               filter.classList.add('ico-filter');
-  
+
               selectors.forEach(selector => {
                 if (selector.classList.contains('main') || selector.classList.contains('is-active')) {
                   const span = document.createElement('span');
                   const text = selector.querySelector('input:checked + label').innerText;
-  
+
                   span.innerText = `${text}`;
                   return filter.append(span);
                 }
               });
               filter.innerHTML += `<span>${searchInput.value}</span>`;
               filter.innerHTML += `<div class="x close"></div>`;
-  
+
               selectedFilters.appendChild(selected);
               selected.appendChild(filter);
             };
-  
+
             const removeSelectedFilters = () => {
               const closes = selectedFilters.querySelectorAll('.x');
               closes.forEach(close => {
@@ -824,11 +823,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
               });
             };
-  
+
             //validateFilters();
           });
         });
-  
+
         const menus = document.querySelectorAll('.aside nav menu a');
         menus.forEach(menu => {
           menu.closest('div').querySelector('ul') && menu.closest('menu').classList.add('more');
@@ -839,39 +838,39 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           });
         });
-  
+
         // 날짜 구하기
         const date1 = document.querySelector('.list .date.d-1');
         const date7 = document.querySelector('.list .date.d-7');
         const date14 = document.querySelector('.list .date.d-14');
         const date30 = document.querySelector('.list .date.d-30');
-  
+
         const getDateAgo = days => {
           let dateCopy = new Date();
           dateCopy.setDate(dateCopy.getDate() - days);
-  
+
           const year = dateCopy.getFullYear();
           const month = dateCopy.getMonth() + 1;
           const day = dateCopy.getDate();
-  
+
           return `${year}-${month}-${day}`;
         };
-  
+
         date1 && (date1.textContent = getDateAgo(1));
         date1 && (date7.textContent = getDateAgo(7));
         date1 && (date14.textContent = getDateAgo(14));
         date1 && (date30.textContent = getDateAgo(30));
-  
+
         // 알람서비스 main 요소 변형
         const alarmTable = document.querySelector('.table-alarm-services');
         const alarmContent = document.querySelector('.content-alarm-services');
-  
+
         if (alarmTable || alarmContent) {
           document.body.style.overflow = 'auto';
           alarmTable && alarmTable.closest('main').classList.add('mutated');
           alarmContent && alarmContent.closest('main').classList.add('mutated');
         }
-  
+
         /* =====================================================
             Upload 
           ===================================================== */
@@ -882,32 +881,32 @@ document.addEventListener('DOMContentLoaded', () => {
           const button = uploadSection.querySelector('button');
           const input = uploadSection.querySelector('input');
           let file;
-  
+
           button.onclick = () => input.click();
-  
+
           input.addEventListener('change', event => {
             file = event.currentTarget.files[0];
             uploadSection.classList.add('active');
             showFile();
           });
-  
+
           uploadSection.addEventListener('dragover', event => {
             event.preventDefault();
             uploadSection.classList.add('active');
             text.textContent = '이 파일을 업로드합니다.';
           });
-  
+
           uploadSection.addEventListener('dragleave', () => {
             uploadSection.classList.remove('active');
             text.textContent = '업로드 할 파일을 올려주세요.';
           });
-  
+
           uploadSection.addEventListener('drop', event => {
             event.preventDefault();
             file = event.dataTransfer.files[0];
             showFile();
           });
-  
+
           const showFile = () => {
             let fileType = file.type;
             let validExtensions = [
@@ -916,7 +915,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ];
             if (validExtensions.includes(fileType)) {
               text.textContent = file.name;
-  
+
               let fileReader = new FileReader();
               fileReader.onload = () => {
                 let fileURL = fileReader.result; //passing user file source in fileURL variable
@@ -931,7 +930,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           };
         }
-  
+
         /* =====================================================
           Swiper Sliders
           ===================================================== */
@@ -948,7 +947,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const currentWidth = window.getComputedStyle(progress, '::before').width;
             const percent = `calc(${parseInt((100 * current) / max)}% - ${currentWidth})`;
             progress.style.setProperty('--progressPercent', percent);
-  
+
             if (parseInt((100 * current) / max) < 10) {
               progress.style.setProperty('--progressPercent', 0);
               progress.style.setProperty('--progressColor', 'linear-gradient(135deg, orangered 40%, orangered)');
@@ -967,7 +966,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           });
         }, 500);
-  
+
         /* =====================================================
           Swiper Sliders
           ===================================================== */
@@ -986,7 +985,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
           });
         }, 500);
-  
+
         setTimeout(() => {
           let verticalSwiper = new Swiper('.swiper.vertical', {
             slidesPerView: 1,
@@ -1003,11 +1002,11 @@ document.addEventListener('DOMContentLoaded', () => {
             loop: true,
           });
         }, 500);
-  
+
         // 작은 화면에서 서브 페이지 슬라이더 활성화
         const breakpoint = window.matchMedia('(max-width: 640px)');
         let smallSwiper;
-  
+
         const breakpointChecker = () => {
           if (breakpoint.matches === true) {
             return enableSwiper();
@@ -1016,7 +1015,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
           }
         };
-  
+
         const enableSwiper = () => {
           smallSwiper = new Swiper('.swiper.small', {
             spaceBetween: 15,
@@ -1037,14 +1036,14 @@ document.addEventListener('DOMContentLoaded', () => {
             },
           });
         };
-  
+
         breakpoint.addListener(breakpointChecker);
         breakpointChecker();
-  
+
         // // 모바일에서 입찰 정보 5개까지만 보이기
         // const bidRows = document.querySelectorAll(".content-bidding .list .row");
         // console.log(bidRows);
-  
+
         // bidRows.forEach(row => {
         //   const lists = row.querySelectorAll("li");
         //   console.log(lists);
@@ -1054,7 +1053,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //     })
         //   }
         // })
-  
+
         // 부분 설정 팝업에서 비활성화 관리
         const modalPartial = document.querySelectorAll('.modal.partial');
         if (modalPartial) {
@@ -1065,17 +1064,17 @@ document.addEventListener('DOMContentLoaded', () => {
               const handleChangeDisabled = event => {
                 const row = event.target.closest('.row');
                 const inputs = row.querySelectorAll('li:last-of-type input');
-  
+
                 const handleInputDisabled = status => {
                   inputs.forEach(input => {
                     input.disabled = status;
                   });
                 };
-  
+
                 // 체크박스가 체크되어 있는 경우
                 if (checkbox.checked) {
                   const toggle = row.querySelector('.toggle-switch input');
-  
+
                   // 해당 row에 토글 스위치가 있는 경우
                   if (toggle) {
                     // 토글 스위치를 제외하기 위해 inputs 재정의
@@ -1085,9 +1084,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         input.disabled = status;
                       });
                     };
-  
+
                     toggle.checked ? handleInputDisabled2(false) : handleInputDisabled2(true);
-  
+
                     // 토글로 뒤에 오는 input값들의 disabled를 제어할 수 있도록 handleChangeDisabled 재정의
                     const handleChangeDisabled2 = event => {
                       event.target.checked ? handleInputDisabled2(false) : handleInputDisabled2(true);
@@ -1102,7 +1101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
           });
         }
-  
+
         // 탭 이동 감지
         const tabContents = document.querySelectorAll('.tab-content');
         tabContents[0] &&
@@ -1112,13 +1111,13 @@ document.addEventListener('DOMContentLoaded', () => {
               characterData: true,
             });
           });
-  
+
         // 컨테이너 감지
         mutationObserver.observe(container, {
           childList: true,
           attributes: true,
         });
-  
+
         // 로더 감지
         const loader = document.querySelector('.spinner-loader');
         mutationObserver.observe(loader, {
@@ -1126,26 +1125,26 @@ document.addEventListener('DOMContentLoaded', () => {
           subtree: true,
         });
       }
-  
+
       // 헤더 감지했을 때 실행 이벤트
       if (mutation.target.tagName === 'HEADER') {
         handleAdvancedSearch();
       }
-  
+
       // 목록 데이터 감지했을 때 실행 이벤트
       if (mutation.target.classList.contains('list')) {
         handleAdvancedSearch();
         checkedRowEffects();
         expandListColumns();
       }
-  
+
       // 팝업 감지했을 때 실행 이벤트
       if (mutation.target.className === 'modals') {
         rearrangeColumns();
         checkedRowEffects();
       }
     });
-  
+
     // 헤더 감지
     const headers = document.querySelectorAll('section > header');
     headers[0] &&
@@ -1154,7 +1153,7 @@ document.addEventListener('DOMContentLoaded', () => {
           childList: true,
         });
       });
-  
+
     // 목록 데이터 감지
     const lists = document.querySelectorAll('.list:not(.section-related-keyword .list)');
     lists[0] &&
@@ -1163,7 +1162,7 @@ document.addEventListener('DOMContentLoaded', () => {
           childList: true,
         });
       });
-  
+
     // 팝업 감지
     const modals = document.querySelector('.modals')
     modals && mutationObserver.observe(modals, {
@@ -1171,7 +1170,7 @@ document.addEventListener('DOMContentLoaded', () => {
       attributes: true,
     });
   });
-  
+
   mutationObserver.observe(document.children[0], {
     childList: true,
     attributes: true,

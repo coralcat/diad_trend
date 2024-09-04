@@ -271,6 +271,7 @@ body {
       color: darkgray !important;
       background-color: #e3e6e9 !important;
       box-shadow: none !important;
+      text-decoration: none !important;
       cursor: default;
     }
 
@@ -697,7 +698,7 @@ aside {
   &::before {
     flex: 0 0 auto;
     content: attr(data-title) !important;
-    color: #5048d7;
+    color: slategray;
   }
 }
 
@@ -1376,6 +1377,7 @@ aside {
     background-color: #f3f6f9;
     padding: 4px;
     border-radius: 3px;
+    width: fit-content;
 
     input[type="radio"],
     input[type="checkbox"] {
@@ -2270,7 +2272,7 @@ article {
 
     button {
       flex: 0 0 auto;
-      height: clamp(24px, 4vh, 32px);
+      height: clamp(24px, 4vh, 30px);
       background: $secondary-color;
       color: $main-color;
       align-self: center;

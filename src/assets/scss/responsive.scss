@@ -728,6 +728,9 @@ $secondary-color: rgba(118, 130, 248, 0.1);
           }
         }
 
+        &.more {
+          padding-left: 0;
+        }
       }
 
       .col {
@@ -955,6 +958,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
       article {
         scroll-snap-align: start;
+        min-width: 80vw;
 
         .title {
           padding: 0 !important;
@@ -1138,6 +1142,10 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
       li {
         white-space: nowrap;
+      }
+      
+      + .cases {
+        display: none;
       }
     }
   }
@@ -2421,18 +2429,95 @@ $secondary-color: rgba(118, 130, 248, 0.1);
 
       .articles {
         flex-wrap: nowrap;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
         padding: 1rem;
+        flex-direction: column;
 
         article {
-          flex: 0 0 auto;
           width: auto;
-          min-width: 60vw;
-          max-width: 80vw;
-          scroll-snap-align: start;
+          height: auto;
         }
       }
+    }
+  }
+
+  .content-items {
+
+    &.add {
+      gap: 0;
+
+      section {
+        padding: 1rem;
+        background-color: white;
+      }
+
+      .toggles {
+        justify-content: flex-start;
+        gap: .5rem !important
+      }
+
+      .options {
+
+        li {
+          flex-direction: column;
+        }
+      }
+
+      .information:not(aside div, .list div) {
+        padding: .5rem !important;
+      }
+    }
+
+    &.main {
+
+      .articles {
+        padding: 0 1rem;
+  
+        article {
+          flex: 0 0 80vw !important;
+        }
+      }
+    }
+
+    &.management {
+
+      section {
+
+        .articles {
+          justify-content: flex-start;
+          padding: 0 1rem;
+          scroll-padding: 0 1rem;
+        }
+      }
+
+      .section-main {
+
+
+      }
+    }
+
+    article {
+      width: auto;
+    }
+
+    .buttons {
+      flex-wrap: wrap;
+    }
+
+    .section-add {
+      width: calc(100% - 1.5rem);
+      margin: 1rem auto
+    }
+
+    .section-optional {
+      width: 100%;
+
+      .inputs {
+        flex-direction: row !important;
+      }
+    }
+
+    .tab-content {
+      padding: .75rem
     }
   }
 }

@@ -718,7 +718,7 @@ header,
 .aside {
   user-select: none;
   background-color: #232629;
-  width: min(200px, 13vw);
+  width: min(200px, 15vw);
   height: 100%;
   position: sticky;
   left: 0;
@@ -2115,8 +2115,8 @@ main {
     flex-wrap: wrap;
     align-items: center;
     gap: 3px;
-    min-height: 36px;
-    padding: 0.5rem 5px;
+    min-height: 45px;
+    padding: 0.75rem 5px;
     border-bottom: 1px solid #e7e8e9;
     word-break: keep-all;
     line-height: 1.25;
@@ -2150,6 +2150,21 @@ main {
         background-color: #e3e6e9;
         border: 1px solid #ddd;
         border-radius: 2px;
+      }
+    }
+
+    &.more {
+      gap: 0;
+      padding: 0;
+      width: 100%;
+      background-color: #f3f6f9;
+
+      li {
+        border-bottom: 0;
+      }
+
+      ul {
+        width: 100%;
       }
     }
   }
@@ -2279,9 +2294,10 @@ main {
 
       > li {
         flex-direction: row;
-        padding: 0.5rem;
+        padding: 5px 0.5rem;
         background-color: #f7f8f9;
         color: #565e72;
+        min-height: 32px;
 
         &:not(:last-of-type) {
           border-right: 1px solid #e3e6e9;
@@ -2359,7 +2375,7 @@ main {
       > div {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 3px;
         flex-wrap: wrap;
         justify-content: center;
 
@@ -3777,6 +3793,7 @@ main {
 
       li {
         flex-direction: column-reverse;
+        align-items: center;
         border-radius: 0.5rem;
         gap: 0;
 
