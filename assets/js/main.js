@@ -501,680 +501,603 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+
+  // 모바일에서 목록 컨텐츠 다섯개만 보이기
+  if (window.matchMedia('screen and (max-width: 640px)').matches) {
+    const lists = document.querySelectorAll('main .list:not(.modal .list)');
+
+    if (lists[0]) {
+      lists.forEach(list => {
+        if (list.querySelector('.more')) {
+          const rows = list.querySelectorAll('.row:not(.title)');
+          rows.forEach(row => {
+            const contents = row.querySelectorAll('li');
+            row.style.setProperty('--zIndex', '80');
+            contents.forEach((content, index) => {
+              if (index > 6) {
+                content.style.opacity = '0';
+              }
+            });
+          });
+        }
+      });
+
+      const handleContents = event => {
+        const row = event.currentTarget.closest('.row');
+        const contents = row.querySelectorAll('li');
+
+        contents.forEach((content, index) => {
+          // 숨김처리한게 있을때 스타일 제거
+          if (content.hasAttribute('style')) {
+            event.currentTarget.classList.add('is-active');
+            content.removeAttribute('style');
+            row.style.setProperty('--zIndex', '-1');
+          } else {
+            event.currentTarget.classList.remove('is-active');
+            if (index > 6) {
+              content.style.opacity = '0';
+              row.style.setProperty('--zIndex', '80');
+            }
+          }
+        });
+      };
+
+      const moreButtons = document.querySelectorAll('.list .more');
+      moreButtons[0] &&
+        moreButtons.forEach(button => {
+          button.addEventListener('click', handleContents);
+        });
+    }
+  }
+
+  // 알림 매체 설정 disabled 처리
+  const changeAlarmInformation = document.querySelector('.content-settings .change-information');
+  if (changeAlarmInformation) {
+    const select = document.getElementsByName('selectRecieveInformation');
+    const detail1 = select[0].closest('.select').querySelector('.details');
+    const detail2 = select[1].closest('.select').querySelector('.details');
+
+    select.forEach(button => {
+      button.addEventListener('click', event => {
+        if (event.currentTarget === select[0]) {
+          detail1.classList.add('is-active');
+          detail2.classList.remove('is-active');
+        } else {
+          detail1.classList.remove('is-active');
+          detail2.classList.add('is-active');
+
+          const toggles = detail2.querySelectorAll('.toggle-switch');
+          const inputDisabled = event => {
+            const row = event.currentTarget.closest('.row');
+            const checked = row.querySelector('input:checked');
+            const inputs = row.querySelector('.inputs');
+            checked ? inputs.classList.add('is-active') : inputs.classList.remove('is-active');
+          };
+          toggles.forEach(toggle => {
+            toggle.addEventListener('click', inputDisabled);
+          });
+        }
+      });
+
+      if (select[0].checked) {
+        detail1.classList.add('is-active');
+        detail2.classList.remove('is-active');
+      }
+    });
+  }
+
+  // 키워드 트랜드 - 연관 키워드 목록
+  const relatedKeywordSection = document.querySelector('.section-related-keyword');
+  if (relatedKeywordSection) {
+    const checkNaver = document.getElementById('checkNaverList');
+    const checkGoogle = document.getElementById('checkGoogleList');
+    const list = relatedKeywordSection.querySelector('.list');
+
+    const initialize = () => {
+      list.classList.remove('all', 'naver', 'google');
+    };
+
+    const changeFilters = event => {
+      initialize();
+      if (event.currentTarget.id === 'checkNaverList') {
+        if (event.currentTarget.checked === true) {
+          checkGoogle.checked === true ? list.classList.add('all') : list.classList.add('naver');
+        } else if (checkGoogle.checked === true) {
+          list.classList.add('google');
+        } else {
+          list.classList.add('all');
+        }
+      } else if (event.currentTarget.id === 'checkGoogleList') {
+        if (event.currentTarget.checked === true) {
+          checkNaver.checked === true ? list.classList.add('all') : list.classList.add('google');
+        } else if (checkNaver.checked === true) {
+          list.classList.add('naver');
+        } else {
+          list.classList.add('all');
+        }
+      }
+    };
+
+    const checkboxes = relatedKeywordSection.querySelectorAll('.filters .checkboxes input');
+    checkboxes.forEach(check => {
+      check.addEventListener('change', changeFilters);
+    });
+  }
+
+  // 키워드 트렌드 리포트 - 키워드 콘텐츠 스크롤 올리기
+  const pagination = document.querySelectorAll('.tab-content .pagination');
+  if (pagination[0]) {
+    pagination.forEach(pages => {
+      const scrollingToTop = event => {
+        const wrapper = event.currentTarget.closest('.tab-content');
+        wrapper.querySelector('.list').scrollTop = 0;
+      };
+      pages.addEventListener('click', scrollingToTop);
+    });
+  }
+
   /* =====================================================
-      container 내부 요소들 클래스명 변화 감지 (scroll to top 제외)
+      Filters: 키워드 트렌드 목록 검색에서
+    ===================================================== */
+  const selectors = document.querySelectorAll('.filters .selector.main');
+  if (selectors[0]) {
+    selectors.forEach(mainSelector => {
+      const subSelectors = mainSelector.parentElement.querySelectorAll('.selector.sub');
+      const selects = mainSelector.querySelectorAll('input');
+      const selectbox = mainSelector.querySelector('select');
+      // selects[0].checked = true;
+      // subSelectors[0].classList.add("is-active");
+
+      // 라디오버튼 형태
+      if (selects[0]) {
+        selects.forEach(selected => {
+          selected.addEventListener('click', event => {
+            subSelectors.forEach(sub => {
+              const initialize = () => sub.classList.remove('is-active');
+              const checkSelect = () => {
+                if (event.target.classList.contains('select-word') && sub.classList.contains('selector-word')) {
+                  sub.classList.add('is-active');
+                }
+                if (
+                  (event.target.classList.contains('select-category') &&
+                    sub.classList.contains('selector-category')) ||
+                  sub.classList.contains('selector-word')
+                ) {
+                  sub.classList.add('is-active');
+                }
+
+                if (
+                  event.target.classList.contains('select-number') &&
+                  (sub.classList.contains('selector-device') || sub.classList.contains('selector-number'))
+                ) {
+                  sub.classList.add('is-active');
+                  subSelectors[0].classList.remove('is-active');
+
+                  const devices = document.querySelectorAll(".selector-device [class*='select']");
+                  if (event.target.closest('.select-monthly-search')) {
+                    devices.forEach(device => {
+                      device.style.display = 'flex';
+                    });
+                  }
+                  if (event.target.closest('.select-monthly-search2')) {
+                    devices.forEach(device => {
+                      if (device.classList.contains('select-google')) {
+                        device.style.display = 'flex';
+                        device.querySelector('input').checked = true;
+                      } else {
+                        device.style.display = 'none';
+                      }
+                    });
+                  }
+                  if (event.target.closest('.select-monthly-click')) {
+                    devices.forEach(device => {
+                      if (
+                        device.classList.contains('select-naver-pc') ||
+                        device.classList.contains('select-naver-mobile')
+                      ) {
+                        device.style.display = 'flex';
+                        device.querySelector('input').checked = true;
+                      } else {
+                        device.style.display = 'none';
+                      }
+                    });
+                  }
+                }
+              };
+
+              initialize();
+              checkSelect();
+              sub.addEventListener('change', () => {
+                initialize();
+                checkSelect();
+              });
+            });
+          });
+        });
+      }
+
+      // 셀렉트박스 형태
+      if (selectbox) {
+        selectbox.addEventListener('change', event => {
+          console.dir(event.target.selectedOptions[0].className);
+          subSelectors.forEach(sub => {
+            const initialize = () => sub.classList.remove('is-active');
+            const checkSelect = () => {
+              if (
+                event.target.selectedOptions[0].className == 'select-word' &&
+                sub.classList.contains('selector-word')
+              ) {
+                sub.classList.add('is-active');
+              }
+              if (
+                (event.target.selectedOptions[0].className == 'select-category' &&
+                  sub.classList.contains('selector-category')) ||
+                sub.classList.contains('selector-word')
+              ) {
+                sub.classList.add('is-active2');
+              }
+
+              if (
+                event.target.selectedOptions[0].className == 'select-number' &&
+                (sub.classList.contains('selector-device') || sub.classList.contains('selector-number'))
+              ) {
+                sub.classList.add('is-active');
+                subSelectors[0].classList.remove('is-active');
+              }
+            };
+
+            initialize();
+            checkSelect();
+            sub.addEventListener('change', () => {
+              initialize();
+              checkSelect();
+            });
+          });
+        });
+      }
+    });
+  }
+  /* =====================================================
+      Filters: 키워드 트렌드 > 연관 키워드 필터링
     ===================================================== */
 
-  const mutationObserver = new MutationObserver(mutations => {
+  const searchButtons = document.querySelectorAll('.section-related-keyword .search button');
 
-    mutations.forEach(mutation => {
-      if (
-        mutation.target.className != 'checkbox' &&
-        mutation.previousSibling &&
-        mutation.previousSibling.className != 'row'
-      ) {
-        // 모바일에서 목록 컨텐츠 다섯개만 보이기
-        if (window.matchMedia('screen and (max-width: 640px)').matches) {
-          const lists = document.querySelectorAll('main .list:not(.modal .list)');
+  searchButtons.forEach(button => {
+    button.addEventListener('click', event => {
+      const content = event.currentTarget.closest('.tab-content');
+      const searchInput = content.querySelector('.search input');
+      const clearInput = content.querySelector('.x');
+      const selectedFilters = content.querySelector('.selected-filters');
 
-          if (lists[0]) {
-            lists.forEach(list => {
-              if (list.querySelector('.more')) {
-                const rows = list.querySelectorAll('.row:not(.title)');
-                rows.forEach(row => {
-                  const contents = row.querySelectorAll('li');
-                  row.style.setProperty('--zIndex', '80');
-                  contents.forEach((content, index) => {
-                    if (index > 6) {
-                      content.style.opacity = '0';
-                    }
-                  });
-                });
-              }
-            });
+      const validateFilters = () => {
+        if (searchInput.value !== '') {
+          addSelectedFilters();
+          removeSelectedFilters();
+          searchInput.value = '';
+          clearInput.classList.remove('is-active');
+        } else {
+          alertModal.classList.add('is-active');
+          alertModalContent.innerText = '검색어를 입력해 주세요.';
+        }
+      };
 
-            const handleContents = event => {
-              const row = event.currentTarget.closest('.row');
-              const contents = row.querySelectorAll('li');
+      const addSelectedFilters = () => {
+        const selectors = content.querySelectorAll('.filters .selector');
+        const selected = document.createElement('ul');
+        const filter = document.createElement('li');
+        filter.classList.add('ico-filter');
 
-              contents.forEach((content, index) => {
-                // 숨김처리한게 있을때 스타일 제거
-                if (content.hasAttribute('style')) {
-                  event.currentTarget.classList.add('is-active');
-                  content.removeAttribute('style');
-                  row.style.setProperty('--zIndex', '-1');
-                } else {
-                  event.currentTarget.classList.remove('is-active');
-                  if (index > 6) {
-                    content.style.opacity = '0';
-                    row.style.setProperty('--zIndex', '80');
-                  }
-                }
-              });
-            };
+        selectors.forEach(selector => {
+          if (selector.classList.contains('main') || selector.classList.contains('is-active')) {
+            const span = document.createElement('span');
+            const text = selector.querySelector('input:checked + label').innerText;
 
-            const moreButtons = document.querySelectorAll('.list .more');
-            moreButtons[0] &&
-              moreButtons.forEach(button => {
-                button.addEventListener('click', handleContents);
-              });
+            span.innerText = `${text}`;
+            return filter.append(span);
           }
-        }
+        });
+        filter.innerHTML += `<span>${searchInput.value}</span>`;
+        filter.innerHTML += `<div class="x close"></div>`;
 
-        // 알림 매체 설정 disabled 처리
-        const changeAlarmInformation = document.querySelector('.content-settings .change-information');
-        if (changeAlarmInformation) {
-          const select = document.getElementsByName('selectRecieveInformation');
-          const detail1 = select[0].closest('.select').querySelector('.details');
-          const detail2 = select[1].closest('.select').querySelector('.details');
+        selectedFilters.appendChild(selected);
+        selected.appendChild(filter);
+      };
 
-          select.forEach(button => {
-            button.addEventListener('click', event => {
-              if (event.currentTarget === select[0]) {
-                detail1.classList.add('is-active');
-                detail2.classList.remove('is-active');
-              } else {
-                detail1.classList.remove('is-active');
-                detail2.classList.add('is-active');
-
-                const toggles = detail2.querySelectorAll('.toggle-switch');
-                const inputDisabled = event => {
-                  const row = event.currentTarget.closest('.row');
-                  const checked = row.querySelector('input:checked');
-                  const inputs = row.querySelector('.inputs');
-                  checked ? inputs.classList.add('is-active') : inputs.classList.remove('is-active');
-                };
-                toggles.forEach(toggle => {
-                  toggle.addEventListener('click', inputDisabled);
-                });
-              }
-            });
-
-            if (select[0].checked) {
-              detail1.classList.add('is-active');
-              detail2.classList.remove('is-active');
-            }
-          });
-        }
-
-        // 키워드 트랜드 - 연관 키워드 목록
-        const relatedKeywordSection = document.querySelector('.section-related-keyword');
-        if (relatedKeywordSection) {
-          const checkNaver = document.getElementById('checkNaverList');
-          const checkGoogle = document.getElementById('checkGoogleList');
-          const list = relatedKeywordSection.querySelector('.list');
-
-          const initialize = () => {
-            list.classList.remove('all', 'naver', 'google');
-          };
-
-          const changeFilters = event => {
-            initialize();
-            if (event.currentTarget.id === 'checkNaverList') {
-              if (event.currentTarget.checked === true) {
-                checkGoogle.checked === true ? list.classList.add('all') : list.classList.add('naver');
-              } else if (checkGoogle.checked === true) {
-                list.classList.add('google');
-              } else {
-                list.classList.add('all');
-              }
-            } else if (event.currentTarget.id === 'checkGoogleList') {
-              if (event.currentTarget.checked === true) {
-                checkNaver.checked === true ? list.classList.add('all') : list.classList.add('google');
-              } else if (checkNaver.checked === true) {
-                list.classList.add('naver');
-              } else {
-                list.classList.add('all');
-              }
-            }
-          };
-
-          const checkboxes = relatedKeywordSection.querySelectorAll('.filters .checkboxes input');
-          checkboxes.forEach(check => {
-            check.addEventListener('change', changeFilters);
-          });
-        }
-
-        // 키워드 트렌드 리포트 - 키워드 콘텐츠 스크롤 올리기
-        const pagination = document.querySelectorAll('.tab-content .pagination');
-        if (pagination[0]) {
-          pagination.forEach(pages => {
-            const scrollingToTop = event => {
-              const wrapper = event.currentTarget.closest('.tab-content');
-              wrapper.querySelector('.list').scrollTop = 0;
-            };
-            pages.addEventListener('click', scrollingToTop);
-          });
-        }
-
-        /* =====================================================
-            Filters: 키워드 트렌드 목록 검색에서
-          ===================================================== */
-        const selectors = document.querySelectorAll('.filters .selector.main');
-        if (selectors[0]) {
-          selectors.forEach(mainSelector => {
-            const subSelectors = mainSelector.parentElement.querySelectorAll('.selector.sub');
-            const selects = mainSelector.querySelectorAll('input');
-            const selectbox = mainSelector.querySelector('select');
-            // selects[0].checked = true;
-            // subSelectors[0].classList.add("is-active");
-
-            // 라디오버튼 형태
-            if (selects[0]) {
-              selects.forEach(selected => {
-                selected.addEventListener('click', event => {
-                  subSelectors.forEach(sub => {
-                    const initialize = () => sub.classList.remove('is-active');
-                    const checkSelect = () => {
-                      if (event.target.classList.contains('select-word') && sub.classList.contains('selector-word')) {
-                        sub.classList.add('is-active');
-                      }
-                      if (
-                        (event.target.classList.contains('select-category') &&
-                          sub.classList.contains('selector-category')) ||
-                        sub.classList.contains('selector-word')
-                      ) {
-                        sub.classList.add('is-active');
-                      }
-
-                      if (
-                        event.target.classList.contains('select-number') &&
-                        (sub.classList.contains('selector-device') || sub.classList.contains('selector-number'))
-                      ) {
-                        sub.classList.add('is-active');
-                        subSelectors[0].classList.remove('is-active');
-
-                        const devices = document.querySelectorAll(".selector-device [class*='select']");
-                        if (event.target.closest('.select-monthly-search')) {
-                          devices.forEach(device => {
-                            device.style.display = 'flex';
-                          });
-                        }
-                        if (event.target.closest('.select-monthly-search2')) {
-                          devices.forEach(device => {
-                            if (device.classList.contains('select-google')) {
-                              device.style.display = 'flex';
-                              device.querySelector('input').checked = true;
-                            } else {
-                              device.style.display = 'none';
-                            }
-                          });
-                        }
-                        if (event.target.closest('.select-monthly-click')) {
-                          devices.forEach(device => {
-                            if (
-                              device.classList.contains('select-naver-pc') ||
-                              device.classList.contains('select-naver-mobile')
-                            ) {
-                              device.style.display = 'flex';
-                              device.querySelector('input').checked = true;
-                            } else {
-                              device.style.display = 'none';
-                            }
-                          });
-                        }
-                      }
-                    };
-
-                    initialize();
-                    checkSelect();
-                    sub.addEventListener('change', () => {
-                      initialize();
-                      checkSelect();
-                    });
-                  });
-                });
-              });
-            }
-
-            // 셀렉트박스 형태
-            if (selectbox) {
-              selectbox.addEventListener('change', event => {
-                console.dir(event.target.selectedOptions[0].className);
-                subSelectors.forEach(sub => {
-                  const initialize = () => sub.classList.remove('is-active');
-                  const checkSelect = () => {
-                    if (
-                      event.target.selectedOptions[0].className == 'select-word' &&
-                      sub.classList.contains('selector-word')
-                    ) {
-                      sub.classList.add('is-active');
-                    }
-                    if (
-                      (event.target.selectedOptions[0].className == 'select-category' &&
-                        sub.classList.contains('selector-category')) ||
-                      sub.classList.contains('selector-word')
-                    ) {
-                      sub.classList.add('is-active2');
-                    }
-
-                    if (
-                      event.target.selectedOptions[0].className == 'select-number' &&
-                      (sub.classList.contains('selector-device') || sub.classList.contains('selector-number'))
-                    ) {
-                      sub.classList.add('is-active');
-                      subSelectors[0].classList.remove('is-active');
-                    }
-                  };
-
-                  initialize();
-                  checkSelect();
-                  sub.addEventListener('change', () => {
-                    initialize();
-                    checkSelect();
-                  });
-                });
-              });
-            }
-          });
-        }
-        /* =====================================================
-            Filters: 키워드 트렌드 > 연관 키워드 필터링
-          ===================================================== */
-
-        const searchButtons = document.querySelectorAll('.section-related-keyword .search button');
-
-        searchButtons.forEach(button => {
-          button.addEventListener('click', event => {
-            const content = event.currentTarget.closest('.tab-content');
-            const searchInput = content.querySelector('.search input');
-            const clearInput = content.querySelector('.x');
-            const selectedFilters = content.querySelector('.selected-filters');
-
-            const validateFilters = () => {
-              if (searchInput.value !== '') {
-                addSelectedFilters();
-                removeSelectedFilters();
-                searchInput.value = '';
-                clearInput.classList.remove('is-active');
-              } else {
-                alertModal.classList.add('is-active');
-                alertModalContent.innerText = '검색어를 입력해 주세요.';
-              }
-            };
-
-            const addSelectedFilters = () => {
-              const selectors = content.querySelectorAll('.filters .selector');
-              const selected = document.createElement('ul');
-              const filter = document.createElement('li');
-              filter.classList.add('ico-filter');
-
-              selectors.forEach(selector => {
-                if (selector.classList.contains('main') || selector.classList.contains('is-active')) {
-                  const span = document.createElement('span');
-                  const text = selector.querySelector('input:checked + label').innerText;
-
-                  span.innerText = `${text}`;
-                  return filter.append(span);
-                }
-              });
-              filter.innerHTML += `<span>${searchInput.value}</span>`;
-              filter.innerHTML += `<div class="x close"></div>`;
-
-              selectedFilters.appendChild(selected);
-              selected.appendChild(filter);
-            };
-
-            const removeSelectedFilters = () => {
-              const closes = selectedFilters.querySelectorAll('.x');
-              closes.forEach(close => {
-                close.addEventListener('click', event => {
-                  event.currentTarget.parentElement.remove();
-                });
-              });
-            };
-
-            //validateFilters();
+      const removeSelectedFilters = () => {
+        const closes = selectedFilters.querySelectorAll('.x');
+        closes.forEach(close => {
+          close.addEventListener('click', event => {
+            event.currentTarget.parentElement.remove();
           });
         });
+      };
 
-        const menus = document.querySelectorAll('.aside nav menu a');
-        menus.forEach(menu => {
-          menu.closest('div').querySelector('ul') && menu.closest('menu').classList.add('more');
-          menu.addEventListener('click', event => {
-            event.stopPropagation();
-            if (!event.currentTarget.classList.contains('ico-link')) {
-              event.currentTarget.closest('div').classList.toggle('is-active');
-            }
-          });
-        });
-
-        // 날짜 구하기
-        const date1 = document.querySelector('.list .date.d-1');
-        const date7 = document.querySelector('.list .date.d-7');
-        const date14 = document.querySelector('.list .date.d-14');
-        const date30 = document.querySelector('.list .date.d-30');
-
-        const getDateAgo = days => {
-          let dateCopy = new Date();
-          dateCopy.setDate(dateCopy.getDate() - days);
-
-          const year = dateCopy.getFullYear();
-          const month = dateCopy.getMonth() + 1;
-          const day = dateCopy.getDate();
-
-          return `${year}-${month}-${day}`;
-        };
-
-        date1 && (date1.textContent = getDateAgo(1));
-        date1 && (date7.textContent = getDateAgo(7));
-        date1 && (date14.textContent = getDateAgo(14));
-        date1 && (date30.textContent = getDateAgo(30));
-
-        // 알람서비스 main 요소 변형
-        const alarmTable = document.querySelector('.table-alarm-services');
-        const alarmContent = document.querySelector('.content-alarm-services');
-
-        if (alarmTable || alarmContent) {
-          document.body.style.overflow = 'auto';
-          alarmTable && alarmTable.closest('main').classList.add('mutated');
-          alarmContent && alarmContent.closest('main').classList.add('mutated');
-        }
-
-        /* =====================================================
-            Upload 
-          ===================================================== */
-        //selecting all required elements
-        const uploadSection = document.querySelector('.section-upload');
-        if (uploadSection) {
-          const text = uploadSection.querySelector('header');
-          const button = uploadSection.querySelector('button');
-          const input = uploadSection.querySelector('input');
-          let file;
-
-          button.onclick = () => input.click();
-
-          input.addEventListener('change', event => {
-            file = event.currentTarget.files[0];
-            uploadSection.classList.add('active');
-            showFile();
-          });
-
-          uploadSection.addEventListener('dragover', event => {
-            event.preventDefault();
-            uploadSection.classList.add('active');
-            text.textContent = '이 파일을 업로드합니다.';
-          });
-
-          uploadSection.addEventListener('dragleave', () => {
-            uploadSection.classList.remove('active');
-            text.textContent = '업로드 할 파일을 올려주세요.';
-          });
-
-          uploadSection.addEventListener('drop', event => {
-            event.preventDefault();
-            file = event.dataTransfer.files[0];
-            showFile();
-          });
-
-          const showFile = () => {
-            let fileType = file.type;
-            let validExtensions = [
-              'application/vnd.ms-excel',
-              'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-            ];
-            if (validExtensions.includes(fileType)) {
-              text.textContent = file.name;
-
-              let fileReader = new FileReader();
-              fileReader.onload = () => {
-                let fileURL = fileReader.result; //passing user file source in fileURL variable
-                // UNCOMMENT THIS BELOW LINE. I GOT AN ERROR WHILE UPLOADING THIS POST SO I COMMENTED IT
-                // let imgTag = `<img src="${fileURL}" alt="image">`; //creating an img tag and passing user selected file source inside src attribute
-                // uploadSection.innerHTML = imgTag; //adding that created img tag inside dropArea container
-              };
-              fileReader.readAsDataURL(file);
-            } else {
-              uploadSection.classList.remove('active');
-              text.textContent = '엑셀 파일만 업로드 가능합니다.';
-            }
-          };
-        }
-
-        /* =====================================================
-          Swiper Sliders
-          ===================================================== */
-        setTimeout(() => {
-          const progresses = document.querySelectorAll('progress');
-          progresses.forEach((progress, index) => {
-            let delay = 0;
-            delay += `${index * 0.5}s`;
-            progress.style.setProperty('--progressDelay', delay);
-            progress.style.setProperty('--progressPercent', 0);
-            // progress.value != null && (progress.value = progress.dataset.value);
-            const max = progress.max;
-            const current = progress.value;
-            const currentWidth = window.getComputedStyle(progress, '::before').width;
-            const percent = `calc(${parseInt((100 * current) / max)}% - ${currentWidth})`;
-            progress.style.setProperty('--progressPercent', percent);
-
-            if (parseInt((100 * current) / max) < 10) {
-              progress.style.setProperty('--progressPercent', 0);
-              progress.style.setProperty('--progressColor', 'linear-gradient(135deg, orangered 40%, orangered)');
-            } else if (parseInt((100 * current) / max) < 20) {
-              progress.style.setProperty('--progressPercent', 0);
-              progress.style.setProperty('--progressColor', 'linear-gradient(135deg, orangered 40%, coral)');
-            } else if (parseInt((100 * current) / max) < 30) {
-              progress.style.setProperty('--progressPercent', 0);
-              progress.style.setProperty('--progressColor', 'linear-gradient(135deg, coral 40%, orange)');
-            } else if (parseInt((100 * current) / max) > 80) {
-              progress.style.setProperty('--progressColor', 'linear-gradient(135deg, #5048d7 40%, darkturquoise)');
-            } else if (parseInt((100 * current) / max) > 60) {
-              progress.style.setProperty('--progressColor', 'linear-gradient(135deg, #5048d7 40%, dodgerblue)');
-            } else {
-              progress.style.setProperty('--progressColor', 'linear-gradient(135deg, #5048d7 40%, #5048d7)');
-            }
-          });
-        }, 500);
-
-        /* =====================================================
-          Swiper Sliders
-          ===================================================== */
-        setTimeout(() => {
-          let horizontalSwiper = new Swiper('.swiper.horizontal', {
-            spaceBetween: 15,
-            speed: 1000,
-            loop: true,
-            hashNavigation: {
-              watchState: true,
-            },
-            pagination: {
-              el: '.swiper.horizontal .swiper-pagination',
-              clickable: true,
-              type: 'fraction',
-            },
-          });
-        }, 500);
-
-        setTimeout(() => {
-          let verticalSwiper = new Swiper('.swiper.vertical', {
-            slidesPerView: 1,
-            spaceBetween: 0,
-            speed: 1000,
-            hashNavigation: {
-              watchState: true,
-            },
-            autoplay: {
-              delay: 6000,
-              disableOnInteraction: true,
-            },
-            direction: 'vertical',
-            loop: true,
-          });
-        }, 500);
-
-        // 작은 화면에서 서브 페이지 슬라이더 활성화
-        const breakpoint = window.matchMedia('(max-width: 640px)');
-        let smallSwiper;
-
-        const breakpointChecker = () => {
-          if (breakpoint.matches === true) {
-            return enableSwiper();
-          } else if (breakpoint.matches === false) {
-            smallSwiper !== undefined && smallSwiper.destroy(true, true);
-            return;
-          }
-        };
-
-        const enableSwiper = () => {
-          smallSwiper = new Swiper('.swiper.small', {
-            spaceBetween: 15,
-            slidesPerView: 1,
-            centeredSlides: true,
-            speed: 1000,
-            hashNavigation: {
-              watchState: true,
-            },
-            autoplay: {
-              delay: 4000,
-              disableOnInteraction: true,
-            },
-            grabCursor: true,
-            pagination: {
-              el: '.swiper.small .swiper-pagination',
-              clickable: true,
-            },
-          });
-        };
-
-        breakpoint.addListener(breakpointChecker);
-        breakpointChecker();
-
-        // // 모바일에서 입찰 정보 5개까지만 보이기
-        // const bidRows = document.querySelectorAll(".content-bidding .list .row");
-        // console.log(bidRows);
-
-        // bidRows.forEach(row => {
-        //   const lists = row.querySelectorAll("li");
-        //   console.log(lists);
-        //   if(lists.length > 5) {
-        //     lists.forEach(list => {
-        //       list.style.display = "none"
-        //     })
-        //   }
-        // })
-
-        // 부분 설정 팝업에서 비활성화 관리
-        const modalPartial = document.querySelectorAll('.modal.partial');
-        if (modalPartial) {
-          modalPartial.forEach(modal => {
-            const checkboxes = modal.querySelectorAll('.row li:first-of-type .checkbox input');
-            checkboxes.forEach(checkbox => {
-              // 체크박스로 disabled 제어
-              const handleChangeDisabled = event => {
-                const row = event.target.closest('.row');
-                const inputs = row.querySelectorAll('li:last-of-type input');
-
-                const handleInputDisabled = status => {
-                  inputs.forEach(input => {
-                    input.disabled = status;
-                  });
-                };
-
-                // 체크박스가 체크되어 있는 경우
-                if (checkbox.checked) {
-                  const toggle = row.querySelector('.toggle-switch input');
-
-                  // 해당 row에 토글 스위치가 있는 경우
-                  if (toggle) {
-                    // 토글 스위치를 제외하기 위해 inputs 재정의
-                    const inputs = row.querySelectorAll('li:last-of-type input:not(.toggle-switch input)');
-                    const handleInputDisabled2 = status => {
-                      inputs.forEach(input => {
-                        input.disabled = status;
-                      });
-                    };
-
-                    toggle.checked ? handleInputDisabled2(false) : handleInputDisabled2(true);
-
-                    // 토글로 뒤에 오는 input값들의 disabled를 제어할 수 있도록 handleChangeDisabled 재정의
-                    const handleChangeDisabled2 = event => {
-                      event.target.checked ? handleInputDisabled2(false) : handleInputDisabled2(true);
-                    };
-                    toggle.addEventListener('change', handleChangeDisabled2);
-                  }
-                } else {
-                  handleInputDisabled(true);
-                }
-              };
-              checkbox.addEventListener('change', handleChangeDisabled);
-            });
-          });
-        }
-
-        // 탭 이동 감지
-        const tabContents = document.querySelectorAll('.tab-content');
-        tabContents[0] &&
-          tabContents.forEach(content => {
-            mutationObserver.observe(content, {
-              childList: true,
-              characterData: true,
-            });
-          });
-
-        // 컨테이너 감지
-        mutationObserver.observe(container, {
-          childList: true,
-          attributes: true,
-        });
-
-        // 로더 감지
-        const loader = document.querySelector('.spinner-loader');
-        mutationObserver.observe(loader, {
-          childList: true,
-          subtree: true,
-        });
-      }
-
-      // 헤더 감지했을 때 실행 이벤트
-      if (mutation.target.tagName === 'HEADER') {
-        handleAdvancedSearch();
-      }
-
-      // 목록 데이터 감지했을 때 실행 이벤트
-      if (mutation.target.classList.contains('list')) {
-        handleAdvancedSearch();
-        checkedRowEffects();
-        expandListColumns();
-      }
-
-      // 팝업 감지했을 때 실행 이벤트
-      if (mutation.target.className === 'modals') {
-        rearrangeColumns();
-        checkedRowEffects();
-      }
-    });
-
-    // 헤더 감지
-    const headers = document.querySelectorAll('section > header');
-    headers[0] &&
-      headers.forEach(header => {
-        mutationObserver.observe(header, {
-          childList: true,
-        });
-      });
-
-    // 목록 데이터 감지
-    const lists = document.querySelectorAll('.list:not(.section-related-keyword .list)');
-    lists[0] &&
-      lists.forEach(list => {
-        mutationObserver.observe(list, {
-          childList: true,
-        });
-      });
-
-    // 팝업 감지
-    const modals = document.querySelector('.modals')
-    modals && mutationObserver.observe(modals, {
-      childList: true,
-      attributes: true,
+      //validateFilters();
     });
   });
 
-  mutationObserver.observe(document.children[0], {
-    childList: true,
-    attributes: true,
+  const menus = document.querySelectorAll('.aside nav menu a');
+  menus.forEach(menu => {
+    menu.closest('div').querySelector('ul') && menu.closest('menu').classList.add('more');
+    menu.addEventListener('click', event => {
+      event.stopPropagation();
+      if (!event.currentTarget.classList.contains('ico-link')) {
+        event.currentTarget.closest('div').classList.toggle('is-active');
+      }
+    });
   });
+
+  // 날짜 구하기
+  const date1 = document.querySelector('.list .date.d-1');
+  const date7 = document.querySelector('.list .date.d-7');
+  const date14 = document.querySelector('.list .date.d-14');
+  const date30 = document.querySelector('.list .date.d-30');
+
+  const getDateAgo = days => {
+    let dateCopy = new Date();
+    dateCopy.setDate(dateCopy.getDate() - days);
+
+    const year = dateCopy.getFullYear();
+    const month = dateCopy.getMonth() + 1;
+    const day = dateCopy.getDate();
+
+    return `${year}-${month}-${day}`;
+  };
+
+  date1 && (date1.textContent = getDateAgo(1));
+  date1 && (date7.textContent = getDateAgo(7));
+  date1 && (date14.textContent = getDateAgo(14));
+  date1 && (date30.textContent = getDateAgo(30));
+
+  // 알람서비스 main 요소 변형
+  const alarmTable = document.querySelector('.table-alarm-services');
+  const alarmContent = document.querySelector('.content-alarm-services');
+
+  if (alarmTable || alarmContent) {
+    document.body.style.overflow = 'auto';
+    alarmTable && alarmTable.closest('main').classList.add('mutated');
+    alarmContent && alarmContent.closest('main').classList.add('mutated');
+  }
+
+  /* =====================================================
+      Upload 
+    ===================================================== */
+  //selecting all required elements
+  const uploadSection = document.querySelector('.section-upload');
+  if (uploadSection) {
+    const text = uploadSection.querySelector('header');
+    const button = uploadSection.querySelector('button');
+    const input = uploadSection.querySelector('input');
+    let file;
+
+    button.onclick = () => input.click();
+
+    input.addEventListener('change', event => {
+      file = event.currentTarget.files[0];
+      uploadSection.classList.add('active');
+      showFile();
+    });
+
+    uploadSection.addEventListener('dragover', event => {
+      event.preventDefault();
+      uploadSection.classList.add('active');
+      text.textContent = '이 파일을 업로드합니다.';
+    });
+
+    uploadSection.addEventListener('dragleave', () => {
+      uploadSection.classList.remove('active');
+      text.textContent = '업로드 할 파일을 올려주세요.';
+    });
+
+    uploadSection.addEventListener('drop', event => {
+      event.preventDefault();
+      file = event.dataTransfer.files[0];
+      showFile();
+    });
+
+    const showFile = () => {
+      let fileType = file.type;
+      let validExtensions = [
+        'application/vnd.ms-excel',
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      ];
+      if (validExtensions.includes(fileType)) {
+        text.textContent = file.name;
+
+        let fileReader = new FileReader();
+        fileReader.onload = () => {
+          let fileURL = fileReader.result; //passing user file source in fileURL variable
+          // UNCOMMENT THIS BELOW LINE. I GOT AN ERROR WHILE UPLOADING THIS POST SO I COMMENTED IT
+          // let imgTag = `<img src="${fileURL}" alt="image">`; //creating an img tag and passing user selected file source inside src attribute
+          // uploadSection.innerHTML = imgTag; //adding that created img tag inside dropArea container
+        };
+        fileReader.readAsDataURL(file);
+      } else {
+        uploadSection.classList.remove('active');
+        text.textContent = '엑셀 파일만 업로드 가능합니다.';
+      }
+    };
+  }
+
+  /* =====================================================
+    Progress
+    ===================================================== */
+  setTimeout(() => {
+    const progresses = document.querySelectorAll('progress');
+    progresses.forEach((progress, index) => {
+      let delay = 0;
+      delay += `${index * 0.5}s`;
+      progress.style.setProperty('--progressDelay', delay);
+      progress.style.setProperty('--progressPercent', 0);
+      // progress.value != null && (progress.value = progress.dataset.value);
+      const max = progress.max;
+      const current = progress.value;
+      const currentWidth = window.getComputedStyle(progress, '::before').width;
+      const percent = `calc(${parseInt((100 * current) / max)}% - ${currentWidth})`;
+      progress.style.setProperty('--progressPercent', percent);
+
+      // Update progress percent
+      const progressPercent = `calc(${percent}% - ${currentWidth})`;
+      progress.style.setProperty('--progressPercent', progressPercent);
+      let progressColor;
+
+      if (parseInt((100 * current) / max) < 10) {
+        progress.style.setProperty('--progressPercent', 0);
+        progressColor = 'linear-gradient(135deg, orangered 40%, orangered)'
+      } else if (parseInt((100 * current) / max) < 20) {
+        progress.style.setProperty('--progressPercent', 0);
+        progressColor = 'linear-gradient(135deg, orangered 40%, coral)'
+      } else if (parseInt((100 * current) / max) < 30) {
+        progress.style.setProperty('--progressPercent', 0);
+        progressColor = 'linear-gradient(135deg, coral 40%, orange)'
+      } else if (parseInt((100 * current) / max) > 80) {
+        progressColor = 'linear-gradient(135deg, #5048d7 40%, darkturquoise)'
+      } else if (parseInt((100 * current) / max) > 60) {
+        progressColor = 'linear-gradient(135deg, #5048d7 40%, dodgerblue)'
+      } else {
+        progressColor = 'linear-gradient(135deg, #5048d7 40%, #5048d7)'
+      }
+
+      progress.style.setProperty('--progressColor', progressColor)
+    });
+  }, 500);
+
+  /* =====================================================
+    Swiper Sliders
+    ===================================================== */
+  setTimeout(() => {
+    let horizontalSwiper = new Swiper('.swiper.horizontal', {
+      spaceBetween: 15,
+      speed: 1000,
+      loop: true,
+      hashNavigation: {
+        watchState: true,
+      },
+      pagination: {
+        el: '.swiper.horizontal .swiper-pagination',
+        clickable: true,
+        type: 'fraction',
+      },
+    });
+  }, 500);
+
+  setTimeout(() => {
+    let verticalSwiper = new Swiper('.swiper.vertical', {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      speed: 1000,
+      hashNavigation: {
+        watchState: true,
+      },
+      autoplay: {
+        delay: 6000,
+        disableOnInteraction: true,
+      },
+      direction: 'vertical',
+      loop: true,
+    });
+  }, 500);
+
+  // 작은 화면에서 서브 페이지 슬라이더 활성화
+  const breakpoint = window.matchMedia('(max-width: 640px)');
+  let smallSwiper;
+
+  const breakpointChecker = () => {
+    if (breakpoint.matches === true) {
+      return enableSwiper();
+    } else if (breakpoint.matches === false) {
+      smallSwiper !== undefined && smallSwiper.destroy(true, true);
+      return;
+    }
+  };
+
+  const enableSwiper = () => {
+    smallSwiper = new Swiper('.swiper.small', {
+      spaceBetween: 15,
+      slidesPerView: 1,
+      centeredSlides: true,
+      speed: 1000,
+      hashNavigation: {
+        watchState: true,
+      },
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: true,
+      },
+      grabCursor: true,
+      pagination: {
+        el: '.swiper.small .swiper-pagination',
+        clickable: true,
+      },
+    });
+  };
+
+  breakpoint.addListener(breakpointChecker);
+  breakpointChecker();
+
+  // // 모바일에서 입찰 정보 5개까지만 보이기
+  // const bidRows = document.querySelectorAll(".content-bidding .list .row");
+  // console.log(bidRows);
+
+  // bidRows.forEach(row => {
+  //   const lists = row.querySelectorAll("li");
+  //   console.log(lists);
+  //   if(lists.length > 5) {
+  //     lists.forEach(list => {
+  //       list.style.display = "none"
+  //     })
+  //   }
+  // })
+
+  // 부분 설정 팝업에서 비활성화 관리
+  const modalPartial = document.querySelectorAll('.modal.partial');
+  if (modalPartial) {
+    modalPartial.forEach(modal => {
+      const checkboxes = modal.querySelectorAll('.row li:first-of-type .checkbox input');
+      checkboxes.forEach(checkbox => {
+        // 체크박스로 disabled 제어
+        const handleChangeDisabled = event => {
+          const row = event.target.closest('.row');
+          const inputs = row.querySelectorAll('li:last-of-type input');
+
+          const handleInputDisabled = status => {
+            inputs.forEach(input => {
+              input.disabled = status;
+            });
+          };
+
+          // 체크박스가 체크되어 있는 경우
+          if (checkbox.checked) {
+            const toggle = row.querySelector('.toggle-switch input');
+
+            // 해당 row에 토글 스위치가 있는 경우
+            if (toggle) {
+              // 토글 스위치를 제외하기 위해 inputs 재정의
+              const inputs = row.querySelectorAll('li:last-of-type input:not(.toggle-switch input)');
+              const handleInputDisabled2 = status => {
+                inputs.forEach(input => {
+                  input.disabled = status;
+                });
+              };
+
+              toggle.checked ? handleInputDisabled2(false) : handleInputDisabled2(true);
+
+              // 토글로 뒤에 오는 input값들의 disabled를 제어할 수 있도록 handleChangeDisabled 재정의
+              const handleChangeDisabled2 = event => {
+                event.target.checked ? handleInputDisabled2(false) : handleInputDisabled2(true);
+              };
+              toggle.addEventListener('change', handleChangeDisabled2);
+            }
+          } else {
+            handleInputDisabled(true);
+          }
+        };
+        checkbox.addEventListener('change', handleChangeDisabled);
+      });
+    });
+  }
+
 });
 
 const modalMessage = {
