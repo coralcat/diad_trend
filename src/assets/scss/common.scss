@@ -253,7 +253,7 @@ body {
   }
 
   button {
-    height: 32px;
+    height: 30px;
     padding: 0 0.75rem;
     user-select: none;
     display: flex;
@@ -554,7 +554,7 @@ body {
     border-radius: 0.25rem;
     padding: 0.5rem;
     resize: none;
-    font: 500 14px/1 "Pretendard";
+    font: 500 14px/1.25 "Pretendard";
 
     &:focus {
       border-color: $primary-color;
@@ -2528,6 +2528,7 @@ input.toggle-switch {
 
     &.buttons {
       justify-content: flex-end;
+      padding: 0.75rem !important;
     }
 
     .buttons {
@@ -2711,9 +2712,8 @@ input.toggle-switch {
   transition: opacity 0.2s;
 
   &:empty {
-
     &::after {
-      content: "툴팁 내용이 없습니다."
+      content: "툴팁 내용이 없습니다.";
     }
   }
 
@@ -3138,7 +3138,6 @@ input.toggle-switch {
   gap: 3px;
   text-decoration: none;
 }
-
 
 .ico-plus {
   background-image: linear-gradient($primary-color 0 0), linear-gradient($primary-color 0 0);
@@ -3597,9 +3596,8 @@ input.toggle-switch {
     button {
       &::after {
         font-size: 20px;
-        color: rgba(0, 0, 0, 0.5)
+        color: rgba(0, 0, 0, 0.5);
       }
-
     }
   }
 }
@@ -3839,4 +3837,9 @@ input.toggle-switch {
   100% {
     transform: translate3d(0, 0, 0) scale(1);
   }
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+  font-size: 18px;
+  color: white;
 }

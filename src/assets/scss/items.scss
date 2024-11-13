@@ -383,7 +383,7 @@ $violet-medium-color: rgb(214, 217, 253);
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 5px 1rem;
+        gap: 0 1rem;
         border-bottom: 1px solid #eee;
         padding: 0.5rem 0;
 
@@ -743,6 +743,7 @@ $violet-medium-color: rgb(214, 217, 253);
 
       li {
         width: 100%;
+        position: relative;
 
         > :last-child {
           flex-direction: column;
@@ -769,6 +770,50 @@ $violet-medium-color: rgb(214, 217, 253);
       width: 20px;
       height: 20px;
       background-size: 18px 18px;
+    }
+  }
+
+  .info {
+    position: absolute;
+    background: #f0f4ff;
+    color: royalblue;
+    padding: 1rem;
+    z-index: 100;
+    border-radius: 1rem;
+    line-height: 1.5 !important;
+    left: 110px;
+    max-width: 420px;
+    top: 0;
+    border: 1px solid rgba(65, 105, 225, .1);
+
+    .close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 16px;
+      height: 16px;
+      display: flex;
+      background-image: linear-gradient(royalblue 0 0), linear-gradient(royalblue 0 0);
+      background-position: center;
+      background-size: 100% 2px, 2px 100%;
+      background-repeat: no-repeat;
+      transform: rotate(45deg);
+      transition: opacity .25s;
+    }
+
+    dt {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    dd {
+      font-size: 13px;
+      display: flex;
+      gap: .5rem;
+
+      &::before {
+        content: "·";
+      }
     }
   }
 
@@ -859,6 +904,15 @@ $violet-medium-color: rgb(214, 217, 253);
       div {
         flex: 1 1 auto !important;
         width: 100%;
+
+        &.checkbox {
+          display: flex;
+          gap: 3px;
+
+          label {
+            flex: 0 0 auto !important
+          }
+        }
       }
     }
 
@@ -1114,14 +1168,14 @@ $violet-medium-color: rgb(214, 217, 253);
 
   .swiper {
     &.banner {
-      background-color: rgba(65, 105, 225, 0.1);
+      background-color: dodgerblue;
       width: 100%;
       border-radius: 0.5rem;
 
       .swiper-slide {
         padding: 1rem 0.75rem;
         text-align: center;
-        color: #4169e1;
+        color: white;
         font-size: 15px;
       }
     }
