@@ -204,7 +204,7 @@ main aside,
       gap: 0.5rem;
 
       > *:first-child {
-        color: light#636669;
+        color: #636669;
         display: flex;
         line-height: 1;
       }
@@ -540,6 +540,7 @@ section {
 
     .ico-eye {
       aspect-ratio: 1;
+      min-width: 30px;
     }
 
     .title {

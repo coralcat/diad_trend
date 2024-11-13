@@ -692,7 +692,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
           left: 0;
           min-width: 80px;
           display: flex;
-          color: light#636669;
+          color: #636669;
           font-size: 14px;
           z-index: 0;
         }
@@ -1285,7 +1285,7 @@ $secondary-color: rgba(118, 130, 248, 0.1);
               &::before {
                 flex-basis: 130px;
                 font-size: 14px;
-                color: light#636669;
+                color: #636669;
               }
 
               &:nth-of-type(1) {

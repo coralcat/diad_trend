@@ -148,9 +148,8 @@ $secondary-color: #f2f1ff;
       &::before {
         content: "\00B7";
         position: absolute;
-        top: 50%;
+        top: 0;
         left: 0;
-        transform: translateY(-50%);
       }
     }
   }
@@ -160,6 +159,7 @@ $secondary-color: #f2f1ff;
     border-radius: 0;
     background-color: transparent;
     box-shadow: 0 0 0;
+    gap: 0;
 
     &:not(:last-of-type) {
       padding-bottom: 1rem;
@@ -197,6 +197,7 @@ $secondary-color: #f2f1ff;
   .search {
     flex-wrap: wrap !important;
     margin-top: 0.5rem;
+    align-items: center;
   }
 
   .alert {
@@ -318,6 +319,7 @@ $secondary-color: #f2f1ff;
     }
 
     &.edit {
+
       &.accounts {
         input {
           padding-right: 0;
@@ -337,6 +339,7 @@ $secondary-color: #f2f1ff;
 
       li {
         border: 0;
+        padding: 0;
         min-height: 36px;
       }
 
@@ -531,6 +534,7 @@ $secondary-color: #f2f1ff;
       &.title {
         border: 0;
         background-color: #f3f6f9;
+        color: slategray;
       }
 
       &.checked {
@@ -1423,7 +1427,7 @@ $secondary-color: #f2f1ff;
 
   &-calculate-bid-price {
     .dialog {
-      width: min(700px, 100%);
+      width: min(720px, 100%);
     }
     .filters {
       strong {
@@ -1595,9 +1599,47 @@ $secondary-color: #f2f1ff;
     }
   }
 
+  &.create-item {
+    
+    .dialog {
+      width: min(860px, 100%);
+    }
+
+    .list {
+
+      div {
+        flex: 0 0 auto !important;
+        width: 50px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+        &:nth-of-type(3) {
+          flex: 0 0 auto;
+          width: 100px;
+        }
+
+        &:nth-of-type(4) {
+          flex: 0 0 auto;
+          width: 240px;
+        }
+
+        &:nth-of-type(5) {
+          flex: 0 0 auto;
+          width: 80px;
+        }
+
+        &:nth-of-type(7) {
+          flex: 0 0 auto;
+          width: 120px;
+        }
+      }
+    }
+  }
+
   &-conversion {
     .dialog {
-      width: min(710px, 100%);
+      width: min(720px, 100%);
     }
 
     .conversion-value {
